@@ -20,6 +20,12 @@ export default function sitemap() {
   changeFrequency: "monthly",
   priority: 0.9,
 },
+{
+  url: `${baseUrl}/relative-humidity-calculator`,
+  lastModified: new Date(),
+  changeFrequency: "monthly",
+  priority: 0.9,
+},
     {
       url: `${baseUrl}/what-is-dew-point`,
       lastModified: new Date(),
