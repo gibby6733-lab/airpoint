@@ -236,12 +236,27 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
-        <div className="container">
-          <strong>AirPoint</strong>
-          <span>Simple weather and moisture calculations.</span>
-        </div>
-      </footer>
+    <section className="content">
+  <div className="container narrow">
+    <h2>More AirPoint tools</h2>
+
+    <p>
+      Use our condensation calculator to compare surface temperature with
+      dew point and estimate condensation risk.
+    </p>
+
+    <a href="/condensation-calculator" className="toolLink">
+      Condensation Calculator →
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div className="container">
+    <strong>AirPoint</strong>
+    <span>Simple weather and moisture calculations.</span>
+  </div>
+</footer>
     </main>
   );
 }
