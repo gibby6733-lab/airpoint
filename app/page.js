@@ -1,12 +1,247 @@
- "use client";
-import {useMemo,useState} from "react";
-function cToF(c){return c*9/5+32} function fToC(f){return (f-32)*5/9}
-function dewPointC(t,rh){const a=17.62,b=243.12;const gamma=Math.log(rh/100)+(a*t)/(b+t);return (b*gamma)/(a-gamma)}
-function calc(temp,unit,rh,surface,hasSurface){const t=unit==="F"?fToC(Number(temp)):Number(temp);const td=dewPointC(t,Number(rh));const spread=t-td;let condensation=null;if(hasSurface&&surface!==""){const s=unit==="F"?fToC(Number(surface)):Number(surface);condensation=s<=td}
-return {td:unit==="F"?cToF(td):td,spread:unit==="F"?cToF(spread):spread,condensation}}
-export default function Home(){const [unit,setUnit]=useState("F"),[temp,setTemp]=useState("75"),[rh,setRh]=useState("60"),[surface,setSurface]=useState(""),r=useMemo(()=>calc(temp,unit,rh,surface,surface!==""),[temp,unit,rh,surface]);const valid=Number(rh)>0&&Number(rh)<=100&&Number.isFinite(Number(temp));
-return <main><nav><b>Air<span>Point</span></b><small>Atmospheric calculators</small></nav><section className="hero"><p>FREE WEATHER UTILITY</p><h1>Know the air.<br/>Calculate the dew point.</h1><div className="toggle"><button className={unit==="F"?"on":""} onClick={()=>setUnit("F")}>°F</button><button className={unit==="C"?"on":""} onClick={()=>setUnit("C")}>°C</button></div></section>
-<section className="card calc"><div><h2>Enter conditions</h2><label>Air temperature<input type="number" value={temp} onChange={e=>setTemp(e.target.value)}/></label><label>Relative humidity (%)<input type="number" min="1" max="100" value={rh} onChange={e=>setRh(e.target.value)}/></label><label>Surface temperature <em>optional</em><input type="number" value={surface} onChange={e=>setSurface(e.target.value)} placeholder={`°${unit}`}/></label><p className="note">For a condensation estimate, enter the temperature of the surface you are checking.</p>{!valid&&<p className="error">Enter a temperature and humidity between 1% and 100%.</p>}</div>
-<div className="result">{valid?<><small>DEW POINT</small><strong>{r.td.toFixed(1)}°{unit}</strong><div className="row"><span>Temperature / dew-point spread</span><b>{r.spread.toFixed(1)}°{unit}</b></div>{r.condensation!==null&&<div className={"status "+(r.condensation?"warn":"ok")}>{r.condensation?"Surface is at or below the dew point. Condensation may occur.":"Surface is above the dew point."}</div>}</>:<strong>—</strong>}</div></section>
-<section className="content card"><h2>What is dew point?</h2><p>Dew point is the temperature air must reach, at its existing moisture content, for saturation to occur. A higher dew point generally means more moisture in the air.</p><h2>How we calculate it</h2><p>AirPoint uses a standard Magnus-type approximation for dew point. Results are intended for general estimation and educational use, not engineering or safety-critical decisions.</p><h2>About condensation</h2><p>If a surface is at or below the calculated dew point, condensation can occur under suitable conditions. This calculator does not account for every environmental factor, so treat the result as an estimate.</p></section>
-<footer>AirPoint · Free atmospheric utility</footer></main>}
+"use client";
+
+import { useState } from "react";
+
+function calculateDewPoint(tempC, humidity) {
+  const a = 17.27;
+  const b = 237.7;
+
+  const gamma =
+    (a * tempC) / (b + tempC) + Math.log(humidity / 100);
+
+  return (b * gamma) / (a - gamma);
+}
+
+function cToF(c) {
+  return (c * 9) / 5 + 32;
+}
+
+function fToC(f) {
+  return ((f - 32) * 5) / 9;
+}
+
+function getRisk(dewPoint, temperature) {
+  const difference = temperature - dewPoint;
+
+  if (difference <= 2) {
+    return {
+      label: "High condensation risk",
+      text: "The air temperature is very close to the dew point. Condensation can form on cooler surfaces.",
+    };
+  }
+
+  if (difference <= 5) {
+    return {
+      label: "Moderate condensation risk",
+      text: "Conditions are getting close to the dew point. Watch for condensation on cold surfaces.",
+    };
+  }
+
+  return {
+    label: "Low condensation risk",
+    text: "There is a larger gap between the air temperature and dew point, so condensation is less likely.",
+  };
+}
+
+export default function Home() {
+  const [temperature, setTemperature] = useState("25");
+  const [humidity, setHumidity] = useState("60");
+  const [unit, setUnit] = useState("C");
+  const [result, setResult] = useState(null);
+
+  function calculate() {
+    const temp = Number(temperature);
+    const rh = Number(humidity);
+
+    if (!Number.isFinite(temp) || !Number.isFinite(rh)) return;
+    if (rh <= 0 || rh > 100) return;
+
+    const tempC = unit === "C" ? temp : fToC(temp);
+    const dewPointC = calculateDewPoint(tempC, rh);
+
+    setResult({
+      c: dewPointC,
+      f: cToF(dewPointC),
+      risk: getRisk(dewPointC, tempC),
+    });
+  }
+
+  return (
+    <main className="site">
+      <section className="hero">
+        <div className="container">
+          <div className="badge">AIRPOINT</div>
+
+          <h1>Dew Point Calculator</h1>
+
+          <p className="heroText">
+            Calculate dew point instantly from air temperature and relative
+            humidity.
+          </p>
+
+          <div className="calculator">
+            <div className="field">
+              <label>Temperature</label>
+              <div className="inputRow">
+                <input
+                  type="number"
+                  value={temperature}
+                  onChange={(e) => setTemperature(e.target.value)}
+                />
+
+                <select
+                  value={unit}
+                  onChange={(e) => setUnit(e.target.value)}
+                >
+                  <option value="C">°C</option>
+                  <option value="F">°F</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="field">
+              <label>Relative Humidity</label>
+              <div className="inputRow">
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  value={humidity}
+                  onChange={(e) => setHumidity(e.target.value)}
+                />
+                <span className="unit">%</span>
+              </div>
+            </div>
+
+            <button onClick={calculate}>Calculate Dew Point</button>
+
+            {result && (
+              <div className="result">
+                <span className="resultLabel">DEW POINT</span>
+
+                <div className="resultNumber">
+                  {unit === "C"
+                    ? `${result.c.toFixed(1)}°C`
+                    : `${result.f.toFixed(1)}°F`}
+                </div>
+
+                <div className="secondary">
+                  {unit === "C"
+                    ? `${result.f.toFixed(1)}°F`
+                    : `${result.c.toFixed(1)}°C`}
+                </div>
+
+                <div className="risk">
+                  <strong>{result.risk.label}</strong>
+                  <p>{result.risk.text}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="content">
+        <div className="container narrow">
+          <h2>What is dew point?</h2>
+
+          <p>
+            Dew point is the temperature at which air becomes saturated with
+            water vapor. When a surface is cooled below the dew point,
+            condensation can begin to form.
+          </p>
+
+          <p>
+            Dew point is useful for understanding humidity, condensation,
+            weather conditions, indoor comfort, HVAC performance, and moisture
+            risk.
+          </p>
+
+          <h2>How to calculate dew point</h2>
+
+          <p>
+            AirPoint calculates dew point using air temperature and relative
+            humidity. The calculation uses a standard approximation of the
+            relationship between temperature, humidity, and water vapor.
+          </p>
+
+          <h2>Dew point and condensation</h2>
+
+          <p>
+            The closer the air temperature is to the dew point, the easier it
+            is for condensation to develop on cooler surfaces. This can matter
+            for windows, walls, pipes, equipment, buildings, and other
+            temperature-sensitive surfaces.
+          </p>
+
+          <h2>Quick dew point guide</h2>
+
+          <div className="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dew Point</th>
+                  <th>General Feel</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Below 50°F / 10°C</td>
+                  <td>Comfortably dry</td>
+                </tr>
+                <tr>
+                  <td>50–59°F / 10–15°C</td>
+                  <td>Comfortable</td>
+                </tr>
+                <tr>
+                  <td>60–64°F / 16–18°C</td>
+                  <td>Slightly humid</td>
+                </tr>
+                <tr>
+                  <td>65–69°F / 18–21°C</td>
+                  <td>Humid</td>
+                </tr>
+                <tr>
+                  <td>70°F+ / 21°C+</td>
+                  <td>Very humid</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Frequently asked questions</h2>
+
+          <h3>Is dew point the same as humidity?</h3>
+
+          <p>
+            No. Relative humidity describes how saturated the air is relative
+            to its current temperature, while dew point describes the
+            temperature at which the air would become saturated.
+          </p>
+
+          <h3>What does a high dew point mean?</h3>
+
+          <p>
+            A higher dew point generally means there is more moisture in the
+            air and conditions may feel more humid.
+          </p>
+
+          <h3>When does condensation occur?</h3>
+
+          <p>
+            Condensation can occur when a surface reaches or falls below the
+            surrounding air's dew point.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container">
+          <strong>AirPoint</strong>
+          <span>Simple weather and moisture calculations.</span>
+        </div>
+      </footer>
+    </main>
+  );
+}
