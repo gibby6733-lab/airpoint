@@ -209,7 +209,25 @@ export default function Home() {
               </tbody>
             </table>
           </div>
+<h2>More AirPoint Calculators</h2>
 
+<div className="calculatorLinks">
+  <a href="/humidity-calculator">
+    Humidity Calculator
+  </a>
+
+  <a href="/relative-humidity-calculator">
+    Relative Humidity Calculator
+  </a>
+
+  <a href="/condensation-calculator">
+    Condensation Calculator
+  </a>
+
+  <a href="/dew-point-chart">
+    Dew Point Chart
+  </a>
+</div>
           <h2>Frequently asked questions</h2>
 
           <h3>Is dew point the same as humidity?</h3>
