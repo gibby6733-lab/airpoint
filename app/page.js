@@ -251,12 +251,39 @@ export default function Home() {
   </div>
 </section>
 
-<footer>
-  <div className="container">
-    <strong>AirPoint</strong>
-    <span>Simple weather and moisture calculations.</span>
+<footer className="siteFooter">
+  <div className="container footerGrid">
+    <div className="footerBrand">
+      <strong>AirPoint</strong>
+      <span>Simple weather and moisture calculations.</span>
+    </div>
+
+    <div className="footerColumn">
+      <h3>Tools</h3>
+      <a href="/">Dew Point Calculator</a>
+      <a href="/condensation-calculator">Condensation Calculator</a>
+      <a href="/dew-point-chart">Dew Point Chart</a>
+      <a href="/dew-point-vs-humidity">Dew Point vs. Humidity</a>
+    </div>
+
+    <div className="footerColumn">
+      <h3>Learn</h3>
+      <a href="/what-is-dew-point">What Is Dew Point?</a>
+      <a href="/about">About AirPoint</a>
+    </div>
+
+    <div className="footerColumn">
+      <h3>Information</h3>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+
+  <div className="container footerBottom">
+    <span>© 2026 AirPoint. All rights reserved.</span>
   </div>
 </footer>
-    </main>
+</main>
   );
 }
