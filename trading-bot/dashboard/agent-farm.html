@@ -183,6 +183,16 @@ td.wrap { white-space: normal; min-width: 160px; }
 @media (max-width: 980px) { .bt-grid { grid-template-columns: 1fr; } }
 .bt-grid > div { min-width: 0; display: grid; gap: 10px; align-content: start; }
 .wf { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--soil); display: grid; gap: 8px; }
+.feed { display: grid; gap: 4px; max-height: 330px; overflow-y: auto; font-family: var(--font-data); font-size: 12px; }
+.feed div { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; padding: 4px 8px; border-radius: 6px; background: var(--soil); border: 1px solid var(--line); }
+.feed .d { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.verdict { font-family: var(--font-data); font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+.verdict.promoted { color: var(--good); border-color: color-mix(in srgb, var(--good) 60%, transparent); }
+.verdict.failed { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 50%, transparent); }
+.verdict.weak { color: var(--muted); }
+.tag.ai { color: var(--violet); border-color: color-mix(in srgb, var(--violet) 60%, transparent); }
+tr.pick { cursor: pointer; }
+tr.pick:hover td, tr.pick[aria-selected="true"] td { background: color-mix(in srgb, var(--glow) 7%, transparent); }
 footer { color: var(--muted); font-size: 12px; text-align: center; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -204,7 +214,8 @@ footer { color: var(--muted); font-size: 12px; text-align: center; }
   <section class="farm" aria-label="Animated agent farm">
     <canvas id="farm" role="img" aria-label="An animated farm where small agent workers carry data between strategy greenhouses, a backtest mill, a Monte Carlo dice tower, the risk guardian's watchtower and a news antenna."></canvas>
     <div class="farm-hud">
-      <span class="chip" id="hudCrew"><span class="dot"></span><span>12 agents on shift</span></span>
+      <span class="chip" id="hudCrew"><span class="dot"></span><span>13 agents on shift</span></span>
+      <span class="chip" id="hudFoundry"><span class="dot"></span><span>Foundry warming up</span></span>
       <span class="chip" id="hudGuard"><span class="dot"></span><span>Guardian armed</span></span>
     </div>
     <div class="agent-card" id="agentCard" aria-live="polite"></div>
@@ -348,6 +359,37 @@ footer { color: var(--muted); font-size: 12px; text-align: center; }
         </div>
       </div>
       <div class="table-box"><table id="btTrades"></table></div>
+    </section>
+
+    <!-- STRATEGY FOUNDRY -->
+    <section class="panel span-12" aria-labelledby="fdTitle">
+      <div class="panel-head">
+        <div><div class="eyebrow">Breeders · Miller · Archivist · runs by itself</div><h2 id="fdTitle">Strategy foundry</h2></div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap">
+          <button type="button" class="primary" id="fdRun">Pause</button>
+          <button type="button" id="fdInvent">Invent 6 with Claude</button>
+          <button type="button" id="fdReset">Reset memory</button>
+        </div>
+      </div>
+      <p class="note">The foundry keeps breeding new weekly strategies: random ideas, mutations and crosses of the best ones so far, plus ideas Claude invents from the foundry's own lessons. Each one is tuned and judged on <b>2021–2023</b>, then tested once on <b>2024–2025</b> on both the Nasdaq and the S&amp;P. A strategy is <b>promoted</b> only if it makes money on both markets in the years it never saw (with at least 2 trades on each), and beats buy-and-hold on return per dollar of drawdown over those years. Everything it learns is saved to its memory.</p>
+      <div class="stats" id="fdStats"></div>
+      <div class="bt-grid">
+        <div>
+          <div class="panel-head"><h3>Hall of fame: promoted strategies</h3><span class="note" id="fdLuck"></span></div>
+          <div class="table-box"><table id="fdHall"></table></div>
+          <div class="panel-head"><h3>Best in training (not yet proven)</h3></div>
+          <div class="table-box"><table id="fdBest"></table></div>
+        </div>
+        <div>
+          <div class="wf" id="fdDetail"><h3>Pick a strategy</h3><p class="note">Select any row to see its equity curve on both markets, with the unseen 2024–2025 years shaded.</p></div>
+          <h3>What the foundry has learned</h3>
+          <ul class="insights" id="fdLessons"></ul>
+        </div>
+      </div>
+      <div class="bt-grid">
+        <div><h3>Building blocks: how often each one gets promoted</h3><div class="table-box"><table id="fdComp"></table></div></div>
+        <div><h3>Live test feed</h3><div class="feed" id="fdFeed" aria-live="off"></div></div>
+      </div>
     </section>
 
     <!-- SIZER -->
@@ -797,6 +839,7 @@ function coachContext() {
     "MARKET SESSION NOW: " + phaseNow.name,
     "STRATEGY LAB (simulated MNQ walk-forward; coin-flip baseline 28%; random-walk control shows ±5% is noise): " + JSON.stringify(LAB.map((s) => ({ name: s.name, passUnseen: s.oos, passTuned: s.is, profitFactorUnseen: s.pf, winRate: s.win, plan: s.plan }))),
     "HISTORY 2021-2025 (weekly, Nasdaq-100): " + JSON.stringify(memoryStats("QQQ").years.map((y) => ({ year: y.y, ret: +y.ret.toFixed(3), maxDD: +y.dd.toFixed(3), medianWeeklySwingPerMNQ: Math.round(y.med$) }))),
+    "STRATEGY FOUNDRY MEMORY (weekly-bar auto research, promoted = profitable on both markets in unseen 2024-25): " + JSON.stringify({ tested: mem.tested, promoted: mem.promoted, hallOfFame: mem.hall.slice(0, 5).map((r) => ({ name: r.name, rule: describe(r.g), unseenAvg: Math.round((r.te.QQQ.net + r.te.SPY.net) / 2) })) }),
     "HISTORY BACKTEST CURRENTLY SHOWN: " + JSON.stringify(lastBT),
     "LATEST HEADLINES (Zacks): " + JSON.stringify(latestNews.slice(0, 6).map((n) => ({ when: n.date, headline: n.subject, gist: n.summary.slice(0, 280) }))),
   ].join("\n");
@@ -840,6 +883,7 @@ const AGENTS = [
   { id: "guardian", name: "Risk Guardian", color: "#ff5f78", home: "watch", role: "Vetoes risky trades", file: "propbot/live/guardian.py", desc: "Sits between strategy and broker. Rejects or shrinks trades that could break the daily limit, flattens at 15:55, honours the STOP kill switch, and halts after a pass." },
   { id: "runner", name: "Runner", color: "#ffffff", home: "pad", role: "Executes orders", file: "propbot/live/engine.py", desc: "Sends bracket orders to the broker. Running in paper mode until you pick NinjaTrader or Tradovate and Lucid confirms automation is allowed." },
   { id: "historian", name: "Historian", color: "#e4f58f", home: "archive", role: "Studies 2021–2025", file: "dashboard/data/*.csv", desc: "Reads five years of weekly Nasdaq and S&P bars, measures how the market moves (trends, drawdowns, weekly swings, what follows big weeks) and feeds the history backtest." },
+  { id: "archivist", name: "Archivist", color: "#ffa3d1", home: "archive", role: "Keeps the memory", file: "foundry memory (your account)", desc: "Records every strategy the foundry tests, which building blocks get promoted, and the hall of fame, then hands those lessons to the breeders and to Claude when it invents new ideas." },
   { id: "scout", name: "Scout", color: "#4fd2ff", home: "antenna", role: "Brings news", file: "Zacks connector", desc: "Pulls market and economic news every 10 minutes and flags headlines that usually move the Nasdaq (Fed, CPI, jobs, yields)." },
 ];
 let scoutCount = 0, coachBusy = false;
@@ -853,7 +897,7 @@ const ROUTES = {
   harvester: ["silo", "mill", "silo", "gh2", "silo"], weather: ["silo", "gh0", "gh5", "silo"], breeder1: ["gh0", "gh1", "gh5", "gh2", "mill"],
   breeder2: ["gh3", "gh4", "gh2", "mill", "gh3"], miller: ["mill", "tower", "mill", "gh1"], dice: ["tower", "watch", "tower", "gh4"],
   surveyor: ["tower", "gh3", "pad", "tower"], rulekeeper: ["watch", "pad", "watch", "tower"], guardian: ["watch", "pad", "antenna", "watch"],
-  runner: ["pad", "watch", "pad", "antenna", "pad"], historian: ["archive", "mill", "archive", "tower", "archive", "watch"], scout: ["antenna", "pad", "watch", "antenna", "tower"],
+  runner: ["pad", "watch", "pad", "antenna", "pad"], historian: ["archive", "mill", "archive", "tower", "archive", "watch"], archivist: ["archive", "gh4", "tower", "archive", "gh3", "mill", "archive"], scout: ["antenna", "pad", "watch", "antenna", "tower"],
 };
 const cv = $("farm"), ctx = cv.getContext("2d");
 let W = 0, H = 0, dpr = 1, selected = "guardian";
@@ -992,6 +1036,7 @@ function drawAgent(w, t) {
   if (w.id === "scout" && coachBusy) label("…", x, y - 36 * sc, "#4fd2ff");
 }
 let lastT = performance.now();
+const FAST_CREW = new Set(["breeder1", "breeder2", "miller", "dice", "archivist"]);
 function frame(now) {
   const dt = Math.min(.05, (now - lastT) / 1000); lastT = now;
   const t = now / 1000;
@@ -999,7 +1044,7 @@ function frame(now) {
   for (let i = 0; i < 6; i++) drawGreenhouse(i, t);
   drawBuildings(t);
   for (const w of walkers) {
-    if (!reduce) { w.t += dt * w.speed; if (w.t >= 1) { w.t = 0; w.leg = (w.leg + 1) % ROUTES[w.id].length; w.carry = !w.carry; } }
+    if (!reduce) { w.t += dt * w.speed * (fdRunning && !document.hidden && FAST_CREW.has(w.id) ? 2.4 : 1); if (w.t >= 1) { w.t = 0; w.leg = (w.leg + 1) % ROUTES[w.id].length; w.carry = !w.carry; } }
     w.pos = legPos(w);
   }
   walkers.sort((a, b) => a.pos.y - b.pos.y).forEach((w) => drawAgent(w, t));
@@ -1012,6 +1057,8 @@ function agentCard(id) {
     guardian: lastEval ? (lastEval.status === "active" ? `Today: max loss ${fmt$(lastEval.maxLossToday)}, profit cap ${fmt$(lastEval.profitCap)}.` : lastEval.status === "passed" ? "Eval passed: all trading halted." : "Account failed: trading halted.") : "",
     rulekeeper: lastEval ? `Balance ${fmt$(lastEval.bal, 2)}, floor ${fmt$(lastEval.floor)}, ${fmt$(lastEval.needed)} still needed.` : "",
     scout: scoutCount ? `${scoutCount} headlines in the feed below.` : "Waiting on the Zacks feed.",
+    archivist: `Memory: ${mem.tested.toLocaleString()} strategies tested, ${mem.promoted} promoted${mem.hall[0] ? `. Best: ${mem.hall[0].name}` : ""}.`,
+    breeder1: `Foundry is ${fdRunning ? "breeding" : "paused"}: generation ${mem.gen}, ${mem.tested.toLocaleString()} tested.`,
     historian: `Studied ${memoryStats("QQQ").weeks.length} weeks of Nasdaq and S&P history. Nasdaq ${pctS(memoryStats("QQQ").total, 0)} over 2021–2025.`,
     dice: `Coin-flip baseline: ${pct(BASELINE)}. Best on unseen days: ${LAB[0].name} at ${pct(LAB[0].oos)}.`,
   }[id] || "";
@@ -1089,7 +1136,7 @@ function lineChart(svg, n, series, opts = {}) {
   let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.07 || 1; lo -= pad; hi += pad;
   const x = (i) => L + (n <= 1 ? 0 : (i / (n - 1)) * (W - L - R)), y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
   let g = "";
-  if (opts.shade) { const bw = (W - L - R) / Math.max(1, n - 1); let s0 = -1; opts.shade.concat(false).forEach((on, i) => { if (on && s0 < 0) s0 = i; if (!on && s0 >= 0) { const xa = Math.max(L, x(s0) - bw / 2), xb = Math.min(W - R, x(i - 1) + bw / 2); g += `<rect x="${xa.toFixed(1)}" y="${T}" width="${(xb - xa).toFixed(1)}" height="${H - T - B}" fill="${cssVar("--bad")}" fill-opacity=".14"/>`; s0 = -1; } }); }
+  if (opts.shade) { const bw = (W - L - R) / Math.max(1, n - 1); let s0 = -1; opts.shade.concat(false).forEach((on, i) => { if (on && s0 < 0) s0 = i; if (!on && s0 >= 0) { const xa = Math.max(L, x(s0) - bw / 2), xb = Math.min(W - R, x(i - 1) + bw / 2); g += `<rect x="${xa.toFixed(1)}" y="${T}" width="${(xb - xa).toFixed(1)}" height="${H - T - B}" fill="${opts.shadeColor || cssVar("--bad")}" fill-opacity=".14"/>`; s0 = -1; } }); }
   const step = niceStep((hi - lo) / 4);
   for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${cssVar("--line")}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${opts.yFmt ? opts.yFmt(v) : v}</text>`;
   if (opts.zero && lo < 0 && hi > 0) g += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="${cssVar("--muted")}" stroke-dasharray="3 3"/>`;
@@ -1297,6 +1344,379 @@ $("btForm").addEventListener("submit", (e) => e.preventDefault());
 $("btTune").addEventListener("click", tune);
 renderParams();
 
+/* ---------------- strategy foundry: auto-generate, backtest, remember ---------------- */
+const FD_SYMS = ["QQQ", "SPY"];
+const IND = {};
+function rsiArr(c, n) {
+  const out = new Array(c.length).fill(NaN); let g = 0, l = 0;
+  for (let i = 1; i < c.length; i++) {
+    const ch = c[i] - c[i - 1], up = Math.max(ch, 0), dn = Math.max(-ch, 0);
+    if (i <= n) { g += up / n; l += dn / n; if (i === n) out[i] = l === 0 ? 100 : 100 - 100 / (1 + g / l); }
+    else { g = (g * (n - 1) + up) / n; l = (l * (n - 1) + dn) / n; out[i] = l === 0 ? 100 : 100 - 100 / (1 + g / l); }
+  }
+  return out;
+}
+function ind(sym) {
+  if (IND[sym]) return IND[sym];
+  const b = HB[sym], c = b.map((x) => x.c);
+  const rng = b.map((x, i) => (x.h - x.l) / (i ? b[i - 1].c : x.o)), vol4 = smaArr(rng, 4);
+  const volMed = vol4.map((_, i) => (i < 56 ? NaN : median(vol4.slice(i - 52, i))));
+  const memo = {};
+  const get = (k, f) => (memo[k] ??= f());
+  return (IND[sym] = {
+    b, c, vol4, volMed,
+    sma: (n) => get("s" + n, () => smaArr(c, n)),
+    rsi: (n) => get("r" + n, () => rsiArr(c, n)),
+    hi: (n) => get("h" + n, () => c.map((_, i) => (i < n ? NaN : Math.max(...b.slice(i - n, i).map((x) => x.h))))),
+    lo: (n) => get("l" + n, () => c.map((_, i) => (i < n ? NaN : Math.min(...b.slice(i - n, i).map((x) => x.l))))),
+  });
+}
+const ri = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const clampI = (v, a, b) => Math.max(a, Math.min(b, Math.round(Number(v))));
+const clampH = (v, a, b) => Math.max(a, Math.min(b, Math.round(Number(v) * 2) / 2));
+const EVENT = new Set(["breakout", "dip", "rsi"]);
+function randomEntry() {
+  switch (pick(["cross", "above_ma", "momentum", "breakout", "dip", "rsi"])) {
+    case "cross": { const f = ri(2, 20); return { type: "cross", fast: f, slow: ri(f + 3, 52) }; }
+    case "above_ma": return { type: "above_ma", n: ri(5, 52) };
+    case "momentum": return { type: "momentum", look: ri(2, 52), thresh: clampH(Math.random() * 8, 0, 10) };
+    case "breakout": return { type: "breakout", n: ri(4, 52) };
+    case "dip": return { type: "dip", drop: clampH(1 + Math.random() * 6, 1, 8) };
+    default: return { type: "rsi", n: ri(2, 14), lo: ri(20, 45) };
+  }
+}
+const randomFilter = () => pick([{ type: "none" }, { type: "none" }, { type: "trend", n: ri(10, 52) }, { type: "calm" }, { type: "volatile" }]);
+const randomExit = () => pick([{ type: "signal" }, { type: "time", k: ri(1, 26) }, { type: "trail", pct: clampH(2 + Math.random() * 14, 2, 20) }, { type: "bracket", stop: clampH(2 + Math.random() * 10, 2, 15), target: clampH(3 + Math.random() * 20, 3, 30) }]);
+function normalize(g) {
+  try {
+    const e = g.entry || {}, f = g.filter || {}, x = g.exit || {};
+    let entry;
+    if (e.type === "cross") { let fa = clampI(e.fast, 2, 30), sl = clampI(e.slow, 5, 52); if (fa >= sl) { if (sl - 3 >= 2) fa = sl - 3; else sl = Math.min(52, fa + 3); } entry = { type: "cross", fast: fa, slow: sl }; }
+    else if (e.type === "above_ma") entry = { type: "above_ma", n: clampI(e.n, 3, 52) };
+    else if (e.type === "momentum") entry = { type: "momentum", look: clampI(e.look, 2, 52), thresh: clampH(e.thresh ?? 0, 0, 15) };
+    else if (e.type === "breakout") entry = { type: "breakout", n: clampI(e.n, 3, 52) };
+    else if (e.type === "dip") entry = { type: "dip", drop: clampH(e.drop, 0.5, 12) };
+    else if (e.type === "rsi") entry = { type: "rsi", n: clampI(e.n, 2, 20), lo: clampI(e.lo, 10, 45) };
+    else return null;
+    const filter = f.type === "trend" ? { type: "trend", n: clampI(f.n, 5, 52) } : f.type === "calm" || f.type === "volatile" ? { type: f.type } : { type: "none" };
+    let exit = x.type === "time" ? { type: "time", k: clampI(x.k, 1, 52) } : x.type === "trail" ? { type: "trail", pct: clampH(x.pct, 1, 25) } : x.type === "bracket" ? { type: "bracket", stop: clampH(x.stop, 1, 20), target: clampH(x.target, 1, 40) } : { type: "signal" };
+    if (exit.type === "signal" && EVENT.has(entry.type)) exit = { type: "time", k: 4 };
+    return { entry, filter, exit, dir: g.dir === "both" ? "both" : "long" };
+  } catch { return null; }
+}
+const gKey = (g) => JSON.stringify([g.entry, g.filter, g.exit, g.dir]);
+function hash8(s) { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); } return (h >>> 0).toString(36).padStart(7, "0"); }
+function mutate(g) {
+  const m = JSON.parse(JSON.stringify(g)), r = Math.random(), nudge = (v, s = 0.3) => v * (1 + (Math.random() * 2 - 1) * s) + (Math.random() < .5 ? -1 : 1);
+  if (r < .45) { for (const k of Object.keys(m.entry)) if (k !== "type") m.entry[k] = nudge(m.entry[k]); }
+  else if (r < .6) m.filter = randomFilter();
+  else if (r < .72) { if (m.filter.type === "trend") m.filter.n = nudge(m.filter.n); else m.filter = { type: "trend", n: ri(10, 52) }; }
+  else if (r < .87) { if (m.exit.type !== "signal" && Math.random() < .6) { for (const k of Object.keys(m.exit)) if (k !== "type") m.exit[k] = nudge(m.exit[k]); } else m.exit = randomExit(); }
+  else if (r < .95) m.dir = m.dir === "long" ? "both" : "long";
+  else m.entry = randomEntry();
+  return normalize(m);
+}
+const crossover = (a, b) => normalize({ entry: a.entry, filter: Math.random() < .5 ? a.filter : b.filter, exit: b.exit, dir: Math.random() < .5 ? a.dir : b.dir });
+function describe(g) {
+  const e = g.entry, f = g.filter, x = g.exit;
+  const E = { cross: `${e.fast}/${e.slow}-wk MA cross`, above_ma: `price vs ${e.n}-wk MA`, momentum: `${e.look}-wk momentum ±${e.thresh}%`, breakout: `${e.n}-wk breakout`, dip: g.dir === "both" ? `fade ${e.drop}% weekly moves` : `buy ${e.drop}% weekly dips`, rsi: `RSI(${e.n}) ${e.lo}/${100 - e.lo}` }[e.type];
+  const F = { none: "", trend: ` · with ${f.n}-wk trend`, calm: " · calm weeks", volatile: " · volatile weeks" }[f.type];
+  const X = { signal: "exit on flip", time: `exit after ${x.k} wk`, trail: `${x.pct}% trailing stop`, bracket: `${x.stop}% stop, ${x.target}% target` }[x.type];
+  return `${g.dir === "both" ? "Long/short" : "Long"} · ${E}${F} · ${X}`;
+}
+const CROPS = ["Sunflower", "Kelp", "Maize", "Lotus", "Fern", "Barley", "Clover", "Sorrel", "Yarrow", "Quinoa", "Basil", "Saffron", "Millet", "Lupin", "Thistle", "Sage"];
+function runG(g, sym, from, to) {
+  const I = ind(sym), b = I.b, c = I.c, m = MARKETS[sym], perPt = m.mult * m.pv, slip = 0.25 / m.mult, comm = 1.04;
+  const e = g.entry, f = g.filter, x = g.exit, both = g.dir === "both", isEvent = EVENT.has(e.type);
+  const S = e.type === "cross" ? [I.sma(e.fast), I.sma(e.slow)] : e.type === "above_ma" ? I.sma(e.n) : e.type === "breakout" ? [I.hi(e.n), I.lo(e.n)] : e.type === "rsi" ? I.rsi(e.n) : null;
+  const TF = f.type === "trend" ? I.sma(f.n) : null;
+  const sig = (i) => {
+    switch (e.type) {
+      case "cross": return !Number.isFinite(S[1][i]) ? 0 : S[0][i] > S[1][i] ? 1 : -1;
+      case "above_ma": return !Number.isFinite(S[i]) ? 0 : c[i] > S[i] ? 1 : -1;
+      case "momentum": { if (i < e.look) return 0; const r = (c[i] / c[i - e.look] - 1) * 100; return r > e.thresh ? 1 : r < -e.thresh ? -1 : 0; }
+      case "breakout": return !Number.isFinite(S[0][i]) ? 0 : c[i] > S[0][i] ? 1 : c[i] < S[1][i] ? -1 : 0;
+      case "dip": { if (!i) return 0; const r = (c[i] / c[i - 1] - 1) * 100; return r <= -e.drop ? 1 : r >= e.drop ? -1 : 0; }
+      case "rsi": return !Number.isFinite(S[i]) ? 0 : S[i] <= e.lo ? 1 : S[i] >= 100 - e.lo ? -1 : 0;
+    }
+    return 0;
+  };
+  const ok = (i, side) => {
+    if (side < 0 && !both) return false;
+    if (f.type === "trend") return Number.isFinite(TF[i]) && (side > 0 ? c[i] > TF[i] : c[i] < TF[i]);
+    if (f.type === "calm") return !Number.isFinite(I.volMed[i]) || I.vol4[i] <= I.volMed[i];
+    if (f.type === "volatile") return !Number.isFinite(I.volMed[i]) || I.vol4[i] > I.volMed[i];
+    return true;
+  };
+  const inW = (i) => i < b.length && b[i].d >= from && b[i].d < to;
+  let pos = 0, ep = 0, ei = 0, peak = 0, cash = 0, pending = null, prevSig = 0, eqPeak = 0, maxDD = 0, wins = 0, gross = 0, loss = 0, trades = 0, held = 0, weeks = 0;
+  const eq = [];
+  const exitAt = (px) => { const xp = px - pos * slip, pnl = (xp - ep) * pos * perPt - comm; cash += pnl; trades++; if (pnl > 0) { wins++; gross += pnl; } else loss -= pnl; pos = 0; };
+  for (let i = 0; i < b.length; i++) {
+    if (pending !== null) {
+      if (pos && pending !== pos) exitAt(b[i].o);
+      if (pending && !pos) { pos = pending; ep = b[i].o + pos * slip; ei = i; peak = ep; }
+      pending = null;
+    }
+    if (pos) {
+      let stopPx = null, tgtPx = null;
+      if (x.type === "trail") stopPx = pos > 0 ? peak * (1 - x.pct / 100) : peak * (1 + x.pct / 100);
+      if (x.type === "bracket") { stopPx = ep * (1 - pos * x.stop / 100); tgtPx = ep * (1 + pos * x.target / 100); }
+      if (stopPx !== null && (pos > 0 ? b[i].l <= stopPx : b[i].h >= stopPx)) exitAt(pos > 0 ? Math.min(b[i].o, stopPx) : Math.max(b[i].o, stopPx));
+      else if (tgtPx !== null && (pos > 0 ? b[i].h >= tgtPx : b[i].l <= tgtPx)) { const px = pos > 0 ? Math.max(b[i].o, tgtPx) : Math.min(b[i].o, tgtPx); exitAt(px + pos * slip); }
+      if (pos) peak = pos > 0 ? Math.max(peak, c[i]) : Math.min(peak, c[i]);
+    }
+    if (inW(i)) { const v = cash + (pos ? (c[i] - ep) * pos * perPt : 0); eq.push(v); eqPeak = Math.max(eqPeak, v); maxDD = Math.min(maxDD, v - eqPeak); weeks++; if (pos) held++; }
+    const s = sig(i), nextLive = inW(i + 1);
+    if (pos) {
+      let out = !nextLive;
+      if (x.type === "signal" && s !== pos) out = true;
+      if (x.type === "time" && i - ei + 1 >= x.k) out = true;
+      if (out) pending = 0;
+    }
+    if (nextLive && (pending === 0 || !pos)) {
+      const trig = isEvent || x.type !== "signal" ? (s !== 0 && (isEvent || s !== prevSig) ? s : 0) : s;
+      if (trig && ok(i, trig) && trig !== pos) pending = trig;
+    }
+    prevSig = s;
+  }
+  if (pos) { exitAt(c[b.length - 1]); eq[eq.length - 1] = cash; }
+  const net = cash; // every position opens inside the window and is closed by the time the loop ends
+  return { net, maxDD, trades, win: trades ? wins / trades : 0, pf: loss ? gross / loss : gross ? 99 : 0, exposure: weeks ? held / weeks : 0, eq };
+}
+const scoreOf = (r) => r.net / Math.max(1000, -r.maxDD) - (r.trades < 3 ? 1 : 0);
+const BH = {};
+function bhScore(sym, w) {
+  const k = sym + w; if (BH[k] != null) return BH[k];
+  const b = HB[sym], m = MARKETS[sym], idx = b.map((x, i) => [x, i]).filter(([x]) => x.d >= WINDOWS[w][0] && x.d < WINDOWS[w][1]);
+  const e0 = idx[0][0].o; let pk = 0, dd = 0; const vals = idx.map(([x]) => (x.c - e0) * m.mult * m.pv);
+  for (const v of vals) { pk = Math.max(pk, v); dd = Math.min(dd, v - pk); }
+  return (BH[k] = vals[vals.length - 1] / Math.max(1000, -dd));
+}
+function evaluateG(g) {
+  const tr = {}, te = {};
+  for (const s of FD_SYMS) { tr[s] = runG(g, s, ...WINDOWS.train); te[s] = runG(g, s, ...WINDOWS.test); }
+  const trainScore = mean(FD_SYMS.map((s) => scoreOf(tr[s]))), testScore = mean(FD_SYMS.map((s) => scoreOf(te[s])));
+  const bhTest = mean(FD_SYMS.map((s) => bhScore(s, "test")));
+  const trainOk = FD_SYMS.every((s) => tr[s].net > 0 && tr[s].trades >= 2);
+  const verdict = !trainOk ? "weak" : FD_SYMS.every((s) => te[s].net > 0 && te[s].trades >= 2) && testScore >= bhTest ? "promoted" : "failed";
+  const slim = (r) => ({ net: Math.round(r.net), dd: Math.round(r.maxDD), trades: r.trades, win: +r.win.toFixed(2) });
+  return { tr: { QQQ: slim(tr.QQQ), SPY: slim(tr.SPY) }, te: { QQQ: slim(te.QQQ), SPY: slim(te.SPY) }, trainScore: +trainScore.toFixed(3), testScore: +testScore.toFixed(3), verdict };
+}
+
+/* memory: one summary doc + one doc of tested fingerprints, private to the viewer */
+const freshMem = () => ({ v: 1, tested: 0, promoted: 0, gen: 0, best: [], hall: [], comp: {}, origins: {}, log: [], startedAt: new Date().toISOString(), updatedAt: null });
+let mem = freshMem(), seen = new Set(), memDirty = false, memSaving = false, memState = "loading";
+const queue = [];
+const compKeys = (g) => ["entry_" + g.entry.type, "filter_" + g.filter.type, "exit_" + g.exit.type, "dir_" + g.dir];
+function remember(g, res, origin) {
+  const k = hash8(gKey(g));
+  seen.add(k);
+  mem.tested++;
+  const rec = { id: k, name: `${CROPS[parseInt(k.slice(0, 4), 36) % CROPS.length]}-${String(mem.tested).padStart(4, "0")}`, g, origin, at: Date.now(), ...res };
+  for (const ck of compKeys(g)) { const cs = (mem.comp[ck] ??= { n: 0, promo: 0, trainOk: 0, sumTest: 0 }); cs.n++; if (res.verdict === "promoted") cs.promo++; if (res.verdict !== "weak") cs.trainOk++; cs.sumTest += (res.te.QQQ.net + res.te.SPY.net) / 2; }
+  const os = (mem.origins[origin] ??= { n: 0, promo: 0 }); os.n++; if (res.verdict === "promoted") os.promo++;
+  const sameAs = (r) => FD_SYMS.every((sy) => r.tr[sy].net === rec.tr[sy].net && r.te[sy].net === rec.te[sy].net && r.tr[sy].trades === rec.tr[sy].trades);
+  if (res.verdict === "promoted") { mem.promoted++; if (!mem.hall.some(sameAs)) mem.hall.push(rec); mem.hall.sort((a, b) => b.testScore - a.testScore); mem.hall = mem.hall.slice(0, 20); }
+  if (res.verdict !== "weak" && !mem.best.some(sameAs)) { mem.best.push(rec); mem.best.sort((a, b) => b.trainScore - a.trainScore); mem.best = mem.best.slice(0, 30); }
+  mem.log.unshift({ name: rec.name, d: describe(g), v: res.verdict, o: origin, t: +((res.te.QQQ.net + res.te.SPY.net) / 2).toFixed(0) });
+  mem.log = mem.log.slice(0, 40);
+  memDirty = true;
+  return rec;
+}
+async function loadMem() {
+  await storageReady;
+  if (storageMode !== "db" || !coll) { memState = "memory"; return; }
+  try {
+    const [a, s] = await Promise.all([coll.doc("foundry").get(), coll.doc("foundry_seen").get()]);
+    const d = a.exists ? a.data() : null;
+    const okRec = (r) => { const g = r && normalize(r.g); if (!g || !r.tr?.QQQ || !r.tr?.SPY || !r.te?.QQQ || !r.te?.SPY) return null; return { ...r, g, name: String(r.name || "?"), id: String(r.id || hash8(gKey(g))), origin: String(r.origin || "random"), verdict: ["promoted", "failed", "weak"].includes(r.verdict) ? r.verdict : "weak" }; };
+    if (d && d.v === 1) mem = { ...freshMem(), tested: Number(d.tested) || 0, promoted: Number(d.promoted) || 0, gen: Number(d.gen) || 0, startedAt: d.startedAt || freshMem().startedAt, updatedAt: d.updatedAt || null,
+      best: (Array.isArray(d.best) ? d.best : []).map(okRec).filter(Boolean), hall: (Array.isArray(d.hall) ? d.hall : []).map(okRec).filter(Boolean),
+      log: (Array.isArray(d.log) ? d.log : []).filter((l) => l && typeof l.name === "string").map((l) => ({ name: l.name, d: String(l.d || ""), v: String(l.v || "weak"), o: String(l.o || ""), t: Number(l.t) || 0 })),
+      origins: Object.fromEntries(Object.entries(d.origins && typeof d.origins === "object" ? d.origins : {}).filter(([k, v]) => ["random", "mutation", "crossover", "ai"].includes(k) && v && Number(v.n) > 0).map(([k, v]) => [k, { n: +v.n, promo: +v.promo || 0 }])),
+      comp: Object.fromEntries(Object.entries(d.comp && typeof d.comp === "object" ? d.comp : {}).filter(([, v]) => v && Number(v.n) > 0).map(([k, v]) => [k, { n: +v.n, promo: +v.promo || 0, trainOk: +v.trainOk || 0, sumTest: +v.sumTest || 0 }])) };
+    const sd = s.exists ? s.data() : null;
+    if (sd && typeof sd.keys === "string") seen = new Set(sd.keys.split(",").filter(Boolean));
+    memState = "db";
+  } catch { memState = "error"; }
+}
+async function saveMem() {
+  if (!memDirty || memSaving || memState !== "db") return;
+  memSaving = true; memDirty = false;
+  mem.updatedAt = new Date().toISOString();
+  try {
+    await coll.doc("foundry").set(JSON.parse(JSON.stringify(mem)));
+    await coll.doc("foundry_seen").set({ keys: [...seen].slice(-6000).join(",") });
+    lastSave = Date.now();
+  } catch (e) { memDirty = true; memState = "error"; saveErr = e?.code || "error"; }
+  memSaving = false;
+}
+let lastSave = 0, saveErr = "";
+
+/* the breeding loop: small time slices so the page stays smooth; pauses while the tab is hidden */
+let fdRunning = true, sessionTests = 0, rate = [];
+const SESSION_CAP = 5000, PER_TICK = 2;
+try { fdRunning = localStorage.getItem("agentfarm.foundry.run") !== "0"; } catch {}
+function nextCandidate() {
+  if (queue.length) return queue.shift();
+  // breed only from training-period leaders: using the hall of fame (picked on 2024–25) would leak the unseen years into breeding
+  const pool = mem.best.slice(0, 16).map((r) => r.g);
+  const r = Math.random();
+  if (pool.length >= 2 && r < .45) return { g: mutate(pick(pool)), origin: "mutation" };
+  if (pool.length >= 2 && r < .65) return { g: crossover(pick(pool), pick(pool)), origin: "crossover" };
+  return { g: normalize({ entry: randomEntry(), filter: randomFilter(), exit: randomExit(), dir: Math.random() < .3 ? "both" : "long" }), origin: "random" };
+}
+function fdTick() {
+  if (!fdRunning || document.hidden || memState === "loading") return setTimeout(fdTick, 400);
+  const t0 = performance.now();
+  let n = 0;
+  while (n < PER_TICK && performance.now() - t0 < 22) {
+    const cand = nextCandidate(); if (!cand.g) continue;
+    const k = hash8(gKey(cand.g));
+    if (seen.has(k)) { if (cand.origin === "ai") pushFeed({ name: "duplicate", d: describe(cand.g), v: "weak", o: "ai", t: 0 }); continue; }
+    const rec = remember(cand.g, evaluateG(cand.g), cand.origin);
+    n++; sessionTests++;
+    if (rec.verdict === "promoted" || cand.origin === "ai") pushFeed(mem.log[0]);
+    else pushFeed(mem.log[0]);
+    if (mem.tested % 50 === 0) mem.gen++;
+  }
+  rate.push([Date.now(), n]); rate = rate.filter(([t]) => Date.now() - t < 60000);
+  if (sessionTests >= SESSION_CAP) { setRunning(false, `Rested after ${SESSION_CAP.toLocaleString()} tests this visit. Press Run to keep breeding.`); }
+  if (Date.now() - lastSave > 15000) saveMem();
+  setTimeout(fdTick, 180);
+}
+const feedItems = [];
+function pushFeed(l) { feedItems.unshift(l); if (feedItems.length > 60) feedItems.pop(); feedDirty = true; }
+let feedDirty = false, fdNote = "";
+function setRunning(on, note = "") {
+  fdRunning = on; fdNote = note; if (on) sessionTests = 0;
+  try { localStorage.setItem("agentfarm.foundry.run", on ? "1" : "0"); } catch {}
+  $("fdRun").textContent = on ? "Pause" : "Run";
+  if (!on) saveMem();
+  renderFoundry(true);
+}
+$("fdRun").addEventListener("click", () => setRunning(!fdRunning));
+$("fdReset").addEventListener("click", () => {
+  const b = $("fdReset");
+  if (b.dataset.armed !== "1") { b.dataset.armed = "1"; b.textContent = "Confirm reset"; setTimeout(() => { b.dataset.armed = ""; b.textContent = "Reset memory"; }, 3500); return; }
+  b.dataset.armed = ""; b.textContent = "Reset memory";
+  mem = freshMem(); seen = new Set(); feedItems.length = 0; memDirty = true; fdSel = null; saveMem(); renderFoundry(true);
+});
+document.addEventListener("visibilitychange", () => { if (document.hidden) saveMem(); });
+
+/* rendering */
+let fdSel = null, lastFdRender = 0;
+const verdictChip = (v) => `<span class="verdict ${v}">${v === "promoted" ? "Promoted" : v === "failed" ? "Failed unseen" : "Weak"}</span>`;
+const originTag = (o) => `<span class="tag ${o === "ai" ? "ai" : ""}">${o === "ai" ? "Claude" : esc(o)}</span>`;
+function fdRow(r, i) {
+  const te = (r.te.QQQ.net + r.te.SPY.net) / 2, tr = (r.tr.QQQ.net + r.tr.SPY.net) / 2;
+  return `<tr class="pick" data-id="${esc(r.id)}" aria-selected="${fdSel && fdSel.id === r.id}" tabindex="0"><td class="mono">${i + 1}</td><td><b>${esc(r.name)}</b> ${originTag(r.origin)}<br><span class="note">${esc(describe(r.g))}</span></td><td class="num mono ${tr >= 0 ? "pos" : "neg"}">${fmtSigned(tr)}</td><td class="num mono ${te >= 0 ? "pos" : "neg"}">${fmtSigned(te)}</td><td class="num mono">${fmt$(Math.min(r.te.QQQ.dd, r.te.SPY.dd))}</td><td class="num mono">${r.tr.QQQ.trades + r.tr.SPY.trades}/${r.te.QQQ.trades + r.te.SPY.trades}</td><td>${verdictChip(r.verdict)}</td></tr>`;
+}
+const fdHead = `<thead><tr><th>#</th><th>Strategy</th><th class="num">2021–23 avg</th><th class="num">2024–25 avg</th><th class="num">Unseen DD</th><th class="num">Trades</th><th>Verdict</th></tr></thead>`;
+function lessons() {
+  const L = [], comp = Object.entries(mem.comp).filter(([, s]) => s.n >= 15);
+  if (mem.tested < 40) return [`Collecting evidence. ${mem.tested} strategies tested so far; lessons appear after about 40.`];
+  const rate = (s) => s.promo / s.n;
+  const groups = { entry: "Entry", filter: "Filter", exit: "Exit", dir: "Direction" };
+  for (const [gk, gl] of Object.entries(groups)) {
+    const items = comp.filter(([k]) => k.startsWith(gk + "_")).sort((a, b) => rate(b[1]) - rate(a[1]));
+    if (items.length >= 2) { const [bk, bs] = items[0], [wk, ws] = items[items.length - 1]; L.push(`<b>${gl}: ${esc(compLabel(bk))}</b> gets promoted ${pct(rate(bs), 1)} of the time (${bs.n} tested), vs ${pct(rate(ws), 1)} for ${esc(compLabel(wk))}.`); }
+  }
+  const trainPass = comp.length ? mean(comp.filter(([k]) => k.startsWith("dir_")).map(([, s]) => s.trainOk / s.n)) : 0;
+  const o = mem.origins || {};
+  if (o.random?.n >= 30 && (o.mutation?.n || 0) + (o.crossover?.n || 0) >= 30) {
+    const rr = o.random.promo / o.random.n, bn = (o.mutation?.n || 0) + (o.crossover?.n || 0), br = ((o.mutation?.promo || 0) + (o.crossover?.promo || 0)) / bn;
+    L.push(br > rr * 1.25 ? `<b>Breeding is helping.</b> Bred strategies get promoted ${pct(br, 1)} of the time vs ${pct(rr, 1)} for random ones, even though they were only ever selected on 2021–2023.` : `<b>Breeding isn't beating luck yet.</b> Bred strategies get promoted ${pct(br, 1)} of the time vs ${pct(rr, 1)} for random ones. What looks best in training isn't carrying over.`);
+  }
+  L.push(`<b>Training flatters.</b> ${pct(trainPass)} of strategies made money on both markets in 2021–2023, but only ${pct(mem.promoted / Math.max(1, mem.tested), 1)} went on to beat buy-and-hold in 2024–2025.`);
+  return L;
+}
+function compLabel(k) {
+  return { entry_cross: "MA cross", entry_above_ma: "price vs MA", entry_momentum: "momentum", entry_breakout: "breakout", entry_dip: "dip buying", entry_rsi: "RSI reversal", filter_none: "no filter", filter_trend: "trend filter", filter_calm: "calm-weeks filter", filter_volatile: "volatile-weeks filter", exit_signal: "exit on flip", exit_time: "time exit", exit_trail: "trailing stop", exit_bracket: "stop + target", dir_long: "long only", dir_both: "long & short" }[k] || k;
+}
+function renderFoundry(force = false) {
+  const now = Date.now();
+  if (!force && now - lastFdRender < 700) return;
+  lastFdRender = now;
+  const perMin = rate.reduce((s, [, n]) => s + n, 0);
+  const best = mem.hall[0];
+  const saved = memState === "db" ? (lastSave ? "Saved " + new Date(lastSave).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "Memory loaded") : memState === "loading" ? "Loading memory…" : memState === "error" ? `Not saving (${saveErr || "error"})` : "Sign in to keep memory";
+  $("fdStats").innerHTML =
+    stat("Strategies tested", mem.tested.toLocaleString(), `generation ${mem.gen}`) +
+    stat("Promoted", mem.promoted.toLocaleString(), mem.tested ? pct(mem.promoted / mem.tested, 1) + " of tested" : "—", mem.promoted ? "good" : "") +
+    stat("Best unseen result", best ? fmtSigned((best.te.QQQ.net + best.te.SPY.net) / 2) : "—", best ? esc(best.name) + " · avg of both markets, 1 micro" : "nothing promoted yet") +
+    stat("Speed", fdRunning ? `${perMin.toLocaleString()}/min` : "Paused", fdNote || (fdRunning ? "pauses when this tab is hidden" : "")) +
+    stat("Memory", memState === "db" ? "On" : "Off", saved, memState === "db" ? "good" : "warn");
+  const o = mem.origins || {}, rr = o.random, ev = ["mutation", "crossover"].reduce((a, k) => ({ n: a.n + (o[k]?.n || 0), promo: a.promo + (o[k]?.promo || 0) }), { n: 0, promo: 0 });
+  $("fdLuck").textContent = rr?.n >= 20 ? `Luck check: ${pct(rr.promo / rr.n, 1)} of purely random ideas get promoted, vs ${ev.n ? pct(ev.promo / ev.n, 1) : "—"} of bred ones${o.ai?.n ? ` and ${pct(o.ai.promo / o.ai.n, 1)} of Claude's` : ""}. Only results well above the random rate mean anything.` : "";
+  $("fdHall").innerHTML = fdHead + "<tbody>" + (mem.hall.length ? mem.hall.slice(0, 10).map(fdRow).join("") : `<tr><td colspan="7" class="note">No promotions yet. Most ideas fail on unseen years, which is the point of the test.</td></tr>`) + "</tbody>";
+  $("fdBest").innerHTML = fdHead + "<tbody>" + (mem.best.length ? mem.best.slice(0, 8).map(fdRow).join("") : `<tr><td colspan="7" class="note">Waiting for the first results…</td></tr>`) + "</tbody>";
+  $("fdLessons").innerHTML = lessons().map((x) => `<li>${x}</li>`).join("");
+  const comp = Object.entries(mem.comp).sort((a, b) => a[0].localeCompare(b[0]));
+  $("fdComp").innerHTML = `<thead><tr><th>Building block</th><th class="num">Tested</th><th class="num">Made money 21–23</th><th class="num">Promoted</th><th class="num">Avg unseen P&amp;L</th></tr></thead><tbody>` +
+    (comp.length ? comp.map(([k, s]) => `<tr><td>${esc(compLabel(k))}</td><td class="num mono">${s.n}</td><td class="num mono">${pct(s.trainOk / s.n)}</td><td class="num mono ${s.promo ? "pos" : ""}">${pct(s.promo / s.n, 1)}</td><td class="num mono ${s.sumTest >= 0 ? "pos" : "neg"}">${fmtSigned(s.sumTest / s.n)}</td></tr>`).join("") : `<tr><td colspan="5" class="note">No data yet.</td></tr>`) + "</tbody>";
+  if (feedDirty || force) {
+    const items = feedItems.length ? feedItems : mem.log;
+    $("fdFeed").innerHTML = items.slice(0, 40).map((l) => `<div><span>${esc(l.name)}</span><span class="d" title="${esc(l.d)}">${esc(l.d)}</span><span>${verdictChip(l.v)}</span></div>`).join("") || `<div><span class="d">The foundry is warming up…</span></div>`;
+    feedDirty = false;
+  }
+  $("hudFoundry").lastElementChild.textContent = `Foundry ${fdRunning ? "running" : "paused"} · ${mem.tested.toLocaleString()} tested · ${mem.promoted} promoted`;
+  $("hudFoundry").className = "chip " + (fdRunning ? "good" : "warn");
+}
+function showDetail(id) {
+  const r = mem.hall.find((x) => x.id === id) || mem.best.find((x) => x.id === id);
+  if (!r) return;
+  fdSel = r;
+  const runs = FD_SYMS.map((s) => runG(r.g, s, ...WINDOWS.all));
+  const dates = HB.QQQ.filter((x) => x.d >= WINDOWS.all[0] && x.d < WINDOWS.all[1]).map((x) => x.d);
+  $("fdDetail").innerHTML = `<div class="panel-head"><h3>${esc(r.name)}</h3>${verdictChip(r.verdict)}</div><p class="note">${esc(describe(r.g))} · ${originTag(r.origin)}</p>
+    <div class="legend"><span><i style="background:var(--glow)"></i>Nasdaq (1 MNQ)</span><span><i style="background:var(--sun)"></i>S&amp;P (1 MES)</span><span><i style="background:color-mix(in srgb, var(--violet) 35%, transparent)"></i>Unseen 2024–25</span></div>
+    <svg id="fdChart" width="100%" height="220" role="img" aria-label="Equity curve of the selected strategy"></svg>
+    <div class="table-box"><table><thead><tr><th></th><th class="num">Nasdaq 21–23</th><th class="num">Nasdaq 24–25</th><th class="num">S&amp;P 21–23</th><th class="num">S&amp;P 24–25</th></tr></thead><tbody>
+    <tr><td>Net P&amp;L</td>${["QQQ", "SPY"].flatMap((s) => [r.tr[s], r.te[s]]).map((x) => `<td class="num mono ${x.net >= 0 ? "pos" : "neg"}">${fmtSigned(x.net)}</td>`).join("")}</tr>
+    <tr><td>Max drawdown</td>${["QQQ", "SPY"].flatMap((s) => [r.tr[s], r.te[s]]).map((x) => `<td class="num mono">${fmt$(x.dd)}</td>`).join("")}</tr>
+    <tr><td>Trades · win</td>${["QQQ", "SPY"].flatMap((s) => [r.tr[s], r.te[s]]).map((x) => `<td class="num mono">${x.trades} · ${pct(x.win)}</td>`).join("")}</tr></tbody></table></div>`;
+  lineChart($("fdChart"), dates.length, [{ data: runs[1].eq, color: cssVar("--sun"), width: 1.8 }, { data: runs[0].eq, color: cssVar("--glow"), width: 2.2, dot: true }], { h: 220, dates, zero: true, include: [0], yFmt: (v) => fmt$(v), shade: dates.map((d) => d >= "2024-01-01"), shadeColor: cssVar("--violet") });
+  renderFoundry(true);
+}
+for (const id of ["fdHall", "fdBest"]) {
+  $(id).addEventListener("click", (e) => { const tr = e.target.closest("tr[data-id]"); if (tr) showDetail(tr.dataset.id); });
+  $(id).addEventListener("keydown", (e) => { const tr = e.target.closest("tr[data-id]"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); showDetail(tr.dataset.id); } });
+}
+
+/* Claude invents new strategies from the foundry's memory (on click only) */
+$("fdInvent").addEventListener("click", async () => {
+  const btn = $("fdInvent");
+  if (!sample) { fdNote = "Claude isn't available in this view."; renderFoundry(true); return; }
+  btn.disabled = true; btn.textContent = "Claude is inventing…";
+  const comp = Object.fromEntries(Object.entries(mem.comp).map(([k, s]) => [k, { tested: s.n, promotedRate: +(s.promo / s.n).toFixed(3), avgUnseenPnl: Math.round(s.sumTest / s.n) }]));
+  const prompt = [
+    "You design weekly-bar trading strategies for a research lab that tests them on Nasdaq-100 and S&P 500 futures (2021-2023 training, 2024-2025 unseen test).",
+    "Reply with ONLY a JSON array of exactly 6 strategy objects, no other text. Each object has this shape:",
+    '{"entry": ENTRY, "filter": FILTER, "exit": EXIT, "dir": "long" | "both", "why": "one short sentence"}',
+    'ENTRY is one of: {"type":"cross","fast":2-30,"slow":5-52} | {"type":"above_ma","n":3-52} | {"type":"momentum","look":2-52,"thresh":0-15 (percent)} | {"type":"breakout","n":3-52} | {"type":"dip","drop":0.5-12 (percent weekly move)} | {"type":"rsi","n":2-20,"lo":10-45}',
+    'FILTER is one of: {"type":"none"} | {"type":"trend","n":5-52} | {"type":"calm"} | {"type":"volatile"}',
+    'EXIT is one of: {"type":"signal"} | {"type":"time","k":1-52} | {"type":"trail","pct":1-25} | {"type":"bracket","stop":1-20,"target":1-40}',
+    "Favor simple, robust ideas that should work on both markets. Use the lab's memory below: build on what gets promoted, avoid what fails, and include at least two ideas that explore something the lab has rarely tried.",
+    "LAB MEMORY building-block stats: " + JSON.stringify(comp),
+    "PROMOTED SO FAR: " + JSON.stringify(mem.hall.slice(0, 6).map((r) => ({ rule: describe(r.g), unseenAvg: Math.round((r.te.QQQ.net + r.te.SPY.net) / 2) }))),
+    "BEST IN TRAINING THAT FAILED UNSEEN: " + JSON.stringify(mem.best.filter((r) => r.verdict === "failed").slice(0, 5).map((r) => describe(r.g))),
+  ].join("\n");
+  try {
+    const ideas = await sample.json(prompt, { cache: false });
+    const list = (Array.isArray(ideas) ? ideas : []).map((x) => normalize(x)).filter(Boolean).slice(0, 6);
+    list.forEach((g) => queue.push({ g, origin: "ai" }));
+    fdNote = list.length ? `Claude invented ${list.length} strategies. Testing them now.` : "Claude's reply had no usable strategies. Try again.";
+    if (!fdRunning) setRunning(true, fdNote);
+  } catch (e) {
+    fdNote = e?.code === "not_granted" ? "Allow Claude for this page to use the inventor." : e?.code === "rate_limited" ? "Too many requests. Try again in a minute." : e?.code === "invalid_json" ? "Claude's reply couldn't be read. Try again." : "Claude couldn't answer just now. Try again.";
+  }
+  btn.disabled = false; btn.textContent = "Invent 6 with Claude";
+  renderFoundry(true);
+});
+
 /* ---------------- boot ---------------- */
 function renderAll() { renderEval(); renderChart(); renderJournal(); renderSizer(); if (reduce) frame(performance.now()); }
 resize(); addEventListener("resize", () => { resize(); renderChart(); renderMemory(); renderBT(); if (reduce) frame(performance.now()); });
@@ -1304,7 +1724,10 @@ renderMemory(); renderBT();
 renderLab(); renderChecks(); renderAll(); tickClock(); setInterval(tickClock, 1000);
 agentCard("guardian");
 requestAnimationFrame(frame);
-initStorage();
+const storageReady = initStorage();
+loadMem().then(() => { renderFoundry(true); fdTick(); });
+$("fdRun").textContent = fdRunning ? "Pause" : "Run";
+renderFoundry(true); setInterval(() => renderFoundry(), 800);
 (async () => {
   try { mcp = await window.claude?.use?.("mcp"); } catch { mcp = null; }
   startNews(); loadQuotes();
