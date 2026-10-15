@@ -1,0 +1,953 @@
+<title>Agent Farm</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a night-time hydroponic farm. The animated farm is the hero; instrument panels sit
+   below it like a control-room console, summary (eval status) first, then detail. Single dark look. */
+:root {
+  color-scheme: dark;
+  --soil: #081216;          /* page ground */
+  --panel: #0e1c21;         /* console panels */
+  --panel-2: #132830;       /* raised controls */
+  --line: #1e3a43;          /* hairlines */
+  --text: #dcefeb;
+  --muted: #86a5a2;
+  --glow: #49e2c0;          /* bioluminescent crop, the accent */
+  --sun: #ffb547;           /* lamps, warnings */
+  --good: #5ad98d;
+  --bad: #ff5f78;
+  --violet: #9b8cff;        /* secondary series */
+  --font-display: "Chakra Petch", "Rajdhani", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r: 10px;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--soil); color: var(--text); font-family: var(--font-body); font-size: 14px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 18px 40px;
+}
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 18px; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; letter-spacing: .02em; }
+h2 { font-size: 17px; font-weight: 600; }
+h3 { font-size: 14px; font-weight: 600; }
+.mono, .num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--font-data); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+a { color: var(--glow); }
+button, input, select, textarea { font: inherit; color: inherit; }
+button {
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+button:hover { border-color: var(--glow); }
+button.primary { background: color-mix(in srgb, var(--glow) 18%, var(--panel-2)); border-color: color-mix(in srgb, var(--glow) 55%, transparent); color: var(--text); font-weight: 600; }
+button:disabled { opacity: .5; cursor: default; }
+:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+input, select, textarea { background: var(--soil); border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; width: 100%; min-width: 0; }
+label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+
+/* header */
+.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+.brand h1 { font-size: clamp(26px, 4vw, 38px); font-weight: 700; line-height: 1.05; }
+.brand h1 span { color: var(--glow); }
+.brand p { margin: 4px 0 0; color: var(--muted); max-width: 60ch; }
+.clock { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; font-size: 12px; background: var(--panel); white-space: nowrap; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
+.chip.good .dot { background: var(--good); box-shadow: 0 0 8px var(--good); }
+.chip.warn .dot { background: var(--sun); box-shadow: 0 0 8px var(--sun); }
+.chip.bad .dot { background: var(--bad); box-shadow: 0 0 8px var(--bad); }
+
+/* farm */
+.farm { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #071014; }
+.farm canvas { display: block; width: 100%; height: clamp(300px, 46vw, 470px); cursor: pointer; }
+.farm-hud { position: absolute; left: 12px; top: 12px; right: 12px; display: flex; justify-content: space-between; gap: 8px; pointer-events: none; flex-wrap: wrap; }
+.farm-hud .chip { background: rgba(8, 18, 22, .78); backdrop-filter: blur(4px); }
+.agent-card {
+  position: absolute; right: 12px; bottom: 12px; width: min(340px, calc(100% - 24px));
+  background: rgba(10, 24, 29, .94); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 6px;
+}
+.agent-card .who { display: flex; align-items: center; gap: 8px; }
+.agent-card .swatch { width: 12px; height: 12px; border-radius: 3px; }
+.agent-card p { margin: 0; color: var(--muted); font-size: 13px; }
+.agent-card code { font-family: var(--font-data); font-size: 12px; color: var(--glow); }
+.roster { display: flex; flex-wrap: wrap; gap: 6px; }
+.roster button { font-size: 12px; padding: 4px 9px; display: inline-flex; gap: 6px; align-items: center; }
+.roster .swatch { width: 9px; height: 9px; border-radius: 2px; }
+
+/* console grid */
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.span-12 { grid-column: span 12; } .span-8 { grid-column: span 8; } .span-7 { grid-column: span 7; }
+.span-6 { grid-column: span 6; } .span-5 { grid-column: span 5; } .span-4 { grid-column: span 4; }
+@media (max-width: 980px) { .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: span 12; } }
+.note { color: var(--muted); font-size: 12.5px; margin: 0; }
+.banner { border: 1px dashed color-mix(in srgb, var(--sun) 60%, transparent); color: var(--sun); border-radius: 10px; padding: 8px 12px; font-size: 13px; }
+
+/* eval tracker */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.stat { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; gap: 2px; background: var(--soil); }
+.stat .v { font-family: var(--font-data); font-size: 21px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat .s { font-size: 12px; color: var(--muted); }
+.v.good { color: var(--good); } .v.bad { color: var(--bad); } .v.warn { color: var(--sun); }
+.meters { display: grid; gap: 12px; }
+.meter { display: grid; gap: 5px; }
+.meter .lab { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; }
+.bar { height: 10px; border-radius: 6px; background: var(--soil); border: 1px solid var(--line); overflow: hidden; position: relative; }
+.bar i { position: absolute; inset: 0 auto 0 0; border-radius: 6px; background: var(--glow); }
+.bar i.warn { background: var(--sun); } .bar i.bad { background: var(--bad); } .bar i.good { background: var(--good); }
+.status-pill { font-family: var(--font-data); font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid; }
+.status-pill.active { color: var(--glow); border-color: var(--glow); }
+.status-pill.passed { color: var(--good); border-color: var(--good); }
+.status-pill.failed { color: var(--bad); border-color: var(--bad); }
+
+/* chart */
+.chart-box { overflow-x: auto; }
+svg text { font-family: var(--font-data); font-size: 11px; fill: var(--muted); }
+
+/* journal */
+.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; align-items: end; }
+.table-box { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-family: var(--font-data); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+td.num, th.num { text-align: right; }
+td.wrap { white-space: normal; min-width: 160px; }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+.del { padding: 2px 8px; font-size: 12px; }
+
+/* strategy lab */
+.lab-bars { display: grid; gap: 8px; }
+.lab-row { display: grid; grid-template-columns: 140px 1fr 56px; gap: 10px; align-items: center; font-size: 13px; }
+.lab-row .track { position: relative; height: 18px; border-radius: 5px; background: var(--soil); border: 1px solid var(--line); }
+.lab-row .is { position: absolute; top: 3px; bottom: 3px; left: 0; border-radius: 3px; background: color-mix(in srgb, var(--violet) 45%, transparent); }
+.lab-row .oos { position: absolute; top: 6px; bottom: 6px; left: 0; border-radius: 3px; background: var(--glow); }
+.lab-row .base { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--sun); }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 8px; border-radius: 2px; display: inline-block; }
+.insights { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.insights li { border-left: 2px solid var(--line); padding: 2px 0 2px 12px; font-size: 13.5px; }
+.insights li b { color: var(--text); }
+@media (max-width: 520px) { .lab-row { grid-template-columns: 96px 1fr 46px; } }
+
+/* sizer & checklist */
+.big-out { font-family: var(--font-data); font-size: 34px; font-weight: 600; color: var(--glow); line-height: 1; }
+.check { display: grid; gap: 6px; }
+.check label { display: flex; gap: 10px; align-items: flex-start; color: var(--text); font-size: 13.5px; cursor: pointer; }
+.check input { width: auto; margin-top: 3px; accent-color: var(--glow); }
+
+/* market + news */
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.quote { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--soil); display: grid; gap: 2px; }
+.quote .px { font-family: var(--font-data); font-size: 20px; font-weight: 600; }
+.news { display: grid; gap: 10px; max-height: 560px; overflow-y: auto; padding-right: 4px; }
+.news article { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--soil); display: grid; gap: 6px; }
+.news .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); }
+.tag { font-family: var(--font-data); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); }
+.tag.hot { color: var(--sun); border-color: color-mix(in srgb, var(--sun) 60%, transparent); }
+.news h3 { font-family: var(--font-body); font-size: 14.5px; font-weight: 700; letter-spacing: 0; }
+.news details summary { cursor: pointer; color: var(--glow); font-size: 12.5px; }
+.news details p { margin: 8px 0 0; color: var(--muted); font-size: 13px; max-width: 75ch; }
+.state { color: var(--muted); font-size: 13px; border: 1px dashed var(--line); border-radius: 10px; padding: 12px; }
+
+/* coach */
+.chat { display: grid; gap: 10px; max-height: 420px; overflow-y: auto; }
+.msg { border-radius: 10px; padding: 10px 12px; white-space: pre-wrap; font-size: 13.5px; max-width: 90%; }
+.msg.me { justify-self: end; background: var(--panel-2); border: 1px solid var(--line); }
+.msg.ai { background: color-mix(in srgb, var(--glow) 8%, var(--soil)); border: 1px solid color-mix(in srgb, var(--glow) 30%, transparent); }
+.quick { display: flex; flex-wrap: wrap; gap: 6px; }
+.quick button { font-size: 12.5px; }
+.ask { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; }
+@media (max-width: 520px) { .ask { grid-template-columns: 1fr; } }
+footer { color: var(--muted); font-size: 12px; text-align: center; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="eyebrow">propbot · Lucid 25K daily eval · EOD drawdown</div>
+      <h1>Agent <span>Farm</span></h1>
+      <p>Your trading crew at work: research agents grow and test strategies, the risk guardian keeps the account inside Lucid's rules, and the scout brings in the news.</p>
+    </div>
+    <div class="clock" aria-live="polite">
+      <span class="chip" id="clockEt"><span class="dot"></span><span class="mono">--:--:-- ET</span></span>
+      <span class="chip" id="phase"><span class="dot"></span><span>Session</span></span>
+      <span class="chip" id="flatten"><span class="dot"></span><span class="mono">Flatten in --</span></span>
+    </div>
+  </header>
+
+  <section class="farm" aria-label="Animated agent farm">
+    <canvas id="farm" role="img" aria-label="An animated farm where small agent workers carry data between strategy greenhouses, a backtest mill, a Monte Carlo dice tower, the risk guardian's watchtower and a news antenna."></canvas>
+    <div class="farm-hud">
+      <span class="chip" id="hudCrew"><span class="dot"></span><span>11 agents on shift</span></span>
+      <span class="chip" id="hudGuard"><span class="dot"></span><span>Guardian armed</span></span>
+    </div>
+    <div class="agent-card" id="agentCard" aria-live="polite"></div>
+  </section>
+  <div class="roster" id="roster" aria-label="Agents"></div>
+
+  <div class="grid">
+    <!-- EVAL TRACKER -->
+    <section class="panel span-7" aria-labelledby="evalTitle">
+      <div class="panel-head">
+        <div><div class="eyebrow">Rule Keeper</div><h2 id="evalTitle">Evaluation status</h2></div>
+        <span class="status-pill active" id="evalStatus">ACTIVE</span>
+      </div>
+      <div class="banner" id="exampleBanner" hidden>Showing example days so you can see how the tracker works. Log your first real day below and these disappear.</div>
+      <div class="stats" id="evalStats"></div>
+      <div class="meters" id="evalMeters"></div>
+    </section>
+
+    <!-- TODAY'S BUDGET -->
+    <section class="panel span-5" aria-labelledby="todayTitle">
+      <div class="panel-head">
+        <div><div class="eyebrow">Risk Guardian</div><h2 id="todayTitle">Today's limits</h2></div>
+      </div>
+      <div class="stats" id="todayStats"></div>
+      <ul class="insights" id="todayRules"></ul>
+    </section>
+
+    <!-- EQUITY CHART -->
+    <section class="panel span-12" aria-labelledby="eqTitle">
+      <div class="panel-head">
+        <div><div class="eyebrow">Ledger</div><h2 id="eqTitle">Balance vs. trailing floor</h2></div>
+        <div class="legend">
+          <span><i style="background:var(--glow)"></i>EOD balance</span>
+          <span><i style="background:var(--bad)"></i>Liquidation floor</span>
+          <span><i style="background:var(--good)"></i>Target</span>
+          <span><i style="background:var(--sun)"></i>Intraday low</span>
+        </div>
+      </div>
+      <div class="chart-box"><svg id="eqChart" width="100%" height="260" role="img" aria-label="Equity curve"></svg></div>
+    </section>
+
+    <!-- JOURNAL -->
+    <section class="panel span-12" aria-labelledby="jTitle">
+      <div class="panel-head">
+        <div><div class="eyebrow">P&amp;L tracking</div><h2 id="jTitle">Trading journal</h2></div>
+        <span class="note" id="saveState">Checking storage…</span>
+      </div>
+      <form id="dayForm" class="form-row" autocomplete="off">
+        <label>Date <input id="fDate" type="date" required></label>
+        <label>Net P&amp;L ($) <input id="fPnl" type="number" step="0.01" required placeholder="e.g. 312.50"></label>
+        <label>Worst intraday P&amp;L ($) <input id="fLow" type="number" step="0.01" max="0" placeholder="e.g. -180"></label>
+        <label>Strategy <select id="fStrat"></select></label>
+        <label>Trades <input id="fTrades" type="number" min="0" step="1" placeholder="3"></label>
+        <label style="grid-column: 1 / -1">Notes <input id="fNotes" type="text" maxlength="300" placeholder="What worked, what didn't, followed the plan?"></label>
+        <div style="display:flex; gap:8px; flex-wrap:wrap"><button class="primary" type="submit">Log day</button><span class="note" id="formMsg"></span></div>
+      </form>
+      <div class="table-box"><table id="jTable"></table></div>
+    </section>
+
+    <!-- STRATEGY LAB -->
+    <section class="panel span-7" aria-labelledby="labTitle">
+      <div class="panel-head">
+        <div><div class="eyebrow">Strategy Breeders · Monte Carlo Tower</div><h2 id="labTitle">Strategy lab: chance of passing</h2></div>
+        <div class="legend">
+          <span><i style="background:color-mix(in srgb, var(--violet) 45%, transparent)"></i>Tuned period</span>
+          <span><i style="background:var(--glow)"></i>Unseen period</span>
+          <span><i style="background:var(--sun); width:3px"></i>Coin-flip 28%</span>
+        </div>
+      </div>
+      <div class="lab-bars" id="labBars"></div>
+      <div class="table-box"><table id="labTable"></table></div>
+      <p class="note">From the walk-forward run on 750 days of <b>simulated</b> MNQ: each strategy tuned on the first 60% of days, then run unchanged with its sizing plan on the last 40%. Simulated markets can't prove an edge. Re-run on real 1-minute data with <code class="mono">python -m propbot.research --csv your_mnq.csv</code>.</p>
+    </section>
+
+    <section class="panel span-5" aria-labelledby="insTitle">
+      <div><div class="eyebrow">What the research says</div><h2 id="insTitle">Lessons so far</h2></div>
+      <ul class="insights">
+        <li><b>Backtest winners mostly fell apart on unseen days.</b> VWAP reversion looked best when tuned (44% pass) and collapsed to 8.5% on new data. Always judge a strategy on days it was not tuned on.</li>
+        <li><b>±5% around 28% is noise.</b> On a pure random walk with nothing to find, the "best" strategy still scored 33% on unseen days.</li>
+        <li><b>Prior-day levels is the one to test on real data.</b> It was the only setup that stayed profitable (profit factor 1.07) on unseen simulated days, at 35% pass with 4 micros, a $450 daily stop and a $625 profit cap.</li>
+        <li><b>Size to your edge.</b> With no edge, small size mostly runs out of time, and a few large trades are a coin flip (~45% pass). Small size only wins when the strategy has a real, proven edge.</li>
+        <li><b>Bank at most $625 a day.</b> That keeps you inside the 50% consistency rule, so hitting $1,250 actually passes.</li>
+      </ul>
+    </section>
+
+    <!-- SIZER -->
+    <section class="panel span-4" aria-labelledby="sizeTitle">
+      <div><div class="eyebrow">Surveyor</div><h2 id="sizeTitle">Position sizer</h2></div>
+      <div class="form-row">
+        <label>Contract
+          <select id="sCt"><option value="MNQ">MNQ ($2/pt)</option><option value="MES">MES ($5/pt)</option><option value="NQ">NQ ($20/pt)</option><option value="ES">ES ($50/pt)</option></select>
+        </label>
+        <label>Stop (points) <input id="sStop" type="number" min="0.25" step="0.25" value="20"></label>
+        <label>Risk this trade ($) <input id="sRisk" type="number" min="1" step="1" value="150"></label>
+      </div>
+      <div><div class="big-out" id="sOut">--</div><p class="note" id="sNote"></p></div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="panel span-4" aria-labelledby="ckTitle">
+      <div class="panel-head"><div><div class="eyebrow">Pre-market</div><h2 id="ckTitle">Trade-day checklist</h2></div><button type="button" id="ckReset">Reset</button></div>
+      <div class="check" id="checklist"></div>
+      <p class="note">Saved in this browser, resets each day.</p>
+    </section>
+
+    <!-- QUOTES -->
+    <section class="panel span-4" aria-labelledby="qTitle">
+      <div class="panel-head"><div><div class="eyebrow">Market pulse · Alpha Vantage</div><h2 id="qTitle">Index proxies</h2></div><button type="button" id="qRefresh">Refresh</button></div>
+      <div class="quotes" id="quotes"><div class="state">Loading quotes…</div></div>
+      <p class="note" id="qNote">QQQ tracks the Nasdaq-100 (NQ/MNQ); SPY tracks the S&amp;P 500 (ES/MES). Free Alpha Vantage keys allow 25 requests a day.</p>
+    </section>
+
+    <!-- NEWS -->
+    <section class="panel span-7" aria-labelledby="nTitle">
+      <div class="panel-head"><div><div class="eyebrow">Scout · Zacks</div><h2 id="nTitle">News feed</h2></div><span class="note" id="nUpdated"></span></div>
+      <div class="news" id="news"><div class="state">The scout is fetching market news…</div></div>
+    </section>
+
+    <!-- COACH -->
+    <section class="panel span-5" aria-labelledby="cTitle">
+      <div><div class="eyebrow">Coach</div><h2 id="cTitle">Ask your trading coach</h2></div>
+      <p class="note">Reads your eval status, journal, strategy results and the latest headlines, then answers. Uses your own Claude usage. Coaching, not financial advice.</p>
+      <div class="quick" id="quick">
+        <button type="button" data-q="Review my journal. What patterns do you see, and what one change would most improve my chance of passing?">Review my journal</button>
+        <button type="button" data-q="Given today's limits and the latest headlines, how should I approach today's session? Include whether to sit out.">Plan today</button>
+        <button type="button" data-q="Explain how the EOD trailing drawdown and 50% consistency rule affect me right now, with my actual numbers.">Explain my rules</button>
+        <button type="button" data-q="Which strategy in the lab should I paper-trade first and why? Be honest about what the simulated results can and cannot tell me.">Pick a strategy</button>
+      </div>
+      <div class="chat" id="chat" aria-live="polite"></div>
+      <form class="ask" id="askForm">
+        <input id="askIn" type="text" placeholder="Ask about your account, a setup, discipline…" maxlength="1000">
+        <button class="primary" type="submit" id="askBtn">Ask</button>
+        <button type="button" id="stopBtn" hidden>Stop</button>
+      </form>
+    </section>
+  </div>
+  <footer>propbot Agent Farm · research results are from simulated data · nothing here is investment advice</footer>
+</div>
+
+<script>
+(() => {
+"use strict";
+const $ = (id) => document.getElementById(id);
+const fmt$ = (v, d = 0) => (v < 0 ? "−$" : "$") + Math.abs(v).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmtSigned = (v, d = 0) => (v > 0 ? "+" : "") + fmt$(v, d);
+const pct = (v, d = 0) => (v * 100).toFixed(d) + "%";
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const cssVar = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------------- rules (mirrors propbot/rules.py) ---------------- */
+const RULES = { start: 25000, target: 1250, maxLoss: 1000, dll: 600, consistency: 0.5, minDays: 2, maxMicros: 20, buffer: 50 };
+const CONTRACTS = { MNQ: { pv: 2, comm: 1.04, micro: true }, MES: { pv: 5, comm: 1.04, micro: true }, NQ: { pv: 20, comm: 4, micro: false }, ES: { pv: 50, comm: 4, micro: false } };
+
+function evaluate(days) {
+  const sorted = [...days].sort((a, b) => a.date.localeCompare(b.date));
+  let bal = RULES.start, eodHigh = RULES.start, floor = RULES.start - RULES.maxLoss;
+  let best = 0, traded = 0, status = "active", reason = "", passedOn = null, dllHits = 0;
+  const series = [];
+  for (const d of sorted) {
+    const startBal = bal, low = Math.min(Number.isFinite(d.low) ? d.low : 0, d.pnl, 0);
+    const floorToday = floor;
+    if (status === "active") {
+      if (low <= -RULES.dll) dllHits++;
+      if (startBal + low <= floorToday) { status = "failed"; reason = "Touched the trailing floor on " + d.date; }
+    }
+    bal += d.pnl;
+    if ((d.trades ?? 1) > 0 || d.pnl !== 0) traded++;
+    best = Math.max(best, d.pnl);
+    const profit = bal - RULES.start;
+    const effTarget = Math.max(RULES.target, best / RULES.consistency);
+    if (status === "active" && traded >= RULES.minDays && profit >= effTarget) { status = "passed"; passedOn = d.date; reason = "Target reached with consistency on " + d.date; }
+    eodHigh = Math.max(eodHigh, bal);
+    floor = Math.max(floor, eodHigh - RULES.maxLoss);
+    series.push({ date: d.date, bal, floor: floorToday, nextFloor: floor, low: startBal + low, effTarget: RULES.start + effTarget });
+  }
+  const profit = bal - RULES.start;
+  const effTarget = Math.max(RULES.target, best / RULES.consistency);
+  const room = bal - floor;
+  const maxLossToday = Math.max(0, Math.min(room - RULES.buffer, RULES.dll - RULES.buffer));
+  const profitCap = Math.max(RULES.consistency * effTarget, RULES.consistency * Math.max(profit, 0) / (1 - RULES.consistency));
+  return { bal, profit, floor, eodHigh, best, traded, status, reason, effTarget, room, maxLossToday, profitCap, needed: Math.max(0, effTarget - profit), series, dllHits, passedOn };
+}
+
+/* ---------------- research results (propbot.research, synthetic 750d, frozen IS plan) ---------------- */
+const LAB = [
+  { key: "prior_day_levels", name: "Prior-day levels", is: .434, oos: .354, pfIs: 1.185, pf: 1.066, trades: 217, win: .525, exp: 3.29, cost: 155.6, days: 11, plan: "4 MNQ · stop $450 · cap $625", params: "breakout & retest, 1 ATR stop, 1R target, entries till 14:00", nul: .186 },
+  { key: "orb", name: "Opening range breakout", is: .342, oos: .284, pfIs: .856, pf: .854, trades: 388, win: .461, exp: -13.32, cost: 194.1, days: 5, plan: "10 MNQ · no stop · cap $625", params: "15-min range, 4-tick buffer, stop at range mid, 1R", nul: .233 },
+  { key: "vwap_pullback", name: "VWAP pullback", is: .263, oos: .259, pfIs: .887, pf: .940, trades: 516, win: .483, exp: -4.05, cost: 212.5, days: 5, plan: "10 MNQ · no stop · cap $625", params: "touch within 0.25 ATR, 1 ATR stop, 1R", nul: .214 },
+  { key: "ema_trend", name: "EMA trend pullback", is: .378, oos: .234, pfIs: 1.086, pf: .937, trades: 411, win: .392, exp: -7.17, cost: 234.9, days: 14, plan: "1 MNQ · stop $450 · cap $625", params: "9/34 EMA on 5-min, ADX ≥ 25, 1.5R", nul: .124 },
+  { key: "opening_drive", name: "Opening drive", is: .192, oos: .125, pfIs: .818, pf: 1.035, trades: 70, win: .371, exp: 1.94, cost: 441.7, days: 24, plan: "6 MNQ · no caps", params: "15-min drive > 0.2× avg range, 38% pullback, 1.5R", nul: .212 },
+  { key: "vwap_reversion", name: "VWAP band reversion", is: .440, oos: .085, pfIs: 1.236, pf: .751, trades: 405, win: .148, exp: -8.41, cost: 650.4, days: 21, plan: "2 MNQ · cap $625", params: "fade 2σ bands to VWAP, 1 ATR stop, skip trend days", nul: .331 },
+];
+const BASELINE = 0.28;
+
+/* ---------------- journal storage ---------------- */
+const EXAMPLES = [
+  { date: "2026-10-05", pnl: 240, low: -90, strategy: "prior_day_levels", trades: 2, notes: "Example: clean retest of PDH, took 1R twice." },
+  { date: "2026-10-06", pnl: -310, low: -380, strategy: "orb", trades: 3, notes: "Example: chased a breakout after stop-out. Broke rule 3." },
+  { date: "2026-10-07", pnl: 455, low: -60, strategy: "prior_day_levels", trades: 2, notes: "Example: stopped at the profit cap, walked away." },
+  { date: "2026-10-08", pnl: 180, low: -120, strategy: "prior_day_levels", trades: 1, notes: "Example: one trade, CPI day, sat out after." },
+];
+let realDays = [];
+let db = null, coll = null, storageMode = "loading";
+const usingExamples = () => realDays.length === 0;
+const currentDays = () => (usingExamples() ? EXAMPLES : realDays);
+
+function cleanDay(raw, id) {
+  const pnl = Number(raw.pnl);
+  if (!Number.isFinite(pnl)) return null;
+  const date = typeof raw.date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(raw.date) ? raw.date : id;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date || "")) return null;
+  const low = raw.low === null || raw.low === undefined || raw.low === "" ? NaN : Number(raw.low);
+  return { date, pnl, low: Number.isFinite(low) ? Math.min(low, 0) : NaN, strategy: String(raw.strategy || ""), trades: Number.isFinite(Number(raw.trades)) ? Number(raw.trades) : null, notes: String(raw.notes || "").slice(0, 300) };
+}
+
+async function initStorage() {
+  try {
+    const [dbNs, userNs] = await Promise.all([window.claude?.use?.("db"), window.claude?.use?.("user")]);
+    if (!dbNs || !userNs) throw new Error("unavailable");
+    const id = await userNs.id();
+    if (!id) throw new Error("no id");
+    db = dbNs; coll = db.collection("data/users/" + id);
+    storageMode = "db";
+    $("saveState").textContent = "Saved privately to your account";
+    coll.onSnapshot((snap) => {
+      realDays = snap.docs.map((d) => cleanDay(d.data() || {}, d.id)).filter(Boolean);
+      renderAll();
+    }, (e) => { $("saveState").textContent = "Couldn't load your journal (" + (e?.code || "error") + "). Entries this visit are kept until you close the page."; });
+  } catch {
+    storageMode = "memory";
+    $("saveState").textContent = "Sign in on claude.ai to save your journal. Entries are kept until you close the page.";
+  }
+}
+
+async function saveDay(day) {
+  if (storageMode === "db" && coll) {
+    await coll.doc(day.date).set({ ...day, low: Number.isFinite(day.low) ? day.low : null, updatedAt: new Date().toISOString() });
+  } else {
+    realDays = realDays.filter((d) => d.date !== day.date).concat(day);
+    renderAll();
+  }
+}
+async function deleteDay(date) {
+  if (storageMode === "db" && coll) await coll.doc(date).delete();
+  else { realDays = realDays.filter((d) => d.date !== date); renderAll(); }
+}
+
+/* ---------------- clock ---------------- */
+const ET = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour12: false, weekday: "short", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+const ETDATE = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" });
+function etNow() {
+  const parts = Object.fromEntries(ET.formatToParts(new Date()).map((p) => [p.type, p.value]));
+  const h = Number(parts.hour) % 24, m = Number(parts.minute), s = Number(parts.second);
+  return { wd: parts.weekday, h, m, s, mins: h * 60 + m + s / 60, label: `${String(h).padStart(2, "0")}:${parts.minute}:${parts.second}` };
+}
+let phaseNow = { name: "", kind: "" };
+function tickClock() {
+  const t = etNow();
+  const weekend = t.wd === "Sat" || t.wd === "Sun";
+  let name, kind;
+  if (weekend) { name = "Weekend: market closed"; kind = "bad"; }
+  else if (t.mins < 570) { name = "Pre-market: plan, no trades"; kind = "warn"; }
+  else if (t.mins < 600) { name = "Opening range forming"; kind = "warn"; }
+  else if (t.mins < 690) { name = "Prime window"; kind = "good"; }
+  else if (t.mins < 810) { name = "Lunch chop: size down"; kind = "warn"; }
+  else if (t.mins < 955) { name = "Afternoon session"; kind = "good"; }
+  else if (t.mins < 960) { name = "Flatten now"; kind = "bad"; }
+  else { name = "After hours: review"; kind = "bad"; }
+  phaseNow = { name, kind };
+  setChip($("clockEt"), t.label + " ET", "");
+  setChip($("phase"), name, kind);
+  const left = 955 - t.mins;
+  setChip($("flatten"), !weekend && left > 0 && t.mins >= 570 ? "Flatten in " + Math.floor(left / 60) + "h " + String(Math.floor(left % 60)).padStart(2, "0") + "m" : "Flat by 15:55 ET", !weekend && left > 0 && left < 20 ? "bad" : "");
+}
+function setChip(el, text, kind) {
+  el.className = "chip" + (kind ? " " + kind : "");
+  el.lastElementChild.textContent = text;
+}
+
+/* ---------------- render: eval ---------------- */
+function stat(label, value, sub, cls = "") {
+  return `<div class="stat"><span class="eyebrow">${esc(label)}</span><span class="v ${cls}">${value}</span>${sub ? `<span class="s">${sub}</span>` : ""}</div>`;
+}
+function meter(label, right, frac, cls) {
+  const w = Math.max(0, Math.min(1, frac)) * 100;
+  return `<div class="meter"><div class="lab"><span>${label}</span><span class="mono">${right}</span></div><div class="bar" role="progressbar" aria-valuenow="${w.toFixed(0)}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(label)}"><i class="${cls}" style="width:${w}%"></i></div></div>`;
+}
+let lastEval = null;
+function renderEval() {
+  const ev = evaluate(currentDays());
+  lastEval = ev;
+  $("exampleBanner").hidden = !usingExamples();
+  const pill = $("evalStatus");
+  pill.className = "status-pill " + ev.status;
+  pill.textContent = ev.status === "passed" ? "PASSED: STOP TRADING" : ev.status === "failed" ? "FAILED" : "ACTIVE";
+  const roomCls = ev.room < 300 ? "bad" : ev.room < 600 ? "warn" : "good";
+  $("evalStats").innerHTML =
+    stat("Balance", fmt$(ev.bal, 2), fmtSigned(ev.profit, 2) + " total", ev.profit >= 0 ? "good" : "bad") +
+    stat("Liquidation floor", fmt$(ev.floor), "trails EOD high " + fmt$(ev.eodHigh)) +
+    stat("Room to floor", fmt$(ev.room), ev.room < 600 ? "Danger zone" : "OK", roomCls) +
+    stat("Still needed", fmt$(ev.needed), "target " + fmt$(ev.effTarget) + (ev.effTarget > RULES.target ? " (raised by consistency)" : ""));
+  const progress = ev.profit / ev.effTarget;
+  const consFrac = ev.profit > 0 ? ev.best / ev.profit : 0;
+  $("evalMeters").innerHTML =
+    meter("Profit target", `${fmt$(Math.max(ev.profit, 0))} / ${fmt$(ev.effTarget)}`, progress, progress >= 1 ? "good" : "") +
+    meter("Drawdown used", `${fmt$(RULES.maxLoss - ev.room)} / ${fmt$(RULES.maxLoss)}`, (RULES.maxLoss - ev.room) / RULES.maxLoss, ev.room < 300 ? "bad" : ev.room < 600 ? "warn" : "good") +
+    meter("Best day share (max 50%)", ev.profit > 0 ? `${pct(consFrac)} · best ${fmt$(ev.best)}` : "—", consFrac, consFrac > 0.5 ? "bad" : consFrac > 0.4 ? "warn" : "good") +
+    meter("Trading days (min 2)", `${ev.traded} / ${RULES.minDays}`, ev.traded / RULES.minDays, ev.traded >= 2 ? "good" : "");
+
+  const blocked = ev.status !== "active";
+  $("todayStats").innerHTML =
+    stat("Max loss today", blocked ? "—" : fmt$(ev.maxLossToday), "lesser of floor room and $600 limit, minus $50 buffer", blocked ? "" : ev.maxLossToday < 200 ? "bad" : "warn") +
+    stat("Profit cap today", blocked ? "—" : fmt$(ev.profitCap), "bank this, then stop", blocked ? "" : "good");
+  const rules = [];
+  if (ev.status === "passed") rules.push("<b>You passed.</b> Stop trading the evaluation account and wait for the funded account.");
+  else if (ev.status === "failed") rules.push("<b>Account failed.</b> " + esc(ev.reason) + ". Review the journal before buying a reset.");
+  else {
+    rules.push(`Stop for the day if you are down <b>${fmt$(ev.maxLossToday)}</b>. The firm's hard limit is $600.`);
+    rules.push(`Stop adding trades once you are up <b>${fmt$(ev.profitCap)}</b>, so no single day goes over 50% of your total.`);
+    rules.push(`Max size <b>20 micros or 2 minis</b>, and only if your stop risk fits the loss limit above.`);
+    rules.push(`Be flat by <b>15:55 ET</b>. The guardian force-closes positions at that time.`);
+    if (ev.dllHits) rules.push(`You hit the daily loss limit on <b>${ev.dllHits}</b> day${ev.dllHits > 1 ? "s" : ""}. Consider a tighter personal stop.`);
+  }
+  $("todayRules").innerHTML = rules.map((r) => `<li>${r}</li>`).join("");
+  $("hudGuard").lastElementChild.textContent = ev.status === "active" ? `Guardian armed · ${fmt$(ev.room)} to floor` : ev.status === "passed" ? "Guardian: passed, trading halted" : "Guardian: account failed";
+  $("hudGuard").className = "chip " + (ev.status === "failed" ? "bad" : ev.room < 600 ? "warn" : "good");
+}
+
+/* ---------------- render: chart ---------------- */
+function renderChart() {
+  const svg = $("eqChart");
+  const ev = lastEval;
+  const W = Math.max(svg.clientWidth || 600, 320), H = 260, L = 64, R = 16, T = 14, B = 30;
+  const pts = [{ date: "start", bal: RULES.start, floor: RULES.start - RULES.maxLoss, low: RULES.start, effTarget: RULES.start + RULES.target }, ...ev.series];
+  const vals = pts.flatMap((p) => [p.bal, p.floor, p.low, p.effTarget]);
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  const padV = (hi - lo) * 0.08 || 100; lo -= padV; hi += padV;
+  const x = (i) => L + (pts.length === 1 ? 0 : (i / (pts.length - 1)) * (W - L - R));
+  const y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+  const step = niceStep((hi - lo) / 4);
+  let grid = "";
+  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) {
+    grid += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${cssVar("--line")}" stroke-width="1"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${fmt$(v)}</text>`;
+  }
+  const line = (key) => pts.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p[key]).toFixed(1)}`).join("");
+  const stepLine = (key) => pts.map((p, i) => (i ? `L${x(i).toFixed(1)},${y(pts[i - 1][key]).toFixed(1)}L${x(i).toFixed(1)},${y(p[key]).toFixed(1)}` : `M${x(0)},${y(p[key])}`)).join("");
+  const area = line("bal") + `L${x(pts.length - 1)},${H - B}L${x(0)},${H - B}Z`;
+  const glow = cssVar("--glow");
+  const labels = pts.map((p, i) => (pts.length <= 12 || i % Math.ceil(pts.length / 10) === 0 || i === pts.length - 1) ? `<text x="${x(i)}" y="${H - 10}" text-anchor="middle">${p.date === "start" ? "start" : p.date.slice(5)}</text>` : "").join("");
+  const lows = pts.slice(1).map((p, i) => p.low < p.bal ? `<line x1="${x(i + 1)}" x2="${x(i + 1)}" y1="${y(p.bal)}" y2="${y(p.low)}" stroke="${cssVar("--sun")}" stroke-width="2" stroke-dasharray="2 2"/><circle cx="${x(i + 1)}" cy="${y(p.low)}" r="2.5" fill="${cssVar("--sun")}"/>` : "").join("");
+  const last = pts[pts.length - 1];
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.innerHTML = `<defs><linearGradient id="eqFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${glow}" stop-opacity=".28"/><stop offset="1" stop-color="${glow}" stop-opacity="0"/></linearGradient></defs>
+    ${grid}
+    <path d="${stepLine("effTarget")}" fill="none" stroke="${cssVar("--good")}" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <path d="${stepLine("floor")}" fill="none" stroke="${cssVar("--bad")}" stroke-width="2"/>
+    <path d="${area}" fill="url(#eqFill)"/>
+    ${lows}
+    <path d="${line("bal")}" fill="none" stroke="${glow}" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="${x(pts.length - 1)}" cy="${y(last.bal)}" r="5" fill="${glow}" stroke="${cssVar("--soil")}" stroke-width="2"/>
+    ${labels}`;
+}
+function niceStep(raw) { const p = Math.pow(10, Math.floor(Math.log10(raw))); const n = raw / p; return (n < 1.5 ? 1 : n < 3 ? 2 : n < 7 ? 5 : 10) * p; }
+
+/* ---------------- render: journal ---------------- */
+const STRAT_NAMES = Object.fromEntries(LAB.map((s) => [s.key, s.name]));
+function renderJournal() {
+  const rows = [...currentDays()].sort((a, b) => b.date.localeCompare(a.date));
+  const ex = usingExamples();
+  $("jTable").innerHTML = `<thead><tr><th>Date</th><th class="num">Net P&amp;L</th><th class="num">Worst intraday</th><th>Strategy</th><th class="num">Trades</th><th>Notes</th><th></th></tr></thead><tbody>` +
+    rows.map((d) => `<tr><td class="mono">${esc(d.date)}${ex ? ' <span class="tag">example</span>' : ""}</td><td class="num mono ${d.pnl >= 0 ? "pos" : "neg"}">${fmtSigned(d.pnl, 2)}</td><td class="num mono">${Number.isFinite(d.low) ? fmt$(d.low, 0) : "—"}</td><td>${esc(STRAT_NAMES[d.strategy] || d.strategy || "—")}</td><td class="num mono">${d.trades ?? "—"}</td><td class="wrap">${esc(d.notes)}</td><td>${ex ? "" : `<button class="del" type="button" data-del="${esc(d.date)}" aria-label="Delete ${esc(d.date)}">Delete</button>`}</td></tr>`).join("") + "</tbody>";
+}
+$("jTable").addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-del]"); if (!b) return;
+  if (b.dataset.armed !== "1") { b.dataset.armed = "1"; b.textContent = "Confirm"; setTimeout(() => { b.dataset.armed = ""; b.textContent = "Delete"; }, 3000); return; }
+  b.disabled = true;
+  try { await deleteDay(b.dataset.del); } catch (err) { $("formMsg").textContent = "Couldn't delete: " + (err?.code || "error"); b.disabled = false; }
+});
+$("fStrat").innerHTML = `<option value="">Discretionary</option>` + LAB.map((s) => `<option value="${s.key}">${esc(s.name)}</option>`).join("");
+$("fDate").value = ETDATE.format(new Date());
+$("dayForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const day = cleanDay({ date: $("fDate").value, pnl: $("fPnl").value, low: $("fLow").value, strategy: $("fStrat").value, trades: $("fTrades").value === "" ? null : $("fTrades").value, notes: $("fNotes").value.trim() });
+  if (!day) { $("formMsg").textContent = "Enter a date and a net P&L."; return; }
+  if (Number.isFinite(day.low) && day.low > Math.min(day.pnl, 0)) day.low = Math.min(day.pnl, 0);
+  $("formMsg").textContent = "Saving…";
+  try { await saveDay(day); $("formMsg").textContent = "Logged " + day.date + "."; $("fPnl").value = ""; $("fLow").value = ""; $("fNotes").value = ""; $("fTrades").value = ""; }
+  catch (err) { $("formMsg").textContent = "Couldn't save (" + (err?.code || "error") + "). Try again."; }
+});
+
+/* ---------------- render: lab ---------------- */
+function renderLab() {
+  const max = 0.5;
+  $("labBars").innerHTML = LAB.map((s) => `<div class="lab-row"><span>${esc(s.name)}</span><div class="track" title="Tuned ${pct(s.is, 1)} · unseen ${pct(s.oos, 1)}"><span class="is" style="width:${(s.is / max) * 100}%"></span><span class="oos" style="width:${(s.oos / max) * 100}%"></span><span class="base" style="left:${(BASELINE / max) * 100}%"></span></div><span class="mono ${s.oos > BASELINE + .05 ? "pos" : s.oos < BASELINE - .05 ? "neg" : ""}">${pct(s.oos)}</span></div>`).join("");
+  $("labTable").innerHTML = `<thead><tr><th>Strategy</th><th class="num">Pass (unseen)</th><th class="num">Profit factor</th><th class="num">Win rate</th><th class="num">$/trade (1 micro)</th><th class="num">Cost per pass</th><th class="num">Median days</th><th class="num">Random-walk check</th><th>Sizing plan</th><th>Settings</th></tr></thead><tbody>` +
+    LAB.map((s) => `<tr><td>${esc(s.name)}</td><td class="num mono">${pct(s.oos, 1)}</td><td class="num mono ${s.pf >= 1 ? "pos" : "neg"}">${s.pf.toFixed(2)}</td><td class="num mono">${pct(s.win)}</td><td class="num mono ${s.exp >= 0 ? "pos" : "neg"}">${fmtSigned(s.exp, 2)}</td><td class="num mono">${fmt$(s.cost)}</td><td class="num mono">${s.days}</td><td class="num mono">${pct(s.nul, 1)}</td><td>${esc(s.plan)}</td><td class="wrap">${esc(s.params)}</td></tr>`).join("") + "</tbody>";
+}
+
+/* ---------------- sizer ---------------- */
+function renderSizer() {
+  const c = CONTRACTS[$("sCt").value], stop = Math.max(0.25, Number($("sStop").value) || 0), want = Math.max(0, Number($("sRisk").value) || 0);
+  const tick = 0.25, perCt = stop * c.pv + c.comm + tick * c.pv;
+  const capCt = c.micro ? RULES.maxMicros : RULES.maxMicros / 10;
+  const budget = lastEval && lastEval.status === "active" ? Math.min(want, lastEval.maxLossToday) : want;
+  const n = Math.min(capCt, Math.floor(budget / perCt));
+  $("sOut").textContent = n > 0 ? `${n} ${$("sCt").value}` : "Skip";
+  $("sNote").textContent = n > 0
+    ? `Risk ${fmt$(n * perCt, 0)} if stopped (${fmt$(perCt, 2)} per contract incl. commission and 1 tick slippage).` + (budget < want ? ` Capped by today's loss limit of ${fmt$(lastEval.maxLossToday)}.` : "")
+    : `A ${stop}-point stop costs ${fmt$(perCt, 2)} per contract, more than your ${fmt$(budget)} budget. Use a tighter stop, a smaller contract, or skip the trade.`;
+}
+["sCt", "sStop", "sRisk"].forEach((id) => $(id).addEventListener("input", renderSizer));
+
+/* ---------------- checklist (per-viewer convenience) ---------------- */
+const CHECKS = ["Checked the economic calendar (CPI, FOMC, jobs). No new entries 5 minutes either side.", "Wrote today's max loss and profit cap from the Risk Guardian panel.", "Picked one strategy and its exact entry, stop and target before the open.", "Sized every trade with the position sizer, never by feel.", "No revenge trades: after two losses in a row, take a 30-minute break.", "Flat by 15:55 ET. Journal the day before closing the platform."];
+const ckKey = "agentfarm.checks." + ETDATE.format(new Date());
+function loadChecks() { try { return JSON.parse(localStorage.getItem(ckKey) || "[]"); } catch { return []; } }
+function renderChecks() {
+  const done = new Set(loadChecks());
+  $("checklist").innerHTML = CHECKS.map((c, i) => `<label for="ck${i}"><input type="checkbox" id="ck${i}" data-i="${i}" ${done.has(i) ? "checked" : ""}><span>${esc(c)}</span></label>`).join("");
+}
+$("checklist").addEventListener("change", () => {
+  const v = [...$("checklist").querySelectorAll("input:checked")].map((i) => Number(i.dataset.i));
+  try { localStorage.setItem(ckKey, JSON.stringify(v)); } catch {}
+});
+$("ckReset").addEventListener("click", () => { try { localStorage.removeItem(ckKey); } catch {} renderChecks(); });
+
+/* ---------------- connectors: quotes + news ---------------- */
+const AV = "Alpha Vantage MCP Server", ZACKS = "Zacks Data";
+let mcp = null;
+const latestNews = [];
+function mcpCopy(e, server) {
+  switch (e?.code) {
+    case "server_not_connected": case "selection_required": return `Add the ${server} connector in claude.ai Settings → Connectors to see this.`;
+    case "needs_reauth": return `Reconnect ${server} in claude.ai Settings → Connectors.`;
+    case "not_in_manifest": case "approval_required": case "consent_required": return `${server} isn't allowed for this page. Allow it from the page's Permissions menu.`;
+    case "blocked_by_policy": return `Your organization blocks ${server} here.`;
+    case "server_unavailable": return `${server} isn't responding right now. Try again in a minute.`;
+    case "tool_error": return `${server} reported an error: ${e.message || "unknown"}.`;
+    default: return `Couldn't reach ${server} (${e?.code || "error"}).`;
+  }
+}
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+async function loadQuotes(refresh = false) {
+  const box = $("quotes");
+  if (!mcp) { box.innerHTML = `<div class="state">Live quotes need the Alpha Vantage connector, which isn't available in this view.</div>`; return; }
+  $("qRefresh").disabled = true;
+  const out = [];
+  for (const sym of ["QQQ", "SPY"]) {
+    try {
+      const res = await mcp.callTool(AV, "GLOBAL_QUOTE", { symbol: sym, datatype: "json" }, { cache: { staleTime: 300000, gcTime: 21600000, refresh } });
+      let p = res.payload;
+      if (typeof p === "string") { try { p = JSON.parse(p); } catch {} }
+      const q = p && p["Global Quote"];
+      if (q && q["05. price"]) out.push({ sym, price: Number(q["05. price"]), chg: Number(q["09. change"]), chgPct: q["10. change percent"], day: q["07. latest trading day"], hi: Number(q["03. high"]), lo: Number(q["04. low"]) });
+      else out.push({ sym, err: (p && (p.error?.message || p.Note || p.Information)) ? "Alpha Vantage limit reached. Free keys allow 25 calls a day." : "No quote returned." });
+    } catch (e) { out.push({ sym, err: mcpCopy(e, "Alpha Vantage") }); }
+    await sleep(1200);
+  }
+  box.innerHTML = out.map((q) => q.err
+    ? `<div class="quote"><span class="eyebrow">${q.sym}</span><span class="note">${esc(q.err)}</span></div>`
+    : `<div class="quote"><span class="eyebrow">${q.sym} · ${esc(q.day)}</span><span class="px">${q.price.toFixed(2)}</span><span class="mono ${q.chg >= 0 ? "pos" : "neg"}">${q.chg >= 0 ? "+" : ""}${q.chg.toFixed(2)} (${esc(q.chgPct)})</span><span class="note">Range ${q.lo.toFixed(2)} – ${q.hi.toFixed(2)}</span></div>`).join("");
+  $("qRefresh").disabled = false;
+}
+$("qRefresh").addEventListener("click", () => loadQuotes(true));
+
+const HOT = /\b(fed|fomc|powell|cpi|inflation|pce|payrolls?|jobs report|unemployment|rate (hike|cut)|yields?|treasur|gdp|recession|tariff)/i;
+function fixText(s) { return String(s || "").replace(/(\w)\?(\w)/g, "$1’$2").trim(); }
+function parseZacks(result) {
+  const p = result?.payload;
+  const objs = [];
+  const visit = (v) => { if (Array.isArray(v)) v.forEach(visit); else if (v && typeof v === "object") { if (v.subject || v.headline) objs.push(v); else Object.values(v).forEach(visit); } };
+  if (p && typeof p === "object") visit(p);
+  if (objs.length) return objs.map((o) => ({ subject: fixText(o.subject || o.headline), date: o.publish_date || o.date || "", url: o.article_url || o.url || "", cat: o.category_name || "", summary: fixText(o.summary || "") }));
+  const text = typeof p === "string" ? p : (result?.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n");
+  return text.split(/^##\s+Key Facts\s*$/m).slice(1).map((chunk) => {
+    const facts = {};
+    for (const m of chunk.matchAll(/^\|\s*([a-z_]+)\s*\|\s*(.*?)\s*\|\s*$/gm)) if (m[1] !== "field") facts[m[1]] = m[2];
+    const sm = chunk.match(/^##\s+Summary\s*$([\s\S]*?)(?=^##\s|$(?![\s\S]))/m);
+    return { subject: fixText(facts.subject), date: facts.publish_date || "", url: facts.article_url || "", cat: facts.category_name || "", summary: fixText(sm ? sm[1] : "") };
+  }).filter((n) => n.subject);
+}
+function ageOf(dateStr) {
+  const m = /^(\d{2})\/(\d{2})\/(\d{4})\s+(\d{2}):(\d{2})/.exec(dateStr || "");
+  if (!m) return "";
+  const today = new Date(ETDATE.format(new Date()) + "T00:00:00Z"), d = new Date(`${m[3]}-${m[1]}-${m[2]}T00:00:00Z`);
+  const days = Math.round((today - d) / 86400000);
+  return days <= 0 ? "today" : days === 1 ? "1 day ago" : days + " days ago";
+}
+function renderNews(items, when) {
+  latestNews.length = 0; latestNews.push(...items);
+  $("news").innerHTML = items.length ? items.map((n) => {
+    const url = n.url && n.url.startsWith("/") ? "https://www.zacks.com" + n.url : n.url;
+    const hot = HOT.test(n.subject + " " + n.summary.slice(0, 600));
+    return `<article><div class="meta"><span class="mono">${esc(n.date)} ET</span><span>${esc(ageOf(n.date))}</span>${n.cat ? `<span class="tag">${esc(n.cat)}</span>` : ""}${hot ? '<span class="tag hot">Moves NQ</span>' : ""}</div><h3>${esc(n.subject)}</h3>${n.summary ? `<details><summary>Read summary</summary><p>${esc(n.summary.slice(0, 1600))}${n.summary.length > 1600 ? "…" : ""}</p></details>` : ""}${url && /^https:\/\//.test(url) ? `<a href="${esc(url)}" target="_blank" rel="noopener">Open on Zacks →</a>` : ""}</article>`;
+  }).join("") : `<div class="state">No Zacks market news in the last 15 days.</div>`;
+  $("nUpdated").textContent = when ? "Updated " + new Date(when).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "";
+  scoutCount = items.length;
+}
+function startNews() {
+  if (!mcp) { $("news").innerHTML = `<div class="state">The news feed needs the Zacks connector, which isn't available in this view.</div>`; return; }
+  mcp.watchTool(ZACKS, "get_real_time_news", { subcategory: [144, 126, 73], record_count: 5 }, (ev) => {
+    if (ev.type === "data") renderNews(parseZacks(ev.result), ev.result.cache?.storedAt || Date.now());
+    else {
+      const e = ev.error;
+      const denial = ["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest", "selection_required"].includes(e?.code);
+      if (denial || !latestNews.length) {
+        $("news").innerHTML = `<div class="state">${esc(mcpCopy(e, "Zacks"))}${e?.code === "approval_required" ? ' <button type="button" id="newsAllow">Allow and load news</button>' : ""}</div>`;
+        $("newsAllow")?.addEventListener("click", async () => {
+          try { const r = await mcp.callTool(ZACKS, "get_real_time_news", { subcategory: [144, 126, 73], record_count: 5 }); renderNews(parseZacks(r), Date.now()); }
+          catch (err) { $("news").innerHTML = `<div class="state">${esc(mcpCopy(err, "Zacks"))}</div>`; }
+        });
+      } else $("nUpdated").textContent = "Showing last update. Refresh failed.";
+    }
+  }, { refetchInterval: 600000, cache: { staleTime: 300000, gcTime: 3600000 } });
+}
+
+/* ---------------- coach (sample) ---------------- */
+let sample = null, ctl = null;
+const turns = [];
+function coachContext() {
+  const ev = lastEval;
+  const days = [...currentDays()].sort((a, b) => a.date.localeCompare(b.date)).slice(-20);
+  return [
+    "You are a disciplined futures trading coach for someone trying to pass a Lucid Trading 25K evaluation with EOD trailing drawdown.",
+    "Rules: +$1,250 profit target; $1,000 max loss trailing the highest end-of-day balance; $600 daily loss limit; 50% consistency (best day must be at most half of total profit); minimum 2 trading days; max 2 minis or 20 micros; flat by 15:55 ET.",
+    "Be concrete, short and practical (under 220 words unless asked). Use the trader's actual numbers. Never promise profits. Say clearly when evidence is weak. This is coaching, not financial advice.",
+    "",
+    "CURRENT ACCOUNT: " + JSON.stringify({ status: ev.status, balance: +ev.bal.toFixed(2), profit: +ev.profit.toFixed(2), floor: ev.floor, roomToFloor: +ev.room.toFixed(2), effectiveTarget: ev.effTarget, stillNeeded: +ev.needed.toFixed(2), bestDay: ev.best, tradingDays: ev.traded, maxLossToday: +ev.maxLossToday.toFixed(2), profitCapToday: +ev.profitCap.toFixed(2), dailyLossLimitHits: ev.dllHits }),
+    "JOURNAL" + (usingExamples() ? " (EXAMPLE DATA, the trader has not logged real days yet; say so)" : "") + ": " + JSON.stringify(days),
+    "MARKET SESSION NOW: " + phaseNow.name,
+    "STRATEGY LAB (simulated MNQ walk-forward; coin-flip baseline 28%; random-walk control shows ±5% is noise): " + JSON.stringify(LAB.map((s) => ({ name: s.name, passUnseen: s.oos, passTuned: s.is, profitFactorUnseen: s.pf, winRate: s.win, plan: s.plan }))),
+    "LATEST HEADLINES (Zacks): " + JSON.stringify(latestNews.slice(0, 6).map((n) => ({ when: n.date, headline: n.subject, gist: n.summary.slice(0, 280) }))),
+  ].join("\n");
+}
+function addMsg(role, text) {
+  const d = document.createElement("div"); d.className = "msg " + (role === "user" ? "me" : "ai"); d.textContent = text;
+  $("chat").append(d); $("chat").scrollTop = $("chat").scrollHeight; return d;
+}
+const SAMPLE_COPY = { not_granted: "The coach needs your permission to use Claude. Allow it from the page's Permissions menu.", sampling_disabled: "Claude isn't available for this account.", rate_limited: "Too many questions at once. Wait a moment and ask again.", session_expired: "Sign in to claude.ai again to use the coach.", refused: "The coach couldn't answer that one. Try rephrasing.", prompt_too_large: "Too much context. Clear a few journal notes and try again." };
+async function ask(q) {
+  if (!sample || !q.trim()) return;
+  turns.push({ role: "user", content: q.trim() });
+  addMsg("user", q.trim());
+  const bubble = addMsg("ai", "Thinking…");
+  ctl = new AbortController();
+  $("askBtn").disabled = true; $("stopBtn").hidden = false; coachBusy = true;
+  try {
+    const { text, truncated } = await sample([{ role: "user", content: coachContext() }, ...turns.slice(-8)], { cache: false, signal: ctl.signal, onText: ({ text }) => { bubble.textContent = text; $("chat").scrollTop = $("chat").scrollHeight; } });
+    bubble.textContent = text + (truncated ? "\n\n(Cut short. Ask for less at a time.)" : "");
+    turns.push({ role: "assistant", content: text });
+  } catch (e) {
+    if (e?.code === "cancelled") bubble.textContent = (e.text || "") + (e.text ? "\n\n(Stopped.)" : "Stopped.");
+    else bubble.textContent = (e?.text ? e.text + "\n\n" : "") + (SAMPLE_COPY[e?.code] || "The coach hit a problem. Ask again in a moment.");
+    turns.pop();
+  } finally { $("askBtn").disabled = false; $("stopBtn").hidden = true; coachBusy = false; }
+}
+$("askForm").addEventListener("submit", (e) => { e.preventDefault(); const v = $("askIn").value; $("askIn").value = ""; ask(v); });
+$("quick").addEventListener("click", (e) => { const b = e.target.closest("[data-q]"); if (b) ask(b.dataset.q); });
+$("stopBtn").addEventListener("click", () => ctl?.abort());
+
+/* ---------------- the farm ---------------- */
+const AGENTS = [
+  { id: "harvester", name: "Harvester", color: "#ffb547", home: "silo", role: "Loads market data", file: "propbot/data.py", desc: "Reads 1-minute bars exported from NinjaTrader, Tradovate or Databento and trims them to regular trading hours." },
+  { id: "weather", name: "Weather Maker", color: "#7fb8ff", home: "silo", role: "Simulates markets", file: "propbot/synthetic.py", desc: "Builds realistic simulated MNQ days (trend, range and reversal days, fat tails, news spikes) plus a pure random walk to catch curve-fitting." },
+  { id: "breeder1", name: "Breeder A", color: "#49e2c0", home: "gh0", role: "Grows strategies", file: "propbot/strategies/", desc: "Tends six strategy greenhouses: opening range breakout, VWAP pullback, VWAP reversion, opening drive, prior-day levels and EMA trend." },
+  { id: "breeder2", name: "Breeder B", color: "#49e2c0", home: "gh3", role: "Grows strategies", file: "propbot/strategies/", desc: "Runs each strategy's parameter grid (182 combinations) and hands the trades to the mill." },
+  { id: "miller", name: "Miller", color: "#d9a7ff", home: "mill", role: "Backtests", file: "propbot/backtest.py", desc: "Replays every bar: fills at the next bar's open with slippage, assumes the stop hits first when it's ambiguous, and flattens at 15:55." },
+  { id: "dice", name: "Dice Keeper", color: "#9b8cff", home: "tower", role: "Monte Carlo pass rates", file: "propbot/montecarlo.py", desc: "Rolls 10,000 simulated evaluations per strategy to estimate pass rate, days to pass and cost per pass against the 28% coin-flip baseline." },
+  { id: "surveyor", name: "Surveyor", color: "#ffd88a", home: "tower", role: "Sizing plans", file: "propbot/sizing.py", desc: "Finds the contract count, daily stop and daily profit cap that pass most often for each strategy's trades." },
+  { id: "rulekeeper", name: "Rule Keeper", color: "#5ad98d", home: "watch", role: "Lucid rules", file: "propbot/rules.py", desc: "Tracks balance, the EOD trailing floor, the 50% consistency rule and the two-day minimum, exactly as the eval scores them." },
+  { id: "guardian", name: "Risk Guardian", color: "#ff5f78", home: "watch", role: "Vetoes risky trades", file: "propbot/live/guardian.py", desc: "Sits between strategy and broker. Rejects or shrinks trades that could break the daily limit, flattens at 15:55, honours the STOP kill switch, and halts after a pass." },
+  { id: "runner", name: "Runner", color: "#ffffff", home: "pad", role: "Executes orders", file: "propbot/live/engine.py", desc: "Sends bracket orders to the broker. Running in paper mode until you pick NinjaTrader or Tradovate and Lucid confirms automation is allowed." },
+  { id: "scout", name: "Scout", color: "#4fd2ff", home: "antenna", role: "Brings news", file: "Zacks connector", desc: "Pulls market and economic news every 10 minutes and flags headlines that usually move the Nasdaq (Fed, CPI, jobs, yields)." },
+];
+let scoutCount = 0, coachBusy = false;
+const BUILDINGS = {
+  silo: { x: .1, y: .3, label: "Data silo" }, mill: { x: .32, y: .22, label: "Backtest mill" }, tower: { x: .55, y: .2, label: "Monte Carlo tower" },
+  watch: { x: .86, y: .3, label: "Guardian watchtower" }, antenna: { x: .9, y: .74, label: "News antenna" }, pad: { x: .66, y: .8, label: "Execution pad" },
+  gh0: { x: .2, y: .58 }, gh1: { x: .3, y: .7 }, gh2: { x: .42, y: .58 }, gh3: { x: .52, y: .7 }, gh4: { x: .64, y: .55 }, gh5: { x: .1, y: .78 },
+};
+const ROUTES = {
+  harvester: ["silo", "mill", "silo", "gh2", "silo"], weather: ["silo", "gh0", "gh5", "silo"], breeder1: ["gh0", "gh1", "gh5", "gh2", "mill"],
+  breeder2: ["gh3", "gh4", "gh2", "mill", "gh3"], miller: ["mill", "tower", "mill", "gh1"], dice: ["tower", "watch", "tower", "gh4"],
+  surveyor: ["tower", "gh3", "pad", "tower"], rulekeeper: ["watch", "pad", "watch", "tower"], guardian: ["watch", "pad", "antenna", "watch"],
+  runner: ["pad", "watch", "pad", "antenna", "pad"], scout: ["antenna", "pad", "watch", "antenna", "tower"],
+};
+const cv = $("farm"), ctx = cv.getContext("2d");
+let W = 0, H = 0, dpr = 1, selected = "guardian";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const walkers = AGENTS.map((a, i) => ({ ...a, leg: 0, t: (i * 0.37) % 1, speed: 0.11 + (i % 4) * 0.025, carry: i % 2 === 0, bob: i }));
+const stars = Array.from({ length: 70 }, (_, i) => ({ x: (i * 73.13) % 1, y: ((i * 37.7) % 1) * 0.16, r: (i % 3) * 0.4 + 0.4, tw: i }));
+function resize() {
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+const P = (k) => ({ x: BUILDINGS[k].x * W, y: (0.16 + BUILDINGS[k].y * 0.8) * H });
+function drawGround(t) {
+  const g = ctx.createLinearGradient(0, 0, 0, H);
+  g.addColorStop(0, "#060d16"); g.addColorStop(0.18, "#0a1820"); g.addColorStop(1, "#08130f");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  for (const s of stars) { ctx.globalAlpha = 0.35 + 0.35 * Math.sin(t * 1.3 + s.tw); ctx.fillStyle = "#cfe9ff"; ctx.beginPath(); ctx.arc(s.x * W, s.y * H, s.r, 0, 7); ctx.fill(); }
+  ctx.globalAlpha = 1;
+  // horizon glow
+  const hz = ctx.createRadialGradient(W * .5, H * .16, 0, W * .5, H * .16, W * .6);
+  hz.addColorStop(0, "rgba(73,226,192,.16)"); hz.addColorStop(1, "rgba(73,226,192,0)"); ctx.fillStyle = hz; ctx.fillRect(0, 0, W, H * .5);
+  // perspective field grid
+  ctx.strokeStyle = "rgba(73,226,192,.08)"; ctx.lineWidth = 1;
+  const top = H * .17;
+  for (let i = -12; i <= 12; i++) { ctx.beginPath(); ctx.moveTo(W / 2 + i * W * .02, top); ctx.lineTo(W / 2 + i * W * .12, H); ctx.stroke(); }
+  for (let j = 1; j < 14; j++) { const yy = top + Math.pow(j / 13, 1.7) * (H - top); ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(W, yy); ctx.stroke(); }
+  // paths
+  ctx.strokeStyle = "rgba(255,181,71,.10)"; ctx.lineWidth = 6; ctx.lineCap = "round"; ctx.setLineDash([]);
+  const seen = new Set();
+  for (const r of Object.values(ROUTES)) for (let i = 0; i < r.length - 1; i++) {
+    const k = [r[i], r[i + 1]].sort().join(); if (seen.has(k)) continue; seen.add(k);
+    const a = P(r[i]), b = P(r[i + 1]); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo((a.x + b.x) / 2, (a.y + b.y) / 2 + 18, b.x, b.y); ctx.stroke();
+  }
+}
+function label(text, x, y, color = "#86a5a2") {
+  ctx.font = `600 ${Math.max(10, Math.min(12, W / 90))}px "JetBrains Mono", monospace`; ctx.textAlign = "center";
+  const w = ctx.measureText(text).width + 10;
+  ctx.fillStyle = "rgba(6,14,18,.75)"; ctx.fillRect(x - w / 2, y - 10, w, 15); ctx.fillStyle = color; ctx.fillText(text, x, y + 1);
+}
+function drawGreenhouse(i, t) {
+  const s = LAB[i], p = P("gh" + i), sc = Math.max(.6, W / 1100);
+  const w = 74 * sc, h = 40 * sc;
+  ctx.fillStyle = "#0c2228"; ctx.fillRect(p.x - w / 2, p.y - 4 * sc, w, 10 * sc);
+  // crops: height ~ unseen pass rate
+  const grow = s.oos / 0.4;
+  for (let c = 0; c < 7; c++) {
+    const cx = p.x - w / 2 + 8 * sc + c * (w - 16 * sc) / 6, sway = Math.sin(t * 1.6 + c + i) * 2 * sc;
+    const ch = (8 + 26 * grow * (0.75 + 0.25 * Math.sin(c * 1.7))) * sc;
+    const good = s.oos > BASELINE + .05, bad = s.oos < BASELINE - .05;
+    const col = good ? "73,226,192" : bad ? "255,95,120" : "255,181,71";
+    ctx.strokeStyle = `rgba(${col},.9)`; ctx.lineWidth = 2 * sc; ctx.beginPath(); ctx.moveTo(cx, p.y); ctx.quadraticCurveTo(cx + sway, p.y - ch / 2, cx + sway * 1.5, p.y - ch); ctx.stroke();
+    ctx.fillStyle = `rgba(${col},${.55 + .35 * Math.sin(t * 2 + c)})`; ctx.beginPath(); ctx.arc(cx + sway * 1.5, p.y - ch, 2.6 * sc, 0, 7); ctx.fill();
+  }
+  // dome
+  ctx.strokeStyle = "rgba(160,230,255,.35)"; ctx.lineWidth = 1.2; ctx.fillStyle = "rgba(120,200,255,.06)";
+  ctx.beginPath(); ctx.moveTo(p.x - w / 2, p.y + 6 * sc); ctx.lineTo(p.x - w / 2, p.y - h * .45); ctx.quadraticCurveTo(p.x, p.y - h * 1.45, p.x + w / 2, p.y - h * .45); ctx.lineTo(p.x + w / 2, p.y + 6 * sc); ctx.fill(); ctx.stroke();
+  for (let k = 1; k < 4; k++) { ctx.beginPath(); ctx.moveTo(p.x - w / 2 + k * w / 4, p.y + 6 * sc); ctx.lineTo(p.x - w / 2 + k * w / 4, p.y - h * (k === 2 ? .95 : .78)); ctx.stroke(); }
+  label(`${s.name.split(" ")[0]} ${pct(s.oos)}`, p.x, p.y + 20 * sc, s.oos > BASELINE + .05 ? "#49e2c0" : s.oos < BASELINE - .05 ? "#ff8c9e" : "#ffb547");
+}
+function drawBuildings(t) {
+  const sc = Math.max(.6, W / 1100);
+  // silo
+  let p = P("silo");
+  ctx.fillStyle = "#14303a"; ctx.fillRect(p.x - 18 * sc, p.y - 58 * sc, 36 * sc, 58 * sc);
+  ctx.fillStyle = "#1c4450"; ctx.beginPath(); ctx.ellipse(p.x, p.y - 58 * sc, 18 * sc, 7 * sc, 0, 0, 7); ctx.fill();
+  for (let k = 0; k < 4; k++) { ctx.fillStyle = `rgba(255,181,71,${.25 + .5 * ((Math.sin(t * 3 - k) + 1) / 2)})`; ctx.fillRect(p.x - 12 * sc, p.y - (14 + k * 11) * sc, 24 * sc, 4 * sc); }
+  label(BUILDINGS.silo.label, p.x, p.y + 14 * sc);
+  // mill
+  p = P("mill");
+  ctx.fillStyle = "#1a2f3a"; ctx.beginPath(); ctx.moveTo(p.x - 20 * sc, p.y); ctx.lineTo(p.x - 12 * sc, p.y - 50 * sc); ctx.lineTo(p.x + 12 * sc, p.y - 50 * sc); ctx.lineTo(p.x + 20 * sc, p.y); ctx.fill();
+  ctx.save(); ctx.translate(p.x, p.y - 50 * sc); ctx.rotate(reduce ? .3 : t * 1.2);
+  ctx.strokeStyle = "#d9a7ff"; ctx.lineWidth = 3 * sc; for (let k = 0; k < 4; k++) { ctx.rotate(Math.PI / 2); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, -34 * sc); ctx.stroke(); ctx.fillStyle = "rgba(217,167,255,.25)"; ctx.fillRect(-1, -34 * sc, 9 * sc, 24 * sc); }
+  ctx.restore(); ctx.fillStyle = "#d9a7ff"; ctx.beginPath(); ctx.arc(p.x, p.y - 50 * sc, 4 * sc, 0, 7); ctx.fill();
+  label(BUILDINGS.mill.label, p.x, p.y + 14 * sc);
+  // dice tower
+  p = P("tower");
+  ctx.fillStyle = "#1b2440"; ctx.fillRect(p.x - 15 * sc, p.y - 72 * sc, 30 * sc, 72 * sc);
+  for (let k = 0; k < 6; k++) { const yy = p.y - 70 * sc + ((t * 40 * sc + k * 13 * sc) % (66 * sc)); ctx.fillStyle = k % 2 ? "#9b8cff" : "#ffd88a"; ctx.save(); ctx.translate(p.x + Math.sin(k * 2 + t) * 6 * sc, yy); ctx.rotate(t * 3 + k); ctx.fillRect(-3 * sc, -3 * sc, 6 * sc, 6 * sc); ctx.restore(); }
+  ctx.strokeStyle = "rgba(155,140,255,.6)"; ctx.strokeRect(p.x - 15 * sc, p.y - 72 * sc, 30 * sc, 72 * sc);
+  label(BUILDINGS.tower.label, p.x, p.y + 14 * sc);
+  // watchtower + scanning beam
+  p = P("watch");
+  const ev = lastEval || { status: "active", room: 1000 };
+  const beamCol = ev.status === "failed" ? "255,95,120" : ev.room < 600 ? "255,181,71" : "90,217,141";
+  const ang = reduce ? 2.2 : 1.6 + Math.sin(t * .7) * .9;
+  const bx = p.x, by = p.y - 70 * sc, len = W * .38;
+  const bg = ctx.createRadialGradient(bx, by, 0, bx, by, len); bg.addColorStop(0, `rgba(${beamCol},.32)`); bg.addColorStop(1, `rgba(${beamCol},0)`);
+  ctx.fillStyle = bg; ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx + Math.cos(ang - .13) * len, by + Math.sin(ang - .13) * len); ctx.lineTo(bx + Math.cos(ang + .13) * len, by + Math.sin(ang + .13) * len); ctx.fill();
+  ctx.strokeStyle = "#2c4a52"; ctx.lineWidth = 3 * sc; ctx.beginPath(); ctx.moveTo(p.x - 14 * sc, p.y); ctx.lineTo(p.x - 5 * sc, p.y - 62 * sc); ctx.moveTo(p.x + 14 * sc, p.y); ctx.lineTo(p.x + 5 * sc, p.y - 62 * sc); ctx.stroke();
+  ctx.fillStyle = "#183038"; ctx.fillRect(p.x - 13 * sc, p.y - 76 * sc, 26 * sc, 14 * sc);
+  ctx.fillStyle = `rgb(${beamCol})`; ctx.beginPath(); ctx.arc(bx, by, 4 * sc, 0, 7); ctx.fill();
+  label(BUILDINGS.watch.label, p.x, p.y + 14 * sc, `rgb(${beamCol})`);
+  // antenna with rings
+  p = P("antenna");
+  ctx.strokeStyle = "#4fd2ff"; ctx.lineWidth = 2 * sc; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y - 58 * sc); ctx.moveTo(p.x - 12 * sc, p.y); ctx.lineTo(p.x, p.y - 30 * sc); ctx.lineTo(p.x + 12 * sc, p.y); ctx.stroke();
+  for (let k = 0; k < 3; k++) { const ph = ((t * .6 + k / 3) % 1); ctx.strokeStyle = `rgba(79,210,255,${(1 - ph) * .6})`; ctx.beginPath(); ctx.arc(p.x, p.y - 58 * sc, ph * 40 * sc, Math.PI * 1.1, Math.PI * 1.9); ctx.stroke(); }
+  label(scoutCount ? `${BUILDINGS.antenna.label} · ${scoutCount} new` : BUILDINGS.antenna.label, p.x, p.y + 14 * sc, "#4fd2ff");
+  // pad
+  p = P("pad");
+  ctx.strokeStyle = "rgba(255,255,255,.5)"; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.ellipse(p.x, p.y, 34 * sc, 11 * sc, 0, 0, 7); ctx.stroke();
+  ctx.strokeStyle = `rgba(255,255,255,${.2 + .2 * Math.sin(t * 4)})`; ctx.beginPath(); ctx.ellipse(p.x, p.y, 24 * sc, 7.5 * sc, 0, 0, 7); ctx.stroke();
+  label("Execution pad · paper mode", p.x, p.y + 22 * sc, "#ffffff");
+}
+function legPos(w) {
+  const r = ROUTES[w.id], a = P(r[w.leg % r.length]), b = P(r[(w.leg + 1) % r.length]);
+  const e = w.t < .5 ? 2 * w.t * w.t : 1 - Math.pow(-2 * w.t + 2, 2) / 2;
+  const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2 + 18;
+  const x = (1 - e) * (1 - e) * a.x + 2 * (1 - e) * e * mx + e * e * b.x, y = (1 - e) * (1 - e) * a.y + 2 * (1 - e) * e * my + e * e * b.y;
+  return { x, y, dir: b.x >= a.x ? 1 : -1 };
+}
+function drawAgent(w, t) {
+  const { x, y, dir } = w.pos, sc = Math.max(.75, W / 1000), bob = reduce ? 0 : Math.abs(Math.sin(t * 8 + w.bob)) * 2.2 * sc;
+  const sel = selected === w.id;
+  if (sel) { ctx.strokeStyle = w.color; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.ellipse(x, y + 1, 11 * sc, 4 * sc, 0, 0, 7); ctx.stroke(); }
+  ctx.fillStyle = "rgba(0,0,0,.35)"; ctx.beginPath(); ctx.ellipse(x, y + 1, 6 * sc, 2 * sc, 0, 0, 7); ctx.fill();
+  const leg = reduce ? 0 : Math.sin(t * 10 + w.bob) * 2.5 * sc;
+  ctx.strokeStyle = "#cfe3e0"; ctx.lineWidth = 1.6 * sc; ctx.beginPath(); ctx.moveTo(x - 2 * sc, y - 6 * sc - bob); ctx.lineTo(x - 2 * sc + leg, y); ctx.moveTo(x + 2 * sc, y - 6 * sc - bob); ctx.lineTo(x + 2 * sc - leg, y); ctx.stroke();
+  ctx.fillStyle = w.color; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x - 4.5 * sc, y - 15 * sc - bob, 9 * sc, 10 * sc, 3 * sc) : ctx.rect(x - 4.5 * sc, y - 15 * sc - bob, 9 * sc, 10 * sc); ctx.fill();
+  ctx.fillStyle = "#e9f6f3"; ctx.beginPath(); ctx.arc(x, y - 19 * sc - bob, 4 * sc, 0, 7); ctx.fill();
+  ctx.fillStyle = "#0a1a1f"; ctx.fillRect(x + dir * 1.2 * sc - 1.5 * sc, y - 20 * sc - bob, 3 * sc, 1.4 * sc); // visor
+  ctx.strokeStyle = w.color; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, y - 23 * sc - bob); ctx.lineTo(x, y - 27 * sc - bob); ctx.stroke();
+  ctx.fillStyle = w.color; ctx.beginPath(); ctx.arc(x, y - 28 * sc - bob, 1.6 * sc, 0, 7); ctx.fill();
+  if (w.carry) { ctx.fillStyle = `rgba(255,255,255,${.6 + .4 * Math.sin(t * 6 + w.bob)})`; ctx.shadowColor = w.color; ctx.shadowBlur = 8; ctx.fillRect(x + dir * 6 * sc - 2.5 * sc, y - 14 * sc - bob, 5 * sc, 5 * sc); ctx.shadowBlur = 0; }
+  if (sel) label(w.name, x, y - 36 * sc, w.color);
+  if (w.id === "guardian" && lastEval && lastEval.status === "failed") label("HALT", x, y - 36 * sc, "#ff5f78");
+  if (w.id === "scout" && coachBusy) label("…", x, y - 36 * sc, "#4fd2ff");
+}
+let lastT = performance.now();
+function frame(now) {
+  const dt = Math.min(.05, (now - lastT) / 1000); lastT = now;
+  const t = now / 1000;
+  drawGround(t);
+  for (let i = 0; i < 6; i++) drawGreenhouse(i, t);
+  drawBuildings(t);
+  for (const w of walkers) {
+    if (!reduce) { w.t += dt * w.speed; if (w.t >= 1) { w.t = 0; w.leg = (w.leg + 1) % ROUTES[w.id].length; w.carry = !w.carry; } }
+    w.pos = legPos(w);
+  }
+  walkers.sort((a, b) => a.pos.y - b.pos.y).forEach((w) => drawAgent(w, t));
+  if (!reduce) requestAnimationFrame(frame);
+}
+function agentCard(id) {
+  selected = id;
+  const a = AGENTS.find((x) => x.id === id);
+  const live = {
+    guardian: lastEval ? (lastEval.status === "active" ? `Today: max loss ${fmt$(lastEval.maxLossToday)}, profit cap ${fmt$(lastEval.profitCap)}.` : lastEval.status === "passed" ? "Eval passed: all trading halted." : "Account failed: trading halted.") : "",
+    rulekeeper: lastEval ? `Balance ${fmt$(lastEval.bal, 2)}, floor ${fmt$(lastEval.floor)}, ${fmt$(lastEval.needed)} still needed.` : "",
+    scout: scoutCount ? `${scoutCount} headlines in the feed below.` : "Waiting on the Zacks feed.",
+    dice: `Coin-flip baseline: ${pct(BASELINE)}. Best on unseen days: ${LAB[0].name} at ${pct(LAB[0].oos)}.`,
+  }[id] || "";
+  $("agentCard").innerHTML = `<div class="who"><span class="swatch" style="background:${a.color}"></span><h3>${esc(a.name)}</h3><span class="tag">${esc(a.role)}</span></div><p>${esc(a.desc)}</p>${live ? `<p style="color:var(--text)">${esc(live)}</p>` : ""}<code>${esc(a.file)}</code>`;
+  [...$("roster").children].forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.id === id)));
+  if (reduce) frame(performance.now());
+}
+$("roster").innerHTML = AGENTS.map((a) => `<button type="button" data-id="${a.id}" aria-pressed="false"><span class="swatch" style="background:${a.color}"></span>${esc(a.name)}</button>`).join("");
+$("roster").addEventListener("click", (e) => { const b = e.target.closest("[data-id]"); if (b) agentCard(b.dataset.id); });
+cv.addEventListener("click", (e) => {
+  const r = cv.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+  let best = null, bd = 900;
+  for (const w of walkers) { const d = (w.pos.x - mx) ** 2 + (w.pos.y - 14 - my) ** 2; if (d < bd) { bd = d; best = w; } }
+  if (best) agentCard(best.id);
+});
+
+/* ---------------- boot ---------------- */
+function renderAll() { renderEval(); renderChart(); renderJournal(); renderSizer(); if (reduce) frame(performance.now()); }
+resize(); addEventListener("resize", () => { resize(); renderChart(); if (reduce) frame(performance.now()); });
+renderLab(); renderChecks(); renderAll(); tickClock(); setInterval(tickClock, 1000);
+agentCard("guardian");
+requestAnimationFrame(frame);
+initStorage();
+(async () => {
+  try { mcp = await window.claude?.use?.("mcp"); } catch { mcp = null; }
+  startNews(); loadQuotes();
+})();
+(async () => {
+  try { sample = await window.claude?.use?.("sample"); } catch { sample = null; }
+  if (!sample) { $("chat").innerHTML = `<div class="state">The coach needs Claude access, which isn't available in this view. Open this page on claude.ai to use it.</div>`; $("askBtn").disabled = true; [...$("quick").children].forEach((b) => (b.disabled = true)); }
+  else addMsg("ai", "Hi, I'm your coach. I can see your eval numbers, journal, the strategy lab and today's headlines. Tap a quick question or ask your own.");
+})();
+})();
+</script>
