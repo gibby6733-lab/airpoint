@@ -9,8 +9,8 @@ Steps
 2. For every strategy x parameter combo, backtest IS at 1 contract with the firm's $600 DLL
    enforced intraday, then score the trades by the best eval pass probability over a small
    sizing grid (qty, daily stop, daily profit cap).
-3. Keep the best IS combo per strategy, backtest it on OOS data it has never seen, and run the
-   full sizing optimizer on the OOS trades. Only OOS numbers say anything about edge.
+3. Keep the best IS combo *and its IS sizing plan* per strategy, then backtest it on OOS data
+   it has never seen with that plan frozen. Only OOS numbers say anything about edge.
 4. Compare with the zero-edge baseline (a coin-flip trader passes ~28% of the time).
 """
 from __future__ import annotations
@@ -42,6 +42,10 @@ _BARS: pd.DataFrame | None = None
 def _init(bars: pd.DataFrame) -> None:
     global _BARS
     _BARS = bars
+
+
+def _none(x):
+    return None if x is None or (isinstance(x, float) and np.isnan(x)) else float(x)
 
 
 def _trades_and_counts(days):
@@ -105,10 +109,12 @@ def run(bars: pd.DataFrame, rules: EvalRules, contract, is_frac: float, n_sims_i
         if cand.empty:
             continue
         best = cand.sort_values("pass_prob", ascending=False).iloc[0]
-        oos = evaluate(name, best.params, oos_bars, rules, contract, n_sims_oos, None, seed=1)
-        table = oos.pop("_table", None)
-        if table is not None:
-            table.to_csv(out_dir / f"{label}_oos_sizing_{name}.csv", index=False)
+        # The sizing plan is frozen from IS too: re-optimising it on OOS trades is selection bias.
+        fixed = {"qty_list": [best.plan["qty"]],
+                 "daily_stops": [_none(best.plan["daily_stop"])],
+                 "daily_profit_caps": [_none(best.plan["daily_profit_cap"])]}
+        oos = evaluate(name, best.params, oos_bars, rules, contract, n_sims_oos, fixed, seed=1)
+        oos.pop("_table", None)
         results.append({
             "strategy": name, "params": best.params,
             "is_pass_prob": best.pass_prob, "is_profit_factor": best.profit_factor,
@@ -117,7 +123,7 @@ def run(bars: pd.DataFrame, rules: EvalRules, contract, is_frac: float, n_sims_i
             "oos_expectancy_1ct": oos["expectancy_1ct"],
             "oos_cost_per_pass": oos.get("cost_per_pass", np.nan),
             "oos_days_to_pass": oos.get("days_to_pass", np.nan),
-            "oos_best_plan": oos["plan"],
+            "plan": best.plan,
         })
     res = pd.DataFrame(results).sort_values("oos_pass_prob", ascending=False)
     res.to_csv(out_dir / f"{label}_summary.csv", index=False)
