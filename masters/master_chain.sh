@@ -10,6 +10,10 @@ ffmpeg -y -hide_banner -nostats -loglevel error -i "$IN" -filter_complex "
  equalizer=f=3000:t=q:w=0.8:g=4.5,
  equalizer=f=5000:t=q:w=1.2:g=1,
  highshelf=f=13000:g=-1.2,
+ stereotools=mode=lr>ms,
+ equalizer=f=1000:t=q:w=1:g=1:c=FL,
+ equalizer=f=2400:t=q:w=1:g=1.8:c=FL,
+ stereotools=mode=ms>lr,
  deesser=i=0.35:m=0.5:f=0.55:s=o,
  acrossover=split=130:order=4th[lo][hi];
 [lo]pan=stereo|c0=0.5*c0+0.5*c1|c1=0.5*c0+0.5*c1[lomono];
