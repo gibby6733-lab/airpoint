@@ -4,9 +4,10 @@ IN="$1"; OUT="$2"; G="$3"
 ffmpeg -y -hide_banner -nostats -loglevel error -i "$IN" -filter_complex "
 [0:a]highpass=f=28:poles=2,
  equalizer=f=55:t=q:w=0.9:g=1.5,
- equalizer=f=320:t=q:w=1.1:g=-2.5,
+ equalizer=f=320:t=q:w=1.1:g=-3,
  equalizer=f=650:t=q:w=1.4:g=-1,
- equalizer=f=3000:t=q:w=0.8:g=3,
+ equalizer=f=1200:t=q:w=1:g=1.5,
+ equalizer=f=3000:t=q:w=0.8:g=4.5,
  equalizer=f=5000:t=q:w=1.2:g=1,
  highshelf=f=13000:g=-1.2,
  deesser=i=0.35:m=0.5:f=0.55:s=o,
