@@ -1,0 +1,37 @@
+name: clip-scout
+
+on:
+  schedule:
+    - cron: "17 15 * * *" # daily at 15:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: clip-scout
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: clip-scout
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install -r requirements.txt
+      - run: python clip_scout.py
+        env:
+          TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+          TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Remember sent clips
+        run: |
+          git config user.name "clip-scout"
+          git config user.email "clip-scout@users.noreply.github.com"
+          git add seen_clips.json
+          git diff --cached --quiet || (git commit -m "clip-scout: update sent clips" && git push)

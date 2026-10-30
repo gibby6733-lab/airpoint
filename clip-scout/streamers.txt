@@ -1,0 +1,8 @@
+# Twitch logins to always scan (one per line). The top live streamers
+# are scanned too, so this list can stay short or empty.
+kaicenat
+xqc
+ishowspeed
+jynxzi
+caseoh_
+zackrawrr
