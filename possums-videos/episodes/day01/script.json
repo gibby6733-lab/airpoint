@@ -1,0 +1,293 @@
+{
+ "episode": 1,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day one. I just started the worst football team in America.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "profile",
+   "text": "We're the Mudville Possums. Zero fans, zero wins, and twelve dollars.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "cash",
+     "@twelve"
+    ]
+   ]
+  },
+  {
+   "scene": "likes",
+   "text": "Every like on TikTok and Instagram adds one dollar to the fund.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ]
+  },
+  {
+   "scene": "helmet",
+   "text": "Twelve bucks bought us one helmet. So we share it.",
+   "sfx": [
+    [
+     "spend",
+     0.25
+    ],
+    [
+     "boing",
+     0.75
+    ],
+    [
+     "boing",
+     0.88
+    ]
+   ]
+  },
+  {
+   "scene": "stadium_tour",
+   "text": "Our stadium. Bleachers falling apart, a mud field, and a ladder for goal posts.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@Bleachers"
+    ],
+    [
+     "pop",
+     "@field"
+    ],
+    [
+     "pop",
+     "@ladder"
+    ]
+   ]
+  },
+  {
+   "scene": "roster_lou",
+   "text": "Big Lou plays center. He's scared of the ball.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "roster_tiny",
+   "text": "Tiny is our quarterback. He's five foot one.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "roster_earl",
+   "text": "Earl is our kicker. He's also the bus driver.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ],
+    [
+     "honk",
+     0.75
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game one, the Dry Gulch Gophers.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ]
+  },
+  {
+   "scene": "play1",
+   "text": "First snap. Lou screams and runs into the stands.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "scream",
+     "@screams"
+    ],
+    [
+     "slide",
+     "@runs"
+    ]
+   ]
+  },
+  {
+   "scene": "play1_td",
+   "text": "Gophers score. Seven, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.1
+    ]
+   ]
+  },
+  {
+   "scene": "sack",
+   "text": "Second quarter. Tiny gets flattened by three Gophers.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "bonk",
+     0.7
+    ],
+    [
+     "stamp",
+     0.72
+    ]
+   ]
+  },
+  {
+   "scene": "sack_td",
+   "text": "Fumble. Fourteen, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.6
+    ]
+   ]
+  },
+  {
+   "scene": "play2",
+   "text": "Fourth quarter, down twenty one. Tiny throws a Hail Mary.",
+   "sfx": [
+    [
+     "whoosh",
+     0.75
+    ]
+   ]
+  },
+  {
+   "scene": "play2_b",
+   "text": "It hits a seagull, bonks off Earl's helmet, and lands in the end zone. Touchdown!",
+   "sfx": [
+    [
+     "squawk",
+     0.1
+    ],
+    [
+     "bonk",
+     0.35
+    ],
+    [
+     "crowd",
+     0.8
+    ],
+    [
+     "horn",
+     0.85
+    ]
+   ]
+  },
+  {
+   "scene": "kick",
+   "text": "Earl misses the extra point. Into the bus window.",
+   "sfx": [
+    [
+     "kick",
+     0.15
+    ],
+    [
+     "glass",
+     0.7
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final, twenty one to six. Dead last.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.6
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Pine Hollow Badgers. Unbeaten in four years.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@Unbeaten"
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Likes on TikTok and Instagram are a dollar each. The most liked comment picks our upgrade. Gear, stands, the field, or goal posts.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@Gear"
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@field"
+    ],
+    [
+     "pop",
+     "@goal"
+    ]
+   ]
+  }
+ ]
+}

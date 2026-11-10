@@ -1,0 +1,14 @@
+{
+  "after_day": 1,
+  "fund_dollars": 0,
+  "record": {"wins": 0, "losses": 1},
+  "fans": 0,
+  "next_opponent": "Pine Hollow Badgers (unbeaten in 4 years)",
+  "upgrades_owned": ["1 shared helmet"],
+  "stadium": {"gear": "1 shared helmet", "stands": "wooden bleachers falling apart", "field": "mud", "goal_posts": "a ladder", "scoreboard": "none", "locker_room": "porta-potty"},
+  "upgrade_prices": {"gear": 50, "stands": 250, "field": 500, "goal_posts": 100, "scoreboard": 150},
+  "roster": {"Big Lou": "center, scared of the ball (#55)", "Tiny": "QB, 5'1\" (#1)", "Earl": "kicker + bus driver, mustache (#3)", "Coach": "narrator/owner"},
+  "history": [
+    {"day": 1, "opponent": "Dry Gulch Gophers", "score": "6-21 L", "likes": null, "winning_comment": null}
+  ]
+}
