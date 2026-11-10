@@ -1,0 +1,42 @@
+{
+ "after_day": 1,
+ "fund_dollars": 0,
+ "record": {
+  "wins": 0,
+  "losses": 1
+ },
+ "next_opponent": "Hillcrest Hornets (never lost at home)",
+ "upgrades_owned": [
+  "1 flat ball"
+ ],
+ "stadium": {
+  "ball": "flat",
+  "goals": "shopping carts",
+  "pitch": "parking lot",
+  "seats": "3 lawn chairs on the curb",
+  "kits": "mismatched",
+  "extras": "dumpster, car with alarm, leaning streetlight"
+ },
+ "upgrade_prices": {
+  "real_ball": 40,
+  "goals": 120,
+  "grass": 500,
+  "seats": 250,
+  "kits": 80
+ },
+ "roster": {
+  "Marge": "goalkeeper, 74, glasses + gray bun (#1)",
+  "Dash": "striker, only runs backwards, headband (#9)",
+  "Pete": "defender, allergic to grass, red nose (#4)",
+  "Coach": "narrator/owner"
+ },
+ "history": [
+  {
+   "day": 1,
+   "opponent": "Rivertown Otters",
+   "score": "1-2 L",
+   "likes": null,
+   "winning_comment": null
+  }
+ ]
+}

@@ -1,0 +1,256 @@
+{
+ "episode": 1,
+ "sport": "baseball",
+ "voice": "am_michael",
+ "speed": 1.15,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day one. I just started the worst baseball team in America.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "profile",
+   "text": "We're the Crabapple Raccoons. Zero fans, zero wins, and eight dollars.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "cash",
+     "@eight"
+    ]
+   ]
+  },
+  {
+   "scene": "likes",
+   "text": "Every like on TikTok and Instagram adds one dollar to the fund.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ]
+  },
+  {
+   "scene": "purchase",
+   "text": "Eight bucks bought us one glove. It has a hole in it.",
+   "sfx": [
+    [
+     "spend",
+     0.3
+    ],
+    [
+     "slide",
+     "@hole"
+    ]
+   ]
+  },
+  {
+   "scene": "stadium_tour",
+   "text": "Our ballpark. Pizza boxes for bases, a mattress for a backstop, and the outfield is a cornfield.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@pizza"
+    ],
+    [
+     "pop",
+     "@mattress"
+    ],
+    [
+     "pop",
+     "@cornfield"
+    ]
+   ]
+  },
+  {
+   "scene": "roster_noodle",
+   "text": "Noodle is our pitcher. He's never thrown a strike.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "roster_moe",
+   "text": "Big Moe catches. His helmet is a colander.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ],
+    [
+     "bonk",
+     "@colander"
+    ]
+   ]
+  },
+  {
+   "scene": "roster_gus",
+   "text": "And Grandpa Gus plays center field. From a lawn chair.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game one, the Bay City Barnacles.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ]
+  },
+  {
+   "scene": "play1",
+   "text": "First pitch. Noodle throws it straight into the cornfield.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@throws"
+    ],
+    [
+     "squawk",
+     "@cornfield"
+    ]
+   ]
+  },
+  {
+   "scene": "play1_walks",
+   "text": "Six walks later, it's six, nothing.",
+   "sfx": [
+    [
+     "sad",
+     0.5
+    ]
+   ]
+  },
+  {
+   "scene": "play2",
+   "text": "Bottom of the ninth. Big Moe swings so hard he spins around twice.",
+   "sfx": [
+    [
+     "whoosh",
+     "@swings"
+    ],
+    [
+     "boing",
+     "@spins"
+    ],
+    [
+     "boing",
+     "@twice"
+    ]
+   ]
+  },
+  {
+   "scene": "play2_b",
+   "text": "The ball hits the bat anyway, bounces off a pizza box, and rolls past everyone. Home run!",
+   "sfx": [
+    [
+     "kick",
+     0.05
+    ],
+    [
+     "bonk",
+     "@bounces"
+    ],
+    [
+     "crowd",
+     "@home"
+    ],
+    [
+     "horn",
+     "@home"
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final score, six to one. Dead last.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.6
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Granite Falls Goats. They've won nine straight.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@won"
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Likes on TikTok and Instagram are a dollar each. The most liked comment picks our upgrade. Gloves, real bases, a backstop, or seats.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@gloves"
+    ],
+    [
+     "pop",
+     "@bases"
+    ],
+    [
+     "pop",
+     "@backstop"
+    ],
+    [
+     "pop",
+     "@seats"
+    ]
+   ]
+  }
+ ]
+}

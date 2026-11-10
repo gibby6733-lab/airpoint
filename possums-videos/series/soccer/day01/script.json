@@ -1,0 +1,262 @@
+{
+ "episode": 1,
+ "sport": "soccer",
+ "voice": "am_michael",
+ "speed": 1.15,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day one. I just started the worst soccer team in America.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "profile",
+   "text": "We're the Bramblewood Pigeons. Zero fans, zero wins, and nine dollars.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "cash",
+     "@nine"
+    ]
+   ]
+  },
+  {
+   "scene": "likes",
+   "text": "Every like on TikTok and Instagram adds one dollar to the fund.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ]
+  },
+  {
+   "scene": "purchase",
+   "text": "Nine bucks bought us one ball. It's already flat.",
+   "sfx": [
+    [
+     "spend",
+     0.3
+    ],
+    [
+     "boing",
+     0.45
+    ],
+    [
+     "slide",
+     "@flat"
+    ]
+   ]
+  },
+  {
+   "scene": "stadium_tour",
+   "text": "Our home pitch is a parking lot. Shopping carts for goals, and lawn chairs for stands.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@parking"
+    ],
+    [
+     "pop",
+     "@shopping"
+    ],
+    [
+     "pop",
+     "@lawn"
+    ]
+   ]
+  },
+  {
+   "scene": "roster_marge",
+   "text": "Marge is our goalkeeper. She's seventy four.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "roster_dash",
+   "text": "Dash is our striker. He only runs backwards.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "roster_pete",
+   "text": "And Pete plays defense. He's allergic to grass, so this works out.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game one, the Rivertown Otters.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ]
+  },
+  {
+   "scene": "play1",
+   "text": "Kickoff. Dash dribbles backwards, straight into our own goal.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "slide",
+     "@backwards"
+    ]
+   ]
+  },
+  {
+   "scene": "play1_goal",
+   "text": "Own goal. One, nothing.",
+   "sfx": [
+    [
+     "sad",
+     0.3
+    ]
+   ]
+  },
+  {
+   "scene": "play2",
+   "text": "Second half. A car alarm goes off, and Marge chases it.",
+   "sfx": [
+    [
+     "honk",
+     "@car"
+    ],
+    [
+     "honk",
+     "@goes"
+    ],
+    [
+     "honk",
+     "@marge"
+    ]
+   ]
+  },
+  {
+   "scene": "play2_goal",
+   "text": "They roll it into an empty cart. Two, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.6
+    ]
+   ]
+  },
+  {
+   "scene": "play3",
+   "text": "Last minute. Pete sneezes, and the ball flies into their cart. Goal!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "bonk",
+     "@sneezes"
+    ],
+    [
+     "crowd",
+     "@goal"
+    ],
+    [
+     "horn",
+     "@goal"
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final score, two to one. Dead last.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.6
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Hillcrest Hornets. They've never lost at home.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@never"
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Likes on TikTok and Instagram are a dollar each. The most liked comment picks our upgrade. A real ball, real goals, grass, or seats.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@ball"
+    ],
+    [
+     "pop",
+     "@goals"
+    ],
+    [
+     "pop",
+     "@grass"
+    ],
+    [
+     "pop",
+     "@seats"
+    ]
+   ]
+  }
+ ]
+}

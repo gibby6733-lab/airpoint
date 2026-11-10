@@ -38,3 +38,12 @@ Each day the user sends, per sport:
    - Not affordable: "saving up" bit; buy the cheapest version or put money toward it.
    - Non-upgrade comment (e.g. "can I be a hot dog seller"): work it in as a story beat / new character.
 Log both in `state.json` → `history`.
+
+## Multiple sports (series/)
+- `series/core.js` — shared engine (characters, HUD, captions, roster cards, versus, standings, upgrade shop, frame loop).
+  Each `series/<sport>/dayNN/episode.html` loads it and defines `TEAM`, `drawStadium()` and the game scenes.
+- Football (Mudville Possums) still lives in `episodes/` (standalone, predates the core).
+- Soccer: Bramblewood Pigeons — `series/soccer/` (parking-lot pitch, shopping-cart goals)
+- Baseball: Crabapple Raccoons — `series/baseball/` (pizza-box bases, mattress backstop, cornfield outfield)
+- Per-sport `state.json` and `profile.png` live in `series/<sport>/`.
+- Build: `./make_episode.sh series/soccer/day01` · Profile pic: `node series/profile.js series/soccer/day01 out.png`

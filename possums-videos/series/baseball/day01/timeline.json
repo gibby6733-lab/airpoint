@@ -1,0 +1,1221 @@
+{
+ "duration": 65.203,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day one. I just started the worst baseball team in America.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 0.35,
+   "end": 3.799,
+   "words": [
+    {
+     "w": "Day",
+     "s": 0.35
+    },
+    {
+     "w": "one.",
+     "s": 0.58
+    },
+    {
+     "w": "I",
+     "s": 0.948
+    },
+    {
+     "w": "just",
+     "s": 1.086
+    },
+    {
+     "w": "started",
+     "s": 1.362
+    },
+    {
+     "w": "the",
+     "s": 1.776
+    },
+    {
+     "w": "worst",
+     "s": 2.006
+    },
+    {
+     "w": "baseball",
+     "s": 2.328
+    },
+    {
+     "w": "team",
+     "s": 2.787
+    },
+    {
+     "w": "in",
+     "s": 3.063
+    },
+    {
+     "w": "America.",
+     "s": 3.247
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     0.35
+    ],
+    [
+     "stamp",
+     0.522
+    ]
+   ]
+  },
+  {
+   "scene": "profile",
+   "text": "We're the Crabapple Raccoons. Zero fans, zero wins, and eight dollars.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "cash",
+     "@eight"
+    ]
+   ],
+   "start": 4.019,
+   "end": 8.41,
+   "words": [
+    {
+     "w": "We're",
+     "s": 4.019
+    },
+    {
+     "w": "the",
+     "s": 4.315
+    },
+    {
+     "w": "Crabapple",
+     "s": 4.562
+    },
+    {
+     "w": "Raccoons.",
+     "s": 5.105
+    },
+    {
+     "w": "Zero",
+     "s": 5.746
+    },
+    {
+     "w": "fans,",
+     "s": 6.042
+    },
+    {
+     "w": "zero",
+     "s": 6.486
+    },
+    {
+     "w": "wins,",
+     "s": 6.782
+    },
+    {
+     "w": "and",
+     "s": 7.226
+    },
+    {
+     "w": "eight",
+     "s": 7.472
+    },
+    {
+     "w": "dollars.",
+     "s": 7.818
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     4.019
+    ],
+    [
+     "cash",
+     7.472
+    ]
+   ]
+  },
+  {
+   "scene": "likes",
+   "text": "Every like on TikTok and Instagram adds one dollar to the fund.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ],
+   "start": 8.63,
+   "end": 12.521,
+   "words": [
+    {
+     "w": "Every",
+     "s": 8.63
+    },
+    {
+     "w": "like",
+     "s": 8.979
+    },
+    {
+     "w": "on",
+     "s": 9.278
+    },
+    {
+     "w": "TikTok",
+     "s": 9.478
+    },
+    {
+     "w": "and",
+     "s": 9.877
+    },
+    {
+     "w": "Instagram",
+     "s": 10.126
+    },
+    {
+     "w": "adds",
+     "s": 10.675
+    },
+    {
+     "w": "one",
+     "s": 10.974
+    },
+    {
+     "w": "dollar",
+     "s": 11.224
+    },
+    {
+     "w": "to",
+     "s": 11.623
+    },
+    {
+     "w": "the",
+     "s": 11.822
+    },
+    {
+     "w": "fund.",
+     "s": 12.072
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     8.63
+    ],
+    [
+     "ding",
+     10.974
+    ]
+   ]
+  },
+  {
+   "scene": "purchase",
+   "text": "Eight bucks bought us one glove. It has a hole in it.",
+   "sfx": [
+    [
+     "spend",
+     0.3
+    ],
+    [
+     "slide",
+     "@hole"
+    ]
+   ],
+   "start": 12.741,
+   "end": 15.413,
+   "words": [
+    {
+     "w": "Eight",
+     "s": 12.741
+    },
+    {
+     "w": "bucks",
+     "s": 13.008
+    },
+    {
+     "w": "bought",
+     "s": 13.275
+    },
+    {
+     "w": "us",
+     "s": 13.581
+    },
+    {
+     "w": "one",
+     "s": 13.734
+    },
+    {
+     "w": "glove.",
+     "s": 13.924
+    },
+    {
+     "w": "It",
+     "s": 14.306
+    },
+    {
+     "w": "has",
+     "s": 14.459
+    },
+    {
+     "w": "a",
+     "s": 14.65
+    },
+    {
+     "w": "hole",
+     "s": 14.764
+    },
+    {
+     "w": "in",
+     "s": 14.993
+    },
+    {
+     "w": "it.",
+     "s": 15.146
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     13.543
+    ],
+    [
+     "slide",
+     14.764
+    ]
+   ]
+  },
+  {
+   "scene": "stadium_tour",
+   "text": "Our ballpark. Pizza boxes for bases, a mattress for a backstop, and the outfield is a cornfield.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@pizza"
+    ],
+    [
+     "pop",
+     "@mattress"
+    ],
+    [
+     "pop",
+     "@cornfield"
+    ]
+   ],
+   "start": 15.633,
+   "end": 21.781,
+   "words": [
+    {
+     "w": "Our",
+     "s": 15.633
+    },
+    {
+     "w": "ballpark.",
+     "s": 15.885
+    },
+    {
+     "w": "Pizza",
+     "s": 16.54
+    },
+    {
+     "w": "boxes",
+     "s": 16.893
+    },
+    {
+     "w": "for",
+     "s": 17.246
+    },
+    {
+     "w": "bases,",
+     "s": 17.498
+    },
+    {
+     "w": "a",
+     "s": 18.002
+    },
+    {
+     "w": "mattress",
+     "s": 18.153
+    },
+    {
+     "w": "for",
+     "s": 18.657
+    },
+    {
+     "w": "a",
+     "s": 18.909
+    },
+    {
+     "w": "backstop,",
+     "s": 19.06
+    },
+    {
+     "w": "and",
+     "s": 19.715
+    },
+    {
+     "w": "the",
+     "s": 19.967
+    },
+    {
+     "w": "outfield",
+     "s": 20.219
+    },
+    {
+     "w": "is",
+     "s": 20.723
+    },
+    {
+     "w": "a",
+     "s": 20.924
+    },
+    {
+     "w": "cornfield.",
+     "s": 21.075
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     15.633
+    ],
+    [
+     "pop",
+     16.54
+    ],
+    [
+     "pop",
+     18.153
+    ],
+    [
+     "pop",
+     21.075
+    ]
+   ]
+  },
+  {
+   "scene": "roster_noodle",
+   "text": "Noodle is our pitcher. He's never thrown a strike.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ],
+   "start": 22.001,
+   "end": 24.678,
+   "words": [
+    {
+     "w": "Noodle",
+     "s": 22.001
+    },
+    {
+     "w": "is",
+     "s": 22.341
+    },
+    {
+     "w": "our",
+     "s": 22.511
+    },
+    {
+     "w": "pitcher.",
+     "s": 22.723
+    },
+    {
+     "w": "He's",
+     "s": 23.233
+    },
+    {
+     "w": "never",
+     "s": 23.446
+    },
+    {
+     "w": "thrown",
+     "s": 23.743
+    },
+    {
+     "w": "a",
+     "s": 24.083
+    },
+    {
+     "w": "strike.",
+     "s": 24.211
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     22.001
+    ]
+   ]
+  },
+  {
+   "scene": "roster_moe",
+   "text": "Big Moe catches. His helmet is a colander.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ],
+    [
+     "bonk",
+     "@colander"
+    ]
+   ],
+   "start": 24.898,
+   "end": 27.542,
+   "words": [
+    {
+     "w": "Big",
+     "s": 24.898
+    },
+    {
+     "w": "Moe",
+     "s": 25.139
+    },
+    {
+     "w": "catches.",
+     "s": 25.379
+    },
+    {
+     "w": "His",
+     "s": 25.956
+    },
+    {
+     "w": "helmet",
+     "s": 26.196
+    },
+    {
+     "w": "is",
+     "s": 26.581
+    },
+    {
+     "w": "a",
+     "s": 26.773
+    },
+    {
+     "w": "colander.",
+     "s": 26.917
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     24.898
+    ],
+    [
+     "bonk",
+     26.917
+    ]
+   ]
+  },
+  {
+   "scene": "roster_gus",
+   "text": "And Grandpa Gus plays center field. From a lawn chair.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ],
+   "start": 27.762,
+   "end": 30.925,
+   "words": [
+    {
+     "w": "And",
+     "s": 27.762
+    },
+    {
+     "w": "Grandpa",
+     "s": 27.991
+    },
+    {
+     "w": "Gus",
+     "s": 28.404
+    },
+    {
+     "w": "plays",
+     "s": 28.633
+    },
+    {
+     "w": "center",
+     "s": 28.954
+    },
+    {
+     "w": "field.",
+     "s": 29.32
+    },
+    {
+     "w": "From",
+     "s": 29.779
+    },
+    {
+     "w": "a",
+     "s": 30.054
+    },
+    {
+     "w": "lawn",
+     "s": 30.191
+    },
+    {
+     "w": "chair.",
+     "s": 30.466
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     27.762
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game one, the Bay City Barnacles.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ],
+   "start": 31.145,
+   "end": 33.03,
+   "words": [
+    {
+     "w": "Game",
+     "s": 31.145
+    },
+    {
+     "w": "one,",
+     "s": 31.402
+    },
+    {
+     "w": "the",
+     "s": 31.745
+    },
+    {
+     "w": "Bay",
+     "s": 31.959
+    },
+    {
+     "w": "City",
+     "s": 32.173
+    },
+    {
+     "w": "Barnacles.",
+     "s": 32.43
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     31.145
+    ],
+    [
+     "crowd",
+     31.71
+    ]
+   ]
+  },
+  {
+   "scene": "play1",
+   "text": "First pitch. Noodle throws it straight into the cornfield.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@throws"
+    ],
+    [
+     "squawk",
+     "@cornfield"
+    ]
+   ],
+   "start": 33.25,
+   "end": 36.439,
+   "words": [
+    {
+     "w": "First",
+     "s": 33.25
+    },
+    {
+     "w": "pitch.",
+     "s": 33.56
+    },
+    {
+     "w": "Noodle",
+     "s": 34.003
+    },
+    {
+     "w": "throws",
+     "s": 34.357
+    },
+    {
+     "w": "it",
+     "s": 34.711
+    },
+    {
+     "w": "straight",
+     "s": 34.889
+    },
+    {
+     "w": "into",
+     "s": 35.331
+    },
+    {
+     "w": "the",
+     "s": 35.597
+    },
+    {
+     "w": "cornfield.",
+     "s": 35.819
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     33.25
+    ],
+    [
+     "whoosh",
+     34.357
+    ],
+    [
+     "squawk",
+     35.819
+    ]
+   ]
+  },
+  {
+   "scene": "play1_walks",
+   "text": "Six walks later, it's six, nothing.",
+   "sfx": [
+    [
+     "sad",
+     0.5
+    ]
+   ],
+   "start": 36.659,
+   "end": 38.464,
+   "words": [
+    {
+     "w": "Six",
+     "s": 36.659
+    },
+    {
+     "w": "walks",
+     "s": 36.851
+    },
+    {
+     "w": "later,",
+     "s": 37.12
+    },
+    {
+     "w": "it's",
+     "s": 37.504
+    },
+    {
+     "w": "six,",
+     "s": 37.696
+    },
+    {
+     "w": "nothing.",
+     "s": 38.003
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     37.561
+    ]
+   ]
+  },
+  {
+   "scene": "play2",
+   "text": "Bottom of the ninth. Big Moe swings so hard he spins around twice.",
+   "sfx": [
+    [
+     "whoosh",
+     "@swings"
+    ],
+    [
+     "boing",
+     "@spins"
+    ],
+    [
+     "boing",
+     "@twice"
+    ]
+   ],
+   "start": 38.684,
+   "end": 42.971,
+   "words": [
+    {
+     "w": "Bottom",
+     "s": 38.684
+    },
+    {
+     "w": "of",
+     "s": 39.093
+    },
+    {
+     "w": "the",
+     "s": 39.297
+    },
+    {
+     "w": "ninth.",
+     "s": 39.552
+    },
+    {
+     "w": "Big",
+     "s": 40.062
+    },
+    {
+     "w": "Moe",
+     "s": 40.317
+    },
+    {
+     "w": "swings",
+     "s": 40.573
+    },
+    {
+     "w": "so",
+     "s": 40.981
+    },
+    {
+     "w": "hard",
+     "s": 41.185
+    },
+    {
+     "w": "he",
+     "s": 41.491
+    },
+    {
+     "w": "spins",
+     "s": 41.695
+    },
+    {
+     "w": "around",
+     "s": 42.053
+    },
+    {
+     "w": "twice.",
+     "s": 42.461
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     40.573
+    ],
+    [
+     "boing",
+     41.695
+    ],
+    [
+     "boing",
+     42.461
+    ]
+   ]
+  },
+  {
+   "scene": "play2_b",
+   "text": "The ball hits the bat anyway, bounces off a pizza box, and rolls past everyone. Home run!",
+   "sfx": [
+    [
+     "kick",
+     0.05
+    ],
+    [
+     "bonk",
+     "@bounces"
+    ],
+    [
+     "crowd",
+     "@home"
+    ],
+    [
+     "horn",
+     "@home"
+    ]
+   ],
+   "start": 43.191,
+   "end": 48.768,
+   "words": [
+    {
+     "w": "The",
+     "s": 43.191
+    },
+    {
+     "w": "ball",
+     "s": 43.434
+    },
+    {
+     "w": "hits",
+     "s": 43.725
+    },
+    {
+     "w": "the",
+     "s": 44.016
+    },
+    {
+     "w": "bat",
+     "s": 44.258
+    },
+    {
+     "w": "anyway,",
+     "s": 44.501
+    },
+    {
+     "w": "bounces",
+     "s": 45.034
+    },
+    {
+     "w": "off",
+     "s": 45.471
+    },
+    {
+     "w": "a",
+     "s": 45.713
+    },
+    {
+     "w": "pizza",
+     "s": 45.859
+    },
+    {
+     "w": "box,",
+     "s": 46.198
+    },
+    {
+     "w": "and",
+     "s": 46.586
+    },
+    {
+     "w": "rolls",
+     "s": 46.828
+    },
+    {
+     "w": "past",
+     "s": 47.168
+    },
+    {
+     "w": "everyone.",
+     "s": 47.459
+    },
+    {
+     "w": "Home",
+     "s": 48.089
+    },
+    {
+     "w": "run!",
+     "s": 48.38
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     43.47
+    ],
+    [
+     "bonk",
+     45.034
+    ],
+    [
+     "crowd",
+     48.089
+    ],
+    [
+     "horn",
+     48.089
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final score, six to one. Dead last.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.6
+    ]
+   ],
+   "start": 48.988,
+   "end": 51.288,
+   "words": [
+    {
+     "w": "Final",
+     "s": 48.988
+    },
+    {
+     "w": "score,",
+     "s": 49.317
+    },
+    {
+     "w": "six",
+     "s": 49.786
+    },
+    {
+     "w": "to",
+     "s": 50.021
+    },
+    {
+     "w": "one.",
+     "s": 50.208
+    },
+    {
+     "w": "Dead",
+     "s": 50.584
+    },
+    {
+     "w": "last.",
+     "s": 50.865
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     48.988
+    ],
+    [
+     "sad",
+     50.368
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Granite Falls Goats. They've won nine straight.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@won"
+    ]
+   ],
+   "start": 51.508,
+   "end": 54.758,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 51.508
+    },
+    {
+     "w": "the",
+     "s": 52.064
+    },
+    {
+     "w": "Granite",
+     "s": 52.278
+    },
+    {
+     "w": "Falls",
+     "s": 52.663
+    },
+    {
+     "w": "Goats.",
+     "s": 52.962
+    },
+    {
+     "w": "They've",
+     "s": 53.39
+    },
+    {
+     "w": "won",
+     "s": 53.732
+    },
+    {
+     "w": "nine",
+     "s": 53.946
+    },
+    {
+     "w": "straight.",
+     "s": 54.202
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     51.508
+    ],
+    [
+     "stamp",
+     53.732
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Likes on TikTok and Instagram are a dollar each. The most liked comment picks our upgrade. Gloves, real bases, a backstop, or seats.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@gloves"
+    ],
+    [
+     "pop",
+     "@bases"
+    ],
+    [
+     "pop",
+     "@backstop"
+    ],
+    [
+     "pop",
+     "@seats"
+    ]
+   ],
+   "start": 54.978,
+   "end": 63.703,
+   "words": [
+    {
+     "w": "Likes",
+     "s": 54.978
+    },
+    {
+     "w": "on",
+     "s": 55.342
+    },
+    {
+     "w": "TikTok",
+     "s": 55.55
+    },
+    {
+     "w": "and",
+     "s": 55.965
+    },
+    {
+     "w": "Instagram",
+     "s": 56.225
+    },
+    {
+     "w": "are",
+     "s": 56.796
+    },
+    {
+     "w": "a",
+     "s": 57.056
+    },
+    {
+     "w": "dollar",
+     "s": 57.211
+    },
+    {
+     "w": "each.",
+     "s": 57.627
+    },
+    {
+     "w": "The",
+     "s": 58.094
+    },
+    {
+     "w": "most",
+     "s": 58.354
+    },
+    {
+     "w": "liked",
+     "s": 58.665
+    },
+    {
+     "w": "comment",
+     "s": 59.029
+    },
+    {
+     "w": "picks",
+     "s": 59.496
+    },
+    {
+     "w": "our",
+     "s": 59.86
+    },
+    {
+     "w": "upgrade.",
+     "s": 60.12
+    },
+    {
+     "w": "Gloves,",
+     "s": 60.743
+    },
+    {
+     "w": "real",
+     "s": 61.314
+    },
+    {
+     "w": "bases,",
+     "s": 61.626
+    },
+    {
+     "w": "a",
+     "s": 62.145
+    },
+    {
+     "w": "backstop,",
+     "s": 62.301
+    },
+    {
+     "w": "or",
+     "s": 62.976
+    },
+    {
+     "w": "seats.",
+     "s": 63.184
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     55.851
+    ],
+    [
+     "pop",
+     60.743
+    ],
+    [
+     "pop",
+     61.626
+    ],
+    [
+     "pop",
+     62.301
+    ],
+    [
+     "pop",
+     63.184
+    ]
+   ]
+  }
+ ]
+}
