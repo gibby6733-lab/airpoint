@@ -1,16 +1,16 @@
 # Mudville Possums — daily video generator
 
-Original animated series: "The worst football team in America." Every like on TikTok + Instagram = +$1 to the team fund; the most-liked comment (across both) picks the next upgrade.
+Original animated series: "The worst football team in America." TikTok only. Every like = +$1 to the team fund; the most-liked comment picks the next upgrade.
 
 ## Format rules
 - 9:16, 1080x1920, 30 fps, 60–70 seconds
 - Voice: Kokoro `am_michael`, speed ~1.15
 - Mix: music ≈ -25 dB and SFX ≈ -15 dB relative to voice; final loudness -14 LUFS
-- Ending teases **tomorrow's** game; CTA says likes on TikTok + Instagram count, most-liked comment wins
+- Ending teases **tomorrow's** game; CTA says every like on this video counts, most-liked comment wins (TikTok only; never mention Instagram)
 - Arena stays run-down until fans pay for upgrades (see `state.json`)
 
 ## Daily workflow
-1. User sends: likes on TikTok + Instagram, and the winning comment.
+1. User sends: TikTok likes, and the winning TikTok comment.
 2. Update `state.json` (fund, upgrades, record, history).
 3. `cp -r episodes/dayNN episodes/dayNN+1`, edit `script.json` lines (scene + text + sfx) and add/modify scenes in `episode.html` (`SCENES` object; `drawStadium` for arena upgrades; HUD day/fund in `hud()`/`fundAt()`).
 4. `./make_episode.sh episodes/dayNN+1` → check duration is 60–70 s, adjust text if not.
@@ -32,8 +32,8 @@ One channel per sport (football / soccer / baseball). Each day: video + caption 
 
 ## Daily input from the user (source of truth)
 Each day the user sends, per sport:
-1. Total likes on the previous post (TikTok + Instagram) → add $1 per like to `fund_dollars` in `state.json`.
-2. The most-liked comment (across both platforms) → that's the upgrade/action for the next episode.
+1. TikTok likes on the previous post → add $1 per like to `fund_dollars` in `state.json`.
+2. The most-liked TikTok comment → that's the upgrade/action for the next episode.
    - Affordable: buy it (subtract price), redraw that part of the arena, show the purchase on screen.
    - Not affordable: "saving up" bit; buy the cheapest version or put money toward it.
    - Non-upgrade comment (e.g. "can I be a hot dog seller"): work it in as a story beat / new character.

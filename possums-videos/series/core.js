@@ -262,9 +262,9 @@ const SCENES = {
     const k2 = seg(p, .35, .5);
     if (k2 > 0) withT(W / 2, 1170, eBack(k2), -.05, () => { shadowOn(16, 8); ctx.fillStyle = C.green; rr(-420, -90, 840, 180, 30); ctx.fill(); ctx.shadowColor = 'transparent';
       ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, 4, 110, '#fff', { stroke: 10 }); });
-    const k3 = seg(p, wordP('likes', 'tiktok') - .02, wordP('likes', 'tiktok') + .08);
+    const k3 = seg(p, wordP('likes', 'video') - .02, wordP('likes', 'video') + .08);
     if (k3 > 0) withT(W / 2, 1360, eBack(k3), .03, () => { shadowOn(12, 6); ctx.fillStyle = C.ink; rr(-400, -60, 800, 120, 60); ctx.fill(); ctx.shadowColor = 'transparent';
-      txt('TIKTOK + INSTAGRAM', 0, 3, 62, '#fff'); });
+      txt('ON THIS VIDEO', 0, 3, 62, '#fff'); });
   },
   matchcard(t, u, p) { versus(u, p, TEAM.opp, 'GAME ' + TEAM.day, null); },
   nextgame(t, u, p) { versus(u, p, TEAM.next, 'TOMORROW', TEAM.next.brag, TEAM.record); },
@@ -286,7 +286,7 @@ const SCENES = {
   cta(t, u, p) {
     drawStadium(t, { excite: .2 }); dim(.45);
     withT(W / 2, 330, eBack(seg(u, 0, .3)), -.04, () => { shadowOn(16, 8); ctx.fillStyle = C.green; rr(-420, -85, 840, 170, 30); ctx.fill(); ctx.shadowColor = 'transparent';
-      ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, -22, 76, '#fff', { stroke: 8 }); txt('TIKTOK + INSTAGRAM', 0, 50, 40, C.yellow, { stroke: 6 }); });
+      ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, -22, 76, '#fff', { stroke: 8 }); txt('ON THIS VIDEO', 0, 50, 40, C.yellow, { stroke: 6 }); });
     const k2 = seg(p, wordP('cta', 'most') - .05, wordP('cta', 'most') + .05);
     if (k2 > 0) withT(W / 2, 930, eBack(k2), 0, () => {
       shadowOn(20, 10); ctx.fillStyle = C.cream; rr(-430, -470, 860, 900, 40); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
@@ -299,7 +299,7 @@ const SCENES = {
         txt(n, -360, y - 14, 50, C.ink, { align: 'left' }); txt(sub, -360, y + 30, 30, '#666', { align: 'left', weight: 600 }); txt(pr, 360, y, 54, C.green, { align: 'right' }); });
     });
     const k3 = seg(p, .88, .98);
-    if (k3 > 0) { const yb = Math.sin(t * 8) * 14; withT(W / 2, 1490 + yb, eBack(k3), -.03, () => { txt('MOST-LIKED COMMENT WINS', 0, 0, 64, C.yellow, { stroke: 12 }); txt('on TikTok + Instagram', 0, 70, 40, '#fff', { stroke: 8 }); }); }
+    if (k3 > 0) { const yb = Math.sin(t * 8) * 14; withT(W / 2, 1490 + yb, eBack(k3), -.03, () => { txt('MOST-LIKED COMMENT WINS', 0, 0, 64, C.yellow, { stroke: 12 }); txt('COMMENT BELOW', 0, 70, 40, '#fff', { stroke: 8 }); }); }
   },
 };
 
