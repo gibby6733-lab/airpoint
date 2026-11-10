@@ -29,3 +29,12 @@ One channel per sport (football / soccer / baseball). Each day: video + caption 
 - `python3 post_discord.py football episodes/dayNN` (add `--dry-run` to preview)
 - Bot token is never stored in the repo: it is a network secret on the cloud environment
   (host `discord.com`, header `Authorization`, value `Bot <token>`). Bot needs Send Messages + Attach Files.
+
+## Daily input from the user (source of truth)
+Each day the user sends, per sport:
+1. Total likes on the previous post (TikTok + Instagram) → add $1 per like to `fund_dollars` in `state.json`.
+2. The most-liked comment (across both platforms) → that's the upgrade/action for the next episode.
+   - Affordable: buy it (subtract price), redraw that part of the arena, show the purchase on screen.
+   - Not affordable: "saving up" bit; buy the cheapest version or put money toward it.
+   - Non-upgrade comment (e.g. "can I be a hot dog seller"): work it in as a story beat / new character.
+Log both in `state.json` → `history`.
