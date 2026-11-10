@@ -20,3 +20,12 @@ Original animated series: "The worst football team in America." Every like on Ti
 - `render.js` — renders `episode.html` frame by frame with Playwright and muxes with ffmpeg
 - `profile.js` — renders profile pictures into `assets/`
 - `setup.sh` — installs TTS deps and downloads the voice model
+
+## Discord delivery
+One channel per sport (football / soccer / baseball). Each day: video + caption + hashtags.
+- `channels.json` — channel ids (Discord: Developer Mode → right-click channel → Copy Channel ID)
+- `episodes/dayNN/caption.txt` — caption + hashtags (≤ 2000 chars)
+- `./discord_copy.sh episodes/dayNN/episode.mp4 episodes/dayNN/discord.mp4` — fits the 10 MB bot upload limit
+- `python3 post_discord.py football episodes/dayNN` (add `--dry-run` to preview)
+- Bot token is never stored in the repo: it is a network secret on the cloud environment
+  (host `discord.com`, header `Authorization`, value `Bot <token>`). Bot needs Send Messages + Attach Files.
