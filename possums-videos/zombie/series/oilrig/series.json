@@ -1,0 +1,12 @@
+{
+ "title": "WHAT IF YOU HAD TO REACH THE OIL RIG?",
+ "parts": 7, "length_s": 90, "voice": "deep (am_onyx 1.1) + radio voices",
+ "idea": "A journey: every part is a NEW location so viewers never get bored. Lots of action (chases, jumps, decoys) + 1-3 real survival facts per part on paper cards.",
+ "rule": "Only make the next part AFTER the user sends the poll result. Part N+1 opens with 'X% of you said ...' (scene: voted) then continues from the winning choice.",
+ "route_ideas": ["Part 1: apartment -> city streets (car-alarm decoy) -> rooftop chase -> harbor at dawn",
+                 "Part 2: open sea (swim or fishing boat) - cold water, fuel, navigation",
+                 "Part 3: reaching the rig - climbing up, who's on it",
+                 "Part 4-6: rig life + new threats (storm, raiders, supply run to a ship/island)",
+                 "Part 7: finale"],
+ "history": [{"part": 1, "question": "Jump in and swim for the last boat, OR take the fishing boat with half a tank", "poll_result": null}]
+}

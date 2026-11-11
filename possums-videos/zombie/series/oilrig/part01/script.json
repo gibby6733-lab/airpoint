@@ -1,0 +1,621 @@
+{
+ "series": "What if you had to reach the oil rig?",
+ "episode": 1,
+ "day": 1,
+ "title": "Part 1",
+ "lesson": "NOISE IS A WEAPON",
+ "vertical": true,
+ "lead": 0.15,
+ "target": 90,
+ "speeds": {
+  "deep": 1.12
+ },
+ "width": 1080,
+ "height": 1920,
+ "mix": {
+  "music": 0.065,
+  "ambience": 0.035
+ },
+ "beats": [
+  {
+   "sp": "deep",
+   "text": "Two hundred dead are chasing you across the rooftops. And the next gap is six feet wide.",
+   "scene": "rooftops",
+   "rx": [
+    150,
+    640
+   ],
+   "tod": "night",
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "200 DEAD",
+     "w": "hundred",
+     "c": "#ff5a4a",
+     "big": true
+    },
+    {
+     "t": "GAP: 6 FT",
+     "w": "gap",
+     "c": "#ffe14a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "groan",
+     0.8
+    ],
+    [
+     "steps",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You don't slow down.",
+   "scene": "rooftops",
+   "rx": [
+    640,
+    1080
+   ],
+   "ease": false,
+   "tod": "night",
+   "intensity": 1,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ],
+    [
+     "crash",
+     1.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Six hours earlier, you were asleep.",
+   "scene": "apartment",
+   "youX": 330,
+   "pose": "idle",
+   "titleCard": [
+    "WHAT IF YOU HAD TO REACH THE OIL RIG?",
+    "PART 1"
+   ],
+   "intensity": 0.3,
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then every phone in the city screamed at once.",
+   "scene": "phone",
+   "date": "DAY 0",
+   "clock": "11:52",
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "static",
+     0.2
+    ],
+    [
+     "sting",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Outside, the street is screaming. Smoke to the east.",
+   "scene": "apartment",
+   "fire": true,
+   "youX": 300,
+   "pose": "scared",
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "scream",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "radio",
+   "text": "This is the Ocean Star oil platform, twelve miles offshore. The dead can't reach us. Boats leave the harbor at dawn.",
+   "scene": "radio",
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "static",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Three miles to the harbor. Twelve miles of sea. Sunrise is at six.",
+   "scene": "map",
+   "cards": [
+    {
+     "t": "SUNRISE: 6:00 AM",
+     "w": "sunrise",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You grab a bag. Water, a flashlight, a lighter, a knife.",
+   "scene": "apartment",
+   "youX": 420,
+   "pose": "point",
+   "bag": true,
+   "fire": true
+  },
+  {
+   "sp": "deep",
+   "text": "One gallon of water a day, per person. You can carry two. That's two days.",
+   "scene": "apartment",
+   "fire": true,
+   "youX": 420,
+   "pose": "think",
+   "cards": [
+    {
+     "t": "1 GALLON / DAY",
+     "w": "gallon"
+    },
+    {
+     "t": "YOU HAVE: 2 DAYS",
+     "w": "two",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "But your street is full of them.",
+   "scene": "street",
+   "z": {
+    "n": 9,
+    "x0": 0.3,
+    "x1": 0.45,
+    "depth": "mid"
+   },
+   "intensity": 0.7,
+   "cards": [
+    {
+     "t": "STREET: BLOCKED",
+     "w": "full",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "A car alarm hits a hundred and twenty decibels. As loud as a rock concert.",
+   "scene": "paper",
+   "paper": {
+    "title": "THE LOUDEST THING ON THE BLOCK",
+    "lines": [
+     "CAR ALARM: 120 dB",
+     "ROCK CONCERT: 120 dB",
+     [
+      "THE DEAD GO TO NOISE",
+      "#c0392b"
+     ]
+    ],
+    "src": "typical car alarms are rated around 110-125 decibels"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "So you smash a window, and every dead thing on the block turns toward it.",
+   "scene": "street",
+   "alarm": true,
+   "smash": true,
+   "z": {
+    "n": 9,
+    "x0": 0.55,
+    "x1": 0.25,
+    "depth": "mid"
+   },
+   "you": [
+    900,
+    1000,
+    "point",
+    1
+   ],
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "DECOY",
+     "w": "smash",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "crash",
+     0.5
+    ],
+    [
+     "rattle",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You run the other way. Then the alarm dies, and they come back for you.",
+   "scene": "street",
+   "z": {
+    "n": 12,
+    "x0": -0.1,
+    "x1": 0.45,
+    "depth": "mid"
+   },
+   "you": [
+    600,
+    1150,
+    "run"
+   ],
+   "scroll": 400,
+   "intensity": 1,
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "groan",
+     2.4
+    ],
+    [
+     "steps",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Twelve of them. One of you. And they never get tired.",
+   "scene": "street",
+   "z": {
+    "n": 12,
+    "x0": 0.45,
+    "x1": 0.6,
+    "depth": "near"
+   },
+   "you": [
+    1150,
+    1250,
+    "run"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "12 vs 1",
+     "w": "twelve",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "So you take the roofs. Which brings you here.",
+   "scene": "rooftops",
+   "rx": [
+    1100,
+    1600
+   ],
+   "tod": "night",
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "TAKE THE ROOFS",
+     "w": "roofs",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "steps",
+     1.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You jump. You make it. Three of them don't.",
+   "scene": "rooftops",
+   "rx": [
+    1600,
+    2050
+   ],
+   "ease": false,
+   "chasers": 6,
+   "gapZ": 200,
+   "tod": "night",
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "3 DOWN",
+     "w": "three",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "crash",
+     0.9
+    ],
+    [
+     "groan",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Dawn. The harbor. The last boat is already pulling away.",
+   "scene": "harbor",
+   "tod": "dusk",
+   "bigBoat": [
+    640,
+    1000
+   ],
+   "you": [
+    500,
+    690,
+    "run"
+   ],
+   "z": null,
+   "intensity": 0.7,
+   "cards": [
+    {
+     "t": "5:58 AM",
+     "w": "dawn",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "LAST BOAT",
+     "w": "boat",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You scream at it. Nobody turns around.",
+   "scene": "harbor",
+   "tod": "dusk",
+   "bigBoat": [
+    1000,
+    1060
+   ],
+   "you": [
+    690,
+    690,
+    "scared"
+   ],
+   "cards": [
+    {
+     "t": "NOBODY HEARS",
+     "w": "nobody",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "scream",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And behind you, they're coming down the pier.",
+   "scene": "harbor",
+   "tod": "dusk",
+   "bigBoat": [
+    1000,
+    1250
+   ],
+   "fishing": true,
+   "you": [
+    690,
+    700,
+    "scared",
+    1
+   ],
+   "z": {
+    "n": 8,
+    "x0": -0.25,
+    "x1": 0.05,
+    "depth": "mid"
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ],
+    [
+     "steps",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Cold water has a rule. One minute of shock. Ten minutes before your arms quit. One hour before you pass out.",
+   "scene": "paper",
+   "paper": {
+    "title": "THE 1-10-1 RULE",
+    "lines": [
+     [
+      "1 MINUTE - COLD SHOCK",
+      "#c0392b"
+     ],
+     "10 MINUTES - ARMS QUIT",
+     "1 HOUR - YOU PASS OUT"
+    ],
+    "icon": "drops",
+    "src": "cold water immersion: the 1-10-1 principle"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "The boat is two hundred yards out. In this water, that's five minutes of swimming.",
+   "scene": "harbor",
+   "tod": "dusk",
+   "bigBoat": [
+    1250,
+    1300
+   ],
+   "you": [
+    700,
+    700,
+    "think"
+   ],
+   "z": {
+    "n": 8,
+    "x0": 0.05,
+    "x1": 0.05,
+    "depth": "mid"
+   },
+   "cards": [
+    {
+     "t": "200 YARDS",
+     "w": "two"
+    },
+    {
+     "t": "= 5 MIN SWIM",
+     "w": "five",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "At the end of the pier, a fishing boat. Half a tank of fuel. Twelve miles to the rig.",
+   "scene": "harbor",
+   "tod": "dusk",
+   "bigBoat": [
+    1250,
+    1400
+   ],
+   "fishing": true,
+   "you": [
+    700,
+    720,
+    "point"
+   ],
+   "z": {
+    "n": 8,
+    "x0": 0.05,
+    "x1": 0.2,
+    "depth": "mid"
+   },
+   "cards": [
+    {
+     "t": "FUEL: HALF",
+     "w": "half",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "RIG: 12 MILES",
+     "w": "twelve"
+    }
+   ],
+   "sfx": [
+    [
+     "groan",
+     1.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Would you rather jump in and swim for the last boat? Or take the fishing boat with half a tank of fuel?",
+   "scene": "question",
+   "opt1": "Jump in and swim for the last boat",
+   "opt2": "Take the fishing boat with half a tank of fuel",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.4,
+   "scene": "question",
+   "opt1": "Jump in and swim for the last boat",
+   "opt2": "Take the fishing boat with half a tank of fuel",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.8
+    ],
+    [
+     "tick",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Vote in the poll. Part two, tomorrow.",
+   "scene": "question",
+   "opt1": "Jump in and swim for the last boat",
+   "opt2": "Take the fishing boat with half a tank of fuel",
+   "vote": true,
+   "recap": "1-10-1: SHOCK \u2022 ARMS QUIT \u2022 PASS OUT"
+  }
+ ]
+}
