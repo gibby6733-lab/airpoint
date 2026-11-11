@@ -7,6 +7,7 @@ Original animated series: "The worst football team in America." TikTok only. Eve
 - Voice: Kokoro `am_michael`, speed ~1.15
 - Mix: music ≈ -25 dB and SFX ≈ -15 dB relative to voice; final loudness -14 LUFS
 - Ending teases **tomorrow's** game; CTA says every like on this video counts, most-liked comment wins (TikTok only; never mention Instagram)
+- Football hashtags (exactly these, nothing else): #football #footballfunny #animation #Mudvillepossums
 - Arena stays run-down until fans pay for upgrades (see `state.json`)
 
 ## Daily workflow
