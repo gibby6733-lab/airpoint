@@ -1,28 +1,26 @@
-// usage: node discord_icon.js out.png  -> 1024x1024 server icon for "Your Move Studios"
+// usage: node discord_icon.js out.png  -> 1024x1024 server icon for "Your Move Studio" (clean, modern, flat)
 const { chromium } = require('playwright');
 (async () => {
   const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: 1024, height: 1024 } });
   await pg.setContent('<canvas id="c" width="1024" height="1024"></canvas><style>body{margin:0}</style>');
   await pg.evaluate(async () => {
-    await document.fonts.load('900 100px Inter');
+    await document.fonts.load('800 100px Inter');
     const c = document.getElementById('c'), x = c.getContext('2d'), C = 512;
-    // background: deep night gradient + gold rays
-    const g = x.createRadialGradient(C, C * .9, 40, C, C, 720); g.addColorStop(0, '#3a1420'); g.addColorStop(.6, '#160c16'); g.addColorStop(1, '#07070b'); x.fillStyle = g; x.fillRect(0, 0, 1024, 1024);
-    x.save(); x.translate(C, C); for (let i = 0; i < 18; i++) { x.rotate(Math.PI / 9); x.fillStyle = i % 2 ? 'rgba(232,196,106,.06)' : 'rgba(192,57,43,.05)'; x.beginPath(); x.moveTo(0, 0); x.lineTo(-90, -800); x.lineTo(90, -800); x.fill(); } x.restore();
-    // film-strip ring
-    x.strokeStyle = '#e8c46a'; x.lineWidth = 26; x.beginPath(); x.arc(C, C, 410, 0, 7); x.stroke();
-    x.fillStyle = '#160c16'; for (let i = 0; i < 36; i++) { const a = i / 36 * 6.283; x.save(); x.translate(C + Math.cos(a) * 410, C + Math.sin(a) * 410); x.rotate(a); x.fillRect(-7, -9, 14, 18); x.restore(); }
-    // big play button (rounded triangle) with a curved arrow notch = "your move"
-    x.save(); x.translate(C + 30, C - 20); x.shadowColor = 'rgba(0,0,0,.6)'; x.shadowBlur = 40;
-    x.fillStyle = '#c0392b'; x.beginPath(); x.moveTo(-170, -230); x.quadraticCurveTo(-210, -250, -210, -200); x.lineTo(-210, 200); x.quadraticCurveTo(-210, 250, -170, 230); x.lineTo(210, 30); x.quadraticCurveTo(250, 0, 210, -30); x.closePath(); x.fill();
-    x.shadowColor = 'transparent'; x.strokeStyle = '#e8c46a'; x.lineWidth = 14; x.stroke();
-    x.restore();
-    // "YM" mark inside the play button
-    x.fillStyle = '#fff6e3'; x.font = '900 190px Inter'; x.textAlign = 'center'; x.textBaseline = 'middle';
-    x.lineJoin = 'round'; x.lineWidth = 18; x.strokeStyle = '#3a0f0b'; x.strokeText('YM', C - 10, C - 20); x.fillText('YM', C - 10, C - 20);
-    // small "STUDIOS" plate
-    x.fillStyle = '#e8c46a'; x.beginPath(); x.roundRect(C - 190, C + 255, 380, 86, 22); x.fill();
-    x.fillStyle = '#160c16'; x.font = '900 58px Inter'; x.fillText('STUDIOS', C, C + 300);
+    // flat near-black background with a very soft centre lift
+    x.fillStyle = '#0f1115'; x.fillRect(0, 0, 1024, 1024);
+    const bg = x.createRadialGradient(C, C, 0, C, C, 620); bg.addColorStop(0, 'rgba(255,255,255,.05)'); bg.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = bg; x.fillRect(0, 0, 1024, 1024);
+    // rounded play triangle (optically centred), coral -> amber gradient
+    const r = 80, P = [[-175, -290], [-175, 290], [325, 0]].map(([a, b2]) => [C - 40 + a, C + b2]);
+    const grad = x.createLinearGradient(P[0][0], P[0][1], P[2][0], P[1][1]); grad.addColorStop(0, '#ff5a5f'); grad.addColorStop(1, '#ffb547');
+    x.beginPath();
+    for (let i = 0; i < 3; i++) { const p0 = P[(i + 2) % 3], p1 = P[i], p2 = P[(i + 1) % 3];
+      const v1 = [p0[0] - p1[0], p0[1] - p1[1]], v2 = [p2[0] - p1[0], p2[1] - p1[1]], l1 = Math.hypot(...v1), l2 = Math.hypot(...v2);
+      const a = [p1[0] + v1[0] / l1 * r, p1[1] + v1[1] / l1 * r], bb = [p1[0] + v2[0] / l2 * r, p1[1] + v2[1] / l2 * r];
+      if (i === 0) x.moveTo(...a); else x.lineTo(...a); x.quadraticCurveTo(p1[0], p1[1], ...bb); }
+    x.closePath(); x.shadowColor = 'rgba(255,110,80,.35)'; x.shadowBlur = 80; x.fillStyle = grad; x.fill(); x.shadowColor = 'transparent';
+    // small monogram inside, set in the dark background colour
+    x.fillStyle = '#0f1115'; x.font = '800 172px Inter'; x.textAlign = 'center'; x.textBaseline = 'middle';
+    x.save(); x.translate(C - 22, C + 4); x.scale(1, 1); x.fillText('YM', 0, 0); x.restore();
   });
   await pg.screenshot({ path: process.argv[2], clip: { x: 0, y: 0, width: 1024, height: 1024 } }); await b.close();
 })();
