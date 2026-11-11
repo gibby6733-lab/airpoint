@@ -24,6 +24,12 @@ Engine: `possums-videos/mafia/` — `build_story.py` (beats, voice, music, SFX, 
   settings), don't do it — tell the user in chat instead.
 
 ## 2. Build
+- **Two looks.** Default = Ken Burns (zoom/pan) + captions. If the prompt asks for a locked camera / elements
+  building on one by one (like the 2026-11-11 prompt), use the **assemble** look: run
+  `python3 mafia/build_layers.py <dir>` first (splits each collage into plate + cut-out elements; images where
+  that fails, or one piece covers >60%, assemble from torn scraps instead), and set `config.json`
+  `{"captions": false, "keyword_sfx": false}` so only the narration, tense music and soft paper sounds play.
+  Check the plates (`images/layers/*_plate.jpg`) for leftovers before rendering.
 - `./setup.sh` once if `tts/` is missing. `mafia/make_story.sh mafia/stories/<date>`.
 - With a recording + script: cuts/captions land exactly on the time marks. With text only: the narrator (am_onyx)
   reads each script line; a time mark is the earliest a line may start.
