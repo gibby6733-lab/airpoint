@@ -8,6 +8,7 @@ a small embed box under it (embeds aren't copied).
 import json, os, sys, time, urllib.request, urllib.error
 here = os.path.dirname(os.path.abspath(__file__))
 ch = json.load(open(os.path.join(here, "channels.json")))["replies"]
+GUILD = "1569811326786605097"
 H = {"Authorization": "Bot proxy-injected", "Content-Type": "application/json", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"}
 def post(body):
     for _ in range(6):
@@ -18,8 +19,12 @@ def post(body):
             raise
 items = json.load(open(sys.argv[1]))
 post({"content": f"⚡ **{len(items)} replies below.** Long-press a reply → Copy Text → paste it on that comment 👇"})
+first = None
 for i, it in enumerate(items, 1):
     c = it.get("comment", "")[:180]
-    post({"content": it["reply"], "embeds": [{"description": f"#{i} • 💬 **@{it['user']}**: {c}", "color": 0x2E86C1}]})
+    m = post({"content": it["reply"], "embeds": [{"description": f"#{i} • 💬 **@{it['user']}**: {c}", "color": 0x2E86C1}]})
+    first = first or m["id"]
     time.sleep(1.1)  # stay under Discord's rate limit
+# Discord opens at the bottom, so end with a jump link back to reply #1 (replies read top to bottom)
+post({"content": f"⬆️ **Start at #1** → https://discord.com/channels/{GUILD}/{ch}/{first}  (then scroll down in order)"})
 print("posted", len(items))
