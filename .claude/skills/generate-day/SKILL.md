@@ -14,14 +14,17 @@ Last episode: the highest `possums-videos/episodes/dayNN/`. New day = `after_day
 The user starts with "generate day N" — in chat, or in #football-channel (then run the Discord listener:
 `python3 -u discord_listen.py football` under Monitor, reply with `python3 discord_say.py football "..."`).
 Ask for, in one message:
-1. **The TikTok link** of the previous day's video.
+1. **The TikTok link** of the previous day's video, and the **Instagram link** too if it was posted there.
 2. **The comments**, any of: pasted text (long pastes arrive as `message.txt`), a 15-30 s screen recording
    scrolling the comments (listener saves 1 frame/sec to `inbox/<id>_frames/`), or screenshots. Only the top
    comments are needed — TikTok lists the most-liked first.
 3. Optional: the exact like count if they already have it.
 
 **Likes (= $):** call the Boozeie `analyze_video` tool with the TikTok link (free; poll `get_analysis`) and read
-`video.like_count`. If that fails or looks wrong, use the number the user typed, or ask for it. Every like = $1.
+`video.like_count` — do this for BOTH links (TikTok + Instagram) and add them: fund += TikTok likes +
+Instagram likes. Show both numbers in the summary. If a lookup fails or looks wrong, use the number the user
+typed, or ask for it. Every like = $1. Comments: use whatever the user sends (either platform); the narration
+always says "this video", never a platform name.
 
 **Comments (read the .txt / frames / screenshots with Read; files land in `possums-videos/inbox/`):**
 - **Upgrade:** the most-liked comment that names a shop item still in `state.json` → `upgrade_prices`

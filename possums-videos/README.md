@@ -33,7 +33,7 @@ One channel per sport (football / soccer / baseball). Each day: video + caption 
 
 ## Daily input from the user (source of truth)
 Each day the user sends, per sport:
-1. TikTok likes on the previous post → add $1 per like to `fund_dollars` in `state.json`.
+1. Likes on the previous post: TikTok + Instagram (if posted there) → add $1 per like to `fund_dollars` in `state.json`.
 2. The most-liked TikTok comment → that's the upgrade/action for the next episode.
    - Affordable: buy it (subtract price), redraw that part of the arena, show the purchase on screen.
    - Not affordable: "saving up" bit; buy the cheapest version or put money toward it.
