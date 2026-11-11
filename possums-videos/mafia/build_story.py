@@ -28,7 +28,7 @@ rec = [f for f in glob.glob(os.path.join(d, "narration.*")) if not f.endswith(".
 
 LEAD, GAP, TAIL = 1.2, 0.45, 2.5
 
-TM = re.compile(r"^\s*[\[(]?(\d{1,2}):(\d{2})(?:[.,](\d+))?[\])]?(?:\s*[-–—]+\s*[\[(]?\d{1,2}:\d{2}(?:[.,]\d+)?[\])]?)?\s*[:\-–—|.]?\s*(.*)$")
+TM = re.compile(r"^\s*(?:\d{1,3}[.)]\s+)?[\[(]?(\d{1,2}):(\d{2})(?:[.,](\d+))?[\])]?(?:\s*[-–—]+\s*[\[(]?\d{1,2}:\d{2}(?:[.,]\d+)?[\])]?)?\s*[:\-–—|.]?\s*(.*)$")
 IMGTAG = re.compile(r"[\[(]\s*(?:img|image|pic|photo|picture)\s*#?\s*(\d+)\s*[\])]", re.I)
 def parse_script(path):
     """Lines with time marks -> [{"t": secs, "text": str, "img": int|None}]; untimed lines join the previous beat."""
