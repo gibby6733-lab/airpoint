@@ -1,0 +1,27 @@
+{
+ "title": "WHAT IF YOU HID IN A LIBRARY?",
+ "parts": 7,
+ "length_s": 90,
+ "voice": "deep (am_onyx)",
+ "rules_on_wall": [
+  "RULE 1: SILENCE",
+  "RULE 2: NO LIGHT AT NIGHT"
+ ],
+ "outline": {
+  "1": "Day 0-3. Lock in, base tour (stone walls, 1 door, high windows), rule of 3s, taps die, rain harvesting math, first flush, boil 1 min. Storm noise turns 300 heads; wooden back door cracks. CHOICE: carry water to the stone basement OR keep collecting on the roof.",
+  "2": "Result of vote. Hold the back door: interleaved books (friction - two interleaved phone books took two military vehicles to pull apart). Night: an SOS light (... --- ...) blinks from the school across the street. CHOICE: answer the light OR stay dark.",
+  "3": "Rosa (13) alone in the school kitchen with food. Light-signal talk. Plan to cross 30 m of street: noise decoy. CHOICE: bring Rosa over OR send her supplies on a line.",
+  "4": "Two people now: food math halves, sleep in shifts, cold nights - paper/books as insulation, body heat. Twist: someone else is reading the signals. CHOICE.",
+  "5": "Rosa gets a fever - bite check rule, dehydration/fever facts, oral rehydration (sugar + salt in water). CHOICE.",
+  "6": "Fire risk: a building full of paper (paper ignites around 450 F). Raiders or the horde force a decision. CHOICE.",
+  "7": "Finale: escape plan using every lesson (water, signals, decoys) - final ending."
+ },
+ "history": [
+  {
+   "part": 1,
+   "question": "Carry all your water down to the stone basement, OR stay on the roof and keep collecting while the storm lasts",
+   "poll_result": null
+  }
+ ],
+ "rule": "Only make the next part AFTER the user sends the poll result. Part N+1 opens with 'X% of you said ...' (scene: voted)."
+}

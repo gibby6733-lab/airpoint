@@ -1,0 +1,3588 @@
+{
+"width": 1080,
+"height": 1920,
+"vertical": true,
+"day": 1,
+"lesson": "RAINWATER = LIFE",
+"duration": 90.032,
+"series": "What if you hid in a library?",
+"episode": 1,
+"title": "Part 1",
+"beats": [
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "stakes",
+"cards": [
+{
+"t": "300 DEAD",
+"w": "hundred",
+"c": "#ff5a4a",
+"big": true
+},
+{
+"t": "1 LIBRARY",
+"w": "library",
+"big": true
+},
+{
+"t": "1 OF YOU",
+"w": "inside",
+"c": "#ffe14a",
+"big": true
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Three hundred dead are walking past your library. Not one of them knows you're inside.",
+"start": 0.6,
+"end": 4.662,
+"words": [
+{
+"w": "Three",
+"s": 0.6
+},
+{
+"w": "hundred",
+"s": 0.871
+},
+{
+"w": "dead",
+"s": 1.219
+},
+{
+"w": "are",
+"s": 1.451
+},
+{
+"w": "walking",
+"s": 1.645
+},
+{
+"w": "past",
+"s": 1.993
+},
+{
+"w": "your",
+"s": 2.225
+},
+{
+"w": "library.",
+"s": 2.457
+},
+{
+"w": "Not",
+"s": 2.921
+},
+{
+"w": "one",
+"s": 3.115
+},
+{
+"w": "of",
+"s": 3.308
+},
+{
+"w": "them",
+"s": 3.463
+},
+{
+"w": "knows",
+"s": 3.695
+},
+{
+"w": "you're",
+"s": 3.966
+},
+{
+"w": "inside.",
+"s": 4.237
+}
+],
+"sfx": [
+[
+"sting",
+0
+],
+[
+"groan",
+1.2
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "library_ext",
+"pose": "idle",
+"titleCard": [
+"WHAT IF YOU HID IN A LIBRARY?",
+"PART 1"
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "In a library, silence was always the rule. Now it's the only thing keeping you alive.",
+"start": 4.962,
+"end": 9.519,
+"words": [
+{
+"w": "In",
+"s": 4.962
+},
+{
+"w": "a",
+"s": 5.133
+},
+{
+"w": "library,",
+"s": 5.261
+},
+{
+"w": "silence",
+"s": 5.771
+},
+{
+"w": "was",
+"s": 6.155
+},
+{
+"w": "always",
+"s": 6.368
+},
+{
+"w": "the",
+"s": 6.708
+},
+{
+"w": "rule.",
+"s": 6.921
+},
+{
+"w": "Now",
+"s": 7.304
+},
+{
+"w": "it's",
+"s": 7.517
+},
+{
+"w": "the",
+"s": 7.73
+},
+{
+"w": "only",
+"s": 7.943
+},
+{
+"w": "thing",
+"s": 8.199
+},
+{
+"w": "keeping",
+"s": 8.497
+},
+{
+"w": "you",
+"s": 8.88
+},
+{
+"w": "alive.",
+"s": 9.093
+}
+],
+"sfx": [
+[
+"whoosh",
+0.1
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "phone",
+"date": "DAY 0",
+"clock": "11:52",
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Day zero. Every phone in the city screams at once.",
+"start": 9.819,
+"end": 12.559,
+"words": [
+{
+"w": "Day",
+"s": 9.819
+},
+{
+"w": "zero.",
+"s": 10.029
+},
+{
+"w": "Every",
+"s": 10.409
+},
+{
+"w": "phone",
+"s": 10.704
+},
+{
+"w": "in",
+"s": 10.999
+},
+{
+"w": "the",
+"s": 11.168
+},
+{
+"w": "city",
+"s": 11.378
+},
+{
+"w": "screams",
+"s": 11.631
+},
+{
+"w": "at",
+"s": 12.011
+},
+{
+"w": "once.",
+"s": 12.179
+}
+],
+"sfx": [
+[
+"static",
+0.3
+],
+[
+"sting",
+0.9
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "all",
+"you": [
+"f2",
+540,
+"idle"
+],
+"rules": [
+"RULE 1: SILENCE",
+"RULE 2: NO LIGHT AT NIGHT"
+],
+"cards": [
+{
+"t": "STONE: 2 FT",
+"w": "stone"
+},
+{
+"t": "1 DOOR",
+"w": "door"
+},
+{
+"t": "WINDOWS: TOO HIGH",
+"w": "windows"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "You lock the doors. Stone walls, two feet thick. One door. Windows too high to climb.",
+"start": 12.859,
+"end": 17.19,
+"words": [
+{
+"w": "You",
+"s": 12.859
+},
+{
+"w": "lock",
+"s": 13.052
+},
+{
+"w": "the",
+"s": 13.284
+},
+{
+"w": "doors.",
+"s": 13.477
+},
+{
+"w": "Stone",
+"s": 13.864
+},
+{
+"w": "walls,",
+"s": 14.135
+},
+{
+"w": "two",
+"s": 14.521
+},
+{
+"w": "feet",
+"s": 14.715
+},
+{
+"w": "thick.",
+"s": 14.947
+},
+{
+"w": "One",
+"s": 15.334
+},
+{
+"w": "door.",
+"s": 15.527
+},
+{
+"w": "Windows",
+"s": 15.875
+},
+{
+"w": "too",
+"s": 16.223
+},
+{
+"w": "high",
+"s": 16.416
+},
+{
+"w": "to",
+"s": 16.648
+},
+{
+"w": "climb.",
+"s": 16.803
+}
+],
+"sfx": [
+[
+"bang",
+0.4
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "f2",
+"you": [
+"f2",
+760,
+"think",
+1
+],
+"rules": [
+"RULE 1: SILENCE",
+"RULE 2: NO LIGHT AT NIGHT"
+],
+"cards": [
+{
+"t": "400 SNACKS",
+"w": "hundred"
+},
+{
+"t": "= 6 WEEKS",
+"w": "weeks",
+"c": "#7cd67c"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Two vending machines. Four hundred snacks. Six weeks, if you're careful.",
+"start": 17.49,
+"end": 21.071,
+"words": [
+{
+"w": "Two",
+"s": 17.49
+},
+{
+"w": "vending",
+"s": 17.686
+},
+{
+"w": "machines.",
+"s": 18.041
+},
+{
+"w": "Four",
+"s": 18.552
+},
+{
+"w": "hundred",
+"s": 18.789
+},
+{
+"w": "snacks.",
+"s": 19.143
+},
+{
+"w": "Six",
+"s": 19.576
+},
+{
+"w": "weeks,",
+"s": 19.773
+},
+{
+"w": "if",
+"s": 20.166
+},
+{
+"w": "you're",
+"s": 20.324
+},
+{
+"w": "careful.",
+"s": 20.599
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "f2",
+"you": [
+"f2",
+600,
+"point"
+],
+"rules": [
+"RULE 1: SILENCE",
+"RULE 2: NO LIGHT AT NIGHT"
+],
+"cards": [
+{
+"t": "RULE 2: NO LIGHT AT NIGHT",
+"w": "light",
+"c": "#ffe14a"
+},
+{
+"t": "SEEN FOR MILES",
+"w": "miles",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Rule two. No light at night. In a city with no power, one flashlight can be seen for miles.",
+"start": 21.371,
+"end": 26.296,
+"words": [
+{
+"w": "Rule",
+"s": 21.371
+},
+{
+"w": "two.",
+"s": 21.62
+},
+{
+"w": "No",
+"s": 21.951
+},
+{
+"w": "light",
+"s": 22.116
+},
+{
+"w": "at",
+"s": 22.406
+},
+{
+"w": "night.",
+"s": 22.572
+},
+{
+"w": "In",
+"s": 22.985
+},
+{
+"w": "a",
+"s": 23.151
+},
+{
+"w": "city",
+"s": 23.275
+},
+{
+"w": "with",
+"s": 23.523
+},
+{
+"w": "no",
+"s": 23.772
+},
+{
+"w": "power,",
+"s": 23.937
+},
+{
+"w": "one",
+"s": 24.351
+},
+{
+"w": "flashlight",
+"s": 24.558
+},
+{
+"w": "can",
+"s": 25.055
+},
+{
+"w": "be",
+"s": 25.262
+},
+{
+"w": "seen",
+"s": 25.427
+},
+{
+"w": "for",
+"s": 25.676
+},
+{
+"w": "miles.",
+"s": 25.883
+}
+],
+"sfx": [
+[
+"tick",
+0.2
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "f1",
+"sp": "deep",
+"name": "NARRATOR",
+"text": "So you sit in the dark, and listen to them shuffle past the walls.",
+"start": 26.596,
+"end": 29.883,
+"words": [
+{
+"w": "So",
+"s": 26.596
+},
+{
+"w": "you",
+"s": 26.751
+},
+{
+"w": "sit",
+"s": 26.944
+},
+{
+"w": "in",
+"s": 27.138
+},
+{
+"w": "the",
+"s": 27.292
+},
+{
+"w": "dark,",
+"s": 27.486
+},
+{
+"w": "and",
+"s": 27.834
+},
+{
+"w": "listen",
+"s": 28.027
+},
+{
+"w": "to",
+"s": 28.336
+},
+{
+"w": "them",
+"s": 28.491
+},
+{
+"w": "shuffle",
+"s": 28.723
+},
+{
+"w": "past",
+"s": 29.071
+},
+{
+"w": "the",
+"s": 29.303
+},
+{
+"w": "walls.",
+"s": 29.496
+}
+],
+"sfx": [
+[
+"groan",
+0.8
+],
+[
+"steps",
+1.5
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "sink",
+"cards": [
+{
+"t": "TAPS: OFF",
+"w": "taps",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Day three. The taps die.",
+"start": 30.183,
+"end": 31.802,
+"words": [
+{
+"w": "Day",
+"s": 30.183
+},
+{
+"w": "three.",
+"s": 30.421
+},
+{
+"w": "The",
+"s": 30.897
+},
+{
+"w": "taps",
+"s": 31.135
+},
+{
+"w": "die.",
+"s": 31.421
+}
+],
+"sfx": [
+[
+"tick",
+0.5
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "f2",
+"you": [
+"f2",
+600,
+"scared"
+],
+"jugs": 2,
+"rules": [
+"RULE 1: SILENCE",
+"RULE 2: NO LIGHT AT NIGHT"
+],
+"cards": [
+{
+"t": "WATER: 2 BOTTLES",
+"w": "two",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "You have two bottles of water left.",
+"start": 32.102,
+"end": 33.936,
+"words": [
+{
+"w": "You",
+"s": 32.102
+},
+{
+"w": "have",
+"s": 32.306
+},
+{
+"w": "two",
+"s": 32.55
+},
+{
+"w": "bottles",
+"s": 32.754
+},
+{
+"w": "of",
+"s": 33.121
+},
+{
+"w": "water",
+"s": 33.284
+},
+{
+"w": "left.",
+"s": 33.569
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "paper",
+"paper": {
+"title": "THE RULE OF 3",
+"lines": [
+[
+"3 MINUTES - AIR",
+"#2a2622"
+],
+[
+"3 DAYS - WATER",
+"#c0392b"
+],
+[
+"3 WEEKS - FOOD",
+"#2a2622"
+]
+],
+"src": "the survival rule of threes (rough limits for an average adult)"
+},
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Every survivor learns the rule of three. Three days without water. Three weeks without food.",
+"start": 34.236,
+"end": 39.059,
+"words": [
+{
+"w": "Every",
+"s": 34.236
+},
+{
+"w": "survivor",
+"s": 34.532
+},
+{
+"w": "learns",
+"s": 34.955
+},
+{
+"w": "the",
+"s": 35.294
+},
+{
+"w": "rule",
+"s": 35.505
+},
+{
+"w": "of",
+"s": 35.759
+},
+{
+"w": "three.",
+"s": 35.928
+},
+{
+"w": "Three",
+"s": 36.351
+},
+{
+"w": "days",
+"s": 36.647
+},
+{
+"w": "without",
+"s": 36.901
+},
+{
+"w": "water.",
+"s": 37.282
+},
+{
+"w": "Three",
+"s": 37.705
+},
+{
+"w": "weeks",
+"s": 38.001
+},
+{
+"w": "without",
+"s": 38.297
+},
+{
+"w": "food.",
+"s": 38.678
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "roof",
+"you": [
+"roof",
+420,
+"point"
+],
+"rules": [
+"RULE 1: SILENCE",
+"RULE 2: NO LIGHT AT NIGHT"
+],
+"cards": [
+{
+"t": "DON'T GO OUT",
+"w": "out",
+"c": "#ff5a4a",
+"strike": true
+},
+{
+"t": "GO UP",
+"w": "up",
+"c": "#7cd67c"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "So you don't go out. You go up.",
+"start": 39.359,
+"end": 40.957,
+"words": [
+{
+"w": "So",
+"s": 39.359
+},
+{
+"w": "you",
+"s": 39.507
+},
+{
+"w": "don't",
+"s": 39.693
+},
+{
+"w": "go",
+"s": 39.916
+},
+{
+"w": "out.",
+"s": 40.065
+},
+{
+"w": "You",
+"s": 40.362
+},
+{
+"w": "go",
+"s": 40.548
+},
+{
+"w": "up.",
+"s": 40.697
+}
+],
+"sfx": [
+[
+"whoosh",
+0.1
+],
+[
+"steps",
+0.4
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "paper",
+"paper": {
+"title": "ROOF MATH",
+"lines": [
+"1 INCH OF RAIN",
+"x 1,000 SQ FT OF ROOF",
+[
+" = 623 GALLONS",
+"#1f7a3a"
+]
+],
+"icon": "drops",
+"src": "rainwater harvesting rule: 0.623 gallons per square foot per inch"
+},
+"sp": "deep",
+"name": "NARRATOR",
+"text": "One inch of rain on a thousand square feet of roof gives you about six hundred gallons.",
+"start": 41.257,
+"end": 45.656,
+"words": [
+{
+"w": "One",
+"s": 41.257
+},
+{
+"w": "inch",
+"s": 41.463
+},
+{
+"w": "of",
+"s": 41.71
+},
+{
+"w": "rain",
+"s": 41.874
+},
+{
+"w": "on",
+"s": 42.121
+},
+{
+"w": "a",
+"s": 42.285
+},
+{
+"w": "thousand",
+"s": 42.408
+},
+{
+"w": "square",
+"s": 42.819
+},
+{
+"w": "feet",
+"s": 43.148
+},
+{
+"w": "of",
+"s": 43.395
+},
+{
+"w": "roof",
+"s": 43.559
+},
+{
+"w": "gives",
+"s": 43.806
+},
+{
+"w": "you",
+"s": 44.094
+},
+{
+"w": "about",
+"s": 44.299
+},
+{
+"w": "six",
+"s": 44.587
+},
+{
+"w": "hundred",
+"s": 44.792
+},
+{
+"w": "gallons.",
+"s": 45.162
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "up",
+"you": [
+"roof",
+420,
+"idle"
+],
+"cards": [
+{
+"t": "ROOF: 6,000 SQ FT",
+"w": "six"
+},
+{
+"t": "1 STORM = 3,000+ GAL",
+"w": "three",
+"c": "#7cd67c"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Your roof is six thousand square feet. One storm could give you three thousand gallons.",
+"start": 45.956,
+"end": 50.31,
+"words": [
+{
+"w": "Your",
+"s": 45.956
+},
+{
+"w": "roof",
+"s": 46.2
+},
+{
+"w": "is",
+"s": 46.444
+},
+{
+"w": "six",
+"s": 46.607
+},
+{
+"w": "thousand",
+"s": 46.81
+},
+{
+"w": "square",
+"s": 47.217
+},
+{
+"w": "feet.",
+"s": 47.543
+},
+{
+"w": "One",
+"s": 47.909
+},
+{
+"w": "storm",
+"s": 48.112
+},
+{
+"w": "could",
+"s": 48.397
+},
+{
+"w": "give",
+"s": 48.682
+},
+{
+"w": "you",
+"s": 48.926
+},
+{
+"w": "three",
+"s": 49.13
+},
+{
+"w": "thousand",
+"s": 49.415
+},
+{
+"w": "gallons.",
+"s": 49.821
+}
+],
+"sfx": [
+[
+"ding",
+3.0
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "roof",
+"you": [
+"roof",
+360,
+"idle"
+],
+"fill0": 0,
+"cards": [
+{
+"t": "GUTTERS \u2192 TRASH CANS",
+"w": "gutter"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "You block the drains, and run every gutter into a trash can.",
+"start": 50.61,
+"end": 53.764,
+"words": [
+{
+"w": "You",
+"s": 50.61
+},
+{
+"w": "block",
+"s": 50.815
+},
+{
+"w": "the",
+"s": 51.101
+},
+{
+"w": "drains,",
+"s": 51.306
+},
+{
+"w": "and",
+"s": 51.757
+},
+{
+"w": "run",
+"s": 51.962
+},
+{
+"w": "every",
+"s": 52.166
+},
+{
+"w": "gutter",
+"s": 52.453
+},
+{
+"w": "into",
+"s": 52.781
+},
+{
+"w": "a",
+"s": 53.027
+},
+{
+"w": "trash",
+"s": 53.15
+},
+{
+"w": "can.",
+"s": 53.436
+}
+],
+"sfx": [
+[
+"scrape",
+0.3
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans",
+"diverter",
+"dirt"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "base",
+"cam2": "roof",
+"you": [
+"roof",
+420,
+"point"
+],
+"fill0": 0,
+"cards": [
+{
+"t": "RULE 3: DUMP THE FIRST FLUSH",
+"w": "dump",
+"c": "#ffe14a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Rule three. Dump the first flush. It washes the bird droppings off the roof.",
+"start": 54.064,
+"end": 57.942,
+"words": [
+{
+"w": "Rule",
+"s": 54.064
+},
+{
+"w": "three.",
+"s": 54.304
+},
+{
+"w": "Dump",
+"s": 54.704
+},
+{
+"w": "the",
+"s": 54.944
+},
+{
+"w": "first",
+"s": 55.144
+},
+{
+"w": "flush.",
+"s": 55.424
+},
+{
+"w": "It",
+"s": 55.823
+},
+{
+"w": "washes",
+"s": 55.983
+},
+{
+"w": "the",
+"s": 56.303
+},
+{
+"w": "bird",
+"s": 56.503
+},
+{
+"w": "droppings",
+"s": 56.743
+},
+{
+"w": "off",
+"s": 57.183
+},
+{
+"w": "the",
+"s": 57.383
+},
+{
+"w": "roof.",
+"s": 57.582
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans",
+"diverter",
+"dirt"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "boil",
+"cards": [
+{
+"t": "STRAIN",
+"w": "strain"
+},
+{
+"t": "BOIL: 1 MINUTE",
+"w": "boil",
+"c": "#ffe14a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Then strain it through a shirt, and boil it for one full minute.",
+"start": 58.242,
+"end": 61.218,
+"words": [
+{
+"w": "Then",
+"s": 58.242
+},
+{
+"w": "strain",
+"s": 58.46
+},
+{
+"w": "it",
+"s": 58.75
+},
+{
+"w": "through",
+"s": 58.895
+},
+{
+"w": "a",
+"s": 59.222
+},
+{
+"w": "shirt,",
+"s": 59.331
+},
+{
+"w": "and",
+"s": 59.694
+},
+{
+"w": "boil",
+"s": 59.875
+},
+{
+"w": "it",
+"s": 60.093
+},
+{
+"w": "for",
+"s": 60.238
+},
+{
+"w": "one",
+"s": 60.419
+},
+{
+"w": "full",
+"s": 60.601
+},
+{
+"w": "minute.",
+"s": 60.818
+}
+],
+"sfx": [
+[
+"whoosh",
+0.1
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": "rain",
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [
+"lightning"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "base",
+"cam2": "roof",
+"you": [
+"roof",
+420,
+"cheer"
+],
+"rain": true,
+"fill0": 0.1,
+"fill1": 0.7,
+"cards": [
+{
+"t": "NIGHT 3",
+"w": "night",
+"c": "#ffe14a"
+},
+{
+"t": "+40 GALLONS",
+"w": "fill",
+"c": "#7cd67c"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Night three. The storm comes, and your cans start to fill.",
+"start": 61.518,
+"end": 64.48,
+"words": [
+{
+"w": "Night",
+"s": 61.518
+},
+{
+"w": "three.",
+"s": 61.79
+},
+{
+"w": "The",
+"s": 62.18
+},
+{
+"w": "storm",
+"s": 62.375
+},
+{
+"w": "comes,",
+"s": 62.648
+},
+{
+"w": "and",
+"s": 63.038
+},
+{
+"w": "your",
+"s": 63.233
+},
+{
+"w": "cans",
+"s": 63.467
+},
+{
+"w": "start",
+"s": 63.7
+},
+{
+"w": "to",
+"s": 63.973
+},
+{
+"w": "fill.",
+"s": 64.129
+}
+],
+"sfx": [
+[
+"thunder",
+0.2
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": "rain",
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [
+"lightning"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.85,
+"focus": null,
+"scene": "heads",
+"cards": [
+{
+"t": "300 HEADS TURN",
+"w": "heads",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "But rain on plastic is loud. And three hundred heads turn up.",
+"start": 64.78,
+"end": 67.946,
+"words": [
+{
+"w": "But",
+"s": 64.78
+},
+{
+"w": "rain",
+"s": 64.983
+},
+{
+"w": "on",
+"s": 65.226
+},
+{
+"w": "plastic",
+"s": 65.389
+},
+{
+"w": "is",
+"s": 65.754
+},
+{
+"w": "loud.",
+"s": 65.917
+},
+{
+"w": "And",
+"s": 66.282
+},
+{
+"w": "three",
+"s": 66.485
+},
+{
+"w": "hundred",
+"s": 66.769
+},
+{
+"w": "heads",
+"s": 67.134
+},
+{
+"w": "turn",
+"s": 67.418
+},
+{
+"w": "up.",
+"s": 67.662
+}
+],
+"sfx": [
+[
+"thunder",
+0.1
+],
+[
+"groan",
+1.4
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": "rain",
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.9,
+"focus": null,
+"scene": "base",
+"cam2": "f1",
+"doorShake": true,
+"cards": [
+{
+"t": "THEY CAN'T CLIMB",
+"w": "climb"
+},
+{
+"t": "BACK DOOR: WOOD",
+"w": "wood",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "They can't climb. But the back door is wood.",
+"start": 68.246,
+"end": 70.397,
+"words": [
+{
+"w": "They",
+"s": 68.246
+},
+{
+"w": "can't",
+"s": 68.473
+},
+{
+"w": "climb.",
+"s": 68.699
+},
+{
+"w": "But",
+"s": 69.076
+},
+{
+"w": "the",
+"s": 69.265
+},
+{
+"w": "back",
+"s": 69.454
+},
+{
+"w": "door",
+"s": 69.68
+},
+{
+"w": "is",
+"s": 69.906
+},
+{
+"w": "wood.",
+"s": 70.057
+}
+],
+"sfx": [
+[
+"bang",
+0.3
+],
+[
+"bang",
+1.1
+],
+[
+"bang",
+1.9
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": "rain",
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "base",
+"cam2": "f1",
+"doorShake": true,
+"crack": true,
+"cards": [
+{
+"t": "CRACK",
+"w": "crack",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "And you hear it crack.",
+"start": 70.697,
+"end": 71.702,
+"words": [
+{
+"w": "And",
+"s": 70.697
+},
+{
+"w": "you",
+"s": 70.864
+},
+{
+"w": "hear",
+"s": 71.032
+},
+{
+"w": "it",
+"s": 71.233
+},
+{
+"w": "crack.",
+"s": 71.367
+}
+],
+"sfx": [
+[
+"crash",
+0.7
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": "rain",
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.9,
+"focus": null,
+"scene": "base",
+"cam2": "up",
+"you": [
+"roof",
+420,
+"scared"
+],
+"rain": true,
+"fill0": 0.7,
+"cards": [
+{
+"t": "TIME FOR 1 THING",
+"w": "one",
+"c": "#ffe14a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Your water is up on the roof. Your only way down is the stairs. You have time for one thing.",
+"start": 72.002,
+"end": 76.525,
+"words": [
+{
+"w": "Your",
+"s": 72.002
+},
+{
+"w": "water",
+"s": 72.23
+},
+{
+"w": "is",
+"s": 72.496
+},
+{
+"w": "up",
+"s": 72.648
+},
+{
+"w": "on",
+"s": 72.8
+},
+{
+"w": "the",
+"s": 72.952
+},
+{
+"w": "roof.",
+"s": 73.142
+},
+{
+"w": "Your",
+"s": 73.484
+},
+{
+"w": "only",
+"s": 73.712
+},
+{
+"w": "way",
+"s": 73.941
+},
+{
+"w": "down",
+"s": 74.131
+},
+{
+"w": "is",
+"s": 74.359
+},
+{
+"w": "the",
+"s": 74.511
+},
+{
+"w": "stairs.",
+"s": 74.701
+},
+{
+"w": "You",
+"s": 75.119
+},
+{
+"w": "have",
+"s": 75.309
+},
+{
+"w": "time",
+"s": 75.537
+},
+{
+"w": "for",
+"s": 75.765
+},
+{
+"w": "one",
+"s": 75.955
+},
+{
+"w": "thing.",
+"s": 76.145
+}
+],
+"sfx": [
+[
+"bang",
+0.5
+],
+[
+"bang",
+2.2
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "question",
+"opt1": "Carry all your water down to the stone basement",
+"opt2": "Stay on the roof and keep collecting while the storm lasts",
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Would you rather carry all your water down to the stone basement? Or stay on the roof and keep collecting while the storm lasts?",
+"start": 76.825,
+"end": 82.68,
+"words": [
+{
+"w": "Would",
+"s": 76.825
+},
+{
+"w": "you",
+"s": 77.086
+},
+{
+"w": "rather",
+"s": 77.273
+},
+{
+"w": "carry",
+"s": 77.571
+},
+{
+"w": "all",
+"s": 77.832
+},
+{
+"w": "your",
+"s": 78.019
+},
+{
+"w": "water",
+"s": 78.243
+},
+{
+"w": "down",
+"s": 78.504
+},
+{
+"w": "to",
+"s": 78.727
+},
+{
+"w": "the",
+"s": 78.877
+},
+{
+"w": "stone",
+"s": 79.063
+},
+{
+"w": "basement?",
+"s": 79.324
+},
+{
+"w": "Or",
+"s": 79.809
+},
+{
+"w": "stay",
+"s": 79.958
+},
+{
+"w": "on",
+"s": 80.182
+},
+{
+"w": "the",
+"s": 80.331
+},
+{
+"w": "roof",
+"s": 80.517
+},
+{
+"w": "and",
+"s": 80.741
+},
+{
+"w": "keep",
+"s": 80.928
+},
+{
+"w": "collecting",
+"s": 81.151
+},
+{
+"w": "while",
+"s": 81.599
+},
+{
+"w": "the",
+"s": 81.86
+},
+{
+"w": "storm",
+"s": 82.047
+},
+{
+"w": "lasts?",
+"s": 82.308
+}
+],
+"sfx": [
+[
+"sting",
+0.05
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "question",
+"opt1": "Carry all your water down to the stone basement",
+"opt2": "Stay on the roof and keep collecting while the storm lasts",
+"countdown": true,
+"sp": "",
+"text": "",
+"start": 82.88,
+"end": 85.28,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.87
+],
+[
+"tick",
+1.73
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"gutter",
+"cans"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "question",
+"opt1": "Carry all your water down to the stone basement",
+"opt2": "Stay on the roof and keep collecting while the storm lasts",
+"vote": true,
+"recap": "RULES: SILENCE \u2022 NO LIGHT \u2022 DUMP FIRST FLUSH",
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Vote in the poll. Part two, tomorrow.",
+"start": 85.93,
+"end": 88.032,
+"words": [
+{
+"w": "Vote",
+"s": 85.93
+},
+{
+"w": "in",
+"s": 86.178
+},
+{
+"w": "the",
+"s": 86.342
+},
+{
+"w": "poll.",
+"s": 86.548
+},
+{
+"w": "Part",
+"s": 86.919
+},
+{
+"w": "two,",
+"s": 87.166
+},
+{
+"w": "tomorrow.",
+"s": 87.496
+}
+],
+"sfx": []
+}
+],
+"lines": [
+{
+"start": 0.6,
+"end": 4.662,
+"words": [
+{
+"w": "Three",
+"s": 0.6
+},
+{
+"w": "hundred",
+"s": 0.871
+},
+{
+"w": "dead",
+"s": 1.219
+},
+{
+"w": "are",
+"s": 1.451
+},
+{
+"w": "walking",
+"s": 1.645
+},
+{
+"w": "past",
+"s": 1.993
+},
+{
+"w": "your",
+"s": 2.225
+},
+{
+"w": "library.",
+"s": 2.457
+},
+{
+"w": "Not",
+"s": 2.921
+},
+{
+"w": "one",
+"s": 3.115
+},
+{
+"w": "of",
+"s": 3.308
+},
+{
+"w": "them",
+"s": 3.463
+},
+{
+"w": "knows",
+"s": 3.695
+},
+{
+"w": "you're",
+"s": 3.966
+},
+{
+"w": "inside.",
+"s": 4.237
+}
+]
+},
+{
+"start": 4.962,
+"end": 9.519,
+"words": [
+{
+"w": "In",
+"s": 4.962
+},
+{
+"w": "a",
+"s": 5.133
+},
+{
+"w": "library,",
+"s": 5.261
+},
+{
+"w": "silence",
+"s": 5.771
+},
+{
+"w": "was",
+"s": 6.155
+},
+{
+"w": "always",
+"s": 6.368
+},
+{
+"w": "the",
+"s": 6.708
+},
+{
+"w": "rule.",
+"s": 6.921
+},
+{
+"w": "Now",
+"s": 7.304
+},
+{
+"w": "it's",
+"s": 7.517
+},
+{
+"w": "the",
+"s": 7.73
+},
+{
+"w": "only",
+"s": 7.943
+},
+{
+"w": "thing",
+"s": 8.199
+},
+{
+"w": "keeping",
+"s": 8.497
+},
+{
+"w": "you",
+"s": 8.88
+},
+{
+"w": "alive.",
+"s": 9.093
+}
+]
+},
+{
+"start": 9.819,
+"end": 12.559,
+"words": [
+{
+"w": "Day",
+"s": 9.819
+},
+{
+"w": "zero.",
+"s": 10.029
+},
+{
+"w": "Every",
+"s": 10.409
+},
+{
+"w": "phone",
+"s": 10.704
+},
+{
+"w": "in",
+"s": 10.999
+},
+{
+"w": "the",
+"s": 11.168
+},
+{
+"w": "city",
+"s": 11.378
+},
+{
+"w": "screams",
+"s": 11.631
+},
+{
+"w": "at",
+"s": 12.011
+},
+{
+"w": "once.",
+"s": 12.179
+}
+]
+},
+{
+"start": 12.859,
+"end": 17.19,
+"words": [
+{
+"w": "You",
+"s": 12.859
+},
+{
+"w": "lock",
+"s": 13.052
+},
+{
+"w": "the",
+"s": 13.284
+},
+{
+"w": "doors.",
+"s": 13.477
+},
+{
+"w": "Stone",
+"s": 13.864
+},
+{
+"w": "walls,",
+"s": 14.135
+},
+{
+"w": "two",
+"s": 14.521
+},
+{
+"w": "feet",
+"s": 14.715
+},
+{
+"w": "thick.",
+"s": 14.947
+},
+{
+"w": "One",
+"s": 15.334
+},
+{
+"w": "door.",
+"s": 15.527
+},
+{
+"w": "Windows",
+"s": 15.875
+},
+{
+"w": "too",
+"s": 16.223
+},
+{
+"w": "high",
+"s": 16.416
+},
+{
+"w": "to",
+"s": 16.648
+},
+{
+"w": "climb.",
+"s": 16.803
+}
+]
+},
+{
+"start": 17.49,
+"end": 21.071,
+"words": [
+{
+"w": "Two",
+"s": 17.49
+},
+{
+"w": "vending",
+"s": 17.686
+},
+{
+"w": "machines.",
+"s": 18.041
+},
+{
+"w": "Four",
+"s": 18.552
+},
+{
+"w": "hundred",
+"s": 18.789
+},
+{
+"w": "snacks.",
+"s": 19.143
+},
+{
+"w": "Six",
+"s": 19.576
+},
+{
+"w": "weeks,",
+"s": 19.773
+},
+{
+"w": "if",
+"s": 20.166
+},
+{
+"w": "you're",
+"s": 20.324
+},
+{
+"w": "careful.",
+"s": 20.599
+}
+]
+},
+{
+"start": 21.371,
+"end": 26.296,
+"words": [
+{
+"w": "Rule",
+"s": 21.371
+},
+{
+"w": "two.",
+"s": 21.62
+},
+{
+"w": "No",
+"s": 21.951
+},
+{
+"w": "light",
+"s": 22.116
+},
+{
+"w": "at",
+"s": 22.406
+},
+{
+"w": "night.",
+"s": 22.572
+},
+{
+"w": "In",
+"s": 22.985
+},
+{
+"w": "a",
+"s": 23.151
+},
+{
+"w": "city",
+"s": 23.275
+},
+{
+"w": "with",
+"s": 23.523
+},
+{
+"w": "no",
+"s": 23.772
+},
+{
+"w": "power,",
+"s": 23.937
+},
+{
+"w": "one",
+"s": 24.351
+},
+{
+"w": "flashlight",
+"s": 24.558
+},
+{
+"w": "can",
+"s": 25.055
+},
+{
+"w": "be",
+"s": 25.262
+},
+{
+"w": "seen",
+"s": 25.427
+},
+{
+"w": "for",
+"s": 25.676
+},
+{
+"w": "miles.",
+"s": 25.883
+}
+]
+},
+{
+"start": 26.596,
+"end": 29.883,
+"words": [
+{
+"w": "So",
+"s": 26.596
+},
+{
+"w": "you",
+"s": 26.751
+},
+{
+"w": "sit",
+"s": 26.944
+},
+{
+"w": "in",
+"s": 27.138
+},
+{
+"w": "the",
+"s": 27.292
+},
+{
+"w": "dark,",
+"s": 27.486
+},
+{
+"w": "and",
+"s": 27.834
+},
+{
+"w": "listen",
+"s": 28.027
+},
+{
+"w": "to",
+"s": 28.336
+},
+{
+"w": "them",
+"s": 28.491
+},
+{
+"w": "shuffle",
+"s": 28.723
+},
+{
+"w": "past",
+"s": 29.071
+},
+{
+"w": "the",
+"s": 29.303
+},
+{
+"w": "walls.",
+"s": 29.496
+}
+]
+},
+{
+"start": 30.183,
+"end": 31.802,
+"words": [
+{
+"w": "Day",
+"s": 30.183
+},
+{
+"w": "three.",
+"s": 30.421
+},
+{
+"w": "The",
+"s": 30.897
+},
+{
+"w": "taps",
+"s": 31.135
+},
+{
+"w": "die.",
+"s": 31.421
+}
+]
+},
+{
+"start": 32.102,
+"end": 33.936,
+"words": [
+{
+"w": "You",
+"s": 32.102
+},
+{
+"w": "have",
+"s": 32.306
+},
+{
+"w": "two",
+"s": 32.55
+},
+{
+"w": "bottles",
+"s": 32.754
+},
+{
+"w": "of",
+"s": 33.121
+},
+{
+"w": "water",
+"s": 33.284
+},
+{
+"w": "left.",
+"s": 33.569
+}
+]
+},
+{
+"start": 34.236,
+"end": 39.059,
+"words": [
+{
+"w": "Every",
+"s": 34.236
+},
+{
+"w": "survivor",
+"s": 34.532
+},
+{
+"w": "learns",
+"s": 34.955
+},
+{
+"w": "the",
+"s": 35.294
+},
+{
+"w": "rule",
+"s": 35.505
+},
+{
+"w": "of",
+"s": 35.759
+},
+{
+"w": "three.",
+"s": 35.928
+},
+{
+"w": "Three",
+"s": 36.351
+},
+{
+"w": "days",
+"s": 36.647
+},
+{
+"w": "without",
+"s": 36.901
+},
+{
+"w": "water.",
+"s": 37.282
+},
+{
+"w": "Three",
+"s": 37.705
+},
+{
+"w": "weeks",
+"s": 38.001
+},
+{
+"w": "without",
+"s": 38.297
+},
+{
+"w": "food.",
+"s": 38.678
+}
+]
+},
+{
+"start": 39.359,
+"end": 40.957,
+"words": [
+{
+"w": "So",
+"s": 39.359
+},
+{
+"w": "you",
+"s": 39.507
+},
+{
+"w": "don't",
+"s": 39.693
+},
+{
+"w": "go",
+"s": 39.916
+},
+{
+"w": "out.",
+"s": 40.065
+},
+{
+"w": "You",
+"s": 40.362
+},
+{
+"w": "go",
+"s": 40.548
+},
+{
+"w": "up.",
+"s": 40.697
+}
+]
+},
+{
+"start": 41.257,
+"end": 45.656,
+"words": [
+{
+"w": "One",
+"s": 41.257
+},
+{
+"w": "inch",
+"s": 41.463
+},
+{
+"w": "of",
+"s": 41.71
+},
+{
+"w": "rain",
+"s": 41.874
+},
+{
+"w": "on",
+"s": 42.121
+},
+{
+"w": "a",
+"s": 42.285
+},
+{
+"w": "thousand",
+"s": 42.408
+},
+{
+"w": "square",
+"s": 42.819
+},
+{
+"w": "feet",
+"s": 43.148
+},
+{
+"w": "of",
+"s": 43.395
+},
+{
+"w": "roof",
+"s": 43.559
+},
+{
+"w": "gives",
+"s": 43.806
+},
+{
+"w": "you",
+"s": 44.094
+},
+{
+"w": "about",
+"s": 44.299
+},
+{
+"w": "six",
+"s": 44.587
+},
+{
+"w": "hundred",
+"s": 44.792
+},
+{
+"w": "gallons.",
+"s": 45.162
+}
+]
+},
+{
+"start": 45.956,
+"end": 50.31,
+"words": [
+{
+"w": "Your",
+"s": 45.956
+},
+{
+"w": "roof",
+"s": 46.2
+},
+{
+"w": "is",
+"s": 46.444
+},
+{
+"w": "six",
+"s": 46.607
+},
+{
+"w": "thousand",
+"s": 46.81
+},
+{
+"w": "square",
+"s": 47.217
+},
+{
+"w": "feet.",
+"s": 47.543
+},
+{
+"w": "One",
+"s": 47.909
+},
+{
+"w": "storm",
+"s": 48.112
+},
+{
+"w": "could",
+"s": 48.397
+},
+{
+"w": "give",
+"s": 48.682
+},
+{
+"w": "you",
+"s": 48.926
+},
+{
+"w": "three",
+"s": 49.13
+},
+{
+"w": "thousand",
+"s": 49.415
+},
+{
+"w": "gallons.",
+"s": 49.821
+}
+]
+},
+{
+"start": 50.61,
+"end": 53.764,
+"words": [
+{
+"w": "You",
+"s": 50.61
+},
+{
+"w": "block",
+"s": 50.815
+},
+{
+"w": "the",
+"s": 51.101
+},
+{
+"w": "drains,",
+"s": 51.306
+},
+{
+"w": "and",
+"s": 51.757
+},
+{
+"w": "run",
+"s": 51.962
+},
+{
+"w": "every",
+"s": 52.166
+},
+{
+"w": "gutter",
+"s": 52.453
+},
+{
+"w": "into",
+"s": 52.781
+},
+{
+"w": "a",
+"s": 53.027
+},
+{
+"w": "trash",
+"s": 53.15
+},
+{
+"w": "can.",
+"s": 53.436
+}
+]
+},
+{
+"start": 54.064,
+"end": 57.942,
+"words": [
+{
+"w": "Rule",
+"s": 54.064
+},
+{
+"w": "three.",
+"s": 54.304
+},
+{
+"w": "Dump",
+"s": 54.704
+},
+{
+"w": "the",
+"s": 54.944
+},
+{
+"w": "first",
+"s": 55.144
+},
+{
+"w": "flush.",
+"s": 55.424
+},
+{
+"w": "It",
+"s": 55.823
+},
+{
+"w": "washes",
+"s": 55.983
+},
+{
+"w": "the",
+"s": 56.303
+},
+{
+"w": "bird",
+"s": 56.503
+},
+{
+"w": "droppings",
+"s": 56.743
+},
+{
+"w": "off",
+"s": 57.183
+},
+{
+"w": "the",
+"s": 57.383
+},
+{
+"w": "roof.",
+"s": 57.582
+}
+]
+},
+{
+"start": 58.242,
+"end": 61.218,
+"words": [
+{
+"w": "Then",
+"s": 58.242
+},
+{
+"w": "strain",
+"s": 58.46
+},
+{
+"w": "it",
+"s": 58.75
+},
+{
+"w": "through",
+"s": 58.895
+},
+{
+"w": "a",
+"s": 59.222
+},
+{
+"w": "shirt,",
+"s": 59.331
+},
+{
+"w": "and",
+"s": 59.694
+},
+{
+"w": "boil",
+"s": 59.875
+},
+{
+"w": "it",
+"s": 60.093
+},
+{
+"w": "for",
+"s": 60.238
+},
+{
+"w": "one",
+"s": 60.419
+},
+{
+"w": "full",
+"s": 60.601
+},
+{
+"w": "minute.",
+"s": 60.818
+}
+]
+},
+{
+"start": 61.518,
+"end": 64.48,
+"words": [
+{
+"w": "Night",
+"s": 61.518
+},
+{
+"w": "three.",
+"s": 61.79
+},
+{
+"w": "The",
+"s": 62.18
+},
+{
+"w": "storm",
+"s": 62.375
+},
+{
+"w": "comes,",
+"s": 62.648
+},
+{
+"w": "and",
+"s": 63.038
+},
+{
+"w": "your",
+"s": 63.233
+},
+{
+"w": "cans",
+"s": 63.467
+},
+{
+"w": "start",
+"s": 63.7
+},
+{
+"w": "to",
+"s": 63.973
+},
+{
+"w": "fill.",
+"s": 64.129
+}
+]
+},
+{
+"start": 64.78,
+"end": 67.946,
+"words": [
+{
+"w": "But",
+"s": 64.78
+},
+{
+"w": "rain",
+"s": 64.983
+},
+{
+"w": "on",
+"s": 65.226
+},
+{
+"w": "plastic",
+"s": 65.389
+},
+{
+"w": "is",
+"s": 65.754
+},
+{
+"w": "loud.",
+"s": 65.917
+},
+{
+"w": "And",
+"s": 66.282
+},
+{
+"w": "three",
+"s": 66.485
+},
+{
+"w": "hundred",
+"s": 66.769
+},
+{
+"w": "heads",
+"s": 67.134
+},
+{
+"w": "turn",
+"s": 67.418
+},
+{
+"w": "up.",
+"s": 67.662
+}
+]
+},
+{
+"start": 68.246,
+"end": 70.397,
+"words": [
+{
+"w": "They",
+"s": 68.246
+},
+{
+"w": "can't",
+"s": 68.473
+},
+{
+"w": "climb.",
+"s": 68.699
+},
+{
+"w": "But",
+"s": 69.076
+},
+{
+"w": "the",
+"s": 69.265
+},
+{
+"w": "back",
+"s": 69.454
+},
+{
+"w": "door",
+"s": 69.68
+},
+{
+"w": "is",
+"s": 69.906
+},
+{
+"w": "wood.",
+"s": 70.057
+}
+]
+},
+{
+"start": 70.697,
+"end": 71.702,
+"words": [
+{
+"w": "And",
+"s": 70.697
+},
+{
+"w": "you",
+"s": 70.864
+},
+{
+"w": "hear",
+"s": 71.032
+},
+{
+"w": "it",
+"s": 71.233
+},
+{
+"w": "crack.",
+"s": 71.367
+}
+]
+},
+{
+"start": 72.002,
+"end": 76.525,
+"words": [
+{
+"w": "Your",
+"s": 72.002
+},
+{
+"w": "water",
+"s": 72.23
+},
+{
+"w": "is",
+"s": 72.496
+},
+{
+"w": "up",
+"s": 72.648
+},
+{
+"w": "on",
+"s": 72.8
+},
+{
+"w": "the",
+"s": 72.952
+},
+{
+"w": "roof.",
+"s": 73.142
+},
+{
+"w": "Your",
+"s": 73.484
+},
+{
+"w": "only",
+"s": 73.712
+},
+{
+"w": "way",
+"s": 73.941
+},
+{
+"w": "down",
+"s": 74.131
+},
+{
+"w": "is",
+"s": 74.359
+},
+{
+"w": "the",
+"s": 74.511
+},
+{
+"w": "stairs.",
+"s": 74.701
+},
+{
+"w": "You",
+"s": 75.119
+},
+{
+"w": "have",
+"s": 75.309
+},
+{
+"w": "time",
+"s": 75.537
+},
+{
+"w": "for",
+"s": 75.765
+},
+{
+"w": "one",
+"s": 75.955
+},
+{
+"w": "thing.",
+"s": 76.145
+}
+]
+},
+{
+"start": 76.825,
+"end": 82.68,
+"words": [
+{
+"w": "Would",
+"s": 76.825
+},
+{
+"w": "you",
+"s": 77.086
+},
+{
+"w": "rather",
+"s": 77.273
+},
+{
+"w": "carry",
+"s": 77.571
+},
+{
+"w": "all",
+"s": 77.832
+},
+{
+"w": "your",
+"s": 78.019
+},
+{
+"w": "water",
+"s": 78.243
+},
+{
+"w": "down",
+"s": 78.504
+},
+{
+"w": "to",
+"s": 78.727
+},
+{
+"w": "the",
+"s": 78.877
+},
+{
+"w": "stone",
+"s": 79.063
+},
+{
+"w": "basement?",
+"s": 79.324
+},
+{
+"w": "Or",
+"s": 79.809
+},
+{
+"w": "stay",
+"s": 79.958
+},
+{
+"w": "on",
+"s": 80.182
+},
+{
+"w": "the",
+"s": 80.331
+},
+{
+"w": "roof",
+"s": 80.517
+},
+{
+"w": "and",
+"s": 80.741
+},
+{
+"w": "keep",
+"s": 80.928
+},
+{
+"w": "collecting",
+"s": 81.151
+},
+{
+"w": "while",
+"s": 81.599
+},
+{
+"w": "the",
+"s": 81.86
+},
+{
+"w": "storm",
+"s": 82.047
+},
+{
+"w": "lasts?",
+"s": 82.308
+}
+]
+},
+{
+"start": 85.93,
+"end": 88.032,
+"words": [
+{
+"w": "Vote",
+"s": 85.93
+},
+{
+"w": "in",
+"s": 86.178
+},
+{
+"w": "the",
+"s": 86.342
+},
+{
+"w": "poll.",
+"s": 86.548
+},
+{
+"w": "Part",
+"s": 86.919
+},
+{
+"w": "two,",
+"s": 87.166
+},
+{
+"w": "tomorrow.",
+"s": 87.496
+}
+]
+}
+]
+}

@@ -10,8 +10,8 @@ SR = 24000
 d, tts_dir = sys.argv[1], sys.argv[2]
 S = json.load(open(os.path.join(d, "script.json")))
 VOICES = {"cole": ("am_onyx", .86), "mags": ("af_bella", 1.0), "dooley": ("bm_lewis", .92), "pip": ("af_sky", 1.06),
-          "tank": ("am_fenrir", 1.0), "radio": ("am_echo", .95), "narr": ("am_michael", 1.06)}
-NAMES = {"narr": "NARRATOR", "cole": "COLE", "mags": "MAGS", "dooley": "DOOLEY", "pip": "PIP", "tank": "TANK", "radio": "RADIO"}
+          "tank": ("am_fenrir", 1.0), "radio": ("am_echo", .95), "narr": ("am_michael", 1.06), "deep": ("am_onyx", 1.0)}
+NAMES = {"narr": "NARRATOR", "cole": "COLE", "mags": "MAGS", "dooley": "DOOLEY", "pip": "PIP", "tank": "TANK", "radio": "RADIO", "deep": "NARRATOR"}
 class _Lazy:
     k = None
     def create(self, *a, **kw):
@@ -71,6 +71,9 @@ for raw in S["beats"]:
     beats.append({**shot, "sp": raw["sp"], "name": NAMES[raw["sp"]], "text": raw["text"], "start": round(st, 3), "end": round(st + dur, 3), "words": words, "sfx": raw.get("sfx", [])})
     clips.append((st, a)); t = st + dur; prev_sp = raw["sp"]
 total = t + 2.0
+if S.get("target"):  # exact length (e.g. 90 s): stretch the closing screen
+    if total > S["target"]: print(f"WARNING: {total:.1f}s is over target {S['target']}s")
+    else: total = float(S["target"]); beats[-1]["end"] = round(total - .4, 3)
 N = int(total * SR)
 
 voice = np.zeros(N, np.float32)

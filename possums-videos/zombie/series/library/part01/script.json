@@ -1,0 +1,647 @@
+{
+ "series": "What if you hid in a library?",
+ "episode": 1,
+ "day": 1,
+ "title": "Part 1",
+ "lesson": "RAINWATER = LIFE",
+ "vertical": true,
+ "lead": 0.15,
+ "target": 90,
+ "speeds": {
+  "deep": 1.1
+ },
+ "width": 1080,
+ "height": 1920,
+ "mix": {
+  "music": 0.06,
+  "ambience": 0.035
+ },
+ "beats": [
+  {
+   "sp": "deep",
+   "text": "Three hundred dead are walking past your library. Not one of them knows you're inside.",
+   "scene": "stakes",
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "300 DEAD",
+     "w": "hundred",
+     "c": "#ff5a4a",
+     "big": true
+    },
+    {
+     "t": "1 LIBRARY",
+     "w": "library",
+     "big": true
+    },
+    {
+     "t": "1 OF YOU",
+     "w": "inside",
+     "c": "#ffe14a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "sting",
+     0
+    ],
+    [
+     "groan",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "In a library, silence was always the rule. Now it's the only thing keeping you alive.",
+   "scene": "library_ext",
+   "tod": "dusk",
+   "pose": "idle",
+   "titleCard": [
+    "WHAT IF YOU HID IN A LIBRARY?",
+    "PART 1"
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Day zero. Every phone in the city screams at once.",
+   "scene": "phone",
+   "date": "DAY 0",
+   "clock": "11:52",
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "static",
+     0.3
+    ],
+    [
+     "sting",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You lock the doors. Stone walls, two feet thick. One door. Windows too high to climb.",
+   "scene": "base",
+   "cam2": "all",
+   "you": [
+    "f2",
+    540,
+    "idle"
+   ],
+   "tod": "day",
+   "rules": [
+    "RULE 1: SILENCE",
+    "RULE 2: NO LIGHT AT NIGHT"
+   ],
+   "cards": [
+    {
+     "t": "STONE: 2 FT",
+     "w": "stone"
+    },
+    {
+     "t": "1 DOOR",
+     "w": "door"
+    },
+    {
+     "t": "WINDOWS: TOO HIGH",
+     "w": "windows"
+    }
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Two vending machines. Four hundred snacks. Six weeks, if you're careful.",
+   "scene": "base",
+   "cam2": "f2",
+   "you": [
+    "f2",
+    760,
+    "think",
+    1
+   ],
+   "tod": "day",
+   "rules": [
+    "RULE 1: SILENCE",
+    "RULE 2: NO LIGHT AT NIGHT"
+   ],
+   "cards": [
+    {
+     "t": "400 SNACKS",
+     "w": "hundred"
+    },
+    {
+     "t": "= 6 WEEKS",
+     "w": "weeks",
+     "c": "#7cd67c"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Rule two. No light at night. In a city with no power, one flashlight can be seen for miles.",
+   "scene": "base",
+   "cam2": "f2",
+   "you": [
+    "f2",
+    600,
+    "point"
+   ],
+   "tod": "night",
+   "rules": [
+    "RULE 1: SILENCE",
+    "RULE 2: NO LIGHT AT NIGHT"
+   ],
+   "cards": [
+    {
+     "t": "RULE 2: NO LIGHT AT NIGHT",
+     "w": "light",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "SEEN FOR MILES",
+     "w": "miles",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "tick",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "So you sit in the dark, and listen to them shuffle past the walls.",
+   "scene": "base",
+   "cam2": "f1",
+   "tod": "night",
+   "sfx": [
+    [
+     "groan",
+     0.8
+    ],
+    [
+     "steps",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Day three. The taps die.",
+   "scene": "sink",
+   "tod": "night",
+   "cards": [
+    {
+     "t": "TAPS: OFF",
+     "w": "taps",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "tick",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You have two bottles of water left.",
+   "scene": "base",
+   "cam2": "f2",
+   "you": [
+    "f2",
+    600,
+    "scared"
+   ],
+   "tod": "day",
+   "jugs": 2,
+   "rules": [
+    "RULE 1: SILENCE",
+    "RULE 2: NO LIGHT AT NIGHT"
+   ],
+   "cards": [
+    {
+     "t": "WATER: 2 BOTTLES",
+     "w": "two",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Every survivor learns the rule of three. Three days without water. Three weeks without food.",
+   "scene": "paper",
+   "paper": {
+    "title": "THE RULE OF 3",
+    "lines": [
+     [
+      "3 MINUTES - AIR",
+      "#2a2622"
+     ],
+     [
+      "3 DAYS - WATER",
+      "#c0392b"
+     ],
+     [
+      "3 WEEKS - FOOD",
+      "#2a2622"
+     ]
+    ],
+    "src": "the survival rule of threes (rough limits for an average adult)"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "So you don't go out. You go up.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "point"
+   ],
+   "tod": "day",
+   "rules": [
+    "RULE 1: SILENCE",
+    "RULE 2: NO LIGHT AT NIGHT"
+   ],
+   "cards": [
+    {
+     "t": "DON'T GO OUT",
+     "w": "out",
+     "c": "#ff5a4a",
+     "strike": true
+    },
+    {
+     "t": "GO UP",
+     "w": "up",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "steps",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "One inch of rain on a thousand square feet of roof gives you about six hundred gallons.",
+   "scene": "paper",
+   "paper": {
+    "title": "ROOF MATH",
+    "lines": [
+     "1 INCH OF RAIN",
+     "x 1,000 SQ FT OF ROOF",
+     [
+      " = 623 GALLONS",
+      "#1f7a3a"
+     ]
+    ],
+    "icon": "drops",
+    "src": "rainwater harvesting rule: 0.623 gallons per square foot per inch"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "Your roof is six thousand square feet. One storm could give you three thousand gallons.",
+   "scene": "base",
+   "cam2": "up",
+   "you": [
+    "roof",
+    420,
+    "idle"
+   ],
+   "tod": "day",
+   "cards": [
+    {
+     "t": "ROOF: 6,000 SQ FT",
+     "w": "six"
+    },
+    {
+     "t": "1 STORM = 3,000+ GAL",
+     "w": "three",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "ding",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You block the drains, and run every gutter into a trash can.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    360,
+    "idle"
+   ],
+   "props": [
+    "gutter",
+    "cans"
+   ],
+   "fill0": 0,
+   "tod": "day",
+   "cards": [
+    {
+     "t": "GUTTERS \u2192 TRASH CANS",
+     "w": "gutter"
+    }
+   ],
+   "sfx": [
+    [
+     "scrape",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Rule three. Dump the first flush. It washes the bird droppings off the roof.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "point"
+   ],
+   "props": [
+    "gutter",
+    "cans",
+    "diverter",
+    "dirt"
+   ],
+   "fill0": 0,
+   "tod": "dusk",
+   "cards": [
+    {
+     "t": "RULE 3: DUMP THE FIRST FLUSH",
+     "w": "dump",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then strain it through a shirt, and boil it for one full minute.",
+   "scene": "boil",
+   "cards": [
+    {
+     "t": "STRAIN",
+     "w": "strain"
+    },
+    {
+     "t": "BOIL: 1 MINUTE",
+     "w": "boil",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Night three. The storm comes, and your cans start to fill.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "cheer"
+   ],
+   "props": [
+    "gutter",
+    "cans"
+   ],
+   "rain": true,
+   "tod": "night",
+   "fx": [
+    "lightning"
+   ],
+   "wx": "rain",
+   "fill0": 0.1,
+   "fill1": 0.7,
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "NIGHT 3",
+     "w": "night",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "+40 GALLONS",
+     "w": "fill",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "thunder",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "But rain on plastic is loud. And three hundred heads turn up.",
+   "scene": "heads",
+   "intensity": 0.85,
+   "cards": [
+    {
+     "t": "300 HEADS TURN",
+     "w": "heads",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ],
+    [
+     "groan",
+     1.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "They can't climb. But the back door is wood.",
+   "scene": "base",
+   "cam2": "f1",
+   "tod": "night",
+   "doorShake": true,
+   "wx": "rain",
+   "fx": [],
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "THEY CAN'T CLIMB",
+     "w": "climb"
+    },
+    {
+     "t": "BACK DOOR: WOOD",
+     "w": "wood",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.3
+    ],
+    [
+     "bang",
+     1.1
+    ],
+    [
+     "bang",
+     1.9
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And you hear it crack.",
+   "scene": "base",
+   "cam2": "f1",
+   "tod": "night",
+   "doorShake": true,
+   "crack": true,
+   "fx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "CRACK",
+     "w": "crack",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "crash",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your water is up on the roof. Your only way down is the stairs. You have time for one thing.",
+   "scene": "base",
+   "cam2": "up",
+   "you": [
+    "roof",
+    420,
+    "scared"
+   ],
+   "props": [
+    "gutter",
+    "cans"
+   ],
+   "rain": true,
+   "fill0": 0.7,
+   "tod": "night",
+   "fx": [],
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "TIME FOR 1 THING",
+     "w": "one",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.5
+    ],
+    [
+     "bang",
+     2.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Would you rather carry all your water down to the stone basement? Or stay on the roof and keep collecting while the storm lasts?",
+   "scene": "question",
+   "opt1": "Carry all your water down to the stone basement",
+   "opt2": "Stay on the roof and keep collecting while the storm lasts",
+   "fx": [],
+   "wx": null,
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.4,
+   "scene": "question",
+   "opt1": "Carry all your water down to the stone basement",
+   "opt2": "Stay on the roof and keep collecting while the storm lasts",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Vote in the poll. Part two, tomorrow.",
+   "scene": "question",
+   "opt1": "Carry all your water down to the stone basement",
+   "opt2": "Stay on the roof and keep collecting while the storm lasts",
+   "vote": true,
+   "recap": "RULES: SILENCE \u2022 NO LIGHT \u2022 DUMP FIRST FLUSH"
+  }
+ ]
+}
