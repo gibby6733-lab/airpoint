@@ -12,3 +12,5 @@ New topics usually need new scene drawings in engine.html (SC object).
 - Captions: 100 characters MAX including hashtags and emojis (count emojis as 2). Check with python before posting.
 Captions: common iPhone emojis only (never text codes like [Red heart]); paste the caption in chat too.
 Hashtags: #shorts #wouldyousurvive + 2 topic tags.
+Each video also gets `description.txt` for YouTube: hook, setting with real facts, the 3 choices, "what really
+happened" answers, the toll, comment + next-disaster call to action, hashtags. Paste it in chat with the title.
