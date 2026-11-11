@@ -8,10 +8,11 @@
  "history": [
   {
    "day": 1,
-   "lesson": "safe drinking water: filter through cloth, rolling boil 1 min (3 at high altitude), store covered",
-   "question": "Keep boiling water and risk the smoke, OR put out the fire and live on what you have left",
+   "lesson": "rainwater: 1 in on 1,000 sq ft = ~600 gal; dump first flush; strain; rolling boil 1 min; 1 gal/person/day",
+   "question": "Carry all your water down to the stone basement, OR stay on the roof and keep collecting while the storm lasts",
    "poll_winner": null
   }
  ],
- "engine": "zombie/story/engine.html (native 9:16) - copy to dayNN/episode.html, render with render.js"
+ "engine": "zombie/story/engine.html (native 9:16) - copy to dayNN/episode.html, render with render.js",
+ "style": "'What If' style (ref: instagram what_if_survival): second-person narrator ('you', am_michael 1.12), 3-line stakes-card hook, number cards popping on keywords every 1-3 s with real survival math, punch-in cuts, side-cutaway library base (roof/reading room/lobby/stone basement) with camera pans; open each later day with the poll result ('Most of you said ...')"
 }

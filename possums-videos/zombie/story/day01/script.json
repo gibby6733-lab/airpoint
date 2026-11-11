@@ -1,188 +1,553 @@
 {
- "series": "Zombie survival lessons",
+ "series": "Zombie survival",
  "episode": 1,
  "day": 1,
  "title": "Day 1",
- "lesson": "SAFE DRINKING WATER",
+ "lesson": "RAINWATER = LIFE",
  "vertical": true,
  "lead": 0.15,
+ "speeds": {
+  "narr": 1.12
+ },
  "width": 1080,
  "height": 1920,
  "mix": {
-  "music": 0.08,
-  "ambience": 0.045
+  "music": 0.06,
+  "ambience": 0.035
  },
  "beats": [
   {
-   "sp": "cole",
-   "text": "Zombies won't kill you first. Dirty water will. Here's how I stayed alive.",
-   "scene": "hook",
-   "h1": "ZOMBIES WON'T KILL YOU FIRST.",
-   "h2": "DIRTY WATER WILL.",
+   "sp": "narr",
+   "text": "Three hundred dead are circling your library. And you have three days of water.",
+   "scene": "stakes",
    "tod": "night",
-   "z": null,
+   "intensity": 0.7,
+   "cards": [
+    {
+     "t": "300 ZOMBIES",
+     "w": "hundred",
+     "c": "#ff5a4a",
+     "big": true
+    },
+    {
+     "t": "1 LIBRARY",
+     "w": "library",
+     "big": true
+    },
+    {
+     "t": "3 DAYS OF WATER",
+     "w": "days",
+     "c": "#ffe14a",
+     "big": true
+    }
+   ],
    "sfx": [
     [
      "sting",
      0
     ],
     [
-     "whoosh",
-     0.5
-    ]
-   ]
-  },
-  {
-   "sp": "cole",
-   "text": "I'm Cole. I used to teach science. Now I teach survival.",
-   "scene": "library_ext",
-   "tod": "night",
-   "tag": "COLE \u2022 EX-SCIENCE TEACHER",
-   "pose": "talk"
-  },
-  {
-   "sp": "cole",
-   "text": "I picked this library on purpose. Stone walls, one door, and windows too high to climb.",
-   "scene": "library_ext",
-   "tag": "1 DOOR \u2022 THICK STONE WALLS",
-   "pose": "point"
-  },
-  {
-   "sp": "cole",
-   "text": "But on day three, the taps stopped running.",
-   "scene": "sink",
-   "tod": "night",
-   "sfx": [
-    [
-     "tick",
-     0.2
-    ],
-    [
-     "tick",
-     1.1
-    ]
-   ]
-  },
-  {
-   "sp": "cole",
-   "text": "Here's the science. You can last about three weeks without food. But only about three days without water.",
-   "scene": "library_int",
-   "pose": "think",
-   "tag": "3 WEEKS FOOD \u2022 3 DAYS WATER"
-  },
-  {
-   "sp": "cole",
-   "text": "So I went to the river. But river water can carry bacteria and parasites.",
-   "scene": "river",
-   "tod": "day",
-   "showBottle": true,
-   "z": {
-    "n": 4,
-    "x0": 1.1,
-    "x1": 0.95,
-    "depth": "far",
-    "turn": true
-   },
-   "sfx": [
-    [
      "groan",
-     0.8
+     0.6
     ]
    ]
   },
   {
-   "sp": "cole",
-   "text": "They make you sick, and you lose even more water. Out here, that can kill you.",
-   "scene": "warn",
+   "sp": "narr",
+   "text": "The taps died this morning.",
+   "scene": "sink",
+   "cards": [
+    {
+     "t": "TAPS: OFF",
+     "w": "taps",
+     "c": "#ff5a4a"
+    }
+   ],
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "tick",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Here's the math. You can go three weeks without food.",
+   "scene": "base",
+   "cam2": "f2",
+   "you": [
+    "f2",
+    760,
+    "think",
+    1
+   ],
    "tod": "day",
-   "z": null
-  },
-  {
-   "sp": "cole",
-   "text": "Step one. Pour it through a cloth to catch the dirt.",
-   "scene": "step",
-   "n": 1,
-   "title": "FILTER THROUGH CLOTH",
-   "sub": "Clears dirt. Does NOT kill germs.",
-   "tod": "night"
-  },
-  {
-   "sp": "cole",
-   "text": "Step two. Bring it to a rolling boil for one full minute. Three minutes if you're high in the mountains.",
-   "scene": "step",
-   "n": 2,
-   "title": "ROLLING BOIL: 1 MINUTE",
-   "sub": "3 minutes at high altitude",
-   "sfx": [
-    [
-     "whoosh",
-     0
-    ]
+   "cards": [
+    {
+     "t": "FOOD: 3 WEEKS",
+     "w": "three"
+    }
    ]
   },
   {
-   "sp": "cole",
-   "text": "Step three. Let it cool, and store it in clean, covered jars.",
-   "scene": "step",
-   "n": 3,
-   "title": "STORE IT COVERED",
-   "sub": "Clean jars. Lids on.",
-   "sfx": [
-    [
-     "ding",
-     1.2
-    ]
-   ]
-  },
-  {
-   "sp": "cole",
-   "text": "But there's a problem. The smoke from my fire can be seen for miles.",
-   "scene": "roof",
-   "tod": "dusk",
-   "pose": "idle",
-   "z": {
-    "n": 5,
-    "x0": 1.2,
-    "x1": 1.0,
-    "depth": "far",
-    "turn": true
-   }
-  },
-  {
-   "sp": "cole",
-   "text": "And tonight, they saw it.",
-   "scene": "roof",
-   "tod": "night",
-   "pose": "scared",
-   "z": {
-    "n": 10,
-    "x0": 1.05,
-    "x1": 0.78,
-    "depth": "mid",
-    "turn": true
-   },
-   "fx": [
-    "shake"
+   "sp": "narr",
+   "text": "But only about three days without water.",
+   "scene": "base",
+   "cam2": "f2",
+   "you": [
+    "f2",
+    600,
+    "scared"
+   ],
+   "tod": "day",
+   "jugs": 1,
+   "cards": [
+    {
+     "t": "WATER: 3 DAYS",
+     "w": "three",
+     "c": "#ff5a4a"
+    }
    ],
    "sfx": [
     [
-     "groan",
+     "sting",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "So you don't go out. You go up.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "point"
+   ],
+   "tod": "day",
+   "cards": [
+    {
+     "t": "DON'T GO OUT",
+     "w": "out",
+     "c": "#ff5a4a",
+     "strike": true
+    },
+    {
+     "t": "GO UP",
+     "w": "up",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "whoosh",
      0.1
     ],
     [
+     "steps",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "This roof is flat. Six thousand square feet.",
+   "scene": "base",
+   "cam2": "up",
+   "you": [
+    "roof",
+    420,
+    "idle"
+   ],
+   "tod": "day",
+   "cards": [
+    {
+     "t": "ROOF: 6,000 SQ FT",
+     "w": "six"
+    }
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "One inch of rain on a thousand square feet gives you about six hundred gallons.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "point"
+   ],
+   "tod": "day",
+   "cards": [
+    {
+     "t": "1 INCH OF RAIN",
+     "w": "inch"
+    },
+    {
+     "t": "\u00d7 1,000 SQ FT",
+     "w": "thousand"
+    },
+    {
+     "t": "= 600 GALLONS",
+     "w": "gallons",
+     "c": "#7cd67c"
+    }
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "So one storm on this roof can drop over three thousand gallons.",
+   "scene": "base",
+   "cam2": "up",
+   "you": [
+    "roof",
+    420,
+    "idle"
+   ],
+   "tod": "day",
+   "cards": [
+    {
+     "t": "1 STORM = 3,000+ GAL",
+     "w": "three",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "ding",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "You block the drains, and run every gutter into a trash can.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    360,
+    "idle"
+   ],
+   "props": [
+    "gutter",
+    "cans"
+   ],
+   "fill0": 0,
+   "tod": "day",
+   "cards": [
+    {
+     "t": "GUTTERS \u2192 TRASH CANS",
+     "w": "gutter"
+    }
+   ],
+   "sfx": [
+    [
+     "scrape",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "But roof water is dirty. Bird droppings. Dust. Dead leaves.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    360,
+    "scared"
+   ],
+   "props": [
+    "gutter",
+    "cans",
+    "dirt"
+   ],
+   "fill0": 0,
+   "tod": "day",
+   "cards": [
+    {
+     "t": "ROOF WATER = DIRTY",
+     "w": "dirty",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "So, rule one. Dump the first flush.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "point"
+   ],
+   "props": [
+    "gutter",
+    "cans",
+    "diverter"
+   ],
+   "fill0": 0,
+   "tod": "dusk",
+   "cards": [
+    {
+     "t": "RULE 1: DUMP THE FIRST FLUSH",
+     "w": "dump",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "The first few minutes of rain wash the roof. You let that water go.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "idle"
+   ],
+   "props": [
+    "gutter",
+    "cans",
+    "diverter"
+   ],
+   "rain": true,
+   "fill0": 0,
+   "tod": "dusk",
+   "wx": "rain",
+   "cards": [
+    {
+     "t": "FIRST 5 MINUTES \u2192 DUMP",
+     "w": "minutes"
+    }
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Then you strain it through a T-shirt to catch the grit.",
+   "scene": "cloth",
+   "wx": null,
+   "cards": [
+    {
+     "t": "STRAIN: T-SHIRT",
+     "w": "strain"
+    }
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "And boil it. A rolling boil, for one full minute.",
+   "scene": "boil",
+   "cards": [
+    {
+     "t": "ROLLING BOIL",
+     "w": "rolling",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "1 MINUTE = SAFE",
+     "w": "minute",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "One person needs about a gallon a day. Half to drink. Half to cook and wash.",
+   "scene": "base",
+   "cam2": "f2",
+   "you": [
+    "f2",
+    520,
+    "think"
+   ],
+   "tod": "dusk",
+   "jugs": 4,
+   "cards": [
+    {
+     "t": "1 PERSON = 1 GAL / DAY",
+     "w": "gallon"
+    },
+    {
+     "t": "\u00bd DRINK \u2022 \u00bd COOK & WASH",
+     "w": "half",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Night three. The storm finally comes.",
+   "scene": "base",
+   "cam2": "up",
+   "you": [
+    "roof",
+    420,
+    "idle"
+   ],
+   "props": [
+    "gutter",
+    "cans"
+   ],
+   "rain": true,
+   "tod": "night",
+   "fx": [
+    "lightning"
+   ],
+   "wx": "rain",
+   "fill0": 0.1,
+   "fill1": 0.3,
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "NIGHT 3",
+     "w": "night",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "thunder",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Rain hammers the roof, and your cans start to fill.",
+   "scene": "base",
+   "cam2": "roof",
+   "you": [
+    "roof",
+    420,
+    "cheer"
+   ],
+   "props": [
+    "gutter",
+    "cans"
+   ],
+   "rain": true,
+   "tod": "night",
+   "fill0": 0.3,
+   "fill1": 0.8,
+   "cards": [
+    {
+     "t": "+40 GALLONS",
+     "w": "fill",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "ding",
+     1.8
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "But rain on plastic is loud. And down below, three hundred heads turn up.",
+   "scene": "heads",
+   "intensity": 0.85,
+   "cards": [
+    {
+     "t": "300 HEADS TURN",
+     "w": "heads",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ],
+    [
+     "groan",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "They can't climb. But the back door is wood.",
+   "scene": "base",
+   "cam2": "f1",
+   "tod": "night",
+   "doorShake": true,
+   "wx": "rain",
+   "fx": [],
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "THEY CAN'T CLIMB",
+     "w": "climb"
+    },
+    {
+     "t": "BACK DOOR: WOOD",
+     "w": "wood",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
      "bang",
+     0.3
+    ],
+    [
+     "bang",
+     1.1
+    ],
+    [
+     "bang",
+     1.9
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "And you hear it start to crack.",
+   "scene": "base",
+   "cam2": "f1",
+   "tod": "night",
+   "doorShake": true,
+   "crack": true,
+   "fx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "CRACK",
+     "w": "crack",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "crash",
      0.9
     ]
    ]
   },
   {
-   "sp": "cole",
-   "text": "So, would you rather keep boiling water and risk the smoke? Or put out the fire and live on what you have left?",
+   "sp": "narr",
+   "text": "So, would you rather carry all your water down to the stone basement? Or stay on the roof and keep collecting while the storm lasts?",
    "scene": "question",
-   "opt1": "Keep boiling water and risk the smoke",
-   "opt2": "Put out the fire and live on what you have left",
-   "z": null,
+   "opt1": "Carry all your water down to the stone basement",
+   "opt2": "Stay on the roof and keep collecting while the storm lasts",
    "fx": [],
+   "wx": null,
+   "intensity": 0.6,
    "sfx": [
     [
      "sting",
@@ -195,8 +560,8 @@
    "text": "",
    "hold": 2.6,
    "scene": "question",
-   "opt1": "Keep boiling water and risk the smoke",
-   "opt2": "Put out the fire and live on what you have left",
+   "opt1": "Carry all your water down to the stone basement",
+   "opt2": "Stay on the roof and keep collecting while the storm lasts",
    "countdown": true,
    "sfx": [
     [
@@ -214,13 +579,13 @@
    ]
   },
   {
-   "sp": "cole",
+   "sp": "narr",
    "text": "Vote in the poll. Tomorrow, you'll see what happens.",
    "scene": "question",
-   "opt1": "Keep boiling water and risk the smoke",
-   "opt2": "Put out the fire and live on what you have left",
+   "opt1": "Carry all your water down to the stone basement",
+   "opt2": "Stay on the roof and keep collecting while the storm lasts",
    "vote": true,
-   "recap": "TODAY: FILTER \u2022 BOIL 1 MIN \u2022 COVER"
+   "recap": "TODAY: DUMP FIRST FLUSH \u2022 STRAIN \u2022 BOIL 1 MIN"
   }
  ]
 }

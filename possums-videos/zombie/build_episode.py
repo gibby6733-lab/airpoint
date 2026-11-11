@@ -55,6 +55,7 @@ for raw in S["beats"]:
         t = st + dur + .2; prev_sp = None; continue
     voice, speed = VOICES[raw["sp"]]
     if S.get("vertical") and raw["sp"] == "cole": speed = .9
+    speed = S.get("speeds", {}).get(raw["sp"], speed)
     key = hashlib.md5(f"{voice}|{speed}|{raw['text']}".encode()).hexdigest()[:16]; cp = os.path.join(d, "_tts", key + ".wav")
     if os.path.exists(cp):
         a, _ = sf.read(cp, dtype="float32")
