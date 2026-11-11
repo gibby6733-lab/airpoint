@@ -8,6 +8,8 @@ Original animated series: "The worst football team in America." TikTok only. Eve
 - Mix: music ≈ -25 dB and SFX ≈ -15 dB relative to voice; final loudness -14 LUFS
 - Ending teases **tomorrow's** game; CTA says every like on this video counts, most-liked comment wins (TikTok only; never mention Instagram)
 - Football hashtags (exactly these, nothing else): #football #footballfunny #animation #Mudvillepossums
+- Captions: only common emojis that show on iPhone (e.g. 🏈 💵 👇 🏟️ 🌱 🥅 📟 🚽 😬 😂 🔥 ❤️); never text codes like [Red heart].
+  Always paste the caption in chat too, ready to copy.
 - Arena stays run-down until fans pay for upgrades (see `state.json`)
 
 ## Daily workflow
