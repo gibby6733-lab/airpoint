@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// "Would You Rather: Zombie Apocalypse" Shorts renderer (YT Shorts / TikTok / Instagram) (1080x1920). Beats carry `scene` + extras (choice text, clock, win).
+const W = 1080, H = 1920, cv = document.getElementById('c'), ctx = cv.getContext('2d');
+let TL = null; window.setTimeline = tl => { TL = tl; };
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k, seg = (u, a, b) => clamp((u - a) / (b - a));
+const eOut = k => 1 - Math.pow(1 - k, 3), eBack = k => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(k - 1, 3) + c1 * Math.pow(k - 1, 2); };
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+function txt(s, x, y, size, color = '#fff', o = {}) { ctx.save(); ctx.font = `${o.weight || 900} ${size}px ${o.font || 'Inter'}`; ctx.textAlign = o.align || 'center'; ctx.textBaseline = 'middle';
+  if (o.maxW) { const w = ctx.measureText(s).width; if (w > o.maxW) { ctx.translate(x, y); ctx.scale(o.maxW / w, o.maxW / w); x = 0; y = 0; } }
+  if (o.stroke) { ctx.lineJoin = 'round'; ctx.lineWidth = o.stroke; ctx.strokeStyle = o.strokeColor || '#000'; ctx.strokeText(s, x, y); } ctx.fillStyle = color; ctx.fillText(s, x, y); ctx.restore(); }
+function withT(x, y, s, r, fn) { ctx.save(); ctx.translate(x, y); ctx.rotate(r || 0); ctx.scale(s, s); fn(); ctx.restore(); }
+function stamp(label, x, y, size, k, color = '#ffe14a', rot = -.06) { if (k <= 0) return; const s = k < 1 ? lerp(2.4, 1, eOut(k)) : 1; ctx.save(); ctx.globalAlpha = clamp(k * 3); withT(x, y, s, rot, () => txt(label, 0, 0, size, color, { stroke: size * .16, maxW: 980 })); ctx.restore(); }
+function panel(x, y, w, h, fill = 'rgba(12,16,24,.88)', line = '#e8c46a') { ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.55)'; ctx.shadowBlur = 30; ctx.fillStyle = fill; rr(x, y, w, h, 30); ctx.fill(); ctx.shadowColor = 'transparent'; if (line) { ctx.strokeStyle = line; ctx.lineWidth = 6; ctx.stroke(); } ctx.restore(); }
+
+// ---------------- zombie night scenery
+function horde(t, n = 18, y0 = 1180, dark = .0) {
+  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#05060b'); g.addColorStop(.55, '#2a0d12'); g.addColorStop(1, '#07070b'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const r0 = rng(4); ctx.fillStyle = '#fff'; for (let i = 0; i < 120; i++) { ctx.globalAlpha = .2 + .5 * Math.abs(Math.sin(t * .7 + i)); ctx.fillRect(r0() * W, r0() * 700, 2.5, 2.5); } ctx.globalAlpha = 1;
+  ctx.fillStyle = '#e8e6d8'; ctx.beginPath(); ctx.arc(960, 250, 60, 0, 7); ctx.fill(); ctx.fillStyle = '#05060b'; ctx.beginPath(); ctx.arc(984, 234, 56, 0, 7); ctx.fill();
+  const glow = ctx.createRadialGradient(540, y0, 50, 540, y0, 700); glow.addColorStop(0, 'rgba(190,40,30,.45)'); glow.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#0a0507'; ctx.fillRect(0, y0, W, H - y0);
+  const r = rng(n + 9); for (let i = 0; i < n; i++) { const x = ((r() * 1300 + t * (6 + r() * 6)) % 1300) - 110, s = .5 + r() * .5, sh = Math.sin(t * 3 + i) * .06;
+    ctx.save(); ctx.translate(x, y0 + 10); ctx.scale(s, s); ctx.rotate(sh); ctx.fillStyle = '#0a0507'; ctx.beginPath(); ctx.arc(0, -210, 40, 0, 7); ctx.fill(); ctx.fillRect(-36, -175, 72, 170);
+    ctx.save(); ctx.translate(30, -160); ctx.rotate(-1.4); ctx.fillRect(0, -10, 120, 22); ctx.restore(); ctx.save(); ctx.translate(-20, -150); ctx.rotate(-1.5); ctx.fillRect(0, -10, 110, 22); ctx.restore(); ctx.restore(); }
+  if (dark) { ctx.fillStyle = `rgba(0,0,0,${dark})`; ctx.fillRect(0, 0, W, H); }
+}
+function emoji(e, x, y, size) { ctx.save(); ctx.font = `${size}px 'Noto Color Emoji'`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(e, x, y); ctx.restore(); }
+const SC = {
+  hook(b, k, t) { horde(t, 22);
+    stamp('WOULD YOU', 540, 560, 140, seg(k, 0, .15), '#fff', -.04); stamp('RATHER', 540, 710, 170, seg(k, .08, .23), '#ffe14a', -.04);
+    const a = seg(k, .3, .45); if (a > 0) { ctx.save(); ctx.globalAlpha = a; panel(160, 820, 760, 120, '#c0392b', null); txt('ZOMBIE APOCALYPSE', 540, 882, 64, '#fff', { maxW: 700 }); ctx.restore(); }
+    emoji('🧟', 540, 1110, 170 * eBack(seg(k, .4, .6))); },
+  q(b, k, t) { horde(t, 14, 1250, .35);
+    txt('QUESTION ' + b.n + ' OF ' + b.of, 540, 270, 50, '#e8c46a'); txt('WOULD YOU RATHER', 540, 350, 66, '#fff', { stroke: 10 });
+    const e1 = eBack(clamp(seg(k, .02, .2))), e2 = eBack(clamp(seg(k, .2, .38)));
+    withT(540, 600, e1, -.01, () => { panel(-470, -190, 940, 380, '#c0392b', '#fff'); emoji(b.ae, -300, 0, 170); txt('A', -440, -150, 54, 'rgba(255,255,255,.8)'); wrap(b.a, 140, 0, 60, 560); });
+    withT(540, 1070, e2, .01, () => { panel(-470, -190, 940, 380, '#1f6f8b', '#fff'); emoji(b.be, -300, 0, 170); txt('B', -440, -150, 54, 'rgba(255,255,255,.8)'); wrap(b.b2, 140, 0, 60, 560); });
+    withT(540, 835, 1, 0, () => { if (e1 > .5) { ctx.save(); ctx.globalAlpha = clamp((k - .15) * 6); withT(0, 0, 1, 0, () => { ctx.fillStyle = '#111'; ctx.beginPath(); ctx.arc(0, 0, 70, 0, 7); ctx.fill(); ctx.strokeStyle = '#ffe14a'; ctx.lineWidth = 6; ctx.stroke(); txt('OR', 0, 2, 54, '#ffe14a'); }); ctx.restore(); } });
+    if (b.countdown) { const left = 3 - Math.floor(k * 3), f = (k * 3) % 1; ctx.save(); ctx.translate(540, 1390); ctx.strokeStyle = 'rgba(255,255,255,.2)'; ctx.lineWidth = 16; ctx.beginPath(); ctx.arc(0, 0, 90, 0, 7); ctx.stroke();
+      ctx.strokeStyle = '#ffe14a'; ctx.beginPath(); ctx.arc(0, 0, 90, -Math.PI / 2, -Math.PI / 2 + (1 - k) * 6.283); ctx.stroke(); withT(0, 0, 1 + (1 - f) * .25, 0, () => txt(String(Math.max(1, left)), 0, 0, 110, '#fff')); ctx.restore(); } },
+  cta(b, k, t) { horde(t, 24, 1250, .2);
+    panel(90, 380, 900, 560); txt('VOTE IN THE', 540, 480, 86, '#fff'); txt('POLL BELOW', 540, 580, 96, '#ffe14a');
+    txt('▼', 540, 735 + Math.sin(t * 6) * 12, 130, '#ffe14a', { stroke: 10 }); txt('A or B? Comment why!', 540, 870, 50, '#7cd67c', { weight: 800 }); },
+};
+function wrap(s, x, y, size, maxW) { ctx.save(); ctx.font = `900 ${size}px Inter`; const words = s.split(' '), lines = ['']; for (const w of words) { const t2 = (lines[lines.length - 1] + ' ' + w).trim(); if (ctx.measureText(t2).width > maxW && lines[lines.length - 1]) lines.push(w); else lines[lines.length - 1] = t2; }
+  const lh = size * 1.12, y0 = y - (lines.length - 1) * lh / 2; lines.forEach((l, i) => txt(l, x, y0 + i * lh, size, '#fff', { stroke: 10, maxW })); ctx.restore(); }
+function win() {}
+function captions(t) {
+  const B = TL.beats.find(b => b.text && t >= b.start - .05 && t <= b.end + .2); if (!B) return;
+  const ws = B.words; let ci = ws.findIndex((w, i) => t >= w.s && (i === ws.length - 1 || t < ws[i + 1].s)); if (ci < 0) ci = 0;
+  const c0 = Math.floor(ci / 3) * 3, chunk = ws.slice(c0, c0 + 3); ctx.save(); ctx.font = '900 86px Inter';
+  const parts = chunk.map(w => w.w.toUpperCase()), sp = 22, ws2 = parts.map(p => ctx.measureText(p).width), tot = ws2.reduce((a, c) => a + c, 0) + sp * (parts.length - 1), fit = Math.min(1, 980 / tot);
+  let x = 540 - tot * fit / 2; parts.forEach((p, q) => { withT(x + ws2[q] * fit / 2, 1600, fit, 0, () => txt(p, 0, 0, 86, c0 + q === ci ? '#ffe14a' : '#fff', { stroke: 16 })); x += (ws2[q] + sp) * fit; }); ctx.restore();
+}
+window.renderFrame = function (t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  let i = 0; for (let j = 0; j < TL.beats.length; j++) if (t >= TL.beats[j].start - .2) i = j; const b = TL.beats[i];
+  const k = clamp((t - b.start) / Math.max(.3, b.end - b.start));
+  (SC[b.scene] || SC.hook)(b, k, t);
+  const g = ctx.createRadialGradient(W / 2, H / 2, H * .3, W / 2, H / 2, H * .75); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.5)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  panel(250, 80, 580, 90, 'rgba(0,0,0,.55)', '#c0392b'); txt('ZOMBIE APOCALYPSE', 540, 126, 40, '#ff6b6b');
+  captions(t);
+  const cut = i > 0 ? clamp(1 - (t - (b.start - .2)) / .2) : 0; if (cut > 0) { ctx.fillStyle = `rgba(255,255,255,${cut * .35})`; ctx.fillRect(0, 0, W, H); }
+  const last = TL.beats[TL.beats.length - 1]; if (t > last.end + .2) { const e = eOut(seg(t, last.end + .2, last.end + .6)); ctx.save(); ctx.globalAlpha = e; panel(200, 1700, 680, 130, '#c0392b', '#fff'); txt('FOLLOW FOR MORE', 540, 1765, 60, '#fff', { stroke: 8 }); ctx.restore(); }
+  const fo = 1 - clamp((t - (TL.duration - 1.2)) / 1.2); if (fo < 1) { ctx.fillStyle = `rgba(0,0,0,${1 - fo})`; ctx.fillRect(0, 0, W, H); }
+};
+</script></body></html>

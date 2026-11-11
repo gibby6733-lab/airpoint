@@ -1,0 +1,1229 @@
+{
+"width": 1080,
+"height": 1920,
+"vertical": true,
+"day": null,
+"duration": 49.923,
+"series": "Would You Rather: Zombie Apocalypse",
+"episode": 1,
+"title": "Demo",
+"beats": [
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.5,
+"focus": null,
+"scene": "hook",
+"sp": "cole",
+"name": "COLE",
+"text": "Would you rather. Zombie apocalypse edition. Pick fast.",
+"start": 1.45,
+"end": 4.795,
+"words": [
+{
+"w": "Would",
+"s": 1.45
+},
+{
+"w": "you",
+"s": 1.784
+},
+{
+"w": "rather.",
+"s": 2.023
+},
+{
+"w": "Zombie",
+"s": 2.549
+},
+{
+"w": "apocalypse",
+"s": 2.931
+},
+{
+"w": "edition.",
+"s": 3.505
+},
+{
+"w": "Pick",
+"s": 4.078
+},
+{
+"w": "fast.",
+"s": 4.365
+}
+],
+"sfx": [
+[
+"sting",
+0.05
+],
+[
+"groan",
+0.6
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.58,
+"focus": null,
+"scene": "q",
+"n": 1,
+"of": 5,
+"a": "Have fast zombies that are dumb",
+"ae": "\ud83c\udfc3",
+"b2": "Slow zombies that are smart",
+"be": "\ud83e\udde0",
+"sp": "cole",
+"name": "COLE",
+"text": "Would you rather have fast zombies that are dumb? Or slow zombies that are smart?",
+"start": 5.095,
+"end": 9.482,
+"words": [
+{
+"w": "Would",
+"s": 5.095
+},
+{
+"w": "you",
+"s": 5.399
+},
+{
+"w": "rather",
+"s": 5.616
+},
+{
+"w": "have",
+"s": 5.964
+},
+{
+"w": "fast",
+"s": 6.224
+},
+{
+"w": "zombies",
+"s": 6.485
+},
+{
+"w": "that",
+"s": 6.876
+},
+{
+"w": "are",
+"s": 7.136
+},
+{
+"w": "dumb?",
+"s": 7.353
+},
+{
+"w": "Or",
+"s": 7.744
+},
+{
+"w": "slow",
+"s": 7.918
+},
+{
+"w": "zombies",
+"s": 8.179
+},
+{
+"w": "that",
+"s": 8.569
+},
+{
+"w": "are",
+"s": 8.83
+},
+{
+"w": "smart?",
+"s": 9.047
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.58,
+"focus": null,
+"countdown": true,
+"scene": "q",
+"n": 1,
+"of": 5,
+"a": "Have fast zombies that are dumb",
+"ae": "\ud83c\udfc3",
+"b2": "Slow zombies that are smart",
+"be": "\ud83e\udde0",
+"sp": "",
+"text": "",
+"start": 9.681,
+"end": 12.281,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.66,
+"focus": null,
+"scene": "q",
+"n": 2,
+"of": 5,
+"a": "Hide out in a shopping mall",
+"ae": "\ud83c\udfec",
+"b2": "Hide out in a prison",
+"be": "\ud83d\udd12",
+"sp": "cole",
+"name": "COLE",
+"text": "Would you rather hide out in a shopping mall? Or hide out in a prison?",
+"start": 12.931,
+"end": 16.833,
+"words": [
+{
+"w": "Would",
+"s": 12.931
+},
+{
+"w": "you",
+"s": 13.235
+},
+{
+"w": "rather",
+"s": 13.452
+},
+{
+"w": "hide",
+"s": 13.799
+},
+{
+"w": "out",
+"s": 14.059
+},
+{
+"w": "in",
+"s": 14.275
+},
+{
+"w": "a",
+"s": 14.449
+},
+{
+"w": "shopping",
+"s": 14.579
+},
+{
+"w": "mall?",
+"s": 15.012
+},
+{
+"w": "Or",
+"s": 15.403
+},
+{
+"w": "hide",
+"s": 15.576
+},
+{
+"w": "out",
+"s": 15.836
+},
+{
+"w": "in",
+"s": 16.053
+},
+{
+"w": "a",
+"s": 16.226
+},
+{
+"w": "prison?",
+"s": 16.356
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.66,
+"focus": null,
+"countdown": true,
+"scene": "q",
+"n": 2,
+"of": 5,
+"a": "Hide out in a shopping mall",
+"ae": "\ud83c\udfec",
+"b2": "Hide out in a prison",
+"be": "\ud83d\udd12",
+"sp": "",
+"text": "",
+"start": 17.033,
+"end": 19.633,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.74,
+"focus": null,
+"scene": "q",
+"n": 3,
+"of": 5,
+"a": "Have unlimited food but no weapons",
+"ae": "\ud83e\udd6b",
+"b2": "Unlimited weapons but no food",
+"be": "\ud83e\ude93",
+"sp": "cole",
+"name": "COLE",
+"text": "Would you rather have unlimited food but no weapons? Or unlimited weapons but no food?",
+"start": 20.283,
+"end": 25.497,
+"words": [
+{
+"w": "Would",
+"s": 20.283
+},
+{
+"w": "you",
+"s": 20.627
+},
+{
+"w": "rather",
+"s": 20.873
+},
+{
+"w": "have",
+"s": 21.267
+},
+{
+"w": "unlimited",
+"s": 21.562
+},
+{
+"w": "food",
+"s": 22.103
+},
+{
+"w": "but",
+"s": 22.398
+},
+{
+"w": "no",
+"s": 22.644
+},
+{
+"w": "weapons?",
+"s": 22.841
+},
+{
+"w": "Or",
+"s": 23.431
+},
+{
+"w": "unlimited",
+"s": 23.628
+},
+{
+"w": "weapons",
+"s": 24.169
+},
+{
+"w": "but",
+"s": 24.612
+},
+{
+"w": "no",
+"s": 24.858
+},
+{
+"w": "food?",
+"s": 25.055
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.74,
+"focus": null,
+"countdown": true,
+"scene": "q",
+"n": 3,
+"of": 5,
+"a": "Have unlimited food but no weapons",
+"ae": "\ud83e\udd6b",
+"b2": "Unlimited weapons but no food",
+"be": "\ud83e\ude93",
+"sp": "",
+"text": "",
+"start": 25.697,
+"end": 28.297,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.8200000000000001,
+"focus": null,
+"scene": "q",
+"n": 4,
+"of": 5,
+"a": "Survive totally alone",
+"ae": "\ud83e\uddcd",
+"b2": "Survive with your most annoying relative",
+"be": "\ud83d\udde3\ufe0f",
+"sp": "cole",
+"name": "COLE",
+"text": "Would you rather survive totally alone? Or survive with your most annoying relative?",
+"start": 28.947,
+"end": 33.68,
+"words": [
+{
+"w": "Would",
+"s": 28.947
+},
+{
+"w": "you",
+"s": 29.272
+},
+{
+"w": "rather",
+"s": 29.504
+},
+{
+"w": "survive",
+"s": 29.875
+},
+{
+"w": "totally",
+"s": 30.293
+},
+{
+"w": "alone?",
+"s": 30.71
+},
+{
+"w": "Or",
+"s": 31.174
+},
+{
+"w": "survive",
+"s": 31.36
+},
+{
+"w": "with",
+"s": 31.778
+},
+{
+"w": "your",
+"s": 32.056
+},
+{
+"w": "most",
+"s": 32.334
+},
+{
+"w": "annoying",
+"s": 32.613
+},
+{
+"w": "relative?",
+"s": 33.077
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.8200000000000001,
+"focus": null,
+"countdown": true,
+"scene": "q",
+"n": 4,
+"of": 5,
+"a": "Survive totally alone",
+"ae": "\ud83e\uddcd",
+"b2": "Survive with your most annoying relative",
+"be": "\ud83d\udde3\ufe0f",
+"sp": "",
+"text": "",
+"start": 33.88,
+"end": 36.48,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.9,
+"focus": null,
+"scene": "q",
+"n": 5,
+"of": 5,
+"a": "Get bitten with 24 hours left",
+"ae": "\u23f3",
+"b2": "Be the last human on Earth",
+"be": "\ud83c\udf0d",
+"sp": "cole",
+"name": "COLE",
+"text": "Would you rather get bitten with 24 hours left? Or be the last human on Earth?",
+"start": 37.13,
+"end": 41.64,
+"words": [
+{
+"w": "Would",
+"s": 37.13
+},
+{
+"w": "you",
+"s": 37.449
+},
+{
+"w": "rather",
+"s": 37.677
+},
+{
+"w": "get",
+"s": 38.041
+},
+{
+"w": "bitten",
+"s": 38.269
+},
+{
+"w": "with",
+"s": 38.633
+},
+{
+"w": "24",
+"s": 38.907
+},
+{
+"w": "hours",
+"s": 39.089
+},
+{
+"w": "left?",
+"s": 39.408
+},
+{
+"w": "Or",
+"s": 39.818
+},
+{
+"w": "be",
+"s": 40.0
+},
+{
+"w": "the",
+"s": 40.182
+},
+{
+"w": "last",
+"s": 40.41
+},
+{
+"w": "human",
+"s": 40.683
+},
+{
+"w": "on",
+"s": 41.002
+},
+{
+"w": "Earth?",
+"s": 41.185
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.9,
+"focus": null,
+"countdown": true,
+"scene": "q",
+"n": 5,
+"of": 5,
+"a": "Get bitten with 24 hours left",
+"ae": "\u23f3",
+"b2": "Be the last human on Earth",
+"be": "\ud83c\udf0d",
+"sp": "",
+"text": "",
+"start": 41.84,
+"end": 44.44,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.35,
+"focus": null,
+"scene": "cta",
+"sp": "cole",
+"name": "COLE",
+"text": "Vote in the poll in the comments. And tell us why.",
+"start": 45.09,
+"end": 47.923,
+"words": [
+{
+"w": "Vote",
+"s": 45.09
+},
+{
+"w": "in",
+"s": 45.348
+},
+{
+"w": "the",
+"s": 45.519
+},
+{
+"w": "poll",
+"s": 45.734
+},
+{
+"w": "in",
+"s": 45.991
+},
+{
+"w": "the",
+"s": 46.163
+},
+{
+"w": "comments.",
+"s": 46.378
+},
+{
+"w": "And",
+"s": 46.936
+},
+{
+"w": "tell",
+"s": 47.15
+},
+{
+"w": "us",
+"s": 47.408
+},
+{
+"w": "why.",
+"s": 47.58
+}
+],
+"sfx": []
+}
+],
+"lines": [
+{
+"start": 1.45,
+"end": 4.795,
+"words": [
+{
+"w": "Would",
+"s": 1.45
+},
+{
+"w": "you",
+"s": 1.784
+},
+{
+"w": "rather.",
+"s": 2.023
+},
+{
+"w": "Zombie",
+"s": 2.549
+},
+{
+"w": "apocalypse",
+"s": 2.931
+},
+{
+"w": "edition.",
+"s": 3.505
+},
+{
+"w": "Pick",
+"s": 4.078
+},
+{
+"w": "fast.",
+"s": 4.365
+}
+]
+},
+{
+"start": 5.095,
+"end": 9.482,
+"words": [
+{
+"w": "Would",
+"s": 5.095
+},
+{
+"w": "you",
+"s": 5.399
+},
+{
+"w": "rather",
+"s": 5.616
+},
+{
+"w": "have",
+"s": 5.964
+},
+{
+"w": "fast",
+"s": 6.224
+},
+{
+"w": "zombies",
+"s": 6.485
+},
+{
+"w": "that",
+"s": 6.876
+},
+{
+"w": "are",
+"s": 7.136
+},
+{
+"w": "dumb?",
+"s": 7.353
+},
+{
+"w": "Or",
+"s": 7.744
+},
+{
+"w": "slow",
+"s": 7.918
+},
+{
+"w": "zombies",
+"s": 8.179
+},
+{
+"w": "that",
+"s": 8.569
+},
+{
+"w": "are",
+"s": 8.83
+},
+{
+"w": "smart?",
+"s": 9.047
+}
+]
+},
+{
+"start": 12.931,
+"end": 16.833,
+"words": [
+{
+"w": "Would",
+"s": 12.931
+},
+{
+"w": "you",
+"s": 13.235
+},
+{
+"w": "rather",
+"s": 13.452
+},
+{
+"w": "hide",
+"s": 13.799
+},
+{
+"w": "out",
+"s": 14.059
+},
+{
+"w": "in",
+"s": 14.275
+},
+{
+"w": "a",
+"s": 14.449
+},
+{
+"w": "shopping",
+"s": 14.579
+},
+{
+"w": "mall?",
+"s": 15.012
+},
+{
+"w": "Or",
+"s": 15.403
+},
+{
+"w": "hide",
+"s": 15.576
+},
+{
+"w": "out",
+"s": 15.836
+},
+{
+"w": "in",
+"s": 16.053
+},
+{
+"w": "a",
+"s": 16.226
+},
+{
+"w": "prison?",
+"s": 16.356
+}
+]
+},
+{
+"start": 20.283,
+"end": 25.497,
+"words": [
+{
+"w": "Would",
+"s": 20.283
+},
+{
+"w": "you",
+"s": 20.627
+},
+{
+"w": "rather",
+"s": 20.873
+},
+{
+"w": "have",
+"s": 21.267
+},
+{
+"w": "unlimited",
+"s": 21.562
+},
+{
+"w": "food",
+"s": 22.103
+},
+{
+"w": "but",
+"s": 22.398
+},
+{
+"w": "no",
+"s": 22.644
+},
+{
+"w": "weapons?",
+"s": 22.841
+},
+{
+"w": "Or",
+"s": 23.431
+},
+{
+"w": "unlimited",
+"s": 23.628
+},
+{
+"w": "weapons",
+"s": 24.169
+},
+{
+"w": "but",
+"s": 24.612
+},
+{
+"w": "no",
+"s": 24.858
+},
+{
+"w": "food?",
+"s": 25.055
+}
+]
+},
+{
+"start": 28.947,
+"end": 33.68,
+"words": [
+{
+"w": "Would",
+"s": 28.947
+},
+{
+"w": "you",
+"s": 29.272
+},
+{
+"w": "rather",
+"s": 29.504
+},
+{
+"w": "survive",
+"s": 29.875
+},
+{
+"w": "totally",
+"s": 30.293
+},
+{
+"w": "alone?",
+"s": 30.71
+},
+{
+"w": "Or",
+"s": 31.174
+},
+{
+"w": "survive",
+"s": 31.36
+},
+{
+"w": "with",
+"s": 31.778
+},
+{
+"w": "your",
+"s": 32.056
+},
+{
+"w": "most",
+"s": 32.334
+},
+{
+"w": "annoying",
+"s": 32.613
+},
+{
+"w": "relative?",
+"s": 33.077
+}
+]
+},
+{
+"start": 37.13,
+"end": 41.64,
+"words": [
+{
+"w": "Would",
+"s": 37.13
+},
+{
+"w": "you",
+"s": 37.449
+},
+{
+"w": "rather",
+"s": 37.677
+},
+{
+"w": "get",
+"s": 38.041
+},
+{
+"w": "bitten",
+"s": 38.269
+},
+{
+"w": "with",
+"s": 38.633
+},
+{
+"w": "24",
+"s": 38.907
+},
+{
+"w": "hours",
+"s": 39.089
+},
+{
+"w": "left?",
+"s": 39.408
+},
+{
+"w": "Or",
+"s": 39.818
+},
+{
+"w": "be",
+"s": 40.0
+},
+{
+"w": "the",
+"s": 40.182
+},
+{
+"w": "last",
+"s": 40.41
+},
+{
+"w": "human",
+"s": 40.683
+},
+{
+"w": "on",
+"s": 41.002
+},
+{
+"w": "Earth?",
+"s": 41.185
+}
+]
+},
+{
+"start": 45.09,
+"end": 47.923,
+"words": [
+{
+"w": "Vote",
+"s": 45.09
+},
+{
+"w": "in",
+"s": 45.348
+},
+{
+"w": "the",
+"s": 45.519
+},
+{
+"w": "poll",
+"s": 45.734
+},
+{
+"w": "in",
+"s": 45.991
+},
+{
+"w": "the",
+"s": 46.163
+},
+{
+"w": "comments.",
+"s": 46.378
+},
+{
+"w": "And",
+"s": 46.936
+},
+{
+"w": "tell",
+"s": 47.15
+},
+{
+"w": "us",
+"s": 47.408
+},
+{
+"w": "why.",
+"s": 47.58
+}
+]
+}
+]
+}
