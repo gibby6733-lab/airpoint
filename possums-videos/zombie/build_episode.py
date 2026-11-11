@@ -10,8 +10,8 @@ SR = 24000
 d, tts_dir = sys.argv[1], sys.argv[2]
 S = json.load(open(os.path.join(d, "script.json")))
 VOICES = {"cole": ("am_onyx", .86), "mags": ("af_bella", 1.0), "dooley": ("bm_lewis", .92), "pip": ("af_sky", 1.06),
-          "tank": ("am_fenrir", 1.0), "radio": ("am_echo", .95)}
-NAMES = {"cole": "COLE", "mags": "MAGS", "dooley": "DOOLEY", "pip": "PIP", "tank": "TANK", "radio": "RADIO"}
+          "tank": ("am_fenrir", 1.0), "radio": ("am_echo", .95), "narr": ("am_michael", 1.06)}
+NAMES = {"narr": "NARRATOR", "cole": "COLE", "mags": "MAGS", "dooley": "DOOLEY", "pip": "PIP", "tank": "TANK", "radio": "RADIO"}
 class _Lazy:
     k = None
     def create(self, *a, **kw):
@@ -48,6 +48,7 @@ for raw in S["beats"]:
     for k in KEYS:
         if k in raw: state[k] = raw[k]
     shot = {k: state[k] for k in KEYS}
+    shot.update({k: v for k, v in raw.items() if k not in KEYS and k not in ("sp", "text", "hold", "sfx")})  # per-beat extras (e.g. scene, choice)
     if raw.get("hold"):
         dur = raw["hold"]; st = t + .2
         beats.append({**shot, "sp": "", "text": "", "start": round(st, 3), "end": round(st + dur, 3), "words": [], "sfx": raw.get("sfx", [])})
@@ -185,6 +186,6 @@ for b in beats:
     if b["act"] and b["act"] not in seen:
         seen.add(b["act"]); s0 = 0 if not chap else b["start"]; chap.append(f"{int(s0 // 60)}:{int(s0 % 60):02d} {b['act']}")
 open(os.path.join(d, "chapters.txt"), "w").write("\n".join(chap) + "\n")
-json.dump({"width": 1920, "height": 1080, "vertical": bool(S.get("vertical")), "day": S.get("day"), "duration": round(total, 3), "series": S["series"], "episode": S["episode"], "title": S["title"],
+json.dump({"width": S.get("width", 1920), "height": S.get("height", 1080), "vertical": bool(S.get("vertical")), "day": S.get("day"), "duration": round(total, 3), "series": S["series"], "episode": S["episode"], "title": S["title"],
            "beats": beats, "lines": [{"start": b["start"], "end": b["end"], "words": b["words"]} for b in beats if b["text"]]},
           open(os.path.join(d, "timeline.json"), "w"), indent=0)
