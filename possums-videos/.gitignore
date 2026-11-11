@@ -8,3 +8,5 @@ mafia/stories/*/narration.*
 mafia/stories/*/chk/
 mafia/stories/*/stills/
 mafia/stories/*/discord.mp4
+zombie/*/_tts/
+zombie/*/stills/

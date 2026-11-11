@@ -7,7 +7,8 @@ const fs = require('fs'), path = require('path');
   const tl = JSON.parse(fs.readFileSync(path.join(dir, 'timeline.json')));
   const stillsArg = process.argv.indexOf('--stills');
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
+  const VW = tl.width || 1080, VH = tl.height || 1920;   // 9:16 by default; long-form YouTube sets 1920x1080
+  const page = await browser.newPage({ viewport: { width: VW, height: VH } });
   page.on('pageerror', e => { console.error('PAGE ERROR', e); process.exit(1); });
   let server = null;
   if (tl.images) { // serve the story folder over http so images don't taint the canvas
@@ -30,7 +31,7 @@ const fs = require('fs'), path = require('path');
   const FPS = 30, n = Math.ceil(tl.duration * FPS);
   const out = path.join(dir, 'episode.mp4');
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
-    '-i', path.join(dir, 'audio.wav'), '-vf', 'scale=1080:1920,setsar=1', '-aspect', '9:16', '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p',
+    '-i', path.join(dir, 'audio.wav'), '-vf', `scale=${VW}:${VH},setsar=1`, '-aspect', VW > VH ? '16:9' : '9:16', '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p',
     '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', '-movflags', '+faststart', out], { stdio: ['pipe', 'inherit', 'inherit'] });
   for (let i = 0; i < n; i++) {
     const d = await grab(i / FPS);

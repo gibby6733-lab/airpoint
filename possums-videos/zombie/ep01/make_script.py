@@ -1,0 +1,135 @@
+"""MILE 41 — Episode 1 script. Writes script.json next to this file.
+
+Each beat: speaker + line, plus the shot. Shot fields carry over to the next beat until changed:
+  loc   station_ext | station_int | road | town | pharmacy | black
+  tod   day | dusk | night          wx  rain | fog | None
+  cast  ["name:x:pose", ...]  x = 0..1 across the frame; pose idle|talk|scared|run|cheer|sit|push|point|cough
+  z     zombies {"n", "x0", "x1", "depth" far|mid|near, "turn", "tag"}   props ["truck:x", "cart:x", "radio", ...]
+  fx    ["lightning", "shake", "flash", "static"]   card {"kind": title|chapter|name|end, "title", "sub"}
+  cam   zoom 1.0 (wide) .. 1.4,  camx 0..1 focus     sfx [[name, at]] at = 0..1 of the line or "@word"
+  act   chapter label (for YouTube chapters + music intensity)   hold  seconds of silence instead of a line
+"""
+import json, os
+
+B = []
+def b(sp, text="", **kw):
+    B.append({"sp": sp, "text": text, **kw})
+
+# ---------------- COLD OPEN ----------------
+b("cole", "Forty one days ago, the world stopped making sense.", act="Cold open", intensity=.35, loc="black", tod="night", cast=[], z=None, props=[], wx=None, cam=1.0)
+b("cole", "The power went out. The phones went quiet. And the dead started walking.", loc="road", wx="rain", z={"n": 6, "x0": 1.1, "x1": .75, "depth": "far"}, props=["cars"], sfx=[["groan", "@dead"], ["thunder", .1]])
+b("cole", "Since then, five of us have been hiding at an old gas station on Highway Nine. Mile marker forty one.", loc="station_ext", z=None, props=["sign", "pumps"], cam=1.0)
+b("cole", "We have one rule. Never go out after dark.", props=["sign", "pumps", "lantern"], cam=1.15, camx=.45)
+b("cole", "Tonight, we broke it.", fx=["lightning"], z={"n": 5, "x0": 1.2, "x1": .8, "depth": "mid"}, sfx=[["thunder", .2], ["groan", .6]], cam=1.25, camx=.7)
+b("", hold=4.0, card={"kind": "title", "title": "MILE 41", "sub": "Episode 1: The Station"}, sfx=[["sting", 0]], fx=[])
+
+# ---------------- CHAPTER 1 ----------------
+b("", hold=2.6, card={"kind": "chapter", "title": "Chapter 1", "sub": "The Station"}, act="The Station", intensity=.15, sfx=[["whoosh", 0]])
+b("cole", "Let me back up. This is home.", loc="station_ext", tod="day", wx=None, z=None, props=["sign", "pumps"], cam=1.0, card=None)
+b("cole", "Two pumps, zero gas, a roof that leaks, and a sign that lost half its letters.", cam=1.2, camx=.3)
+b("cole", "Inside, we've got canned beans, a radio that only plays static, and a cooler full of hope.", loc="station_int", props=["shelves", "radio", "cooler"], cam=1.0)
+b("cole", "And these are the people I'd die for. Hopefully not today.", cast=["mags:.2:idle", "dooley:.38:idle", "pip:.55:idle", "tank:.78:idle"])
+b("cole", "That's Mags. She can fix an engine with a paperclip and a bad attitude.", cast=["mags:.35:idle"], cam=1.15, camx=.35, card={"kind": "name", "title": "MAGS", "sub": "Mechanic. Fixes anything. Trusts no one."})
+b("mags", "I heard that, Cole.", cast=["mags:.35:point"], card=None)
+b("cole", "Dooley's the oldest. Forty years in the army, and he still sleeps with his boots on.", cast=["dooley:.4:idle"], camx=.4, card={"kind": "name", "title": "DOOLEY", "sub": "Retired soldier. Never takes his boots off."})
+b("dooley", "Boots on means you're ready. Boots off means you're dinner.", cast=["dooley:.4:talk"], card=None)
+b("cole", "Pip is twelve. Smartest person here. Don't tell the others.", cast=["pip:.42:idle"], camx=.42, card={"kind": "name", "title": "PIP", "sub": "Age 12. The brains. Owner of Biscuit."})
+b("pip", "I can hear you too. And Biscuit says hi.", cast=["pip:.42:cheer"], card=None, sfx=[["bark", .85]])
+b("cole", "And that's Tank. Six foot six, three hundred pounds, and scared of literally everything.", cast=["tank:.45:idle"], camx=.45, card={"kind": "name", "title": "TANK", "sub": "Biggest guy in the county. Afraid of spiders, dark, and loud noises."})
+b("tank", "Is that a spider? Please tell me that's not a spider.", cast=["tank:.45:scared"], card=None, fx=["shake"])
+b("cole", "It was a raisin.", cast=["tank:.45:idle"], fx=[])
+b("cole", "Every morning starts the same. Mags checks the doors. Dooley checks the road. Pip checks the radio.", cast=["mags:.2:idle", "dooley:.4:idle", "pip:.62:idle"], cam=1.0, camx=.5)
+b("pip", "Still nothing. Just static. Same as yesterday.", cast=["pip:.62:talk"], cam=1.15, camx=.7, sfx=[["static", .1]])
+b("cole", "And Tank checks under every table. Twice.", cast=["tank:.5:scared"], cam=1.0, camx=.5)
+b("cole", "Here's how this works. Every like on this episode becomes one supply point for us.", cast=["cole:.5:talk"], cam=1.0, hud="supplies")
+b("cole", "And the most liked comment decides what we do next. Build walls. Find food. Take in new survivors. Your call.", hud=None)
+b("cole", "But first, we had a problem.", cast=["mags:.25:idle", "dooley:.5:cough", "pip:.72:idle"], sfx=[["cough", .8]])
+b("dooley", "It's nothing. Just a tickle.", cast=["mags:.25:idle", "dooley:.5:cough", "pip:.72:idle"], sfx=[["cough", .9]])
+b("mags", "That's not a tickle. That cough has been getting worse for three days.", cast=["mags:.25:point", "dooley:.5:idle", "pip:.72:idle"])
+b("pip", "He needs medicine. The pharmacy in Bellwood still has some. I saw it on the map.", cast=["mags:.25:idle", "dooley:.5:idle", "pip:.72:point"], props=["shelves", "radio", "cooler", "map"])
+b("cole", "Bellwood was six miles away. Six miles of road we hadn't walked in weeks.", props=["shelves", "radio", "cooler", "map"], cam=1.2, camx=.75)
+b("tank", "Six miles? Like, on foot? Through zombie land?", cast=["tank:.5:scared"], cam=1.0, props=["shelves", "radio", "cooler"])
+b("mags", "Unless you've got a car that runs on fear, big guy.", cast=["mags:.3:talk", "tank:.6:scared"])
+b("cole", "Turns out Mags did have a car. Sort of.", loc="station_ext", props=["sign", "pumps", "truck:.6"], cast=["mags:.35:point"], sfx=[["reveal", .6]])
+b("mags", "She's ugly, she's loud, and she has exactly one quarter tank. Her name is Doris.", cast=["mags:.35:talk"], cam=1.15, camx=.5)
+b("cole", "So that afternoon, Mags, Tank and I loaded up Doris and drove toward Bellwood.", loc="road", props=["cars", "truck:drive"], cast=[], cam=1.0, sfx=[["engine", 0]])
+
+# ---------------- CHAPTER 2 ----------------
+b("", hold=2.6, card={"kind": "chapter", "title": "Chapter 2", "sub": "The Supply Run"}, act="The Supply Run", intensity=.45, sfx=[["whoosh", 0]])
+b("cole", "The highway was a graveyard of cars. Doors open. Bags left behind. Nobody coming back for them.", loc="road", props=["cars", "truck:drive"], card=None, cam=1.1, camx=.4)
+b("tank", "Okay. Okay. I'm fine. This is fine. Everything is totally fine.", props=["cars", "truck:drive", "cab:tank"], cam=1.3, camx=.55)
+b("mags", "Tank, you're breathing so loud they can hear you in Canada.", props=["cars", "truck:drive", "cab:mags"])
+b("cole", "Halfway there, we passed a car with a note taped to the windshield.", props=["cars"], cast=["mags:.45:idle", "tank:.62:idle"], cam=1.0)
+b("mags", "Went to Bellwood Fire Station. Safe zone. Food and water. Come find us.", cast=["mags:.45:talk", "tank:.62:idle"], cam=1.2, camx=.5)
+b("cole", "The note was dated three weeks ago. Nobody had come back for that car either.", cam=1.0, intensity=.55)
+b("cole", "Then Doris made a sound no car should ever make.", props=["cars", "truck:.55:smoke"], cam=1.0, sfx=[["sputter", .5]])
+b("mags", "No, no, no. Don't you dare quit on me now.", cast=["mags:.4:scared"], props=["cars", "truck:.55:smoke"])
+b("cole", "We were two miles from Bellwood. On foot. With an hour of daylight left.", tod="dusk", cast=["mags:.35:run", "cole:.45:run", "tank:.6:run"], props=["cars"], sfx=[["steps", 0]])
+b("cole", "Bellwood used to be a nice little town. Now it was quiet. Too quiet.", loc="town", wx="fog", cast=[], props=[], cam=1.0)
+b("cole", "The pharmacy was right where Pip said it would be. Windows smashed, door hanging open.", cam=1.25, camx=.6)
+b("tank", "Why is it always a creepy door? Why can't it ever be a nice door?", cast=["tank:.4:scared", "mags:.25:idle"], cam=1.1, camx=.45)
+b("cole", "Inside, the shelves were nearly bare. But Mags found something behind the counter.", loc="pharmacy", wx=None, cast=["mags:.4:idle", "tank:.7:idle"], cam=1.0)
+b("mags", "Cough syrup. Antibiotics. Bandages. Jackpot.", cast=["mags:.4:cheer", "tank:.7:idle"])
+b("cole", "That's when we heard it.", intensity=.7, cast=["mags:.4:scared", "tank:.7:scared"], sfx=[["groan", .5]])
+b("cole", "A groan. Low and slow. Coming from the back room.", cam=1.2, camx=.85, sfx=[["groan", .3]])
+b("tank", "Please be a cat. Please be a really big cat.", cam=1.3, camx=.7)
+b("cole", "It was not a cat.", z={"n": 1, "x0": .92, "x1": .85, "depth": "near", "tag": "GARY"}, cam=1.1, camx=.7, sfx=[["groan", .4], ["sting", .1]])
+b("cole", "It was the pharmacist. Still wearing his name tag. Gary.", cam=1.35, camx=.85)
+b("mags", "Hi, Gary. We're just gonna take these and go. Nice and slow.", cam=1.0, cast=["mags:.4:point", "tank:.65:scared"])
+b("cole", "Gary did not want us to go.", z={"n": 1, "x0": .85, "x1": .72, "depth": "near", "tag": "GARY"}, fx=["shake"], sfx=[["groan", .2]])
+b("cole", "Tank screamed. A sound so high pitched, every dog in Bellwood started barking.", cast=["mags:.4:scared", "tank:.6:scared"], fx=["shake"], sfx=[["scream", .1], ["bark", .7], ["bark", .8]])
+b("cole", "And then, he did something none of us expected.", fx=[], cam=1.2, camx=.6)
+b("cole", "He grabbed a shopping cart, closed his eyes, and charged.", cast=["mags:.3:scared", "tank:.45:push"], props=["cart:push"], cam=1.0, sfx=[["rattle", .5]])
+b("cole", "Gary went one way. The cart went the other. Tank ended up in the cough drop aisle.", cast=["mags:.3:scared", "tank:.62:sit"], props=["cart:.85"], z={"n": 1, "x0": .95, "x1": 1.3, "depth": "near", "tag": "GARY", "fall": True}, fx=["shake"], sfx=[["crash", .2], ["crash", .45]])
+b("mags", "Tank! That was actually amazing!", cast=["mags:.35:cheer", "tank:.62:sit"], z=None, props=["cart:.85"], fx=[])
+b("tank", "Did I win? I had my eyes closed. Did I win?", cast=["mags:.35:idle", "tank:.62:sit"], cam=1.25, camx=.62)
+b("cole", "We grabbed everything we could carry and ran.", loc="town", wx="fog", tod="dusk", cast=["mags:.4:run", "cole:.5:run", "tank:.62:run"], props=[], cam=1.0, sfx=[["steps", 0]])
+b("cole", "But Tank's scream had done something else. It had rung the dinner bell.", intensity=.85, cast=[], z={"n": 4, "x0": 1.15, "x1": .8, "depth": "mid"}, sfx=[["groan", .5]])
+b("cole", "From every alley and doorway in Bellwood, they started coming.", z={"n": 12, "x0": 1.3, "x1": .55, "depth": "mid"}, sfx=[["groan", .2], ["groan", .6]])
+
+# ---------------- CHAPTER 3 ----------------
+b("", hold=2.6, card={"kind": "chapter", "title": "Chapter 3", "sub": "Night Falls"}, act="Night Falls", intensity=.9, sfx=[["whoosh", 0]], z=None)
+b("cole", "We ran two miles back to Doris with half the town behind us.", loc="road", tod="dusk", wx=None, card=None, cast=["mags:.45:run", "cole:.55:run", "tank:.65:run"], props=["cars"], z={"n": 8, "x0": -.4, "x1": .1, "depth": "mid"}, sfx=[["steps", 0], ["groan", .6]])
+b("mags", "Get in! Get in! Get in!", props=["cars", "truck:.6"], cast=["mags:.5:run"])
+b("cole", "Mags hit the dashboard twice, said a word I can't repeat, and Doris roared back to life.", props=["cars", "truck:drive"], cast=[], z={"n": 8, "x0": 0, "x1": .15, "depth": "mid"}, sfx=[["bang", .1], ["bang", .2], ["engine", .75]])
+b("cole", "We got back to the station just as the sun went down.", loc="station_ext", tod="dusk", props=["sign", "pumps", "truck:.65"], z=None, cast=["dooley:.3:idle"])
+b("dooley", "You're late. And you brought friends.", cast=["dooley:.3:point"], z={"n": 5, "x0": 1.2, "x1": 1.0, "depth": "far"}, cam=1.15, camx=.6)
+b("cole", "They had followed the engine noise. Dozens of them, shuffling up Highway Nine in the dark.", tod="night", cast=[], cam=1.0, z={"n": 16, "x0": 1.25, "x1": .75, "depth": "far"}, sfx=[["groan", .3], ["groan", .7]])
+b("cole", "Our barricade was three tables, a vending machine and a lot of duct tape.", loc="station_int", tod="night", props=["shelves", "barricade", "lantern"], z=None, cast=["tank:.4:idle"])
+b("pip", "It's not going to hold. I did the math. It's really not going to hold.", cast=["pip:.4:scared"])
+b("cole", "Dooley gave everyone a job.", cast=["dooley:.5:idle"])
+b("dooley", "Mags, the back door. Tank, the windows. Pip, the lights. Cole, with me.", cast=["mags:.2:idle", "dooley:.45:point", "pip:.62:idle", "tank:.8:idle"])
+b("cole", "Dooley loaded his old shotgun. Two shells. He said that was one more than he'd ever need.", cast=["dooley:.45:idle"], cam=1.2, camx=.45)
+b("cole", "Then the first one hit the glass.", fx=["shake"], cast=["mags:.2:scared", "dooley:.45:idle", "pip:.62:scared", "tank:.8:scared"], props=["shelves", "barricade", "lantern", "hands"], sfx=[["bang", .55]])
+b("cole", "Then another. Then ten more.", fx=["shake"], sfx=[["bang", .1], ["bang", .4], ["bang", .55], ["bang", .7], ["bang", .85]])
+b("cole", "The vending machine started to slide.", props=["shelves", "barricade:slide", "lantern", "hands"], sfx=[["scrape", .3]])
+b("tank", "It's moving! The vending machine is moving! Why is it moving?", cast=["tank:.7:scared"], cam=1.2, camx=.6, sfx=[["bang", .3], ["bang", .7]])
+b("cole", "Pip had an idea. A crazy one.", cast=["pip:.5:idle"], cam=1.0, fx=[])
+b("pip", "They follow noise, right? So let's give them noise. Somewhere else.", cast=["pip:.5:point"])
+b("cole", "She climbed onto the roof with the old radio, cranked the static all the way up, and threw it as far as she could into the cornfield.", loc="roof", tod="night", props=["radio:throw", "corn"], cast=["pip:.35:cheer"], sfx=[["static", .45], ["whoosh", .75]])
+b("cole", "The radio landed in the field, hissing like a broken TV.", props=["corn", "radio:field"], cast=[], z={"n": 10, "x0": .2, "x1": .25, "depth": "far"}, sfx=[["static", 0]])
+b("cole", "And one by one, the dead turned around.", z={"n": 10, "x0": .3, "x1": .65, "depth": "far", "turn": True}, intensity=.5, sfx=[["static", 0], ["groan", .5]])
+b("tank", "Pip. Pip, you're a genius.", loc="station_int", props=["shelves", "barricade", "lantern"], z=None, cast=["pip:.4:cheer", "tank:.65:idle"])
+b("pip", "I know. I'm twelve. I've been saying this.", cast=["pip:.4:talk", "tank:.65:idle"])
+b("cole", "We didn't sleep that night. Nobody did. We just sat in the dark and listened to them walk away.", intensity=.25, cast=["mags:.2:sit", "dooley:.38:sit", "pip:.55:sit", "tank:.75:sit"])
+b("dooley", "Medicine's working. Thank you. All of you.", cast=["mags:.2:sit", "dooley:.38:sit", "pip:.55:sit", "tank:.75:sit"], sfx=[["cough", .05]])
+b("cole", "Day one of the rest of our lives. We made it.")
+b("cole", "In the morning, we counted what we had left. Half a jar of peanut butter. Nine cans of beans. And one very proud twelve year old.", loc="station_int", tod="day", props=["shelves", "radio", "cooler"], cast=["pip:.5:cheer"], intensity=.2)
+
+# ---------------- CHAPTER 4 ----------------
+b("", hold=2.6, card={"kind": "chapter", "title": "Chapter 4", "sub": "Your Move"}, act="Your Move", intensity=.35, sfx=[["whoosh", 0]])
+b("cole", "But we can't do that again. Next time, they won't turn around.", loc="station_ext", tod="day", card=None, cast=["cole:.5:idle"], props=["sign", "pumps", "truck:.75"])
+b("cole", "So here's where you come in. Every like on this episode is one supply point for Mile Forty One.", hud="supplies", cast=["cole:.5:talk"])
+b("cole", "With enough supplies, we can build real walls. Fix the generator. Put up a watchtower. Or go back for more food.", hud="shop")
+b("cole", "Leave a comment with what we should do next. The most liked comment decides episode two.", hud="vote")
+b("cole", "And if you want to join the group, tell us your name and your skill in the comments. The best ones might just show up at our door.", hud="join")
+b("cole", "One more thing.", hud=None, intensity=.6, loc="station_int", tod="night", props=["shelves", "radio:on", "lantern"], cast=[], cam=1.25, camx=.7)
+b("cole", "That night, the radio inside the station turned on by itself.", sfx=[["static", .5]])
+b("radio", "Is anyone out there? This is Bellwood Fire Station. We have food. We have water.", fx=["static"])
+b("radio", "But something is coming from the north. Something big. Please, if you can hear this.", intensity=.9, sfx=[["static", .9]])
+b("cole", "Then the radio went dead.", fx=[], props=["shelves", "radio", "lantern"], cam=1.0, sfx=[["sting", .4]])
+b("cole", "I'm Cole. This is Mile Forty One. And we're still here. For now.", loc="station_ext", tod="night", props=["sign", "pumps", "lantern"], cast=["cole:.5:idle"], cam=1.0)
+b("", hold=6.0, card={"kind": "end", "title": "MILE 41", "sub": "Like = 1 supply  ·  Comment = your vote  ·  Subscribe to survive"}, intensity=.4)
+
+json.dump({"series": "MILE 41", "episode": 1, "title": "The Station", "beats": B}, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "script.json"), "w"), indent=1)
+print(len(B), "beats,", sum(len(x["text"].split()) for x in B), "words")

@@ -1,0 +1,1447 @@
+{
+ "series": "MILE 41",
+ "episode": 1,
+ "title": "The Station",
+ "beats": [
+  {
+   "sp": "cole",
+   "text": "Forty one days ago, the world stopped making sense.",
+   "act": "Cold open",
+   "intensity": 0.35,
+   "loc": "black",
+   "tod": "night",
+   "cast": [],
+   "z": null,
+   "props": [],
+   "wx": null,
+   "cam": 1.0
+  },
+  {
+   "sp": "cole",
+   "text": "The power went out. The phones went quiet. And the dead started walking.",
+   "loc": "road",
+   "wx": "rain",
+   "z": {
+    "n": 6,
+    "x0": 1.1,
+    "x1": 0.75,
+    "depth": "far"
+   },
+   "props": [
+    "cars"
+   ],
+   "sfx": [
+    [
+     "groan",
+     "@dead"
+    ],
+    [
+     "thunder",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Since then, five of us have been hiding at an old gas station on Highway Nine. Mile marker forty one.",
+   "loc": "station_ext",
+   "z": null,
+   "props": [
+    "sign",
+    "pumps"
+   ],
+   "cam": 1.0
+  },
+  {
+   "sp": "cole",
+   "text": "We have one rule. Never go out after dark.",
+   "props": [
+    "sign",
+    "pumps",
+    "lantern"
+   ],
+   "cam": 1.15,
+   "camx": 0.45
+  },
+  {
+   "sp": "cole",
+   "text": "Tonight, we broke it.",
+   "fx": [
+    "lightning"
+   ],
+   "z": {
+    "n": 5,
+    "x0": 1.2,
+    "x1": 0.8,
+    "depth": "mid"
+   },
+   "sfx": [
+    [
+     "thunder",
+     0.2
+    ],
+    [
+     "groan",
+     0.6
+    ]
+   ],
+   "cam": 1.25,
+   "camx": 0.7
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 4.0,
+   "card": {
+    "kind": "title",
+    "title": "MILE 41",
+    "sub": "Episode 1: The Station"
+   },
+   "sfx": [
+    [
+     "sting",
+     0
+    ]
+   ],
+   "fx": []
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "card": {
+    "kind": "chapter",
+    "title": "Chapter 1",
+    "sub": "The Station"
+   },
+   "act": "The Station",
+   "intensity": 0.15,
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Let me back up. This is home.",
+   "loc": "station_ext",
+   "tod": "day",
+   "wx": null,
+   "z": null,
+   "props": [
+    "sign",
+    "pumps"
+   ],
+   "cam": 1.0,
+   "card": null
+  },
+  {
+   "sp": "cole",
+   "text": "Two pumps, zero gas, a roof that leaks, and a sign that lost half its letters.",
+   "cam": 1.2,
+   "camx": 0.3
+  },
+  {
+   "sp": "cole",
+   "text": "Inside, we've got canned beans, a radio that only plays static, and a cooler full of hope.",
+   "loc": "station_int",
+   "props": [
+    "shelves",
+    "radio",
+    "cooler"
+   ],
+   "cam": 1.0
+  },
+  {
+   "sp": "cole",
+   "text": "And these are the people I'd die for. Hopefully not today.",
+   "cast": [
+    "mags:.2:idle",
+    "dooley:.38:idle",
+    "pip:.55:idle",
+    "tank:.78:idle"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "That's Mags. She can fix an engine with a paperclip and a bad attitude.",
+   "cast": [
+    "mags:.35:idle"
+   ],
+   "cam": 1.15,
+   "camx": 0.35,
+   "card": {
+    "kind": "name",
+    "title": "MAGS",
+    "sub": "Mechanic. Fixes anything. Trusts no one."
+   }
+  },
+  {
+   "sp": "mags",
+   "text": "I heard that, Cole.",
+   "cast": [
+    "mags:.35:point"
+   ],
+   "card": null
+  },
+  {
+   "sp": "cole",
+   "text": "Dooley's the oldest. Forty years in the army, and he still sleeps with his boots on.",
+   "cast": [
+    "dooley:.4:idle"
+   ],
+   "camx": 0.4,
+   "card": {
+    "kind": "name",
+    "title": "DOOLEY",
+    "sub": "Retired soldier. Never takes his boots off."
+   }
+  },
+  {
+   "sp": "dooley",
+   "text": "Boots on means you're ready. Boots off means you're dinner.",
+   "cast": [
+    "dooley:.4:talk"
+   ],
+   "card": null
+  },
+  {
+   "sp": "cole",
+   "text": "Pip is twelve. Smartest person here. Don't tell the others.",
+   "cast": [
+    "pip:.42:idle"
+   ],
+   "camx": 0.42,
+   "card": {
+    "kind": "name",
+    "title": "PIP",
+    "sub": "Age 12. The brains. Owner of Biscuit."
+   }
+  },
+  {
+   "sp": "pip",
+   "text": "I can hear you too. And Biscuit says hi.",
+   "cast": [
+    "pip:.42:cheer"
+   ],
+   "card": null,
+   "sfx": [
+    [
+     "bark",
+     0.85
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "And that's Tank. Six foot six, three hundred pounds, and scared of literally everything.",
+   "cast": [
+    "tank:.45:idle"
+   ],
+   "camx": 0.45,
+   "card": {
+    "kind": "name",
+    "title": "TANK",
+    "sub": "Biggest guy in the county. Afraid of spiders, dark, and loud noises."
+   }
+  },
+  {
+   "sp": "tank",
+   "text": "Is that a spider? Please tell me that's not a spider.",
+   "cast": [
+    "tank:.45:scared"
+   ],
+   "card": null,
+   "fx": [
+    "shake"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "It was a raisin.",
+   "cast": [
+    "tank:.45:idle"
+   ],
+   "fx": []
+  },
+  {
+   "sp": "cole",
+   "text": "Every morning starts the same. Mags checks the doors. Dooley checks the road. Pip checks the radio.",
+   "cast": [
+    "mags:.2:idle",
+    "dooley:.4:idle",
+    "pip:.62:idle"
+   ],
+   "cam": 1.0,
+   "camx": 0.5
+  },
+  {
+   "sp": "pip",
+   "text": "Still nothing. Just static. Same as yesterday.",
+   "cast": [
+    "pip:.62:talk"
+   ],
+   "cam": 1.15,
+   "camx": 0.7,
+   "sfx": [
+    [
+     "static",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "And Tank checks under every table. Twice.",
+   "cast": [
+    "tank:.5:scared"
+   ],
+   "cam": 1.0,
+   "camx": 0.5
+  },
+  {
+   "sp": "cole",
+   "text": "Here's how this works. Every like on this episode becomes one supply point for us.",
+   "cast": [
+    "cole:.5:talk"
+   ],
+   "cam": 1.0,
+   "hud": "supplies"
+  },
+  {
+   "sp": "cole",
+   "text": "And the most liked comment decides what we do next. Build walls. Find food. Take in new survivors. Your call.",
+   "hud": null
+  },
+  {
+   "sp": "cole",
+   "text": "But first, we had a problem.",
+   "cast": [
+    "mags:.25:idle",
+    "dooley:.5:cough",
+    "pip:.72:idle"
+   ],
+   "sfx": [
+    [
+     "cough",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "dooley",
+   "text": "It's nothing. Just a tickle.",
+   "cast": [
+    "mags:.25:idle",
+    "dooley:.5:cough",
+    "pip:.72:idle"
+   ],
+   "sfx": [
+    [
+     "cough",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "That's not a tickle. That cough has been getting worse for three days.",
+   "cast": [
+    "mags:.25:point",
+    "dooley:.5:idle",
+    "pip:.72:idle"
+   ]
+  },
+  {
+   "sp": "pip",
+   "text": "He needs medicine. The pharmacy in Bellwood still has some. I saw it on the map.",
+   "cast": [
+    "mags:.25:idle",
+    "dooley:.5:idle",
+    "pip:.72:point"
+   ],
+   "props": [
+    "shelves",
+    "radio",
+    "cooler",
+    "map"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Bellwood was six miles away. Six miles of road we hadn't walked in weeks.",
+   "props": [
+    "shelves",
+    "radio",
+    "cooler",
+    "map"
+   ],
+   "cam": 1.2,
+   "camx": 0.75
+  },
+  {
+   "sp": "tank",
+   "text": "Six miles? Like, on foot? Through zombie land?",
+   "cast": [
+    "tank:.5:scared"
+   ],
+   "cam": 1.0,
+   "props": [
+    "shelves",
+    "radio",
+    "cooler"
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Unless you've got a car that runs on fear, big guy.",
+   "cast": [
+    "mags:.3:talk",
+    "tank:.6:scared"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Turns out Mags did have a car. Sort of.",
+   "loc": "station_ext",
+   "props": [
+    "sign",
+    "pumps",
+    "truck:.6"
+   ],
+   "cast": [
+    "mags:.35:point"
+   ],
+   "sfx": [
+    [
+     "reveal",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "She's ugly, she's loud, and she has exactly one quarter tank. Her name is Doris.",
+   "cast": [
+    "mags:.35:talk"
+   ],
+   "cam": 1.15,
+   "camx": 0.5
+  },
+  {
+   "sp": "cole",
+   "text": "So that afternoon, Mags, Tank and I loaded up Doris and drove toward Bellwood.",
+   "loc": "road",
+   "props": [
+    "cars",
+    "truck:drive"
+   ],
+   "cast": [],
+   "cam": 1.0,
+   "sfx": [
+    [
+     "engine",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "card": {
+    "kind": "chapter",
+    "title": "Chapter 2",
+    "sub": "The Supply Run"
+   },
+   "act": "The Supply Run",
+   "intensity": 0.45,
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "The highway was a graveyard of cars. Doors open. Bags left behind. Nobody coming back for them.",
+   "loc": "road",
+   "props": [
+    "cars",
+    "truck:drive"
+   ],
+   "card": null,
+   "cam": 1.1,
+   "camx": 0.4
+  },
+  {
+   "sp": "tank",
+   "text": "Okay. Okay. I'm fine. This is fine. Everything is totally fine.",
+   "props": [
+    "cars",
+    "truck:drive",
+    "cab:tank"
+   ],
+   "cam": 1.3,
+   "camx": 0.55
+  },
+  {
+   "sp": "mags",
+   "text": "Tank, you're breathing so loud they can hear you in Canada.",
+   "props": [
+    "cars",
+    "truck:drive",
+    "cab:mags"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Halfway there, we passed a car with a note taped to the windshield.",
+   "props": [
+    "cars"
+   ],
+   "cast": [
+    "mags:.45:idle",
+    "tank:.62:idle"
+   ],
+   "cam": 1.0
+  },
+  {
+   "sp": "mags",
+   "text": "Went to Bellwood Fire Station. Safe zone. Food and water. Come find us.",
+   "cast": [
+    "mags:.45:talk",
+    "tank:.62:idle"
+   ],
+   "cam": 1.2,
+   "camx": 0.5
+  },
+  {
+   "sp": "cole",
+   "text": "The note was dated three weeks ago. Nobody had come back for that car either.",
+   "cam": 1.0,
+   "intensity": 0.55
+  },
+  {
+   "sp": "cole",
+   "text": "Then Doris made a sound no car should ever make.",
+   "props": [
+    "cars",
+    "truck:.55:smoke"
+   ],
+   "cam": 1.0,
+   "sfx": [
+    [
+     "sputter",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "No, no, no. Don't you dare quit on me now.",
+   "cast": [
+    "mags:.4:scared"
+   ],
+   "props": [
+    "cars",
+    "truck:.55:smoke"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "We were two miles from Bellwood. On foot. With an hour of daylight left.",
+   "tod": "dusk",
+   "cast": [
+    "mags:.35:run",
+    "cole:.45:run",
+    "tank:.6:run"
+   ],
+   "props": [
+    "cars"
+   ],
+   "sfx": [
+    [
+     "steps",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Bellwood used to be a nice little town. Now it was quiet. Too quiet.",
+   "loc": "town",
+   "wx": "fog",
+   "cast": [],
+   "props": [],
+   "cam": 1.0
+  },
+  {
+   "sp": "cole",
+   "text": "The pharmacy was right where Pip said it would be. Windows smashed, door hanging open.",
+   "cam": 1.25,
+   "camx": 0.6
+  },
+  {
+   "sp": "tank",
+   "text": "Why is it always a creepy door? Why can't it ever be a nice door?",
+   "cast": [
+    "tank:.4:scared",
+    "mags:.25:idle"
+   ],
+   "cam": 1.1,
+   "camx": 0.45
+  },
+  {
+   "sp": "cole",
+   "text": "Inside, the shelves were nearly bare. But Mags found something behind the counter.",
+   "loc": "pharmacy",
+   "wx": null,
+   "cast": [
+    "mags:.4:idle",
+    "tank:.7:idle"
+   ],
+   "cam": 1.0
+  },
+  {
+   "sp": "mags",
+   "text": "Cough syrup. Antibiotics. Bandages. Jackpot.",
+   "cast": [
+    "mags:.4:cheer",
+    "tank:.7:idle"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "That's when we heard it.",
+   "intensity": 0.7,
+   "cast": [
+    "mags:.4:scared",
+    "tank:.7:scared"
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "A groan. Low and slow. Coming from the back room.",
+   "cam": 1.2,
+   "camx": 0.85,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "tank",
+   "text": "Please be a cat. Please be a really big cat.",
+   "cam": 1.3,
+   "camx": 0.7
+  },
+  {
+   "sp": "cole",
+   "text": "It was not a cat.",
+   "z": {
+    "n": 1,
+    "x0": 0.92,
+    "x1": 0.85,
+    "depth": "near",
+    "tag": "GARY"
+   },
+   "cam": 1.1,
+   "camx": 0.7,
+   "sfx": [
+    [
+     "groan",
+     0.4
+    ],
+    [
+     "sting",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "It was the pharmacist. Still wearing his name tag. Gary.",
+   "cam": 1.35,
+   "camx": 0.85
+  },
+  {
+   "sp": "mags",
+   "text": "Hi, Gary. We're just gonna take these and go. Nice and slow.",
+   "cam": 1.0,
+   "cast": [
+    "mags:.4:point",
+    "tank:.65:scared"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Gary did not want us to go.",
+   "z": {
+    "n": 1,
+    "x0": 0.85,
+    "x1": 0.72,
+    "depth": "near",
+    "tag": "GARY"
+   },
+   "fx": [
+    "shake"
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Tank screamed. A sound so high pitched, every dog in Bellwood started barking.",
+   "cast": [
+    "mags:.4:scared",
+    "tank:.6:scared"
+   ],
+   "fx": [
+    "shake"
+   ],
+   "sfx": [
+    [
+     "scream",
+     0.1
+    ],
+    [
+     "bark",
+     0.7
+    ],
+    [
+     "bark",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "And then, he did something none of us expected.",
+   "fx": [],
+   "cam": 1.2,
+   "camx": 0.6
+  },
+  {
+   "sp": "cole",
+   "text": "He grabbed a shopping cart, closed his eyes, and charged.",
+   "cast": [
+    "mags:.3:scared",
+    "tank:.45:push"
+   ],
+   "props": [
+    "cart:push"
+   ],
+   "cam": 1.0,
+   "sfx": [
+    [
+     "rattle",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Gary went one way. The cart went the other. Tank ended up in the cough drop aisle.",
+   "cast": [
+    "mags:.3:scared",
+    "tank:.62:sit"
+   ],
+   "props": [
+    "cart:.85"
+   ],
+   "z": {
+    "n": 1,
+    "x0": 0.95,
+    "x1": 1.3,
+    "depth": "near",
+    "tag": "GARY",
+    "fall": true
+   },
+   "fx": [
+    "shake"
+   ],
+   "sfx": [
+    [
+     "crash",
+     0.2
+    ],
+    [
+     "crash",
+     0.45
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Tank! That was actually amazing!",
+   "cast": [
+    "mags:.35:cheer",
+    "tank:.62:sit"
+   ],
+   "z": null,
+   "props": [
+    "cart:.85"
+   ],
+   "fx": []
+  },
+  {
+   "sp": "tank",
+   "text": "Did I win? I had my eyes closed. Did I win?",
+   "cast": [
+    "mags:.35:idle",
+    "tank:.62:sit"
+   ],
+   "cam": 1.25,
+   "camx": 0.62
+  },
+  {
+   "sp": "cole",
+   "text": "We grabbed everything we could carry and ran.",
+   "loc": "town",
+   "wx": "fog",
+   "tod": "dusk",
+   "cast": [
+    "mags:.4:run",
+    "cole:.5:run",
+    "tank:.62:run"
+   ],
+   "props": [],
+   "cam": 1.0,
+   "sfx": [
+    [
+     "steps",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "But Tank's scream had done something else. It had rung the dinner bell.",
+   "intensity": 0.85,
+   "cast": [],
+   "z": {
+    "n": 4,
+    "x0": 1.15,
+    "x1": 0.8,
+    "depth": "mid"
+   },
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "From every alley and doorway in Bellwood, they started coming.",
+   "z": {
+    "n": 12,
+    "x0": 1.3,
+    "x1": 0.55,
+    "depth": "mid"
+   },
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ],
+    [
+     "groan",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "card": {
+    "kind": "chapter",
+    "title": "Chapter 3",
+    "sub": "Night Falls"
+   },
+   "act": "Night Falls",
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ]
+   ],
+   "z": null
+  },
+  {
+   "sp": "cole",
+   "text": "We ran two miles back to Doris with half the town behind us.",
+   "loc": "road",
+   "tod": "dusk",
+   "wx": null,
+   "card": null,
+   "cast": [
+    "mags:.45:run",
+    "cole:.55:run",
+    "tank:.65:run"
+   ],
+   "props": [
+    "cars"
+   ],
+   "z": {
+    "n": 8,
+    "x0": -0.4,
+    "x1": 0.1,
+    "depth": "mid"
+   },
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "groan",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Get in! Get in! Get in!",
+   "props": [
+    "cars",
+    "truck:.6"
+   ],
+   "cast": [
+    "mags:.5:run"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Mags hit the dashboard twice, said a word I can't repeat, and Doris roared back to life.",
+   "props": [
+    "cars",
+    "truck:drive"
+   ],
+   "cast": [],
+   "z": {
+    "n": 8,
+    "x0": 0,
+    "x1": 0.15,
+    "depth": "mid"
+   },
+   "sfx": [
+    [
+     "bang",
+     0.1
+    ],
+    [
+     "bang",
+     0.2
+    ],
+    [
+     "engine",
+     0.75
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "We got back to the station just as the sun went down.",
+   "loc": "station_ext",
+   "tod": "dusk",
+   "props": [
+    "sign",
+    "pumps",
+    "truck:.65"
+   ],
+   "z": null,
+   "cast": [
+    "dooley:.3:idle"
+   ]
+  },
+  {
+   "sp": "dooley",
+   "text": "You're late. And you brought friends.",
+   "cast": [
+    "dooley:.3:point"
+   ],
+   "z": {
+    "n": 5,
+    "x0": 1.2,
+    "x1": 1.0,
+    "depth": "far"
+   },
+   "cam": 1.15,
+   "camx": 0.6
+  },
+  {
+   "sp": "cole",
+   "text": "They had followed the engine noise. Dozens of them, shuffling up Highway Nine in the dark.",
+   "tod": "night",
+   "cast": [],
+   "cam": 1.0,
+   "z": {
+    "n": 16,
+    "x0": 1.25,
+    "x1": 0.75,
+    "depth": "far"
+   },
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ],
+    [
+     "groan",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Our barricade was three tables, a vending machine and a lot of duct tape.",
+   "loc": "station_int",
+   "tod": "night",
+   "props": [
+    "shelves",
+    "barricade",
+    "lantern"
+   ],
+   "z": null,
+   "cast": [
+    "tank:.4:idle"
+   ]
+  },
+  {
+   "sp": "pip",
+   "text": "It's not going to hold. I did the math. It's really not going to hold.",
+   "cast": [
+    "pip:.4:scared"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Dooley gave everyone a job.",
+   "cast": [
+    "dooley:.5:idle"
+   ]
+  },
+  {
+   "sp": "dooley",
+   "text": "Mags, the back door. Tank, the windows. Pip, the lights. Cole, with me.",
+   "cast": [
+    "mags:.2:idle",
+    "dooley:.45:point",
+    "pip:.62:idle",
+    "tank:.8:idle"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Dooley loaded his old shotgun. Two shells. He said that was one more than he'd ever need.",
+   "cast": [
+    "dooley:.45:idle"
+   ],
+   "cam": 1.2,
+   "camx": 0.45
+  },
+  {
+   "sp": "cole",
+   "text": "Then the first one hit the glass.",
+   "fx": [
+    "shake"
+   ],
+   "cast": [
+    "mags:.2:scared",
+    "dooley:.45:idle",
+    "pip:.62:scared",
+    "tank:.8:scared"
+   ],
+   "props": [
+    "shelves",
+    "barricade",
+    "lantern",
+    "hands"
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.55
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Then another. Then ten more.",
+   "fx": [
+    "shake"
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.1
+    ],
+    [
+     "bang",
+     0.4
+    ],
+    [
+     "bang",
+     0.55
+    ],
+    [
+     "bang",
+     0.7
+    ],
+    [
+     "bang",
+     0.85
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "The vending machine started to slide.",
+   "props": [
+    "shelves",
+    "barricade:slide",
+    "lantern",
+    "hands"
+   ],
+   "sfx": [
+    [
+     "scrape",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "tank",
+   "text": "It's moving! The vending machine is moving! Why is it moving?",
+   "cast": [
+    "tank:.7:scared"
+   ],
+   "cam": 1.2,
+   "camx": 0.6,
+   "sfx": [
+    [
+     "bang",
+     0.3
+    ],
+    [
+     "bang",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Pip had an idea. A crazy one.",
+   "cast": [
+    "pip:.5:idle"
+   ],
+   "cam": 1.0,
+   "fx": []
+  },
+  {
+   "sp": "pip",
+   "text": "They follow noise, right? So let's give them noise. Somewhere else.",
+   "cast": [
+    "pip:.5:point"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "She climbed onto the roof with the old radio, cranked the static all the way up, and threw it as far as she could into the cornfield.",
+   "loc": "roof",
+   "tod": "night",
+   "props": [
+    "radio:throw",
+    "corn"
+   ],
+   "cast": [
+    "pip:.35:cheer"
+   ],
+   "sfx": [
+    [
+     "static",
+     0.45
+    ],
+    [
+     "whoosh",
+     0.75
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "The radio landed in the field, hissing like a broken TV.",
+   "props": [
+    "corn",
+    "radio:field"
+   ],
+   "cast": [],
+   "z": {
+    "n": 10,
+    "x0": 0.2,
+    "x1": 0.25,
+    "depth": "far"
+   },
+   "sfx": [
+    [
+     "static",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "And one by one, the dead turned around.",
+   "z": {
+    "n": 10,
+    "x0": 0.3,
+    "x1": 0.65,
+    "depth": "far",
+    "turn": true
+   },
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "static",
+     0
+    ],
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "tank",
+   "text": "Pip. Pip, you're a genius.",
+   "loc": "station_int",
+   "props": [
+    "shelves",
+    "barricade",
+    "lantern"
+   ],
+   "z": null,
+   "cast": [
+    "pip:.4:cheer",
+    "tank:.65:idle"
+   ]
+  },
+  {
+   "sp": "pip",
+   "text": "I know. I'm twelve. I've been saying this.",
+   "cast": [
+    "pip:.4:talk",
+    "tank:.65:idle"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "We didn't sleep that night. Nobody did. We just sat in the dark and listened to them walk away.",
+   "intensity": 0.25,
+   "cast": [
+    "mags:.2:sit",
+    "dooley:.38:sit",
+    "pip:.55:sit",
+    "tank:.75:sit"
+   ]
+  },
+  {
+   "sp": "dooley",
+   "text": "Medicine's working. Thank you. All of you.",
+   "cast": [
+    "mags:.2:sit",
+    "dooley:.38:sit",
+    "pip:.55:sit",
+    "tank:.75:sit"
+   ],
+   "sfx": [
+    [
+     "cough",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Day one of the rest of our lives. We made it."
+  },
+  {
+   "sp": "cole",
+   "text": "In the morning, we counted what we had left. Half a jar of peanut butter. Nine cans of beans. And one very proud twelve year old.",
+   "loc": "station_int",
+   "tod": "day",
+   "props": [
+    "shelves",
+    "radio",
+    "cooler"
+   ],
+   "cast": [
+    "pip:.5:cheer"
+   ],
+   "intensity": 0.2
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "card": {
+    "kind": "chapter",
+    "title": "Chapter 4",
+    "sub": "Your Move"
+   },
+   "act": "Your Move",
+   "intensity": 0.35,
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "But we can't do that again. Next time, they won't turn around.",
+   "loc": "station_ext",
+   "tod": "day",
+   "card": null,
+   "cast": [
+    "cole:.5:idle"
+   ],
+   "props": [
+    "sign",
+    "pumps",
+    "truck:.75"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "So here's where you come in. Every like on this episode is one supply point for Mile Forty One.",
+   "hud": "supplies",
+   "cast": [
+    "cole:.5:talk"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "With enough supplies, we can build real walls. Fix the generator. Put up a watchtower. Or go back for more food.",
+   "hud": "shop"
+  },
+  {
+   "sp": "cole",
+   "text": "Leave a comment with what we should do next. The most liked comment decides episode two.",
+   "hud": "vote"
+  },
+  {
+   "sp": "cole",
+   "text": "And if you want to join the group, tell us your name and your skill in the comments. The best ones might just show up at our door.",
+   "hud": "join"
+  },
+  {
+   "sp": "cole",
+   "text": "One more thing.",
+   "hud": null,
+   "intensity": 0.6,
+   "loc": "station_int",
+   "tod": "night",
+   "props": [
+    "shelves",
+    "radio:on",
+    "lantern"
+   ],
+   "cast": [],
+   "cam": 1.25,
+   "camx": 0.7
+  },
+  {
+   "sp": "cole",
+   "text": "That night, the radio inside the station turned on by itself.",
+   "sfx": [
+    [
+     "static",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "radio",
+   "text": "Is anyone out there? This is Bellwood Fire Station. We have food. We have water.",
+   "fx": [
+    "static"
+   ]
+  },
+  {
+   "sp": "radio",
+   "text": "But something is coming from the north. Something big. Please, if you can hear this.",
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "static",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Then the radio went dead.",
+   "fx": [],
+   "props": [
+    "shelves",
+    "radio",
+    "lantern"
+   ],
+   "cam": 1.0,
+   "sfx": [
+    [
+     "sting",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "I'm Cole. This is Mile Forty One. And we're still here. For now.",
+   "loc": "station_ext",
+   "tod": "night",
+   "props": [
+    "sign",
+    "pumps",
+    "lantern"
+   ],
+   "cast": [
+    "cole:.5:idle"
+   ],
+   "cam": 1.0
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 6.0,
+   "card": {
+    "kind": "end",
+    "title": "MILE 41",
+    "sub": "Like = 1 supply  \u00b7  Comment = your vote  \u00b7  Subscribe to survive"
+   },
+   "intensity": 0.4
+  }
+ ]
+}
