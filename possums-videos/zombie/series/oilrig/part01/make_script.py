@@ -39,7 +39,7 @@ b("At the end of the pier, a fishing boat. Half a tank of fuel. Twelve miles to 
 b(f"Would you rather {Q1.lower()}? Or {Q2.lower()}?", scene="question", opt1=Q1, opt2=Q2, intensity=.6, sfx=[["sting", .05]])
 b("", hold=2.4, scene="question", opt1=Q1, opt2=Q2, countdown=True, sfx=[["tick", 0], ["tick", .8], ["tick", 1.6]])
 b("Vote in the poll. Part two, tomorrow.", scene="question", opt1=Q1, opt2=Q2, vote=True, recap="1-10-1: SHOCK • ARMS QUIT • PASS OUT")
-json.dump({"series": "What if you had to reach the oil rig?", "episode": 1, "day": 1, "title": "Part 1", "lesson": "NOISE IS A WEAPON", "vertical": True, "lead": .15, "target": 90,
+json.dump({"series": "What if you had to reach the oil rig?", "episode": 1, "day": 1, "title": "Part 1", "lesson": "NOISE IS A WEAPON", "vertical": True, "style": "stick", "lead": .15, "target": 90,
            "speeds": {"deep": 1.12}, "width": 1080, "height": 1920, "mix": {"music": .065, "ambience": .035}, "beats": B},
           open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "script.json"), "w"), indent=1)
 print(len(B), "beats,", sum(len(x["text"].split()) for x in B), "words")

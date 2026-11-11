@@ -83,6 +83,7 @@ function roof(b, t) { sky(b.tod, t, 1300); treeLine(1180, b.tod === 'day' ? '#4b
 
 // ================================================================ characters
 function cole(x, y, s, t, o = {}) {
+  if (TL && TL.style === 'stick') return stickMan(x, y, s, t, o);
   ctx.save(); ctx.translate(x, y); ctx.scale(s * (o.flip ? -1 : 1), s);
   const breathe = Math.sin(t * 2.2) * 4, run = o.pose === 'run' ? t * 12 : 0, lg = Math.sin(run) * 26, crouch = o.pose === 'crouch' ? 1 : 0;
   ctx.fillStyle = 'rgba(0,0,0,.3)'; ctx.beginPath(); ctx.ellipse(0, 4, 100, 18, 0, 0, 7); ctx.fill();
@@ -113,7 +114,7 @@ function cole(x, y, s, t, o = {}) {
   if (o.pose === 'scared') { ctx.fillStyle = '#9fe0ff'; ctx.beginPath(); ctx.arc(74, hy - 40, 10, 0, 7); ctx.fill(); }
   ctx.restore();
 }
-function zombie(x, y, s, t, ph, o = {}) { ctx.save(); ctx.translate(x, y); if (o.turn) ctx.scale(-1, 1); ctx.scale(s, s);
+function zombie(x, y, s, t, ph, o = {}) { if (TL && TL.style === 'stick') return stickZombie(x, y, s, t, ph, o); ctx.save(); ctx.translate(x, y); if (o.turn) ctx.scale(-1, 1); ctx.scale(s, s);
   const sh = Math.sin(t * 2.6 + ph), cl = ['#4f4060', '#5c5032', '#33505c', '#5c3232', '#444'][Math.floor(ph * 3) % 5]; ctx.rotate(-.05 + sh * .035);
   ctx.fillStyle = 'rgba(0,0,0,.28)'; ctx.beginPath(); ctx.ellipse(0, 4, 80, 15, 0, 0, 7); ctx.fill();
   for (const sd of [-1, 1]) { ctx.save(); ctx.translate(sd * 24, -200); ctx.rotate(sd * sh * .12); ctx.fillStyle = '#34343c'; rr(-22, 0, 44, 196, 16); ctx.fill(); ctx.fillStyle = '#56704a'; ctx.fillRect(-14, 150, 28, 40); ctx.restore(); }
@@ -336,6 +337,50 @@ Object.assign(SC, {
     if (b.fishing) { const by = 1440 + Math.sin(t * 2) * 8; ctx.save(); ctx.translate(880, by); ctx.rotate(Math.sin(t * 1.6) * .03); ctx.fillStyle = '#2e6a8a'; ctx.beginPath(); ctx.moveTo(-150, -40); ctx.lineTo(150, -40); ctx.lineTo(110, 30); ctx.lineTo(-120, 30); ctx.fill(); ctx.fillStyle = '#e8e2cf'; ctx.fillRect(-60, -110, 90, 70); ctx.fillStyle = '#333'; ctx.fillRect(-40, -95, 50, 30); ctx.fillStyle = '#c0392b'; ctx.fillRect(110, -70, 30, 40); ctx.restore(); txt('HALF A TANK', 880, 1300, 34, '#ffe14a', { stroke: 6 }); }
     horde(b.z, k, t, 1330); if (b.you) cole(lerp(b.you[0], b.you[1], k), 1340, .62, t, { pose: b.you[2] || 'idle', flip: b.you[3] }); },
 });
+
+// ================================================================ stick-man style (TL.style === 'stick')
+function rot(L, a) { return [-Math.sin(a) * L, Math.cos(a) * L]; }
+function limb(x0, y0, a1, L1, a2, L2, w, col) { const [dx, dy] = rot(L1, a1), ex = x0 + dx, ey = y0 + dy, [hx, hy] = rot(L2, a2); ctx.strokeStyle = col; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(ex, ey); ctx.lineTo(ex + hx, ey + hy); ctx.stroke(); return [ex + hx, ey + hy]; }
+function stickMan(x, y, s, t, o = {}) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s * (o.flip ? -1 : 1), s);
+  const pose = o.pose || 'idle', run = pose === 'run' ? t * 11 : 0, sw = Math.sin(run), crouch = pose === 'crouch' ? 1 : 0, bob = pose === 'run' ? -Math.abs(Math.cos(run)) * 14 : Math.sin(t * 2.2) * 3;
+  ctx.fillStyle = 'rgba(0,0,0,.28)'; ctx.beginPath(); ctx.ellipse(0, 4, 70, 14, 0, 0, 7); ctx.fill();
+  ctx.translate(0, bob + crouch * 70); if (pose === 'run') ctx.rotate(.12);
+  const hip = -230, sh = -400, K = '#1b1b1f';
+  // legs (back leg first)
+  for (const sd of [1, -1]) { const th = pose === 'run' ? sd * sw * .75 : (crouch ? sd * .9 : sd * .16), kn = pose === 'run' ? Math.max(0, -sd * sw) * 1.1 + .15 : (crouch ? -sd * 1.6 : 0);
+    const [fx, fy] = limb(sd * 12, hip, th, 120, th + kn * (pose === 'run' ? 1 : 1) * (crouch ? 1 : 1) - (pose === 'run' ? 0 : 0), 118, 22, '#2e3440');
+    ctx.fillStyle = '#3b2a1e'; ctx.beginPath(); ctx.ellipse(fx + 14, fy + 4, 26, 13, 0, 0, 7); ctx.fill(); }
+  // backpack + jacket torso
+  ctx.fillStyle = '#5a3c28'; rr(-62, sh + 20, 34, 140, 12); ctx.fill();
+  ctx.fillStyle = '#4f6b3a'; rr(-42, sh - 8, 84, 196, 26); ctx.fill(); ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(-3, sh + 6, 6, 170); ctx.fillStyle = '#6b8a4e'; rr(-30, sh + 90, 22, 20, 4); ctx.fill(); rr(8, sh + 90, 22, 20, 4); ctx.fill(); ctx.fillStyle = '#8a6a2e'; ctx.fillRect(-46, sh + 30, 8, 30);
+  // arms
+  const tk = o.talk ? Math.sin(t * 4) * .3 : 0, a = Math.sin(t * 1.6) * .05;
+  const A = { idle: [.12 + a, -.12 - a, .2], talk: [.15, -1.1 + tk, -.9], point: [.12, -1.57, 0], scared: [2.5, -2.5, .5], run: [-sw * .9, sw * .9, -1.3], crouch: [.7, -.7, -.6], think: [.2, -2.4, -2.2], cheer: [2.7, -2.7, .2] }[pose] || [.12, -.12, .2];
+  for (const [sd, ang] of [[-1, A[0]], [1, A[1]]]) { const bend = pose === 'run' ? A[2] * Math.sign(-ang || 1) * .6 : A[2] * (sd > 0 ? 1 : -1) * (pose === 'talk' || pose === 'think' ? (sd > 0 ? 1 : 0) : 1);
+    const [hx, hy] = limb(sd * 34, sh + 10, ang, 95, ang + bend, 90, 18, '#4f6b3a'); ctx.fillStyle = '#f2efe8'; ctx.strokeStyle = K; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(hx, hy, 15, 0, 7); ctx.fill(); ctx.stroke();
+    if (sd > 0 && o.holdR === 'bottle') { ctx.fillStyle = 'rgba(170,200,220,.9)'; rr(hx - 12, hy, 24, 54, 6); ctx.fill(); } }
+  // head
+  const hy = sh - 82; ctx.fillStyle = '#f7f5f0'; ctx.strokeStyle = K; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(0, hy, 66, 0, 7); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = '#2b2b30'; ctx.beginPath(); ctx.arc(0, hy - 10, 68, Math.PI * 1.02, Math.PI * 1.98); ctx.closePath(); ctx.fill(); ctx.fillRect(-70, hy - 22, 140, 18); ctx.fillStyle = 'rgba(255,255,255,.08)'; for (let i = -50; i < 60; i += 18) ctx.fillRect(i, hy - 70, 5, 46);
+  const blink = (t % 3.7) < .1, lk = (o.look || 0) * 5; ctx.fillStyle = K;
+  if (blink) { ctx.fillRect(-26 + lk, hy + 10, 18, 4); ctx.fillRect(10 + lk, hy + 10, 18, 4); } else { ctx.beginPath(); ctx.arc(-17 + lk, hy + 12, pose === 'scared' ? 9 : 7, 0, 7); ctx.arc(19 + lk, hy + 12, pose === 'scared' ? 9 : 7, 0, 7); ctx.fill(); }
+  if (pose === 'scared' || o.talk) { const m = pose === 'scared' ? 12 : 3 + Math.abs(Math.sin(t * 15)) * 9; ctx.beginPath(); ctx.ellipse(2 + lk, hy + 40, 11, m, 0, 0, 7); ctx.fill(); }
+  else { ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(-12 + lk, hy + 40); ctx.lineTo(14 + lk, hy + 38); ctx.stroke(); }
+  if (pose === 'scared') { ctx.fillStyle = '#9fe0ff'; ctx.beginPath(); ctx.arc(58, hy - 8, 9, 0, 7); ctx.fill(); }
+  ctx.restore(); }
+function stickZombie(x, y, s, t, ph, o = {}) { ctx.save(); ctx.translate(x, y); if (o.turn) ctx.scale(-1, 1); ctx.scale(s, s);
+  const sh2 = Math.sin(t * 2.6 + ph), K = '#1b1b1f', cl = ['#6a5a7a', '#7a6a4a', '#4a6a7a', '#7a4a4a', '#5a5a5a'][Math.floor(ph * 3) % 5];
+  ctx.fillStyle = 'rgba(0,0,0,.25)'; ctx.beginPath(); ctx.ellipse(0, 4, 60, 12, 0, 0, 7); ctx.fill(); ctx.rotate(.06 + sh2 * .04);
+  for (const sd of [1, -1]) { const th = sd * sh2 * .3; const [fx, fy] = limb(sd * 12, -230, th, 120, th + .1, 118, 20, '#33343c'); ctx.fillStyle = '#7d8a6a'; ctx.beginPath(); ctx.ellipse(fx + 10, fy + 4, 22, 11, 0, 0, 7); ctx.fill(); }
+  ctx.fillStyle = cl; ctx.beginPath(); ctx.moveTo(-40, -405); ctx.lineTo(40, -405); ctx.lineTo(44, -230); ctx.lineTo(20, -218); ctx.lineTo(0, -236); ctx.lineTo(-22, -216); ctx.lineTo(-44, -228); ctx.closePath(); ctx.fill();
+  for (const sd of [-1, 1]) { const a2 = -1.5 + sd * .06 + Math.sin(t * 2 + ph + sd) * .07; const [hx, hy] = limb(sd * 30, -390, a2, 95, a2 + .15, 90, 16, '#8f9c7c'); ctx.fillStyle = '#8f9c7c'; ctx.beginPath(); ctx.arc(hx, hy, 13, 0, 7); ctx.fill(); }
+  ctx.save(); ctx.translate(0, -482); ctx.rotate(.2 + Math.sin(t * 1.2 + ph) * .1); ctx.fillStyle = '#a7b493'; ctx.strokeStyle = K; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(0, 0, 62, 0, 7); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = '#4a3a2a'; ctx.beginPath(); ctx.arc(0, -12, 62, Math.PI * 1.1, Math.PI * 1.7); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-20, 4, 13, 0, 7); ctx.arc(22, 8, 11, 0, 7); ctx.fill(); ctx.strokeStyle = K; ctx.lineWidth = 3; ctx.stroke();
+  ctx.fillStyle = K; ctx.beginPath(); ctx.ellipse(4, 36, 16, 8 + Math.abs(Math.sin(t * 2 + ph)) * 7, 0, 0, 7); ctx.fill(); ctx.restore();
+  ctx.restore(); }
 
 // ================================================================ frame
 function captions(t) { const B = TL.beats.find(b => b.text && t >= b.start - .05 && t <= b.end + .2); if (!B || B.scene === 'hook' || B.scene === 'question' || B.scene === 'voted') return;

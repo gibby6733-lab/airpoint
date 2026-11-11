@@ -5,6 +5,7 @@
  "title": "Part 1",
  "lesson": "NOISE IS A WEAPON",
  "vertical": true,
+ "style": "stick",
  "lead": 0.15,
  "target": 90,
  "speeds": {
