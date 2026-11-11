@@ -58,7 +58,8 @@ and the fan signings by position. Continue unless the user corrects it.
 - Edit `episode.html`: day number in `hud()`/stamps ("DAY N"), fund logic `fundAt()`, opponent logos/colors,
   `drawStadium()` to show bought upgrades (the arena only improves where fans paid), new scenes as needed,
   shop items/prices in the `cta` scene. Keep the run-down look everywhere not upgraded.
-- `caption.txt`: Day N hook line, "Every like = +$1 for the team 💵", "Most-liked comment picks the upgrade 👇",
+- `caption.txt`: ONE line, 100 characters MAX including the hashtags and emojis (emojis count as 2):
+  short Day N hook + "Every like = +$1 for the team 💵", "Most-liked comment picks the upgrade 👇",
   remaining upgrades, tomorrow's opponent (common iPhone emojis only, no text codes like [Red heart];
   also paste the caption in the chat reply so the user can copy it), then EXACTLY these hashtags and no others:
   `#football #footballfunny #animation #Mudvillepossums`

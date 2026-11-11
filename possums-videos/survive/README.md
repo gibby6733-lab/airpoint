@@ -9,5 +9,6 @@ Build: `python3 <topic>/make_script.py`, `python3 zombie/build_episode.py surviv
 `./discord_copy.sh …/episode.mp4 …/discord.mp4`, `python3 post_discord.py survive survive/<topic>`.
 New topics usually need new scene drawings in engine.html (SC object).
 
+- Captions: 100 characters MAX including hashtags and emojis (count emojis as 2). Check with python before posting.
 Captions: common iPhone emojis only (never text codes like [Red heart]); paste the caption in chat too.
 Hashtags: #shorts #wouldyousurvive + 2 topic tags.
