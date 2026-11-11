@@ -1,17 +1,17 @@
 {
- "after_day": 1,
- "fund_dollars": 0,
+ "after_day": 2,
+ "fund_dollars": 353,
  "record": {
   "wins": 0,
-  "losses": 1
+  "losses": 2
  },
  "fans": 0,
- "next_opponent": "Pine Hollow Badgers (unbeaten in 4 years)",
+ "next_opponent": "Red Rock Rattlers (haven't allowed a point all season)",
  "upgrades_owned": [
-  "1 shared helmet"
+  "helmets for everyone (Day 2, $50)"
  ],
  "stadium": {
-  "gear": "1 shared helmet",
+  "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
   "stands": "wooden bleachers falling apart",
   "field": "mud",
   "goal_posts": "a ladder",
@@ -19,11 +19,11 @@
   "locker_room": "porta-potty"
  },
  "upgrade_prices": {
-  "gear": 50,
   "stands": 250,
   "field": 500,
   "goal_posts": 100,
-  "scoreboard": 150
+  "scoreboard": 150,
+  "locker_room": 200
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -37,12 +37,48 @@
    "posted": "2026-11-11",
    "opponent": "Dry Gulch Gophers",
    "score": "6-21 L",
+   "likes": 403,
+   "winning_comment": "Gear",
+   "note": "Real Day 1 posted to TikTok on 2026-11-11. Its likes/comments arrive tomorrow and drive the real Day 2. episodes/demo_day02 was a test run (not posted to TikTok).",
+   "likes_tiktok": 392,
+   "likes_instagram": 11,
+   "comment_likes": 13
+  },
+  {
+   "day": 2,
+   "opponent": "Pine Hollow Badgers",
+   "score": "3-28 L",
+   "note": "Earl's 60-yard field goal through the ladder",
    "likes": null,
-   "winning_comment": null,
-   "note": "Real Day 1 posted to TikTok on 2026-11-11. Its likes/comments arrive tomorrow and drive the real Day 2. episodes/demo_day02 was a test run (not posted to TikTok)."
+   "winning_comment": null
   }
  ],
- "fan_roster": [],
+ "fan_roster": [
+  {
+   "name": "therealmtb_44",
+   "role": "linebacker"
+  },
+  {
+   "name": "mricey12",
+   "role": "tight end"
+  },
+  {
+   "name": "ccilxx242",
+   "role": "right guard"
+  },
+  {
+   "name": "andrew.bonsick",
+   "role": "groundskeeper"
+  },
+  {
+   "name": "sarah52664",
+   "role": "ticket collector"
+  },
+  {
+   "name": "javiviiii2",
+   "role": "hot dog seller"
+  }
+ ],
  "accounts": {
   "tiktok": "https://www.tiktok.com/@mudville.possums",
   "instagram": "https://www.instagram.com/mudville.possums/"
