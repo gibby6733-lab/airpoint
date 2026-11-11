@@ -12,6 +12,21 @@ Data source: the Boozeie (aicut) connector, free read-only tools only:
 Never call anything that spends credits (generate_*, fire_*, render_*). If the API says it isn't live, retry once, then
 post what you have.
 
+## ONLY niches WE can make
+We make videos in CODE (canvas 2D animation): flat 2D cartoons, stick figures, simple vector characters, emoji
+characters, text/caption-driven stories, infographics, maps, number cards, UI mockups (phone/chat/CCTV screens),
+TTS narration, synthesized music/SFX. We do NOT make photoreal or 3D AI video (Higgsfield, Seedance, Kling, Veo, Sora,
+"3D animation", Pixar-style, realistic people/animals, lip-synced faces, real footage).
+For every candidate, check what it LOOKS like before recommending it: run the free `analyze_video(url)` + `get_analysis`
+on the best example (look at style, characters, lighting, camera). Tags like #higgsfield #seedance #3danimation #veo
+#kling or "made with ..." usually mean 3D/photoreal → can't make.
+LESSON: hashtags lie ("#emojistory" was photoreal actors). NEVER rate from captions or hashtags alone; always run
+analyze_video and read the character/lighting description ("3D animated", "realistic", "shallow depth of field",
+"photoreal" = ❌). Also look beyond aicut's AI feed for 2D-friendly formats (stick figure, infographic, what-if,
+choose-your-path, text stories, simple vector cartoons) when you report.
+Rate each niche: ✅ we can make it (2D/code style), 🟡 we can make a 2D version of it (the hook/format works without the
+3D look), ❌ needs photoreal/3D (only list in a short "not for us" line). Only ✅/🟡 can be the "Best bet".
+
 ## Steps
 1. `list_trends(breakout=true, days=7, sort="ratio", dialogue="any", limit=50)` and
    `list_trends(days=7, sort="newest", dialogue="any", limit=50)` (+ page 2 if useful).
@@ -26,10 +41,12 @@ post what you have.
    ```
    📈 TREND SCOUT — <date>
    🆕 NEW / RISING NICHES
-   1️⃣ <Niche name>: <what the videos are, one line>. <views> (<ratio>x) <emoji>
+   1️⃣ <✅/🟡> <Niche name>: <what the videos are, one line>. <views> (<ratio>x) <emoji>
+   🛠️ How we'd make it: <one line, in our 2D/code style>
    🔗 <best example url>
    ... (3-5 niches)
    🔴 SATURATED: <one line each>
+   ❌ Not for us (needs 3D/photoreal AI): <one line>
    🏈 Relevant to us: anything touching sports animation, survival/what-if, zombie, choose-your-path, series formats.
    💡 Best bet to test: <one niche + why + "want me to make a test episode?">
    ```
