@@ -52,3 +52,7 @@ Log both in `state.json` → `history`.
 ## Posting schedule
 - Day 1 posted to TikTok on 2026-11-11. Next real episode = Day 2, built from Day 1's TikTok likes + comments.
 - `episodes/demo_day02/` is a test run only (posted to Discord during the demo, not to TikTok). Don't treat it as canon.
+
+## Mafia story (separate series)
+`mafia/` — images + narration + time-marked script → animated 9:16 story with paper-cut transitions, SFX and tense
+music. Daily material comes from the #mafia-story Discord channel. See `.claude/skills/mafia-story/SKILL.md`.

@@ -3,3 +3,5 @@ tts
 *.wav
 stills/
 inbox/
+mafia/stories/*/images/
+mafia/stories/*/narration.*

@@ -10,7 +10,12 @@ const fs = require('fs'), path = require('path');
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
   page.on('pageerror', e => { console.error('PAGE ERROR', e); process.exit(1); });
   await page.goto('file://' + path.join(dir, 'episode.html'));
-  await page.evaluate(async tl => { setTimeline(tl); await document.fonts.load('900 80px Inter'); await document.fonts.load('700 40px Inter'); await document.fonts.load('800 40px Inter'); }, tl);
+  if (tl.images) { // pass images as data URLs (file:// images would taint the canvas)
+    const data = {}; for (const f of tl.images) { const ext = path.extname(f).slice(1).toLowerCase().replace('jpg', 'jpeg');
+      data[f] = `data:image/${ext};base64,` + fs.readFileSync(path.join(dir, 'images', f)).toString('base64'); }
+    await page.evaluate(d => { window.IMG_DATA = d; }, data);
+  }
+  await page.evaluate(async tl => { setTimeline(tl); await document.fonts.load('900 80px Inter'); await document.fonts.load('700 40px Inter'); await document.fonts.load('800 40px Inter'); if (window.whenReady) await window.whenReady(); }, tl);
   const grab = t => page.evaluate(t => { renderFrame(t); return document.getElementById('c').toDataURL('image/jpeg', 0.92); }, t);
   if (stillsArg > 0) {
     const ts = process.argv[stillsArg + 1].split(',').map(Number);

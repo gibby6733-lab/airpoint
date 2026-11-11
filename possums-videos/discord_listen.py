@@ -31,7 +31,7 @@ while True:
             saved = []
             for i, a in enumerate(m.get("attachments", [])):
                 ext = os.path.splitext(a.get("filename", ""))[1].lower() or ".png"
-                if ext not in (".png", ".jpg", ".jpeg", ".webp", ".gif", ".txt", ".mp4", ".mov", ".webm", ".m4v"):
+                if ext not in (".png", ".jpg", ".jpeg", ".webp", ".gif", ".txt", ".mp4", ".mov", ".webm", ".m4v", ".mp3", ".m4a", ".wav", ".ogg", ".aac"):
                     continue
                 os.makedirs(os.path.join(here, "inbox"), exist_ok=True)
                 dest = os.path.join(here, "inbox", f"{m['id']}_{i}{ext}")
