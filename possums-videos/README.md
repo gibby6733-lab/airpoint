@@ -48,3 +48,7 @@ Log both in `state.json` → `history`.
 - Baseball: Crabapple Raccoons — `series/baseball/` (pizza-box bases, mattress backstop, cornfield outfield)
 - Per-sport `state.json` and `profile.png` live in `series/<sport>/`.
 - Build: `./make_episode.sh series/soccer/day01` · Profile pic: `node series/profile.js series/soccer/day01 out.png`
+
+## Posting schedule
+- Day 1 posted to TikTok on 2026-11-11. Next real episode = Day 2, built from Day 1's TikTok likes + comments.
+- `episodes/demo_day02/` is a test run only (posted to Discord during the demo, not to TikTok). Don't treat it as canon.
