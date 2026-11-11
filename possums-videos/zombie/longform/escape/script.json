@@ -1,0 +1,3809 @@
+{
+ "series": "Your Move",
+ "episode": 1,
+ "day": 1,
+ "title": "Your Move: Escape the City Before It Falls",
+ "lesson": "",
+ "vertical": true,
+ "style": "stick",
+ "lead": 0.2,
+ "speeds": {
+  "deep": 1.0
+ },
+ "width": 1920,
+ "height": 1080,
+ "mix": {
+  "music": 0.06,
+  "ambience": 0.035
+ },
+ "beats": [
+  {
+   "sp": "deep",
+   "text": "The last helicopter out of the city lifts off in ten seconds.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "hover",
+   "you": {
+    "x0": 300,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 12,
+    "x0": -300,
+    "x1": 60,
+    "y": 900,
+    "s": 0.62,
+    "spread": 500,
+    "turn": false
+   },
+   "efx": [
+    "wind"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "LAST HELICOPTER",
+     "w": "helicopter",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "10 SECONDS",
+     "w": "ten",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0
+    ],
+    [
+     "groan",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And five hundred dead are between you and it.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "hover",
+   "you": {
+    "x0": 520,
+    "x1": 600,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": -100,
+    "x1": 260,
+    "y": 900,
+    "s": 0.62,
+    "spread": 600,
+    "turn": false
+   },
+   "efx": [
+    "wind",
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "500 DEAD",
+     "w": "hundred",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ],
+    [
+     "bang",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Below you, the whole city is burning. And you are one jump from getting out.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "hover",
+   "you": {
+    "x0": 600,
+    "x1": 600,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": 0,
+    "x1": 300,
+    "y": 900,
+    "s": 0.62,
+    "spread": 600,
+    "turn": false
+   },
+   "efx": [
+    "wind"
+   ],
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "engine",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Twenty four hours ago, you were asleep. Every choice from here is your move. Get them right, and you live.",
+   "clock": "8:59 PM",
+   "scene": "title",
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "reveal",
+     1.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Here's how this works. Every chapter, you get one choice. Pause the video, pick your move, and keep count. At the end, we'll see if you made it.",
+   "clock": "8:59 PM",
+   "scene": "title",
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "tick",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Six A.M. Every phone in the city screams at once.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "chapter": [
+    "1",
+    "THE APARTMENT"
+   ],
+   "you": {
+    "x0": 1200,
+    "x1": 1200,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "phone": true,
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "static",
+     0.2
+    ],
+    [
+     "sting",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You run to the window. Down on the street, people are running. And some of the people chasing them are not people anymore.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 1200,
+    "x1": 700,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": true,
+    "s": 0.72
+   },
+   "fire": true,
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "scream",
+     1.5
+    ],
+    [
+     "groan",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "On the news, a reporter is mid sentence when something pulls her off camera.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 1250,
+    "x1": 1250,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": true,
+    "s": 0.72
+   },
+   "tv": "attack",
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "scream",
+     1.6
+    ],
+    [
+     "static",
+     2.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Across the street, a building is on fire. Then your power cuts out.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 1250,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": true,
+    "s": 0.72
+   },
+   "fire": true,
+   "power": "off",
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "crash",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And someone is pounding on your door. Not knocking. Pounding.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 900,
+    "x1": 1000,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "fire": true,
+   "power": "off",
+   "door": "pound",
+   "efx": [
+    "shake"
+   ],
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "bang",
+     0.2
+    ],
+    [
+     "bang",
+     0.9
+    ],
+    [
+     "bang",
+     1.6
+    ],
+    [
+     "bang",
+     2.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You've got about ten seconds to think. So you think about what matters. Water. Food. A way out.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 1000,
+    "x1": 1000,
+    "y0": 900,
+    "y1": 900,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "fire": true,
+   "power": "off",
+   "door": "pound",
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "WATER",
+     "w": "water"
+    },
+    {
+     "t": "FOOD",
+     "w": "food"
+    },
+    {
+     "t": "A WAY OUT",
+     "w": "way",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.4
+    ],
+    [
+     "bang",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The door frame cracks.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 1000,
+    "x1": 1000,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "fire": true,
+   "power": "off",
+   "door": "pound",
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Barricade the door? Or grab your bag and run, right now?",
+   "clock": "6:00 AM",
+   "scene": "choice",
+   "bg": "apartment",
+   "opt1": "Barricade the door",
+   "opt2": "Grab your bag and run",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "6:00 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "apartment",
+   "opt1": "Barricade the door",
+   "opt2": "Grab your bag and run",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you barricaded, you're safe. For an hour. Then the smoke from across the street fills your floor.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "stamp": "wrong",
+   "you": {
+    "x0": 1000,
+    "x1": 1000,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "fire": true,
+   "power": "off",
+   "smoke": 1,
+   "sfx": [
+    [
+     "sting",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You crawl to the window to breathe. Twelve floors up. No way down. And the door is still blocked by everything you own.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "stamp": "wrong",
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "fire": true,
+   "power": "off",
+   "smoke": 1,
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "cough",
+     0.5
+    ],
+    [
+     "cough",
+     2.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Most people who die in fires never touch a flame. It's the smoke that gets them.",
+   "clock": "6:00 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "FIRE FACT",
+    "lines": [
+     "MOST FIRE DEATHS:",
+     [
+      "SMOKE, NOT FLAMES",
+      "#c0392b"
+     ],
+     "STAY LOW. GET OUT EARLY."
+    ],
+    "src": "smoke inhalation causes the majority of fire deaths (U.S. fire safety data)"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you ran, good move. You open the door just as your neighbor lunges. He's already turned.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "stamp": "right",
+   "you": {
+    "x0": 1000,
+    "x1": 1150,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "neighbor": "lunge",
+   "fire": true,
+   "power": "off",
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ],
+    [
+     "whoosh",
+     1.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "He flies past you, into your apartment. You slam the door behind him.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 1150,
+    "x1": 1250,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "neighbor": "inside",
+   "door": "slam",
+   "fire": true,
+   "power": "off",
+   "efx": [
+    "shake"
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You grab the bag you packed for camping last summer. Water bottle. Flashlight. Knife. First aid kit.",
+   "clock": "6:00 AM",
+   "scene": "apartment",
+   "you": {
+    "x0": 1250,
+    "x1": 1150,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": true,
+    "s": 0.72
+   },
+   "fire": true,
+   "power": "off",
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "WATER",
+     "w": "water"
+    },
+    {
+     "t": "FLASHLIGHT",
+     "w": "flashlight"
+    },
+    {
+     "t": "FIRST AID",
+     "w": "first",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "rattle",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Rule one of any emergency. Don't wait for someone to tell you to leave.",
+   "clock": "6:00 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "RULE ONE",
+    "lines": [
+     [
+      "DON'T WAIT",
+      "#c0392b"
+     ],
+     "FOR PERMISSION",
+     "TO LEAVE"
+    ],
+    "src": "evacuation guidance: leave early, before routes are blocked"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "The hallway lights are flashing red. Fire alarm. And somewhere below you, someone is screaming.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "chapter": [
+    "2",
+    "THE STAIRWELL"
+   ],
+   "you": {
+    "x0": 300,
+    "x1": 600,
+    "y0": 430,
+    "y1": 430,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "sting",
+     0.1
+    ],
+    [
+     "scream",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your building has twelve floors. And the elevator still works.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "you": {
+    "x0": 980,
+    "x1": 980,
+    "y0": 430,
+    "y1": 430,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "lift": "open",
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "12 FLOORS",
+     "w": "twelve"
+    }
+   ],
+   "sfx": [
+    [
+     "ding",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. The elevator? Or the stairs?",
+   "clock": "6:20 AM",
+   "scene": "choice",
+   "bg": "stairwell",
+   "opt1": "Take the elevator",
+   "opt2": "Take the stairs",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "6:20 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "stairwell",
+   "opt1": "Take the elevator",
+   "opt2": "Take the stairs",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the elevator, it stops between floors four and five. Then the doors start to open. From the outside.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "stamp": "wrong",
+   "lift": "stuck",
+   "you": {
+    "x0": 980,
+    "x1": 980,
+    "y0": 700,
+    "y1": 700,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "crash",
+     0.2
+    ],
+    [
+     "scrape",
+     2.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Grey fingers slide through the gap. Then a face. Then another. You're in a steel box, and they're opening it.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "stamp": "wrong",
+   "lift": "stuck",
+   "intensity": 1,
+   "efx": [
+    "shake"
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ],
+    [
+     "scrape",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "In an emergency, never take the elevator. When the power goes, it becomes a steel box with no way out.",
+   "clock": "6:20 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "EMERGENCY RULE",
+    "lines": [
+     [
+      "NEVER THE ELEVATOR",
+      "#c0392b"
+     ],
+     "POWER FAILS = TRAPPED",
+     "ALWAYS TAKE THE STAIRS"
+    ],
+    "src": "standard fire and emergency evacuation guidance"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the stairs, good move. But ten floors down, the dead are already coming up.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "stamp": "right",
+   "you": {
+    "x0": 560,
+    "x1": 700,
+    "y0": 430,
+    "y1": 430,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 8,
+    "x0": 300,
+    "x1": 700,
+    "y": 900,
+    "s": 0.5,
+    "spread": 380,
+    "turn": false
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "groan",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "So you do what you did as a kid. You slide down the railing, straight over their heads.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "slide": true,
+   "you": {
+    "x0": 400,
+    "x1": 1500,
+    "y0": 430,
+    "y1": 880,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 8,
+    "x0": 500,
+    "x1": 700,
+    "y": 900,
+    "s": 0.5,
+    "spread": 380,
+    "turn": false
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ],
+    [
+     "scrape",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your hands burn. Your bag almost rips off your back. But you're moving faster than anything on those stairs.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "slide": true,
+   "zz": {
+    "n": 8,
+    "x0": 600,
+    "x1": 750,
+    "y": 900,
+    "s": 0.5,
+    "spread": 380,
+    "turn": false
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The lobby. And the front door is locked.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "you": {
+    "x0": 1400,
+    "x1": 1450,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "rattle",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "So you rip the fire extinguisher off the wall, and you swing.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "you": {
+    "x0": 1400,
+    "x1": 1450,
+    "y0": 880,
+    "y1": 880,
+    "pose": "push",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "whoosh",
+     0.6
+    ],
+    [
+     "crash",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You hit the lobby running, and go straight through the glass door.",
+   "clock": "6:20 AM",
+   "scene": "stairwell",
+   "you": {
+    "x0": 1500,
+    "x1": 1900,
+    "y0": 880,
+    "y1": 880,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "glass": true,
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Seven A.M. The highway out of the city is one giant parking lot. Ten thousand cars. Nobody's moving.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "chapter": [
+    "3",
+    "THE HIGHWAY"
+   ],
+   "pan": [
+    0,
+    300
+   ],
+   "you": {
+    "x0": 300,
+    "x1": 500,
+    "y0": 760,
+    "y1": 760,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "10,000 CARS",
+     "w": "thousand"
+    },
+    {
+     "t": "0 MPH",
+     "w": "nobody",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Car doors hang open. Engines still running. People left everything and ran.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    300,
+    300
+   ],
+   "you": {
+    "x0": 500,
+    "x1": 560,
+    "y0": 760,
+    "y1": 760,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "engine",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Somewhere behind you, a truck horn is stuck on. Nobody is left to let go of it.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    300,
+    300
+   ],
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 760,
+    "y1": 760,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "engine",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And the dead are walking between the lanes.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    300,
+    500
+   ],
+   "you": {
+    "x0": 500,
+    "x1": 500,
+    "y0": 760,
+    "y1": 760,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 9,
+    "x0": 900,
+    "x1": 700,
+    "y": 960,
+    "s": 0.55,
+    "spread": 900,
+    "turn": false
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "So you run across the roofs. Car to car to car.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    500,
+    1400
+   ],
+   "hop": true,
+   "you": {
+    "x0": 420,
+    "x1": 1500,
+    "y0": 760,
+    "y1": 760,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 9,
+    "x0": 700,
+    "x1": 900,
+    "y": 960,
+    "s": 0.55,
+    "spread": 900,
+    "turn": false
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "bang",
+     0.3
+    ],
+    [
+     "bang",
+     0.9
+    ],
+    [
+     "bang",
+     1.5
+    ],
+    [
+     "bang",
+     2.1
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then a car alarm goes off under your feet. A hundred and twenty decibels.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    1400,
+    1450
+   ],
+   "alarm": true,
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 760,
+    "y1": 760,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 12,
+    "x0": 300,
+    "x1": 600,
+    "y": 960,
+    "s": 0.55,
+    "spread": 1300,
+    "turn": false
+   },
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "CAR ALARM: 120 dB",
+     "w": "hundred",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "rattle",
+     0.1
+    ],
+    [
+     "sting",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Every head on the highway turns toward you.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    1450,
+    1450
+   ],
+   "alarm": true,
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 760,
+    "y1": 760,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": 200,
+    "x1": 650,
+    "y": 960,
+    "s": 0.55,
+    "spread": 1500,
+    "turn": false
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You've got maybe forty seconds before they reach you.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    1450,
+    1450
+   ],
+   "alarm": true,
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 760,
+    "y1": 760,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": 300,
+    "x1": 700,
+    "y": 960,
+    "s": 0.55,
+    "spread": 1500,
+    "turn": false
+   },
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "40 SECONDS",
+     "w": "forty",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "tick",
+     0.2
+    ],
+    [
+     "tick",
+     1.0
+    ],
+    [
+     "tick",
+     1.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Steal the motorcycle next to you? Or keep going on foot?",
+   "clock": "7:00 AM",
+   "scene": "choice",
+   "bg": "highway",
+   "opt1": "Steal the motorcycle",
+   "opt2": "Keep going on foot",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "7:00 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "highway",
+   "opt1": "Steal the motorcycle",
+   "opt2": "Keep going on foot",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the motorcycle, the keys aren't in it. You lose forty seconds. That's all they need.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "stamp": "wrong",
+   "pan": [
+    1450,
+    1450
+   ],
+   "bike": true,
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 890,
+    "y1": 890,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": 500,
+    "x1": 800,
+    "y": 960,
+    "s": 0.55,
+    "spread": 900,
+    "turn": false
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "sputter",
+     0.3
+    ],
+    [
+     "groan",
+     2.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Engines are loud. On a silent highway, an engine is a dinner bell.",
+   "clock": "7:00 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "NOISE = DANGER",
+    "lines": [
+     "SILENT CITY",
+     [
+      "ENGINE = DINNER BELL",
+      "#c0392b"
+     ],
+     "QUIET BEATS FAST"
+    ],
+    "src": "in a quiet city, engine noise carries for blocks"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you kept going on foot, good move. You drop off the side of the road, and down into the subway.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "stamp": "right",
+   "pan": [
+    1450,
+    1700
+   ],
+   "you": {
+    "x0": 900,
+    "x1": 1700,
+    "y0": 760,
+    "y1": 1100,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": 400,
+    "x1": 700,
+    "y": 960,
+    "s": 0.55,
+    "spread": 900,
+    "turn": false
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "whoosh",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Ten seconds after you disappear down the stairs, the first of them reaches the car where you were standing.",
+   "clock": "7:00 AM",
+   "scene": "highway",
+   "pan": [
+    1700,
+    1700
+   ],
+   "alarm": true,
+   "zz": {
+    "n": 16,
+    "x0": 700,
+    "x1": 1100,
+    "y": 960,
+    "s": 0.55,
+    "spread": 1300,
+    "turn": false
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "groan",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Eight thirty. The subway is pitch black. Your flashlight is the only light underground.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "chapter": [
+    "4",
+    "THE SUBWAY"
+   ],
+   "pan": [
+    0,
+    300
+   ],
+   "you": {
+    "x0": 500,
+    "x1": 700,
+    "y0": 880,
+    "y1": 880,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "tick",
+     0.5
+    ],
+    [
+     "steps",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Somewhere in the dark, water is dripping. And every drop sounds like footsteps.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "pan": [
+    300,
+    300
+   ],
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "tick",
+     0.3
+    ],
+    [
+     "tick",
+     1.1
+    ],
+    [
+     "tick",
+     1.9
+    ],
+    [
+     "steps",
+     2.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then your flashlight catches something on the tracks ahead. It's moving. It's a rat. Hundreds of them. All running the same way.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "pan": [
+    300,
+    300
+   ],
+   "rats": true,
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "scrape",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then you hear it. A train. Running on its own. Nobody driving.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "pan": [
+    300,
+    300
+   ],
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "train": "far",
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "engine",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You press flat against the wall as it screams past, three inches from your face.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "pan": [
+    300,
+    300
+   ],
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "train": "pass",
+   "efx": [
+    "shake",
+    "sparks"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "engine",
+     0
+    ],
+    [
+     "scrape",
+     0.5
+    ],
+    [
+     "whoosh",
+     1.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "In the windows, you see faces. Pressed against the glass. Not one of them is blinking.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "pan": [
+    300,
+    300
+   ],
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "train": "pass",
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "engine",
+     0
+    ],
+    [
+     "groan",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Down here, the rail next to the tracks carries over six hundred volts. One step on it, and it's over.",
+   "clock": "8:30 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE THIRD RAIL",
+    "lines": [
+     "600-750 VOLTS",
+     [
+      "ALWAYS ON",
+      "#c0392b"
+     ],
+     "NEVER STEP ON IT"
+    ],
+    "src": "subway third rails typically carry about 600-750 volts DC"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "Then the tunnel splits.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "pan": [
+    300,
+    600
+   ],
+   "split": true,
+   "you": {
+    "x0": 700,
+    "x1": 900,
+    "y0": 880,
+    "y1": 880,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "tick",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Follow the tracks? Or follow the rats along the ledge?",
+   "clock": "8:30 AM",
+   "scene": "choice",
+   "bg": "subway",
+   "opt1": "Follow the tracks",
+   "opt2": "Follow the rats along the ledge",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "8:30 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "subway",
+   "opt1": "Follow the tracks",
+   "opt2": "Follow the rats along the ledge",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you followed the tracks, a second train comes. And there's nowhere to stand but the third rail.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "stamp": "wrong",
+   "pan": [
+    600,
+    600
+   ],
+   "train": "pass",
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "efx": [
+    "shake",
+    "sparks"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "engine",
+     0
+    ],
+    [
+     "crash",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Six hundred volts or a train. There's no good way out of that tunnel.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "stamp": "wrong",
+   "pan": [
+    600,
+    600
+   ],
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "efx": [
+    "sparks"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you followed the rats, good move. Rats run from danger, and they always know the way up.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "stamp": "right",
+   "pan": [
+    600,
+    1100
+   ],
+   "rats": true,
+   "you": {
+    "x0": 600,
+    "x1": 1300,
+    "y0": 700,
+    "y1": 700,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "steps",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Two hundred yards later, daylight through a grate. A ladder. Up.",
+   "clock": "8:30 AM",
+   "scene": "subway",
+   "pan": [
+    1100,
+    1300
+   ],
+   "rats": true,
+   "you": {
+    "x0": 900,
+    "x1": 1300,
+    "y0": 700,
+    "y1": 700,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "rattle",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Ten A.M. The tunnel comes up under City Hospital.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "chapter": [
+    "5",
+    "THE HOSPITAL"
+   ],
+   "you": {
+    "x0": 200,
+    "x1": 500,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "flicker": true,
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "static",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The emergency room doors are wide open. Gurneys everywhere. Nobody behind the desk.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "you": {
+    "x0": 500,
+    "x1": 700,
+    "y0": 900,
+    "y1": 900,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "flicker": true,
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "static",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your arm is cut from the glass door. Out here, one infected cut can kill you.",
+   "clock": "10:00 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "WHY YOU NEED MEDICINE",
+    "lines": [
+     "BEFORE ANTIBIOTICS:",
+     [
+      "A SMALL CUT COULD KILL",
+      "#c0392b"
+     ],
+     "CLEAN IT. COVER IT."
+    ],
+    "src": "before penicillin (1940s), infected wounds were a leading cause of death"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "The lights flicker. And at the end of the corridor stands a surgeon. Still in his mask.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "you": {
+    "x0": 500,
+    "x1": 500,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "surgeon": 1500,
+   "flicker": true,
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "static",
+     0.3
+    ],
+    [
+     "groan",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "He runs at you. You kick a gurney straight down the hall into him.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "you": {
+    "x0": 500,
+    "x1": 560,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "surgeon": 1200,
+   "gurney": [
+    600,
+    1150
+   ],
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "scrape",
+     0.4
+    ],
+    [
+     "crash",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "He goes down. He doesn't stay down. You don't wait to see more.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "you": {
+    "x0": 560,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "surgeon": 1350,
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ],
+    [
+     "steps",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. The pharmacy? Or the blood bank?",
+   "clock": "10:00 AM",
+   "scene": "choice",
+   "bg": "hospital",
+   "opt1": "The pharmacy",
+   "opt2": "The blood bank",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "10:00 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "hospital",
+   "opt1": "The pharmacy",
+   "opt2": "The blood bank",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you picked the blood bank, the smell of blood wakes up the whole ward. They come out of every room.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "stamp": "wrong",
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 10,
+    "x0": 1700,
+    "x1": 1100,
+    "y": 900,
+    "s": 0.62,
+    "spread": 700,
+    "turn": true
+   },
+   "flicker": true,
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ],
+    [
+     "groan",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Ten doors. Ten of them. And you're standing in the middle of the hall.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "stamp": "wrong",
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 12,
+    "x0": 1500,
+    "x1": 950,
+    "y": 900,
+    "s": 0.62,
+    "spread": 900,
+    "turn": true
+   },
+   "flicker": true,
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you picked the pharmacy, good move. Antibiotics, bandages, painkillers. You clean the cut, and you go.",
+   "clock": "10:00 AM",
+   "scene": "hospital",
+   "stamp": "right",
+   "pharmacy": true,
+   "you": {
+    "x0": 900,
+    "x1": 1100,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "rattle",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The right way to treat a cut out here. Clean it with clean water. Press to stop the bleeding. Cover it. Change it every day.",
+   "clock": "10:00 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "WOUND CARE",
+    "lines": [
+     "1. CLEAN IT",
+     "2. PRESS IT",
+     [
+      "3. COVER IT",
+      "#1f7a3a"
+     ]
+    ],
+    "src": "basic first aid for minor cuts and scrapes"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "Halfway. Five moves down. If you got all five right, you're already doing better than most of this city.",
+   "clock": "10:00 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "HALFWAY CHECK",
+    "lines": [
+     [
+      "5 / 10 MOVES",
+      "#2a2622"
+     ],
+     "HOW MANY DID",
+     [
+      "YOU GET RIGHT?",
+      "#c0392b"
+     ]
+    ],
+    "src": "keep count - your final score is at the end"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "Noon. The mall. Every exit is chained shut, but the sports store is wide open.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "chapter": [
+    "6",
+    "THE MALL"
+   ],
+   "pan": [
+    0,
+    400
+   ],
+   "you": {
+    "x0": 300,
+    "x1": 700,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "steps",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You grab gloves, a helmet, and a bottle of water from a cooler that still feels cold.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "pan": [
+    400,
+    400
+   ],
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "GLOVES",
+     "w": "gloves"
+    },
+    {
+     "t": "HELMET",
+     "w": "helmet"
+    },
+    {
+     "t": "WATER",
+     "w": "water",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "rattle",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then the escalator starts moving. And it's full of them.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "pan": [
+    400,
+    400
+   ],
+   "escalator": true,
+   "you": {
+    "x0": 700,
+    "x1": 700,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 7,
+    "x0": 1500,
+    "x1": 1250,
+    "y": 900,
+    "s": 0.55,
+    "spread": 500,
+    "turn": true
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "engine",
+     0.2
+    ],
+    [
+     "groan",
+     1.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "They tumble down the steps on top of each other. Twenty of them. And more behind.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "pan": [
+    400,
+    400
+   ],
+   "escalator": true,
+   "you": {
+    "x0": 700,
+    "x1": 600,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 9,
+    "x0": 1450,
+    "x1": 1150,
+    "y": 900,
+    "s": 0.55,
+    "spread": 500,
+    "turn": true
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "20+",
+     "w": "twenty",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "crash",
+     0.5
+    ],
+    [
+     "groan",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "A person can run about six miles an hour. On a bike, you can do fifteen.",
+   "clock": "12:00 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "SPEED MATH",
+    "lines": [
+     "RUNNING: ~6 MPH",
+     [
+      "BIKE: ~15 MPH",
+      "#1f7a3a"
+     ],
+     "THE DEAD: AS FAST AS YOU"
+    ],
+    "src": "typical jogging and casual cycling speeds"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Grab a bike? Or a skateboard?",
+   "clock": "12:00 PM",
+   "scene": "choice",
+   "bg": "mall",
+   "opt1": "Grab a skateboard",
+   "opt2": "Grab a bike",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "12:00 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mall",
+   "opt1": "Grab a skateboard",
+   "opt2": "Grab a bike",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the skateboard, the wheels catch on broken glass, and you go flying.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "stamp": "wrong",
+   "pan": [
+    400,
+    600
+   ],
+   "board": true,
+   "you": {
+    "x0": 700,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 7,
+    "x0": 1300,
+    "x1": 1000,
+    "y": 900,
+    "s": 0.55,
+    "spread": 500,
+    "turn": true
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "scrape",
+     0.3
+    ],
+    [
+     "crash",
+     1.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You hit the tile hard. And by the time you look up, they're already on you.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "stamp": "wrong",
+   "pan": [
+    600,
+    600
+   ],
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 9,
+    "x0": 1300,
+    "x1": 1050,
+    "y": 900,
+    "s": 0.55,
+    "spread": 500,
+    "turn": true
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the bike, good move. You ride it straight through the food court, and out the loading dock.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "stamp": "right",
+   "pan": [
+    600,
+    1800
+   ],
+   "bike": true,
+   "you": {
+    "x0": 400,
+    "x1": 1500,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 7,
+    "x0": 900,
+    "x1": 1200,
+    "y": 900,
+    "s": 0.55,
+    "spread": 600,
+    "turn": true
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ],
+    [
+     "crash",
+     2.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Behind you, the food court tables go flying as they chase. But on two wheels, you are gone.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "pan": [
+    1800,
+    2200
+   ],
+   "bike": true,
+   "you": {
+    "x0": 600,
+    "x1": 1700,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 9,
+    "x0": 500,
+    "x1": 700,
+    "y": 900,
+    "s": 0.55,
+    "spread": 600,
+    "turn": true
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     0.5
+    ],
+    [
+     "whoosh",
+     1.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The loading dock door is jammed halfway. You duck flat on the handlebars and slide right under it.",
+   "clock": "12:00 PM",
+   "scene": "mall",
+   "pan": [
+    2200,
+    2400
+   ],
+   "bike": true,
+   "you": {
+    "x0": 900,
+    "x1": 1800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "scrape",
+     0.6
+    ],
+    [
+     "whoosh",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Three P.M. The streets are blocked, so you go up. Roof to roof.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "chapter": [
+    "7",
+    "THE ROOFTOPS"
+   ],
+   "rx": [
+    200,
+    900
+   ],
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "steps",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "From up here, you can see the whole city. Smoke in every direction. And one helicopter circling a tower downtown.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "rx": [
+    900,
+    900
+   ],
+   "chasers": 0,
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "1 HELICOPTER",
+     "w": "helicopter",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You clear one gap. Then another.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "rx": [
+    900,
+    2300
+   ],
+   "chasers": 6,
+   "intensity": 1,
+   "sfx": [
+    [
+     "whoosh",
+     0.3
+    ],
+    [
+     "bang",
+     0.9
+    ],
+    [
+     "whoosh",
+     1.7
+    ],
+    [
+     "bang",
+     2.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Twice, your foot slips on loose gravel. Twice, you catch yourself.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "rx": [
+    2000,
+    2300
+   ],
+   "chasers": 4,
+   "intensity": 1,
+   "sfx": [
+    [
+     "scrape",
+     0.4
+    ],
+    [
+     "scrape",
+     1.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then the next gap is twelve feet. With a bag on your back, you'll make eight. Maybe.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "rx": [
+    2300,
+    2560
+   ],
+   "bigGap": true,
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "GAP: 12 FT",
+     "w": "twelve",
+     "c": "#ff5a4a"
+    },
+    {
+     "t": "YOUR JUMP: ~8 FT",
+     "w": "eight",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Jump it anyway? Or use the window cleaner's rope across the gap?",
+   "clock": "3:00 PM",
+   "scene": "choice",
+   "bg": "rooftops",
+   "opt1": "Jump it anyway",
+   "opt2": "Use the window cleaner's rope",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "3:00 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "rooftops",
+   "opt1": "Jump it anyway",
+   "opt2": "Use the window cleaner's rope",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you jumped, you hit the far wall, and you hang by your fingertips. Right above them.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "stamp": "wrong",
+   "rx": [
+    2560,
+    2560
+   ],
+   "bigGap": true,
+   "hang": true,
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     0.2
+    ],
+    [
+     "groan",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your fingers slip one at a time. And sixty feet below, they're waiting with their arms up.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "stamp": "wrong",
+   "rx": [
+    2560,
+    2560
+   ],
+   "bigGap": true,
+   "hang": true,
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the rope, good move. Hand over hand, over sixty feet of nothing.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "stamp": "right",
+   "rx": [
+    2560,
+    2560
+   ],
+   "bigGap": true,
+   "rope": true,
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "rattle",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your arms are shaking when you reach the other side. But you're across. And they're not.",
+   "clock": "3:00 PM",
+   "scene": "rooftops",
+   "rx": [
+    3100,
+    3500
+   ],
+   "chasers": 0,
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "steps",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Five P.M. The river bridge. The only way across. And it's packed. A thousand dead, shoulder to shoulder.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "chapter": [
+    "8",
+    "THE BRIDGE"
+   ],
+   "you": {
+    "x0": 250,
+    "x1": 400,
+    "y0": 640,
+    "y1": 640,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 20,
+    "x0": 900,
+    "x1": 800,
+    "y": 640,
+    "s": 0.42,
+    "spread": 1000,
+    "turn": true
+   },
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "1,000 DEAD",
+     "w": "thousand",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "groan",
+     1.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Cars bumper to bumper. And between them, every one of the dead is facing your way.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "you": {
+    "x0": 400,
+    "x1": 400,
+    "y0": 640,
+    "y1": 640,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 20,
+    "x0": 800,
+    "x1": 700,
+    "y": 640,
+    "s": 0.42,
+    "spread": 1000,
+    "turn": true
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Push through on the bridge? Or jump into the river?",
+   "clock": "5:00 PM",
+   "scene": "choice",
+   "bg": "bridge",
+   "opt1": "Push through the bridge",
+   "opt2": "Jump into the river",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "5:00 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "bridge",
+   "opt1": "Push through the bridge",
+   "opt2": "Jump into the river",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you pushed through, you make it forty feet. Then hands grab your bag, and pull you down.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "stamp": "wrong",
+   "you": {
+    "x0": 550,
+    "x1": 550,
+    "y0": 640,
+    "y1": 640,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 20,
+    "x0": 500,
+    "x1": 600,
+    "y": 640,
+    "s": 0.42,
+    "spread": 900,
+    "turn": false
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ],
+    [
+     "scream",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "A thousand of them. One of you. The bridge was never a path. It was a trap.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "stamp": "wrong",
+   "zz": {
+    "n": 24,
+    "x0": 550,
+    "x1": 600,
+    "y": 640,
+    "s": 0.42,
+    "spread": 900,
+    "turn": false
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you jumped, good move. Feet first. Arms crossed. Body straight.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "stamp": "right",
+   "dive": true,
+   "you": {
+    "x0": 450,
+    "x1": 520,
+    "y0": 640,
+    "y1": 1050,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 20,
+    "x0": 900,
+    "x1": 800,
+    "y": 640,
+    "s": 0.42,
+    "spread": 1000,
+    "turn": true
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ],
+    [
+     "crash",
+     1.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You hit the water like a pencil. It's so cold, it punches the air right out of your lungs.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "swim": true,
+   "you": {
+    "x0": 560,
+    "x1": 620,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "crash",
+     0.1
+    ],
+    [
+     "cough",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Cold water has a rule. One minute to control your breathing. Ten minutes before your arms quit. One hour before you pass out.",
+   "clock": "5:00 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE 1-10-1 RULE",
+    "lines": [
+     [
+      "1 MIN - BREATHE",
+      "#c0392b"
+     ],
+     "10 MIN - ARMS QUIT",
+     "1 HOUR - PASS OUT"
+    ],
+    "src": "cold water immersion: the 1-10-1 principle"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "You float. You breathe. And you let the current carry you to the far bank.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "swim": true,
+   "you": {
+    "x0": 500,
+    "x1": 1500,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 20,
+    "x0": 900,
+    "x1": 850,
+    "y": 640,
+    "s": 0.42,
+    "spread": 1000,
+    "turn": true
+   },
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "whoosh",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You crawl out on the far bank, soaked and freezing. Wet clothes pull heat out of your body way faster than air.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "swim": true,
+   "you": {
+    "x0": 1500,
+    "x1": 1700,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "cough",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Water steals your body heat about twenty five times faster than air. So you wring out every layer, and you keep moving.",
+   "clock": "5:00 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "WET = COLD",
+    "lines": [
+     "WATER PULLS HEAT",
+     [
+      "~25x FASTER",
+      "#c0392b"
+     ],
+     "THAN AIR"
+    ],
+    "src": "water conducts heat roughly 25 times faster than air"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "Behind you, on the bridge, a thousand heads watch you go. Not one of them follows you into the water.",
+   "clock": "5:00 PM",
+   "scene": "bridge",
+   "zz": {
+    "n": 20,
+    "x0": 900,
+    "x1": 850,
+    "y": 640,
+    "s": 0.42,
+    "spread": 1000,
+    "turn": true
+   },
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "groan",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Seven P.M. Searchlights. A military checkpoint. Soldiers checking everyone for bites.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "chapter": [
+    "9",
+    "THE CHECKPOINT"
+   ],
+   "you": {
+    "x0": 300,
+    "x1": 650,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "engine",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "A soldier with a megaphone. Hands where we can see them. One at a time.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "you": {
+    "x0": 650,
+    "x1": 650,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "static",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You have a scratch on your arm. From the glass. Not a bite. But they can't know that.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "you": {
+    "x0": 650,
+    "x1": 650,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "scratch": true,
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "SCRATCH \u2260 BITE",
+     "w": "scratch",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The soldier's flashlight stops on your arm.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "you": {
+    "x0": 650,
+    "x1": 650,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "scratch": true,
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "sting",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Tell them about the scratch? Or hide it?",
+   "clock": "7:00 PM",
+   "scene": "choice",
+   "bg": "checkpoint",
+   "opt1": "Hide the scratch",
+   "opt2": "Tell them the truth",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "7:00 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "checkpoint",
+   "opt1": "Hide the scratch",
+   "opt2": "Tell them the truth",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you hid it, they find it anyway. To them, hidden means bitten. The gate closes in your face.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "stamp": "wrong",
+   "gate": "close",
+   "you": {
+    "x0": 650,
+    "x1": 650,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "bang",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Through the fence, you can see the tents, the lights, the hot food. And you're on the wrong side of it.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "stamp": "wrong",
+   "gate": "closed",
+   "you": {
+    "x0": 650,
+    "x1": 650,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "groan",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you told them, good move. The medic checks it, cleans it, and waves you through.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "stamp": "right",
+   "gate": "open",
+   "medic": true,
+   "you": {
+    "x0": 650,
+    "x1": 1300,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "ding",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Behind the fence, tents, lights, hot food. And a sign. Last helicopter, nine P.M.",
+   "clock": "7:00 PM",
+   "scene": "checkpoint",
+   "gate": "open",
+   "you": {
+    "x0": 1300,
+    "x1": 1500,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "LAST HELICOPTER: 9 PM",
+     "w": "nine",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You look at your watch. Eight fifty. You run.",
+   "clock": "8:50 PM",
+   "scene": "checkpoint",
+   "gate": "open",
+   "you": {
+    "x0": 1300,
+    "x1": 1900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "tick",
+     0.2
+    ],
+    [
+     "steps",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Ten floors of stairs. Your legs are burning. Then the roof door.",
+   "clock": "8:58 PM",
+   "scene": "stairwell",
+   "chapter": [
+    "10",
+    "THE HELIPAD"
+   ],
+   "you": {
+    "x0": 400,
+    "x1": 1500,
+    "y0": 430,
+    "y1": 430,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "efx": [
+    "speed"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "steps",
+     1.2
+    ],
+    [
+     "bang",
+     2.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Eight fifty nine P.M. The roof of the evacuation tower. The last helicopter is already lifting.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "lift",
+   "you": {
+    "x0": 300,
+    "x1": 500,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 1,
+   "efx": [
+    "wind"
+   ],
+   "sfx": [
+    [
+     "engine",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And the stairwell door bursts open behind you. Five hundred of them.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "lift",
+   "you": {
+    "x0": 500,
+    "x1": 650,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": -300,
+    "x1": 150,
+    "y": 900,
+    "s": 0.62,
+    "spread": 600,
+    "turn": false
+   },
+   "efx": [
+    "wind",
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     0.3
+    ],
+    [
+     "groan",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Jump for the ladder? Or wait for the next helicopter?",
+   "clock": "8:59 PM",
+   "scene": "choice",
+   "bg": "helipad",
+   "opt1": "Wait for the next one",
+   "opt2": "Jump for the ladder",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "8:59 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "helipad",
+   "opt1": "Wait for the next one",
+   "opt2": "Jump for the ladder",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you waited, there is no next one.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "stamp": "wrong",
+   "heli": "gone",
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": 300,
+    "x1": 650,
+    "y": 900,
+    "s": 0.62,
+    "spread": 600,
+    "turn": false
+   },
+   "efx": [
+    "wind"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The sound of the rotors fades. And all five hundred of them turn to look at you.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "stamp": "wrong",
+   "heli": "gone",
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "zz": {
+    "n": 16,
+    "x0": 500,
+    "x1": 750,
+    "y": 900,
+    "s": 0.62,
+    "spread": 600,
+    "turn": false
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you jumped, good move. Your fingers close around the last rung. And the city falls away beneath you.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "stamp": "right",
+   "heli": "away",
+   "ladder": true,
+   "intensity": 0.8,
+   "efx": [
+    "wind"
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.3
+    ],
+    [
+     "reveal",
+     2.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "For one second, the ladder swings out over nothing but fire. You don't let go.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "away",
+   "ladder": true,
+   "efx": [
+    "wind"
+   ],
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You made it.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "sky",
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "reveal",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Below you, the city goes dark, one block at a time. Twenty four hours. Ten moves. And you're still breathing.",
+   "clock": "8:59 PM",
+   "scene": "helipad",
+   "heli": "sky",
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "engine",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Now count your moves. Ten out of ten, you're a legend. Seven or more, you survived. Under five, you'd be one of them.",
+   "clock": "8:59 PM",
+   "scene": "score",
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "ding",
+     0.5
+    ],
+    [
+     "ding",
+     2.5
+    ],
+    [
+     "ding",
+     4.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Comment your score. And subscribe, because your next move is coming.",
+   "clock": "8:59 PM",
+   "scene": "score",
+   "cta": true,
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "reveal",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And tell me which move almost got you.",
+   "clock": "8:59 PM",
+   "scene": "score",
+   "cta": true,
+   "intensity": 0.3
+  }
+ ]
+}
