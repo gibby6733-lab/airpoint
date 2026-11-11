@@ -1,11 +1,11 @@
 // Cut a vertical 9:16 YouTube Short from a long-form episode.
-// usage: node zombie/shorts.js <episode_dir> <name> "<first line starts with>" "<last line starts with>" "HOOK TEXT"
+// usage: node zombie/shorts.js <episode_dir> <name> "<first line starts with>" "<last line starts with>" "HOOK TEXT" [focus 0..1]
 // Re-renders those beats at 2x with the episode engine, crops a 9:16 window that follows the action,
 // adds big captions, a series title bar and an end card pointing to the full episode. Writes <episode_dir>/shorts/<name>.mp4
 const { chromium } = require('playwright'); const { spawn, execFileSync } = require('child_process');
 const fs = require('fs'), path = require('path');
 (async () => {
-  const [dirArg, name, fromTxt, toTxt, hook] = process.argv.slice(2);
+  const [dirArg, name, fromTxt, toTxt, hook, focusArg] = process.argv.slice(2);
   const dir = path.resolve(dirArg), tl = JSON.parse(fs.readFileSync(path.join(dir, 'timeline.json')));
   const bi = tl.beats.findIndex(b => b.text.startsWith(fromTxt)), ei = tl.beats.findIndex(b => b.text.startsWith(toTxt));
   if (bi < 0 || ei < bi) throw new Error('could not find the start/end lines');
@@ -49,7 +49,8 @@ const fs = require('fs'), path = require('path');
   let fx = null;
   for (let i = 0; i < n; i++) {
     const local = i / FPS, t = Math.min(T0 + local, T1);
-    const target = await pg.evaluate(t => focusAt(t), t); fx = fx === null ? target : fx + (target - fx) * .06;   // smooth pan
+    const target = focusArg ? parseFloat(focusArg) : await pg.evaluate(t => focusAt(t), t);   // optional fixed framing
+    fx = fx === null ? target : fx + (target - fx) * .06;   // smooth pan
     const d = await pg.evaluate(a => shortFrame(...a), [t, fx, local, DUR, END]);
     if (!ff.stdin.write(Buffer.from(d.split(',')[1], 'base64'))) await new Promise(r => ff.stdin.once('drain', r));
   }

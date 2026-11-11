@@ -11,8 +11,10 @@ const { chromium } = require('playwright'); const path = require('path'); const 
     const beat = { loc: 'station_ext', tod: 'night', wx: null, cast: ['tank:.3:scared'], props: ['sign', 'pumps', 'lantern'], fx: [], z: { n: 14, x0: .78, x1: .78, depth: 'mid' }, cam: 1, camx: .5, card: null, hud: null, text: '' };
     ctx.setTransform(1, 0, 0, 1, 0, 0); sceneDraw(beat, .5, 3.3); grade(beat, 3.3);
     ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillRect(0, 0, W, H);
-    txt(big, 1180, 230, 120, '#ffe14a', { stroke: 22, strokeColor: '#000' });
-    txt('MILE 41', 1180, 380, 90, '#fff', { stroke: 16, strokeColor: '#000', font: SERIF, weight: 700 });
+    ctx.font = `900 130px ${FONT}`; const words = big.split(' '), lines = [''];
+    for (const w of words) { const tl2 = (lines[lines.length - 1] + ' ' + w).trim(); if (ctx.measureText(tl2).width > 1150 && lines[lines.length - 1]) lines.push(w); else lines[lines.length - 1] = tl2; }
+    lines.forEach((l, i) => txt(l, 1250, 200 + i * 140, 130, '#ffe14a', { stroke: 24, strokeColor: '#000' }));
+    txt('MILE 41', 1250, 230 + lines.length * 140, 90, '#fff', { stroke: 16, strokeColor: '#000', font: SERIF, weight: 700 });
     ctx.fillStyle = '#c0392b'; ctx.fillRect(40, 40, 330, 90); txt('EPISODE ' + tl.episode, 205, 86, 50, '#fff');
   }, { tl, big });
   await pg.screenshot({ path: path.join(dir, 'thumb_full.png') });
