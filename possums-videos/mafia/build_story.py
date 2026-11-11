@@ -18,7 +18,7 @@ import soundfile as sf
 
 SR = 24000
 d, tts_dir = sys.argv[1], sys.argv[2]
-cfg = {"voice": "am_onyx", "speed": 0.95, "title": ""}
+cfg = {"voice": "am_onyx", "speed": 0.95, "title": "", "captions": True, "keyword_sfx": True}
 if os.path.exists(os.path.join(d, "config.json")):
     cfg.update(json.load(open(os.path.join(d, "config.json"))))
 images = sorted(f for f in os.listdir(os.path.join(d, "images")) if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp")))
@@ -149,6 +149,24 @@ for j, s in enumerate(shots):
 TRANS = ["tear_h", "cutout", "tear_v", "tear_diag", "cutout"]
 transitions = [{"t": s["start"], "kind": TRANS[(j - 1) % len(TRANS)], "dur": 0.7} for j, s in enumerate(shots) if j > 0]
 
+# ---- 'assemble' style: per-shot element landing times (first 70% builds, last 30% holds)
+LAY = json.load(open(os.path.join(d, "layers.json"))) if os.path.exists(os.path.join(d, "layers.json")) else None
+lands = []
+if LAY:
+    for s_ in shots:
+        info = LAY["shots"].get(s_["img"], {"mode": "scraps"})
+        s_["mode"] = info["mode"]; s_["full"] = info.get("full", s_["img"])
+        D = s_["end"] - s_["start"]; b0 = s_["start"] + min(.6, D * .08) + (.35 if s_["start"] > 0 else 0); b1 = s_["start"] + D * .7
+        if info["mode"] == "assemble":
+            k = len(info["elements"])
+            s_["plate"] = info["plate"]
+            s_["elements"] = [{**e, "land": round(b0 + (b1 - b0) * (j + 1) / k, 3)} for j, e in enumerate(info["elements"])]
+            lands += [e["land"] for e in s_["elements"]]
+        else:
+            s_["build"] = [round(b0, 3), round(b1, 3)]
+            lands += [round(b0 + (b1 - b0) * q / 6, 3) for q in range(1, 7)]
+    images = [s_["full"] for s_ in shots] + [e["file"] for s_ in shots for e in s_.get("elements", [])] + [s_["plate"] for s_ in shots if s_.get("plate")]
+
 # ---- synth helpers
 rng = np.random.default_rng(13)
 def tt(x): return np.arange(int(x * SR)) / SR
@@ -204,6 +222,9 @@ def sfx(name):
         return out * .9
     if name == "door":
         return (lp(noise(.5), 6) * np.exp(-tt(.5) * 10) * .6 + np.sin(2 * np.pi * 80 * tt(.5)) * np.exp(-tt(.5) * 12) * .5).astype(np.float32)
+    if name == "rustle":   # soft paper landing
+        x = lp(noise(.28), 4) * np.exp(-tt(.28) * 14); tap = np.sin(2 * np.pi * 140 * tt(.28)) * np.exp(-tt(.28) * 40) * .4
+        return ((x + tap) * .45).astype(np.float32)
     raise KeyError(name)
 CUES = [("gunshot", r"\b(shot|shoot|shots|gun|guns|fired|fire|bang|trigger|bullet)"),
         ("heartbeat", r"\b(heart|quiet|silence|silent|waited|wait|breath|nervous|afraid|scared)"),
@@ -212,7 +233,12 @@ CUES = [("gunshot", r"\b(shot|shoot|shots|gun|guns|fired|fire|bang|trigger|bulle
 fx = np.zeros(N, np.float32); fx_log = []
 for tr in transitions:
     add(fx, tr["t"] - .15, sfx("rip")); fx_log.append(["rip", tr["t"]])
-for b in beats:
+for at in lands:
+    add(fx, at - .05, sfx("rustle")); fx_log.append(["rustle", round(at, 3)])
+if LAY:  # close-up ambient texture: very quiet room tone with faint paper crackle
+    room = lp(noise(total), 50) * .25 + (rng.random(int(total * SR)) > .9995).astype(np.float32) * rng.uniform(-.4, .4, int(total * SR))
+    fx[: len(room)] += room[:N] * .35
+for b in (beats if cfg.get("keyword_sfx", True) else []):
     for name, pat in CUES:
         mm = re.search(pat, b["text"], re.I)
         if mm:
@@ -227,7 +253,7 @@ def _db(x):
 MUS, FX = 0.10, 0.10
 mix = np.tanh((voice * 1.3 + music * MUS + fx * FX) * 1.05) * .9
 sf.write(os.path.join(d, "audio.wav"), mix, SR)
-json.dump({"duration": round(total, 3), "title": cfg.get("title", ""), "images": images, "beats": beats, "shots": shots,
+json.dump({"duration": round(total, 3), "title": cfg.get("title", ""), "captions": cfg.get("captions", True), "style": "assemble" if LAY else "kenburns", "images": images, "beats": beats, "shots": shots,
            "transitions": transitions, "sfx": fx_log, "lines": [{"scene": "story", "start": b["start"], "end": b["end"], "words": b["words"]} for b in beats]},
           open(os.path.join(d, "timeline.json"), "w"), indent=1)
 print(f"beats {m}  images {n}  duration {total:.1f}s  | music {_db(music * MUS) - _db(voice * 1.3):+.1f} dB, sfx {_db(fx * FX) - _db(voice * 1.3):+.1f} dB vs voice")

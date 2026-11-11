@@ -9,19 +9,23 @@ const fs = require('fs'), path = require('path');
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
   page.on('pageerror', e => { console.error('PAGE ERROR', e); process.exit(1); });
-  await page.goto('file://' + path.join(dir, 'episode.html'));
-  if (tl.images) { // pass images as data URLs (file:// images would taint the canvas)
-    const data = {}; for (const f of tl.images) { const ext = path.extname(f).slice(1).toLowerCase().replace('jpg', 'jpeg');
-      data[f] = `data:image/${ext};base64,` + fs.readFileSync(path.join(dir, 'images', f)).toString('base64'); }
-    await page.evaluate(d => { window.IMG_DATA = d; }, data);
-  }
+  let server = null;
+  if (tl.images) { // serve the story folder over http so images don't taint the canvas
+    const http = require('http');
+    server = http.createServer((req, res) => { const f = path.join(dir, decodeURIComponent(req.url.split('?')[0]));
+      if (!f.startsWith(dir) || !fs.existsSync(f)) { res.writeHead(404); return res.end(); }
+      const ext = path.extname(f).toLowerCase(); res.writeHead(200, { 'Content-Type': { '.html': 'text/html', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp' }[ext] || 'application/octet-stream' });
+      fs.createReadStream(f).pipe(res); }).listen(0, '127.0.0.1');
+    await new Promise(r => server.once('listening', r));
+    await page.goto(`http://127.0.0.1:${server.address().port}/episode.html`);
+  } else await page.goto('file://' + path.join(dir, 'episode.html'));
   await page.evaluate(async tl => { setTimeline(tl); await document.fonts.load('900 80px Inter'); await document.fonts.load('700 40px Inter'); await document.fonts.load('800 40px Inter'); if (window.whenReady) await window.whenReady(); }, tl);
-  const grab = t => page.evaluate(t => { renderFrame(t); return document.getElementById('c').toDataURL('image/jpeg', 0.92); }, t);
+  const grab = async t => { if (tl.images) await page.evaluate(t => window.prepare && window.prepare(t), t); return page.evaluate(t => { renderFrame(t); return document.getElementById('c').toDataURL('image/jpeg', 0.92); }, t); };
   if (stillsArg > 0) {
     const ts = process.argv[stillsArg + 1].split(',').map(Number);
     fs.mkdirSync(path.join(dir, 'stills'), { recursive: true });
     for (const t of ts) { const d = await grab(t); fs.writeFileSync(path.join(dir, 'stills', `t${t}.jpg`), Buffer.from(d.split(',')[1], 'base64')); }
-    await browser.close(); return;
+    await browser.close(); if (server) server.close(); return;
   }
   const FPS = 30, n = Math.ceil(tl.duration * FPS);
   const out = path.join(dir, 'episode.mp4');
@@ -34,5 +38,5 @@ const fs = require('fs'), path = require('path');
     if (i % 150 === 0) console.log(`frame ${i}/${n}`);
   }
   ff.stdin.end(); await new Promise(r => ff.on('close', r));
-  await browser.close(); console.log('wrote', out);
+  await browser.close(); if (server) server.close(); console.log('wrote', out);
 })();

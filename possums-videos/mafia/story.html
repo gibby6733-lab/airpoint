@@ -10,10 +10,65 @@ const eInOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2, eO
 function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
 
 window.setTimeline = tl => { TL = tl; };
-window.whenReady = () => Promise.all(TL.images.map(f => new Promise((res, rej) => { const im = new Image(); im.onload = () => { IMG[f] = im; res(); }; im.onerror = rej; im.src = (window.IMG_DATA && IMG_DATA[f]) || ('images/' + f); })));
+function loadImg(f) { return new Promise((res, rej) => { const im = new Image(); im.onload = () => { IMG[f] = im; res(); }; im.onerror = rej; im.src = 'images/' + f; }); }
+function filesFor(s) { return [s.full || s.img, s.plate, ...(s.elements || []).map(e => e.file)].filter(Boolean); }
+// keep only the images of shots on screen around time t (current, previous, next) in memory
+window.prepare = async t => {
+  const need = new Set(); TL.shots.forEach(s => { if (t >= s.start - 1.5 && t <= s.end + 1.5) filesFor(s).forEach(f => need.add(f)); });
+  for (const f of Object.keys(IMG)) if (!need.has(f)) delete IMG[f];
+  await Promise.all([...need].filter(f => !IMG[f]).map(loadImg));
+};
+window.whenReady = () => window.prepare(0);
 
 // ---- one shot: image covering the frame, slow push/pan (direction varies per shot)
+// ---- 'assemble' style: locked camera; plate first, elements land one by one, exact image by 70%, then ambient life
+function coverXf(im) { const sc = Math.max(W / im.width, H / im.height); return { sc, ox: (W - im.width * sc) / 2, oy: (H - im.height * sc) / 2 }; }
+function ambient(t, s) {
+  const D = s.end - s.start, k = seg(t, s.start + D * .7, s.start + D * .78); if (k <= 0) return;
+  ctx.save(); ctx.globalAlpha = k;
+  ctx.fillStyle = `rgba(255,236,205,${.025 + .02 * Math.sin(t * 1.7)})`; ctx.fillRect(0, 0, W, H);      // breathing warm light
+  const r = rng(Math.round(s.start * 10));
+  for (let q = 0; q < 26; q++) { const x0 = r() * W, y0 = r() * H, sp = 6 + r() * 10;                     // floating dust
+    const x = x0 + Math.sin(t * .4 + q) * 14, y = (y0 - (t - s.start) * sp + H) % H; ctx.fillStyle = `rgba(255,248,230,${.12 + r() * .18})`;
+    ctx.beginPath(); ctx.arc(x, y, 1.2 + r() * 1.8, 0, 7); ctx.fill(); }
+  ctx.restore();
+}
+function drawAssembled(i, t) {
+  const s = TL.shots[i], orig = IMG[s.full || s.img]; if (!orig) return;
+  const { sc, ox, oy } = coverXf(orig);
+  const lastLand = s.mode === 'assemble' ? s.elements[s.elements.length - 1].land : s.build[1];
+  if (t >= lastLand + .35) { ctx.drawImage(orig, ox, oy, orig.width * sc, orig.height * sc); ambient(t, s); return; }  // exact final frame
+  if (s.mode === 'assemble') {
+    const plate = IMG[s.plate]; ctx.drawImage(plate, ox, oy, plate.width * sc, plate.height * sc);
+    for (const e of s.elements) {
+      const T0 = e.land - .5; if (t < T0) continue; const im = IMG[e.file]; if (!im) continue;
+      const k = clamp((t - T0) / .5), after = t - e.land;
+      const scale = k < 1 ? lerp(1.07, 1, eOut(k)) : 1 - .012 * Math.sin(after * 22) * Math.exp(-after * 11);   // small handcrafted settle
+      const cx = ox + (e.x + e.w / 2) * sc, cy = oy + (e.y + e.h / 2) * sc - 70 * (1 - eOut(k));
+      ctx.save(); ctx.globalAlpha = clamp(k * 3);
+      if (k < 1) { ctx.shadowColor = `rgba(0,0,0,${.5 * (1 - k)})`; ctx.shadowBlur = 34 * (1 - k) + 6; ctx.shadowOffsetY = 34 * (1 - k); }
+      ctx.translate(cx, cy); ctx.rotate((((e.x * 7 + e.y) % 5) - 2) * .006 * (1 - eOut(k))); ctx.scale(scale, scale);
+      ctx.drawImage(im, -e.w * sc / 2, -e.h * sc / 2, e.w * sc, e.h * sc); ctx.restore();
+    }
+  } else { // scraps: torn paper pieces of the image land one by one on a blank paper plate
+    ctx.fillStyle = '#e6dcc6'; ctx.fillRect(0, 0, W, H);
+    const cols = 3, rows = 5, r = rng(i * 13 + 5), n = cols * rows;
+    for (let q = 0; q < n; q++) {
+      const land = s.build[0] + (s.build[1] - s.build[0]) * (q + 1) / n, T0 = land - .45; if (t < T0) continue;
+      const k = clamp((t - T0) / .45), cx = (q % cols + .5) * W / cols, cy = (Math.floor(q / cols) + .5) * H / rows;
+      ctx.save(); ctx.globalAlpha = clamp(k * 3);
+      if (k < 1) { ctx.shadowColor = `rgba(0,0,0,${.5 * (1 - k)})`; ctx.shadowBlur = 30; ctx.shadowOffsetY = 26 * (1 - k); }
+      ctx.translate(0, -60 * (1 - eOut(k))); ctx.beginPath();
+      const x0 = cx - W / cols / 2 - 14, y0 = cy - H / rows / 2 - 14, w = W / cols + 28, h = H / rows + 28;
+      ctx.moveTo(x0, y0); for (let z = 0; z <= 8; z++) ctx.lineTo(x0 + w * z / 8, y0 + (r() - .5) * 18); for (let z = 0; z <= 8; z++) ctx.lineTo(x0 + w + (r() - .5) * 18, y0 + h * z / 8);
+      for (let z = 8; z >= 0; z--) ctx.lineTo(x0 + w * z / 8, y0 + h + (r() - .5) * 18); for (let z = 8; z >= 0; z--) ctx.lineTo(x0 + (r() - .5) * 18, y0 + h * z / 8);
+      ctx.closePath(); ctx.fillStyle = '#efe6d2'; ctx.fill(); ctx.shadowColor = 'transparent'; ctx.clip();
+      ctx.drawImage(orig, ox, oy, orig.width * sc, orig.height * sc); ctx.restore();
+    }
+  }
+}
 function drawShot(i, t) {
+  if (TL.style === 'assemble') return drawAssembled(i, t);
   const s = TL.shots[i], im = IMG[s.img]; if (!im) return;
   const k = clamp((t - s.start) / Math.max(.1, s.end - s.start));
   const r = rng(i * 7 + 3), dir = i % 4, z0 = 1.06, z1 = 1.2;
@@ -93,7 +148,7 @@ window.renderFrame = function (t) {
   let i = 0; for (let j = 0; j < TL.shots.length; j++) if (t >= TL.shots[j].start) i = j;
   const tr = TL.transitions.find(x => t >= x.t - x.dur / 2 && t < x.t + x.dur / 2);
   if (tr) { const b = TL.shots.findIndex(s => Math.abs(s.start - tr.t) < 1e-3); drawTransition(tr, b - 1, b, t); } else drawShot(i, t);
-  grade(t); title(t); captions(t);
+  if (TL.style !== 'assemble') grade(t); title(t); if (TL.captions !== false) captions(t);
   const fi = seg(t, 0, .8), fo = 1 - seg(t, TL.duration - 1.2, TL.duration); if (fi < 1 || fo < 1) { ctx.fillStyle = `rgba(0,0,0,${1 - Math.min(fi, fo)})`; ctx.fillRect(0, 0, W, H); }
 };
 </script></body></html>
