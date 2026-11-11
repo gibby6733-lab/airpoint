@@ -1,0 +1,106 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// "Would You Survive?" Shorts renderer (1080x1920). Beats carry `scene` + extras (choice text, clock, win).
+const W = 1080, H = 1920, cv = document.getElementById('c'), ctx = cv.getContext('2d');
+let TL = null; window.setTimeline = tl => { TL = tl; };
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k, seg = (u, a, b) => clamp((u - a) / (b - a));
+const eOut = k => 1 - Math.pow(1 - k, 3), eBack = k => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(k - 1, 3) + c1 * Math.pow(k - 1, 2); };
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+function txt(s, x, y, size, color = '#fff', o = {}) { ctx.save(); ctx.font = `${o.weight || 900} ${size}px ${o.font || 'Inter'}`; ctx.textAlign = o.align || 'center'; ctx.textBaseline = 'middle';
+  if (o.maxW) { const w = ctx.measureText(s).width; if (w > o.maxW) { ctx.translate(x, y); ctx.scale(o.maxW / w, o.maxW / w); x = 0; y = 0; } }
+  if (o.stroke) { ctx.lineJoin = 'round'; ctx.lineWidth = o.stroke; ctx.strokeStyle = o.strokeColor || '#000'; ctx.strokeText(s, x, y); } ctx.fillStyle = color; ctx.fillText(s, x, y); ctx.restore(); }
+function withT(x, y, s, r, fn) { ctx.save(); ctx.translate(x, y); ctx.rotate(r || 0); ctx.scale(s, s); fn(); ctx.restore(); }
+function stamp(label, x, y, size, k, color = '#ffe14a', rot = -.06) { if (k <= 0) return; const s = k < 1 ? lerp(2.4, 1, eOut(k)) : 1; ctx.save(); ctx.globalAlpha = clamp(k * 3); withT(x, y, s, rot, () => txt(label, 0, 0, size, color, { stroke: size * .16, maxW: 980 })); ctx.restore(); }
+function panel(x, y, w, h, fill = 'rgba(12,16,24,.88)', line = '#e8c46a') { ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.55)'; ctx.shadowBlur = 30; ctx.fillStyle = fill; rr(x, y, w, h, 30); ctx.fill(); ctx.shadowColor = 'transparent'; if (line) { ctx.strokeStyle = line; ctx.lineWidth = 6; ctx.stroke(); } ctx.restore(); }
+
+// ---------------- scenery
+function nightSky(t, horizon = 1000) { const g = ctx.createLinearGradient(0, 0, 0, horizon); g.addColorStop(0, '#03060f'); g.addColorStop(1, '#14223d'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, horizon);
+  const r = rng(4); ctx.fillStyle = '#fff'; for (let i = 0; i < 160; i++) { ctx.globalAlpha = .25 + .5 * Math.abs(Math.sin(t * .7 + i)); ctx.fillRect(r() * W, r() * horizon * .9, 2.5, 2.5); } ctx.globalAlpha = 1; }
+function ocean(t, y0 = 1000, dark = 0) { const g = ctx.createLinearGradient(0, y0, 0, H); g.addColorStop(0, '#0d2340'); g.addColorStop(1, '#030914'); ctx.fillStyle = g; ctx.fillRect(0, y0, W, H - y0);
+  ctx.strokeStyle = 'rgba(160,200,255,.18)'; ctx.lineWidth = 3; for (let i = 0; i < 14; i++) { const y = y0 + 20 + i * 60 + (i * i); ctx.beginPath(); for (let x = -40; x <= W + 40; x += 40) ctx.lineTo(x, y + Math.sin(x * .02 + t * 1.5 + i) * 6); ctx.stroke(); }
+  if (dark) { ctx.fillStyle = `rgba(0,0,0,${dark})`; ctx.fillRect(0, y0, W, H - y0); } }
+function ship(x, y, s, t, tilt = 0, lights = 1) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(tilt); ctx.scale(s, s);
+  ctx.fillStyle = '#0b0d12'; ctx.beginPath(); ctx.moveTo(-520, -40); ctx.lineTo(500, -40); ctx.lineTo(560, -150); ctx.lineTo(-560, -150); ctx.closePath(); ctx.fill();   // hull
+  ctx.fillStyle = '#7a1f1f'; ctx.fillRect(-505, -55, 1000, 15);
+  ctx.fillStyle = '#e9e6dc'; ctx.fillRect(-430, -230, 820, 80); ctx.fillRect(-330, -280, 600, 50);                            // superstructure
+  for (let i = 0; i < 4; i++) { const fx = -270 + i * 170; ctx.fillStyle = '#d9a441'; ctx.fillRect(fx, -430, 70, 150); ctx.fillStyle = '#111'; ctx.fillRect(fx, -430, 70, 36); }
+  ctx.strokeStyle = '#333'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-520, -150); ctx.lineTo(-460, -520); ctx.lineTo(480, -520); ctx.lineTo(540, -150); ctx.stroke();
+  if (lights > 0) { const r = rng(2); for (let i = 0; i < 60; i++) { const lx = -480 + (i % 30) * 32, ly = i < 30 ? -120 : -95; ctx.fillStyle = `rgba(255,220,140,${lights * (r() > .2 ? .9 : .3)})`; ctx.fillRect(lx, ly, 10, 8); }
+    for (let i = 0; i < 20; i++) { ctx.fillStyle = `rgba(255,220,140,${lights * .8})`; ctx.fillRect(-410 + i * 40, -205, 14, 12); } }
+  ctx.restore(); }
+function iceberg(x, y, s) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = '#cfe3f2'; ctx.beginPath(); ctx.moveTo(-200, 0); ctx.lineTo(-120, -220); ctx.lineTo(-40, -150); ctx.lineTo(20, -330); ctx.lineTo(120, -160); ctx.lineTo(220, 0); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = '#9fbcd4'; ctx.beginPath(); ctx.moveTo(20, -330); ctx.lineTo(120, -160); ctx.lineTo(220, 0); ctx.lineTo(60, 0); ctx.closePath(); ctx.fill(); ctx.restore(); }
+function person(x, y, s, c = '#3a4a6a', arms = 0, t = 0) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = c; rr(-22, -90, 44, 70, 16); ctx.fill(); ctx.fillStyle = '#f1c9a5'; ctx.beginPath(); ctx.arc(0, -112, 24, 0, 7); ctx.fill();
+  ctx.strokeStyle = c; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-18, -78); ctx.lineTo(-36, -78 + (arms ? -50 + Math.sin(t * 8) * 8 : 40)); ctx.moveTo(18, -78); ctx.lineTo(36, -78 + (arms ? -50 - Math.sin(t * 8) * 8 : 40)); ctx.stroke(); ctx.restore(); }
+function lifeboat(x, y, s, n, t, flipped = false) { ctx.save(); ctx.translate(x, y + Math.sin(t * 1.6) * 6); ctx.scale(s, s);
+  if (flipped) { ctx.fillStyle = '#8a6a4a'; ctx.beginPath(); ctx.ellipse(0, 0, 230, 46, 0, Math.PI, 0); ctx.fill(); }
+  else { ctx.fillStyle = '#e9e6dc'; ctx.beginPath(); ctx.moveTo(-240, -40); ctx.lineTo(240, -40); ctx.lineTo(190, 30); ctx.lineTo(-190, 30); ctx.closePath(); ctx.fill(); ctx.fillStyle = '#7a1f1f'; ctx.fillRect(-235, -40, 470, 10); }
+  const r = rng(n + 3); for (let i = 0; i < n; i++) person(-200 + (i % 14) * 30 + r() * 6, flipped ? -40 : -30, .55, ['#3a4a6a', '#6a3a3a', '#2a2a2a', '#5a5a3a'][i % 4], 0, t);
+  ctx.restore(); }
+function clock(s, k) { if (!s) return; ctx.save(); ctx.globalAlpha = clamp(k * 4); panel(330, 300, 420, 110, 'rgba(0,0,0,.6)', null); txt(s, 540, 357, 70, '#ffe14a'); ctx.restore(); }
+
+// ---------------- scenes
+const SC = {
+  hook(b, k, t) { nightSky(t); ocean(t); iceberg(860, 1030, 1.2); ship(380, 1060, .62, t);
+    stamp('WOULD YOU', 540, 520, 130, seg(k, 0, .15), '#fff', -.04); stamp('SURVIVE?', 540, 660, 150, seg(k, .08, .23), '#ffe14a', -.04);
+    const a = seg(k, .3, .45); if (a > 0) { ctx.save(); ctx.globalAlpha = a; panel(230, 760, 620, 110, '#c0392b', null); txt('THE TITANIC', 540, 817, 70, '#fff'); ctx.restore(); } },
+  impact(b, k, t) { const sh = k > .5 && k < .8 ? Math.sin(t * 60) * 12 : 0; ctx.save(); ctx.translate(sh, 0); nightSky(t); ocean(t); ship(lerp(420, 470, k), 1060, .7, t, k > .55 ? .02 : 0); iceberg(980, 1040, 1.4); ctx.restore();
+    clock(b.clock, k); stamp('ICEBERG!', 540, 700, 130, seg(k, .55, .65), '#ff6b6b', -.06); },
+  stat(b, k, t) { nightSky(t); ocean(t, 1000, .4); ship(540, 1060, .6, t, .01, .7);
+    panel(90, 380, 900, 520); txt('PEOPLE ON BOARD', 540, 460, 54, '#ddd'); const p = eOut(seg(k, .05, .4)), s2 = eOut(seg(k, .4, .75));
+    ctx.fillStyle = '#ff6b6b'; rr(150, 510, 780 * p, 90, 18); ctx.fill(); txt(Math.round(2224 * p).toLocaleString(), 540, 556, 64, '#fff', { stroke: 8 });
+    txt('LIFEBOAT SEATS', 540, 680, 54, '#ddd'); ctx.fillStyle = '#7cd67c'; rr(150, 730, 780 * .53 * s2, 90, 18); ctx.fill(); txt(Math.round(1178 * s2).toLocaleString(), 540, 776, 64, '#fff', { stroke: 8 });
+    stamp('ONLY HALF', 540, 1010, 110, seg(k, .78, .9), '#ffe14a', -.05); },
+  choice(b, k, t) { nightSky(t); ocean(t, 1000, .5); ship(540, 1060, .6, t, b.n >= 2 ? .12 : .01, b.n >= 3 ? 0 : .6);
+    ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(0, 0, W, H);
+    txt('CHOICE ' + b.n + ' OF 3', 540, 290, 54, '#e8c46a'); txt(b.q, 540, 380, 58, '#fff', { stroke: 10, maxW: 960 });
+    const e1 = eBack(clamp(seg(k, .05, .25))), e2 = eBack(clamp(seg(k, .12, .32)));
+    withT(540, 620, e1, 0, () => { panel(-450, -120, 900, 240, '#c0392b', '#fff'); txt('A', -370, 0, 120, '#fff'); txt(b.a, 60, 0, 54, '#fff', { maxW: 640 }); });
+    withT(540, 900, e2, 0, () => { panel(-450, -120, 900, 240, '#1f6f8b', '#fff'); txt('B', -370, 0, 120, '#fff'); txt(b.bb, 60, 0, 54, '#fff', { maxW: 640 }); });
+    if (b.countdown) { const left = 3 - Math.floor(k * 3), f = (k * 3) % 1; ctx.save(); ctx.translate(540, 1230); ctx.strokeStyle = 'rgba(255,255,255,.2)'; ctx.lineWidth = 18; ctx.beginPath(); ctx.arc(0, 0, 110, 0, 7); ctx.stroke();
+      ctx.strokeStyle = '#ffe14a'; ctx.beginPath(); ctx.arc(0, 0, 110, -Math.PI / 2, -Math.PI / 2 + (1 - k) * 6.283); ctx.stroke(); withT(0, 0, 1 + (1 - f) * .25, 0, () => txt(String(Math.max(1, left)), 0, 0, 130, '#fff')); ctx.restore();
+      txt('PICK ONE!', 540, 1410, 60, '#ffe14a', { stroke: 10 }); } },
+  lifeboat(b, k, t) { nightSky(t); ocean(t, 900); ship(340, 960, .55, t, .03, .8); lifeboat(700, 1180, 1.1, 9, t); clock(b.clock, k);
+    stamp('28 OF 65 SEATS', 540, 640, 96, seg(k, .15, .28), '#ffe14a'); win(b, k); },
+  cold(b, k, t) { nightSky(t); ocean(t, 900, .2); ship(400, 960, .6, t, .2, .5); clock(b.clock, k);
+    // thermometer
+    ctx.save(); ctx.translate(860, 820); ctx.fillStyle = '#fff'; rr(-30, -300, 60, 300, 30); ctx.fill(); ctx.beginPath(); ctx.arc(0, 20, 55, 0, 7); ctx.fill(); ctx.fillStyle = '#4da3ff'; rr(-16, -60, 32, 70, 16); ctx.fill(); ctx.beginPath(); ctx.arc(0, 20, 40, 0, 7); ctx.fill(); ctx.restore();
+    stamp('-2°C', 540, 620, 160, seg(k, .05, .18), '#9fd8ff'); for (let i = 0; i < 6; i++) person(160 + i * 110, 1150 + Math.sin(t * 2 + i) * 8, .7, '#2a2a3a', 1, t + i); win(b, k); },
+  sink(b, k, t) { nightSky(t); ocean(t, 1000); const ti = lerp(.15, .75, eOut(k)); ship(lerp(520, 560, k), lerp(1080, 1300, k), .7, t, ti, Math.max(0, 1 - k * 2)); ocean(t, lerp(1080, 1040, k), 0); clock(b.clock, k);
+    stamp('SHE SINKS', 540, 620, 120, seg(k, .3, .45), '#ff6b6b'); },
+  collapsible(b, k, t) { nightSky(t); ocean(t, 1000); lifeboat(540, 1080, 1.2, 12, t, true); const lk = seg(k, .2, .4); ctx.fillStyle = `rgba(255,220,140,${.8 * lk})`; for (let i = 0; i < 6; i++) ctx.fillRect(820 + i * 22, 960, 10, 8); txt('CARPATHIA', 880, 930, 26, `rgba(255,255,255,${.7 * lk})`, { weight: 800 });
+    clock(b.clock, k); stamp('~30 SURVIVED ON IT', 540, 620, 86, seg(k, .3, .42), '#ffe14a'); win(b, k); },
+  result(b, k, t) { nightSky(t); ocean(t, 1000, .5); ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(0, 0, W, H);
+    panel(110, 420, 860, 560); const a = eOut(seg(k, .05, .4)), c = eOut(seg(k, .5, .85));
+    txt(Math.round(1500 * a).toLocaleString(), 540, 540, 140, '#ff6b6b'); txt('DIED', 540, 640, 56, '#ddd');
+    txt(Math.round(700 * c).toLocaleString(), 540, 790, 140, '#7cd67c'); txt('SURVIVED', 540, 890, 56, '#ddd'); },
+  cta(b, k, t) { nightSky(t); ocean(t, 1000, .4); ship(540, 1060, .5, t, 0, .6);
+    panel(90, 360, 900, 520); txt('WOULD YOU', 540, 450, 80, '#fff'); txt('HAVE SURVIVED?', 540, 545, 80, '#ffe14a');
+    ctx.fillStyle = 'rgba(255,255,255,.1)'; rr(150, 620, 780, 110, 55); ctx.fill(); txt('Comment: A, B, A' + (Math.floor(t * 2) % 2 ? '|' : ''), 190, 675, 46, '#bbb', { align: 'left', weight: 700 });
+    txt('Next disaster? You pick.', 540, 805, 48, '#7cd67c', { weight: 800 }); },
+};
+function win(b, k) { if (!b.win) return; const e = seg(k, .82, .92); if (e <= 0) return; withT(540, 860, eBack(e), -.05, () => { panel(-330, -90, 660, 180, '#1f9d55', '#fff'); txt(b.win + ' = YOU LIVE', 0, 4, 84, '#fff', { stroke: 8 }); }); }
+function captions(t) {
+  const B = TL.beats.find(b => b.text && t >= b.start - .05 && t <= b.end + .2); if (!B) return;
+  const ws = B.words; let ci = ws.findIndex((w, i) => t >= w.s && (i === ws.length - 1 || t < ws[i + 1].s)); if (ci < 0) ci = 0;
+  const c0 = Math.floor(ci / 3) * 3, chunk = ws.slice(c0, c0 + 3); ctx.save(); ctx.font = '900 86px Inter';
+  const parts = chunk.map(w => w.w.toUpperCase()), sp = 22, ws2 = parts.map(p => ctx.measureText(p).width), tot = ws2.reduce((a, c) => a + c, 0) + sp * (parts.length - 1), fit = Math.min(1, 980 / tot);
+  let x = 540 - tot * fit / 2; parts.forEach((p, q) => { withT(x + ws2[q] * fit / 2, 1600, fit, 0, () => txt(p, 0, 0, 86, c0 + q === ci ? '#ffe14a' : '#fff', { stroke: 16 })); x += (ws2[q] + sp) * fit; }); ctx.restore();
+}
+window.renderFrame = function (t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  let i = 0; for (let j = 0; j < TL.beats.length; j++) if (t >= TL.beats[j].start - .2) i = j; const b = TL.beats[i];
+  const k = clamp((t - b.start) / Math.max(.3, b.end - b.start));
+  (SC[b.scene] || SC.hook)(b, k, t);
+  const g = ctx.createRadialGradient(W / 2, H / 2, H * .3, W / 2, H / 2, H * .75); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.5)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  panel(300, 80, 480, 90, 'rgba(0,0,0,.55)', '#e8c46a'); txt('WOULD YOU SURVIVE?', 540, 126, 40, '#e8c46a');
+  captions(t);
+  const cut = i > 0 ? clamp(1 - (t - (b.start - .2)) / .2) : 0; if (cut > 0) { ctx.fillStyle = `rgba(255,255,255,${cut * .35})`; ctx.fillRect(0, 0, W, H); }
+  const last = TL.beats[TL.beats.length - 1]; if (t > last.end + .2) { const e = eOut(seg(t, last.end + .2, last.end + .6)); ctx.save(); ctx.globalAlpha = e; panel(200, 1700, 680, 130, '#c0392b', '#fff'); txt('FOLLOW FOR MORE', 540, 1765, 60, '#fff', { stroke: 8 }); ctx.restore(); }
+  const fo = 1 - clamp((t - (TL.duration - 1.2)) / 1.2); if (fo < 1) { ctx.fillStyle = `rgba(0,0,0,${1 - fo})`; ctx.fillRect(0, 0, W, H); }
+};
+</script></body></html>

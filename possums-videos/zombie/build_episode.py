@@ -158,6 +158,10 @@ def sfx(name):
         x = tt(1.4); return (lp(noise(1.4), 3) * (.5 + .5 * np.sin(2 * np.pi * 9 * x)) * env(len(x), r=.3) * .35).astype(np.float32)
     if name == "static":
         return (noise(2.5) - lp(noise(2.5), 4)) * .35 * env(int(2.5 * SR), a=.05, r=.4)
+    if name == "tick":
+        return (np.sin(2 * np.pi * 1800 * tt(.05)) * np.exp(-tt(.05) * 90) * .5).astype(np.float32)
+    if name == "ding":
+        return ((np.sin(2 * np.pi * 1318 * tt(.9)) + .5 * np.sin(2 * np.pi * 2637 * tt(.9))) * np.exp(-tt(.9) * 5) * .35).astype(np.float32)
     raise KeyError(name)
 fx = np.zeros(N, np.float32)
 for b in beats:
@@ -172,6 +176,7 @@ for b in beats:
 def _db(x):
     x = x[np.abs(x) > 1e-4]; return 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9)
 VO, MU, FX, AM = 1.3, .10, .14, .07
+mx = S.get("mix", {}); MU, FX, AM = mx.get("music", MU), mx.get("sfx", FX), mx.get("ambience", AM)  # per-video override
 v_env = np.convolve(np.abs(voice), np.ones(2400) / 2400, mode="same")
 duck = np.convolve(np.clip(1 - (v_env > .004) * .5, .5, 1), np.ones(4800) / 4800, mode="same")
 mix = voice * VO + music * MU * duck + fx * FX + amb * AM * duck
