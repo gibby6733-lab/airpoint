@@ -1,0 +1,2155 @@
+{
+"width": 1920,
+"height": 1080,
+"vertical": true,
+"day": 1,
+"duration": 65.995,
+"series": "MILE 41",
+"episode": 1,
+"title": "Day 1",
+"beats": [
+{
+"loc": "station_ext",
+"tod": "night",
+"wx": "rain",
+"cast": [],
+"z": {
+"n": 8,
+"x0": 1.0,
+"x1": 0.62,
+"depth": "far"
+},
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [
+"lightning"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.5,
+"focus": 0.55,
+"sp": "cole",
+"name": "COLE",
+"text": "Day one of surviving the zombie apocalypse. In an abandoned gas station.",
+"start": 1.45,
+"end": 5.87,
+"words": [
+{
+"w": "Day",
+"s": 1.45
+},
+{
+"w": "one",
+"s": 1.698
+},
+{
+"w": "of",
+"s": 1.947
+},
+{
+"w": "surviving",
+"s": 2.145
+},
+{
+"w": "the",
+"s": 2.692
+},
+{
+"w": "zombie",
+"s": 2.94
+},
+{
+"w": "apocalypse.",
+"s": 3.337
+},
+{
+"w": "In",
+"s": 4.082
+},
+{
+"w": "an",
+"s": 4.281
+},
+{
+"w": "abandoned",
+"s": 4.48
+},
+{
+"w": "gas",
+"s": 5.026
+},
+{
+"w": "station.",
+"s": 5.274
+}
+],
+"sfx": [
+[
+"thunder",
+0.1
+],
+[
+"groan",
+0.7
+]
+]
+},
+{
+"loc": "station_ext",
+"tod": "day",
+"wx": null,
+"cast": [
+"mags:.44:idle",
+"tank:.58:idle"
+],
+"z": null,
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.2,
+"focus": 0.51,
+"sp": "cole",
+"name": "COLE",
+"text": "Five survivors. One gas station. Zero gas.",
+"start": 6.17,
+"end": 9.28,
+"words": [
+{
+"w": "Five",
+"s": 6.17
+},
+{
+"w": "survivors.",
+"s": 6.503
+},
+{
+"w": "One",
+"s": 7.281
+},
+{
+"w": "gas",
+"s": 7.559
+},
+{
+"w": "station.",
+"s": 7.836
+},
+{
+"w": "Zero",
+"s": 8.503
+},
+{
+"w": "gas.",
+"s": 8.836
+}
+],
+"sfx": []
+},
+{
+"loc": "station_int",
+"tod": "day",
+"wx": null,
+"cast": [
+"mags:.5:idle"
+],
+"z": null,
+"props": [
+"shelves",
+"radio",
+"cooler"
+],
+"fx": [],
+"card": {
+"kind": "name",
+"title": "MAGS",
+"sub": "Mechanic"
+},
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.2,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "Mags can fix anything with a wrench and a bad attitude.",
+"start": 9.58,
+"end": 12.954,
+"words": [
+{
+"w": "Mags",
+"s": 9.58
+},
+{
+"w": "can",
+"s": 9.873
+},
+{
+"w": "fix",
+"s": 10.118
+},
+{
+"w": "anything",
+"s": 10.362
+},
+{
+"w": "with",
+"s": 10.851
+},
+{
+"w": "a",
+"s": 11.145
+},
+{
+"w": "wrench",
+"s": 11.291
+},
+{
+"w": "and",
+"s": 11.682
+},
+{
+"w": "a",
+"s": 11.927
+},
+{
+"w": "bad",
+"s": 12.074
+},
+{
+"w": "attitude.",
+"s": 12.318
+}
+],
+"sfx": []
+},
+{
+"loc": "station_int",
+"tod": "day",
+"wx": null,
+"cast": [
+"dooley:.5:idle"
+],
+"z": null,
+"props": [
+"shelves",
+"radio",
+"cooler"
+],
+"fx": [],
+"card": {
+"kind": "name",
+"title": "DOOLEY",
+"sub": "Old soldier"
+},
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.2,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "Dooley is seventy, and he still sleeps with his boots on.",
+"start": 13.254,
+"end": 16.564,
+"words": [
+{
+"w": "Dooley",
+"s": 13.254
+},
+{
+"w": "is",
+"s": 13.616
+},
+{
+"w": "seventy,",
+"s": 13.798
+},
+{
+"w": "and",
+"s": 14.342
+},
+{
+"w": "he",
+"s": 14.569
+},
+{
+"w": "still",
+"s": 14.75
+},
+{
+"w": "sleeps",
+"s": 15.068
+},
+{
+"w": "with",
+"s": 15.431
+},
+{
+"w": "his",
+"s": 15.703
+},
+{
+"w": "boots",
+"s": 15.929
+},
+{
+"w": "on.",
+"s": 16.247
+}
+],
+"sfx": []
+},
+{
+"loc": "station_int",
+"tod": "day",
+"wx": null,
+"cast": [
+"pip:.46:cheer"
+],
+"z": null,
+"props": [
+"shelves",
+"radio",
+"cooler"
+],
+"fx": [],
+"card": {
+"kind": "name",
+"title": "PIP + BISCUIT",
+"sub": "The brains + the dog"
+},
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.2,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "Pip is twelve. The smartest one here. That's Biscuit.",
+"start": 16.864,
+"end": 20.045,
+"words": [
+{
+"w": "Pip",
+"s": 16.864
+},
+{
+"w": "is",
+"s": 17.098
+},
+{
+"w": "twelve.",
+"s": 17.285
+},
+{
+"w": "The",
+"s": 17.8
+},
+{
+"w": "smartest",
+"s": 18.034
+},
+{
+"w": "one",
+"s": 18.502
+},
+{
+"w": "here.",
+"s": 18.736
+},
+{
+"w": "That's",
+"s": 19.157
+},
+{
+"w": "Biscuit.",
+"s": 19.484
+}
+],
+"sfx": [
+[
+"bark",
+0.85
+]
+]
+},
+{
+"loc": "station_int",
+"tod": "day",
+"wx": null,
+"cast": [
+"tank:.5:scared"
+],
+"z": null,
+"props": [
+"shelves",
+"radio",
+"cooler"
+],
+"fx": [
+"shake"
+],
+"card": {
+"kind": "name",
+"title": "TANK",
+"sub": "Scared of everything"
+},
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.2,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "And Tank is huge, and scared of literally everything.",
+"start": 20.345,
+"end": 23.42,
+"words": [
+{
+"w": "And",
+"s": 20.345
+},
+{
+"w": "Tank",
+"s": 20.575
+},
+{
+"w": "is",
+"s": 20.85
+},
+{
+"w": "huge,",
+"s": 21.034
+},
+{
+"w": "and",
+"s": 21.447
+},
+{
+"w": "scared",
+"s": 21.676
+},
+{
+"w": "of",
+"s": 22.043
+},
+{
+"w": "literally",
+"s": 22.227
+},
+{
+"w": "everything.",
+"s": 22.732
+}
+],
+"sfx": []
+},
+{
+"loc": "station_ext",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"sign",
+"pumps"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": "supplies",
+"act": "",
+"intensity": 0.2,
+"focus": 0.62,
+"sp": "cole",
+"name": "COLE",
+"text": "Here's the deal. Every like on this video is one supply point.",
+"start": 23.72,
+"end": 27.297,
+"words": [
+{
+"w": "Here's",
+"s": 23.72
+},
+{
+"w": "the",
+"s": 24.041
+},
+{
+"w": "deal.",
+"s": 24.27
+},
+{
+"w": "Every",
+"s": 24.683
+},
+{
+"w": "like",
+"s": 25.004
+},
+{
+"w": "on",
+"s": 25.279
+},
+{
+"w": "this",
+"s": 25.463
+},
+{
+"w": "video",
+"s": 25.738
+},
+{
+"w": "is",
+"s": 26.059
+},
+{
+"w": "one",
+"s": 26.242
+},
+{
+"w": "supply",
+"s": 26.472
+},
+{
+"w": "point.",
+"s": 26.838
+}
+],
+"sfx": []
+},
+{
+"loc": "station_ext",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"sign",
+"pumps"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": "vote",
+"act": "",
+"intensity": 0.2,
+"focus": 0.62,
+"sp": "cole",
+"name": "COLE",
+"text": "And the most liked comment decides what we build next.",
+"start": 27.597,
+"end": 30.687,
+"words": [
+{
+"w": "And",
+"s": 27.597
+},
+{
+"w": "the",
+"s": 27.828
+},
+{
+"w": "most",
+"s": 28.058
+},
+{
+"w": "liked",
+"s": 28.335
+},
+{
+"w": "comment",
+"s": 28.658
+},
+{
+"w": "decides",
+"s": 29.073
+},
+{
+"w": "what",
+"s": 29.488
+},
+{
+"w": "we",
+"s": 29.765
+},
+{
+"w": "build",
+"s": 29.949
+},
+{
+"w": "next.",
+"s": 30.272
+}
+],
+"sfx": []
+},
+{
+"loc": "station_int",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"shelves",
+"barricade",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.5,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "Right now, our only wall is a vending machine and some duct tape.",
+"start": 30.987,
+"end": 34.994,
+"words": [
+{
+"w": "Right",
+"s": 30.987
+},
+{
+"w": "now,",
+"s": 31.325
+},
+{
+"w": "our",
+"s": 31.711
+},
+{
+"w": "only",
+"s": 31.953
+},
+{
+"w": "wall",
+"s": 32.242
+},
+{
+"w": "is",
+"s": 32.532
+},
+{
+"w": "a",
+"s": 32.725
+},
+{
+"w": "vending",
+"s": 32.87
+},
+{
+"w": "machine",
+"s": 33.304
+},
+{
+"w": "and",
+"s": 33.739
+},
+{
+"w": "some",
+"s": 33.98
+},
+{
+"w": "duct",
+"s": 34.27
+},
+{
+"w": "tape.",
+"s": 34.56
+}
+],
+"sfx": []
+},
+{
+"loc": "station_int",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"shelves",
+"barricade",
+"lantern",
+"hands"
+],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.85,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "And on the first night, they came.",
+"start": 35.294,
+"end": 37.309,
+"words": [
+{
+"w": "And",
+"s": 35.294
+},
+{
+"w": "on",
+"s": 35.513
+},
+{
+"w": "the",
+"s": 35.688
+},
+{
+"w": "first",
+"s": 35.907
+},
+{
+"w": "night,",
+"s": 36.214
+},
+{
+"w": "they",
+"s": 36.652
+},
+{
+"w": "came.",
+"s": 36.915
+}
+],
+"sfx": [
+[
+"bang",
+0.3
+],
+[
+"bang",
+0.55
+],
+[
+"bang",
+0.8
+],
+[
+"groan",
+0.5
+]
+]
+},
+{
+"loc": "station_int",
+"tod": "night",
+"wx": null,
+"cast": [
+"tank:.52:scared"
+],
+"z": null,
+"props": [
+"shelves",
+"barricade:slide",
+"lantern",
+"hands"
+],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.85,
+"focus": 0.52,
+"sp": "tank",
+"name": "TANK",
+"text": "It's moving! Why is the vending machine moving?",
+"start": 37.759,
+"end": 40.121,
+"words": [
+{
+"w": "It's",
+"s": 37.759
+},
+{
+"w": "moving!",
+"s": 37.959
+},
+{
+"w": "Why",
+"s": 38.4
+},
+{
+"w": "is",
+"s": 38.6
+},
+{
+"w": "the",
+"s": 38.76
+},
+{
+"w": "vending",
+"s": 38.96
+},
+{
+"w": "machine",
+"s": 39.32
+},
+{
+"w": "moving?",
+"s": 39.68
+}
+],
+"sfx": [
+[
+"bang",
+0.2
+],
+[
+"scrape",
+0.4
+],
+[
+"bang",
+0.7
+]
+]
+},
+{
+"loc": "roof",
+"tod": "night",
+"wx": null,
+"cast": [
+"pip:.42:cheer"
+],
+"z": null,
+"props": [
+"radio:throw",
+"corn"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.85,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "So Pip threw our radio into the cornfield. Full volume.",
+"start": 40.571,
+"end": 44.097,
+"words": [
+{
+"w": "So",
+"s": 40.571
+},
+{
+"w": "Pip",
+"s": 40.772
+},
+{
+"w": "threw",
+"s": 41.024
+},
+{
+"w": "our",
+"s": 41.377
+},
+{
+"w": "radio",
+"s": 41.629
+},
+{
+"w": "into",
+"s": 41.981
+},
+{
+"w": "the",
+"s": 42.284
+},
+{
+"w": "cornfield.",
+"s": 42.536
+},
+{
+"w": "Full",
+"s": 43.241
+},
+{
+"w": "volume.",
+"s": 43.543
+}
+],
+"sfx": [
+[
+"static",
+0.3
+],
+[
+"whoosh",
+0.7
+]
+]
+},
+{
+"loc": "roof",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": {
+"n": 10,
+"x0": 0.3,
+"x1": 0.62,
+"depth": "far",
+"turn": true
+},
+"props": [
+"corn",
+"radio:field"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.5,
+"focus": 0.47,
+"sp": "cole",
+"name": "COLE",
+"text": "And the whole horde turned around and followed the noise.",
+"start": 44.397,
+"end": 47.374,
+"words": [
+{
+"w": "And",
+"s": 44.397
+},
+{
+"w": "the",
+"s": 44.61
+},
+{
+"w": "whole",
+"s": 44.823
+},
+{
+"w": "horde",
+"s": 45.12
+},
+{
+"w": "turned",
+"s": 45.418
+},
+{
+"w": "around",
+"s": 45.758
+},
+{
+"w": "and",
+"s": 46.099
+},
+{
+"w": "followed",
+"s": 46.311
+},
+{
+"w": "the",
+"s": 46.737
+},
+{
+"w": "noise.",
+"s": 46.949
+}
+],
+"sfx": [
+[
+"static",
+0
+],
+[
+"groan",
+0.5
+]
+]
+},
+{
+"loc": "station_int",
+"tod": "night",
+"wx": null,
+"cast": [
+"pip:.46:cheer"
+],
+"z": null,
+"props": [
+"shelves",
+"barricade",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.5,
+"focus": 0.5,
+"sp": "pip",
+"name": "PIP",
+"text": "You're welcome.",
+"start": 47.824,
+"end": 48.697,
+"words": [
+{
+"w": "You're",
+"s": 47.824
+},
+{
+"w": "welcome.",
+"s": 48.146
+}
+],
+"sfx": []
+},
+{
+"loc": "station_int",
+"tod": "night",
+"wx": null,
+"cast": [
+"mags:.43:sit",
+"tank:.58:sit"
+],
+"z": null,
+"props": [
+"shelves",
+"barricade",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.25,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "We survived night one. Barely.",
+"start": 49.147,
+"end": 51.279,
+"words": [
+{
+"w": "We",
+"s": 49.147
+},
+{
+"w": "survived",
+"s": 49.36
+},
+{
+"w": "night",
+"s": 49.893
+},
+{
+"w": "one.",
+"s": 50.266
+},
+{
+"w": "Barely.",
+"s": 50.693
+}
+],
+"sfx": []
+},
+{
+"loc": "station_ext",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": {
+"n": 14,
+"x0": 1.05,
+"x1": 0.55,
+"depth": "mid"
+},
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.8,
+"focus": 0.55,
+"sp": "cole",
+"name": "COLE",
+"text": "But tomorrow, they're coming back. And there's more of them.",
+"start": 51.579,
+"end": 54.578,
+"words": [
+{
+"w": "But",
+"s": 51.579
+},
+{
+"w": "tomorrow,",
+"s": 51.779
+},
+{
+"w": "they're",
+"s": 52.299
+},
+{
+"w": "coming",
+"s": 52.619
+},
+{
+"w": "back.",
+"s": 52.939
+},
+{
+"w": "And",
+"s": 53.298
+},
+{
+"w": "there's",
+"s": 53.498
+},
+{
+"w": "more",
+"s": 53.818
+},
+{
+"w": "of",
+"s": 54.058
+},
+{
+"w": "them.",
+"s": 54.218
+}
+],
+"sfx": [
+[
+"groan",
+0.3
+],
+[
+"sting",
+0.6
+]
+]
+},
+{
+"loc": "station_ext",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": "shop",
+"act": "",
+"intensity": 0.35,
+"focus": 0.62,
+"sp": "cole",
+"name": "COLE",
+"text": "Every like is a supply. The most liked comment picks walls, a generator, a watchtower, or a food run.",
+"start": 54.878,
+"end": 61.03,
+"words": [
+{
+"w": "Every",
+"s": 54.878
+},
+{
+"w": "like",
+"s": 55.207
+},
+{
+"w": "is",
+"s": 55.489
+},
+{
+"w": "a",
+"s": 55.676
+},
+{
+"w": "supply.",
+"s": 55.817
+},
+{
+"w": "The",
+"s": 56.334
+},
+{
+"w": "most",
+"s": 56.569
+},
+{
+"w": "liked",
+"s": 56.85
+},
+{
+"w": "comment",
+"s": 57.179
+},
+{
+"w": "picks",
+"s": 57.602
+},
+{
+"w": "walls,",
+"s": 57.931
+},
+{
+"w": "a",
+"s": 58.4
+},
+{
+"w": "generator,",
+"s": 58.541
+},
+{
+"w": "a",
+"s": 59.199
+},
+{
+"w": "watchtower,",
+"s": 59.34
+},
+{
+"w": "or",
+"s": 60.044
+},
+{
+"w": "a",
+"s": 60.232
+},
+{
+"w": "food",
+"s": 60.373
+},
+{
+"w": "run.",
+"s": 60.655
+}
+],
+"sfx": []
+},
+{
+"loc": "station_ext",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": "join",
+"act": "",
+"intensity": 0.35,
+"focus": 0.62,
+"sp": "cole",
+"name": "COLE",
+"text": "Want to join us? Comment your name and your skill.",
+"start": 61.33,
+"end": 63.995,
+"words": [
+{
+"w": "Want",
+"s": 61.33
+},
+{
+"w": "to",
+"s": 61.576
+},
+{
+"w": "join",
+"s": 61.74
+},
+{
+"w": "us?",
+"s": 61.986
+},
+{
+"w": "Comment",
+"s": 62.273
+},
+{
+"w": "your",
+"s": 62.642
+},
+{
+"w": "name",
+"s": 62.888
+},
+{
+"w": "and",
+"s": 63.134
+},
+{
+"w": "your",
+"s": 63.339
+},
+{
+"w": "skill.",
+"s": 63.585
+}
+],
+"sfx": []
+}
+],
+"lines": [
+{
+"start": 1.45,
+"end": 5.87,
+"words": [
+{
+"w": "Day",
+"s": 1.45
+},
+{
+"w": "one",
+"s": 1.698
+},
+{
+"w": "of",
+"s": 1.947
+},
+{
+"w": "surviving",
+"s": 2.145
+},
+{
+"w": "the",
+"s": 2.692
+},
+{
+"w": "zombie",
+"s": 2.94
+},
+{
+"w": "apocalypse.",
+"s": 3.337
+},
+{
+"w": "In",
+"s": 4.082
+},
+{
+"w": "an",
+"s": 4.281
+},
+{
+"w": "abandoned",
+"s": 4.48
+},
+{
+"w": "gas",
+"s": 5.026
+},
+{
+"w": "station.",
+"s": 5.274
+}
+]
+},
+{
+"start": 6.17,
+"end": 9.28,
+"words": [
+{
+"w": "Five",
+"s": 6.17
+},
+{
+"w": "survivors.",
+"s": 6.503
+},
+{
+"w": "One",
+"s": 7.281
+},
+{
+"w": "gas",
+"s": 7.559
+},
+{
+"w": "station.",
+"s": 7.836
+},
+{
+"w": "Zero",
+"s": 8.503
+},
+{
+"w": "gas.",
+"s": 8.836
+}
+]
+},
+{
+"start": 9.58,
+"end": 12.954,
+"words": [
+{
+"w": "Mags",
+"s": 9.58
+},
+{
+"w": "can",
+"s": 9.873
+},
+{
+"w": "fix",
+"s": 10.118
+},
+{
+"w": "anything",
+"s": 10.362
+},
+{
+"w": "with",
+"s": 10.851
+},
+{
+"w": "a",
+"s": 11.145
+},
+{
+"w": "wrench",
+"s": 11.291
+},
+{
+"w": "and",
+"s": 11.682
+},
+{
+"w": "a",
+"s": 11.927
+},
+{
+"w": "bad",
+"s": 12.074
+},
+{
+"w": "attitude.",
+"s": 12.318
+}
+]
+},
+{
+"start": 13.254,
+"end": 16.564,
+"words": [
+{
+"w": "Dooley",
+"s": 13.254
+},
+{
+"w": "is",
+"s": 13.616
+},
+{
+"w": "seventy,",
+"s": 13.798
+},
+{
+"w": "and",
+"s": 14.342
+},
+{
+"w": "he",
+"s": 14.569
+},
+{
+"w": "still",
+"s": 14.75
+},
+{
+"w": "sleeps",
+"s": 15.068
+},
+{
+"w": "with",
+"s": 15.431
+},
+{
+"w": "his",
+"s": 15.703
+},
+{
+"w": "boots",
+"s": 15.929
+},
+{
+"w": "on.",
+"s": 16.247
+}
+]
+},
+{
+"start": 16.864,
+"end": 20.045,
+"words": [
+{
+"w": "Pip",
+"s": 16.864
+},
+{
+"w": "is",
+"s": 17.098
+},
+{
+"w": "twelve.",
+"s": 17.285
+},
+{
+"w": "The",
+"s": 17.8
+},
+{
+"w": "smartest",
+"s": 18.034
+},
+{
+"w": "one",
+"s": 18.502
+},
+{
+"w": "here.",
+"s": 18.736
+},
+{
+"w": "That's",
+"s": 19.157
+},
+{
+"w": "Biscuit.",
+"s": 19.484
+}
+]
+},
+{
+"start": 20.345,
+"end": 23.42,
+"words": [
+{
+"w": "And",
+"s": 20.345
+},
+{
+"w": "Tank",
+"s": 20.575
+},
+{
+"w": "is",
+"s": 20.85
+},
+{
+"w": "huge,",
+"s": 21.034
+},
+{
+"w": "and",
+"s": 21.447
+},
+{
+"w": "scared",
+"s": 21.676
+},
+{
+"w": "of",
+"s": 22.043
+},
+{
+"w": "literally",
+"s": 22.227
+},
+{
+"w": "everything.",
+"s": 22.732
+}
+]
+},
+{
+"start": 23.72,
+"end": 27.297,
+"words": [
+{
+"w": "Here's",
+"s": 23.72
+},
+{
+"w": "the",
+"s": 24.041
+},
+{
+"w": "deal.",
+"s": 24.27
+},
+{
+"w": "Every",
+"s": 24.683
+},
+{
+"w": "like",
+"s": 25.004
+},
+{
+"w": "on",
+"s": 25.279
+},
+{
+"w": "this",
+"s": 25.463
+},
+{
+"w": "video",
+"s": 25.738
+},
+{
+"w": "is",
+"s": 26.059
+},
+{
+"w": "one",
+"s": 26.242
+},
+{
+"w": "supply",
+"s": 26.472
+},
+{
+"w": "point.",
+"s": 26.838
+}
+]
+},
+{
+"start": 27.597,
+"end": 30.687,
+"words": [
+{
+"w": "And",
+"s": 27.597
+},
+{
+"w": "the",
+"s": 27.828
+},
+{
+"w": "most",
+"s": 28.058
+},
+{
+"w": "liked",
+"s": 28.335
+},
+{
+"w": "comment",
+"s": 28.658
+},
+{
+"w": "decides",
+"s": 29.073
+},
+{
+"w": "what",
+"s": 29.488
+},
+{
+"w": "we",
+"s": 29.765
+},
+{
+"w": "build",
+"s": 29.949
+},
+{
+"w": "next.",
+"s": 30.272
+}
+]
+},
+{
+"start": 30.987,
+"end": 34.994,
+"words": [
+{
+"w": "Right",
+"s": 30.987
+},
+{
+"w": "now,",
+"s": 31.325
+},
+{
+"w": "our",
+"s": 31.711
+},
+{
+"w": "only",
+"s": 31.953
+},
+{
+"w": "wall",
+"s": 32.242
+},
+{
+"w": "is",
+"s": 32.532
+},
+{
+"w": "a",
+"s": 32.725
+},
+{
+"w": "vending",
+"s": 32.87
+},
+{
+"w": "machine",
+"s": 33.304
+},
+{
+"w": "and",
+"s": 33.739
+},
+{
+"w": "some",
+"s": 33.98
+},
+{
+"w": "duct",
+"s": 34.27
+},
+{
+"w": "tape.",
+"s": 34.56
+}
+]
+},
+{
+"start": 35.294,
+"end": 37.309,
+"words": [
+{
+"w": "And",
+"s": 35.294
+},
+{
+"w": "on",
+"s": 35.513
+},
+{
+"w": "the",
+"s": 35.688
+},
+{
+"w": "first",
+"s": 35.907
+},
+{
+"w": "night,",
+"s": 36.214
+},
+{
+"w": "they",
+"s": 36.652
+},
+{
+"w": "came.",
+"s": 36.915
+}
+]
+},
+{
+"start": 37.759,
+"end": 40.121,
+"words": [
+{
+"w": "It's",
+"s": 37.759
+},
+{
+"w": "moving!",
+"s": 37.959
+},
+{
+"w": "Why",
+"s": 38.4
+},
+{
+"w": "is",
+"s": 38.6
+},
+{
+"w": "the",
+"s": 38.76
+},
+{
+"w": "vending",
+"s": 38.96
+},
+{
+"w": "machine",
+"s": 39.32
+},
+{
+"w": "moving?",
+"s": 39.68
+}
+]
+},
+{
+"start": 40.571,
+"end": 44.097,
+"words": [
+{
+"w": "So",
+"s": 40.571
+},
+{
+"w": "Pip",
+"s": 40.772
+},
+{
+"w": "threw",
+"s": 41.024
+},
+{
+"w": "our",
+"s": 41.377
+},
+{
+"w": "radio",
+"s": 41.629
+},
+{
+"w": "into",
+"s": 41.981
+},
+{
+"w": "the",
+"s": 42.284
+},
+{
+"w": "cornfield.",
+"s": 42.536
+},
+{
+"w": "Full",
+"s": 43.241
+},
+{
+"w": "volume.",
+"s": 43.543
+}
+]
+},
+{
+"start": 44.397,
+"end": 47.374,
+"words": [
+{
+"w": "And",
+"s": 44.397
+},
+{
+"w": "the",
+"s": 44.61
+},
+{
+"w": "whole",
+"s": 44.823
+},
+{
+"w": "horde",
+"s": 45.12
+},
+{
+"w": "turned",
+"s": 45.418
+},
+{
+"w": "around",
+"s": 45.758
+},
+{
+"w": "and",
+"s": 46.099
+},
+{
+"w": "followed",
+"s": 46.311
+},
+{
+"w": "the",
+"s": 46.737
+},
+{
+"w": "noise.",
+"s": 46.949
+}
+]
+},
+{
+"start": 47.824,
+"end": 48.697,
+"words": [
+{
+"w": "You're",
+"s": 47.824
+},
+{
+"w": "welcome.",
+"s": 48.146
+}
+]
+},
+{
+"start": 49.147,
+"end": 51.279,
+"words": [
+{
+"w": "We",
+"s": 49.147
+},
+{
+"w": "survived",
+"s": 49.36
+},
+{
+"w": "night",
+"s": 49.893
+},
+{
+"w": "one.",
+"s": 50.266
+},
+{
+"w": "Barely.",
+"s": 50.693
+}
+]
+},
+{
+"start": 51.579,
+"end": 54.578,
+"words": [
+{
+"w": "But",
+"s": 51.579
+},
+{
+"w": "tomorrow,",
+"s": 51.779
+},
+{
+"w": "they're",
+"s": 52.299
+},
+{
+"w": "coming",
+"s": 52.619
+},
+{
+"w": "back.",
+"s": 52.939
+},
+{
+"w": "And",
+"s": 53.298
+},
+{
+"w": "there's",
+"s": 53.498
+},
+{
+"w": "more",
+"s": 53.818
+},
+{
+"w": "of",
+"s": 54.058
+},
+{
+"w": "them.",
+"s": 54.218
+}
+]
+},
+{
+"start": 54.878,
+"end": 61.03,
+"words": [
+{
+"w": "Every",
+"s": 54.878
+},
+{
+"w": "like",
+"s": 55.207
+},
+{
+"w": "is",
+"s": 55.489
+},
+{
+"w": "a",
+"s": 55.676
+},
+{
+"w": "supply.",
+"s": 55.817
+},
+{
+"w": "The",
+"s": 56.334
+},
+{
+"w": "most",
+"s": 56.569
+},
+{
+"w": "liked",
+"s": 56.85
+},
+{
+"w": "comment",
+"s": 57.179
+},
+{
+"w": "picks",
+"s": 57.602
+},
+{
+"w": "walls,",
+"s": 57.931
+},
+{
+"w": "a",
+"s": 58.4
+},
+{
+"w": "generator,",
+"s": 58.541
+},
+{
+"w": "a",
+"s": 59.199
+},
+{
+"w": "watchtower,",
+"s": 59.34
+},
+{
+"w": "or",
+"s": 60.044
+},
+{
+"w": "a",
+"s": 60.232
+},
+{
+"w": "food",
+"s": 60.373
+},
+{
+"w": "run.",
+"s": 60.655
+}
+]
+},
+{
+"start": 61.33,
+"end": 63.995,
+"words": [
+{
+"w": "Want",
+"s": 61.33
+},
+{
+"w": "to",
+"s": 61.576
+},
+{
+"w": "join",
+"s": 61.74
+},
+{
+"w": "us?",
+"s": 61.986
+},
+{
+"w": "Comment",
+"s": 62.273
+},
+{
+"w": "your",
+"s": 62.642
+},
+{
+"w": "name",
+"s": 62.888
+},
+{
+"w": "and",
+"s": 63.134
+},
+{
+"w": "your",
+"s": 63.339
+},
+{
+"w": "skill.",
+"s": 63.585
+}
+]
+}
+]
+}

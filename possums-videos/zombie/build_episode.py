@@ -40,8 +40,8 @@ def radio_fx(a):  # band-limited, slightly crushed, with static
     return (bp + lp(rng.uniform(-1, 1, len(a)).astype(np.float32), 2) * .05).astype(np.float32)
 
 # ---- resolve shots (fields carry over) + voice each line
-KEYS = ["loc", "tod", "wx", "cast", "z", "props", "fx", "card", "cam", "camx", "hud", "act", "intensity"]
-state = {"loc": "black", "tod": "night", "wx": None, "cast": [], "z": None, "props": [], "fx": [], "card": None, "cam": 1.0, "camx": .5, "hud": None, "act": "", "intensity": .3}
+KEYS = ["loc", "tod", "wx", "cast", "z", "props", "fx", "card", "cam", "camx", "hud", "act", "intensity", "focus"]
+state = {"loc": "black", "tod": "night", "wx": None, "cast": [], "z": None, "props": [], "fx": [], "card": None, "cam": 1.0, "camx": .5, "hud": None, "act": "", "intensity": .3, "focus": None}
 beats, clips, t = [], [], 1.0
 prev_sp = None
 for raw in S["beats"]:
@@ -53,6 +53,7 @@ for raw in S["beats"]:
         beats.append({**shot, "sp": "", "text": "", "start": round(st, 3), "end": round(st + dur, 3), "words": [], "sfx": raw.get("sfx", [])})
         t = st + dur + .2; prev_sp = None; continue
     voice, speed = VOICES[raw["sp"]]
+    if S.get("vertical") and raw["sp"] == "cole": speed = .9
     key = hashlib.md5(f"{voice}|{speed}|{raw['text']}".encode()).hexdigest()[:16]; cp = os.path.join(d, "_tts", key + ".wav")
     if os.path.exists(cp):
         a, _ = sf.read(cp, dtype="float32")
@@ -61,7 +62,7 @@ for raw in S["beats"]:
         a = np.asarray(a, np.float32); nz = np.where(np.abs(a) > .01)[0]; a = a[max(0, nz[0] - 600): nz[-1] + 1500]
         os.makedirs(os.path.dirname(cp), exist_ok=True); sf.write(cp, a, SR)
     if raw["sp"] == "radio": a = radio_fx(a)
-    gap = .42 if raw["sp"] == prev_sp else .75
+    gap = (.3 if raw["sp"] == prev_sp else .45) if S.get("vertical") else (.42 if raw["sp"] == prev_sp else .75)  # Shorts: snappier
     st = t + gap; dur = len(a) / SR
     ws = raw["text"].split(); wt = [len(re.sub(r"\W", "", w)) + 2 + (3 if re.search(r"[.,!?]$", w) else 0) for w in ws]; tot = sum(wt); acc = 0; words = []
     for w, k in zip(ws, wt): words.append({"w": w, "s": round(st + dur * acc / tot, 3)}); acc += k
@@ -184,6 +185,6 @@ for b in beats:
     if b["act"] and b["act"] not in seen:
         seen.add(b["act"]); s0 = 0 if not chap else b["start"]; chap.append(f"{int(s0 // 60)}:{int(s0 % 60):02d} {b['act']}")
 open(os.path.join(d, "chapters.txt"), "w").write("\n".join(chap) + "\n")
-json.dump({"width": 1920, "height": 1080, "duration": round(total, 3), "series": S["series"], "episode": S["episode"], "title": S["title"],
+json.dump({"width": 1920, "height": 1080, "vertical": bool(S.get("vertical")), "day": S.get("day"), "duration": round(total, 3), "series": S["series"], "episode": S["episode"], "title": S["title"],
            "beats": beats, "lines": [{"start": b["start"], "end": b["end"], "words": b["words"]} for b in beats if b["text"]]},
           open(os.path.join(d, "timeline.json"), "w"), indent=0)
