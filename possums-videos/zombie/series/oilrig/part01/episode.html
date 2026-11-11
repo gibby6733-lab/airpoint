@@ -382,11 +382,20 @@ function stickZombie(x, y, s, t, ph, o = {}) { ctx.save(); ctx.translate(x, y); 
   ctx.fillStyle = K; ctx.beginPath(); ctx.ellipse(4, 36, 16, 8 + Math.abs(Math.sin(t * 2 + ph)) * 7, 0, 0, 7); ctx.fill(); ctx.restore();
   ctx.restore(); }
 
+
+function coverOverlay(S, t) {   // all text inside the 3:4 grid-safe band (y 240-1680)
+  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, 'rgba(0,0,0,.75)'); g.addColorStop(.38, 'rgba(0,0,0,.05)'); g.addColorStop(.62, 'rgba(0,0,0,.05)'); g.addColorStop(1, 'rgba(0,0,0,.8)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  withT(540, 330, 1, -.02, () => { panel(-230, -62, 460, 124, '#c0392b', '#fff', 26); txt(S.part, 0, 4, 78, '#fff', { stroke: 8 }); });
+  (S.top || []).forEach((l, i) => txt(l, 540, 500 + i * 108, 100, '#fff', { stroke: 18, maxW: 990 }));
+  withT(540, 1430, 1, .02, () => { (S.hook || []).forEach((l, i) => txt(l, 0, i * 130, 120, i === 0 ? '#ffe14a' : '#ff5a4a', { stroke: 20, maxW: 1000 })); });
+}
 // ================================================================ frame
 function captions(t) { const B = TL.beats.find(b => b.text && t >= b.start - .05 && t <= b.end + .2); if (!B || B.scene === 'hook' || B.scene === 'question' || B.scene === 'voted') return;
   const ws = B.words; let ci = ws.findIndex((w, i) => t >= w.s && (i === ws.length - 1 || t < ws[i + 1].s)); if (ci < 0) ci = 0; const c0 = Math.floor(ci / 3) * 3, chunk = ws.slice(c0, c0 + 3);
   ctx.save(); ctx.font = '900 84px Inter'; const parts = chunk.map(w => w.w.toUpperCase()), sp = 22, ws2 = parts.map(p => ctx.measureText(p).width), tot = ws2.reduce((a, c) => a + c, 0) + sp * (parts.length - 1), fit = Math.min(1, 980 / tot);
   let x = 540 - tot * fit / 2; parts.forEach((p, q) => { withT(x + ws2[q] * fit / 2, 1780, fit, 0, () => txt(p, 0, 0, 84, c0 + q === ci ? '#ffe14a' : '#fff', { stroke: 16 })); x += (ws2[q] + sp) * fit; }); ctx.restore(); }
+let THUMB = null;
+window.renderThumb = function (t, spec) { THUMB = spec; renderFrame(t); THUMB = null; coverOverlay(spec, t); };
 window.renderFrame = function (t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   let i = 0; for (let j = 0; j < TL.beats.length; j++) if (t >= TL.beats[j].start - .2) i = j; const b = TL.beats[i], k = clamp((t - b.start) / Math.max(.3, b.end - b.start));
@@ -401,13 +410,12 @@ window.renderFrame = function (t) {
   const v = ctx.createRadialGradient(540, 960, 500, 540, 960, 1200); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.55)'); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
   const r = rng(Math.floor(t * 24)); ctx.fillStyle = 'rgba(255,255,255,.03)'; for (let q = 0; q < 200; q++) ctx.fillRect(r() * W, r() * H, 2, 2);
   // lesson tag + day badge (after the hook)
-  if (b.scene !== 'hook') { panel(36, 60, 230, 90, '#c0392b', '#000', 24); txt(/^part/i.test(TL.title || '') ? TL.title.toUpperCase() : 'DAY ' + (TL.day || 1), 151, 106, 46, '#fff', { stroke: 8, maxW: 200 });
+  if (b.scene !== 'hook' && !THUMB) { panel(36, 60, 230, 90, '#c0392b', '#000', 24); txt(/^part/i.test(TL.title || '') ? TL.title.toUpperCase() : 'DAY ' + (TL.day || 1), 151, 106, 46, '#fff', { stroke: 8, maxW: 200 });
     panel(300, 60, 744, 90, 'rgba(10,12,18,.85)', '#1f9d55', 24); txt('LESSON: ' + (TL.lesson || ''), 672, 106, 40, '#7cd67c', { maxW: 700 }); }
-  if (b.tag) withT(540, 1560, eBack(seg(k, .2, .35)), -.03, () => { panel(-440, -60, 880, 120, 'rgba(31,157,85,.92)', '#fff'); txt(b.tag, 0, 3, 50, '#fff', { maxW: 820 }); });
-  cardsDraw(b, t);
-  titleCard(b, t);
-  captions(t);
+  if (b.tag && !THUMB) withT(540, 1560, eBack(seg(k, .2, .35)), -.03, () => { panel(-440, -60, 880, 120, 'rgba(31,157,85,.92)', '#fff'); txt(b.tag, 0, 3, 50, '#fff', { maxW: 820 }); });
+  if (!THUMB) { cardsDraw(b, t); titleCard(b, t); captions(t); }
   const cut = i > 0 && TL.beats[i - 1].scene !== b.scene ? clamp(1 - (t - (b.start - .2)) / .22) : 0; if (cut > 0) { ctx.fillStyle = `rgba(0,0,0,${cut})`; ctx.fillRect(0, 0, W, H); }
+  if (THUMB) return;
   const fo = 1 - clamp((t - (TL.duration - 1.0)) / 1.0); if (fo < 1) { ctx.fillStyle = `rgba(0,0,0,${1 - fo})`; ctx.fillRect(0, 0, W, H); }
 };
 </script></body></html>

@@ -50,6 +50,16 @@ try:
     with urllib.request.urlopen(req, timeout=120) as r:
         msg = json.load(r)
         print(f"posted to {sport} channel (message id {msg['id']})")
+    thumb = os.path.join(ep, "thumbnail.png")
+    if os.path.exists(thumb):  # cover image as its own message (save it for the TikTok / Instagram / Shorts cover)
+        tb = uuid.uuid4().hex
+        tbody = b"".join([f"--{tb}\r\nContent-Disposition: form-data; name=\"payload_json\"\r\nContent-Type: application/json\r\n\r\n".encode(),
+            json.dumps({"content": "", "attachments": [{"id": 0, "filename": "thumbnail.png"}]}).encode(), b"\r\n",
+            f"--{tb}\r\nContent-Disposition: form-data; name=\"files[0]\"; filename=\"thumbnail.png\"\r\nContent-Type: image/png\r\n\r\n".encode(),
+            open(thumb, "rb").read(), f"\r\n--{tb}--\r\n".encode()])
+        r3 = urllib.request.Request(f"https://discord.com/api/v10/channels/{channel}/messages", data=tbody, method="POST",
+            headers={"Content-Type": f"multipart/form-data; boundary={tb}", "Authorization": "Bot proxy-injected", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"})
+        print("  + thumbnail", json.load(urllib.request.urlopen(r3, timeout=60))["id"])
     for text in ([title, caption] if title else []):  # plain text only, so a long-press copy gives exactly this
         r2 = urllib.request.Request(f"https://discord.com/api/v10/channels/{channel}/messages", method="POST", data=json.dumps({"content": text}).encode(),
             headers={"Content-Type": "application/json", "Authorization": "Bot proxy-injected", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"})

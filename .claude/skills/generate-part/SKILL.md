@@ -37,6 +37,7 @@ story ends before ~84 s add action beats, if over, trim lines). Stills: `node re
 of each beat, fix overlaps. Then `node render.js <dir>`, `./discord_copy.sh <dir>/episode.mp4 <dir>/discord.mp4`.
 
 ## 4. Deliver
+- `thumb.json` (frame time `t` with the most action, "PART N", 2 title lines, 2 short hook lines) -> `node zombie/series/thumb.js <dir>` -> thumbnail.png (1080x1920, text in the 3:4 safe band). post_discord.py posts it as its own message after the video. Also SendUserFile it.
 - `title.txt`: one-line video title with hashtags, e.g. "What If You Had to Reach the Oil Rig? 🧟‍♂️🛢️ Part N #zombieapocalypse #whatif #survival #shorts" (under 100 chars). post_discord.py sends video, title and caption as 3 separate plain messages (easy copy-paste). Only standard iPhone emojis, no text codes or markdown.
 - `caption.txt` (iPhone emojis only, hashtags `#zombieapocalypse #survivaltips #animation #wouldyourather #zombie`).
 - `python3 post_discord.py apocalypse <dir>`; copy the mp4 to the scratchpad and SendUserFile; paste the caption in chat.
