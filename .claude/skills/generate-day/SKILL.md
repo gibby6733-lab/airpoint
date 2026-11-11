@@ -15,13 +15,15 @@ The user starts with "generate day N" — in chat, or in #football-channel (then
 `python3 -u discord_listen.py football` under Monitor, reply with `python3 discord_say.py football "..."`).
 Ask for, in one message:
 1. **The TikTok link** of the previous day's video.
-2. **Screenshots of the comments** (as many as they like; scrolled so like counts are visible).
+2. **The comments**, any of: pasted text (long pastes arrive as `message.txt`), a 15-30 s screen recording
+   scrolling the comments (listener saves 1 frame/sec to `inbox/<id>_frames/`), or screenshots. Only the top
+   comments are needed — TikTok lists the most-liked first.
 3. Optional: the exact like count if they already have it.
 
 **Likes (= $):** call the Boozeie `analyze_video` tool with the TikTok link (free; poll `get_analysis`) and read
 `video.like_count`. If that fails or looks wrong, use the number the user typed, or ask for it. Every like = $1.
 
-**Comments (read the screenshots with Read; images land in `possums-videos/inbox/`):**
+**Comments (read the .txt / frames / screenshots with Read; files land in `possums-videos/inbox/`):**
 - **Upgrade:** the most-liked comment that names a shop item still in `state.json` → `upgrade_prices`
   (gear/stands/field/goal posts/scoreboard/locker room and close wordings). Ties → the earlier comment.
   No upgrade comment at all → keep saving the money.

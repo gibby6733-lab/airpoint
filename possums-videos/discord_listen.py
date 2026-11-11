@@ -2,11 +2,11 @@
 
 usage: python3 discord_listen.py <sport>      (channel id from channels.json)
 Output lines:  MSG <message_id> <username>: <content> [images: saved paths]
-Image attachments are downloaded to inbox/ (gitignored) so a Claude session can read them.
+Image, .txt (long pastes) and video (screen recordings -> 1 fps frames) attachments are downloaded to inbox/ (gitignored) so a Claude session can read them.
 If content comes back empty, the bot lacks the Message Content intent (Developer Portal -> Bot ->
 Privileged Gateway Intents -> Message Content Intent) unless the message @mentions the bot.
 """
-import json, os, sys, time, urllib.request, urllib.error
+import json, os, subprocess, sys, time, urllib.request, urllib.error
 
 here = os.path.dirname(os.path.abspath(__file__))
 channel = json.load(open(os.path.join(here, "channels.json")))[sys.argv[1]]
@@ -31,7 +31,7 @@ while True:
             saved = []
             for i, a in enumerate(m.get("attachments", [])):
                 ext = os.path.splitext(a.get("filename", ""))[1].lower() or ".png"
-                if ext not in (".png", ".jpg", ".jpeg", ".webp", ".gif"):
+                if ext not in (".png", ".jpg", ".jpeg", ".webp", ".gif", ".txt", ".mp4", ".mov", ".webm", ".m4v"):
                     continue
                 os.makedirs(os.path.join(here, "inbox"), exist_ok=True)
                 dest = os.path.join(here, "inbox", f"{m['id']}_{i}{ext}")
@@ -39,10 +39,16 @@ while True:
                     with urllib.request.urlopen(urllib.request.Request(a["url"], headers={"User-Agent": HDR["User-Agent"]}), timeout=60) as r:
                         open(dest, "wb").write(r.read())
                     saved.append(dest)
+                    if ext in (".mp4", ".mov", ".webm", ".m4v"):  # screen recording -> 1 frame/sec for reading
+                        fdir = dest.rsplit(".", 1)[0] + "_frames"
+                        os.makedirs(fdir, exist_ok=True)
+                        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", dest, "-vf", "fps=1,scale=720:-2",
+                                        os.path.join(fdir, "f%03d.jpg")], timeout=180)
+                        saved.append(f"{fdir}/ ({len(os.listdir(fdir))} frames)")
                 except Exception as e:
                     saved.append(f"<download failed: {type(e).__name__}>")
             if saved:
-                content += " [images: " + ", ".join(saved) + "]"
+                content += " [files: " + ", ".join(saved) + "]"
             if not content and not m.get("attachments"):
                 content = "<empty: enable Message Content Intent or @mention the bot>"
             print(f"MSG {m['id']} {m['author']['username']}: {content}", flush=True)
