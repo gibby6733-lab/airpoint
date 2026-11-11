@@ -14,3 +14,6 @@ Captions: common iPhone emojis only (never text codes like [Red heart]); paste t
 Hashtags: #shorts #wouldyousurvive + 2 topic tags.
 Each video also gets `description.txt` for YouTube: hook, setting with real facts, the 3 choices, "what really
 happened" answers, the toll, comment + next-disaster call to action, hashtags. Paste it in chat with the title.
+
+Thumbnail for every video: `node survive/thumbnail.js survive/<topic> "<the topic>" <scene>` → 1080x1920 `thumbnail.png`
+(big WOULD YOU SURVIVE <TOPIC>? + "A or B?" badge over the topic's most dramatic scene). Send it with the title + description.
