@@ -15,6 +15,8 @@ from PIL import Image, ImageDraw, ImageFont
 here = os.path.dirname(os.path.abspath(__file__))
 SERIES = {
     "football": {"name": "MUDVILLE POSSUMS", "what": "the Mudville Possums video", "accent": (232, 180, 60), "accent2": (46, 125, 50), "emoji": "🏈"},
+    "yourmove": {"name": "YOUR MOVE STUDIO", "what": "a new 10-min Your Move video with Claude", "accent": (255, 225, 74), "accent2": (46, 125, 50), "emoji": "🎬",
+                 "time": "MAKE", "pill": "MAKE A NEW VIDEO EVERY DAY", "verb": "Make", "label": "NEW VIDEO"},
     "apocalypse": {"name": "ZOMBIE APOCALYPSE", "what": "today's zombie part", "accent": (220, 70, 60), "accent2": (124, 214, 124), "emoji": "🧟"},
 }
 POST_TIME, START = "11:45 AM", datetime.date(2026, 11, 11)   # tracking starts the day the calendar was made
@@ -68,7 +70,7 @@ def draw(key, today, done):
     month = today.strftime("%B %Y").upper()
     mw = d.textlength(month, font=font("Black", 64)); d.text((W - 80 - mw, 62), month, font=font("Black", 64), fill=(255, 255, 255))
     # post-time pill with a little clock
-    pill = f"POST EVERY DAY  {POST_TIME} ET"; pw = d.textlength(pill, font=font("Bold", 36))
+    pill = S.get("pill", f"POST EVERY DAY  {POST_TIME} ET"); pw = d.textlength(pill, font=font("Bold", 36))
     rr(d, (W - 160 - pw, 138, W - 70, 200), 30, fill=A)
     cx, cy = W - 130 - pw, 169; d.ellipse((cx - 20, cy - 20, cx + 20, cy + 20), outline=(20, 20, 26), width=5); d.line([(cx, cy), (cx, cy - 12)], fill=(20, 20, 26), width=4); d.line([(cx, cy), (cx + 10, cy + 4)], fill=(20, 20, 26), width=4)
     d.text((W - 95 - pw, 146), pill, font=font("Bold", 36), fill=(20, 20, 26))
@@ -95,8 +97,8 @@ def draw(key, today, done):
         if is_done:
             check(d, x1 - 62, y0 + 82, 36, (255, 255, 255), 14); d.text((x0 + 20, y1 - 46), "POSTED", font=font("Black", 26), fill=(255, 255, 255))
         elif active:
-            d.text((x0 + 20, y1 - 82), "VIDEO", font=font("Bold", 24), fill=(150, 156, 176) if day != today else A)
-            d.text((x0 + 20, y1 - 52), POST_TIME, font=font("Black", 30), fill=(230, 232, 240) if not past else (170, 120, 120))
+            d.text((x0 + 20, y1 - 82), "TODAY" if False else ("" if S.get("time") else "VIDEO"), font=font("Bold", 24), fill=(150, 156, 176) if day != today else A)
+            d.text((x0 + 20, y1 - 52), S.get("label", POST_TIME), font=font("Black", 30), fill=(230, 232, 240) if not past else (170, 120, 120))
             if day == today:
                 tw = d.textlength("TODAY", font=font("Black", 24)); rr(d, (x1 - tw - 44, y0 + 18, x1 - 16, y0 + 58), 18, fill=A); d.text((x1 - tw - 30, y0 + 22), "TODAY", font=font("Black", 24), fill=(20, 20, 26))
             elif past:
@@ -129,9 +131,8 @@ if __name__ == "__main__":
     if not dry and "--image-only" not in sys.argv:
         tag = f"({today.isoformat()})"
         if not any(tag in m.get("content", "") and m["author"].get("bot") for m in msgs):
-            txt = (f"📅 **{today.strftime('%A, %B')} {today.day}** {tag}\n"
-                   f"{S['emoji']} Post {S['what']} at **{POST_TIME}** ⏰\n"
-                   f"Tap ✅ when it's posted 👇")
+            line2 = (f"{S['emoji']} {S['verb']} {S['what']} 🎥" if S.get("verb") else f"{S['emoji']} Post {S['what']} at **{POST_TIME}** ⏰")
+            txt = f"📅 **{today.strftime('%A, %B')} {today.day}** {tag}\n{line2}\nTap ✅ when it's done 👇"
             m = call("POST", f"/channels/{ch}/messages", {"content": txt})
             call("PUT", f"/channels/{ch}/messages/{m['id']}/reactions/%E2%9C%85/@me")
             print("today's checklist:", m["id"]); msgs = messages(ch)
