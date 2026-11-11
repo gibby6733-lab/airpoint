@@ -29,6 +29,16 @@ if size >= 10 * 1024 * 1024:
     sys.exit(f"{video} is {size / 1048576:.1f} MB; run discord_copy.sh first (limit 10 MB)")
 
 fname = f"{sport}_{os.path.basename(os.path.normpath(ep))}.mp4"
+qc_line = None
+if sport == "football":  # quality check before anything goes out
+    import subprocess
+    qc = subprocess.run([sys.executable, os.path.join(here, "qc_check.py"), ep, "--json"], capture_output=True, text=True)
+    q = json.loads(qc.stdout); fails = [c for c in q["checks"] if not c["ok"]]
+    if fails and "--force" not in sys.argv:
+        sys.exit("QC FAILED - not posted (fix it, or add --force):\n" + "\n".join(f"  ❌ {c['check']} ({c['detail']})" for c in fails))
+    det = {c["check"]: c["detail"] for c in q["checks"]}
+    qc_line = (f"✅ QC passed: {det.get('length 60-70 s','')} • 9:16 • {det.get('loudness ~-14 LUFS','')} • hashtags ✓ • emojis ✓ • cover ✓"
+               if not fails else "⚠️ QC (forced): " + ", ".join(c["check"] for c in fails))
 payload = {"content": "" if title else caption, "attachments": [{"id": 0, "filename": fname}]}
 if dry:
     print(f"[dry run] would post {fname} ({size / 1048576:.1f} MB) to channel {channel}:\n{caption}")
@@ -50,6 +60,10 @@ try:
     with urllib.request.urlopen(req, timeout=120) as r:
         msg = json.load(r)
         print(f"posted to {sport} channel (message id {msg['id']})")
+    if qc_line:
+        rq = urllib.request.Request(f"https://discord.com/api/v10/channels/{channel}/messages", method="POST", data=json.dumps({"content": "-# " + qc_line}).encode(),
+            headers={"Content-Type": "application/json", "Authorization": "Bot proxy-injected", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"})
+        print("  + QC line", json.load(urllib.request.urlopen(rq, timeout=30))["id"])
     thumb = os.path.join(ep, "thumbnail.png")
     if os.path.exists(thumb):  # cover image as its own message (save it for the TikTok / Instagram / Shorts cover)
         tb = uuid.uuid4().hex

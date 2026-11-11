@@ -72,6 +72,10 @@ and the fan signings by position. Continue unless the user corrects it.
 - `node render.js episodes/day<new>` → verify 1080x1920, 9:16, duration.
 - `./discord_copy.sh episodes/day<new>/episode.mp4 episodes/day<new>/discord.mp4` (< 10 MB).
 
+- **Quality check:** `python3 qc_check.py episodes/day<new>` must print PASS (length 60-70 s, 1080x1920, 30 fps, ~-14 LUFS,
+  no clipping / dead air / black or frozen video, exact hashtags, real iPhone emojis, cover 1080x1920). Fix anything ❌
+  before delivering. post_discord.py runs it again and refuses to post a failing video (only `--force` overrides).
+
 ## 5. Deliver
 - `python3 post_discord.py football episodes/day<new>` (posts video + caption to #football-channel).
   If Discord returns 401, the bot token on the cloud environment needs replacing — tell the user; do not retry blindly.
