@@ -1,0 +1,1394 @@
+{
+"width": 1920,
+"height": 1080,
+"vertical": true,
+"day": 1,
+"duration": 43.211,
+"series": "Zombie story",
+"episode": 1,
+"title": "Day 1",
+"beats": [
+{
+"loc": "station_ext",
+"tod": "night",
+"wx": "rain",
+"cast": [
+"cole:.5:idle"
+],
+"z": {
+"n": 6,
+"x0": 1.05,
+"x1": 0.8,
+"depth": "far"
+},
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [
+"lightning"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.45,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "Day one. Everyone I know is gone. It's just me now.",
+"start": 1.45,
+"end": 4.508,
+"words": [
+{
+"w": "Day",
+"s": 1.45
+},
+{
+"w": "one.",
+"s": 1.675
+},
+{
+"w": "Everyone",
+"s": 2.035
+},
+{
+"w": "I",
+"s": 2.484
+},
+{
+"w": "know",
+"s": 2.619
+},
+{
+"w": "is",
+"s": 2.889
+},
+{
+"w": "gone.",
+"s": 3.069
+},
+{
+"w": "It's",
+"s": 3.474
+},
+{
+"w": "just",
+"s": 3.698
+},
+{
+"w": "me",
+"s": 3.968
+},
+{
+"w": "now.",
+"s": 4.148
+}
+],
+"sfx": [
+[
+"thunder",
+0.1
+]
+]
+},
+{
+"loc": "station_ext",
+"tod": "day",
+"wx": null,
+"cast": [
+"cole:.5:idle"
+],
+"z": null,
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.25,
+"focus": 0.45,
+"sp": "cole",
+"name": "COLE",
+"text": "Forty one days ago, the dead started walking. I've been hiding in this old gas station ever since.",
+"start": 4.808,
+"end": 10.456,
+"words": [
+{
+"w": "Forty",
+"s": 4.808
+},
+{
+"w": "one",
+"s": 5.132
+},
+{
+"w": "days",
+"s": 5.363
+},
+{
+"w": "ago,",
+"s": 5.641
+},
+{
+"w": "the",
+"s": 6.011
+},
+{
+"w": "dead",
+"s": 6.243
+},
+{
+"w": "started",
+"s": 6.521
+},
+{
+"w": "walking.",
+"s": 6.937
+},
+{
+"w": "I've",
+"s": 7.493
+},
+{
+"w": "been",
+"s": 7.724
+},
+{
+"w": "hiding",
+"s": 8.002
+},
+{
+"w": "in",
+"s": 8.372
+},
+{
+"w": "this",
+"s": 8.558
+},
+{
+"w": "old",
+"s": 8.835
+},
+{
+"w": "gas",
+"s": 9.067
+},
+{
+"w": "station",
+"s": 9.298
+},
+{
+"w": "ever",
+"s": 9.715
+},
+{
+"w": "since.",
+"s": 9.993
+}
+],
+"sfx": []
+},
+{
+"loc": "station_int",
+"tod": "day",
+"wx": null,
+"cast": [
+"cole:.5:idle"
+],
+"z": null,
+"props": [
+"shelves",
+"radio",
+"cooler"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "This morning, I opened my last can of beans.",
+"start": 10.756,
+"end": 13.556,
+"words": [
+{
+"w": "This",
+"s": 10.756
+},
+{
+"w": "morning,",
+"s": 11.045
+},
+{
+"w": "I",
+"s": 11.625
+},
+{
+"w": "opened",
+"s": 11.77
+},
+{
+"w": "my",
+"s": 12.156
+},
+{
+"w": "last",
+"s": 12.349
+},
+{
+"w": "can",
+"s": 12.639
+},
+{
+"w": "of",
+"s": 12.88
+},
+{
+"w": "beans.",
+"s": 13.073
+}
+],
+"sfx": []
+},
+{
+"loc": "road",
+"tod": "day",
+"wx": null,
+"cast": [
+"cole:.5:run"
+],
+"z": null,
+"props": [
+"cars"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "So I had no choice. I walked into town.",
+"start": 13.856,
+"end": 16.494,
+"words": [
+{
+"w": "So",
+"s": 13.856
+},
+{
+"w": "I",
+"s": 14.055
+},
+{
+"w": "had",
+"s": 14.205
+},
+{
+"w": "no",
+"s": 14.454
+},
+{
+"w": "choice.",
+"s": 14.653
+},
+{
+"w": "I",
+"s": 15.2
+},
+{
+"w": "walked",
+"s": 15.35
+},
+{
+"w": "into",
+"s": 15.748
+},
+{
+"w": "town.",
+"s": 16.046
+}
+],
+"sfx": [
+[
+"steps",
+0.1
+]
+]
+},
+{
+"loc": "town",
+"tod": "day",
+"wx": "fog",
+"cast": [
+"cole:.45:idle"
+],
+"z": null,
+"props": [
+"cars"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.45,
+"focus": 0.45,
+"sp": "cole",
+"name": "COLE",
+"text": "Bellwood was quiet. Too quiet.",
+"start": 16.794,
+"end": 18.977,
+"words": [
+{
+"w": "Bellwood",
+"s": 16.794
+},
+{
+"w": "was",
+"s": 17.34
+},
+{
+"w": "quiet.",
+"s": 17.613
+},
+{
+"w": "Too",
+"s": 18.159
+},
+{
+"w": "quiet.",
+"s": 18.431
+}
+],
+"sfx": []
+},
+{
+"loc": "town",
+"tod": "day",
+"wx": "fog",
+"cast": [
+"cole:.42:scared"
+],
+"z": {
+"n": 1,
+"x0": 0.62,
+"x1": 0.58,
+"depth": "mid"
+},
+"props": [
+"cars"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.65,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "Then I heard something moving inside the pharmacy.",
+"start": 19.277,
+"end": 22.1,
+"words": [
+{
+"w": "Then",
+"s": 19.277
+},
+{
+"w": "I",
+"s": 19.555
+},
+{
+"w": "heard",
+"s": 19.694
+},
+{
+"w": "something",
+"s": 20.017
+},
+{
+"w": "moving",
+"s": 20.526
+},
+{
+"w": "inside",
+"s": 20.897
+},
+{
+"w": "the",
+"s": 21.267
+},
+{
+"w": "pharmacy.",
+"s": 21.498
+}
+],
+"sfx": [
+[
+"groan",
+0.5
+]
+]
+},
+{
+"loc": "road",
+"tod": "dusk",
+"wx": null,
+"cast": [
+"cole:.52:run"
+],
+"z": {
+"n": 8,
+"x0": 0.15,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [
+"cars"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.85,
+"focus": 0.45,
+"sp": "cole",
+"name": "COLE",
+"text": "I ran. And they followed me. All the way home.",
+"start": 22.4,
+"end": 25.141,
+"words": [
+{
+"w": "I",
+"s": 22.4
+},
+{
+"w": "ran.",
+"s": 22.53
+},
+{
+"w": "And",
+"s": 22.878
+},
+{
+"w": "they",
+"s": 23.096
+},
+{
+"w": "followed",
+"s": 23.357
+},
+{
+"w": "me.",
+"s": 23.792
+},
+{
+"w": "All",
+"s": 24.097
+},
+{
+"w": "the",
+"s": 24.314
+},
+{
+"w": "way",
+"s": 24.532
+},
+{
+"w": "home.",
+"s": 24.75
+}
+],
+"sfx": [
+[
+"steps",
+0
+],
+[
+"groan",
+0.5
+]
+]
+},
+{
+"loc": "station_ext",
+"tod": "night",
+"wx": null,
+"cast": [
+"cole:.4:scared"
+],
+"z": {
+"n": 12,
+"x0": 0.9,
+"x1": 0.62,
+"depth": "mid"
+},
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.9,
+"focus": 0.5,
+"sp": "cole",
+"name": "COLE",
+"text": "Now there's a crowd of them outside my door. And they're not leaving.",
+"start": 25.441,
+"end": 29.349,
+"words": [
+{
+"w": "Now",
+"s": 25.441
+},
+{
+"w": "there's",
+"s": 25.671
+},
+{
+"w": "a",
+"s": 26.039
+},
+{
+"w": "crowd",
+"s": 26.177
+},
+{
+"w": "of",
+"s": 26.499
+},
+{
+"w": "them",
+"s": 26.683
+},
+{
+"w": "outside",
+"s": 26.959
+},
+{
+"w": "my",
+"s": 27.372
+},
+{
+"w": "door.",
+"s": 27.556
+},
+{
+"w": "And",
+"s": 27.97
+},
+{
+"w": "they're",
+"s": 28.2
+},
+{
+"w": "not",
+"s": 28.568
+},
+{
+"w": "leaving.",
+"s": 28.798
+}
+],
+"sfx": [
+[
+"groan",
+0.3
+],
+[
+"bang",
+0.7
+]
+]
+},
+{
+"loc": "station_ext",
+"tod": "night",
+"wx": null,
+"cast": [
+"cole:.4:scared"
+],
+"z": {
+"n": 12,
+"x0": 0.9,
+"x1": 0.62,
+"depth": "mid"
+},
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": "wyr",
+"act": "",
+"intensity": 0.7,
+"focus": 0.5,
+"opt1": "Sneak out the back and run for the woods",
+"opt2": "Barricade the door and wait it out",
+"sp": "cole",
+"name": "COLE",
+"text": "So, would you rather sneak out the back and run for the woods? Or barricade the door and wait it out?",
+"start": 29.649,
+"end": 34.811,
+"words": [
+{
+"w": "So,",
+"s": 29.649
+},
+{
+"w": "would",
+"s": 29.929
+},
+{
+"w": "you",
+"s": 30.209
+},
+{
+"w": "rather",
+"s": 30.41
+},
+{
+"w": "sneak",
+"s": 30.73
+},
+{
+"w": "out",
+"s": 31.01
+},
+{
+"w": "the",
+"s": 31.21
+},
+{
+"w": "back",
+"s": 31.41
+},
+{
+"w": "and",
+"s": 31.65
+},
+{
+"w": "run",
+"s": 31.85
+},
+{
+"w": "for",
+"s": 32.05
+},
+{
+"w": "the",
+"s": 32.25
+},
+{
+"w": "woods?",
+"s": 32.45
+},
+{
+"w": "Or",
+"s": 32.851
+},
+{
+"w": "barricade",
+"s": 33.011
+},
+{
+"w": "the",
+"s": 33.451
+},
+{
+"w": "door",
+"s": 33.651
+},
+{
+"w": "and",
+"s": 33.891
+},
+{
+"w": "wait",
+"s": 34.091
+},
+{
+"w": "it",
+"s": 34.331
+},
+{
+"w": "out?",
+"s": 34.491
+}
+],
+"sfx": [
+[
+"sting",
+0.05
+]
+]
+},
+{
+"loc": "station_ext",
+"tod": "night",
+"wx": null,
+"cast": [
+"cole:.4:scared"
+],
+"z": {
+"n": 12,
+"x0": 0.9,
+"x1": 0.62,
+"depth": "mid"
+},
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": "wyr",
+"act": "",
+"intensity": 0.7,
+"focus": 0.5,
+"opt1": "Sneak out the back and run for the woods",
+"opt2": "Barricade the door and wait it out",
+"countdown": true,
+"sp": "",
+"text": "",
+"start": 35.011,
+"end": 37.611,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "station_ext",
+"tod": "night",
+"wx": null,
+"cast": [
+"cole:.4:scared"
+],
+"z": {
+"n": 12,
+"x0": 0.9,
+"x1": 0.62,
+"depth": "mid"
+},
+"props": [
+"sign",
+"pumps",
+"lantern"
+],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": "wyr",
+"act": "",
+"intensity": 0.4,
+"focus": 0.5,
+"opt1": "Sneak out the back and run for the woods",
+"opt2": "Barricade the door and wait it out",
+"vote": true,
+"sp": "cole",
+"name": "COLE",
+"text": "Vote in the poll. Tomorrow, you'll see what happens.",
+"start": 38.261,
+"end": 41.211,
+"words": [
+{
+"w": "Vote",
+"s": 38.261
+},
+{
+"w": "in",
+"s": 38.525
+},
+{
+"w": "the",
+"s": 38.702
+},
+{
+"w": "poll.",
+"s": 38.922
+},
+{
+"w": "Tomorrow,",
+"s": 39.318
+},
+{
+"w": "you'll",
+"s": 39.89
+},
+{
+"w": "see",
+"s": 40.199
+},
+{
+"w": "what",
+"s": 40.419
+},
+{
+"w": "happens.",
+"s": 40.683
+}
+],
+"sfx": []
+}
+],
+"lines": [
+{
+"start": 1.45,
+"end": 4.508,
+"words": [
+{
+"w": "Day",
+"s": 1.45
+},
+{
+"w": "one.",
+"s": 1.675
+},
+{
+"w": "Everyone",
+"s": 2.035
+},
+{
+"w": "I",
+"s": 2.484
+},
+{
+"w": "know",
+"s": 2.619
+},
+{
+"w": "is",
+"s": 2.889
+},
+{
+"w": "gone.",
+"s": 3.069
+},
+{
+"w": "It's",
+"s": 3.474
+},
+{
+"w": "just",
+"s": 3.698
+},
+{
+"w": "me",
+"s": 3.968
+},
+{
+"w": "now.",
+"s": 4.148
+}
+]
+},
+{
+"start": 4.808,
+"end": 10.456,
+"words": [
+{
+"w": "Forty",
+"s": 4.808
+},
+{
+"w": "one",
+"s": 5.132
+},
+{
+"w": "days",
+"s": 5.363
+},
+{
+"w": "ago,",
+"s": 5.641
+},
+{
+"w": "the",
+"s": 6.011
+},
+{
+"w": "dead",
+"s": 6.243
+},
+{
+"w": "started",
+"s": 6.521
+},
+{
+"w": "walking.",
+"s": 6.937
+},
+{
+"w": "I've",
+"s": 7.493
+},
+{
+"w": "been",
+"s": 7.724
+},
+{
+"w": "hiding",
+"s": 8.002
+},
+{
+"w": "in",
+"s": 8.372
+},
+{
+"w": "this",
+"s": 8.558
+},
+{
+"w": "old",
+"s": 8.835
+},
+{
+"w": "gas",
+"s": 9.067
+},
+{
+"w": "station",
+"s": 9.298
+},
+{
+"w": "ever",
+"s": 9.715
+},
+{
+"w": "since.",
+"s": 9.993
+}
+]
+},
+{
+"start": 10.756,
+"end": 13.556,
+"words": [
+{
+"w": "This",
+"s": 10.756
+},
+{
+"w": "morning,",
+"s": 11.045
+},
+{
+"w": "I",
+"s": 11.625
+},
+{
+"w": "opened",
+"s": 11.77
+},
+{
+"w": "my",
+"s": 12.156
+},
+{
+"w": "last",
+"s": 12.349
+},
+{
+"w": "can",
+"s": 12.639
+},
+{
+"w": "of",
+"s": 12.88
+},
+{
+"w": "beans.",
+"s": 13.073
+}
+]
+},
+{
+"start": 13.856,
+"end": 16.494,
+"words": [
+{
+"w": "So",
+"s": 13.856
+},
+{
+"w": "I",
+"s": 14.055
+},
+{
+"w": "had",
+"s": 14.205
+},
+{
+"w": "no",
+"s": 14.454
+},
+{
+"w": "choice.",
+"s": 14.653
+},
+{
+"w": "I",
+"s": 15.2
+},
+{
+"w": "walked",
+"s": 15.35
+},
+{
+"w": "into",
+"s": 15.748
+},
+{
+"w": "town.",
+"s": 16.046
+}
+]
+},
+{
+"start": 16.794,
+"end": 18.977,
+"words": [
+{
+"w": "Bellwood",
+"s": 16.794
+},
+{
+"w": "was",
+"s": 17.34
+},
+{
+"w": "quiet.",
+"s": 17.613
+},
+{
+"w": "Too",
+"s": 18.159
+},
+{
+"w": "quiet.",
+"s": 18.431
+}
+]
+},
+{
+"start": 19.277,
+"end": 22.1,
+"words": [
+{
+"w": "Then",
+"s": 19.277
+},
+{
+"w": "I",
+"s": 19.555
+},
+{
+"w": "heard",
+"s": 19.694
+},
+{
+"w": "something",
+"s": 20.017
+},
+{
+"w": "moving",
+"s": 20.526
+},
+{
+"w": "inside",
+"s": 20.897
+},
+{
+"w": "the",
+"s": 21.267
+},
+{
+"w": "pharmacy.",
+"s": 21.498
+}
+]
+},
+{
+"start": 22.4,
+"end": 25.141,
+"words": [
+{
+"w": "I",
+"s": 22.4
+},
+{
+"w": "ran.",
+"s": 22.53
+},
+{
+"w": "And",
+"s": 22.878
+},
+{
+"w": "they",
+"s": 23.096
+},
+{
+"w": "followed",
+"s": 23.357
+},
+{
+"w": "me.",
+"s": 23.792
+},
+{
+"w": "All",
+"s": 24.097
+},
+{
+"w": "the",
+"s": 24.314
+},
+{
+"w": "way",
+"s": 24.532
+},
+{
+"w": "home.",
+"s": 24.75
+}
+]
+},
+{
+"start": 25.441,
+"end": 29.349,
+"words": [
+{
+"w": "Now",
+"s": 25.441
+},
+{
+"w": "there's",
+"s": 25.671
+},
+{
+"w": "a",
+"s": 26.039
+},
+{
+"w": "crowd",
+"s": 26.177
+},
+{
+"w": "of",
+"s": 26.499
+},
+{
+"w": "them",
+"s": 26.683
+},
+{
+"w": "outside",
+"s": 26.959
+},
+{
+"w": "my",
+"s": 27.372
+},
+{
+"w": "door.",
+"s": 27.556
+},
+{
+"w": "And",
+"s": 27.97
+},
+{
+"w": "they're",
+"s": 28.2
+},
+{
+"w": "not",
+"s": 28.568
+},
+{
+"w": "leaving.",
+"s": 28.798
+}
+]
+},
+{
+"start": 29.649,
+"end": 34.811,
+"words": [
+{
+"w": "So,",
+"s": 29.649
+},
+{
+"w": "would",
+"s": 29.929
+},
+{
+"w": "you",
+"s": 30.209
+},
+{
+"w": "rather",
+"s": 30.41
+},
+{
+"w": "sneak",
+"s": 30.73
+},
+{
+"w": "out",
+"s": 31.01
+},
+{
+"w": "the",
+"s": 31.21
+},
+{
+"w": "back",
+"s": 31.41
+},
+{
+"w": "and",
+"s": 31.65
+},
+{
+"w": "run",
+"s": 31.85
+},
+{
+"w": "for",
+"s": 32.05
+},
+{
+"w": "the",
+"s": 32.25
+},
+{
+"w": "woods?",
+"s": 32.45
+},
+{
+"w": "Or",
+"s": 32.851
+},
+{
+"w": "barricade",
+"s": 33.011
+},
+{
+"w": "the",
+"s": 33.451
+},
+{
+"w": "door",
+"s": 33.651
+},
+{
+"w": "and",
+"s": 33.891
+},
+{
+"w": "wait",
+"s": 34.091
+},
+{
+"w": "it",
+"s": 34.331
+},
+{
+"w": "out?",
+"s": 34.491
+}
+]
+},
+{
+"start": 38.261,
+"end": 41.211,
+"words": [
+{
+"w": "Vote",
+"s": 38.261
+},
+{
+"w": "in",
+"s": 38.525
+},
+{
+"w": "the",
+"s": 38.702
+},
+{
+"w": "poll.",
+"s": 38.922
+},
+{
+"w": "Tomorrow,",
+"s": 39.318
+},
+{
+"w": "you'll",
+"s": 39.89
+},
+{
+"w": "see",
+"s": 40.199
+},
+{
+"w": "what",
+"s": 40.419
+},
+{
+"w": "happens.",
+"s": 40.683
+}
+]
+}
+]
+}

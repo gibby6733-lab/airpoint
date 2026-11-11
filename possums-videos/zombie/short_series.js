@@ -23,7 +23,7 @@ const fs = require('fs'), path = require('path');
       let i = 0; for (let j = 0; j < tl.beats.length; j++) if (t >= tl.beats[j].start - .2) i = j; const B = tl.beats[i], k = (t - B.start) / Math.max(.3, B.end - B.start);
       // top HUD
       box(36, 60, 230, 96, 26, '#c0392b', '#000'); T('DAY ' + day, 151, 109, 56, '#fff', 8);
-      box(610, 60, 434, 96, 26, 'rgba(14,16,20,.88)', '#e8c46a'); T('SUPPLIES', 760, 109, 34, '#e8c46a'); T(String(supplies), 960, 109, 56, supplies > 0 ? '#7cd67c' : '#ff6b6b');
+      if (!st.hide_supplies) { box(610, 60, 434, 96, 26, 'rgba(14,16,20,.88)', '#e8c46a'); T('SUPPLIES', 760, 109, 34, '#e8c46a'); T(String(supplies), 960, 109, 56, supplies > 0 ? '#7cd67c' : '#ff6b6b'); }
       // name banner
       if (B.card && B.card.kind === 'name') { const e = ease(k * 3); o.save(); o.translate(0, (1 - e) * 60); o.globalAlpha = e; box(160, 1300, 760, 140, 20, 'rgba(10,12,16,.9)', '#c0392b'); T(B.card.title, 540, 1350, 66, '#e8c46a'); T(B.card.sub, 540, 1408, 36, '#eee', 0, '700 36px Inter'); o.restore(); }
       // hud cards
@@ -35,6 +35,17 @@ const fs = require('fs'), path = require('path');
           shop.forEach(([n, p], q) => { const y = 480 + q * 140, nx = at.slice(q + 1).find(a => a < 9), on = at[q] < 9 && k >= at[q] - .02 && (nx === undefined || k < nx - .02);
             box(130, y - 54, 820, 108, 22, on ? '#e8c46a' : 'rgba(255,255,255,.08)'); o.textAlign = 'left'; o.textBaseline = 'middle';
             o.font = '900 54px Inter'; o.fillStyle = on ? '#111' : '#fff'; o.fillText(n, 160, y); o.textAlign = 'right'; o.font = '800 44px Inter'; o.fillStyle = on ? '#1b5e20' : '#7cd67c'; o.fillText(p + ' supplies', 920, y); o.textAlign = 'center'; }); }
+        if (B.hud === 'wyr') { o.fillStyle = 'rgba(5,6,10,.55)'; o.fillRect(0, 0, 1080, 1920);
+          T('WOULD YOU RATHER...', 540, 300, 74, '#ffe14a', 12);
+          const wrapT = (str, cx, cy, size, maxW) => { o.font = `900 ${size}px Inter`; const ws = str.split(' '), ls = ['']; for (const w of ws) { const t2 = (ls[ls.length - 1] + ' ' + w).trim(); if (o.measureText(t2).width > maxW && ls[ls.length - 1]) ls.push(w); else ls[ls.length - 1] = t2; }
+            ls.forEach((l, q) => T(l, cx, cy - (ls.length - 1) * size * .56 + q * size * 1.12, size, '#fff', 10)); };
+          const e1 = ease(k * 4), e2 = ease(k * 4 - .6);
+          o.save(); o.globalAlpha = e1; box(90, 400, 900, 300, 34, '#c0392b', '#fff'); wrapT(B.opt1, 540, 550, 62, 800); o.restore();
+          o.save(); o.globalAlpha = e2; o.fillStyle = '#111'; o.beginPath(); o.arc(540, 775, 66, 0, 7); o.fill(); o.strokeStyle = '#ffe14a'; o.lineWidth = 6; o.stroke(); T('OR', 540, 777, 52, '#ffe14a');
+          box(90, 850, 900, 300, 34, '#1f6f8b', '#fff'); wrapT(B.opt2, 540, 1000, 62, 800); o.restore();
+          if (B.countdown) { const left = 3 - Math.floor(k * 3); o.save(); o.translate(540, 1300); o.strokeStyle = 'rgba(255,255,255,.2)'; o.lineWidth = 16; o.beginPath(); o.arc(0, 0, 90, 0, 7); o.stroke();
+            o.strokeStyle = '#ffe14a'; o.beginPath(); o.arc(0, 0, 90, -Math.PI / 2, -Math.PI / 2 + (1 - k) * 6.283); o.stroke(); T(String(Math.max(1, left)), 0, 0, 110, '#fff'); o.restore(); }
+          if (B.vote) T('VOTE IN THE POLL ▼', 540, 1300, 70, '#7cd67c', 12); }
         if (B.hud === 'join') { box(100, 420, 880, 330, 34, 'rgba(14,16,20,.9)', '#e8c46a'); T('JOIN THE SURVIVORS', 540, 510, 66, '#e8c46a', 8); T('Comment your NAME', 540, 610, 60, '#fff', 8); T('+ your SKILL', 540, 690, 60, '#7cd67c', 8); }
         o.restore(); }
       // captions

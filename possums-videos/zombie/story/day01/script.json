@@ -1,0 +1,227 @@
+{
+ "series": "Zombie story",
+ "episode": 1,
+ "day": 1,
+ "title": "Day 1",
+ "vertical": true,
+ "mix": {
+  "music": 0.08,
+  "ambience": 0.045
+ },
+ "beats": [
+  {
+   "sp": "cole",
+   "text": "Day one. Everyone I know is gone. It's just me now.",
+   "loc": "station_ext",
+   "tod": "night",
+   "wx": "rain",
+   "cast": [
+    "cole:.5:idle"
+   ],
+   "z": {
+    "n": 6,
+    "x0": 1.05,
+    "x1": 0.8,
+    "depth": "far"
+   },
+   "props": [
+    "sign",
+    "pumps",
+    "lantern"
+   ],
+   "fx": [
+    "lightning"
+   ],
+   "focus": 0.5,
+   "intensity": 0.45,
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Forty one days ago, the dead started walking. I've been hiding in this old gas station ever since.",
+   "tod": "day",
+   "wx": null,
+   "z": null,
+   "fx": [],
+   "focus": 0.45,
+   "intensity": 0.25
+  },
+  {
+   "sp": "cole",
+   "text": "This morning, I opened my last can of beans.",
+   "loc": "station_int",
+   "props": [
+    "shelves",
+    "radio",
+    "cooler"
+   ],
+   "cast": [
+    "cole:.5:idle"
+   ],
+   "focus": 0.5,
+   "intensity": 0.3
+  },
+  {
+   "sp": "cole",
+   "text": "So I had no choice. I walked into town.",
+   "loc": "road",
+   "tod": "day",
+   "props": [
+    "cars"
+   ],
+   "cast": [
+    "cole:.5:run"
+   ],
+   "focus": 0.5,
+   "sfx": [
+    [
+     "steps",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Bellwood was quiet. Too quiet.",
+   "loc": "town",
+   "wx": "fog",
+   "cast": [
+    "cole:.45:idle"
+   ],
+   "focus": 0.45,
+   "intensity": 0.45
+  },
+  {
+   "sp": "cole",
+   "text": "Then I heard something moving inside the pharmacy.",
+   "cast": [
+    "cole:.42:scared"
+   ],
+   "z": {
+    "n": 1,
+    "x0": 0.62,
+    "x1": 0.58,
+    "depth": "mid"
+   },
+   "focus": 0.5,
+   "intensity": 0.65,
+   "sfx": [
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "I ran. And they followed me. All the way home.",
+   "loc": "road",
+   "tod": "dusk",
+   "wx": null,
+   "cast": [
+    "cole:.52:run"
+   ],
+   "z": {
+    "n": 8,
+    "x0": 0.15,
+    "x1": 0.3,
+    "depth": "mid"
+   },
+   "focus": 0.45,
+   "intensity": 0.85,
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Now there's a crowd of them outside my door. And they're not leaving.",
+   "loc": "station_ext",
+   "tod": "night",
+   "cast": [
+    "cole:.4:scared"
+   ],
+   "z": {
+    "n": 12,
+    "x0": 0.9,
+    "x1": 0.62,
+    "depth": "mid"
+   },
+   "props": [
+    "sign",
+    "pumps",
+    "lantern"
+   ],
+   "focus": 0.5,
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ],
+    [
+     "bang",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "So, would you rather sneak out the back and run for the woods? Or barricade the door and wait it out?",
+   "hud": "wyr",
+   "opt1": "Sneak out the back and run for the woods",
+   "opt2": "Barricade the door and wait it out",
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "hud": "wyr",
+   "opt1": "Sneak out the back and run for the woods",
+   "opt2": "Barricade the door and wait it out",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Vote in the poll. Tomorrow, you'll see what happens.",
+   "hud": "wyr",
+   "opt1": "Sneak out the back and run for the woods",
+   "opt2": "Barricade the door and wait it out",
+   "vote": true,
+   "intensity": 0.4
+  }
+ ]
+}
