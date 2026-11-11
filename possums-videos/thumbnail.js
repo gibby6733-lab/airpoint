@@ -1,4 +1,4 @@
-// usage: node thumbnail.js <episode_dir> <day> -> <episode_dir>/thumbnail.png (1080x1920 cover for TikTok/Reels/Shorts)
+// usage: node thumbnail.js <episode_dir> <day> ["pill text"] -> <episode_dir>/thumbnail.png (1080x1920 cover for TikTok/Reels/Shorts)
 // All text stays inside the centre 3:4 area (y 240-1680) that TikTok/Instagram profile grids show.
 const { chromium } = require('playwright'); const path = require('path'); const fs = require('fs');
 (async () => {
@@ -6,6 +6,7 @@ const { chromium } = require('playwright'); const path = require('path'); const 
   const tl = JSON.parse(fs.readFileSync(path.join(dir, 'timeline.json')));
   const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   await pg.goto('file://' + path.join(dir, 'episode.html'));
+  await pg.evaluate(p => { window.PILL = p; }, process.argv[4] || null);
   await pg.evaluate(async ({ tl, day }) => {
     await document.fonts.load('900 100px Inter'); setTimeline(tl);
     ctx.setTransform(1, 0, 0, 1, 0, 0); drawStadium(2.0, { excite: .6 });
@@ -16,7 +17,7 @@ const { chromium } = require('playwright'); const path = require('path'); const 
       big('DAY 1', 400, 180, '#ffd43b');
       withT(540, 590, 1, .03, () => { ctx.fillStyle = '#ff4a4a'; rr(-470, -80, 940, 160, 26); ctx.fill(); ctx.strokeStyle = '#1b1b2f'; ctx.lineWidth = 10; ctx.stroke(); txt('WORST TEAM', 0, 4, 110, '#fff', { stroke: 12 }); });
       big('IN AMERICA', 750, 104, '#fff');
-      withT(540, 1560, 1, -.03, () => { ctx.fillStyle = '#1f9d55'; rr(-360, -70, 720, 140, 30); ctx.fill(); ctx.strokeStyle = '#1b1b2f'; ctx.lineWidth = 8; ctx.stroke(); txt('$0 · 1 HELMET', 0, 4, 76, '#fff', { stroke: 8 }); });
+      withT(540, 1560, 1, -.03, () => { ctx.fillStyle = '#1f9d55'; rr(-360, -70, 720, 140, 30); ctx.fill(); ctx.strokeStyle = '#1b1b2f'; ctx.lineWidth = 8; ctx.stroke(); txt(window.PILL || '$0 · 1 HELMET', 0, 4, 76, '#fff', { stroke: 8 }); });
     } else {
       const xs = [190, 420, 660, 900], who = [{ num: 1, skin: '#ffdbac' }, { num: 3, mustache: true, skin: '#f1c27d' }, { num: 12, skin: '#8d5524' }, { wide: 1.6, num: 55, skin: '#c68642', helmetSmall: true, face: 'sad' }];
       xs.forEach((x, i) => drawPlayer(x, 1430, i === 3 ? 1.05 : .88, { helmet: true, ...who[i] }));

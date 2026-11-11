@@ -1,7 +1,7 @@
 {
   "football": "1569863269844517016",
   "soccer": "PASTE_SOCCER_CHANNEL_ID",
-  "baseball": "PASTE_BASEBALL_CHANNEL_ID",
+  "baseball": "1570215187196153966",
   "mafia": "1569875224047124613",
   "apocalypse": "1570071237860786218",
   "welcome": "1570076963459039364",
@@ -12,5 +12,7 @@
   "apocalypse_calendar": "1570118080581869638",
   "replies": "1570118986635673610",
   "yourmove_reminder": "1570204948237517032",
-  "yourmove_calendar": "1570204949273645216"
+  "yourmove_calendar": "1570204949273645216",
+  "baseball_calendar": "1570215192334311484",
+  "baseball_replies": "1570215193701519431"
 }

@@ -4,9 +4,10 @@ usage: python3 comment_inbox.py
 Prints NOTHING_NEW if there's nothing to do. Otherwise prints each pending message's text, and saves attachments
 (screenshots, .txt pastes, screen recordings -> 1 frame/sec) to inbox/ and prints their paths.
 """
-import json, os, subprocess, urllib.request
+import json, os, sys, subprocess, urllib.request
 here = os.path.dirname(os.path.abspath(__file__))
-ch = json.load(open(os.path.join(here, "channels.json")))["replies"]
+KEY = sys.argv[1] if len(sys.argv) > 1 else "replies"  # replies (Possums) or baseball_replies (Raccoons)
+ch = json.load(open(os.path.join(here, "channels.json")))[KEY]
 HDR = {"Authorization": "Bot proxy-injected", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"}
 msgs = json.load(urllib.request.urlopen(urllib.request.Request(f"https://discord.com/api/v10/channels/{ch}/messages?limit=50", headers=HDR), timeout=30))
 msgs.sort(key=lambda m: int(m["id"]))

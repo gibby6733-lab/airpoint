@@ -7,7 +7,8 @@ For each comment: a small grey label message (#n • @user: comment), then the r
 """
 import json, os, sys, time, urllib.request, urllib.error
 here = os.path.dirname(os.path.abspath(__file__))
-ch = json.load(open(os.path.join(here, "channels.json")))["replies"]
+KEY = sys.argv[2] if len(sys.argv) > 2 else "replies"  # replies (Possums) or baseball_replies (Raccoons)
+ch = json.load(open(os.path.join(here, "channels.json")))[KEY]
 GUILD = "1569811326786605097"
 H = {"Authorization": "Bot proxy-injected", "Content-Type": "application/json", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"}
 def post(body):
