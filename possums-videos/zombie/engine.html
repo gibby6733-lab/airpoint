@@ -268,8 +268,17 @@ function sceneDraw(b, k, t) {
   if (b.z && b.z.depth === 'near') zombies(b.z, k, t, ground);
   fxPass(b, k, t);
 }
+// SHORTS mode: render at 2x and skip landscape-only overlays (HUD, name cards, subtitles); shorts.js adds its own
+window.RS = 1; window.SHORTS = false;
+window.setRenderScale = r => { RS = r; cv.width = W * r; cv.height = H * r; };
+window.focusAt = function (t) {  // where the action is (0..1 across the frame), for vertical crops
+  let i = 0; for (let j = 0; j < TL.beats.length; j++) if (t >= TL.beats[j].start - .2) i = j; const b = TL.beats[i];
+  if (b.cam > 1.05) return b.camx;
+  const xs = (b.cast || []).map(s => parseFloat(s.split(':')[1])); if (b.z && b.z.depth === 'near') xs.push(lerp(b.z.x0, b.z.x1, .5));
+  return xs.length ? xs.reduce((a, c) => a + c, 0) / xs.length : .5;
+};
 window.renderFrame = function (t) {
-  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+  ctx.setTransform(RS, 0, 0, RS, 0, 0); ctx.globalAlpha = 1;
   let i = 0; for (let j = 0; j < TL.beats.length; j++) if (t >= TL.beats[j].start - .2) i = j;
   const b = TL.beats[i], pb = TL.beats[i - 1] || b, nb = TL.beats[i + 1];
   const k = clamp((t - b.start) / Math.max(.3, b.end - b.start));
@@ -280,12 +289,12 @@ window.renderFrame = function (t) {
   const sh = (b.fx || []).includes('shake') ? Math.sin(t * 50) * 10 * (1 - k * .6) : 0;
   ctx.translate(camx * W + sh, H * .55); ctx.scale(cam, cam); ctx.translate(-camx * W, -H * .55);
   sceneDraw(b, k, t); ctx.restore();
-  grade(b, t); hudBar(b); hudCard(b, k);
+  grade(b, t); if (!SHORTS) { hudBar(b); hudCard(b, k); }
   // dip to black when the location changes
   const cut = !same && i > 0 ? clamp(1 - (t - (b.start - .2)) / .35) : 0; const out = nb && nb.loc !== b.loc && !nb.card ? clamp((t - (nb.start - .45)) / .25) : 0;
   if (Math.max(cut, out) > 0) { ctx.fillStyle = `rgba(0,0,0,${Math.max(cut, out)})`; ctx.fillRect(0, 0, W, H); }
-  if (b.card) cardDraw(b, b.card.kind === 'name' ? k : clamp((t - b.start) / (b.end - b.start)), t);
-  if (!b.card || b.card.kind === 'name') subtitles(t);
+  if (b.card && !(SHORTS && b.card.kind === 'name')) cardDraw(b, b.card.kind === 'name' ? k : clamp((t - b.start) / (b.end - b.start)), t);
+  if (!SHORTS && (!b.card || b.card.kind === 'name')) subtitles(t);
   const fi = clamp(t / 1.0), fo = 1 - clamp((t - (TL.duration - 1.5)) / 1.5); if (fi < 1 || fo < 1) { ctx.fillStyle = `rgba(0,0,0,${1 - Math.min(fi, fo)})`; ctx.fillRect(0, 0, W, H); }
 };
 </script></body></html>

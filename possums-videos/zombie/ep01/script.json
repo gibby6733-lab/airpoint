@@ -303,6 +303,97 @@
   },
   {
    "sp": "cole",
+   "text": "Dinner is the same every night too. Beans. Cold. Out of the can.",
+   "cast": [
+    "mags:.2:sit",
+    "dooley:.38:sit",
+    "pip:.55:sit",
+    "tank:.75:sit"
+   ]
+  },
+  {
+   "sp": "tank",
+   "text": "I used to hate beans. Now I dream about beans. Is that weird? That feels weird.",
+   "cast": [
+    "mags:.2:sit",
+    "dooley:.38:sit",
+    "pip:.55:sit",
+    "tank:.75:talk"
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Everything about you is weird, Tank. That's why we keep you.",
+   "cast": [
+    "mags:.2:talk",
+    "dooley:.38:sit",
+    "pip:.55:sit",
+    "tank:.75:sit"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "And Biscuit? Biscuit eats better than all of us. Nobody knows how. Nobody asks.",
+   "cast": [
+    "pip:.5:idle"
+   ],
+   "cam": 1.25,
+   "camx": 0.6,
+   "sfx": [
+    [
+     "bark",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "But here's the truth. We're running out. Of food. Of water. Of time.",
+   "cam": 1.0,
+   "camx": 0.5,
+   "cast": [],
+   "props": [
+    "shelves",
+    "radio",
+    "cooler"
+   ],
+   "intensity": 0.3
+  },
+  {
+   "sp": "cole",
+   "text": "Every week, there's more of them on the highway. And fewer of us anywhere else.",
+   "loc": "road",
+   "tod": "day",
+   "props": [
+    "cars"
+   ],
+   "z": {
+    "n": 7,
+    "x0": 1.1,
+    "x1": 0.8,
+    "depth": "far"
+   },
+   "sfx": [
+    [
+     "groan",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Forty one days, and we haven't seen another living person. Not one.",
+   "loc": "station_ext",
+   "props": [
+    "sign",
+    "pumps"
+   ],
+   "z": null,
+   "cam": 1.15,
+   "camx": 0.5
+  },
+  {
+   "sp": "cole",
    "text": "Here's how this works. Every like on this episode becomes one supply point for us.",
    "cast": [
     "cole:.5:talk"
@@ -399,6 +490,58 @@
    "text": "Unless you've got a car that runs on fear, big guy.",
    "cast": [
     "mags:.3:talk",
+    "tank:.6:scared"
+   ]
+  },
+  {
+   "sp": "dooley",
+   "text": "I'll go. I'm the one who's sick. I'm not sending kids out for my medicine.",
+   "cast": [
+    "dooley:.5:talk"
+   ],
+   "sfx": [
+    [
+     "cough",
+     0.95
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "You can barely walk to the door without coughing, Dooley. You're staying.",
+   "cast": [
+    "mags:.3:point",
+    "dooley:.55:idle"
+   ]
+  },
+  {
+   "sp": "pip",
+   "text": "I'll go! I know the way. I have the map memorized.",
+   "cast": [
+    "pip:.5:cheer"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Absolutely not, Pip.",
+   "cast": [
+    "pip:.5:idle"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "In the end, it was decided. Mags, because she can fix anything we break. Tank, because he can carry anything we find. And me, because somebody has to keep those two from killing each other.",
+   "cast": [
+    "mags:.3:idle",
+    "cole:.5:talk",
+    "tank:.7:idle"
+   ],
+   "cam": 1.0
+  },
+  {
+   "sp": "tank",
+   "text": "Wait. When did I volunteer? I don't remember volunteering.",
+   "cast": [
     "tank:.6:scared"
    ]
   },
@@ -527,6 +670,32 @@
   },
   {
    "sp": "cole",
+   "text": "Mags kept the note. She didn't say anything. She just folded it up and put it in her pocket.",
+   "cast": [
+    "mags:.45:idle"
+   ],
+   "cam": 1.2,
+   "camx": 0.45
+  },
+  {
+   "sp": "tank",
+   "text": "So, if there's a safe zone with food, why aren't we going there right now?",
+   "cast": [
+    "mags:.4:idle",
+    "tank:.6:talk"
+   ],
+   "cam": 1.0
+  },
+  {
+   "sp": "mags",
+   "text": "Because notes don't come with guarantees, Tank. Three weeks is a long time out here.",
+   "cast": [
+    "mags:.4:talk",
+    "tank:.6:idle"
+   ]
+  },
+  {
+   "sp": "cole",
    "text": "Then Doris made a sound no car should ever make.",
    "props": [
     "cars",
@@ -584,6 +753,41 @@
    "text": "The pharmacy was right where Pip said it would be. Windows smashed, door hanging open.",
    "cam": 1.25,
    "camx": 0.6
+  },
+  {
+   "sp": "cole",
+   "text": "We walked down the middle of Main Street. Past the diner. Past the bank. Past a phone booth with someone still inside it.",
+   "z": {
+    "n": 1,
+    "x0": 0.3,
+    "x1": 0.3,
+    "depth": "far"
+   },
+   "cam": 1.05,
+   "camx": 0.4,
+   "sfx": [
+    [
+     "groan",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "tank",
+   "text": "Don't look at it. Don't look at it. Why are you looking at it?",
+   "cast": [
+    "tank:.5:scared",
+    "mags:.3:idle"
+   ],
+   "z": null
+  },
+  {
+   "sp": "mags",
+   "text": "It's stuck, Tank. It can't open the door. Just keep walking.",
+   "cast": [
+    "tank:.55:scared",
+    "mags:.35:point"
+   ]
   },
   {
    "sp": "tank",
@@ -1028,6 +1232,13 @@
    ]
   },
   {
+   "sp": "tank",
+   "text": "In my defense, I said we needed more duct tape. I said that. Two weeks ago.",
+   "cast": [
+    "tank:.4:talk"
+   ]
+  },
+  {
    "sp": "pip",
    "text": "It's not going to hold. I did the math. It's really not going to hold.",
    "cast": [
@@ -1111,6 +1322,58 @@
     [
      "bang",
      0.85
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Back door's holding! For now! Somebody tell me the front is holding!",
+   "cast": [
+    "mags:.3:scared",
+    "pip:.55:scared"
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "The front was not holding.",
+   "fx": [
+    "shake"
+   ],
+   "cast": [
+    "tank:.6:scared"
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.3
+    ],
+    [
+     "scrape",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Biscuit barked at the window. Pip grabbed her and held her mouth shut. Every sound made it worse.",
+   "cast": [
+    "pip:.5:scared"
+   ],
+   "fx": [],
+   "sfx": [
+    [
+     "bark",
+     0.1
+    ],
+    [
+     "bark",
+     0.2
     ]
    ]
   },
@@ -1287,6 +1550,24 @@
   },
   {
    "sp": "cole",
+   "text": "Outside, the static from the field went on all night. A tiny noise, saving five lives.",
+   "loc": "roof",
+   "tod": "night",
+   "props": [
+    "corn",
+    "radio:field"
+   ],
+   "cast": [],
+   "z": null,
+   "sfx": [
+    [
+     "static",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
    "text": "In the morning, we counted what we had left. Half a jar of peanut butter. Nine cans of beans. And one very proud twelve year old.",
    "loc": "station_int",
    "tod": "day",
@@ -1332,6 +1613,19 @@
     "pumps",
     "truck:.75"
    ]
+  },
+  {
+   "sp": "cole",
+   "text": "Pip's radio trick worked once. The barricade almost didn't. And Doris is down to her last few drops of gas.",
+   "cast": [
+    "cole:.5:talk"
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "If we're going to survive the next forty one days, we need more than luck. We need a plan. And we need help.",
+   "cam": 1.15,
+   "camx": 0.5
   },
   {
    "sp": "cole",
@@ -1431,6 +1725,95 @@
     "cole:.5:idle"
    ],
    "cam": 1.0
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.4,
+   "card": {
+    "kind": "chapter",
+    "title": "Next time",
+    "sub": "On Mile 41"
+   },
+   "act": "Next time",
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Next time on Mile Forty One. We go looking for the voice on the radio.",
+   "loc": "road",
+   "tod": "dusk",
+   "card": null,
+   "cast": [
+    "mags:.4:run",
+    "cole:.5:run",
+    "tank:.6:run"
+   ],
+   "props": [
+    "cars"
+   ],
+   "z": null
+  },
+  {
+   "sp": "mags",
+   "text": "If that fire station is real, it changes everything.",
+   "cast": [
+    "mags:.45:talk"
+   ],
+   "cam": 1.2,
+   "camx": 0.45
+  },
+  {
+   "sp": "cole",
+   "text": "And whatever is coming from the north, it isn't slowing down.",
+   "loc": "station_ext",
+   "tod": "night",
+   "cast": [],
+   "props": [
+    "sign",
+    "pumps"
+   ],
+   "z": {
+    "n": 20,
+    "x0": 1.3,
+    "x1": 0.85,
+    "depth": "far"
+   },
+   "cam": 1.0,
+   "fx": [
+    "lightning"
+   ],
+   "sfx": [
+    [
+     "thunder",
+     0.2
+    ],
+    [
+     "groan",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "tank",
+   "text": "Can we vote for the option where nobody goes outside? Is that an option?",
+   "loc": "station_int",
+   "tod": "night",
+   "props": [
+    "shelves",
+    "lantern"
+   ],
+   "z": null,
+   "fx": [],
+   "cast": [
+    "tank:.5:scared"
+   ]
   },
   {
    "sp": "",

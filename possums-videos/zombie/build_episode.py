@@ -9,7 +9,7 @@ import soundfile as sf
 SR = 24000
 d, tts_dir = sys.argv[1], sys.argv[2]
 S = json.load(open(os.path.join(d, "script.json")))
-VOICES = {"cole": ("am_onyx", .9), "mags": ("af_bella", 1.0), "dooley": ("bm_lewis", .92), "pip": ("af_sky", 1.06),
+VOICES = {"cole": ("am_onyx", .86), "mags": ("af_bella", 1.0), "dooley": ("bm_lewis", .92), "pip": ("af_sky", 1.06),
           "tank": ("am_fenrir", 1.0), "radio": ("am_echo", .95)}
 NAMES = {"cole": "COLE", "mags": "MAGS", "dooley": "DOOLEY", "pip": "PIP", "tank": "TANK", "radio": "RADIO"}
 class _Lazy:
@@ -24,6 +24,7 @@ kok = _Lazy()
 rng = np.random.default_rng(41)
 def tt(x): return np.arange(int(x * SR)) / SR
 def noise(x): return rng.uniform(-1, 1, int(x * SR)).astype(np.float32)
+def nn(n): return rng.uniform(-1, 1, n).astype(np.float32)
 def lp(x, k): return np.convolve(x, np.ones(k) / k, mode="same").astype(np.float32)
 def env(n, a=.005, r=.1):
     e = np.ones(n, np.float32); na, nr = max(1, int(a * SR)), max(1, int(r * SR)); e[:na] = np.linspace(0, 1, na); e[-nr:] *= np.linspace(1, 0, nr); return e
@@ -60,7 +61,7 @@ for raw in S["beats"]:
         a = np.asarray(a, np.float32); nz = np.where(np.abs(a) > .01)[0]; a = a[max(0, nz[0] - 600): nz[-1] + 1500]
         os.makedirs(os.path.dirname(cp), exist_ok=True); sf.write(cp, a, SR)
     if raw["sp"] == "radio": a = radio_fx(a)
-    gap = .3 if raw["sp"] == prev_sp else .55
+    gap = .42 if raw["sp"] == prev_sp else .75
     st = t + gap; dur = len(a) / SR
     ws = raw["text"].split(); wt = [len(re.sub(r"\W", "", w)) + 2 + (3 if re.search(r"[.,!?]$", w) else 0) for w in ws]; tot = sum(wt); acc = 0; words = []
     for w, k in zip(ws, wt): words.append({"w": w, "s": round(st + dur * acc / tot, 3)}); acc += k
@@ -100,12 +101,13 @@ base_wind = lp(noise(total), 120)[:N]
 for b in beats:
     a0, a1 = int((b["start"] - .5) * SR), int((b["end"] + .6) * SR); a0 = max(0, a0); a1 = min(N, a1)
     seg = np.zeros(a1 - a0, np.float32)
-    if b["loc"] in ("station_int", "pharmacy"): seg += lp(noise((a1 - a0) / SR), 300)[: a1 - a0] * .6
+    n_ = a1 - a0
+    if b["loc"] in ("station_int", "pharmacy"): seg += lp(nn(n_), 300) * .6
     else: seg += base_wind[a0:a1] * 2.5
     if b["tod"] == "night" and b["loc"] not in ("station_int", "pharmacy", "black"):
         tt_ = np.arange(a1 - a0) / SR; seg += (np.sin(2 * np.pi * 4300 * tt_) * (np.sin(2 * np.pi * 18 * tt_) > .6) * (np.sin(2 * np.pi * .7 * tt_) > 0)).astype(np.float32) * .02
-    if b["wx"] == "rain": seg += (noise((a1 - a0) / SR)[: a1 - a0] - lp(noise((a1 - a0) / SR), 6)[: a1 - a0]) * .18
-    amb[a0:a1] = np.maximum(amb[a0:a1], seg) if False else amb[a0:a1] * .0 + seg
+    if b["wx"] == "rain": r_ = nn(n_); seg += (r_ - lp(r_, 6)) * .18
+    amb[a0:a1] = seg
 
 # ---- SFX
 def sfx(name):
@@ -167,7 +169,7 @@ for b in beats:
 
 def _db(x):
     x = x[np.abs(x) > 1e-4]; return 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9)
-VO, MU, FX, AM = 1.3, .45, .32, .5
+VO, MU, FX, AM = 1.3, .10, .14, .07
 v_env = np.convolve(np.abs(voice), np.ones(2400) / 2400, mode="same")
 duck = np.convolve(np.clip(1 - (v_env > .004) * .5, .5, 1), np.ones(4800) / 4800, mode="same")
 mix = voice * VO + music * MU * duck + fx * FX + amb * AM * duck
