@@ -16,11 +16,9 @@ description: Answer the Mudville Possums comments the user drops in Discord #com
    Join requests -> joke / hype / ask a question back ("most-liked requests get noticed 👀"), never a yes.
    Upgrade votes -> point to the likes ("most-liked comment decides"). Mean comments -> stay light, never insult.
    No hashtags. Common iPhone emojis only (1-2 per reply).
-4. Post with `python3 discord_say.py replies "..."` in the SAME ORDER the comments appeared, one line each:
-   ```
-   ⚡ Replies (copy & paste in order)
-   @username → reply text
-   @username → reply text
-   ```
-   Split into several messages if over ~1800 chars. If a comment is the top upgrade vote or a position request, add
-   a final line: `📊 Top upgrade vote: <item> (<likes> likes) • Join requests: @a (RB), @b (C)…` for Day planning.
+4. Write the replies to a JSON file, in the SAME ORDER the comments appeared:
+   `[{"user": "jaxsuiiii123", "comment": "Yo can I be the wide receiver", "reply": "\"Trust\" is all we got 😂"}, ...]`
+   then `python3 discord_replies.py <file.json>`. It posts ONE message per reply: the message text is only the reply
+   (so the user can Copy Text just that one) and the @user + comment show in a small box under it.
+5. Then one summary with `python3 discord_say.py replies "📊 ..."`: top upgrade votes (with likes) and most-liked join
+   requests (with positions), for Day planning. Skip comments the creator (mudville.possums) already replied to.
