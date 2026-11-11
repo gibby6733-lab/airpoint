@@ -37,6 +37,7 @@ story ends before ~84 s add action beats, if over, trim lines). Stills: `node re
 of each beat, fix overlaps. Then `node render.js <dir>`, `./discord_copy.sh <dir>/episode.mp4 <dir>/discord.mp4`.
 
 ## 4. Deliver
+- `title.txt`: one-line video title with hashtags, e.g. "What If You Had to Reach the Oil Rig? 🧟‍♂️🛢️ Part N #zombieapocalypse #whatif #survival #shorts" (under 100 chars). It is posted above the caption.
 - `caption.txt` (iPhone emojis only, hashtags `#zombieapocalypse #survivaltips #animation #wouldyourather #zombie`).
 - `python3 post_discord.py apocalypse <dir>`; copy the mp4 to the scratchpad and SendUserFile; paste the caption in chat.
 - Update `series.json` history (poll result for part N-1, new question for part N). Commit + push.

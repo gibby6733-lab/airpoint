@@ -19,6 +19,9 @@ if not channel or not channel.isdigit():
     sys.exit(f"no channel id for {sport!r} in channels.json")
 
 caption = open(os.path.join(ep, "caption.txt")).read().strip()
+tp = os.path.join(ep, "title.txt")  # optional video title (e.g. YouTube Shorts title with hashtags)
+if os.path.exists(tp):
+    caption = f"🎬 **TITLE**\n{open(tp).read().strip()}\n\n📝 **CAPTION**\n{caption}"
 if len(caption) > 2000:
     sys.exit(f"caption is {len(caption)} chars; Discord's limit is 2000")
 video = os.path.join(ep, "discord.mp4")
