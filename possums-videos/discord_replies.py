@@ -2,8 +2,8 @@
 
 usage: python3 discord_replies.py replies.json
 replies.json: [{"user": "jaxsuiiii123", "comment": "Yo can I be the wide receiver", "reply": "\"Trust\" is all we got 😂"}, ...]
-Each message's text is ONLY the reply (so Discord "Copy Text" copies just that); who it's for + their comment shows in
-a small embed box under it (embeds aren't copied).
+For each comment: a small grey label message (#n • @user: comment), then the reply alone in its own message
+(so Discord "Copy Text" copies just the reply). Read top to bottom; ends with a jump link to #1.
 """
 import json, os, sys, time, urllib.request, urllib.error
 here = os.path.dirname(os.path.abspath(__file__))
@@ -18,13 +18,15 @@ def post(body):
             if e.code == 429: time.sleep(json.loads(e.read()).get("retry_after", 1) + .3); continue
             raise
 items = json.load(open(sys.argv[1]))
-post({"content": f"⚡ **{len(items)} replies below.** Long-press a reply → Copy Text → paste it on that comment 👇"})
+post({"content": f"⚡ **{len(items)} replies.** Each grey line says who it's for, the reply is right UNDER it. Long-press the reply → Copy Text 👇"})
 first = None
 for i, it in enumerate(items, 1):
-    c = it.get("comment", "")[:180]
-    m = post({"content": it["reply"], "embeds": [{"description": f"#{i} • 💬 **@{it['user']}**: {c}", "color": 0x2E86C1}]})
+    c = it.get("comment", "")[:150].replace("\n", " ")
+    m = post({"content": f"-# #{i} • @{it['user']}: {c}"})  # small grey label ABOVE the reply
     first = first or m["id"]
-    time.sleep(1.1)  # stay under Discord's rate limit
-# Discord opens at the bottom, so end with a jump link back to reply #1 (replies read top to bottom)
+    time.sleep(.8)
+    post({"content": it["reply"]})                          # reply alone, so Copy Text copies only this
+    time.sleep(.8)  # stay under Discord's rate limit
+# Discord opens at the bottom, so end with a jump link back to #1 (read top to bottom)
 post({"content": f"⬆️ **Start at #1** → https://discord.com/channels/{GUILD}/{ch}/{first}  (then scroll down in order)"})
 print("posted", len(items))

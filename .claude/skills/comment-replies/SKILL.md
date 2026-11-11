@@ -18,7 +18,8 @@ description: Answer the Mudville Possums comments the user drops in Discord #com
    No hashtags. Common iPhone emojis only (1-2 per reply).
 4. Write the replies to a JSON file, in the SAME ORDER the comments appeared:
    `[{"user": "jaxsuiiii123", "comment": "Yo can I be the wide receiver", "reply": "\"Trust\" is all we got 😂"}, ...]`
-   then `python3 discord_replies.py <file.json>`. It posts ONE message per reply: the message text is only the reply
-   (so the user can Copy Text just that one) and the @user + comment show in a small box under it.
+   then `python3 discord_replies.py <file.json>`. For each comment it posts a small grey label
+   (#n • @user: comment) and then the reply alone in its own message right under it, top to bottom, plus a jump link to #1.
+   Post each platform separately (TikTok / Instagram header via discord_say) when the user sends both.
 5. Then one summary with `python3 discord_say.py replies "📊 ..."`: top upgrade votes (with likes) and most-liked join
    requests (with positions), for Day planning. Skip comments the creator (mudville.possums) already replied to.
