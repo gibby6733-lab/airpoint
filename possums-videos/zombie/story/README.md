@@ -8,3 +8,11 @@ Build: `python3 zombie/build_episode.py zombie/story/dayNN tts` (copy state.json
 `node zombie/short_series.js zombie/story/dayNN`, `./discord_copy.sh …`, `python3 post_discord.py apocalypse zombie/story/dayNN`.
 Question screen: hud="wyr" with opt1/opt2 (+ countdown hold, then vote=True).
 Captions: common iPhone emojis only, pasted in chat too.
+
+## v2 format (from Day 1 remake)
+- **Hook (0-5 s):** big on-screen line + voice ("Zombies won't kill you first. Dirty water will.").
+- **Cole is smart:** ex-science teacher, explains *why*. Base: Bellwood Public Library (+ river, roof).
+- **Every video is a lesson:** one real, accurate survival skill. LESSON tag on top, green STEP cards, recap on the poll screen.
+- Still: one person on screen, story, ONE would-you-rather at the end, answers said plainly, user posts the poll.
+- Build: `python3 dayNN/make_script.py` → `cp engine.html dayNN/episode.html` → `python3 ../build_episode.py zombie/story/dayNN tts`
+  → `node render.js zombie/story/dayNN` → `./discord_copy.sh …` → `python3 post_discord.py apocalypse zombie/story/dayNN`.

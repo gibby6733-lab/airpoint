@@ -42,7 +42,7 @@ def radio_fx(a):  # band-limited, slightly crushed, with static
 # ---- resolve shots (fields carry over) + voice each line
 KEYS = ["loc", "tod", "wx", "cast", "z", "props", "fx", "card", "cam", "camx", "hud", "act", "intensity", "focus"]
 state = {"loc": "black", "tod": "night", "wx": None, "cast": [], "z": None, "props": [], "fx": [], "card": None, "cam": 1.0, "camx": .5, "hud": None, "act": "", "intensity": .3, "focus": None}
-beats, clips, t = [], [], 1.0
+beats, clips, t = [], [], S.get("lead", 1.0)
 prev_sp = None
 for raw in S["beats"]:
     for k in KEYS:
@@ -191,6 +191,6 @@ for b in beats:
     if b["act"] and b["act"] not in seen:
         seen.add(b["act"]); s0 = 0 if not chap else b["start"]; chap.append(f"{int(s0 // 60)}:{int(s0 % 60):02d} {b['act']}")
 open(os.path.join(d, "chapters.txt"), "w").write("\n".join(chap) + "\n")
-json.dump({"width": S.get("width", 1920), "height": S.get("height", 1080), "vertical": bool(S.get("vertical")), "day": S.get("day"), "duration": round(total, 3), "series": S["series"], "episode": S["episode"], "title": S["title"],
+json.dump({"width": S.get("width", 1920), "height": S.get("height", 1080), "vertical": bool(S.get("vertical")), "day": S.get("day"), "lesson": S.get("lesson"), "duration": round(total, 3), "series": S["series"], "episode": S["episode"], "title": S["title"],
            "beats": beats, "lines": [{"start": b["start"], "end": b["end"], "words": b["words"]} for b in beats if b["text"]]},
           open(os.path.join(d, "timeline.json"), "w"), indent=0)

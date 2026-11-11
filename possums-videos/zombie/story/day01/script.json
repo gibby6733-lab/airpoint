@@ -1,9 +1,13 @@
 {
- "series": "Zombie story",
+ "series": "Zombie survival lessons",
  "episode": 1,
  "day": 1,
  "title": "Day 1",
+ "lesson": "SAFE DRINKING WATER",
  "vertical": true,
+ "lead": 0.15,
+ "width": 1080,
+ "height": 1920,
  "mix": {
   "music": 0.08,
   "ambience": 0.045
@@ -11,179 +15,174 @@
  "beats": [
   {
    "sp": "cole",
-   "text": "Day one. Everyone I know is gone. It's just me now.",
-   "loc": "station_ext",
+   "text": "Zombies won't kill you first. Dirty water will. Here's how I stayed alive.",
+   "scene": "hook",
+   "h1": "ZOMBIES WON'T KILL YOU FIRST.",
+   "h2": "DIRTY WATER WILL.",
    "tod": "night",
-   "wx": "rain",
-   "cast": [
-    "cole:.5:idle"
-   ],
-   "z": {
-    "n": 6,
-    "x0": 1.05,
-    "x1": 0.8,
-    "depth": "far"
-   },
-   "props": [
-    "sign",
-    "pumps",
-    "lantern"
-   ],
-   "fx": [
-    "lightning"
-   ],
-   "focus": 0.5,
-   "intensity": 0.45,
-   "sfx": [
-    [
-     "thunder",
-     0.1
-    ]
-   ]
-  },
-  {
-   "sp": "cole",
-   "text": "Forty one days ago, the dead started walking. I've been hiding in this old gas station ever since.",
-   "tod": "day",
-   "wx": null,
    "z": null,
-   "fx": [],
-   "focus": 0.45,
-   "intensity": 0.25
-  },
-  {
-   "sp": "cole",
-   "text": "This morning, I opened my last can of beans.",
-   "loc": "station_int",
-   "props": [
-    "shelves",
-    "radio",
-    "cooler"
-   ],
-   "cast": [
-    "cole:.5:idle"
-   ],
-   "focus": 0.5,
-   "intensity": 0.3
-  },
-  {
-   "sp": "cole",
-   "text": "So I had no choice. I walked into town.",
-   "loc": "road",
-   "tod": "day",
-   "props": [
-    "cars"
-   ],
-   "cast": [
-    "cole:.5:run"
-   ],
-   "focus": 0.5,
    "sfx": [
     [
-     "steps",
-     0.1
-    ]
-   ]
-  },
-  {
-   "sp": "cole",
-   "text": "Bellwood was quiet. Too quiet.",
-   "loc": "town",
-   "wx": "fog",
-   "cast": [
-    "cole:.45:idle"
-   ],
-   "focus": 0.45,
-   "intensity": 0.45
-  },
-  {
-   "sp": "cole",
-   "text": "Then I heard something moving inside the pharmacy.",
-   "cast": [
-    "cole:.42:scared"
-   ],
-   "z": {
-    "n": 1,
-    "x0": 0.62,
-    "x1": 0.58,
-    "depth": "mid"
-   },
-   "focus": 0.5,
-   "intensity": 0.65,
-   "sfx": [
-    [
-     "groan",
-     0.5
-    ]
-   ]
-  },
-  {
-   "sp": "cole",
-   "text": "I ran. And they followed me. All the way home.",
-   "loc": "road",
-   "tod": "dusk",
-   "wx": null,
-   "cast": [
-    "cole:.52:run"
-   ],
-   "z": {
-    "n": 8,
-    "x0": 0.15,
-    "x1": 0.3,
-    "depth": "mid"
-   },
-   "focus": 0.45,
-   "intensity": 0.85,
-   "sfx": [
-    [
-     "steps",
+     "sting",
      0
     ],
     [
-     "groan",
+     "whoosh",
      0.5
     ]
    ]
   },
   {
    "sp": "cole",
-   "text": "Now there's a crowd of them outside my door. And they're not leaving.",
-   "loc": "station_ext",
+   "text": "I'm Cole. I used to teach science. Now I teach survival.",
+   "scene": "library_ext",
    "tod": "night",
-   "cast": [
-    "cole:.4:scared"
-   ],
-   "z": {
-    "n": 12,
-    "x0": 0.9,
-    "x1": 0.62,
-    "depth": "mid"
-   },
-   "props": [
-    "sign",
-    "pumps",
-    "lantern"
-   ],
-   "focus": 0.5,
-   "intensity": 0.9,
+   "tag": "COLE \u2022 EX-SCIENCE TEACHER",
+   "pose": "talk"
+  },
+  {
+   "sp": "cole",
+   "text": "I picked this library on purpose. Stone walls, one door, and windows too high to climb.",
+   "scene": "library_ext",
+   "tag": "1 DOOR \u2022 THICK STONE WALLS",
+   "pose": "point"
+  },
+  {
+   "sp": "cole",
+   "text": "But on day three, the taps stopped running.",
+   "scene": "sink",
+   "tod": "night",
    "sfx": [
     [
-     "groan",
-     0.3
+     "tick",
+     0.2
     ],
     [
-     "bang",
-     0.7
+     "tick",
+     1.1
     ]
    ]
   },
   {
    "sp": "cole",
-   "text": "So, would you rather sneak out the back and run for the woods? Or barricade the door and wait it out?",
-   "hud": "wyr",
-   "opt1": "Sneak out the back and run for the woods",
-   "opt2": "Barricade the door and wait it out",
-   "intensity": 0.7,
+   "text": "Here's the science. You can last about three weeks without food. But only about three days without water.",
+   "scene": "library_int",
+   "pose": "think",
+   "tag": "3 WEEKS FOOD \u2022 3 DAYS WATER"
+  },
+  {
+   "sp": "cole",
+   "text": "So I went to the river. But river water can carry bacteria and parasites.",
+   "scene": "river",
+   "tod": "day",
+   "showBottle": true,
+   "z": {
+    "n": 4,
+    "x0": 1.1,
+    "x1": 0.95,
+    "depth": "far",
+    "turn": true
+   },
+   "sfx": [
+    [
+     "groan",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "They make you sick, and you lose even more water. Out here, that can kill you.",
+   "scene": "warn",
+   "tod": "day",
+   "z": null
+  },
+  {
+   "sp": "cole",
+   "text": "Step one. Pour it through a cloth to catch the dirt.",
+   "scene": "step",
+   "n": 1,
+   "title": "FILTER THROUGH CLOTH",
+   "sub": "Clears dirt. Does NOT kill germs.",
+   "tod": "night"
+  },
+  {
+   "sp": "cole",
+   "text": "Step two. Bring it to a rolling boil for one full minute. Three minutes if you're high in the mountains.",
+   "scene": "step",
+   "n": 2,
+   "title": "ROLLING BOIL: 1 MINUTE",
+   "sub": "3 minutes at high altitude",
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Step three. Let it cool, and store it in clean, covered jars.",
+   "scene": "step",
+   "n": 3,
+   "title": "STORE IT COVERED",
+   "sub": "Clean jars. Lids on.",
+   "sfx": [
+    [
+     "ding",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "But there's a problem. The smoke from my fire can be seen for miles.",
+   "scene": "roof",
+   "tod": "dusk",
+   "pose": "idle",
+   "z": {
+    "n": 5,
+    "x0": 1.2,
+    "x1": 1.0,
+    "depth": "far",
+    "turn": true
+   }
+  },
+  {
+   "sp": "cole",
+   "text": "And tonight, they saw it.",
+   "scene": "roof",
+   "tod": "night",
+   "pose": "scared",
+   "z": {
+    "n": 10,
+    "x0": 1.05,
+    "x1": 0.78,
+    "depth": "mid",
+    "turn": true
+   },
+   "fx": [
+    "shake"
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.1
+    ],
+    [
+     "bang",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "So, would you rather keep boiling water and risk the smoke? Or put out the fire and live on what you have left?",
+   "scene": "question",
+   "opt1": "Keep boiling water and risk the smoke",
+   "opt2": "Put out the fire and live on what you have left",
+   "z": null,
+   "fx": [],
    "sfx": [
     [
      "sting",
@@ -195,9 +194,9 @@
    "sp": "",
    "text": "",
    "hold": 2.6,
-   "hud": "wyr",
-   "opt1": "Sneak out the back and run for the woods",
-   "opt2": "Barricade the door and wait it out",
+   "scene": "question",
+   "opt1": "Keep boiling water and risk the smoke",
+   "opt2": "Put out the fire and live on what you have left",
    "countdown": true,
    "sfx": [
     [
@@ -206,22 +205,22 @@
     ],
     [
      "tick",
-     0.33
+     0.87
     ],
     [
      "tick",
-     0.66
+     1.73
     ]
    ]
   },
   {
    "sp": "cole",
    "text": "Vote in the poll. Tomorrow, you'll see what happens.",
-   "hud": "wyr",
-   "opt1": "Sneak out the back and run for the woods",
-   "opt2": "Barricade the door and wait it out",
+   "scene": "question",
+   "opt1": "Keep boiling water and risk the smoke",
+   "opt2": "Put out the fire and live on what you have left",
    "vote": true,
-   "intensity": 0.4
+   "recap": "TODAY: FILTER \u2022 BOIL 1 MIN \u2022 COVER"
   }
  ]
 }

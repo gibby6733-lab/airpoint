@@ -1,214 +1,21 @@
 {
-"width": 1920,
-"height": 1080,
+"width": 1080,
+"height": 1920,
 "vertical": true,
 "day": 1,
-"duration": 43.211,
-"series": "Zombie story",
+"lesson": "SAFE DRINKING WATER",
+"duration": 65.434,
+"series": "Zombie survival lessons",
 "episode": 1,
 "title": "Day 1",
 "beats": [
 {
-"loc": "station_ext",
+"loc": "black",
 "tod": "night",
-"wx": "rain",
-"cast": [
-"cole:.5:idle"
-],
-"z": {
-"n": 6,
-"x0": 1.05,
-"x1": 0.8,
-"depth": "far"
-},
-"props": [
-"sign",
-"pumps",
-"lantern"
-],
-"fx": [
-"lightning"
-],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": null,
-"act": "",
-"intensity": 0.45,
-"focus": 0.5,
-"sp": "cole",
-"name": "COLE",
-"text": "Day one. Everyone I know is gone. It's just me now.",
-"start": 1.45,
-"end": 4.508,
-"words": [
-{
-"w": "Day",
-"s": 1.45
-},
-{
-"w": "one.",
-"s": 1.675
-},
-{
-"w": "Everyone",
-"s": 2.035
-},
-{
-"w": "I",
-"s": 2.484
-},
-{
-"w": "know",
-"s": 2.619
-},
-{
-"w": "is",
-"s": 2.889
-},
-{
-"w": "gone.",
-"s": 3.069
-},
-{
-"w": "It's",
-"s": 3.474
-},
-{
-"w": "just",
-"s": 3.698
-},
-{
-"w": "me",
-"s": 3.968
-},
-{
-"w": "now.",
-"s": 4.148
-}
-],
-"sfx": [
-[
-"thunder",
-0.1
-]
-]
-},
-{
-"loc": "station_ext",
-"tod": "day",
 "wx": null,
-"cast": [
-"cole:.5:idle"
-],
+"cast": [],
 "z": null,
-"props": [
-"sign",
-"pumps",
-"lantern"
-],
-"fx": [],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": null,
-"act": "",
-"intensity": 0.25,
-"focus": 0.45,
-"sp": "cole",
-"name": "COLE",
-"text": "Forty one days ago, the dead started walking. I've been hiding in this old gas station ever since.",
-"start": 4.808,
-"end": 10.456,
-"words": [
-{
-"w": "Forty",
-"s": 4.808
-},
-{
-"w": "one",
-"s": 5.132
-},
-{
-"w": "days",
-"s": 5.363
-},
-{
-"w": "ago,",
-"s": 5.641
-},
-{
-"w": "the",
-"s": 6.011
-},
-{
-"w": "dead",
-"s": 6.243
-},
-{
-"w": "started",
-"s": 6.521
-},
-{
-"w": "walking.",
-"s": 6.937
-},
-{
-"w": "I've",
-"s": 7.493
-},
-{
-"w": "been",
-"s": 7.724
-},
-{
-"w": "hiding",
-"s": 8.002
-},
-{
-"w": "in",
-"s": 8.372
-},
-{
-"w": "this",
-"s": 8.558
-},
-{
-"w": "old",
-"s": 8.835
-},
-{
-"w": "gas",
-"s": 9.067
-},
-{
-"w": "station",
-"s": 9.298
-},
-{
-"w": "ever",
-"s": 9.715
-},
-{
-"w": "since.",
-"s": 9.993
-}
-],
-"sfx": []
-},
-{
-"loc": "station_int",
-"tod": "day",
-"wx": null,
-"cast": [
-"cole:.5:idle"
-],
-"z": null,
-"props": [
-"shelves",
-"radio",
-"cooler"
-],
+"props": [],
 "fx": [],
 "card": null,
 "cam": 1.0,
@@ -216,534 +23,1121 @@
 "hud": null,
 "act": "",
 "intensity": 0.3,
-"focus": 0.5,
+"focus": null,
+"scene": "hook",
+"h1": "ZOMBIES WON'T KILL YOU FIRST.",
+"h2": "DIRTY WATER WILL.",
 "sp": "cole",
 "name": "COLE",
-"text": "This morning, I opened my last can of beans.",
-"start": 10.756,
-"end": 13.556,
+"text": "Zombies won't kill you first. Dirty water will. Here's how I stayed alive.",
+"start": 0.6,
+"end": 4.813,
 "words": [
 {
-"w": "This",
-"s": 10.756
+"w": "Zombies",
+"s": 0.6
 },
 {
-"w": "morning,",
-"s": 11.045
+"w": "won't",
+"s": 1.012
 },
 {
-"w": "I",
-"s": 11.625
-},
-{
-"w": "opened",
-"s": 11.77
-},
-{
-"w": "my",
-"s": 12.156
-},
-{
-"w": "last",
-"s": 12.349
-},
-{
-"w": "can",
-"s": 12.639
-},
-{
-"w": "of",
-"s": 12.88
-},
-{
-"w": "beans.",
-"s": 13.073
-}
-],
-"sfx": []
-},
-{
-"loc": "road",
-"tod": "day",
-"wx": null,
-"cast": [
-"cole:.5:run"
-],
-"z": null,
-"props": [
-"cars"
-],
-"fx": [],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": null,
-"act": "",
-"intensity": 0.3,
-"focus": 0.5,
-"sp": "cole",
-"name": "COLE",
-"text": "So I had no choice. I walked into town.",
-"start": 13.856,
-"end": 16.494,
-"words": [
-{
-"w": "So",
-"s": 13.856
-},
-{
-"w": "I",
-"s": 14.055
-},
-{
-"w": "had",
-"s": 14.205
-},
-{
-"w": "no",
-"s": 14.454
-},
-{
-"w": "choice.",
-"s": 14.653
-},
-{
-"w": "I",
-"s": 15.2
-},
-{
-"w": "walked",
-"s": 15.35
-},
-{
-"w": "into",
-"s": 15.748
-},
-{
-"w": "town.",
-"s": 16.046
-}
-],
-"sfx": [
-[
-"steps",
-0.1
-]
-]
-},
-{
-"loc": "town",
-"tod": "day",
-"wx": "fog",
-"cast": [
-"cole:.45:idle"
-],
-"z": null,
-"props": [
-"cars"
-],
-"fx": [],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": null,
-"act": "",
-"intensity": 0.45,
-"focus": 0.45,
-"sp": "cole",
-"name": "COLE",
-"text": "Bellwood was quiet. Too quiet.",
-"start": 16.794,
-"end": 18.977,
-"words": [
-{
-"w": "Bellwood",
-"s": 16.794
-},
-{
-"w": "was",
-"s": 17.34
-},
-{
-"w": "quiet.",
-"s": 17.613
-},
-{
-"w": "Too",
-"s": 18.159
-},
-{
-"w": "quiet.",
-"s": 18.431
-}
-],
-"sfx": []
-},
-{
-"loc": "town",
-"tod": "day",
-"wx": "fog",
-"cast": [
-"cole:.42:scared"
-],
-"z": {
-"n": 1,
-"x0": 0.62,
-"x1": 0.58,
-"depth": "mid"
-},
-"props": [
-"cars"
-],
-"fx": [],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": null,
-"act": "",
-"intensity": 0.65,
-"focus": 0.5,
-"sp": "cole",
-"name": "COLE",
-"text": "Then I heard something moving inside the pharmacy.",
-"start": 19.277,
-"end": 22.1,
-"words": [
-{
-"w": "Then",
-"s": 19.277
-},
-{
-"w": "I",
-"s": 19.555
-},
-{
-"w": "heard",
-"s": 19.694
-},
-{
-"w": "something",
-"s": 20.017
-},
-{
-"w": "moving",
-"s": 20.526
-},
-{
-"w": "inside",
-"s": 20.897
-},
-{
-"w": "the",
-"s": 21.267
-},
-{
-"w": "pharmacy.",
-"s": 21.498
-}
-],
-"sfx": [
-[
-"groan",
-0.5
-]
-]
-},
-{
-"loc": "road",
-"tod": "dusk",
-"wx": null,
-"cast": [
-"cole:.52:run"
-],
-"z": {
-"n": 8,
-"x0": 0.15,
-"x1": 0.3,
-"depth": "mid"
-},
-"props": [
-"cars"
-],
-"fx": [],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": null,
-"act": "",
-"intensity": 0.85,
-"focus": 0.45,
-"sp": "cole",
-"name": "COLE",
-"text": "I ran. And they followed me. All the way home.",
-"start": 22.4,
-"end": 25.141,
-"words": [
-{
-"w": "I",
-"s": 22.4
-},
-{
-"w": "ran.",
-"s": 22.53
-},
-{
-"w": "And",
-"s": 22.878
-},
-{
-"w": "they",
-"s": 23.096
-},
-{
-"w": "followed",
-"s": 23.357
-},
-{
-"w": "me.",
-"s": 23.792
-},
-{
-"w": "All",
-"s": 24.097
-},
-{
-"w": "the",
-"s": 24.314
-},
-{
-"w": "way",
-"s": 24.532
-},
-{
-"w": "home.",
-"s": 24.75
-}
-],
-"sfx": [
-[
-"steps",
-0
-],
-[
-"groan",
-0.5
-]
-]
-},
-{
-"loc": "station_ext",
-"tod": "night",
-"wx": null,
-"cast": [
-"cole:.4:scared"
-],
-"z": {
-"n": 12,
-"x0": 0.9,
-"x1": 0.62,
-"depth": "mid"
-},
-"props": [
-"sign",
-"pumps",
-"lantern"
-],
-"fx": [],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": null,
-"act": "",
-"intensity": 0.9,
-"focus": 0.5,
-"sp": "cole",
-"name": "COLE",
-"text": "Now there's a crowd of them outside my door. And they're not leaving.",
-"start": 25.441,
-"end": 29.349,
-"words": [
-{
-"w": "Now",
-"s": 25.441
-},
-{
-"w": "there's",
-"s": 25.671
-},
-{
-"w": "a",
-"s": 26.039
-},
-{
-"w": "crowd",
-"s": 26.177
-},
-{
-"w": "of",
-"s": 26.499
-},
-{
-"w": "them",
-"s": 26.683
-},
-{
-"w": "outside",
-"s": 26.959
-},
-{
-"w": "my",
-"s": 27.372
-},
-{
-"w": "door.",
-"s": 27.556
-},
-{
-"w": "And",
-"s": 27.97
-},
-{
-"w": "they're",
-"s": 28.2
-},
-{
-"w": "not",
-"s": 28.568
-},
-{
-"w": "leaving.",
-"s": 28.798
-}
-],
-"sfx": [
-[
-"groan",
-0.3
-],
-[
-"bang",
-0.7
-]
-]
-},
-{
-"loc": "station_ext",
-"tod": "night",
-"wx": null,
-"cast": [
-"cole:.4:scared"
-],
-"z": {
-"n": 12,
-"x0": 0.9,
-"x1": 0.62,
-"depth": "mid"
-},
-"props": [
-"sign",
-"pumps",
-"lantern"
-],
-"fx": [],
-"card": null,
-"cam": 1.0,
-"camx": 0.5,
-"hud": "wyr",
-"act": "",
-"intensity": 0.7,
-"focus": 0.5,
-"opt1": "Sneak out the back and run for the woods",
-"opt2": "Barricade the door and wait it out",
-"sp": "cole",
-"name": "COLE",
-"text": "So, would you rather sneak out the back and run for the woods? Or barricade the door and wait it out?",
-"start": 29.649,
-"end": 34.811,
-"words": [
-{
-"w": "So,",
-"s": 29.649
-},
-{
-"w": "would",
-"s": 29.929
+"w": "kill",
+"s": 1.287
 },
 {
 "w": "you",
-"s": 30.209
+"s": 1.562
 },
 {
-"w": "rather",
-"s": 30.41
+"w": "first.",
+"s": 1.791
 },
 {
-"w": "sneak",
-"s": 30.73
+"w": "Dirty",
+"s": 2.248
 },
 {
-"w": "out",
-"s": 31.01
+"w": "water",
+"s": 2.569
 },
 {
-"w": "the",
-"s": 31.21
+"w": "will.",
+"s": 2.89
 },
 {
-"w": "back",
-"s": 31.41
+"w": "Here's",
+"s": 3.302
+},
+{
+"w": "how",
+"s": 3.622
+},
+{
+"w": "I",
+"s": 3.851
+},
+{
+"w": "stayed",
+"s": 3.989
+},
+{
+"w": "alive.",
+"s": 4.355
+}
+],
+"sfx": [
+[
+"sting",
+0
+],
+[
+"whoosh",
+0.5
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "library_ext",
+"tag": "COLE \u2022 EX-SCIENCE TEACHER",
+"pose": "talk",
+"sp": "cole",
+"name": "COLE",
+"text": "I'm Cole. I used to teach science. Now I teach survival.",
+"start": 5.113,
+"end": 8.631,
+"words": [
+{
+"w": "I'm",
+"s": 5.113
+},
+{
+"w": "Cole.",
+"s": 5.306
+},
+{
+"w": "I",
+"s": 5.739
+},
+{
+"w": "used",
+"s": 5.884
+},
+{
+"w": "to",
+"s": 6.173
+},
+{
+"w": "teach",
+"s": 6.366
+},
+{
+"w": "science.",
+"s": 6.703
+},
+{
+"w": "Now",
+"s": 7.282
+},
+{
+"w": "I",
+"s": 7.523
+},
+{
+"w": "teach",
+"s": 7.667
+},
+{
+"w": "survival.",
+"s": 8.005
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "library_ext",
+"tag": "1 DOOR \u2022 THICK STONE WALLS",
+"pose": "point",
+"sp": "cole",
+"name": "COLE",
+"text": "I picked this library on purpose. Stone walls, one door, and windows too high to climb.",
+"start": 8.931,
+"end": 14.201,
+"words": [
+{
+"w": "I",
+"s": 8.931
+},
+{
+"w": "picked",
+"s": 9.072
+},
+{
+"w": "this",
+"s": 9.449
+},
+{
+"w": "library",
+"s": 9.731
+},
+{
+"w": "on",
+"s": 10.155
+},
+{
+"w": "purpose.",
+"s": 10.343
+},
+{
+"w": "Stone",
+"s": 10.907
+},
+{
+"w": "walls,",
+"s": 11.237
+},
+{
+"w": "one",
+"s": 11.707
+},
+{
+"w": "door,",
+"s": 11.943
 },
 {
 "w": "and",
-"s": 31.65
+"s": 12.366
 },
 {
-"w": "run",
-"s": 31.85
+"w": "windows",
+"s": 12.601
 },
 {
-"w": "for",
-"s": 32.05
+"w": "too",
+"s": 13.025
+},
+{
+"w": "high",
+"s": 13.26
+},
+{
+"w": "to",
+"s": 13.543
+},
+{
+"w": "climb.",
+"s": 13.731
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "sink",
+"sp": "cole",
+"name": "COLE",
+"text": "But on day three, the taps stopped running.",
+"start": 14.501,
+"end": 16.959,
+"words": [
+{
+"w": "But",
+"s": 14.501
+},
+{
+"w": "on",
+"s": 14.721
+},
+{
+"w": "day",
+"s": 14.896
+},
+{
+"w": "three,",
+"s": 15.116
 },
 {
 "w": "the",
-"s": 32.25
+"s": 15.555
 },
 {
-"w": "woods?",
-"s": 32.45
+"w": "taps",
+"s": 15.774
 },
 {
-"w": "Or",
-"s": 32.851
+"w": "stopped",
+"s": 16.038
 },
 {
-"w": "barricade",
-"s": 33.011
+"w": "running.",
+"s": 16.433
+}
+],
+"sfx": [
+[
+"tick",
+0.2
+],
+[
+"tick",
+1.1
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "library_int",
+"pose": "think",
+"tag": "3 WEEKS FOOD \u2022 3 DAYS WATER",
+"sp": "cole",
+"name": "COLE",
+"text": "Here's the science. You can last about three weeks without food. But only about three days without water.",
+"start": 17.259,
+"end": 23.206,
+"words": [
+{
+"w": "Here's",
+"s": 17.259
 },
 {
 "w": "the",
-"s": 33.451
+"s": 17.582
 },
 {
-"w": "door",
-"s": 33.651
+"w": "science.",
+"s": 17.813
+},
+{
+"w": "You",
+"s": 18.366
+},
+{
+"w": "can",
+"s": 18.596
+},
+{
+"w": "last",
+"s": 18.827
+},
+{
+"w": "about",
+"s": 19.103
+},
+{
+"w": "three",
+"s": 19.426
+},
+{
+"w": "weeks",
+"s": 19.749
+},
+{
+"w": "without",
+"s": 20.071
+},
+{
+"w": "food.",
+"s": 20.486
+},
+{
+"w": "But",
+"s": 20.901
+},
+{
+"w": "only",
+"s": 21.132
+},
+{
+"w": "about",
+"s": 21.408
+},
+{
+"w": "three",
+"s": 21.731
+},
+{
+"w": "days",
+"s": 22.054
+},
+{
+"w": "without",
+"s": 22.33
+},
+{
+"w": "water.",
+"s": 22.745
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 4,
+"x0": 1.1,
+"x1": 0.95,
+"depth": "far",
+"turn": true
+},
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "river",
+"showBottle": true,
+"sp": "cole",
+"name": "COLE",
+"text": "So I went to the river. But river water can carry bacteria and parasites.",
+"start": 23.506,
+"end": 27.749,
+"words": [
+{
+"w": "So",
+"s": 23.506
+},
+{
+"w": "I",
+"s": 23.691
+},
+{
+"w": "went",
+"s": 23.829
+},
+{
+"w": "to",
+"s": 24.106
+},
+{
+"w": "the",
+"s": 24.29
+},
+{
+"w": "river.",
+"s": 24.521
+},
+{
+"w": "But",
+"s": 24.982
+},
+{
+"w": "river",
+"s": 25.213
+},
+{
+"w": "water",
+"s": 25.535
+},
+{
+"w": "can",
+"s": 25.858
+},
+{
+"w": "carry",
+"s": 26.089
+},
+{
+"w": "bacteria",
+"s": 26.412
 },
 {
 "w": "and",
-"s": 33.891
+"s": 26.873
 },
 {
-"w": "wait",
-"s": 34.091
+"w": "parasites.",
+"s": 27.104
+}
+],
+"sfx": [
+[
+"groan",
+0.8
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "warn",
+"sp": "cole",
+"name": "COLE",
+"text": "They make you sick, and you lose even more water. Out here, that can kill you.",
+"start": 28.049,
+"end": 32.276,
+"words": [
+{
+"w": "They",
+"s": 28.049
+},
+{
+"w": "make",
+"s": 28.295
+},
+{
+"w": "you",
+"s": 28.542
+},
+{
+"w": "sick,",
+"s": 28.747
+},
+{
+"w": "and",
+"s": 29.116
+},
+{
+"w": "you",
+"s": 29.321
+},
+{
+"w": "lose",
+"s": 29.527
+},
+{
+"w": "even",
+"s": 29.773
+},
+{
+"w": "more",
+"s": 30.019
+},
+{
+"w": "water.",
+"s": 30.265
+},
+{
+"w": "Out",
+"s": 30.676
+},
+{
+"w": "here,",
+"s": 30.881
+},
+{
+"w": "that",
+"s": 31.25
+},
+{
+"w": "can",
+"s": 31.497
+},
+{
+"w": "kill",
+"s": 31.702
+},
+{
+"w": "you.",
+"s": 31.948
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "step",
+"n": 1,
+"title": "FILTER THROUGH CLOTH",
+"sub": "Clears dirt. Does NOT kill germs.",
+"sp": "cole",
+"name": "COLE",
+"text": "Step one. Pour it through a cloth to catch the dirt.",
+"start": 32.576,
+"end": 35.383,
+"words": [
+{
+"w": "Step",
+"s": 32.576
+},
+{
+"w": "one.",
+"s": 32.824
+},
+{
+"w": "Pour",
+"s": 33.154
 },
 {
 "w": "it",
-"s": 34.331
+"s": 33.402
 },
 {
-"w": "out?",
-"s": 34.491
+"w": "through",
+"s": 33.567
+},
+{
+"w": "a",
+"s": 33.939
+},
+{
+"w": "cloth",
+"s": 34.062
+},
+{
+"w": "to",
+"s": 34.351
+},
+{
+"w": "catch",
+"s": 34.516
+},
+{
+"w": "the",
+"s": 34.805
+},
+{
+"w": "dirt.",
+"s": 35.012
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "step",
+"n": 2,
+"title": "ROLLING BOIL: 1 MINUTE",
+"sub": "3 minutes at high altitude",
+"sp": "cole",
+"name": "COLE",
+"text": "Step two. Bring it to a rolling boil for one full minute. Three minutes if you're high in the mountains.",
+"start": 35.683,
+"end": 41.077,
+"words": [
+{
+"w": "Step",
+"s": 35.683
+},
+{
+"w": "two.",
+"s": 35.932
+},
+{
+"w": "Bring",
+"s": 36.264
+},
+{
+"w": "it",
+"s": 36.555
+},
+{
+"w": "to",
+"s": 36.72
+},
+{
+"w": "a",
+"s": 36.886
+},
+{
+"w": "rolling",
+"s": 37.011
+},
+{
+"w": "boil",
+"s": 37.384
+},
+{
+"w": "for",
+"s": 37.633
+},
+{
+"w": "one",
+"s": 37.841
+},
+{
+"w": "full",
+"s": 38.048
+},
+{
+"w": "minute.",
+"s": 38.297
+},
+{
+"w": "Three",
+"s": 38.754
+},
+{
+"w": "minutes",
+"s": 39.044
+},
+{
+"w": "if",
+"s": 39.417
+},
+{
+"w": "you're",
+"s": 39.583
+},
+{
+"w": "high",
+"s": 39.874
+},
+{
+"w": "in",
+"s": 40.123
+},
+{
+"w": "the",
+"s": 40.289
+},
+{
+"w": "mountains.",
+"s": 40.496
+}
+],
+"sfx": [
+[
+"whoosh",
+0
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "step",
+"n": 3,
+"title": "STORE IT COVERED",
+"sub": "Clean jars. Lids on.",
+"sp": "cole",
+"name": "COLE",
+"text": "Step three. Let it cool, and store it in clean, covered jars.",
+"start": 41.377,
+"end": 45.032,
+"words": [
+{
+"w": "Step",
+"s": 41.377
+},
+{
+"w": "three.",
+"s": 41.644
+},
+{
+"w": "Let",
+"s": 42.09
+},
+{
+"w": "it",
+"s": 42.313
+},
+{
+"w": "cool,",
+"s": 42.491
+},
+{
+"w": "and",
+"s": 42.892
+},
+{
+"w": "store",
+"s": 43.115
+},
+{
+"w": "it",
+"s": 43.427
+},
+{
+"w": "in",
+"s": 43.606
+},
+{
+"w": "clean,",
+"s": 43.784
+},
+{
+"w": "covered",
+"s": 44.23
+},
+{
+"w": "jars.",
+"s": 44.631
+}
+],
+"sfx": [
+[
+"ding",
+1.2
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": {
+"n": 5,
+"x0": 1.2,
+"x1": 1.0,
+"depth": "far",
+"turn": true
+},
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "roof",
+"pose": "idle",
+"sp": "cole",
+"name": "COLE",
+"text": "But there's a problem. The smoke from my fire can be seen for miles.",
+"start": 45.332,
+"end": 49.066,
+"words": [
+{
+"w": "But",
+"s": 45.332
+},
+{
+"w": "there's",
+"s": 45.549
+},
+{
+"w": "a",
+"s": 45.896
+},
+{
+"w": "problem.",
+"s": 46.027
+},
+{
+"w": "The",
+"s": 46.548
+},
+{
+"w": "smoke",
+"s": 46.765
+},
+{
+"w": "from",
+"s": 47.069
+},
+{
+"w": "my",
+"s": 47.329
+},
+{
+"w": "fire",
+"s": 47.503
+},
+{
+"w": "can",
+"s": 47.763
+},
+{
+"w": "be",
+"s": 47.98
+},
+{
+"w": "seen",
+"s": 48.154
+},
+{
+"w": "for",
+"s": 48.415
+},
+{
+"w": "miles.",
+"s": 48.632
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": {
+"n": 10,
+"x0": 1.05,
+"x1": 0.78,
+"depth": "mid",
+"turn": true
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "roof",
+"pose": "scared",
+"sp": "cole",
+"name": "COLE",
+"text": "And tonight, they saw it.",
+"start": 49.366,
+"end": 50.795,
+"words": [
+{
+"w": "And",
+"s": 49.366
+},
+{
+"w": "tonight,",
+"s": 49.57
+},
+{
+"w": "they",
+"s": 50.06
+},
+{
+"w": "saw",
+"s": 50.305
+},
+{
+"w": "it.",
+"s": 50.509
+}
+],
+"sfx": [
+[
+"groan",
+0.1
+],
+[
+"bang",
+0.9
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "question",
+"opt1": "Keep boiling water and risk the smoke",
+"opt2": "Put out the fire and live on what you have left",
+"sp": "cole",
+"name": "COLE",
+"text": "So, would you rather keep boiling water and risk the smoke? Or put out the fire and live on what you have left?",
+"start": 51.095,
+"end": 57.034,
+"words": [
+{
+"w": "So,",
+"s": 51.095
+},
+{
+"w": "would",
+"s": 51.39
+},
+{
+"w": "you",
+"s": 51.685
+},
+{
+"w": "rather",
+"s": 51.896
+},
+{
+"w": "keep",
+"s": 52.233
+},
+{
+"w": "boiling",
+"s": 52.485
+},
+{
+"w": "water",
+"s": 52.864
+},
+{
+"w": "and",
+"s": 53.159
+},
+{
+"w": "risk",
+"s": 53.37
+},
+{
+"w": "the",
+"s": 53.622
+},
+{
+"w": "smoke?",
+"s": 53.833
+},
+{
+"w": "Or",
+"s": 54.254
+},
+{
+"w": "put",
+"s": 54.423
+},
+{
+"w": "out",
+"s": 54.633
+},
+{
+"w": "the",
+"s": 54.844
+},
+{
+"w": "fire",
+"s": 55.054
+},
+{
+"w": "and",
+"s": 55.307
+},
+{
+"w": "live",
+"s": 55.518
+},
+{
+"w": "on",
+"s": 55.77
+},
+{
+"w": "what",
+"s": 55.939
+},
+{
+"w": "you",
+"s": 56.192
+},
+{
+"w": "have",
+"s": 56.402
+},
+{
+"w": "left?",
+"s": 56.655
 }
 ],
 "sfx": [
@@ -754,38 +1148,28 @@
 ]
 },
 {
-"loc": "station_ext",
+"loc": "black",
 "tod": "night",
 "wx": null,
-"cast": [
-"cole:.4:scared"
-],
-"z": {
-"n": 12,
-"x0": 0.9,
-"x1": 0.62,
-"depth": "mid"
-},
-"props": [
-"sign",
-"pumps",
-"lantern"
-],
+"cast": [],
+"z": null,
+"props": [],
 "fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
-"hud": "wyr",
+"hud": null,
 "act": "",
-"intensity": 0.7,
-"focus": 0.5,
-"opt1": "Sneak out the back and run for the woods",
-"opt2": "Barricade the door and wait it out",
+"intensity": 0.3,
+"focus": null,
+"scene": "question",
+"opt1": "Keep boiling water and risk the smoke",
+"opt2": "Put out the fire and live on what you have left",
 "countdown": true,
 "sp": "",
 "text": "",
-"start": 35.011,
-"end": 37.611,
+"start": 57.234,
+"end": 59.834,
 "words": [],
 "sfx": [
 [
@@ -794,84 +1178,75 @@
 ],
 [
 "tick",
-0.33
+0.87
 ],
 [
 "tick",
-0.66
+1.73
 ]
 ]
 },
 {
-"loc": "station_ext",
+"loc": "black",
 "tod": "night",
 "wx": null,
-"cast": [
-"cole:.4:scared"
-],
-"z": {
-"n": 12,
-"x0": 0.9,
-"x1": 0.62,
-"depth": "mid"
-},
-"props": [
-"sign",
-"pumps",
-"lantern"
-],
+"cast": [],
+"z": null,
+"props": [],
 "fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
-"hud": "wyr",
+"hud": null,
 "act": "",
-"intensity": 0.4,
-"focus": 0.5,
-"opt1": "Sneak out the back and run for the woods",
-"opt2": "Barricade the door and wait it out",
+"intensity": 0.3,
+"focus": null,
+"scene": "question",
+"opt1": "Keep boiling water and risk the smoke",
+"opt2": "Put out the fire and live on what you have left",
 "vote": true,
+"recap": "TODAY: FILTER \u2022 BOIL 1 MIN \u2022 COVER",
 "sp": "cole",
 "name": "COLE",
 "text": "Vote in the poll. Tomorrow, you'll see what happens.",
-"start": 38.261,
-"end": 41.211,
+"start": 60.484,
+"end": 63.434,
 "words": [
 {
 "w": "Vote",
-"s": 38.261
+"s": 60.484
 },
 {
 "w": "in",
-"s": 38.525
+"s": 60.748
 },
 {
 "w": "the",
-"s": 38.702
+"s": 60.924
 },
 {
 "w": "poll.",
-"s": 38.922
+"s": 61.144
 },
 {
 "w": "Tomorrow,",
-"s": 39.318
+"s": 61.541
 },
 {
 "w": "you'll",
-"s": 39.89
+"s": 62.113
 },
 {
 "w": "see",
-"s": 40.199
+"s": 62.421
 },
 {
 "w": "what",
-"s": 40.419
+"s": 62.641
 },
 {
 "w": "happens.",
-"s": 40.683
+"s": 62.906
 }
 ],
 "sfx": []
@@ -879,514 +1254,846 @@
 ],
 "lines": [
 {
-"start": 1.45,
-"end": 4.508,
+"start": 0.6,
+"end": 4.813,
 "words": [
 {
-"w": "Day",
-"s": 1.45
+"w": "Zombies",
+"s": 0.6
 },
 {
-"w": "one.",
-"s": 1.675
+"w": "won't",
+"s": 1.012
 },
 {
-"w": "Everyone",
-"s": 2.035
-},
-{
-"w": "I",
-"s": 2.484
-},
-{
-"w": "know",
-"s": 2.619
-},
-{
-"w": "is",
-"s": 2.889
-},
-{
-"w": "gone.",
-"s": 3.069
-},
-{
-"w": "It's",
-"s": 3.474
-},
-{
-"w": "just",
-"s": 3.698
-},
-{
-"w": "me",
-"s": 3.968
-},
-{
-"w": "now.",
-"s": 4.148
-}
-]
-},
-{
-"start": 4.808,
-"end": 10.456,
-"words": [
-{
-"w": "Forty",
-"s": 4.808
-},
-{
-"w": "one",
-"s": 5.132
-},
-{
-"w": "days",
-"s": 5.363
-},
-{
-"w": "ago,",
-"s": 5.641
-},
-{
-"w": "the",
-"s": 6.011
-},
-{
-"w": "dead",
-"s": 6.243
-},
-{
-"w": "started",
-"s": 6.521
-},
-{
-"w": "walking.",
-"s": 6.937
-},
-{
-"w": "I've",
-"s": 7.493
-},
-{
-"w": "been",
-"s": 7.724
-},
-{
-"w": "hiding",
-"s": 8.002
-},
-{
-"w": "in",
-"s": 8.372
-},
-{
-"w": "this",
-"s": 8.558
-},
-{
-"w": "old",
-"s": 8.835
-},
-{
-"w": "gas",
-"s": 9.067
-},
-{
-"w": "station",
-"s": 9.298
-},
-{
-"w": "ever",
-"s": 9.715
-},
-{
-"w": "since.",
-"s": 9.993
-}
-]
-},
-{
-"start": 10.756,
-"end": 13.556,
-"words": [
-{
-"w": "This",
-"s": 10.756
-},
-{
-"w": "morning,",
-"s": 11.045
-},
-{
-"w": "I",
-"s": 11.625
-},
-{
-"w": "opened",
-"s": 11.77
-},
-{
-"w": "my",
-"s": 12.156
-},
-{
-"w": "last",
-"s": 12.349
-},
-{
-"w": "can",
-"s": 12.639
-},
-{
-"w": "of",
-"s": 12.88
-},
-{
-"w": "beans.",
-"s": 13.073
-}
-]
-},
-{
-"start": 13.856,
-"end": 16.494,
-"words": [
-{
-"w": "So",
-"s": 13.856
-},
-{
-"w": "I",
-"s": 14.055
-},
-{
-"w": "had",
-"s": 14.205
-},
-{
-"w": "no",
-"s": 14.454
-},
-{
-"w": "choice.",
-"s": 14.653
-},
-{
-"w": "I",
-"s": 15.2
-},
-{
-"w": "walked",
-"s": 15.35
-},
-{
-"w": "into",
-"s": 15.748
-},
-{
-"w": "town.",
-"s": 16.046
-}
-]
-},
-{
-"start": 16.794,
-"end": 18.977,
-"words": [
-{
-"w": "Bellwood",
-"s": 16.794
-},
-{
-"w": "was",
-"s": 17.34
-},
-{
-"w": "quiet.",
-"s": 17.613
-},
-{
-"w": "Too",
-"s": 18.159
-},
-{
-"w": "quiet.",
-"s": 18.431
-}
-]
-},
-{
-"start": 19.277,
-"end": 22.1,
-"words": [
-{
-"w": "Then",
-"s": 19.277
-},
-{
-"w": "I",
-"s": 19.555
-},
-{
-"w": "heard",
-"s": 19.694
-},
-{
-"w": "something",
-"s": 20.017
-},
-{
-"w": "moving",
-"s": 20.526
-},
-{
-"w": "inside",
-"s": 20.897
-},
-{
-"w": "the",
-"s": 21.267
-},
-{
-"w": "pharmacy.",
-"s": 21.498
-}
-]
-},
-{
-"start": 22.4,
-"end": 25.141,
-"words": [
-{
-"w": "I",
-"s": 22.4
-},
-{
-"w": "ran.",
-"s": 22.53
-},
-{
-"w": "And",
-"s": 22.878
-},
-{
-"w": "they",
-"s": 23.096
-},
-{
-"w": "followed",
-"s": 23.357
-},
-{
-"w": "me.",
-"s": 23.792
-},
-{
-"w": "All",
-"s": 24.097
-},
-{
-"w": "the",
-"s": 24.314
-},
-{
-"w": "way",
-"s": 24.532
-},
-{
-"w": "home.",
-"s": 24.75
-}
-]
-},
-{
-"start": 25.441,
-"end": 29.349,
-"words": [
-{
-"w": "Now",
-"s": 25.441
-},
-{
-"w": "there's",
-"s": 25.671
-},
-{
-"w": "a",
-"s": 26.039
-},
-{
-"w": "crowd",
-"s": 26.177
-},
-{
-"w": "of",
-"s": 26.499
-},
-{
-"w": "them",
-"s": 26.683
-},
-{
-"w": "outside",
-"s": 26.959
-},
-{
-"w": "my",
-"s": 27.372
-},
-{
-"w": "door.",
-"s": 27.556
-},
-{
-"w": "And",
-"s": 27.97
-},
-{
-"w": "they're",
-"s": 28.2
-},
-{
-"w": "not",
-"s": 28.568
-},
-{
-"w": "leaving.",
-"s": 28.798
-}
-]
-},
-{
-"start": 29.649,
-"end": 34.811,
-"words": [
-{
-"w": "So,",
-"s": 29.649
-},
-{
-"w": "would",
-"s": 29.929
+"w": "kill",
+"s": 1.287
 },
 {
 "w": "you",
-"s": 30.209
+"s": 1.562
 },
 {
-"w": "rather",
-"s": 30.41
+"w": "first.",
+"s": 1.791
 },
 {
-"w": "sneak",
-"s": 30.73
+"w": "Dirty",
+"s": 2.248
 },
 {
-"w": "out",
-"s": 31.01
+"w": "water",
+"s": 2.569
 },
 {
-"w": "the",
-"s": 31.21
+"w": "will.",
+"s": 2.89
 },
 {
-"w": "back",
-"s": 31.41
+"w": "Here's",
+"s": 3.302
 },
 {
-"w": "and",
-"s": 31.65
+"w": "how",
+"s": 3.622
 },
 {
-"w": "run",
-"s": 31.85
+"w": "I",
+"s": 3.851
 },
 {
-"w": "for",
-"s": 32.05
+"w": "stayed",
+"s": 3.989
 },
 {
-"w": "the",
-"s": 32.25
-},
-{
-"w": "woods?",
-"s": 32.45
-},
-{
-"w": "Or",
-"s": 32.851
-},
-{
-"w": "barricade",
-"s": 33.011
-},
-{
-"w": "the",
-"s": 33.451
-},
-{
-"w": "door",
-"s": 33.651
-},
-{
-"w": "and",
-"s": 33.891
-},
-{
-"w": "wait",
-"s": 34.091
-},
-{
-"w": "it",
-"s": 34.331
-},
-{
-"w": "out?",
-"s": 34.491
+"w": "alive.",
+"s": 4.355
 }
 ]
 },
 {
-"start": 38.261,
-"end": 41.211,
+"start": 5.113,
+"end": 8.631,
 "words": [
 {
-"w": "Vote",
-"s": 38.261
+"w": "I'm",
+"s": 5.113
 },
 {
-"w": "in",
-"s": 38.525
+"w": "Cole.",
+"s": 5.306
+},
+{
+"w": "I",
+"s": 5.739
+},
+{
+"w": "used",
+"s": 5.884
+},
+{
+"w": "to",
+"s": 6.173
+},
+{
+"w": "teach",
+"s": 6.366
+},
+{
+"w": "science.",
+"s": 6.703
+},
+{
+"w": "Now",
+"s": 7.282
+},
+{
+"w": "I",
+"s": 7.523
+},
+{
+"w": "teach",
+"s": 7.667
+},
+{
+"w": "survival.",
+"s": 8.005
+}
+]
+},
+{
+"start": 8.931,
+"end": 14.201,
+"words": [
+{
+"w": "I",
+"s": 8.931
+},
+{
+"w": "picked",
+"s": 9.072
+},
+{
+"w": "this",
+"s": 9.449
+},
+{
+"w": "library",
+"s": 9.731
+},
+{
+"w": "on",
+"s": 10.155
+},
+{
+"w": "purpose.",
+"s": 10.343
+},
+{
+"w": "Stone",
+"s": 10.907
+},
+{
+"w": "walls,",
+"s": 11.237
+},
+{
+"w": "one",
+"s": 11.707
+},
+{
+"w": "door,",
+"s": 11.943
+},
+{
+"w": "and",
+"s": 12.366
+},
+{
+"w": "windows",
+"s": 12.601
+},
+{
+"w": "too",
+"s": 13.025
+},
+{
+"w": "high",
+"s": 13.26
+},
+{
+"w": "to",
+"s": 13.543
+},
+{
+"w": "climb.",
+"s": 13.731
+}
+]
+},
+{
+"start": 14.501,
+"end": 16.959,
+"words": [
+{
+"w": "But",
+"s": 14.501
+},
+{
+"w": "on",
+"s": 14.721
+},
+{
+"w": "day",
+"s": 14.896
+},
+{
+"w": "three,",
+"s": 15.116
 },
 {
 "w": "the",
-"s": 38.702
+"s": 15.555
 },
 {
-"w": "poll.",
-"s": 38.922
+"w": "taps",
+"s": 15.774
 },
 {
-"w": "Tomorrow,",
-"s": 39.318
+"w": "stopped",
+"s": 16.038
 },
 {
-"w": "you'll",
-"s": 39.89
+"w": "running.",
+"s": 16.433
+}
+]
 },
 {
-"w": "see",
-"s": 40.199
+"start": 17.259,
+"end": 23.206,
+"words": [
+{
+"w": "Here's",
+"s": 17.259
+},
+{
+"w": "the",
+"s": 17.582
+},
+{
+"w": "science.",
+"s": 17.813
+},
+{
+"w": "You",
+"s": 18.366
+},
+{
+"w": "can",
+"s": 18.596
+},
+{
+"w": "last",
+"s": 18.827
+},
+{
+"w": "about",
+"s": 19.103
+},
+{
+"w": "three",
+"s": 19.426
+},
+{
+"w": "weeks",
+"s": 19.749
+},
+{
+"w": "without",
+"s": 20.071
+},
+{
+"w": "food.",
+"s": 20.486
+},
+{
+"w": "But",
+"s": 20.901
+},
+{
+"w": "only",
+"s": 21.132
+},
+{
+"w": "about",
+"s": 21.408
+},
+{
+"w": "three",
+"s": 21.731
+},
+{
+"w": "days",
+"s": 22.054
+},
+{
+"w": "without",
+"s": 22.33
+},
+{
+"w": "water.",
+"s": 22.745
+}
+]
+},
+{
+"start": 23.506,
+"end": 27.749,
+"words": [
+{
+"w": "So",
+"s": 23.506
+},
+{
+"w": "I",
+"s": 23.691
+},
+{
+"w": "went",
+"s": 23.829
+},
+{
+"w": "to",
+"s": 24.106
+},
+{
+"w": "the",
+"s": 24.29
+},
+{
+"w": "river.",
+"s": 24.521
+},
+{
+"w": "But",
+"s": 24.982
+},
+{
+"w": "river",
+"s": 25.213
+},
+{
+"w": "water",
+"s": 25.535
+},
+{
+"w": "can",
+"s": 25.858
+},
+{
+"w": "carry",
+"s": 26.089
+},
+{
+"w": "bacteria",
+"s": 26.412
+},
+{
+"w": "and",
+"s": 26.873
+},
+{
+"w": "parasites.",
+"s": 27.104
+}
+]
+},
+{
+"start": 28.049,
+"end": 32.276,
+"words": [
+{
+"w": "They",
+"s": 28.049
+},
+{
+"w": "make",
+"s": 28.295
+},
+{
+"w": "you",
+"s": 28.542
+},
+{
+"w": "sick,",
+"s": 28.747
+},
+{
+"w": "and",
+"s": 29.116
+},
+{
+"w": "you",
+"s": 29.321
+},
+{
+"w": "lose",
+"s": 29.527
+},
+{
+"w": "even",
+"s": 29.773
+},
+{
+"w": "more",
+"s": 30.019
+},
+{
+"w": "water.",
+"s": 30.265
+},
+{
+"w": "Out",
+"s": 30.676
+},
+{
+"w": "here,",
+"s": 30.881
+},
+{
+"w": "that",
+"s": 31.25
+},
+{
+"w": "can",
+"s": 31.497
+},
+{
+"w": "kill",
+"s": 31.702
+},
+{
+"w": "you.",
+"s": 31.948
+}
+]
+},
+{
+"start": 32.576,
+"end": 35.383,
+"words": [
+{
+"w": "Step",
+"s": 32.576
+},
+{
+"w": "one.",
+"s": 32.824
+},
+{
+"w": "Pour",
+"s": 33.154
+},
+{
+"w": "it",
+"s": 33.402
+},
+{
+"w": "through",
+"s": 33.567
+},
+{
+"w": "a",
+"s": 33.939
+},
+{
+"w": "cloth",
+"s": 34.062
+},
+{
+"w": "to",
+"s": 34.351
+},
+{
+"w": "catch",
+"s": 34.516
+},
+{
+"w": "the",
+"s": 34.805
+},
+{
+"w": "dirt.",
+"s": 35.012
+}
+]
+},
+{
+"start": 35.683,
+"end": 41.077,
+"words": [
+{
+"w": "Step",
+"s": 35.683
+},
+{
+"w": "two.",
+"s": 35.932
+},
+{
+"w": "Bring",
+"s": 36.264
+},
+{
+"w": "it",
+"s": 36.555
+},
+{
+"w": "to",
+"s": 36.72
+},
+{
+"w": "a",
+"s": 36.886
+},
+{
+"w": "rolling",
+"s": 37.011
+},
+{
+"w": "boil",
+"s": 37.384
+},
+{
+"w": "for",
+"s": 37.633
+},
+{
+"w": "one",
+"s": 37.841
+},
+{
+"w": "full",
+"s": 38.048
+},
+{
+"w": "minute.",
+"s": 38.297
+},
+{
+"w": "Three",
+"s": 38.754
+},
+{
+"w": "minutes",
+"s": 39.044
+},
+{
+"w": "if",
+"s": 39.417
+},
+{
+"w": "you're",
+"s": 39.583
+},
+{
+"w": "high",
+"s": 39.874
+},
+{
+"w": "in",
+"s": 40.123
+},
+{
+"w": "the",
+"s": 40.289
+},
+{
+"w": "mountains.",
+"s": 40.496
+}
+]
+},
+{
+"start": 41.377,
+"end": 45.032,
+"words": [
+{
+"w": "Step",
+"s": 41.377
+},
+{
+"w": "three.",
+"s": 41.644
+},
+{
+"w": "Let",
+"s": 42.09
+},
+{
+"w": "it",
+"s": 42.313
+},
+{
+"w": "cool,",
+"s": 42.491
+},
+{
+"w": "and",
+"s": 42.892
+},
+{
+"w": "store",
+"s": 43.115
+},
+{
+"w": "it",
+"s": 43.427
+},
+{
+"w": "in",
+"s": 43.606
+},
+{
+"w": "clean,",
+"s": 43.784
+},
+{
+"w": "covered",
+"s": 44.23
+},
+{
+"w": "jars.",
+"s": 44.631
+}
+]
+},
+{
+"start": 45.332,
+"end": 49.066,
+"words": [
+{
+"w": "But",
+"s": 45.332
+},
+{
+"w": "there's",
+"s": 45.549
+},
+{
+"w": "a",
+"s": 45.896
+},
+{
+"w": "problem.",
+"s": 46.027
+},
+{
+"w": "The",
+"s": 46.548
+},
+{
+"w": "smoke",
+"s": 46.765
+},
+{
+"w": "from",
+"s": 47.069
+},
+{
+"w": "my",
+"s": 47.329
+},
+{
+"w": "fire",
+"s": 47.503
+},
+{
+"w": "can",
+"s": 47.763
+},
+{
+"w": "be",
+"s": 47.98
+},
+{
+"w": "seen",
+"s": 48.154
+},
+{
+"w": "for",
+"s": 48.415
+},
+{
+"w": "miles.",
+"s": 48.632
+}
+]
+},
+{
+"start": 49.366,
+"end": 50.795,
+"words": [
+{
+"w": "And",
+"s": 49.366
+},
+{
+"w": "tonight,",
+"s": 49.57
+},
+{
+"w": "they",
+"s": 50.06
+},
+{
+"w": "saw",
+"s": 50.305
+},
+{
+"w": "it.",
+"s": 50.509
+}
+]
+},
+{
+"start": 51.095,
+"end": 57.034,
+"words": [
+{
+"w": "So,",
+"s": 51.095
+},
+{
+"w": "would",
+"s": 51.39
+},
+{
+"w": "you",
+"s": 51.685
+},
+{
+"w": "rather",
+"s": 51.896
+},
+{
+"w": "keep",
+"s": 52.233
+},
+{
+"w": "boiling",
+"s": 52.485
+},
+{
+"w": "water",
+"s": 52.864
+},
+{
+"w": "and",
+"s": 53.159
+},
+{
+"w": "risk",
+"s": 53.37
+},
+{
+"w": "the",
+"s": 53.622
+},
+{
+"w": "smoke?",
+"s": 53.833
+},
+{
+"w": "Or",
+"s": 54.254
+},
+{
+"w": "put",
+"s": 54.423
+},
+{
+"w": "out",
+"s": 54.633
+},
+{
+"w": "the",
+"s": 54.844
+},
+{
+"w": "fire",
+"s": 55.054
+},
+{
+"w": "and",
+"s": 55.307
+},
+{
+"w": "live",
+"s": 55.518
+},
+{
+"w": "on",
+"s": 55.77
 },
 {
 "w": "what",
-"s": 40.419
+"s": 55.939
+},
+{
+"w": "you",
+"s": 56.192
+},
+{
+"w": "have",
+"s": 56.402
+},
+{
+"w": "left?",
+"s": 56.655
+}
+]
+},
+{
+"start": 60.484,
+"end": 63.434,
+"words": [
+{
+"w": "Vote",
+"s": 60.484
+},
+{
+"w": "in",
+"s": 60.748
+},
+{
+"w": "the",
+"s": 60.924
+},
+{
+"w": "poll.",
+"s": 61.144
+},
+{
+"w": "Tomorrow,",
+"s": 61.541
+},
+{
+"w": "you'll",
+"s": 62.113
+},
+{
+"w": "see",
+"s": 62.421
+},
+{
+"w": "what",
+"s": 62.641
 },
 {
 "w": "happens.",
-"s": 40.683
+"s": 62.906
 }
 ]
 }

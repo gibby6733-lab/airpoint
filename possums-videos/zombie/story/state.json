@@ -1,9 +1,17 @@
 {
- "format": "one survivor, short story each day, ends with ONE would-you-rather question (no A/B labels); the user posts the poll; the winning answer drives the next day",
+ "format": "hook in the first 5 s (bold on-screen line + voice); one survivor teaches ONE real survival lesson per video (lesson tag on screen, numbered steps, recap); ends with ONE would-you-rather question (no A/B labels); the user posts the poll; the winning answer drives the next day",
  "cast_rule": "only one main person on screen; every other day a new character can be introduced and/or leave",
  "after_day": 1,
- "survivor": "Cole (narrator, beanie, brown jacket) hiding at the Mile 41 gas station",
+ "survivor": "Cole, former high-school science teacher (glasses, beanie, backpack) - smart, explains the why; hiding in the Bellwood Public Library (stone walls, one door, high windows)",
  "companions": [],
  "hide_supplies": true,
- "history": [{"day": 1, "question": "Sneak out the back and run for the woods, OR barricade the door and wait it out", "poll_winner": null}]
+ "history": [
+  {
+   "day": 1,
+   "lesson": "safe drinking water: filter through cloth, rolling boil 1 min (3 at high altitude), store covered",
+   "question": "Keep boiling water and risk the smoke, OR put out the fire and live on what you have left",
+   "poll_winner": null
+  }
+ ],
+ "engine": "zombie/story/engine.html (native 9:16) - copy to dayNN/episode.html, render with render.js"
 }
