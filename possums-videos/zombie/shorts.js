@@ -27,7 +27,10 @@ const fs = require('fs'), path = require('path');
       const cw = 2160 * 9 / 16, sx = Math.max(0, Math.min(3840 - cw, fx * 3840 - cw / 2));
       o.drawImage(cv, sx, 0, cw, 2160, 0, 0, 1080, 1920);
       o.fillStyle = 'rgba(0,0,0,.55)'; o.fillRect(0, 0, 1080, 150); t2('MILE 41 · EPISODE ' + ep, 540, 78, 50, '#e8c46a');
-      if (local < 2.2) { const a = Math.min(1, local * 3, (2.2 - local) * 3); o.globalAlpha = a; t2(hook, 540, 300, 72, '#ffe14a', 14); o.globalAlpha = 1; }
+      if (local < 2.6) { const a = Math.min(1, local * 3, (2.6 - local) * 3); o.globalAlpha = a;   // hook, wrapped to fit
+        const words = hook.split(' '), lines = ['']; o.font = '900 72px Inter';
+        for (const w of words) { const tryL = (lines[lines.length - 1] + ' ' + w).trim(); if (o.measureText(tryL).width > 940 && lines[lines.length - 1]) lines.push(w); else lines[lines.length - 1] = tryL; }
+        lines.forEach((l, i) => t2(l, 540, 280 + i * 88, 72, '#ffe14a', 14)); o.globalAlpha = 1; }
       const B = tl.beats.find(b => b.text && t >= b.start - .05 && t <= b.end + .2);
       if (B && local < dur - endLen) { const ws = B.words; let ci = ws.findIndex((w, i) => t >= w.s && (i === ws.length - 1 || t < ws[i + 1].s)); if (ci < 0) ci = 0;
         const c0 = Math.floor(ci / 3) * 3, chunk = ws.slice(c0, c0 + 3).map(w => w.w.toUpperCase()).join(' ');

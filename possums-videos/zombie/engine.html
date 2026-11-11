@@ -274,7 +274,8 @@ window.setRenderScale = r => { RS = r; cv.width = W * r; cv.height = H * r; };
 window.focusAt = function (t) {  // where the action is (0..1 across the frame), for vertical crops
   let i = 0; for (let j = 0; j < TL.beats.length; j++) if (t >= TL.beats[j].start - .2) i = j; const b = TL.beats[i];
   if (b.cam > 1.05) return b.camx;
-  const xs = (b.cast || []).map(s => parseFloat(s.split(':')[1])); if (b.z && b.z.depth === 'near') xs.push(lerp(b.z.x0, b.z.x1, .5));
+  const xs = (b.cast || []).map(s => parseFloat(s.split(':')[1]));
+  if (b.z && b.z.depth === 'near') { const zx = lerp(b.z.x0, b.z.x1, .5); if (!xs.length) return zx; const near = xs.reduce((a, c) => Math.abs(c - zx) < Math.abs(a - zx) ? c : a); return (near + zx) / 2; }
   return xs.length ? xs.reduce((a, c) => a + c, 0) / xs.length : .5;
 };
 window.renderFrame = function (t) {
