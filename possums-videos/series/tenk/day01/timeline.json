@@ -1,10 +1,10 @@
 {
- "duration": 83.765,
+ "duration": 63.67,
  "lines": [
   {
    "scene": "hook",
    "money": 1,
-   "text": "Thirty days. One dollar. And Benny has to turn it into ten thousand.",
+   "text": "Thirty days. One dollar. And Benny has to turn it into ten thousand!",
    "sfx": [
     [
      "whoosh",
@@ -16,7 +16,7 @@
     ]
    ],
    "start": 0.35,
-   "end": 4.429,
+   "end": 3.318,
    "words": [
     {
      "w": "Thirty",
@@ -24,51 +24,51 @@
     },
     {
      "w": "days.",
-     "s": 0.721
+     "s": 0.62
     },
     {
      "w": "One",
-     "s": 1.138
+     "s": 0.923
     },
     {
      "w": "dollar.",
-     "s": 1.37
+     "s": 1.092
     },
     {
      "w": "And",
-     "s": 1.88
+     "s": 1.463
     },
     {
      "w": "Benny",
-     "s": 2.111
+     "s": 1.632
     },
     {
      "w": "has",
-     "s": 2.436
+     "s": 1.868
     },
     {
      "w": "to",
-     "s": 2.668
+     "s": 2.037
     },
     {
      "w": "turn",
-     "s": 2.853
+     "s": 2.171
     },
     {
      "w": "it",
-     "s": 3.131
+     "s": 2.374
     },
     {
      "w": "into",
-     "s": 3.317
+     "s": 2.509
     },
     {
      "w": "ten",
-     "s": 3.595
+     "s": 2.711
     },
     {
-     "w": "thousand.",
-     "s": 3.826
+     "w": "thousand!",
+     "s": 2.88
     }
    ],
    "sfx_times": [
@@ -78,7 +78,7 @@
     ],
     [
      "cash",
-     3.595
+     2.711
     ]
    ]
   },
@@ -96,93 +96,93 @@
      "@note"
     ]
    ],
-   "start": 4.649,
-   "end": 9.316,
+   "start": 3.538,
+   "end": 7.212,
    "words": [
     {
      "w": "Because",
-     "s": 4.649
+     "s": 3.538
     },
     {
      "w": "this",
-     "s": 5.031
+     "s": 3.839
     },
     {
      "w": "morning,",
-     "s": 5.285
+     "s": 4.039
     },
     {
      "w": "his",
-     "s": 5.795
+     "s": 4.44
     },
     {
      "w": "mom",
-     "s": 6.007
+     "s": 4.607
     },
     {
      "w": "slapped",
-     "s": 6.219
+     "s": 4.774
     },
     {
      "w": "a",
-     "s": 6.601
+     "s": 5.075
     },
     {
      "w": "dollar",
-     "s": 6.728
+     "s": 5.175
     },
     {
      "w": "on",
-     "s": 7.067
+     "s": 5.442
     },
     {
      "w": "the",
-     "s": 7.237
+     "s": 5.576
     },
     {
      "w": "table,",
-     "s": 7.449
+     "s": 5.743
     },
     {
      "w": "and",
-     "s": 7.874
+     "s": 6.077
     },
     {
      "w": "a",
-     "s": 8.086
+     "s": 6.244
     },
     {
      "w": "note",
-     "s": 8.213
+     "s": 6.344
     },
     {
      "w": "on",
-     "s": 8.468
+     "s": 6.544
     },
     {
      "w": "the",
-     "s": 8.637
+     "s": 6.678
     },
     {
      "w": "fridge.",
-     "s": 8.849
+     "s": 6.845
     }
    ],
    "sfx_times": [
     [
      "stamp",
-     6.219
+     4.774
     ],
     [
      "pop",
-     8.213
+     6.344
     ]
    ]
   },
   {
    "scene": "note",
    "money": 1,
-   "text": "Ten thousand dollars in thirty days, or you're moving out. Love, Mom.",
+   "text": "Ten thousand dollars in thirty days, or you're moving out. Love, Mom!",
    "sfx": [
     [
      "stamp",
@@ -193,66 +193,66 @@
      "@love"
     ]
    ],
-   "start": 9.536,
-   "end": 13.503,
+   "start": 7.432,
+   "end": 10.438,
    "words": [
     {
      "w": "Ten",
-     "s": 9.536
+     "s": 7.432
     },
     {
      "w": "thousand",
-     "s": 9.759
+     "s": 7.601
     },
     {
      "w": "dollars",
-     "s": 10.205
+     "s": 7.939
     },
     {
      "w": "in",
-     "s": 10.606
+     "s": 8.243
     },
     {
      "w": "thirty",
-     "s": 10.784
+     "s": 8.378
     },
     {
      "w": "days,",
-     "s": 11.141
+     "s": 8.648
     },
     {
      "w": "or",
-     "s": 11.542
+     "s": 8.952
     },
     {
      "w": "you're",
-     "s": 11.72
+     "s": 9.087
     },
     {
      "w": "moving",
-     "s": 12.032
+     "s": 9.323
     },
     {
      "w": "out.",
-     "s": 12.389
+     "s": 9.593
     },
     {
      "w": "Love,",
-     "s": 12.745
+     "s": 9.863
     },
     {
-     "w": "Mom.",
-     "s": 13.147
+     "w": "Mom!",
+     "s": 10.167
     }
    ],
    "sfx_times": [
     [
      "stamp",
-     9.734
+     7.582
     ],
     [
      "sad",
-     12.745
+     9.863
     ]
    ]
   },
@@ -274,82 +274,82 @@
      "@bike"
     ]
    ],
-   "start": 13.723,
-   "end": 18.245,
+   "start": 10.658,
+   "end": 13.698,
    "words": [
     {
      "w": "Benny's",
-     "s": 13.723
+     "s": 10.658
     },
     {
      "w": "assets.",
-     "s": 14.081
+     "s": 10.898
     },
     {
      "w": "One",
-     "s": 14.574
+     "s": 11.229
     },
     {
      "w": "dollar.",
-     "s": 14.798
+     "s": 11.38
     },
     {
      "w": "A",
-     "s": 15.29
+     "s": 11.711
     },
     {
      "w": "phone",
-     "s": 15.424
+     "s": 11.801
     },
     {
      "w": "at",
-     "s": 15.738
+     "s": 12.012
     },
     {
      "w": "three",
-     "s": 15.917
+     "s": 12.132
     },
     {
      "w": "percent.",
-     "s": 16.23
+     "s": 12.343
     },
     {
      "w": "And",
-     "s": 16.767
+     "s": 12.704
     },
     {
      "w": "a",
-     "s": 16.991
+     "s": 12.855
     },
     {
      "w": "bike",
-     "s": 17.126
+     "s": 12.945
     },
     {
      "w": "with",
-     "s": 17.394
+     "s": 13.126
     },
     {
      "w": "no",
-     "s": 17.663
+     "s": 13.306
     },
     {
      "w": "seat.",
-     "s": 17.842
+     "s": 13.427
     }
    ],
    "sfx_times": [
     [
      "pop",
-     14.798
+     11.38
     ],
     [
      "pop",
-     15.424
+     11.801
     ],
     [
      "boing",
-     17.126
+     12.945
     ]
    ]
   },
@@ -357,84 +357,84 @@
    "scene": "room",
    "money": 1,
    "pose": "proud",
-   "text": "His business experience? He once traded a fidget spinner for a slice of pizza.",
+   "text": "His business experience? He once traded a fidget spinner for a slice of pizza!",
    "sfx": [
     [
      "ding",
      "@pizza"
     ]
    ],
-   "start": 18.465,
-   "end": 23.052,
+   "start": 13.918,
+   "end": 17.551,
    "words": [
     {
      "w": "His",
-     "s": 18.465
+     "s": 13.918
     },
     {
      "w": "business",
-     "s": 18.701
+     "s": 14.105
     },
     {
      "w": "experience?",
-     "s": 19.174
+     "s": 14.479
     },
     {
      "w": "He",
-     "s": 19.884
+     "s": 15.041
     },
     {
      "w": "once",
-     "s": 20.073
+     "s": 15.191
     },
     {
      "w": "traded",
-     "s": 20.357
+     "s": 15.416
     },
     {
      "w": "a",
-     "s": 20.735
+     "s": 15.716
     },
     {
      "w": "fidget",
-     "s": 20.877
+     "s": 15.828
     },
     {
      "w": "spinner",
-     "s": 21.255
+     "s": 16.128
     },
     {
      "w": "for",
-     "s": 21.681
+     "s": 16.465
     },
     {
      "w": "a",
-     "s": 21.917
+     "s": 16.652
     },
     {
      "w": "slice",
-     "s": 22.059
+     "s": 16.764
     },
     {
      "w": "of",
-     "s": 22.39
+     "s": 17.027
     },
     {
-     "w": "pizza.",
-     "s": 22.579
+     "w": "pizza!",
+     "s": 17.177
     }
    ],
    "sfx_times": [
     [
      "ding",
-     22.579
+     17.177
     ]
    ]
   },
   {
    "scene": "ride",
    "money": 1,
-   "text": "So he rides the seatless bike to the store. Standing up. The whole way.",
+   "text": "So he rides the seatless bike to the store. Standing up! The whole way!",
    "sfx": [
     [
      "whoosh",
@@ -445,155 +445,155 @@
      "@standing"
     ]
    ],
-   "start": 23.272,
-   "end": 27.163,
+   "start": 17.771,
+   "end": 20.646,
    "words": [
     {
      "w": "So",
-     "s": 23.272
+     "s": 17.771
     },
     {
      "w": "he",
-     "s": 23.441
+     "s": 17.896
     },
     {
      "w": "rides",
-     "s": 23.611
+     "s": 18.021
     },
     {
      "w": "the",
-     "s": 23.907
+     "s": 18.24
     },
     {
      "w": "seatless",
-     "s": 24.118
+     "s": 18.396
     },
     {
      "w": "bike",
-     "s": 24.541
+     "s": 18.709
     },
     {
      "w": "to",
-     "s": 24.795
+     "s": 18.896
     },
     {
      "w": "the",
-     "s": 24.964
+     "s": 19.021
     },
     {
      "w": "store.",
-     "s": 25.175
+     "s": 19.177
     },
     {
      "w": "Standing",
-     "s": 25.598
+     "s": 19.49
     },
     {
-     "w": "up.",
-     "s": 26.021
+     "w": "up!",
+     "s": 19.802
     },
     {
      "w": "The",
-     "s": 26.317
+     "s": 20.021
     },
     {
      "w": "whole",
-     "s": 26.529
+     "s": 20.177
     },
     {
-     "w": "way.",
-     "s": 26.825
+     "w": "way!",
+     "s": 20.396
     }
    ],
    "sfx_times": [
     [
      "whoosh",
-     23.661
+     18.059
     ],
     [
      "honk",
-     25.598
+     19.49
     ]
    ]
   },
   {
    "scene": "store",
    "money": 1,
-   "text": "At the dollar store, he finds it. A bag of twenty lollipops. For one dollar.",
+   "text": "At the dollar store, he finds it. A bag of twenty lollipops. For one dollar!",
    "sfx": [
     [
      "ding",
      "@twenty"
     ]
    ],
-   "start": 27.383,
-   "end": 31.917,
+   "start": 20.866,
+   "end": 24.225,
    "words": [
     {
      "w": "At",
-     "s": 27.383
+     "s": 20.866
     },
     {
      "w": "the",
-     "s": 27.565
+     "s": 21.0
     },
     {
      "w": "dollar",
-     "s": 27.791
+     "s": 21.168
     },
     {
      "w": "store,",
-     "s": 28.154
+     "s": 21.437
     },
     {
      "w": "he",
-     "s": 28.607
+     "s": 21.773
     },
     {
      "w": "finds",
-     "s": 28.789
+     "s": 21.907
     },
     {
      "w": "it.",
-     "s": 29.106
+     "s": 22.143
     },
     {
      "w": "A",
-     "s": 29.423
+     "s": 22.378
     },
     {
      "w": "bag",
-     "s": 29.559
+     "s": 22.479
     },
     {
      "w": "of",
-     "s": 29.786
+     "s": 22.646
     },
     {
      "w": "twenty",
-     "s": 29.967
+     "s": 22.781
     },
     {
      "w": "lollipops.",
-     "s": 30.33
+     "s": 23.05
     },
     {
      "w": "For",
-     "s": 30.965
+     "s": 23.52
     },
     {
      "w": "one",
-     "s": 31.191
+     "s": 23.688
     },
     {
-     "w": "dollar.",
-     "s": 31.418
+     "w": "dollar!",
+     "s": 23.856
     }
    ],
    "sfx_times": [
     [
      "ding",
-     29.967
+     22.781
     ]
    ]
   },
@@ -601,48 +601,48 @@
    "scene": "store",
    "money": 0,
    "spend": true,
-   "text": "He spends his entire fortune.",
+   "text": "He spends his entire fortune!",
    "sfx": [
     [
      "spend",
      "@spends"
     ]
    ],
-   "start": 32.137,
-   "end": 33.787,
+   "start": 24.445,
+   "end": 25.937,
    "words": [
     {
      "w": "He",
-     "s": 32.137
+     "s": 24.445
     },
     {
      "w": "spends",
-     "s": 32.315
+     "s": 24.607
     },
     {
      "w": "his",
-     "s": 32.672
+     "s": 24.929
     },
     {
      "w": "entire",
-     "s": 32.895
+     "s": 25.131
     },
     {
-     "w": "fortune.",
-     "s": 33.252
+     "w": "fortune!",
+     "s": 25.453
     }
    ],
    "sfx_times": [
     [
      "spend",
-     32.315
+     24.607
     ]
    ]
   },
   {
    "scene": "math",
    "money": 0,
-   "text": "The plan. Twenty lollipops at a quarter each is five dollars. That's a four hundred percent profit.",
+   "text": "The plan. Twenty lollipops at a quarter each is five dollars. That's a four hundred percent profit!",
    "sfx": [
     [
      "pop",
@@ -661,94 +661,94 @@
      "@four"
     ]
    ],
-   "start": 34.007,
-   "end": 39.923,
+   "start": 26.157,
+   "end": 30.641,
    "words": [
     {
      "w": "The",
-     "s": 34.007
+     "s": 26.157
     },
     {
      "w": "plan.",
-     "s": 34.249
+     "s": 26.341
     },
     {
      "w": "Twenty",
-     "s": 34.686
+     "s": 26.671
     },
     {
      "w": "lollipops",
-     "s": 35.074
+     "s": 26.966
     },
     {
      "w": "at",
-     "s": 35.607
+     "s": 27.37
     },
     {
      "w": "a",
-     "s": 35.801
+     "s": 27.517
     },
     {
      "w": "quarter",
-     "s": 35.946
+     "s": 27.627
     },
     {
      "w": "each",
-     "s": 36.383
+     "s": 27.958
     },
     {
      "w": "is",
-     "s": 36.674
+     "s": 28.178
     },
     {
      "w": "five",
-     "s": 36.868
+     "s": 28.325
     },
     {
      "w": "dollars.",
-     "s": 37.159
+     "s": 28.546
     },
     {
      "w": "That's",
-     "s": 37.741
+     "s": 28.987
     },
     {
      "w": "a",
-     "s": 38.08
+     "s": 29.244
     },
     {
      "w": "four",
-     "s": 38.225
+     "s": 29.355
     },
     {
      "w": "hundred",
-     "s": 38.516
+     "s": 29.575
     },
     {
      "w": "percent",
-     "s": 38.953
+     "s": 29.906
     },
     {
-     "w": "profit.",
-     "s": 39.389
+     "w": "profit!",
+     "s": 30.237
     }
    ],
    "sfx_times": [
     [
      "pop",
-     34.686
+     26.671
     ],
     [
      "pop",
-     35.946
+     27.627
     ],
     [
      "cash",
-     36.868
+     28.325
     ],
     [
      "ding",
-     38.225
+     29.355
     ]
    ]
   },
@@ -762,69 +762,69 @@
      "@toddler"
     ]
    ],
-   "start": 40.143,
-   "end": 43.42,
+   "start": 30.861,
+   "end": 33.506,
    "words": [
     {
      "w": "He",
-     "s": 40.143
+     "s": 30.861
     },
     {
      "w": "sets",
-     "s": 40.322
+     "s": 31.006
     },
     {
      "w": "up",
-     "s": 40.592
+     "s": 31.223
     },
     {
      "w": "at",
-     "s": 40.771
+     "s": 31.368
     },
     {
      "w": "the",
-     "s": 40.951
+     "s": 31.513
     },
     {
      "w": "park.",
-     "s": 41.175
+     "s": 31.694
     },
     {
      "w": "His",
-     "s": 41.579
+     "s": 32.02
     },
     {
      "w": "first",
-     "s": 41.804
+     "s": 32.201
     },
     {
      "w": "customer",
-     "s": 42.118
+     "s": 32.455
     },
     {
      "w": "is",
-     "s": 42.567
+     "s": 32.817
     },
     {
      "w": "a",
-     "s": 42.747
+     "s": 32.962
     },
     {
      "w": "toddler.",
-     "s": 42.882
+     "s": 33.071
     }
    ],
    "sfx_times": [
     [
      "pop",
-     42.882
+     33.071
     ]
    ]
   },
   {
    "scene": "toddler",
    "money": 0,
-   "text": "The toddler offers ten cents. Benny says twenty five. The toddler walks away. Benny chases the toddler.",
+   "text": "The toddler offers ten cents. Benny says twenty five. The toddler walks away. Benny chases the toddler!",
    "sfx": [
     [
      "boing",
@@ -835,93 +835,93 @@
      "@chases"
     ]
    ],
-   "start": 43.64,
-   "end": 50.144,
+   "start": 33.726,
+   "end": 38.283,
    "words": [
     {
      "w": "The",
-     "s": 43.64
+     "s": 33.726
     },
     {
      "w": "toddler",
-     "s": 43.893
+     "s": 33.902
     },
     {
      "w": "offers",
-     "s": 44.346
+     "s": 34.22
     },
     {
      "w": "ten",
-     "s": 44.75
+     "s": 34.503
     },
     {
      "w": "cents.",
-     "s": 45.002
+     "s": 34.679
     },
     {
      "w": "Benny",
-     "s": 45.506
+     "s": 35.033
     },
     {
      "w": "says",
-     "s": 45.859
+     "s": 35.28
     },
     {
      "w": "twenty",
-     "s": 46.161
+     "s": 35.492
     },
     {
      "w": "five.",
-     "s": 46.564
+     "s": 35.775
     },
     {
      "w": "The",
-     "s": 47.018
+     "s": 36.092
     },
     {
      "w": "toddler",
-     "s": 47.27
+     "s": 36.269
     },
     {
      "w": "walks",
-     "s": 47.724
+     "s": 36.587
     },
     {
      "w": "away.",
-     "s": 48.077
+     "s": 36.834
     },
     {
      "w": "Benny",
-     "s": 48.531
+     "s": 37.152
     },
     {
      "w": "chases",
-     "s": 48.883
+     "s": 37.4
     },
     {
      "w": "the",
-     "s": 49.287
+     "s": 37.682
     },
     {
-     "w": "toddler.",
-     "s": 49.539
+     "w": "toddler!",
+     "s": 37.859
     }
    ],
    "sfx_times": [
     [
      "boing",
-     47.724
+     36.587
     ],
     [
      "slide",
-     48.883
+     37.4
     ]
    ]
   },
   {
    "scene": "rival",
    "money": 0,
-   "text": "Then he sees her. An eight year old with a lemonade stand, a card reader, and a business plan.",
+   "text": "Then he sees her. An eight year old with a lemonade stand, a card reader, and a business plan!",
    "sfx": [
     [
      "stamp",
@@ -932,94 +932,94 @@
      "@card"
     ]
    ],
-   "start": 50.364,
-   "end": 55.701,
+   "start": 38.503,
+   "end": 42.326,
    "words": [
     {
      "w": "Then",
-     "s": 50.364
+     "s": 38.503
     },
     {
      "w": "he",
-     "s": 50.626
+     "s": 38.691
     },
     {
      "w": "sees",
-     "s": 50.801
+     "s": 38.816
     },
     {
      "w": "her.",
-     "s": 51.064
+     "s": 39.004
     },
     {
      "w": "An",
-     "s": 51.414
+     "s": 39.255
     },
     {
      "w": "eight",
-     "s": 51.589
+     "s": 39.38
     },
     {
      "w": "year",
-     "s": 51.895
+     "s": 39.599
     },
     {
      "w": "old",
-     "s": 52.157
+     "s": 39.787
     },
     {
      "w": "with",
-     "s": 52.376
+     "s": 39.944
     },
     {
      "w": "a",
-     "s": 52.638
+     "s": 40.132
     },
     {
      "w": "lemonade",
-     "s": 52.77
+     "s": 40.226
     },
     {
      "w": "stand,",
-     "s": 53.207
+     "s": 40.539
     },
     {
      "w": "a",
-     "s": 53.645
+     "s": 40.853
     },
     {
      "w": "card",
-     "s": 53.776
+     "s": 40.947
     },
     {
      "w": "reader,",
-     "s": 54.038
+     "s": 41.135
     },
     {
      "w": "and",
-     "s": 54.519
+     "s": 41.48
     },
     {
      "w": "a",
-     "s": 54.738
+     "s": 41.636
     },
     {
      "w": "business",
-     "s": 54.869
+     "s": 41.73
     },
     {
-     "w": "plan.",
-     "s": 55.307
+     "w": "plan!",
+     "s": 42.044
     }
    ],
    "sfx_times": [
     [
      "stamp",
-     50.801
+     38.816
     ],
     [
      "ding",
-     53.776
+     40.947
     ]
    ]
   },
@@ -1027,64 +1027,64 @@
    "scene": "rival",
    "money": 0,
    "line": true,
-   "text": "Two dollars a cup. And she has a line.",
+   "text": "Two dollars a cup. And she has a line!",
    "sfx": [
     [
      "crowd",
      0.3
     ]
    ],
-   "start": 55.921,
-   "end": 57.998,
+   "start": 42.546,
+   "end": 44.176,
    "words": [
     {
      "w": "Two",
-     "s": 55.921
+     "s": 42.546
     },
     {
      "w": "dollars",
-     "s": 56.12
+     "s": 42.702
     },
     {
      "w": "a",
-     "s": 56.48
+     "s": 42.984
     },
     {
      "w": "cup.",
-     "s": 56.6
+     "s": 43.079
     },
     {
      "w": "And",
-     "s": 56.919
+     "s": 43.329
     },
     {
      "w": "she",
-     "s": 57.119
+     "s": 43.486
     },
     {
      "w": "has",
-     "s": 57.319
+     "s": 43.643
     },
     {
      "w": "a",
-     "s": 57.518
+     "s": 43.8
     },
     {
-     "w": "line.",
-     "s": 57.638
+     "w": "line!",
+     "s": 43.894
     }
    ],
    "sfx_times": [
     [
      "crowd",
-     56.544
+     43.035
     ]
    ]
   },
   {
    "scene": "rush",
    "money": 0,
-   "text": "But then soccer practice ends. Twenty sweaty kids. Zero snacks.",
+   "text": "But then soccer practice ends. Twenty sweaty kids. Zero snacks!",
    "sfx": [
     [
      "whistle",
@@ -1095,58 +1095,58 @@
      "@twenty"
     ]
    ],
-   "start": 58.218,
-   "end": 62.254,
+   "start": 44.396,
+   "end": 47.574,
    "words": [
     {
      "w": "But",
-     "s": 58.218
+     "s": 44.396
     },
     {
      "w": "then",
-     "s": 58.47
+     "s": 44.594
     },
     {
      "w": "soccer",
-     "s": 58.773
+     "s": 44.833
     },
     {
      "w": "practice",
-     "s": 59.176
+     "s": 45.151
     },
     {
      "w": "ends.",
-     "s": 59.681
+     "s": 45.548
     },
     {
      "w": "Twenty",
-     "s": 60.135
+     "s": 45.906
     },
     {
      "w": "sweaty",
-     "s": 60.539
+     "s": 46.223
     },
     {
      "w": "kids.",
-     "s": 60.942
+     "s": 46.541
     },
     {
      "w": "Zero",
-     "s": 61.396
+     "s": 46.899
     },
     {
-     "w": "snacks.",
-     "s": 61.699
+     "w": "snacks!",
+     "s": 47.137
     }
    ],
    "sfx_times": [
     [
      "whistle",
-     58.622
+     44.714
     ],
     [
      "crowd",
-     60.135
+     45.906
     ]
    ]
   },
@@ -1154,7 +1154,7 @@
    "scene": "rush",
    "money": 5,
    "sell": true,
-   "text": "Benny sells out in four minutes.",
+   "text": "Benny sells out in four minutes!",
    "sfx": [
     [
      "cash",
@@ -1169,107 +1169,107 @@
      "@minutes"
     ]
    ],
-   "start": 62.474,
-   "end": 64.09,
+   "start": 47.794,
+   "end": 49.207,
    "words": [
     {
      "w": "Benny",
-     "s": 62.474
+     "s": 47.794
     },
     {
      "w": "sells",
-     "s": 62.75
+     "s": 48.036
     },
     {
      "w": "out",
-     "s": 63.026
+     "s": 48.277
     },
     {
      "w": "in",
-     "s": 63.223
+     "s": 48.449
     },
     {
      "w": "four",
-     "s": 63.38
+     "s": 48.587
     },
     {
-     "w": "minutes.",
-     "s": 63.617
+     "w": "minutes!",
+     "s": 48.793
     }
    ],
    "sfx_times": [
     [
      "cash",
-     62.75
+     48.036
     ],
     [
      "cash",
-     63.38
+     48.587
     ],
     [
      "cash",
-     63.617
+     48.793
     ]
    ]
   },
   {
    "scene": "counter",
    "money": 5,
-   "text": "Day one. Five dollars. He is officially five times richer.",
+   "text": "Day one. Five dollars. He is officially five times richer!",
    "sfx": [
     [
      "ding",
      "@five"
     ]
    ],
-   "start": 64.31,
-   "end": 67.816,
+   "start": 49.427,
+   "end": 52.022,
    "words": [
     {
      "w": "Day",
-     "s": 64.31
+     "s": 49.427
     },
     {
      "w": "one.",
-     "s": 64.543
+     "s": 49.6
     },
     {
      "w": "Five",
-     "s": 64.917
+     "s": 49.877
     },
     {
      "w": "dollars.",
-     "s": 65.198
+     "s": 50.084
     },
     {
      "w": "He",
-     "s": 65.759
+     "s": 50.5
     },
     {
      "w": "is",
-     "s": 65.946
+     "s": 50.638
     },
     {
      "w": "officially",
-     "s": 66.133
+     "s": 50.777
     },
     {
      "w": "five",
-     "s": 66.694
+     "s": 51.192
     },
     {
      "w": "times",
-     "s": 66.974
+     "s": 51.399
     },
     {
-     "w": "richer.",
-     "s": 67.301
+     "w": "richer!",
+     "s": 51.642
     }
    ],
    "sfx_times": [
     [
      "ding",
-     64.917
+     49.877
     ]
    ]
   },
@@ -1283,61 +1283,61 @@
      "@go"
     ]
    ],
-   "start": 68.036,
-   "end": 71.569,
+   "start": 52.242,
+   "end": 54.79,
    "words": [
     {
      "w": "Only",
-     "s": 68.036
+     "s": 52.242
     },
     {
      "w": "nine",
-     "s": 68.339
+     "s": 52.461
     },
     {
      "w": "thousand,",
-     "s": 68.641
+     "s": 52.679
     },
     {
      "w": "nine",
-     "s": 69.298
+     "s": 53.152
     },
     {
      "w": "hundred",
-     "s": 69.601
+     "s": 53.371
     },
     {
      "w": "and",
-     "s": 70.055
+     "s": 53.698
     },
     {
      "w": "ninety",
-     "s": 70.307
+     "s": 53.88
     },
     {
      "w": "five",
-     "s": 70.711
+     "s": 54.172
     },
     {
      "w": "to",
-     "s": 71.014
+     "s": 54.39
     },
     {
      "w": "go.",
-     "s": 71.216
+     "s": 54.536
     }
    ],
    "sfx_times": [
     [
      "sad",
-     71.216
+     54.536
     ]
    ]
   },
   {
    "scene": "vote",
    "money": 5,
-   "text": "So here's where you come in. Buy five more bags of lollipops? Or buy a bucket and a sponge, and start washing cars? Comment one word. Day two starts with your choice.",
+   "text": "So here's where you come in. Buy five more bags of lollipops? Or buy a bucket and a sponge, and start washing cars? Comment one word. Day two starts with your choice!",
    "sfx": [
     [
      "whoosh",
@@ -1356,154 +1356,154 @@
      "@comment"
     ]
    ],
-   "start": 71.789,
-   "end": 82.265,
+   "start": 55.01,
+   "end": 62.17,
    "words": [
     {
      "w": "So",
-     "s": 71.789
+     "s": 55.01
     },
     {
      "w": "here's",
-     "s": 71.989
+     "s": 55.147
     },
     {
      "w": "where",
-     "s": 72.338
+     "s": 55.385
     },
     {
      "w": "you",
-     "s": 72.687
+     "s": 55.624
     },
     {
      "w": "come",
-     "s": 72.937
+     "s": 55.794
     },
     {
      "w": "in.",
-     "s": 73.236
+     "s": 55.999
     },
     {
      "w": "Buy",
-     "s": 73.585
+     "s": 56.238
     },
     {
      "w": "five",
-     "s": 73.835
+     "s": 56.408
     },
     {
      "w": "more",
-     "s": 74.134
+     "s": 56.613
     },
     {
      "w": "bags",
-     "s": 74.433
+     "s": 56.817
     },
     {
      "w": "of",
-     "s": 74.733
+     "s": 57.022
     },
     {
      "w": "lollipops?",
-     "s": 74.932
+     "s": 57.158
     },
     {
      "w": "Or",
-     "s": 75.631
+     "s": 57.636
     },
     {
      "w": "buy",
-     "s": 75.83
+     "s": 57.772
     },
     {
      "w": "a",
-     "s": 76.079
+     "s": 57.942
     },
     {
      "w": "bucket",
-     "s": 76.229
+     "s": 58.045
     },
     {
      "w": "and",
-     "s": 76.628
+     "s": 58.317
     },
     {
      "w": "a",
-     "s": 76.878
+     "s": 58.488
     },
     {
      "w": "sponge,",
-     "s": 77.027
+     "s": 58.59
     },
     {
      "w": "and",
-     "s": 77.576
+     "s": 58.965
     },
     {
      "w": "start",
-     "s": 77.825
+     "s": 59.136
     },
     {
      "w": "washing",
-     "s": 78.175
+     "s": 59.374
     },
     {
      "w": "cars?",
-     "s": 78.624
+     "s": 59.681
     },
     {
      "w": "Comment",
-     "s": 79.073
+     "s": 59.988
     },
     {
      "w": "one",
-     "s": 79.522
+     "s": 60.295
     },
     {
      "w": "word.",
-     "s": 79.771
+     "s": 60.465
     },
     {
      "w": "Day",
-     "s": 80.22
+     "s": 60.772
     },
     {
      "w": "two",
-     "s": 80.469
+     "s": 60.943
     },
     {
      "w": "starts",
-     "s": 80.719
+     "s": 61.113
     },
     {
      "w": "with",
-     "s": 81.118
+     "s": 61.386
     },
     {
      "w": "your",
-     "s": 81.417
+     "s": 61.59
     },
     {
-     "w": "choice.",
-     "s": 81.716
+     "w": "choice!",
+     "s": 61.795
     }
    ],
    "sfx_times": [
     [
      "whoosh",
-     71.789
+     55.01
     ],
     [
      "pop",
-     74.932
+     57.158
     ],
     [
      "pop",
-     78.175
+     59.374
     ],
     [
      "ding",
-     79.073
+     59.988
     ]
    ]
   }
