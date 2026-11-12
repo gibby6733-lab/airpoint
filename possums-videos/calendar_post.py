@@ -19,6 +19,7 @@ SERIES = {
     "tenk": {"name": "$1 TO $10,000", "what": "today's $1 to $10K video", "accent": (143, 209, 138), "accent2": (46, 125, 50), "emoji": "💵"},
     "yourmove": {"name": "YOUR MOVE STUDIO", "what": "a new 10-min Your Move video with Claude", "accent": (255, 225, 74), "accent2": (46, 125, 50), "emoji": "🎬",
                  "time": "MAKE", "pill": "MAKE A NEW VIDEO EVERY DAY", "verb": "Make", "label": "NEW VIDEO"},
+    "reloaded": {"name": "REALITY RELOADED", "what": "today's REALITY RELOADED episode", "accent": (95, 242, 255), "accent2": (46, 125, 50), "emoji": "🎮"},
     "apocalypse": {"name": "ZOMBIE APOCALYPSE", "what": "today's zombie part", "accent": (220, 70, 60), "accent2": (124, 214, 124), "emoji": "🧟"},
 }
 POST_TIME, START = "11:45 AM", datetime.date(2026, 11, 11)   # tracking starts the day the calendar was made

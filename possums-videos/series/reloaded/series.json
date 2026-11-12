@@ -1,0 +1,34 @@
+{
+ "title": "REALITY RELOADED",
+ "tagline": "ONE GUY. EVERY GAME. TWO CHOICES.",
+ "format": "9:16, 61-75 s (over 1 minute for TikTok Creator Rewards), flat 2D cartoon (series/reloaded/engine.html), 60 fps",
+ "audience_name": "THE PLAYERS",
+ "voting": "Exactly TWO options every episode: A and B. Viewers comment A or B, 24 hours. NEVER invent a result: the next episode waits for the real vote count (from #reloaded comment-replies counts or the user).",
+ "cast": {
+  "Jayden": "Player 001. 19-22, black hoodie, bleached-blond spiky hair, brown skin (J in engine.html: keep identical). Funny, sarcastic, nervous-confident, modern slang, breaks the fourth wall. Voice: Kokoro am_puck 1.2.",
+  "THE SYSTEM": "Floating cyan eye-orb with rings. Robotic, mysterious, sometimes sarcastic, sometimes makes things harder on purpose. Announces rules, quests and vote results; knows THE PLAYERS are watching. Voice: bm_george 1.0 + robot effect (speaker 'system').",
+  "Player 002": "Glitchy red/cyan figure that THE SYSTEM says does not exist. Recurring mystery."
+ },
+ "rules": ["Every portal is a game.", "You cannot leave a game until you finish its side quest."],
+ "worlds_rule": "ORIGINAL game worlds based on popular GENRES (never real game names, characters, maps or logos).",
+ "world_ideas": {
+  "STORM ISLAND": "battle royale: 99 players, closing storm, blimp drop, final circle",
+  "BLOCKLANDS": "blocky survival/crafting: night mobs, mining, crafting",
+  "NEON CITY": "open-world crime city: wanted stars, car chases, missions from strangers",
+  "FREDDO'S PIZZA PALACE": "night-shift horror: robot mascots, cameras, survive till 6 AM",
+  "ROCKET PITCH": "rocket-car soccer: aerials, impossible goals",
+  "DUSTWATER": "wild west: horses, outlaws, bounty",
+  "SPACE CREW": "find the impostor on a spaceship",
+  "OPERATION BLACKOUT": "military shooter: limited ammo, rescue missions",
+  "OBBY TOWER": "obstacle-course tower with lava floors",
+  "SIM SUBURBS": "life sim where the neighbors are weird",
+  "DEAD ZONE": "zombie survival horror"
+ },
+ "mystery_plan": "Every 5-10 episodes a big reveal: other trapped players, Player 002, hidden portals, glitches, a rival, a betrayal, why Jayden was selected. Never reveal everything.",
+ "state": {"inventory": [], "abilities": [], "games_completed": [], "current_game": "STORM ISLAND", "mysteries_open": ["Who is Player 002? THE SYSTEM says he does not exist."]},
+ "history": [
+  {"episode": 1, "title": "Selected", "game": "STORM ISLAND", "quest": "Reach the final circle without picking up a weapon",
+   "ending": "Final circle reached; boss THE WARDEN appears; escape blimp leaves in 60 seconds. Player 002 seen and vanished.",
+   "vote": {"A": "FIGHT THE WARDEN BARE-HANDED", "B": "RUN FOR THE ESCAPE BLIMP"}, "result": null}
+ ]
+}

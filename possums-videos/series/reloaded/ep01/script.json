@@ -1,0 +1,491 @@
+{
+ "series": "REALITY RELOADED",
+ "episode": 1,
+ "voice": "am_puck",
+ "speed": 1.2,
+ "fps": 60,
+ "crf": 16,
+ "speakers": {
+  "j": {
+   "voice": "am_puck",
+   "speed": 1.2
+  },
+  "system": {
+   "voice": "bm_george",
+   "speed": 1.0,
+   "robot": true
+  }
+ },
+ "lines": [
+  {
+   "scene": "fall",
+   "sp": "j",
+   "text": "Bro. Why am I falling?!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "scream",
+     0.3
+    ]
+   ]
+  },
+  {
+   "scene": "bedroom",
+   "sp": "j",
+   "text": "Okay. Ten minutes ago, I was just gaming at three in the morning.",
+   "clock": "3:07",
+   "sfx": [
+    [
+     "pop",
+     "@gaming"
+    ]
+   ]
+  },
+  {
+   "scene": "bedroom",
+   "sp": "j",
+   "text": "I closed my eyes for one second.",
+   "face": "sleep",
+   "pose": "idle",
+   "sfx": [
+    [
+     "ding",
+     "@one"
+    ]
+   ]
+  },
+  {
+   "scene": "bedroom",
+   "sp": "system",
+   "text": "Player detected. Loading.",
+   "face": "sleep",
+   "pose": "idle",
+   "glitch": true,
+   "pull": true,
+   "sfx": [
+    [
+     "glass",
+     0.1
+    ],
+    [
+     "whoosh",
+     0.6
+    ]
+   ]
+  },
+  {
+   "scene": "lobby",
+   "sp": "j",
+   "text": "And now I'm here? Where even is here?",
+   "emote": "?",
+   "look": 0,
+   "sfx": [
+    [
+     "boing",
+     "@here"
+    ]
+   ]
+  },
+  {
+   "scene": "sys",
+   "sp": "system",
+   "text": "Welcome, Player zero zero one. You have been selected for the Reality Reloaded program.",
+   "panelTitle": "WELCOME, PLAYER 001",
+   "panel": [
+    "SELECTED FOR:",
+    "REALITY RELOADED"
+   ],
+   "panelKeys": [
+    "selected",
+    "reality"
+   ],
+   "sfx": [
+    [
+     "ding",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "lobby",
+   "sp": "j",
+   "text": "Selected? I didn't sign up for anything!",
+   "system": true,
+   "pose": "point",
+   "jx": 360,
+   "sfx": [
+    [
+     "boing",
+     "@anything"
+    ]
+   ]
+  },
+  {
+   "scene": "sys",
+   "sp": "system",
+   "text": "Rule one. Every portal is a game. Rule two. You cannot leave a game until you finish its side quest.",
+   "panelTitle": "THE RULES",
+   "panel": [
+    "1. EVERY PORTAL = A GAME",
+    "2. FINISH THE SIDE QUEST",
+    "   OR YOU CAN'T LEAVE"
+   ],
+   "panelKeys": [
+    "every",
+    "cannot",
+    "side"
+   ],
+   "sfx": [
+    [
+     "pop",
+     "@one"
+    ],
+    [
+     "pop",
+     "@two"
+    ]
+   ]
+  },
+  {
+   "scene": "portalgo",
+   "sp": "system",
+   "text": "First game. Storm Island.",
+   "world": "STORM ISLAND",
+   "col": "#ff8a3d",
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "horn",
+     "@storm"
+    ]
+   ]
+  },
+  {
+   "scene": "portalgo",
+   "sp": "j",
+   "text": "Wait, wait, I'm not ready!",
+   "world": "STORM ISLAND",
+   "col": "#ff8a3d",
+   "enter": true,
+   "sfx": [
+    [
+     "whoosh",
+     0.4
+    ],
+    [
+     "scream",
+     0.6
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "system",
+   "text": "Side quest. Reach the final circle without picking up a single weapon.",
+   "world": "STORM ISLAND",
+   "quest": "FINAL CIRCLE \u2022 NO WEAPONS",
+   "drop": true,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@weapon"
+    ]
+   ],
+   "stamps": [
+    [
+     "NO WEAPONS",
+     "weapon",
+     540,
+     720,
+     110,
+     "#ff4a4a",
+     -0.05
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "No weapons? In a battle royale? Are you serious?",
+   "jx": [
+    300,
+    420
+   ],
+   "pose": "talk",
+   "look": 0,
+   "emote": "anger",
+   "bots": [
+    [
+     1250,
+     820,
+     "#ff4fd8"
+    ],
+    [
+     -200,
+     160,
+     "#7cff6b"
+    ]
+   ],
+   "sfx": [
+    [
+     "boing",
+     "@serious"
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Ninety nine players. One storm. And me with zero guns.",
+   "jx": [
+    380,
+    700
+   ],
+   "pose": "run",
+   "storm": [
+    -300,
+    120
+   ],
+   "hp": 100,
+   "bots": [
+    [
+     1300,
+     900,
+     "#9b7bff"
+    ],
+    [
+     1400,
+     1000,
+     "#ffe14a"
+    ]
+   ],
+   "stamps": [
+    [
+     "99 PLAYERS",
+     "ninety",
+     540,
+     720,
+     100,
+     "#ffe14a",
+     -0.04
+    ],
+    [
+     "0 GUNS",
+     "zero",
+     540,
+     860,
+     110,
+     "#ff4a4a",
+     0.05
+    ]
+   ],
+   "sfx": [
+    [
+     "crowd",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@storm"
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Hold up. Who is that?",
+   "jx": 260,
+   "pose": "point",
+   "look": 1,
+   "p2": 760,
+   "emote": "?",
+   "sfx": [
+    [
+     "glass",
+     0.2
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "system",
+   "text": "That player does not exist.",
+   "jx": 260,
+   "pose": "shock",
+   "p2": 760,
+   "emote": "!",
+   "stamps": [
+    [
+     "PLAYER 002?",
+     "exist",
+     540,
+     720,
+     100,
+     "#ff2a2a",
+     -0.05
+    ]
+   ],
+   "sfx": [
+    [
+     "sad",
+     "@exist"
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Then why is he waving at me?!",
+   "jx": 260,
+   "pose": "shock",
+   "p2": 760,
+   "emote": "!",
+   "sfx": [
+    [
+     "boing",
+     "@waving"
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Final circle. I made it. And that is not a player.",
+   "jx": [
+    240,
+    260
+   ],
+   "pose": "shock",
+   "hp": 60,
+   "boss": [
+    800,
+    0.62
+   ],
+   "storm": [
+    -200,
+    40
+   ],
+   "sfx": [
+    [
+     "horn",
+     "@final"
+    ],
+    [
+     "bonk",
+     "@not"
+    ]
+   ],
+   "stamps": [
+    [
+     "FINAL CIRCLE",
+     "final",
+     540,
+     720,
+     96,
+     "#ffe14a",
+     -0.04
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "system",
+   "text": "Boss detected. The Warden. The escape blimp leaves in sixty seconds.",
+   "jx": 240,
+   "pose": "shock",
+   "boss": [
+    800,
+    0.62
+   ],
+   "blimp": [
+    700,
+    0,
+    420
+   ],
+   "sfx": [
+    [
+     "stamp",
+     "@warden"
+    ],
+    [
+     "horn",
+     "@blimp"
+    ]
+   ],
+   "stamps": [
+    [
+     "THE WARDEN",
+     "warden",
+     540,
+     720,
+     104,
+     "#ff4fd8",
+     -0.05
+    ],
+    [
+     "BLIMP: 60 SEC",
+     "sixty",
+     540,
+     860,
+     80,
+     "#5ff2ff",
+     0.04
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Wait. Are people watching this? Hi! Okay, you guys decide. Fight it, or run for the blimp?",
+   "jx": 300,
+   "pose": "talk",
+   "look": 0,
+   "boss": [
+    820,
+    0.62
+   ],
+   "blimp": [
+    720,
+    0,
+    420
+   ],
+   "sfx": [
+    [
+     "pop",
+     "@watching"
+    ],
+    [
+     "ding",
+     "@decide"
+    ]
+   ]
+  },
+  {
+   "scene": "vote",
+   "sp": "system",
+   "text": "The Players decide. Comment A or B. You have twenty four hours.",
+   "a": "FIGHT THE WARDEN BARE-HANDED",
+   "b": "RUN FOR THE ESCAPE BLIMP",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

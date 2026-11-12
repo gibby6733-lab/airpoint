@@ -17,9 +17,16 @@ kok = Kokoro(os.path.join(tts_dir, "kokoro.onnx"), os.path.join(tts_dir, "voices
 LEAD, GAP, TAIL = 0.35, 0.22, 1.5
 lines, clips, t = [], [], LEAD
 for ln in script["lines"]:
-    audio, sr = kok.create(ln["text"], voice=script["voice"], speed=script["speed"], lang="en-us")
+    spk = script.get("speakers", {}).get(ln.get("sp", ""), {})   # optional per-line speaker: {"voice", "speed", "robot"}
+    audio, sr = kok.create(ln["text"], voice=spk.get("voice", script["voice"]), speed=spk.get("speed", script["speed"]), lang="en-us")
     assert sr == SR
     audio = np.asarray(audio, dtype=np.float32)
+    if spk.get("robot"):   # robotic AI voice: ring modulation + light bit-crush + short metallic echo
+        n = np.arange(len(audio)) / SR
+        audio = audio * (0.55 + 0.45 * np.sin(2 * np.pi * 55 * n))
+        audio = np.round(audio * 24) / 24
+        echo = np.zeros_like(audio); d = int(0.045 * SR); echo[d:] = audio[:-d] * 0.35
+        audio = (audio + echo) * 0.9
     # trim silence
     nz = np.where(np.abs(audio) > 0.01)[0]
     audio = audio[max(0, nz[0] - 600): nz[-1] + 1200]
