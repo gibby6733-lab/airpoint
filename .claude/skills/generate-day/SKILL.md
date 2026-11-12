@@ -49,7 +49,13 @@ and the fan signings by position. Continue unless the user corrects it.
   occasionally a lucky win). Record it.
 
 ## 3. Write the episode
-- `cp -r episodes/day<prev> episodes/day<new>`; delete its mp4/wav/timeline/stills.
+- `cp -r episodes/day<prev> episodes/day<new>`; delete its mp4/wav/timeline/stills/audio_main/timeline_main.
+- **Engine (since Day 3):** the upgraded look: camera zooms/shakes, 4 rotating transitions, faces + emotes ('!', '?',
+  'heart', 'sweat'), rolling team fund (`fundCont()` / `T_FLASH()`), parallax, hand-drawn wiggle + grain, 60 fps
+  (`"fps": 60, "crf": 16` in script.json), scoreboard pinned on screen (`scorebug()` → `_SB`). Day 3 shows the pattern:
+  each day appends its own `<script>` block with new scenes + overrides; stamps max ~110 px so the zoom doesn't cut them.
+- **Cold open:** after `build_audio.py`, run `python3 cold_open.py episodes/day<new> <best play scene> <first word>`
+  (flash-forward of the funniest/biggest moment, then REWIND). Narration ~62-66 s so the total is 60-70 s.
 - Edit `script.json` lines. Keep this beat order, ~16-19 lines:
   Day intro → fund update ("You gave us N likes = $N") → show the winning comment on screen → buy/build the
   upgrade (show it in the arena) → short game: 3-4 funny plays, scoreboard → standings → "Tomorrow, <team>" tease
@@ -69,10 +75,10 @@ and the fan signings by position. Continue unless the user corrects it.
   Levels line should show music ≈ -25 dB, sfx ≈ -15 dB vs voice.
 - Render stills at 75% of each line (`node render.js <ep> --stills t1,t2,...`), look at them, fix overlaps,
   cut-off text, or anything off-model.
-- `node render.js episodes/day<new>` → verify 1080x1920, 9:16, duration.
+- `./render_parallel.sh episodes/day<new> 4` (60 fps takes ~10 min; run it in the background) → verify 1080x1920, 9:16, duration.
 - `./discord_copy.sh episodes/day<new>/episode.mp4 episodes/day<new>/discord.mp4` (< 10 MB).
 
-- **Quality check:** `python3 qc_check.py episodes/day<new>` must print PASS (length 60-70 s, 1080x1920, 30 fps, ~-14 LUFS,
+- **Quality check:** `python3 qc_check.py episodes/day<new>` must print PASS (length 60-70 s, 1080x1920, 30 or 60 fps, ~-14 LUFS,
   no clipping / dead air / black or frozen video, exact hashtags, real iPhone emojis, cover 1080x1920). Fix anything ❌
   before delivering. post_discord.py runs it again and refuses to post a failing video (only `--force` overrides).
 

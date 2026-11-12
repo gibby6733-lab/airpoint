@@ -2,7 +2,7 @@
 
 usage: python3 qc_check.py <episode_dir> [--json]
 Checks episode.mp4 + caption.txt (+ thumbnail.png):
-  length 60-70 s • 1080x1920 9:16 • 30 fps • has audio • loudness about -14 LUFS (-16..-12) • no clipping (true peak <= -1 dBTP)
+  length 60-70 s • 1080x1920 9:16 • 30 or 60 fps • has audio • loudness about -14 LUFS (-16..-12) • no clipping (true peak <= -1 dBTP)
   • no long black/frozen stretches • no long silence • caption ends with EXACTLY the 4 hashtags • no emoji text codes
   like "[Red heart]" and only common emoji • thumbnail 1080x1920.
 Prints one line per check and a final PASS/FAIL. Exit code 0 = pass, 1 = fail.
@@ -23,7 +23,7 @@ else:
     add(60 <= dur <= 70, "length 60-70 s", f"{dur:.1f}s")
     add(v.get("width") == 1080 and v.get("height") == 1920, "9:16 1080x1920", f"{v.get('width')}x{v.get('height')}")
     fr = v.get("r_frame_rate", "0/1").split("/"); fps = float(fr[0]) / float(fr[1] or 1)
-    add(abs(fps - 30) < .5, "30 fps", f"{fps:.0f} fps")
+    add(abs(fps - 30) < .5 or abs(fps - 60) < .5, "30 or 60 fps", f"{fps:.0f} fps")
     add(a, "has audio")
     if a:
         e = run(["ffmpeg", "-nostats", "-i", mp4, "-af", "ebur128=peak=true", "-f", "null", "-"]).stderr

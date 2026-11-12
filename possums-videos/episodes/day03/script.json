@@ -1,0 +1,267 @@
+{
+ "episode": 3,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day three. You gave us seven hundred and six likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund3",
+   "text": "That's over a thousand dollars in the bank!",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@thousand"
+    ]
+   ]
+  },
+  {
+   "scene": "comment3",
+   "text": "The top comment said locker room. Goodbye, porta potty.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@locker"
+    ],
+    [
+     "sad",
+     "@goodbye"
+    ]
+   ]
+  },
+  {
+   "scene": "locker",
+   "text": "Two hundred dollars bought a locker room. It's a garden shed. With lockers!",
+   "sfx": [
+    [
+     "spend",
+     "@two"
+    ],
+    [
+     "boing",
+     "@shed"
+    ],
+    [
+     "ding",
+     "@lockers"
+    ]
+   ]
+  },
+  {
+   "scene": "signings3",
+   "text": "Seven of you joined. A quarterback, a receiver, a d lineman, a linebacker, a cornerback, an assistant coach, and a cheerleader.",
+   "sfx": [
+    [
+     "pop",
+     "@quarterback"
+    ],
+    [
+     "pop",
+     "@receiver"
+    ],
+    [
+     "pop",
+     "@lineman"
+    ],
+    [
+     "pop",
+     "@linebacker"
+    ],
+    [
+     "pop",
+     "@cornerback"
+    ],
+    [
+     "pop",
+     "@assistant"
+    ],
+    [
+     "pop",
+     "@cheerleader"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard3",
+   "text": "Game three. The Red Rock Rattlers. They haven't allowed a point all season.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     "@point"
+    ]
+   ]
+  },
+  {
+   "scene": "r_kick",
+   "text": "Kickoff. Our new d lineman makes his first tackle. On Big Lou.",
+   "sfx": [
+    [
+     "whistle",
+     0.05
+    ],
+    [
+     "bonk",
+     "@lou"
+    ]
+   ]
+  },
+  {
+   "scene": "r_pick",
+   "text": "Then our cornerback picks it off! First interception in team history!",
+   "sfx": [
+    [
+     "whoosh",
+     "@picks"
+    ],
+    [
+     "crowd",
+     "@first"
+    ]
+   ]
+  },
+  {
+   "scene": "r_huddle",
+   "text": "The assistant coach draws up a play. A smiley face.",
+   "sfx": [
+    [
+     "pop",
+     "@play"
+    ],
+    [
+     "boing",
+     "@smiley"
+    ]
+   ]
+  },
+  {
+   "scene": "r_td",
+   "text": "Our new quarterback throws it deep. Touchdown! The first in Possums history!",
+   "sfx": [
+    [
+     "kick",
+     "@throws"
+    ],
+    [
+     "horn",
+     "@touchdown"
+    ],
+    [
+     "crowd",
+     "@first"
+    ]
+   ]
+  },
+  {
+   "scene": "r_cheer",
+   "text": "Our cheerleader gets so loud, the cow joins in.",
+   "sfx": [
+    [
+     "crowd",
+     "@loud"
+    ],
+    [
+     "honk",
+     "@cow"
+    ]
+   ]
+  },
+  {
+   "scene": "r_montage",
+   "text": "Then the Rattlers score four more.",
+   "sfx": [
+    [
+     "horn",
+     "@four"
+    ],
+    [
+     "horn",
+     "@more"
+    ]
+   ]
+  },
+  {
+   "scene": "standings3",
+   "text": "Final, twenty eight to seven. But we broke their streak!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@streak"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame3",
+   "text": "Tomorrow, the Bogtown Bullfrogs. The biggest team in the league.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@biggest"
+    ]
+   ]
+  },
+  {
+   "scene": "cta3",
+   "text": "Every like on this video is a dollar. The most liked comment picks the next upgrade. Stands, grass, goal posts, or a scoreboard. Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@grass"
+    ],
+    [
+     "pop",
+     "@goal"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

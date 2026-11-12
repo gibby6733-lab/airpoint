@@ -1,14 +1,15 @@
 {
- "after_day": 2,
- "fund_dollars": 353,
+ "after_day": 3,
+ "fund_dollars": 859,
  "record": {
   "wins": 0,
-  "losses": 2
+  "losses": 3
  },
  "fans": 0,
- "next_opponent": "Red Rock Rattlers (haven't allowed a point all season)",
+ "next_opponent": "Bogtown Bullfrogs (biggest team in the league)",
  "upgrades_owned": [
-  "helmets for everyone (Day 2, $50)"
+  "helmets for everyone (Day 2, $50)",
+  "locker room: a garden shed with lockers (Day 3, $200)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
@@ -16,14 +17,13 @@
   "field": "mud",
   "goal_posts": "a ladder",
   "scoreboard": "none",
-  "locker_room": "porta-potty"
+  "locker_room": "a garden shed with three lockers"
  },
  "upgrade_prices": {
   "stands": 250,
   "field": 500,
   "goal_posts": 100,
-  "scoreboard": 150,
-  "locker_room": 200
+  "scoreboard": 150
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -49,34 +49,69 @@
    "opponent": "Pine Hollow Badgers",
    "score": "3-28 L",
    "note": "Earl's 60-yard field goal through the ladder",
-   "likes": null,
+   "likes": {
+    "tiktok": 516,
+    "instagram": 190,
+    "total": 706
+   },
    "winning_comment": null
+  },
+  {
+   "day": 3,
+   "built": "2026-11-12",
+   "likes_in": 706,
+   "winning_comment": "locker room (dont.cross.me3)",
+   "comment_likes": 2,
+   "bought": "locker room (garden shed with lockers) $200",
+   "opponent": "Red Rock Rattlers",
+   "score": "7-28 L",
+   "note": "First Possums touchdown ever (j065336 to dont.cross.me3); first interception (kiosk229); broke the Rattlers shutout streak",
+   "fan_signings": [
+    "j065336 QB",
+    "dont.cross.me3 WR",
+    "battt055 D-line",
+    "camirvine54 LB",
+    "kiosk229 CB",
+    "hi453470 assistant coach",
+    "dih0423 head cheerleader"
+   ]
   }
  ],
  "fan_roster": [
   {
-   "name": "therealmtb_44",
-   "role": "linebacker"
+   "name": "j065336",
+   "role": "quarterback",
+   "trait": "day 2 of asking"
   },
   {
-   "name": "mricey12",
-   "role": "tight end"
+   "name": "dont.cross.me3",
+   "role": "wide receiver",
+   "trait": "caught the first TD in team history"
   },
   {
-   "name": "ccilxx242",
-   "role": "right guard"
+   "name": "battt055",
+   "role": "d-line",
+   "trait": "tackled Big Lou on his first play"
   },
   {
-   "name": "andrew.bonsick",
-   "role": "groundskeeper"
+   "name": "camirvine54",
+   "role": "linebacker",
+   "trait": "said please three times"
   },
   {
-   "name": "sarah52664",
-   "role": "ticket collector"
+   "name": "kiosk229",
+   "role": "cornerback",
+   "trait": "first interception in team history"
   },
   {
-   "name": "javiviiii2",
-   "role": "hot dog seller"
+   "name": "hi453470",
+   "role": "assistant coach",
+   "trait": "drew a smiley face as the play"
+  },
+  {
+   "name": "dih0423",
+   "role": "head cheerleader",
+   "trait": "so loud the cow joined in"
   }
  ],
  "accounts": {
