@@ -239,7 +239,7 @@ function odo(v, nd, cx, cy, size, col) { const V = Math.round(v * 100000) / 1000
   for (const c of chars) { const w = adv(c); if (typeof c !== 'number') txt(c, x + w / 2, cy, size, col, { stroke: 6 }); else { const pw = Math.pow(10, c), xv = V / pw, dg = Math.floor(xv + 1e-6) % 10, lower = V - Math.floor(V / pw + 1e-6) * pw, roll = c === 0 ? xv - Math.floor(xv + 1e-6) : clamp(lower - (pw - 1)), dy = size * 1.15;
     txt(String(dg), x + w / 2, cy - roll * dy, size, col, { stroke: 6 }); if (roll > .01) txt(String((dg + 1) % 10), x + w / 2, cy + (1 - roll) * dy, size, col, { stroke: 6 }); } x += w; } ctx.restore(); }
 function hud(t, L) { if (['vote', 'counter', 'cold'].includes(L.scene)) return; const m = moneyAt(t);
-  ctx.save(); ctx.translate(87, 176); ctx.scale(.84, .84);   // Instagram/TikTok safe: below the app's top bar (y ~210) and inside the side crop (x 110-970)
+  ctx.save(); ctx.translate(87, 266); ctx.scale(.84, .84);   // Instagram/TikTok safe: below the app's top bar + Preview row (y ~300) and inside the side crop (x 110-970)
   box(30, 40, 250, 110, '#e04a3a', K, 26, 7); shine(34, 44, 242, 102, 22); txt('DAY 1/30', 155, 96, 50, '#fff', { stroke: 6, maxW: 220 });
   box(300, 40, 440, 110, '#1e2140', K, 26, 7); shine(304, 44, 432, 102, 22); const dI = t - MI.at, ch = MI.prev !== MI.cur && dI >= 0 && dI < 1; if (ch) { ctx.fillStyle = MI.cur > MI.prev ? `rgba(46,157,90,${.7 * (1 - dI)})` : `rgba(224,74,58,${.7 * (1 - dI)})`; rr(304, 44, 432, 102, 22); ctx.fill(); }
   odo(m, String(Math.floor(Math.max(MI.prev, MI.cur, 1))).length, 520, 98, 72, ch && MI.cur < MI.prev && dI < .8 ? '#ff8a80' : '#8fd18a');
