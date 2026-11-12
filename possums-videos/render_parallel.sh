@@ -3,7 +3,8 @@
 set -e
 DIR=$1; N=${2:-4}; cd "$(dirname "$0")"
 DUR=$(python3 -c "import json;print(json.load(open('$DIR/timeline.json'))['duration'])")
-TOTAL=$(python3 -c "import math;print(math.ceil($DUR*30))")
+FPS=$(python3 -c "import json;print(json.load(open('$DIR/timeline.json')).get('fps',30))")
+TOTAL=$(python3 -c "import math;print(math.ceil($DUR*$FPS))")
 TMP="$DIR/_parts"; rm -rf "$TMP"; mkdir -p "$TMP"; : > "$TMP/list.txt"
 for i in $(seq 0 $((N-1))); do
   A=$((TOTAL*i/N)); Z=$((TOTAL*(i+1)/N))

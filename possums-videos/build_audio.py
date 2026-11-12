@@ -218,5 +218,5 @@ def _db(x):
 vdb = _db(voice * 1.3)
 print("LEVELS vs voice: music %+.1f dB, sfx %+.1f dB" % (_db(music * 0.035) - vdb, _db(fx * 0.09) - vdb))
 sf.write(os.path.join(ep_dir, "audio.wav"), mix, SR)
-json.dump({"duration": round(total, 3), "lines": lines}, open(os.path.join(ep_dir, "timeline.json"), "w"), indent=1)
+json.dump({"duration": round(total, 3), "lines": lines, **{k: script[k] for k in ("fps", "crf") if k in script}}, open(os.path.join(ep_dir, "timeline.json"), "w"), indent=1)
 print("duration", round(total, 2), "s")
