@@ -1,0 +1,1413 @@
+{
+ "duration": 73.077,
+ "lines": [
+  {
+   "scene": "b_fg",
+   "text": "a sixty yard field goal. Right through the ladder!",
+   "sfx": [
+    [
+     "kick",
+     "@kicks"
+    ],
+    [
+     "crowd",
+     "@right"
+    ],
+    [
+     "horn",
+     "@right"
+    ]
+   ],
+   "start": -0.6589999999999989,
+   "end": 2.76,
+   "words": [
+    {
+     "w": "a",
+     "s": 0.124
+    },
+    {
+     "w": "sixty",
+     "s": 0.247
+    },
+    {
+     "w": "yard",
+     "s": 0.536
+    },
+    {
+     "w": "field",
+     "s": 0.783
+    },
+    {
+     "w": "goal.",
+     "s": 1.071
+    },
+    {
+     "w": "Right",
+     "s": 1.442
+    },
+    {
+     "w": "through",
+     "s": 1.73
+    },
+    {
+     "w": "the",
+     "s": 2.101
+    },
+    {
+     "w": "ladder!",
+     "s": 2.307
+    }
+   ],
+   "sfx_times": [
+    [
+     "crowd",
+     1.442
+    ],
+    [
+     "horn",
+     1.442
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day two. Yesterday, you gave us four hundred and three likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 3.8,
+   "end": 7.374,
+   "words": [
+    {
+     "w": "Day",
+     "s": 3.8
+    },
+    {
+     "w": "two.",
+     "s": 4.026
+    },
+    {
+     "w": "Yesterday,",
+     "s": 4.388
+    },
+    {
+     "w": "you",
+     "s": 5.021
+    },
+    {
+     "w": "gave",
+     "s": 5.248
+    },
+    {
+     "w": "us",
+     "s": 5.519
+    },
+    {
+     "w": "four",
+     "s": 5.7
+    },
+    {
+     "w": "hundred",
+     "s": 5.972
+    },
+    {
+     "w": "and",
+     "s": 6.379
+    },
+    {
+     "w": "three",
+     "s": 6.605
+    },
+    {
+     "w": "likes.",
+     "s": 6.922
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     3.8
+    ],
+    [
+     "stamp",
+     3.979
+    ]
+   ]
+  },
+  {
+   "scene": "fund",
+   "text": "That's four hundred and three dollars in the team fund.",
+   "sfx": [
+    [
+     "cash",
+     0.3
+    ],
+    [
+     "ding",
+     "@dollars"
+    ]
+   ],
+   "start": 7.594,
+   "end": 10.29,
+   "words": [
+    {
+     "w": "That's",
+     "s": 7.594
+    },
+    {
+     "w": "four",
+     "s": 7.876
+    },
+    {
+     "w": "hundred",
+     "s": 8.117
+    },
+    {
+     "w": "and",
+     "s": 8.479
+    },
+    {
+     "w": "three",
+     "s": 8.68
+    },
+    {
+     "w": "dollars",
+     "s": 8.962
+    },
+    {
+     "w": "in",
+     "s": 9.324
+    },
+    {
+     "w": "the",
+     "s": 9.485
+    },
+    {
+     "w": "team",
+     "s": 9.687
+    },
+    {
+     "w": "fund.",
+     "s": 9.928
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     8.403
+    ],
+    [
+     "ding",
+     8.962
+    ]
+   ]
+  },
+  {
+   "scene": "comment",
+   "text": "The top comment said gear. So we went shopping.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@gear"
+    ]
+   ],
+   "start": 10.51,
+   "end": 13.108,
+   "words": [
+    {
+     "w": "The",
+     "s": 10.51
+    },
+    {
+     "w": "top",
+     "s": 10.723
+    },
+    {
+     "w": "comment",
+     "s": 10.936
+    },
+    {
+     "w": "said",
+     "s": 11.319
+    },
+    {
+     "w": "gear.",
+     "s": 11.575
+    },
+    {
+     "w": "So",
+     "s": 11.958
+    },
+    {
+     "w": "we",
+     "s": 12.129
+    },
+    {
+     "w": "went",
+     "s": 12.299
+    },
+    {
+     "w": "shopping.",
+     "s": 12.555
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.51
+    ],
+    [
+     "ding",
+     11.575
+    ]
+   ]
+  },
+  {
+   "scene": "purchase",
+   "text": "Fifty bucks bought helmets for everyone. Big Lou's is two sizes too small.",
+   "sfx": [
+    [
+     "spend",
+     "@fifty"
+    ],
+    [
+     "boing",
+     "@helmets"
+    ],
+    [
+     "boing",
+     "@everyone"
+    ],
+    [
+     "sad",
+     "@small"
+    ]
+   ],
+   "start": 13.328,
+   "end": 17.767,
+   "words": [
+    {
+     "w": "Fifty",
+     "s": 13.328
+    },
+    {
+     "w": "bucks",
+     "s": 13.67
+    },
+    {
+     "w": "bought",
+     "s": 14.011
+    },
+    {
+     "w": "helmets",
+     "s": 14.401
+    },
+    {
+     "w": "for",
+     "s": 14.84
+    },
+    {
+     "w": "everyone.",
+     "s": 15.084
+    },
+    {
+     "w": "Big",
+     "s": 15.718
+    },
+    {
+     "w": "Lou's",
+     "s": 15.962
+    },
+    {
+     "w": "is",
+     "s": 16.255
+    },
+    {
+     "w": "two",
+     "s": 16.45
+    },
+    {
+     "w": "sizes",
+     "s": 16.694
+    },
+    {
+     "w": "too",
+     "s": 17.035
+    },
+    {
+     "w": "small.",
+     "s": 17.279
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     13.328
+    ],
+    [
+     "boing",
+     14.401
+    ],
+    [
+     "boing",
+     15.084
+    ],
+    [
+     "sad",
+     17.279
+    ]
+   ]
+  },
+  {
+   "scene": "signings",
+   "text": "Six of you joined the team. A linebacker, a tight end, a right guard, a groundskeeper, and a ticket collector.",
+   "sfx": [
+    [
+     "pop",
+     "@linebacker"
+    ],
+    [
+     "pop",
+     "@tight"
+    ],
+    [
+     "pop",
+     "@right"
+    ],
+    [
+     "pop",
+     "@groundskeeper"
+    ],
+    [
+     "pop",
+     "@ticket"
+    ]
+   ],
+   "start": 17.987,
+   "end": 24.365,
+   "words": [
+    {
+     "w": "Six",
+     "s": 17.987
+    },
+    {
+     "w": "of",
+     "s": 18.21
+    },
+    {
+     "w": "you",
+     "s": 18.388
+    },
+    {
+     "w": "joined",
+     "s": 18.611
+    },
+    {
+     "w": "the",
+     "s": 18.968
+    },
+    {
+     "w": "team.",
+     "s": 19.191
+    },
+    {
+     "w": "A",
+     "s": 19.593
+    },
+    {
+     "w": "linebacker,",
+     "s": 19.727
+    },
+    {
+     "w": "a",
+     "s": 20.396
+    },
+    {
+     "w": "tight",
+     "s": 20.529
+    },
+    {
+     "w": "end,",
+     "s": 20.842
+    },
+    {
+     "w": "a",
+     "s": 21.198
+    },
+    {
+     "w": "right",
+     "s": 21.332
+    },
+    {
+     "w": "guard,",
+     "s": 21.645
+    },
+    {
+     "w": "a",
+     "s": 22.091
+    },
+    {
+     "w": "groundskeeper,",
+     "s": 22.224
+    },
+    {
+     "w": "and",
+     "s": 23.027
+    },
+    {
+     "w": "a",
+     "s": 23.25
+    },
+    {
+     "w": "ticket",
+     "s": 23.384
+    },
+    {
+     "w": "collector.",
+     "s": 23.741
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     19.727
+    ],
+    [
+     "pop",
+     20.529
+    ],
+    [
+     "pop",
+     21.332
+    ],
+    [
+     "pop",
+     22.224
+    ],
+    [
+     "pop",
+     23.384
+    ]
+   ]
+  },
+  {
+   "scene": "hotdog",
+   "text": "And javiviiii two is our new hot dog seller. He works out of Earl's bus.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "honk",
+     "@bus"
+    ]
+   ],
+   "start": 24.585,
+   "end": 29.161,
+   "words": [
+    {
+     "w": "And",
+     "s": 24.585
+    },
+    {
+     "w": "javiviiii",
+     "s": 24.837
+    },
+    {
+     "w": "two",
+     "s": 25.39
+    },
+    {
+     "w": "is",
+     "s": 25.641
+    },
+    {
+     "w": "our",
+     "s": 25.843
+    },
+    {
+     "w": "new",
+     "s": 26.094
+    },
+    {
+     "w": "hot",
+     "s": 26.345
+    },
+    {
+     "w": "dog",
+     "s": 26.597
+    },
+    {
+     "w": "seller.",
+     "s": 26.848
+    },
+    {
+     "w": "He",
+     "s": 27.401
+    },
+    {
+     "w": "works",
+     "s": 27.602
+    },
+    {
+     "w": "out",
+     "s": 27.954
+    },
+    {
+     "w": "of",
+     "s": 28.206
+    },
+    {
+     "w": "Earl's",
+     "s": 28.407
+    },
+    {
+     "w": "bus.",
+     "s": 28.759
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     24.585
+    ],
+    [
+     "honk",
+     28.759
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game two, the Pine Hollow Badgers. Unbeaten in four years.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ],
+   "start": 29.381,
+   "end": 32.945,
+   "words": [
+    {
+     "w": "Game",
+     "s": 29.381
+    },
+    {
+     "w": "two,",
+     "s": 29.666
+    },
+    {
+     "w": "the",
+     "s": 30.047
+    },
+    {
+     "w": "Pine",
+     "s": 30.284
+    },
+    {
+     "w": "Hollow",
+     "s": 30.569
+    },
+    {
+     "w": "Badgers.",
+     "s": 30.949
+    },
+    {
+     "w": "Unbeaten",
+     "s": 31.52
+    },
+    {
+     "w": "in",
+     "s": 31.995
+    },
+    {
+     "w": "four",
+     "s": 32.185
+    },
+    {
+     "w": "years.",
+     "s": 32.47
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     29.381
+    ],
+    [
+     "crowd",
+     30.45
+    ]
+   ]
+  },
+  {
+   "scene": "b_play1",
+   "text": "First snap. Lou isn't scared anymore. He snaps it straight to a Badger.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@snaps"
+    ]
+   ],
+   "start": 33.165,
+   "end": 37.231,
+   "words": [
+    {
+     "w": "First",
+     "s": 33.165
+    },
+    {
+     "w": "snap.",
+     "s": 33.481
+    },
+    {
+     "w": "Lou",
+     "s": 33.888
+    },
+    {
+     "w": "isn't",
+     "s": 34.114
+    },
+    {
+     "w": "scared",
+     "s": 34.385
+    },
+    {
+     "w": "anymore.",
+     "s": 34.746
+    },
+    {
+     "w": "He",
+     "s": 35.288
+    },
+    {
+     "w": "snaps",
+     "s": 35.469
+    },
+    {
+     "w": "it",
+     "s": 35.785
+    },
+    {
+     "w": "straight",
+     "s": 35.966
+    },
+    {
+     "w": "to",
+     "s": 36.418
+    },
+    {
+     "w": "a",
+     "s": 36.598
+    },
+    {
+     "w": "Badger.",
+     "s": 36.734
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     33.165
+    ],
+    [
+     "whoosh",
+     35.469
+    ]
+   ]
+  },
+  {
+   "scene": "b_play1_td",
+   "text": "Pick six. Seven, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.2
+    ]
+   ],
+   "start": 37.451,
+   "end": 38.919,
+   "words": [
+    {
+     "w": "Pick",
+     "s": 37.451
+    },
+    {
+     "w": "six.",
+     "s": 37.695
+    },
+    {
+     "w": "Seven,",
+     "s": 38.022
+    },
+    {
+     "w": "nothing.",
+     "s": 38.429
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     37.745
+    ]
+   ]
+  },
+  {
+   "scene": "b_timeout",
+   "text": "Tiny calls a timeout to fix his helmet. We have no timeouts left.",
+   "sfx": [
+    [
+     "whistle",
+     "@timeout"
+    ],
+    [
+     "sad",
+     "@no"
+    ]
+   ],
+   "start": 39.139,
+   "end": 43.261,
+   "words": [
+    {
+     "w": "Tiny",
+     "s": 39.139
+    },
+    {
+     "w": "calls",
+     "s": 39.437
+    },
+    {
+     "w": "a",
+     "s": 39.785
+    },
+    {
+     "w": "timeout",
+     "s": 39.934
+    },
+    {
+     "w": "to",
+     "s": 40.381
+    },
+    {
+     "w": "fix",
+     "s": 40.579
+    },
+    {
+     "w": "his",
+     "s": 40.828
+    },
+    {
+     "w": "helmet.",
+     "s": 41.076
+    },
+    {
+     "w": "We",
+     "s": 41.622
+    },
+    {
+     "w": "have",
+     "s": 41.821
+    },
+    {
+     "w": "no",
+     "s": 42.119
+    },
+    {
+     "w": "timeouts",
+     "s": 42.317
+    },
+    {
+     "w": "left.",
+     "s": 42.814
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     39.934
+    ],
+    [
+     "sad",
+     42.119
+    ]
+   ]
+  },
+  {
+   "scene": "b_montage",
+   "text": "By halftime, it's twenty eight, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.25
+    ],
+    [
+     "horn",
+     0.5
+    ],
+    [
+     "horn",
+     0.75
+    ],
+    [
+     "whistle",
+     0.92
+    ]
+   ],
+   "start": 43.481,
+   "end": 45.421,
+   "words": [
+    {
+     "w": "By",
+     "s": 43.481
+    },
+    {
+     "w": "halftime,",
+     "s": 43.63
+    },
+    {
+     "w": "it's",
+     "s": 44.115
+    },
+    {
+     "w": "twenty",
+     "s": 44.302
+    },
+    {
+     "w": "eight,",
+     "s": 44.601
+    },
+    {
+     "w": "nothing.",
+     "s": 44.974
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     43.966
+    ],
+    [
+     "horn",
+     44.451
+    ],
+    [
+     "horn",
+     44.936
+    ],
+    [
+     "whistle",
+     45.266
+    ]
+   ]
+  },
+  {
+   "scene": "b_fg",
+   "text": "Then Earl kicks a sixty yard field goal. Right through the ladder!",
+   "sfx": [
+    [
+     "kick",
+     "@kicks"
+    ],
+    [
+     "crowd",
+     "@right"
+    ],
+    [
+     "horn",
+     "@right"
+    ]
+   ],
+   "start": 45.641,
+   "end": 49.06,
+   "words": [
+    {
+     "w": "Then",
+     "s": 45.641
+    },
+    {
+     "w": "Earl",
+     "s": 45.889
+    },
+    {
+     "w": "kicks",
+     "s": 46.136
+    },
+    {
+     "w": "a",
+     "s": 46.424
+    },
+    {
+     "w": "sixty",
+     "s": 46.547
+    },
+    {
+     "w": "yard",
+     "s": 46.836
+    },
+    {
+     "w": "field",
+     "s": 47.083
+    },
+    {
+     "w": "goal.",
+     "s": 47.371
+    },
+    {
+     "w": "Right",
+     "s": 47.742
+    },
+    {
+     "w": "through",
+     "s": 48.03
+    },
+    {
+     "w": "the",
+     "s": 48.401
+    },
+    {
+     "w": "ladder!",
+     "s": 48.607
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     46.136
+    ],
+    [
+     "crowd",
+     47.742
+    ],
+    [
+     "horn",
+     47.742
+    ]
+   ]
+  },
+  {
+   "scene": "b_tiny",
+   "text": "Last play. Tiny gets hit so hard, his new helmet spins backwards.",
+   "sfx": [
+    [
+     "bonk",
+     "@hit"
+    ],
+    [
+     "boing",
+     "@spins"
+    ]
+   ],
+   "start": 49.28,
+   "end": 53.599,
+   "words": [
+    {
+     "w": "Last",
+     "s": 49.28
+    },
+    {
+     "w": "play.",
+     "s": 49.588
+    },
+    {
+     "w": "Tiny",
+     "s": 50.051
+    },
+    {
+     "w": "gets",
+     "s": 50.359
+    },
+    {
+     "w": "hit",
+     "s": 50.668
+    },
+    {
+     "w": "so",
+     "s": 50.925
+    },
+    {
+     "w": "hard,",
+     "s": 51.131
+    },
+    {
+     "w": "his",
+     "s": 51.594
+    },
+    {
+     "w": "new",
+     "s": 51.851
+    },
+    {
+     "w": "helmet",
+     "s": 52.108
+    },
+    {
+     "w": "spins",
+     "s": 52.519
+    },
+    {
+     "w": "backwards.",
+     "s": 52.879
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     50.668
+    ],
+    [
+     "boing",
+     52.519
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final score, twenty eight to three. Still dead last. But we scored!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.4
+    ],
+    [
+     "ding",
+     "@but"
+    ]
+   ],
+   "start": 53.819,
+   "end": 57.73,
+   "words": [
+    {
+     "w": "Final",
+     "s": 53.819
+    },
+    {
+     "w": "score,",
+     "s": 54.13
+    },
+    {
+     "w": "twenty",
+     "s": 54.575
+    },
+    {
+     "w": "eight",
+     "s": 54.93
+    },
+    {
+     "w": "to",
+     "s": 55.241
+    },
+    {
+     "w": "three.",
+     "s": 55.419
+    },
+    {
+     "w": "Still",
+     "s": 55.864
+    },
+    {
+     "w": "dead",
+     "s": 56.175
+    },
+    {
+     "w": "last.",
+     "s": 56.441
+    },
+    {
+     "w": "But",
+     "s": 56.841
+    },
+    {
+     "w": "we",
+     "s": 57.064
+    },
+    {
+     "w": "scored!",
+     "s": 57.242
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     53.819
+    ],
+    [
+     "sad",
+     55.383
+    ],
+    [
+     "ding",
+     56.841
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Red Rock Rattlers. They haven't allowed a single point.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@haven"
+    ]
+   ],
+   "start": 57.95,
+   "end": 61.615,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 57.95
+    },
+    {
+     "w": "the",
+     "s": 58.504
+    },
+    {
+     "w": "Red",
+     "s": 58.717
+    },
+    {
+     "w": "Rock",
+     "s": 58.93
+    },
+    {
+     "w": "Rattlers.",
+     "s": 59.186
+    },
+    {
+     "w": "They",
+     "s": 59.74
+    },
+    {
+     "w": "haven't",
+     "s": 59.996
+    },
+    {
+     "w": "allowed",
+     "s": 60.336
+    },
+    {
+     "w": "a",
+     "s": 60.72
+    },
+    {
+     "w": "single",
+     "s": 60.848
+    },
+    {
+     "w": "point.",
+     "s": 61.189
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     57.95
+    ],
+    [
+     "stamp",
+     59.996
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Every like on this video is a dollar. We have three hundred fifty three. The most liked comment picks our upgrade. Stands, the field, goal posts, or a scoreboard.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@field"
+    ],
+    [
+     "pop",
+     "@goal"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ]
+   ],
+   "start": 61.835,
+   "end": 71.577,
+   "words": [
+    {
+     "w": "Every",
+     "s": 61.835
+    },
+    {
+     "w": "like",
+     "s": 62.166
+    },
+    {
+     "w": "on",
+     "s": 62.449
+    },
+    {
+     "w": "this",
+     "s": 62.639
+    },
+    {
+     "w": "video",
+     "s": 62.922
+    },
+    {
+     "w": "is",
+     "s": 63.253
+    },
+    {
+     "w": "a",
+     "s": 63.443
+    },
+    {
+     "w": "dollar.",
+     "s": 63.585
+    },
+    {
+     "w": "We",
+     "s": 64.105
+    },
+    {
+     "w": "have",
+     "s": 64.294
+    },
+    {
+     "w": "three",
+     "s": 64.578
+    },
+    {
+     "w": "hundred",
+     "s": 64.909
+    },
+    {
+     "w": "fifty",
+     "s": 65.334
+    },
+    {
+     "w": "three.",
+     "s": 65.665
+    },
+    {
+     "w": "The",
+     "s": 66.138
+    },
+    {
+     "w": "most",
+     "s": 66.375
+    },
+    {
+     "w": "liked",
+     "s": 66.659
+    },
+    {
+     "w": "comment",
+     "s": 66.99
+    },
+    {
+     "w": "picks",
+     "s": 67.415
+    },
+    {
+     "w": "our",
+     "s": 67.746
+    },
+    {
+     "w": "upgrade.",
+     "s": 67.983
+    },
+    {
+     "w": "Stands,",
+     "s": 68.55
+    },
+    {
+     "w": "the",
+     "s": 69.071
+    },
+    {
+     "w": "field,",
+     "s": 69.307
+    },
+    {
+     "w": "goal",
+     "s": 69.78
+    },
+    {
+     "w": "posts,",
+     "s": 70.064
+    },
+    {
+     "w": "or",
+     "s": 70.537
+    },
+    {
+     "w": "a",
+     "s": 70.726
+    },
+    {
+     "w": "scoreboard.",
+     "s": 70.868
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     62.809
+    ],
+    [
+     "pop",
+     68.55
+    ],
+    [
+     "pop",
+     69.307
+    ],
+    [
+     "pop",
+     69.78
+    ],
+    [
+     "pop",
+     70.868
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}
