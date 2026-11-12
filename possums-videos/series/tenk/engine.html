@@ -87,7 +87,7 @@ const SC = {
     box(620, 900, 400, 160, '#5a7ad1', K, 20, 8); box(600, 1040, 440, 210, '#4a64b0', K, 20, 8); ctx.fillStyle = '#ddd'; for (let i = 0; i < 6; i++) { const r = rng(i); ctx.fillRect(r() * 900 + 60, 1300 + r() * 400, 70, 22); }
     if (L.pose === 'proud') { person({ x: 540, y: 1780, s: 1.05, pose: 'proud' }, t); withT(820, 600, eBack(seg(k, .55, .75)), .1, () => { box(-150, -110, 300, 220, '#fff', K, 24, 7); circ(-40, 0, 55, '#ff9f43', K, 5); ctx.fillStyle = '#e04a3a'; ctx.beginPath(); ctx.moveTo(30, -60); ctx.lineTo(120, 60); ctx.lineTo(-10, 60); ctx.fill(); }); return; }
     person({ x: 540, y: 1780, s: 1.05, pose: 'hold' }, t);
-    const items = [['$1', '#8fd18a'], ['3%', '#e04a3a'], ['NO SEAT', '#ffe14a']]; items.forEach(([s, c], i) => { const e = seg(k, .15 + i * .25, .28 + i * .25); if (e <= 0) return; withT(220 + i * 320, 700, eBack(e), (i - 1) * .06, () => { box(-140, -110, 280, 220, '#fff', K, 26, 8); txt(s, 0, 0, 74, c, { stroke: 8 }); }); });
+    const items = [['$1', '#8fd18a'], ['3%', '#e04a3a'], ['NO SEAT', '#ffe14a']]; items.forEach(([s, c], i) => { const e = seg(k, .15 + i * .25, .28 + i * .25); if (e <= 0) return; withT(200 + i * 300, 700, eBack(e), (i - 1) * .06, () => { box(-140, -110, 280, 220, '#fff', K, 26, 8); txt(s, 0, 0, 74, c, { stroke: 8 }); }); });
     txt('ASSETS', 540, 470, 80, '#fff', { stroke: 12 }); },
   ride(L, k, t) { street(t, k, t * 600); const x = 540 + Math.sin(t * 2) * 20; ctx.save(); ctx.translate(x, 1560);
     ctx.strokeStyle = K; ctx.lineWidth = 12; for (const wx of [-170, 170]) { circ(wx, 0, 90, 'rgba(0,0,0,0)', K, 12); ctx.save(); ctx.translate(wx, 0); ctx.rotate(t * 14); ctx.lineWidth = 4; for (let i = 0; i < 4; i++) { ctx.rotate(.78); ctx.beginPath(); ctx.moveTo(-88, 0); ctx.lineTo(88, 0); ctx.stroke(); } ctx.restore(); }
@@ -112,8 +112,8 @@ const SC = {
   rival(L, k, t) { park(t, k); box(560, 1130, 440, 70, '#ffe14a', K, 10, 7); box(580, 980, 400, 150, '#fff', K, 14, 7); txt('LEMONADE $2', 780, 1055, 54, '#e0a020', { maxW: 360 });
     box(600, 1200, 30, 200, '#8a5a2a', K, 6, 5); box(930, 1200, 30, 200, '#8a5a2a', K, 6, 5); box(880, 1080, 70, 46, '#333', K, 8, 4);
     person({ x: 780, y: 1720, s: .75, pose: 'talk', kind: 'kid', hoodie: '#ff8ab8', hair: '#e0a020', visor: true }, t); person({ x: 230, y: 1780, s: .9, pose: 'shock', look: 1 }, t);
-    if (L.line) { for (let i = 0; i < 5; i++) person({ x: 1150 - i * 0 + i * 90 - 100, y: 1800 + i * 10, s: .55, pose: 'idle', kind: 'kid', hoodie: ['#4dabf7', '#69db7c', '#ffd43b', '#da77f2', '#ff6b6b'][i], flip: true }, t + i); withT(780, 820, eBack(seg(k, .3, .5)), .04, () => { box(-200, -70, 400, 140, '#69db7c', K, 24, 7); txt('HAS A LINE', 0, 4, 58, K); }); }
-    else ['CARD READER', 'BUSINESS PLAN'].forEach((s, i) => { const e = seg(k, .55 + i * .2, .65 + i * .2); if (e > 0) withT(780, 700 + i * 160, eBack(e), (i ? .04 : -.04), () => { box(-250, -60, 500, 120, '#fff', K, 24, 7); txt(s, 0, 4, 54, K); }); }); },
+    if (L.line) { for (let i = 0; i < 5; i++) person({ x: 1150 - i * 0 + i * 90 - 100, y: 1800 + i * 10, s: .55, pose: 'idle', kind: 'kid', hoodie: ['#4dabf7', '#69db7c', '#ffd43b', '#da77f2', '#ff6b6b'][i], flip: true }, t + i); withT(700, 820, eBack(seg(k, .3, .5)), .04, () => { box(-200, -70, 400, 140, '#69db7c', K, 24, 7); txt('HAS A LINE', 0, 4, 58, K); }); }
+    else ['CARD READER', 'BUSINESS PLAN'].forEach((s, i) => { const e = seg(k, .55 + i * .2, .65 + i * .2); if (e > 0) withT(690, 700 + i * 160, eBack(e), (i ? .04 : -.04), () => { box(-250, -60, 500, 120, '#fff', K, 24, 7); txt(s, 0, 4, 54, K); }); }); },
   rush(L, k, t) { park(t, k); box(380, 1200, 320, 60, '#b0703a', K, 10, 6); box(400, 1050, 280, 140, '#fff', K, 14, 6); txt(L.sell ? 'SOLD OUT' : '25¢', 540, 1120, L.sell ? 52 : 72, '#e04a3a');
     for (let i = 0; i < 10; i++) { const r = rng(i + 50); const x = L.sell ? 300 + r() * 600 : lerp(1300 + r() * 400, 420 + (i % 5) * 120, eOut(seg(k, i * .04, .5 + i * .04))); person({ x, y: 1650 + (i % 3) * 90, s: .5, pose: L.sell ? 'cheer' : 'run', kind: 'kid', hoodie: ['#4dabf7', '#69db7c', '#ffd43b', '#da77f2', '#ff6b6b'][i % 5], flip: true }, t + i); }
     person({ x: 260, y: 1780, s: .9, pose: L.sell ? 'cheer' : 'shock' }, t);
@@ -124,10 +124,10 @@ const SC = {
     person({ x: 540, y: 1840, s: .7, pose: L.text.startsWith('Only') ? 'sad' : 'cheer' }, t); },
   vote(L, k, t) { ctx.fillStyle = '#1e2140'; ctx.fillRect(0, 0, W, H); txt('COMMENT ONE WORD', 540, 320, 84, '#fff', { stroke: 12, maxW: 980 });
     const e1 = eBack(seg(k, .1, .25)), e2 = eBack(seg(k, .3, .45));
-    withT(540, 700, e1, -.02, () => { box(-440, -220, 880, 440, '#2e9d5a', '#fff', 40, 10); txt('CANDY', 0, -110, 120, '#fff', { stroke: 14 }); txt('5 more bags of lollipops', 0, 40, 54, '#fff', { maxW: 800 }); for (let i = 0; i < 5; i++) lolly(-200 + i * 100, 120, .45, ['#ff5a8a', '#ffb02e', '#4dabf7'][i % 3]); });
-    if (e2 > .3) { circ(540, 975, 80, K, '#ffe14a', 8); txt('OR', 540, 978, 64, '#ffe14a'); }
-    withT(540, 1260, e2, .02, () => { box(-440, -220, 880, 440, '#1f6fd1', '#fff', 40, 10); txt('CAR WASH', 0, -110, 120, '#fff', { stroke: 14, maxW: 800 }); txt('a bucket, a sponge, wash cars', 0, 40, 54, '#fff', { maxW: 800 }); box(-60, 90, 120, 100, '#ffe14a', K, 14, 6); });
-    withT(540, 1640, 1 + .04 * Math.sin(t * 6), 0, () => txt('DAY 2 STARTS WITH YOUR CHOICE →', 0, 0, 52, '#ffe14a', { stroke: 8, maxW: 980 })); },
+    withT(510, 700, e1, -.02, () => { box(-370, -220, 740, 440, '#2e9d5a', '#fff', 40, 10); txt('CANDY', 0, -110, 120, '#fff', { stroke: 14 }); txt('5 more bags of lollipops', 0, 40, 54, '#fff', { maxW: 660 }); for (let i = 0; i < 5; i++) lolly(-200 + i * 100, 120, .45, ['#ff5a8a', '#ffb02e', '#4dabf7'][i % 3]); });
+    if (e2 > .3) { circ(510, 975, 80, K, '#ffe14a', 8); txt('OR', 510, 978, 64, '#ffe14a'); }
+    withT(510, 1260, e2, .02, () => { box(-370, -220, 740, 440, '#1f6fd1', '#fff', 40, 10); txt('CAR WASH', 0, -110, 120, '#fff', { stroke: 14, maxW: 660 }); txt('a bucket, a sponge, wash cars', 0, 40, 54, '#fff', { maxW: 660 }); box(-60, 90, 120, 100, '#ffe14a', K, 14, 6); });
+    withT(500, 1560, 1 + .04 * Math.sin(t * 6), 0, () => txt('DAY 2 STARTS WITH YOUR CHOICE →', 0, 0, 52, '#ffe14a', { stroke: 8, maxW: 800 })); },
 };
 
 // ================================================================ HUD, captions, frame
