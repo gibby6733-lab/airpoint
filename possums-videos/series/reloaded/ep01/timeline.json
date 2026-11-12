@@ -1,5 +1,5 @@
 {
- "duration": 61.472,
+ "duration": 63.5,
  "lines": [
   {
    "scene": "fall",
@@ -1379,7 +1379,7 @@
   {
    "scene": "vote",
    "sp": "system",
-   "text": "The Players decide. Comment A or B. You have twenty four hours.",
+   "text": "The Players decide. Comment A or B. You have twenty four hours. Episode two drops tomorrow.",
    "a": "FIGHT THE WARDEN BARE-HANDED",
    "b": "RUN FOR THE ESCAPE BLIMP",
    "sfx": [
@@ -1393,7 +1393,7 @@
     ]
    ],
    "start": 55.309,
-   "end": 59.972,
+   "end": 62.0,
    "words": [
     {
      "w": "The",
@@ -1401,47 +1401,63 @@
     },
     {
      "w": "Players",
-     "s": 55.594
+     "s": 55.598
     },
     {
      "w": "decide.",
-     "s": 56.105
+     "s": 56.117
     },
     {
      "w": "Comment",
-     "s": 56.731
+     "s": 56.751
     },
     {
      "w": "A",
-     "s": 57.243
+     "s": 57.27
     },
     {
      "w": "or",
-     "s": 57.413
+     "s": 57.443
     },
     {
      "w": "B.",
-     "s": 57.641
+     "s": 57.674
     },
     {
      "w": "You",
-     "s": 57.982
+     "s": 58.02
     },
     {
      "w": "have",
-     "s": 58.266
+     "s": 58.308
     },
     {
      "w": "twenty",
-     "s": 58.607
+     "s": 58.655
     },
     {
      "w": "four",
-     "s": 59.062
+     "s": 59.116
     },
     {
      "w": "hours.",
-     "s": 59.403
+     "s": 59.462
+    },
+    {
+     "w": "Episode",
+     "s": 60.039
+    },
+    {
+     "w": "two",
+     "s": 60.558
+    },
+    {
+     "w": "drops",
+     "s": 60.846
+    },
+    {
+     "w": "tomorrow.",
+     "s": 61.25
     }
    ],
    "sfx_times": [
@@ -1451,7 +1467,7 @@
     ],
     [
      "ding",
-     56.731
+     56.751
     ]
    ]
   }
