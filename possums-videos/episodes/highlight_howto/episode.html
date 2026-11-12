@@ -738,7 +738,7 @@ Object.assign(SCENES, {
     drawStadium(t); dim(.5);
     card(70, 250, 940, 1130, seg(u, 0, .3), C.cream);
     txt('NEW SIGNINGS', 470, 85, 70, C.ink);
-    const rows = [['LINEBACKER', 'therealmtb_44', 'linebacker'], ['TIGHT END', 'mricey12', 'tight'], ['RIGHT GUARD', 'ccilxx242', 'right'],
+    const rows = [['LINEBACKER', '@your_name', 'linebacker'], ['TIGHT END', '@your_name', 'tight'], ['RIGHT GUARD', '@your_name', 'right'],
                   ['GROUNDSKEEPER', 'andrew.bonsick', 'groundskeeper'], ['TICKET COLLECTOR', 'sarah52664', 'ticket']];
     rows.forEach(([pos, name, key], i) => { const y = 210 + i * 160, at = wordP('signings', key), kk = seg(p, at - .04, at + .04);
       ctx.save(); ctx.globalAlpha = kk; ctx.translate((1 - eOut(kk)) * 200, 0);
@@ -753,7 +753,7 @@ Object.assign(SCENES, {
     drawStadium(t, { excite: .3 });
     drawBus(330, 1440, 1.0, 0);
     withT(540, 1150, 1, -.04, () => { ctx.fillStyle = '#ff4a4a'; rr(-170, -40, 340, 80, 14); ctx.fill(); txt('HOT DOGS $1', 0, 2, 44, '#fff', { stroke: 6 }); });
-    stamp('javiviiii2', 820, 1500, 64, seg(p, .1, .25), C.yellow, -.04);
+    stamp('@your_name', 820, 1500, 64, seg(p, .1, .25), C.yellow, -.04);
     drawPlayer(820, 1440, .8, { num: '', pads: false, jersey: '#fff', trim: '#ff4a4a', skin: '#e0ac69', cap: '#ff4a4a', armR: 2.2 });
     withT(890, 1180, 1, Math.sin(t * 6) * .2, () => { ctx.fillStyle = '#e9b872'; rr(-50, -14, 100, 28, 14); ctx.fill(); ctx.fillStyle = '#b5482b'; rr(-56, -8, 112, 16, 8); ctx.fill(); ctx.strokeStyle = '#ffd43b'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-40, -6); for (let i = -40; i < 40; i += 10) ctx.lineTo(i + 5, (i / 10) % 2 ? -10 : -2); ctx.stroke(); });
     stamp('NEW STAFF', W / 2, 640, 110, seg(p, 0, .15), C.yellow, -.05);
@@ -935,19 +935,19 @@ Object.assign(SCENES, {
     const k = seg(p, b, 1); if (k > 0) { card(190, 1010, 700, 230, k, '#fff'); txt('TEAM FUND', 350, 70, 46, '#888'); const v = Math.round(403 * eOut(seg(p, b + .02, 1))); txt('$' + v, 350, 160, 110, '#1f9d55'); endCard(); }
     stamp('RULE 1', W / 2, 330, 120, seg(p, 0.12, .22), C.yellow, -.05); },
   h_comment(t, u, p) { drawStadium(t); dim(.5); const m = wordP('h_comment', 'most'), pk = wordP('h_comment', 'picks'), ord = p > pk;
-    const rows = [['@fan_one', 'Goal posts', 1], ['@dont.cross.me3', 'Locker room', 2], ['@fan_three', 'Real grass', 1]];
+    const rows = [['@fan_one', 'Goal posts', 4], ['@fan_two', 'Locker room', 13], ['@fan_three', 'Real grass', 9]];
     const order = ord ? [1, 2, 0] : [0, 1, 2];
     order.forEach((ri, slot) => { const [us, msg, lk] = rows[ri]; const y = 560 + slot * 190; bubbleC(90, y, 900, us, msg, seg(p, m - .15 + ri * .06, m + ri * .06), ord && ri === 1); heart(880, y + 52, 34); txt(String(lk), 880, y + 102, 34, C.red); });
     stamp('RULE 2', W / 2, 330, 120, seg(p, 0, .1), C.yellow, -.05);
     stamp('WINNER', 640, 520, 80, seg(p, pk, pk + .1), C.yellow, .08);
     stamp('MOST LIKES = UPGRADE', W / 2, 1300, 62, seg(p, pk + .05, pk + .15), '#fff', -.04); },
-  h_build(t, u, p) { drawStadium(t); const bt = wordP('h_build', 'bought'), sh = wordP('h_build', 'shed');
+  h_build(t, u, p) { drawStadium(t); const bt = wordP('h_build', 'build'), sh = wordP('h_build', 'better');
     const out = seg(p, bt, bt + .2); if (out < 1) portaPotty(lerp(320, -300, eIn(out)), 1400, 2.2, -.06 - out * .5);
     const inn = eBack(seg(p, bt + .08, bt + .25)); if (inn > 0) withT(560, 1430, inn, 0, () => drawShed(0, 0, 1.2, p > sh));
     drawPlayer(930, 1450, .8, { ...LOU, helmet: true, helmetSmall: true, face: 'happy', armsUp: p > sh, emote: p > sh ? 'heart' : null });
-    stamp('TOP COMMENT: LOCKER ROOM', W / 2, 600, 48, seg(p, wordP('h_build', 'locker') - .02, wordP('h_build', 'locker') + .08), '#fff', -.04);
-    stamp('BOUGHT!', W / 2, 740, 100, seg(p, bt - .02, bt + .08), C.yellow, .05);
-    stamp("IT'S A SHED", W / 2, 870, 84, seg(p, sh - .02, sh + .08), '#fff', -.05); },
+    stamp('TOP COMMENT WINS', W / 2, 600, 64, seg(p, 0, .1), '#fff', -.04);
+    stamp('UPGRADE BOUGHT!', W / 2, 740, 64, seg(p, bt - .02, bt + .08), C.yellow, .05);
+    stamp('YOU PAY = IT GETS BETTER', W / 2, 860, 46, seg(p, sh - .02, sh + .08), C.yellow, -.05); },
   h_join(t, u, p) { drawStadium(t); dim(.5); const items = [['quarterback', '@your_name', 'Can I be QB?'], ['kicker', '@your_name', 'Kicker please'], ['hot', '@your_name', 'Hot dog guy!!']];
     items.forEach(([key, us, msg], i) => { const a = wordP('h_join', key); bubbleC(90, 760 + i * 190, 900, us, msg, seg(p, a - .05, a + .03), false); });
     stamp('RULE 3', W / 2, 330, 120, seg(p, 0, .1), C.yellow, -.05);
@@ -958,11 +958,11 @@ Object.assign(SCENES, {
     if (p > pk + .1) withT(nx, 1000, 1, -.03, () => { ctx.fillStyle = C.yellow; rr(-150, -40, 300, 80, 20); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); txt('@YOU', 0, 3, 50, C.ink); });
     const k = seg(p, rs - .03, rs + .08); if (k > 0) { card(170, 330, 740, 380, k, C.cream); txt('ROSTER', 370, 70, 56, C.ink); txt('#1 TINY  •  #55 BIG LOU', 370, 160, 40, '#666', { weight: 800 }); txt('#3 EARL', 370, 220, 40, '#666', { weight: 800 }); ctx.fillStyle = C.yellow; rr(70, 260, 600, 80, 20); ctx.fill(); txt('#00 @YOU', 370, 302, 50, C.teal); endCard(); }
     if (p > gm) confetti(abs('h_sign', 'game'), t); },
-  h_proof(t, u, p) { drawStadium(t); dim(.5); card(70, 300, 940, 1060, seg(u, 0, .3), C.cream); txt('DAY 3 SIGNINGS', 470, 85, 66, C.ink);
-    const rows = [['QUARTERBACK', 'j065336', 'quarterback'], ['WIDE RECEIVER', 'dont.cross.me3', 'receiver'], ['CORNERBACK', 'kiosk229', 'cornerback'], ['HEAD CHEERLEADER', 'dih0423', 'cheerleader']];
+  h_proof(t, u, p) { drawStadium(t); dim(.5); card(70, 300, 940, 1060, seg(u, 0, .3), C.cream); txt('NEW SIGNINGS', 470, 85, 66, C.ink);
+    const rows = [['QUARTERBACK', '@your_name', 'quarterbacks'], ['WIDE RECEIVER', '@your_name', 'receivers'], ['LINEBACKER', '@your_name', 'receivers'], ['HEAD CHEERLEADER', '@your_name', 'cheerleaders']];
     rows.forEach(([pos, name, key], i) => { const y = 220 + i * 170, at = wordP('h_proof', key), kk = seg(p, at - .04, at + .04); ctx.save(); ctx.globalAlpha = kk; ctx.translate((1 - eOut(kk)) * 200, 0);
       ctx.fillStyle = i < 3 ? C.teal : '#ff4a4a'; rr(40, y - 66, 860, 132, 24); ctx.fill(); txt(pos, 80, y - 24, 42, '#fff', { align: 'left' }); txt(name, 80, y + 28, 48, C.yellow, { align: 'left', stroke: 6 }); ctx.restore(); });
-    endCard(); stamp('7 FANS JOINED', W / 2, 1290, 80, seg(p, wordP('h_proof', 'seven') - .02, wordP('h_proof', 'seven') + .08), C.yellow, -.04); },
+    endCard(); stamp('NEW FANS EVERY DAY', W / 2, 1290, 58, seg(p, wordP('h_proof', 'every') - .02, wordP('h_proof', 'every') + .08), C.yellow, -.04); },
   h_cta(t, u, p) { drawStadium(t, { excite: .5 }); dim(.45);
     const steps = [['like', '1', 'LIKE', '= $1 FOR THE TEAM', '#ff4a4a'], ['comment', '2', 'COMMENT', 'YOUR POSITION', C.teal], ['follow', '3', 'FOLLOW', 'NEW DAY EVERY DAY', C.orange]];
     steps.forEach(([key, n, a, b, col], i) => { const k = seg(p, wordP('h_cta', key) - .04, wordP('h_cta', key) + .04); if (k <= 0) return; withT(W / 2, 520 + i * 260, eBack(k), (i - 1) * .03, () => { shadowOn(16, 8); ctx.fillStyle = col; rr(-420, -105, 840, 210, 36); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();

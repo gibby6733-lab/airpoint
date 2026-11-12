@@ -65,15 +65,15 @@
   },
   {
    "scene": "h_build",
-   "text": "Then we build it. Day three's top comment said locker room, so we bought one. It's a garden shed.",
+   "text": "Then we build it. The stadium only gets better when you pay for it.",
    "sfx": [
     [
      "spend",
-     "@bought"
+     "@build"
     ],
     [
      "boing",
-     "@shed"
+     "@better"
     ]
    ]
   },
@@ -119,23 +119,19 @@
   },
   {
    "scene": "h_proof",
-   "text": "On day three, seven of you joined. A quarterback, a receiver, a cornerback, and a cheerleader.",
+   "text": "Every day, new fans join the team. Quarterbacks, receivers, even cheerleaders.",
    "sfx": [
     [
      "pop",
-     "@quarterback"
+     "@quarterbacks"
     ],
     [
      "pop",
-     "@receiver"
-    ],
-    [
-     "pop",
-     "@cornerback"
+     "@receivers"
     ],
     [
      "honk",
-     "@cheerleader"
+     "@cheerleaders"
     ]
    ]
   },
