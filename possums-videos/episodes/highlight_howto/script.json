@@ -1,0 +1,169 @@
+{
+ "episode": "highlight",
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "h_hook",
+   "text": "This football team is broke, terrible, and run by you.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@broke"
+    ],
+    [
+     "stamp",
+     "@terrible"
+    ],
+    [
+     "horn",
+     "@you"
+    ]
+   ]
+  },
+  {
+   "scene": "h_likes",
+   "text": "Here's how it works. Rule one. Every like on a video adds one dollar to the team fund.",
+   "sfx": [
+    [
+     "pop",
+     "@rule"
+    ],
+    [
+     "ding",
+     "@like"
+    ],
+    [
+     "cash",
+     "@dollar"
+    ]
+   ]
+  },
+  {
+   "scene": "h_comment",
+   "text": "Rule two. The most liked comment picks what we buy with it.",
+   "sfx": [
+    [
+     "pop",
+     "@rule"
+    ],
+    [
+     "pop",
+     "@most"
+    ],
+    [
+     "stamp",
+     "@picks"
+    ]
+   ]
+  },
+  {
+   "scene": "h_build",
+   "text": "Then we build it. The stadium only gets better if you pay for it. Right now, our goal post is a ladder.",
+   "sfx": [
+    [
+     "spend",
+     "@build"
+    ],
+    [
+     "boing",
+     "@better"
+    ],
+    [
+     "sad",
+     "@ladder"
+    ]
+   ]
+  },
+  {
+   "scene": "h_join",
+   "text": "Rule three. Want to be in the video? Comment the position you want. Quarterback, kicker, even the hot dog guy.",
+   "sfx": [
+    [
+     "pop",
+     "@rule"
+    ],
+    [
+     "pop",
+     "@quarterback"
+    ],
+    [
+     "pop",
+     "@kicker"
+    ],
+    [
+     "pop",
+     "@hot"
+    ]
+   ]
+  },
+  {
+   "scene": "h_sign",
+   "text": "Every day, we pick new players from the comments. Your name goes on the roster, and you show up in the game.",
+   "sfx": [
+    [
+     "whistle",
+     "@pick"
+    ],
+    [
+     "stamp",
+     "@roster"
+    ],
+    [
+     "crowd",
+     "@game"
+    ]
+   ]
+  },
+  {
+   "scene": "h_proof",
+   "text": "On day two, six of you joined. A linebacker, a tight end, a right guard, and a hot dog guy.",
+   "sfx": [
+    [
+     "pop",
+     "@linebacker"
+    ],
+    [
+     "pop",
+     "@tight"
+    ],
+    [
+     "pop",
+     "@right"
+    ],
+    [
+     "honk",
+     "@hot"
+    ]
+   ]
+  },
+  {
+   "scene": "h_cta",
+   "text": "So like the video, comment your position, and follow. A new day drops every day. Maybe tomorrow, it's you.",
+   "sfx": [
+    [
+     "ding",
+     "@like"
+    ],
+    [
+     "ding",
+     "@comment"
+    ],
+    [
+     "ding",
+     "@follow"
+    ],
+    [
+     "horn",
+     "@you"
+    ]
+   ]
+  }
+ ]
+}
