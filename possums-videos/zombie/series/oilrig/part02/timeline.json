@@ -1,0 +1,3202 @@
+{
+"width": 1080,
+"height": 1920,
+"vertical": true,
+"day": 2,
+"lesson": "SLOW GOES FARTHER",
+"style": "stick",
+"duration": 90.0,
+"series": "What if you had to reach the oil rig?",
+"episode": 2,
+"title": "Part 2",
+"beats": [
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "voted",
+"poll": [
+[
+"TAKE THE FISHING BOAT",
+null,
+"#1f9d55"
+]
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Most of you said take the fishing boat.",
+"start": 0.6,
+"end": 2.609,
+"words": [
+{
+"w": "Most",
+"s": 0.6
+},
+{
+"w": "of",
+"s": 0.841
+},
+{
+"w": "you",
+"s": 1.002
+},
+{
+"w": "said",
+"s": 1.203
+},
+{
+"w": "take",
+"s": 1.444
+},
+{
+"w": "the",
+"s": 1.685
+},
+{
+"w": "fishing",
+"s": 1.886
+},
+{
+"w": "boat.",
+"s": 2.247
+}
+],
+"sfx": [
+[
+"reveal",
+0.1
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.02,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "harbor",
+"fishing": true,
+"you": [
+640,
+860,
+"run"
+],
+"titleCard": [
+"WHAT IF YOU HAD TO REACH THE OIL RIG?",
+"PART 2"
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "So you run.",
+"start": 2.909,
+"end": 3.756,
+"words": [
+{
+"w": "So",
+"s": 2.909
+},
+{
+"w": "you",
+"s": 3.108
+},
+{
+"w": "run.",
+"s": 3.357
+}
+],
+"sfx": [
+[
+"steps",
+0
+],
+[
+"groan",
+0.6
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.3,
+"x1": 0.45,
+"depth": "mid"
+},
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "harbor",
+"fishing": true,
+"you": [
+860,
+880,
+"run"
+],
+"cards": [
+{
+"t": "10 FT",
+"w": "ten",
+"c": "#ff5a4a",
+"big": true
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "They're ten feet behind you. You jump in and cut the rope.",
+"start": 4.056,
+"end": 6.983,
+"words": [
+{
+"w": "They're",
+"s": 4.056
+},
+{
+"w": "ten",
+"s": 4.373
+},
+{
+"w": "feet",
+"s": 4.57
+},
+{
+"w": "behind",
+"s": 4.808
+},
+{
+"w": "you.",
+"s": 5.124
+},
+{
+"w": "You",
+"s": 5.441
+},
+{
+"w": "jump",
+"s": 5.638
+},
+{
+"w": "in",
+"s": 5.876
+},
+{
+"w": "and",
+"s": 6.034
+},
+{
+"w": "cut",
+"s": 6.232
+},
+{
+"w": "the",
+"s": 6.429
+},
+{
+"w": "rope.",
+"s": 6.627
+}
+],
+"sfx": [
+[
+"groan",
+0.2
+],
+[
+"whoosh",
+0.7
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.05,
+"x1": 0.25,
+"depth": "mid"
+},
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "sea",
+"pier": true,
+"boat": [
+600,
+600
+],
+"you": [
+-40,
+"scared"
+],
+"cards": [
+{
+"t": "PULL 1",
+"w": "cord",
+"c": "#ff5a4a"
+},
+{
+"t": "PULL 2",
+"w": "again",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "You pull the cord. Nothing. Again. Nothing.",
+"start": 7.283,
+"end": 9.432,
+"words": [
+{
+"w": "You",
+"s": 7.283
+},
+{
+"w": "pull",
+"s": 7.465
+},
+{
+"w": "the",
+"s": 7.684
+},
+{
+"w": "cord.",
+"s": 7.866
+},
+{
+"w": "Nothing.",
+"s": 8.193
+},
+{
+"w": "Again.",
+"s": 8.63
+},
+{
+"w": "Nothing.",
+"s": 8.995
+}
+],
+"sfx": [
+[
+"rattle",
+0.25
+],
+[
+"rattle",
+0.75
+],
+[
+"groan",
+0.9
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "sea",
+"pier": true,
+"boat": [
+600,
+700
+],
+"speed": 0.6,
+"you": [
+-40,
+"point"
+],
+"cards": [
+{
+"t": "PULL 3",
+"w": "third",
+"c": "#7cd67c"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Third pull. The engine roars.",
+"start": 9.732,
+"end": 11.522,
+"words": [
+{
+"w": "Third",
+"s": 9.732
+},
+{
+"w": "pull.",
+"s": 10.053
+},
+{
+"w": "The",
+"s": 10.466
+},
+{
+"w": "engine",
+"s": 10.696
+},
+{
+"w": "roars.",
+"s": 11.063
+}
+],
+"sfx": [
+[
+"engine",
+0.4
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "sea",
+"boat": [
+700,
+700
+],
+"speed": 0.6,
+"grab": [
+0.3,
+2
+],
+"you": [
+-40,
+"scared"
+],
+"cards": [
+{
+"t": "GRAB",
+"w": "hand",
+"c": "#ff5a4a",
+"big": true
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "And a hand grabs the back of the boat.",
+"start": 11.822,
+"end": 13.825,
+"words": [
+{
+"w": "And",
+"s": 11.822
+},
+{
+"w": "a",
+"s": 12.022
+},
+{
+"w": "hand",
+"s": 12.142
+},
+{
+"w": "grabs",
+"s": 12.383
+},
+{
+"w": "the",
+"s": 12.663
+},
+{
+"w": "back",
+"s": 12.863
+},
+{
+"w": "of",
+"s": 13.104
+},
+{
+"w": "the",
+"s": 13.264
+},
+{
+"w": "boat.",
+"s": 13.464
+}
+],
+"sfx": [
+[
+"crash",
+0.35
+],
+[
+"groan",
+0.5
+]
+]
+},
+{
+"loc": "black",
+"tod": "dusk",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.8,
+"focus": null,
+"scene": "sea",
+"boat": [
+700,
+600
+],
+"speed": 0.8,
+"grab": [
+0,
+0.45
+],
+"you": [
+-40,
+"point",
+1
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "You kick. It lets go, and sinks without a sound.",
+"start": 14.125,
+"end": 16.657,
+"words": [
+{
+"w": "You",
+"s": 14.125
+},
+{
+"w": "kick.",
+"s": 14.319
+},
+{
+"w": "It",
+"s": 14.67
+},
+{
+"w": "lets",
+"s": 14.826
+},
+{
+"w": "go,",
+"s": 15.06
+},
+{
+"w": "and",
+"s": 15.333
+},
+{
+"w": "sinks",
+"s": 15.527
+},
+{
+"w": "without",
+"s": 15.8
+},
+{
+"w": "a",
+"s": 16.151
+},
+{
+"w": "sound.",
+"s": 16.268
+}
+],
+"sfx": [
+[
+"bang",
+0.15
+],
+[
+"whoosh",
+0.55
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "sea",
+"rig": [
+880,
+0.8
+],
+"boat": [
+400,
+560
+],
+"speed": 1,
+"you": [
+-40,
+"idle"
+],
+"cards": [
+{
+"t": "RIG: 12 MILES",
+"w": "twelve"
+},
+{
+"t": "FUEL: HALF",
+"w": "half",
+"c": "#ffe14a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Open water. Twelve miles to the rig. Half a tank.",
+"start": 16.957,
+"end": 19.711,
+"words": [
+{
+"w": "Open",
+"s": 16.957
+},
+{
+"w": "water.",
+"s": 17.208
+},
+{
+"w": "Twelve",
+"s": 17.625
+},
+{
+"w": "miles",
+"s": 17.959
+},
+{
+"w": "to",
+"s": 18.251
+},
+{
+"w": "the",
+"s": 18.418
+},
+{
+"w": "rig.",
+"s": 18.626
+},
+{
+"w": "Half",
+"s": 18.96
+},
+{
+"w": "a",
+"s": 19.211
+},
+{
+"w": "tank.",
+"s": 19.336
+}
+],
+"sfx": [
+[
+"engine",
+0
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "paper",
+"paper": {
+"title": "FULL THROTTLE = EMPTY TANK",
+"lines": [
+[
+"FULL SPEED: WORST MILES PER GALLON",
+"#c0392b"
+],
+"CRUISING SPEED: BEST RANGE",
+[
+"SLOW GOES FARTHER",
+"#1f9d55"
+]
+],
+"src": "boating fuel guides: best miles per gallon is at cruising speed, not wide open"
+},
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Here's the thing about boats. Full throttle drinks fuel. Slow down, and the same tank goes a lot farther.",
+"start": 20.011,
+"end": 25.194,
+"words": [
+{
+"w": "Here's",
+"s": 20.011
+},
+{
+"w": "the",
+"s": 20.286
+},
+{
+"w": "thing",
+"s": 20.482
+},
+{
+"w": "about",
+"s": 20.757
+},
+{
+"w": "boats.",
+"s": 21.032
+},
+{
+"w": "Full",
+"s": 21.425
+},
+{
+"w": "throttle",
+"s": 21.66
+},
+{
+"w": "drinks",
+"s": 22.053
+},
+{
+"w": "fuel.",
+"s": 22.367
+},
+{
+"w": "Slow",
+"s": 22.721
+},
+{
+"w": "down,",
+"s": 22.956
+},
+{
+"w": "and",
+"s": 23.309
+},
+{
+"w": "the",
+"s": 23.506
+},
+{
+"w": "same",
+"s": 23.702
+},
+{
+"w": "tank",
+"s": 23.938
+},
+{
+"w": "goes",
+"s": 24.173
+},
+{
+"w": "a",
+"s": 24.409
+},
+{
+"w": "lot",
+"s": 24.527
+},
+{
+"w": "farther.",
+"s": 24.723
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "sea",
+"rig": [
+880,
+0.8
+],
+"boat": [
+560,
+600
+],
+"speed": 0.35,
+"you": [
+-40,
+"think"
+],
+"cards": [
+{
+"t": "HALF THROTTLE",
+"w": "throttle",
+"c": "#7cd67c"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "So you throttle back. Slow. Every drop counts.",
+"start": 25.494,
+"end": 28.032,
+"words": [
+{
+"w": "So",
+"s": 25.494
+},
+{
+"w": "you",
+"s": 25.661
+},
+{
+"w": "throttle",
+"s": 25.869
+},
+{
+"w": "back.",
+"s": 26.285
+},
+{
+"w": "Slow.",
+"s": 26.659
+},
+{
+"w": "Every",
+"s": 27.034
+},
+{
+"w": "drop",
+"s": 27.325
+},
+{
+"w": "counts.",
+"s": 27.574
+}
+],
+"sfx": [
+[
+"engine",
+0.1
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "sea",
+"rig": [
+880,
+0.8
+],
+"fog": [
+0,
+1
+],
+"boat": [
+600,
+600
+],
+"speed": 0.35,
+"you": [
+-40,
+"scared"
+],
+"cards": [
+{
+"t": "VISIBILITY: 20 FT",
+"w": "everything",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Then the fog rolls in. The rig disappears. So does everything else.",
+"start": 28.332,
+"end": 31.747,
+"words": [
+{
+"w": "Then",
+"s": 28.332
+},
+{
+"w": "the",
+"s": 28.57
+},
+{
+"w": "fog",
+"s": 28.769
+},
+{
+"w": "rolls",
+"s": 28.967
+},
+{
+"w": "in.",
+"s": 29.245
+},
+{
+"w": "The",
+"s": 29.523
+},
+{
+"w": "rig",
+"s": 29.722
+},
+{
+"w": "disappears.",
+"s": 29.92
+},
+{
+"w": "So",
+"s": 30.516
+},
+{
+"w": "does",
+"s": 30.675
+},
+{
+"w": "everything",
+"s": 30.913
+},
+{
+"w": "else.",
+"s": 31.39
+}
+],
+"sfx": [
+[
+"sting",
+0.3
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "sea",
+"fog": 1,
+"boat": [
+600,
+600
+],
+"speed": 0.3,
+"you": [
+-40,
+"think"
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "No compass. No GPS. Just gray.",
+"start": 32.047,
+"end": 34.409,
+"words": [
+{
+"w": "No",
+"s": 32.047
+},
+{
+"w": "compass.",
+"s": 32.267
+},
+{
+"w": "No",
+"s": 32.926
+},
+{
+"w": "GPS.",
+"s": 33.146
+},
+{
+"w": "Just",
+"s": 33.585
+},
+{
+"w": "gray.",
+"s": 33.915
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "sea",
+"fog": 1,
+"horn": [
+880,
+1050
+],
+"boat": [
+600,
+600
+],
+"speed": 0.3,
+"you": [
+-40,
+"point"
+],
+"cards": [
+{
+"t": "HOOOONK",
+"w": "horn",
+"c": "#ffe14a",
+"big": true
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Then you hear it. One long horn blast.",
+"start": 34.709,
+"end": 36.838,
+"words": [
+{
+"w": "Then",
+"s": 34.709
+},
+{
+"w": "you",
+"s": 34.96
+},
+{
+"w": "hear",
+"s": 35.169
+},
+{
+"w": "it.",
+"s": 35.419
+},
+{
+"w": "One",
+"s": 35.711
+},
+{
+"w": "long",
+"s": 35.92
+},
+{
+"w": "horn",
+"s": 36.17
+},
+{
+"w": "blast.",
+"s": 36.421
+}
+],
+"sfx": [
+[
+"engine",
+0.5
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "paper",
+"paper": {
+"title": "THE FOG RULE",
+"lines": [
+"1 LONG BLAST",
+[
+"AT LEAST EVERY 2 MINUTES",
+"#c0392b"
+],
+[
+"FOLLOW THE SOUND",
+"#1f9d55"
+]
+],
+"icon": "drops",
+"src": "International Regulations for Preventing Collisions at Sea (COLREGs), Rule 35"
+},
+"sp": "deep",
+"name": "NARRATOR",
+"text": "In fog, ships and platforms sound a long blast at least every two minutes. Follow the sound.",
+"start": 37.138,
+"end": 42.087,
+"words": [
+{
+"w": "In",
+"s": 37.138
+},
+{
+"w": "fog,",
+"s": 37.309
+},
+{
+"w": "ships",
+"s": 37.65
+},
+{
+"w": "and",
+"s": 37.949
+},
+{
+"w": "platforms",
+"s": 38.162
+},
+{
+"w": "sound",
+"s": 38.632
+},
+{
+"w": "a",
+"s": 38.93
+},
+{
+"w": "long",
+"s": 39.058
+},
+{
+"w": "blast",
+"s": 39.314
+},
+{
+"w": "at",
+"s": 39.613
+},
+{
+"w": "least",
+"s": 39.784
+},
+{
+"w": "every",
+"s": 40.082
+},
+{
+"w": "two",
+"s": 40.381
+},
+{
+"w": "minutes.",
+"s": 40.594
+},
+{
+"w": "Follow",
+"s": 41.106
+},
+{
+"w": "the",
+"s": 41.448
+},
+{
+"w": "sound.",
+"s": 41.661
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "sea",
+"fog": 1,
+"horn": [
+880,
+1050
+],
+"boat": [
+600,
+700
+],
+"speed": 0.35,
+"you": [
+-40,
+"point"
+],
+"cards": [
+{
+"t": "EVERY 2 MIN",
+"w": "two",
+"c": "#7cd67c"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Two minutes later, again. You turn toward it.",
+"start": 42.387,
+"end": 44.611,
+"words": [
+{
+"w": "Two",
+"s": 42.387
+},
+{
+"w": "minutes",
+"s": 42.573
+},
+{
+"w": "later,",
+"s": 42.906
+},
+{
+"w": "again.",
+"s": 43.277
+},
+{
+"w": "You",
+"s": 43.648
+},
+{
+"w": "turn",
+"s": 43.833
+},
+{
+"w": "toward",
+"s": 44.055
+},
+{
+"w": "it.",
+"s": 44.352
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.9,
+"focus": null,
+"scene": "sea",
+"fog": 1,
+"cough": true,
+"boat": [
+700,
+700
+],
+"you": [
+-40,
+"scared"
+],
+"cards": [
+{
+"t": "FUEL: EMPTY",
+"w": "coughs",
+"c": "#ff5a4a"
+},
+{
+"t": "4 MILES LEFT",
+"w": "dies",
+"c": "#ffe14a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Then the engine coughs. And dies.",
+"start": 44.911,
+"end": 46.796,
+"words": [
+{
+"w": "Then",
+"s": 44.911
+},
+{
+"w": "the",
+"s": 45.168
+},
+{
+"w": "engine",
+"s": 45.382
+},
+{
+"w": "coughs.",
+"s": 45.725
+},
+{
+"w": "And",
+"s": 46.196
+},
+{
+"w": "dies.",
+"s": 46.41
+}
+],
+"sfx": [
+[
+"sputter",
+0.2
+],
+[
+"sting",
+0.8
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "sea",
+"fog": 0.8,
+"floaters": 9,
+"boat": [
+700,
+700
+],
+"tilt": 0.06,
+"you": [
+-40,
+"scared"
+],
+"cards": [
+{
+"t": "BUMP",
+"w": "bumps",
+"c": "#ff5a4a"
+},
+{
+"t": "BUMP",
+"w": "again",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Something bumps the hull. Then again. You're not alone out here.",
+"start": 47.096,
+"end": 50.028,
+"words": [
+{
+"w": "Something",
+"s": 47.096
+},
+{
+"w": "bumps",
+"s": 47.494
+},
+{
+"w": "the",
+"s": 47.747
+},
+{
+"w": "hull.",
+"s": 47.928
+},
+{
+"w": "Then",
+"s": 48.254
+},
+{
+"w": "again.",
+"s": 48.471
+},
+{
+"w": "You're",
+"s": 48.833
+},
+{
+"w": "not",
+"s": 49.087
+},
+{
+"w": "alone",
+"s": 49.268
+},
+{
+"w": "out",
+"s": 49.521
+},
+{
+"w": "here.",
+"s": 49.702
+}
+],
+"sfx": [
+[
+"bang",
+0.2
+],
+[
+"bang",
+0.5
+],
+[
+"groan",
+0.8
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 1,
+"focus": null,
+"scene": "sea",
+"fog": 0.8,
+"floaters": 9,
+"boat": [
+700,
+700
+],
+"you": [
+-40,
+"think"
+],
+"cards": [
+{
+"t": "1-10-1",
+"w": "rule",
+"c": "#ffe14a",
+"big": true
+},
+{
+"t": "NO SWIMMING",
+"w": "nobody",
+"c": "#ff5a4a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Remember the rule. One minute of shock. Ten before your arms quit. Nobody swims four miles.",
+"start": 50.328,
+"end": 55.116,
+"words": [
+{
+"w": "Remember",
+"s": 50.328
+},
+{
+"w": "the",
+"s": 50.741
+},
+{
+"w": "rule.",
+"s": 50.947
+},
+{
+"w": "One",
+"s": 51.319
+},
+{
+"w": "minute",
+"s": 51.525
+},
+{
+"w": "of",
+"s": 51.855
+},
+{
+"w": "shock.",
+"s": 52.02
+},
+{
+"w": "Ten",
+"s": 52.433
+},
+{
+"w": "before",
+"s": 52.64
+},
+{
+"w": "your",
+"s": 52.97
+},
+{
+"w": "arms",
+"s": 53.217
+},
+{
+"w": "quit.",
+"s": 53.465
+},
+{
+"w": "Nobody",
+"s": 53.837
+},
+{
+"w": "swims",
+"s": 54.167
+},
+{
+"w": "four",
+"s": 54.456
+},
+{
+"w": "miles.",
+"s": 54.703
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "sea",
+"fog": [
+0.9,
+0.6
+],
+"floaters": 6,
+"sail": [
+-150,
+260,
+0.9
+],
+"boat": [
+760,
+760
+],
+"you": [
+-40,
+"point",
+1
+],
+"cards": [
+{
+"t": "SAILBOAT",
+"w": "sailboat",
+"c": "#7cd67c"
+},
+{
+"t": "NOBODY ON BOARD?",
+"w": "nobody",
+"c": "#ffe14a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Then, through the fog, a sailboat. Drifting. Nobody at the wheel. Its sail is still up.",
+"start": 55.416,
+"end": 59.626,
+"words": [
+{
+"w": "Then,",
+"s": 55.416
+},
+{
+"w": "through",
+"s": 55.743
+},
+{
+"w": "the",
+"s": 56.069
+},
+{
+"w": "fog,",
+"s": 56.251
+},
+{
+"w": "a",
+"s": 56.541
+},
+{
+"w": "sailboat.",
+"s": 56.65
+},
+{
+"w": "Drifting.",
+"s": 57.122
+},
+{
+"w": "Nobody",
+"s": 57.593
+},
+{
+"w": "at",
+"s": 57.884
+},
+{
+"w": "the",
+"s": 58.029
+},
+{
+"w": "wheel.",
+"s": 58.21
+},
+{
+"w": "Its",
+"s": 58.573
+},
+{
+"w": "sail",
+"s": 58.755
+},
+{
+"w": "is",
+"s": 58.972
+},
+{
+"w": "still",
+"s": 59.118
+},
+{
+"w": "up.",
+"s": 59.372
+}
+],
+"sfx": [
+[
+"sting",
+0.2
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "sea",
+"fog": 0.6,
+"floaters": 6,
+"sail": [
+260,
+330,
+0.9
+],
+"horn": [
+980,
+1050
+],
+"boat": [
+760,
+720
+],
+"you": [
+-40,
+"think"
+],
+"cards": [
+{
+"t": "HORN \u2192",
+"w": "horn",
+"c": "#ffe14a"
+}
+],
+"sp": "deep",
+"name": "NARRATOR",
+"text": "The current pulls you toward it. The horn is the other way.",
+"start": 59.926,
+"end": 62.868,
+"words": [
+{
+"w": "The",
+"s": 59.926
+},
+{
+"w": "current",
+"s": 60.119
+},
+{
+"w": "pulls",
+"s": 60.468
+},
+{
+"w": "you",
+"s": 60.739
+},
+{
+"w": "toward",
+"s": 60.932
+},
+{
+"w": "it.",
+"s": 61.242
+},
+{
+"w": "The",
+"s": 61.513
+},
+{
+"w": "horn",
+"s": 61.707
+},
+{
+"w": "is",
+"s": 61.939
+},
+{
+"w": "the",
+"s": 62.094
+},
+{
+"w": "other",
+"s": 62.287
+},
+{
+"w": "way.",
+"s": 62.558
+}
+],
+"sfx": [
+[
+"engine",
+0.4
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "question",
+"opt1": "Climb onto the drifting sailboat",
+"opt2": "Row toward the fog horn with the oars",
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Would you rather climb onto the drifting sailboat? Or row toward the fog horn with the oars?",
+"start": 63.168,
+"end": 67.684,
+"words": [
+{
+"w": "Would",
+"s": 63.168
+},
+{
+"w": "you",
+"s": 63.445
+},
+{
+"w": "rather",
+"s": 63.643
+},
+{
+"w": "climb",
+"s": 63.96
+},
+{
+"w": "onto",
+"s": 64.238
+},
+{
+"w": "the",
+"s": 64.475
+},
+{
+"w": "drifting",
+"s": 64.673
+},
+{
+"w": "sailboat?",
+"s": 65.07
+},
+{
+"w": "Or",
+"s": 65.585
+},
+{
+"w": "row",
+"s": 65.743
+},
+{
+"w": "toward",
+"s": 65.941
+},
+{
+"w": "the",
+"s": 66.258
+},
+{
+"w": "fog",
+"s": 66.456
+},
+{
+"w": "horn",
+"s": 66.654
+},
+{
+"w": "with",
+"s": 66.892
+},
+{
+"w": "the",
+"s": 67.13
+},
+{
+"w": "oars?",
+"s": 67.328
+}
+],
+"sfx": [
+[
+"sting",
+0.05
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "question",
+"opt1": "Climb onto the drifting sailboat",
+"opt2": "Row toward the fog horn with the oars",
+"countdown": true,
+"sp": "",
+"text": "",
+"start": 67.884,
+"end": 70.284,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.8
+],
+[
+"tick",
+1.6
+]
+]
+},
+{
+"loc": "black",
+"tod": "day",
+"wx": null,
+"cast": [],
+"z": {
+"n": 8,
+"x0": 0.25,
+"x1": 0.3,
+"depth": "mid"
+},
+"props": [],
+"fx": [
+"shake"
+],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "question",
+"opt1": "Climb onto the drifting sailboat",
+"opt2": "Row toward the fog horn with the oars",
+"vote": true,
+"recap": "FOG HORN: EVERY 2 MINUTES",
+"sp": "deep",
+"name": "NARRATOR",
+"text": "Vote in the poll. Part three, tomorrow.",
+"start": 70.934,
+"end": 89.6,
+"words": [
+{
+"w": "Vote",
+"s": 70.934
+},
+{
+"w": "in",
+"s": 71.17
+},
+{
+"w": "the",
+"s": 71.326
+},
+{
+"w": "poll.",
+"s": 71.522
+},
+{
+"w": "Part",
+"s": 71.875
+},
+{
+"w": "three,",
+"s": 72.111
+},
+{
+"w": "tomorrow.",
+"s": 72.503
+}
+],
+"sfx": []
+}
+],
+"lines": [
+{
+"start": 0.6,
+"end": 2.609,
+"words": [
+{
+"w": "Most",
+"s": 0.6
+},
+{
+"w": "of",
+"s": 0.841
+},
+{
+"w": "you",
+"s": 1.002
+},
+{
+"w": "said",
+"s": 1.203
+},
+{
+"w": "take",
+"s": 1.444
+},
+{
+"w": "the",
+"s": 1.685
+},
+{
+"w": "fishing",
+"s": 1.886
+},
+{
+"w": "boat.",
+"s": 2.247
+}
+]
+},
+{
+"start": 2.909,
+"end": 3.756,
+"words": [
+{
+"w": "So",
+"s": 2.909
+},
+{
+"w": "you",
+"s": 3.108
+},
+{
+"w": "run.",
+"s": 3.357
+}
+]
+},
+{
+"start": 4.056,
+"end": 6.983,
+"words": [
+{
+"w": "They're",
+"s": 4.056
+},
+{
+"w": "ten",
+"s": 4.373
+},
+{
+"w": "feet",
+"s": 4.57
+},
+{
+"w": "behind",
+"s": 4.808
+},
+{
+"w": "you.",
+"s": 5.124
+},
+{
+"w": "You",
+"s": 5.441
+},
+{
+"w": "jump",
+"s": 5.638
+},
+{
+"w": "in",
+"s": 5.876
+},
+{
+"w": "and",
+"s": 6.034
+},
+{
+"w": "cut",
+"s": 6.232
+},
+{
+"w": "the",
+"s": 6.429
+},
+{
+"w": "rope.",
+"s": 6.627
+}
+]
+},
+{
+"start": 7.283,
+"end": 9.432,
+"words": [
+{
+"w": "You",
+"s": 7.283
+},
+{
+"w": "pull",
+"s": 7.465
+},
+{
+"w": "the",
+"s": 7.684
+},
+{
+"w": "cord.",
+"s": 7.866
+},
+{
+"w": "Nothing.",
+"s": 8.193
+},
+{
+"w": "Again.",
+"s": 8.63
+},
+{
+"w": "Nothing.",
+"s": 8.995
+}
+]
+},
+{
+"start": 9.732,
+"end": 11.522,
+"words": [
+{
+"w": "Third",
+"s": 9.732
+},
+{
+"w": "pull.",
+"s": 10.053
+},
+{
+"w": "The",
+"s": 10.466
+},
+{
+"w": "engine",
+"s": 10.696
+},
+{
+"w": "roars.",
+"s": 11.063
+}
+]
+},
+{
+"start": 11.822,
+"end": 13.825,
+"words": [
+{
+"w": "And",
+"s": 11.822
+},
+{
+"w": "a",
+"s": 12.022
+},
+{
+"w": "hand",
+"s": 12.142
+},
+{
+"w": "grabs",
+"s": 12.383
+},
+{
+"w": "the",
+"s": 12.663
+},
+{
+"w": "back",
+"s": 12.863
+},
+{
+"w": "of",
+"s": 13.104
+},
+{
+"w": "the",
+"s": 13.264
+},
+{
+"w": "boat.",
+"s": 13.464
+}
+]
+},
+{
+"start": 14.125,
+"end": 16.657,
+"words": [
+{
+"w": "You",
+"s": 14.125
+},
+{
+"w": "kick.",
+"s": 14.319
+},
+{
+"w": "It",
+"s": 14.67
+},
+{
+"w": "lets",
+"s": 14.826
+},
+{
+"w": "go,",
+"s": 15.06
+},
+{
+"w": "and",
+"s": 15.333
+},
+{
+"w": "sinks",
+"s": 15.527
+},
+{
+"w": "without",
+"s": 15.8
+},
+{
+"w": "a",
+"s": 16.151
+},
+{
+"w": "sound.",
+"s": 16.268
+}
+]
+},
+{
+"start": 16.957,
+"end": 19.711,
+"words": [
+{
+"w": "Open",
+"s": 16.957
+},
+{
+"w": "water.",
+"s": 17.208
+},
+{
+"w": "Twelve",
+"s": 17.625
+},
+{
+"w": "miles",
+"s": 17.959
+},
+{
+"w": "to",
+"s": 18.251
+},
+{
+"w": "the",
+"s": 18.418
+},
+{
+"w": "rig.",
+"s": 18.626
+},
+{
+"w": "Half",
+"s": 18.96
+},
+{
+"w": "a",
+"s": 19.211
+},
+{
+"w": "tank.",
+"s": 19.336
+}
+]
+},
+{
+"start": 20.011,
+"end": 25.194,
+"words": [
+{
+"w": "Here's",
+"s": 20.011
+},
+{
+"w": "the",
+"s": 20.286
+},
+{
+"w": "thing",
+"s": 20.482
+},
+{
+"w": "about",
+"s": 20.757
+},
+{
+"w": "boats.",
+"s": 21.032
+},
+{
+"w": "Full",
+"s": 21.425
+},
+{
+"w": "throttle",
+"s": 21.66
+},
+{
+"w": "drinks",
+"s": 22.053
+},
+{
+"w": "fuel.",
+"s": 22.367
+},
+{
+"w": "Slow",
+"s": 22.721
+},
+{
+"w": "down,",
+"s": 22.956
+},
+{
+"w": "and",
+"s": 23.309
+},
+{
+"w": "the",
+"s": 23.506
+},
+{
+"w": "same",
+"s": 23.702
+},
+{
+"w": "tank",
+"s": 23.938
+},
+{
+"w": "goes",
+"s": 24.173
+},
+{
+"w": "a",
+"s": 24.409
+},
+{
+"w": "lot",
+"s": 24.527
+},
+{
+"w": "farther.",
+"s": 24.723
+}
+]
+},
+{
+"start": 25.494,
+"end": 28.032,
+"words": [
+{
+"w": "So",
+"s": 25.494
+},
+{
+"w": "you",
+"s": 25.661
+},
+{
+"w": "throttle",
+"s": 25.869
+},
+{
+"w": "back.",
+"s": 26.285
+},
+{
+"w": "Slow.",
+"s": 26.659
+},
+{
+"w": "Every",
+"s": 27.034
+},
+{
+"w": "drop",
+"s": 27.325
+},
+{
+"w": "counts.",
+"s": 27.574
+}
+]
+},
+{
+"start": 28.332,
+"end": 31.747,
+"words": [
+{
+"w": "Then",
+"s": 28.332
+},
+{
+"w": "the",
+"s": 28.57
+},
+{
+"w": "fog",
+"s": 28.769
+},
+{
+"w": "rolls",
+"s": 28.967
+},
+{
+"w": "in.",
+"s": 29.245
+},
+{
+"w": "The",
+"s": 29.523
+},
+{
+"w": "rig",
+"s": 29.722
+},
+{
+"w": "disappears.",
+"s": 29.92
+},
+{
+"w": "So",
+"s": 30.516
+},
+{
+"w": "does",
+"s": 30.675
+},
+{
+"w": "everything",
+"s": 30.913
+},
+{
+"w": "else.",
+"s": 31.39
+}
+]
+},
+{
+"start": 32.047,
+"end": 34.409,
+"words": [
+{
+"w": "No",
+"s": 32.047
+},
+{
+"w": "compass.",
+"s": 32.267
+},
+{
+"w": "No",
+"s": 32.926
+},
+{
+"w": "GPS.",
+"s": 33.146
+},
+{
+"w": "Just",
+"s": 33.585
+},
+{
+"w": "gray.",
+"s": 33.915
+}
+]
+},
+{
+"start": 34.709,
+"end": 36.838,
+"words": [
+{
+"w": "Then",
+"s": 34.709
+},
+{
+"w": "you",
+"s": 34.96
+},
+{
+"w": "hear",
+"s": 35.169
+},
+{
+"w": "it.",
+"s": 35.419
+},
+{
+"w": "One",
+"s": 35.711
+},
+{
+"w": "long",
+"s": 35.92
+},
+{
+"w": "horn",
+"s": 36.17
+},
+{
+"w": "blast.",
+"s": 36.421
+}
+]
+},
+{
+"start": 37.138,
+"end": 42.087,
+"words": [
+{
+"w": "In",
+"s": 37.138
+},
+{
+"w": "fog,",
+"s": 37.309
+},
+{
+"w": "ships",
+"s": 37.65
+},
+{
+"w": "and",
+"s": 37.949
+},
+{
+"w": "platforms",
+"s": 38.162
+},
+{
+"w": "sound",
+"s": 38.632
+},
+{
+"w": "a",
+"s": 38.93
+},
+{
+"w": "long",
+"s": 39.058
+},
+{
+"w": "blast",
+"s": 39.314
+},
+{
+"w": "at",
+"s": 39.613
+},
+{
+"w": "least",
+"s": 39.784
+},
+{
+"w": "every",
+"s": 40.082
+},
+{
+"w": "two",
+"s": 40.381
+},
+{
+"w": "minutes.",
+"s": 40.594
+},
+{
+"w": "Follow",
+"s": 41.106
+},
+{
+"w": "the",
+"s": 41.448
+},
+{
+"w": "sound.",
+"s": 41.661
+}
+]
+},
+{
+"start": 42.387,
+"end": 44.611,
+"words": [
+{
+"w": "Two",
+"s": 42.387
+},
+{
+"w": "minutes",
+"s": 42.573
+},
+{
+"w": "later,",
+"s": 42.906
+},
+{
+"w": "again.",
+"s": 43.277
+},
+{
+"w": "You",
+"s": 43.648
+},
+{
+"w": "turn",
+"s": 43.833
+},
+{
+"w": "toward",
+"s": 44.055
+},
+{
+"w": "it.",
+"s": 44.352
+}
+]
+},
+{
+"start": 44.911,
+"end": 46.796,
+"words": [
+{
+"w": "Then",
+"s": 44.911
+},
+{
+"w": "the",
+"s": 45.168
+},
+{
+"w": "engine",
+"s": 45.382
+},
+{
+"w": "coughs.",
+"s": 45.725
+},
+{
+"w": "And",
+"s": 46.196
+},
+{
+"w": "dies.",
+"s": 46.41
+}
+]
+},
+{
+"start": 47.096,
+"end": 50.028,
+"words": [
+{
+"w": "Something",
+"s": 47.096
+},
+{
+"w": "bumps",
+"s": 47.494
+},
+{
+"w": "the",
+"s": 47.747
+},
+{
+"w": "hull.",
+"s": 47.928
+},
+{
+"w": "Then",
+"s": 48.254
+},
+{
+"w": "again.",
+"s": 48.471
+},
+{
+"w": "You're",
+"s": 48.833
+},
+{
+"w": "not",
+"s": 49.087
+},
+{
+"w": "alone",
+"s": 49.268
+},
+{
+"w": "out",
+"s": 49.521
+},
+{
+"w": "here.",
+"s": 49.702
+}
+]
+},
+{
+"start": 50.328,
+"end": 55.116,
+"words": [
+{
+"w": "Remember",
+"s": 50.328
+},
+{
+"w": "the",
+"s": 50.741
+},
+{
+"w": "rule.",
+"s": 50.947
+},
+{
+"w": "One",
+"s": 51.319
+},
+{
+"w": "minute",
+"s": 51.525
+},
+{
+"w": "of",
+"s": 51.855
+},
+{
+"w": "shock.",
+"s": 52.02
+},
+{
+"w": "Ten",
+"s": 52.433
+},
+{
+"w": "before",
+"s": 52.64
+},
+{
+"w": "your",
+"s": 52.97
+},
+{
+"w": "arms",
+"s": 53.217
+},
+{
+"w": "quit.",
+"s": 53.465
+},
+{
+"w": "Nobody",
+"s": 53.837
+},
+{
+"w": "swims",
+"s": 54.167
+},
+{
+"w": "four",
+"s": 54.456
+},
+{
+"w": "miles.",
+"s": 54.703
+}
+]
+},
+{
+"start": 55.416,
+"end": 59.626,
+"words": [
+{
+"w": "Then,",
+"s": 55.416
+},
+{
+"w": "through",
+"s": 55.743
+},
+{
+"w": "the",
+"s": 56.069
+},
+{
+"w": "fog,",
+"s": 56.251
+},
+{
+"w": "a",
+"s": 56.541
+},
+{
+"w": "sailboat.",
+"s": 56.65
+},
+{
+"w": "Drifting.",
+"s": 57.122
+},
+{
+"w": "Nobody",
+"s": 57.593
+},
+{
+"w": "at",
+"s": 57.884
+},
+{
+"w": "the",
+"s": 58.029
+},
+{
+"w": "wheel.",
+"s": 58.21
+},
+{
+"w": "Its",
+"s": 58.573
+},
+{
+"w": "sail",
+"s": 58.755
+},
+{
+"w": "is",
+"s": 58.972
+},
+{
+"w": "still",
+"s": 59.118
+},
+{
+"w": "up.",
+"s": 59.372
+}
+]
+},
+{
+"start": 59.926,
+"end": 62.868,
+"words": [
+{
+"w": "The",
+"s": 59.926
+},
+{
+"w": "current",
+"s": 60.119
+},
+{
+"w": "pulls",
+"s": 60.468
+},
+{
+"w": "you",
+"s": 60.739
+},
+{
+"w": "toward",
+"s": 60.932
+},
+{
+"w": "it.",
+"s": 61.242
+},
+{
+"w": "The",
+"s": 61.513
+},
+{
+"w": "horn",
+"s": 61.707
+},
+{
+"w": "is",
+"s": 61.939
+},
+{
+"w": "the",
+"s": 62.094
+},
+{
+"w": "other",
+"s": 62.287
+},
+{
+"w": "way.",
+"s": 62.558
+}
+]
+},
+{
+"start": 63.168,
+"end": 67.684,
+"words": [
+{
+"w": "Would",
+"s": 63.168
+},
+{
+"w": "you",
+"s": 63.445
+},
+{
+"w": "rather",
+"s": 63.643
+},
+{
+"w": "climb",
+"s": 63.96
+},
+{
+"w": "onto",
+"s": 64.238
+},
+{
+"w": "the",
+"s": 64.475
+},
+{
+"w": "drifting",
+"s": 64.673
+},
+{
+"w": "sailboat?",
+"s": 65.07
+},
+{
+"w": "Or",
+"s": 65.585
+},
+{
+"w": "row",
+"s": 65.743
+},
+{
+"w": "toward",
+"s": 65.941
+},
+{
+"w": "the",
+"s": 66.258
+},
+{
+"w": "fog",
+"s": 66.456
+},
+{
+"w": "horn",
+"s": 66.654
+},
+{
+"w": "with",
+"s": 66.892
+},
+{
+"w": "the",
+"s": 67.13
+},
+{
+"w": "oars?",
+"s": 67.328
+}
+]
+},
+{
+"start": 70.934,
+"end": 89.6,
+"words": [
+{
+"w": "Vote",
+"s": 70.934
+},
+{
+"w": "in",
+"s": 71.17
+},
+{
+"w": "the",
+"s": 71.326
+},
+{
+"w": "poll.",
+"s": 71.522
+},
+{
+"w": "Part",
+"s": 71.875
+},
+{
+"w": "three,",
+"s": 72.111
+},
+{
+"w": "tomorrow.",
+"s": 72.503
+}
+]
+}
+]
+}

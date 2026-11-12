@@ -1,0 +1,735 @@
+{
+ "series": "What if you had to reach the oil rig?",
+ "episode": 2,
+ "day": 2,
+ "title": "Part 2",
+ "lesson": "SLOW GOES FARTHER",
+ "vertical": true,
+ "style": "stick",
+ "lead": 0.15,
+ "target": 90,
+ "speeds": {
+  "deep": 1.12
+ },
+ "width": 1080,
+ "height": 1920,
+ "mix": {
+  "music": 0.065,
+  "ambience": 0.035
+ },
+ "beats": [
+  {
+   "sp": "deep",
+   "text": "Most of you said take the fishing boat.",
+   "scene": "voted",
+   "poll": [
+    [
+     "TAKE THE FISHING BOAT",
+     null,
+     "#1f9d55"
+    ]
+   ],
+   "sfx": [
+    [
+     "reveal",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "So you run.",
+   "scene": "harbor",
+   "tod": "dusk",
+   "fishing": true,
+   "you": [
+    640,
+    860,
+    "run"
+   ],
+   "z": {
+    "n": 8,
+    "x0": 0.02,
+    "x1": 0.3,
+    "depth": "mid"
+   },
+   "titleCard": [
+    "WHAT IF YOU HAD TO REACH THE OIL RIG?",
+    "PART 2"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "groan",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "They're ten feet behind you. You jump in and cut the rope.",
+   "scene": "harbor",
+   "tod": "dusk",
+   "fishing": true,
+   "you": [
+    860,
+    880,
+    "run"
+   ],
+   "z": {
+    "n": 8,
+    "x0": 0.3,
+    "x1": 0.45,
+    "depth": "mid"
+   },
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "10 FT",
+     "w": "ten",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "groan",
+     0.2
+    ],
+    [
+     "whoosh",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You pull the cord. Nothing. Again. Nothing.",
+   "scene": "sea",
+   "tod": "dusk",
+   "pier": true,
+   "z": {
+    "n": 8,
+    "x0": 0.05,
+    "x1": 0.25,
+    "depth": "mid"
+   },
+   "boat": [
+    600,
+    600
+   ],
+   "you": [
+    -40,
+    "scared"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "PULL 1",
+     "w": "cord",
+     "c": "#ff5a4a"
+    },
+    {
+     "t": "PULL 2",
+     "w": "again",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "rattle",
+     0.25
+    ],
+    [
+     "rattle",
+     0.75
+    ],
+    [
+     "groan",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Third pull. The engine roars.",
+   "scene": "sea",
+   "tod": "dusk",
+   "pier": true,
+   "z": {
+    "n": 8,
+    "x0": 0.25,
+    "x1": 0.3,
+    "depth": "mid"
+   },
+   "boat": [
+    600,
+    700
+   ],
+   "speed": 0.6,
+   "you": [
+    -40,
+    "point"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "PULL 3",
+     "w": "third",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And a hand grabs the back of the boat.",
+   "scene": "sea",
+   "tod": "dusk",
+   "boat": [
+    700,
+    700
+   ],
+   "speed": 0.6,
+   "grab": [
+    0.3,
+    2
+   ],
+   "you": [
+    -40,
+    "scared"
+   ],
+   "fx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "GRAB",
+     "w": "hand",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "crash",
+     0.35
+    ],
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You kick. It lets go, and sinks without a sound.",
+   "scene": "sea",
+   "tod": "dusk",
+   "boat": [
+    700,
+    600
+   ],
+   "speed": 0.8,
+   "grab": [
+    0,
+    0.45
+   ],
+   "you": [
+    -40,
+    "point",
+    1
+   ],
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "bang",
+     0.15
+    ],
+    [
+     "whoosh",
+     0.55
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Open water. Twelve miles to the rig. Half a tank.",
+   "scene": "sea",
+   "tod": "day",
+   "rig": [
+    880,
+    0.8
+   ],
+   "boat": [
+    400,
+    560
+   ],
+   "speed": 1,
+   "you": [
+    -40,
+    "idle"
+   ],
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "RIG: 12 MILES",
+     "w": "twelve"
+    },
+    {
+     "t": "FUEL: HALF",
+     "w": "half",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Here's the thing about boats. Full throttle drinks fuel. Slow down, and the same tank goes a lot farther.",
+   "scene": "paper",
+   "paper": {
+    "title": "FULL THROTTLE = EMPTY TANK",
+    "lines": [
+     [
+      "FULL SPEED: WORST MILES PER GALLON",
+      "#c0392b"
+     ],
+     "CRUISING SPEED: BEST RANGE",
+     [
+      "SLOW GOES FARTHER",
+      "#1f9d55"
+     ]
+    ],
+    "src": "boating fuel guides: best miles per gallon is at cruising speed, not wide open"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "So you throttle back. Slow. Every drop counts.",
+   "scene": "sea",
+   "tod": "day",
+   "rig": [
+    880,
+    0.8
+   ],
+   "boat": [
+    560,
+    600
+   ],
+   "speed": 0.35,
+   "you": [
+    -40,
+    "think"
+   ],
+   "cards": [
+    {
+     "t": "HALF THROTTLE",
+     "w": "throttle",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.1
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then the fog rolls in. The rig disappears. So does everything else.",
+   "scene": "sea",
+   "tod": "day",
+   "rig": [
+    880,
+    0.8
+   ],
+   "fog": [
+    0,
+    1
+   ],
+   "boat": [
+    600,
+    600
+   ],
+   "speed": 0.35,
+   "you": [
+    -40,
+    "scared"
+   ],
+   "intensity": 0.7,
+   "cards": [
+    {
+     "t": "VISIBILITY: 20 FT",
+     "w": "everything",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "sting",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "No compass. No GPS. Just gray.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": 1,
+   "boat": [
+    600,
+    600
+   ],
+   "speed": 0.3,
+   "you": [
+    -40,
+    "think"
+   ],
+   "intensity": 0.6
+  },
+  {
+   "sp": "deep",
+   "text": "Then you hear it. One long horn blast.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": 1,
+   "horn": [
+    880,
+    1050
+   ],
+   "boat": [
+    600,
+    600
+   ],
+   "speed": 0.3,
+   "you": [
+    -40,
+    "point"
+   ],
+   "intensity": 0.7,
+   "cards": [
+    {
+     "t": "HOOOONK",
+     "w": "horn",
+     "c": "#ffe14a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "In fog, ships and platforms sound a long blast at least every two minutes. Follow the sound.",
+   "scene": "paper",
+   "paper": {
+    "title": "THE FOG RULE",
+    "lines": [
+     "1 LONG BLAST",
+     [
+      "AT LEAST EVERY 2 MINUTES",
+      "#c0392b"
+     ],
+     [
+      "FOLLOW THE SOUND",
+      "#1f9d55"
+     ]
+    ],
+    "icon": "drops",
+    "src": "International Regulations for Preventing Collisions at Sea (COLREGs), Rule 35"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "Two minutes later, again. You turn toward it.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": 1,
+   "horn": [
+    880,
+    1050
+   ],
+   "boat": [
+    600,
+    700
+   ],
+   "speed": 0.35,
+   "you": [
+    -40,
+    "point"
+   ],
+   "cards": [
+    {
+     "t": "EVERY 2 MIN",
+     "w": "two",
+     "c": "#7cd67c"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then the engine coughs. And dies.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": 1,
+   "cough": true,
+   "boat": [
+    700,
+    700
+   ],
+   "you": [
+    -40,
+    "scared"
+   ],
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "FUEL: EMPTY",
+     "w": "coughs",
+     "c": "#ff5a4a"
+    },
+    {
+     "t": "4 MILES LEFT",
+     "w": "dies",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "sputter",
+     0.2
+    ],
+    [
+     "sting",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Something bumps the hull. Then again. You're not alone out here.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": 0.8,
+   "floaters": 9,
+   "boat": [
+    700,
+    700
+   ],
+   "tilt": 0.06,
+   "you": [
+    -40,
+    "scared"
+   ],
+   "fx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "BUMP",
+     "w": "bumps",
+     "c": "#ff5a4a"
+    },
+    {
+     "t": "BUMP",
+     "w": "again",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "bang",
+     0.2
+    ],
+    [
+     "bang",
+     0.5
+    ],
+    [
+     "groan",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Remember the rule. One minute of shock. Ten before your arms quit. Nobody swims four miles.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": 0.8,
+   "floaters": 9,
+   "boat": [
+    700,
+    700
+   ],
+   "you": [
+    -40,
+    "think"
+   ],
+   "cards": [
+    {
+     "t": "1-10-1",
+     "w": "rule",
+     "c": "#ffe14a",
+     "big": true
+    },
+    {
+     "t": "NO SWIMMING",
+     "w": "nobody",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then, through the fog, a sailboat. Drifting. Nobody at the wheel. Its sail is still up.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": [
+    0.9,
+    0.6
+   ],
+   "floaters": 6,
+   "sail": [
+    -150,
+    260,
+    0.9
+   ],
+   "boat": [
+    760,
+    760
+   ],
+   "you": [
+    -40,
+    "point",
+    1
+   ],
+   "intensity": 0.7,
+   "cards": [
+    {
+     "t": "SAILBOAT",
+     "w": "sailboat",
+     "c": "#7cd67c"
+    },
+    {
+     "t": "NOBODY ON BOARD?",
+     "w": "nobody",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "sting",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The current pulls you toward it. The horn is the other way.",
+   "scene": "sea",
+   "tod": "day",
+   "fog": 0.6,
+   "floaters": 6,
+   "sail": [
+    260,
+    330,
+    0.9
+   ],
+   "horn": [
+    980,
+    1050
+   ],
+   "boat": [
+    760,
+    720
+   ],
+   "you": [
+    -40,
+    "think"
+   ],
+   "cards": [
+    {
+     "t": "HORN \u2192",
+     "w": "horn",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Would you rather climb onto the drifting sailboat? Or row toward the fog horn with the oars?",
+   "scene": "question",
+   "opt1": "Climb onto the drifting sailboat",
+   "opt2": "Row toward the fog horn with the oars",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.4,
+   "scene": "question",
+   "opt1": "Climb onto the drifting sailboat",
+   "opt2": "Row toward the fog horn with the oars",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.8
+    ],
+    [
+     "tick",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Vote in the poll. Part three, tomorrow.",
+   "scene": "question",
+   "opt1": "Climb onto the drifting sailboat",
+   "opt2": "Row toward the fog horn with the oars",
+   "vote": true,
+   "recap": "FOG HORN: EVERY 2 MINUTES"
+  }
+ ]
+}

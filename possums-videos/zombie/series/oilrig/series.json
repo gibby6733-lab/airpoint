@@ -16,6 +16,11 @@
   {
    "part": 1,
    "question": "Jump in and swim for the last boat, OR take the fishing boat with half a tank",
+   "poll_result": "Take the fishing boat (most of you; no % given)"
+  },
+  {
+   "part": 2,
+   "question": "Climb onto the drifting sailboat, OR row toward the fog horn with the oars",
    "poll_result": null
   }
  ],
