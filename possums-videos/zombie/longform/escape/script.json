@@ -149,7 +149,8 @@
      "engine",
      0.2
     ]
-   ]
+   ],
+   "rewind": true
   },
   {
    "sp": "deep",
@@ -3805,5 +3806,7 @@
    "cta": true,
    "intensity": 0.3
   }
- ]
+ ],
+ "fps": 60,
+ "crf": 17
 }

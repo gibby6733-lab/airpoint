@@ -19,7 +19,7 @@ b("The last helicopter out of the city lifts off in ten seconds.", scene="helipa
   cards=[C("LAST HELICOPTER", "helicopter", c=Y), C("10 SECONDS", "ten", c=R)], sfx=[["engine", 0], ["groan", 1.5]])
 b("And five hundred dead are between you and it.", scene="helipad", heli="hover", you=you(520, 600, "scared"), zz=Z(16, -100, 260, spread=600), efx=["wind", "shake"], intensity=1,
   cards=[C("500 DEAD", "hundred", c=R, big=True)], sfx=[["groan", .2], ["bang", 1.2]])
-b("Below you, the whole city is burning. And you are one jump from getting out.", scene="helipad", heli="hover", you=you(600, pose="point"), zz=Z(16, 0, 300, spread=600), efx=["wind"], intensity=.9, sfx=[["engine", .2]])
+b("Below you, the whole city is burning. And you are one jump from getting out.", scene="helipad", heli="hover", you=you(600, pose="point"), zz=Z(16, 0, 300, spread=600), efx=["wind"], intensity=.9, rewind=True, sfx=[["engine", .2]])
 b("Twenty four hours ago, you were asleep. Every choice from here is your move. Get them right, and you live.", scene="title", intensity=.5, sfx=[["whoosh", .1], ["reveal", 1.0]])
 b("Here's how this works. Every chapter, you get one choice. Pause the video, pick your move, and keep count. At the end, we'll see if you made it.", scene="title", intensity=.4, sfx=[["tick", 2.0]])
 
@@ -171,6 +171,6 @@ b("Comment your score. And subscribe, because your next move is coming.", scene=
 b("And tell me which move almost got you.", scene="score", cta=True, intensity=.3)
 
 json.dump({"series": "Your Move", "episode": 1, "day": 1, "title": "Your Move: Escape the City Before It Falls", "lesson": "", "vertical": True, "style": "stick", "lead": .2,
-           "speeds": {"deep": 1.0}, "width": 1920, "height": 1080, "mix": {"music": .06, "ambience": .035}, "beats": B},
+           "speeds": {"deep": 1.0}, "fps": 60, "crf": 17, "width": 1920, "height": 1080, "mix": {"music": .06, "ambience": .035}, "beats": B},
           open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "script.json"), "w"), indent=1)
 print(len(B), "beats,", sum(len(x["text"].split()) for x in B), "words")
