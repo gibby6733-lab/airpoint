@@ -417,9 +417,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -440,6 +438,9 @@ null,
 "you": [
 -40,
 "scared"
+],
+"efx": [
+"shake"
 ],
 "cards": [
 {
@@ -515,9 +516,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -610,9 +609,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -711,9 +708,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -834,9 +829,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -923,9 +916,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1032,9 +1023,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1098,9 +1087,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1189,9 +1176,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1305,9 +1290,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1390,9 +1373,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1477,9 +1458,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1498,6 +1477,9 @@ null,
 "you": [
 -40,
 "scared"
+],
+"efx": [
+"shake"
 ],
 "cards": [
 {
@@ -1589,9 +1571,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1708,9 +1688,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1840,9 +1818,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -1951,9 +1927,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -2058,9 +2032,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,
@@ -2104,9 +2076,7 @@ null,
 "depth": "mid"
 },
 "props": [],
-"fx": [
-"shake"
-],
+"fx": [],
 "card": null,
 "cam": 1.0,
 "camx": 0.5,

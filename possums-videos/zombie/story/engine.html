@@ -421,7 +421,7 @@ window.renderThumb = function (t, spec) { THUMB = spec; renderFrame(t); THUMB = 
 window.renderFrame = function (t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   let i = 0; for (let j = 0; j < TL.beats.length; j++) if (t >= TL.beats[j].start - .2) i = j; const b = TL.beats[i], k = clamp((t - b.start) / Math.max(.3, b.end - b.start));
-  const sh = (b.fx || []).includes('shake') ? Math.sin(t * 50) * 9 : 0; ctx.save(); ctx.translate(sh, 0);
+  const sh = (b.efx || []).includes('shake') ? Math.sin(t * 50) * 9 : 0;   // efx = this beat only (fx carries over to later beats) ctx.save(); ctx.translate(sh, 0);
   // slow camera push for life
   PREV = i > 0 ? TL.beats[i - 1] : null;
   let nc = 0; if (b.cards) for (const c of b.cards) { const w = c.w && b.words.find(w => w.w.toLowerCase().replace(/[^a-z0-9]/g, '').startsWith(c.w)); if (t >= (w ? w.s : b.start) - .05) nc++; }

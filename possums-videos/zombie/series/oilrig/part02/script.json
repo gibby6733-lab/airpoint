@@ -208,7 +208,7 @@
     -40,
     "scared"
    ],
-   "fx": [
+   "efx": [
     "shake"
    ],
    "intensity": 1,
@@ -543,7 +543,7 @@
     -40,
     "scared"
    ],
-   "fx": [
+   "efx": [
     "shake"
    ],
    "intensity": 1,

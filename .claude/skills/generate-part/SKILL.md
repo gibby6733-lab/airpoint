@@ -28,6 +28,7 @@ Never make a part before the poll result arrives.
 - Cast rule: one main survivor; a new character may join/leave every other part.
 - End: ONE would-you-rather (answers said plainly, no A/B), countdown hold, "Vote in the poll. Part N+1, tomorrow."
   Part 7 = finale (still end with a question about what comes next, or a fitting final poll).
+- Screen shake: use `efx=["shake"]` (this beat only). Never `fx=` for shake: fx carries over to every later beat and the whole video shakes.
 - If a needed location doesn't exist, add a scene function to `zombie/story/engine.html` (then copy it to
   `partNN/episode.html`).
 
