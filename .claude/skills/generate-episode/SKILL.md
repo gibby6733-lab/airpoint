@@ -26,11 +26,14 @@ Project: `possums-videos/series/reloaded/`. Story bible + every past vote: `seri
   5. CLIFFHANGER + Jayden talks to THE PLAYERS (begs / blames / thanks them).
   6. `vote` scene with EXACTLY TWO options `a`, `b` (both interesting, neither obviously better), THE SYSTEM line
      "The Players decide. Comment A or B. You have twenty four hours."
-- Worlds: ORIGINAL genre worlds only (see `series.json` → world_ideas). Never real game names, characters, maps or logos.
+- Games: use REAL game names (see `series.json` → world_ideas, worlds_rule), but draw everything in our own style: never copy
+  official characters, skins, logos, UI art or maps. Show each game through its gameplay ideas.
   A game can last 2-4 episodes. Track inventory, abilities, completed games, open mysteries in `series.json` → state.
 - Big reveal every 5-10 episodes (see mystery_plan). Never reset the story.
+- Cinematic style (series.json → style): shots cut automatically every ~2 s; add first-person hand shots (scene `pov`, obj, reach),
+  `rule` ("RULE #1: ..."), `day`, `time`, `timer` (seconds countdown, null hides it) like the reference reels.
 - Scenes available: fall, bedroom, lobby (system=true shows the orb), sys (panel lines), portalgo (world, col, enter),
-  island (drop, jx, bots, storm, p2, boss, blimp), vote (a, b). Line fields: quest, world, hp, stamps
+  island (drop, jx, bots, storm, p2, boss, blimp), pov (obj, reach), vote (a, b). Line fields: quest, world, hp, rule, day, time, timer, auto (false = no shot cuts), stamps
   [[text, word, x, y, size, color, rot]] (y ≥ 700 so the HUD stays clear). Add a new world scene to engine.html when
   the story enters a new game (same style: flat 2D, thick outlines), then copy engine.html to epNN/episode.html.
 

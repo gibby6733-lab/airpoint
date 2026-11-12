@@ -9,26 +9,48 @@
   "THE SYSTEM": "Floating cyan eye-orb with rings. Robotic, mysterious, sometimes sarcastic, sometimes makes things harder on purpose. Announces rules, quests and vote results; knows THE PLAYERS are watching. Voice: bm_george 1.0 + robot effect (speaker 'system').",
   "Player 002": "Glitchy red/cyan figure that THE SYSTEM says does not exist. Recurring mystery."
  },
- "rules": ["Every portal is a game.", "You cannot leave a game until you finish its side quest."],
- "worlds_rule": "ORIGINAL game worlds based on popular GENRES (never real game names, characters, maps or logos).",
+ "rules": [
+  "Every portal is a game.",
+  "You cannot leave a game until you finish its side quest."
+ ],
+ "worlds_rule": "REAL game names are used (Fortnite, Minecraft, GTA V, Roblox, Call of Duty, FNAF, Rocket League, Among Us...), as fan content. Everything on screen is drawn in OUR style: never copy official characters, skins, logos, UI art or maps; show the game through its gameplay ideas (storm, final circle, blocks, wanted stars, night shift...).",
  "world_ideas": {
-  "STORM ISLAND": "battle royale: 99 players, closing storm, blimp drop, final circle",
-  "BLOCKLANDS": "blocky survival/crafting: night mobs, mining, crafting",
-  "NEON CITY": "open-world crime city: wanted stars, car chases, missions from strangers",
-  "FREDDO'S PIZZA PALACE": "night-shift horror: robot mascots, cameras, survive till 6 AM",
-  "ROCKET PITCH": "rocket-car soccer: aerials, impossible goals",
-  "DUSTWATER": "wild west: horses, outlaws, bounty",
-  "SPACE CREW": "find the impostor on a spaceship",
-  "OPERATION BLACKOUT": "military shooter: limited ammo, rescue missions",
-  "OBBY TOWER": "obstacle-course tower with lava floors",
-  "SIM SUBURBS": "life sim where the neighbors are weird",
-  "DEAD ZONE": "zombie survival horror"
+  "Fortnite": "battle royale: bus/blimp drop, storm, final circle",
+  "Minecraft": "blocky survival: first night, mining, the Nether",
+  "GTA V": "wanted stars, car chases, missions from strangers",
+  "Five Nights at Freddy's": "night-shift horror, cameras, survive till 6 AM",
+  "Rocket League": "rocket-car soccer",
+  "Roblox": "obby towers, weird games",
+  "Call of Duty": "limited ammo, rescue missions",
+  "Among Us": "find the impostor",
+  "Red Dead Redemption 2": "wild west, horses, bounty",
+  "The Sims": "life sim chaos",
+  "Resident Evil": "survival horror",
+  "Counter-Strike": "bomb defuse"
  },
  "mystery_plan": "Every 5-10 episodes a big reveal: other trapped players, Player 002, hidden portals, glitches, a rival, a betrayal, why Jayden was selected. Never reveal everything.",
- "state": {"inventory": [], "abilities": [], "games_completed": [], "current_game": "STORM ISLAND", "mysteries_open": ["Who is Player 002? THE SYSTEM says he does not exist."]},
+ "state": {
+  "inventory": [],
+  "abilities": [],
+  "games_completed": [],
+  "current_game": "Fortnite",
+  "mysteries_open": [
+   "Who is Player 002? THE SYSTEM says he does not exist."
+  ]
+ },
  "history": [
-  {"episode": 1, "title": "Selected", "game": "STORM ISLAND", "quest": "Reach the final circle without picking up a weapon",
+  {
+   "episode": 1,
+   "title": "Selected",
+   "game": "Fortnite",
+   "quest": "Reach the final circle without picking up a weapon",
    "ending": "Final circle reached; boss THE WARDEN appears; escape blimp leaves in 60 seconds. Player 002 seen and vanished.",
-   "vote": {"A": "FIGHT THE WARDEN BARE-HANDED", "B": "RUN FOR THE ESCAPE BLIMP"}, "result": null}
- ]
+   "vote": {
+    "A": "FIGHT THE WARDEN BARE-HANDED",
+    "B": "RUN FOR THE ESCAPE BLIMP"
+   },
+   "result": null
+  }
+ ],
+ "style": "Cinematic 2D (inspired by @yourtrainerarc reels): shot cuts every ~2 s (wide / medium / close-up / reveal), color grade + light rays + rim light, first-person hand shots (scene pov), HUD 'DAY \u2022 TIME \u2022 GAME', 'RULE #N' line, countdown timer, embers/sparks."
 }

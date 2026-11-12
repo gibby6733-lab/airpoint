@@ -152,8 +152,8 @@
   {
    "scene": "portalgo",
    "sp": "system",
-   "text": "First game. Storm Island.",
-   "world": "STORM ISLAND",
+   "text": "First game. Fortnite.",
+   "world": "FORTNITE",
    "col": "#ff8a3d",
    "sfx": [
     [
@@ -162,7 +162,7 @@
     ],
     [
      "horn",
-     "@storm"
+     "@fortnite"
     ]
    ]
   },
@@ -170,7 +170,7 @@
    "scene": "portalgo",
    "sp": "j",
    "text": "Wait, wait, I'm not ready!",
-   "world": "STORM ISLAND",
+   "world": "FORTNITE",
    "col": "#ff8a3d",
    "enter": true,
    "sfx": [
@@ -188,7 +188,7 @@
    "scene": "island",
    "sp": "system",
    "text": "Side quest. Reach the final circle without picking up a single weapon.",
-   "world": "STORM ISLAND",
+   "world": "FORTNITE",
    "quest": "FINAL CIRCLE \u2022 NO WEAPONS",
    "drop": true,
    "sfx": [
@@ -211,7 +211,10 @@
      "#ff4a4a",
      -0.05
     ]
-   ]
+   ],
+   "rule": "RULE #1: NO WEAPONS",
+   "day": "DAY 1",
+   "time": "3:07 AM"
   },
   {
    "scene": "island",
@@ -297,6 +300,23 @@
     [
      "whoosh",
      "@storm"
+    ]
+   ]
+  },
+  {
+   "scene": "pov",
+   "sp": "j",
+   "text": "A gold rifle. Right there. Rule one. Don't touch it. Don't touch it!",
+   "obj": "rifle",
+   "reach": true,
+   "sfx": [
+    [
+     "ding",
+     "@gold"
+    ],
+    [
+     "boing",
+     "@touch"
     ]
    ]
   },
@@ -441,7 +461,8 @@
      "#5ff2ff",
      0.04
     ]
-   ]
+   ],
+   "timer": 60
   },
   {
    "scene": "island",
@@ -485,7 +506,8 @@
      "ding",
      "@comment"
     ]
-   ]
+   ],
+   "timer": null
   }
  ]
 }
