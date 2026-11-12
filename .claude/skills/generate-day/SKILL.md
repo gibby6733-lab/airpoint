@@ -82,6 +82,9 @@ and the fan signings by position. Continue unless the user corrects it.
   no clipping / dead air / black or frozen video, exact hashtags, real iPhone emojis, cover 1080x1920). Fix anything ❌
   before delivering. post_discord.py runs it again and refuses to post a failing video (only `--force` overrides).
 
+- **Viral check:** `python3 viral_check.py <dir>` scores hook, pacing, motion, captions, length, audio, ending (checklist, not a view
+  prediction). Fix anything ❌ when it's cheap (e.g. a stronger first line, more motion) before posting; post_discord.py posts the score.
+
 ## 5. Deliver
 - `python3 post_discord.py football episodes/day<new>` (posts video + caption to #football-channel).
   If Discord returns 401, the bot token on the cloud environment needs replacing — tell the user; do not retry blindly.

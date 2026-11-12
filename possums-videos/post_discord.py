@@ -60,6 +60,16 @@ try:
     with urllib.request.urlopen(req, timeout=120) as r:
         msg = json.load(r)
         print(f"posted to {sport} channel (message id {msg['id']})")
+    try:  # our own viral check (checklist score, not a view prediction)
+        import subprocess
+        vc = json.loads(subprocess.run([sys.executable, os.path.join(here, "viral_check.py"), ep, "--json"], capture_output=True, text=True, timeout=600).stdout)
+        weak = min(vc["parts"], key=vc["parts"].get)
+        vline = f"🔥 Viral check: **{vc['score']}/100**" + (f" • weakest: {weak} ({vc['parts'][weak]})" if vc["parts"][weak] < 80 else " • all green")
+        rq = urllib.request.Request(f"https://discord.com/api/v10/channels/{channel}/messages", method="POST", data=json.dumps({"content": "-# " + vline}).encode(),
+            headers={"Content-Type": "application/json", "Authorization": "Bot proxy-injected", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"})
+        print("  + viral check", vc["score"], json.load(urllib.request.urlopen(rq, timeout=30))["id"])
+    except Exception as e:
+        print("  (viral check skipped:", e, ")")
     if qc_line:
         rq = urllib.request.Request(f"https://discord.com/api/v10/channels/{channel}/messages", method="POST", data=json.dumps({"content": "-# " + qc_line}).encode(),
             headers={"Content-Type": "application/json", "Authorization": "Bot proxy-injected", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"})
