@@ -348,8 +348,8 @@ function captions(t) {
   ctx.save(); ctx.font = `900 84px ${FONT}`;
   const parts = chunk.map(w => w.w.toUpperCase()); const sp = 22;
   const widths = parts.map(p => ctx.measureText(p).width); const total = widths.reduce((a, b) => a + b, 0) + sp * (parts.length - 1);
-  const fit = Math.min(1, 960 / total);
-  let x = W / 2 - total * fit / 2; const y = 1640;
+  const fit = Math.min(1, 820 / total);
+  let x = W / 2 - total * fit / 2; const y = 1480;
   parts.forEach((p, i) => { const active = c0 + i === ci; const k = active ? eBack(clamp((t - ws[c0 + i].s) / .12)) : 1;
     withT(x + widths[i] * fit / 2, y, (active ? lerp(.8, 1.08, k) : 1) * fit, 0, () => txt(p, 0, 0, 84, active ? C.yellow : '#fff', { stroke: 16 }));
     x += (widths[i] + sp) * fit; });
@@ -904,9 +904,18 @@ Object.assign(SCENES, {
 </script>
 <script>
 // ======================= HOW IT WORKS highlight =======================
-function hud(t) { ctx.save(); shadowOn(10, 6); ctx.fillStyle = C.orange; rr(40, 60, 380, 96, 26); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); ctx.restore(); txt('HOW IT WORKS', 230, 108, 50, '#fff', { stroke: 8 });
+function drawShed(x, y, s, open) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  ctx.fillStyle = '#a0522d'; rr(-180, -300, 360, 300, 8); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); ctx.strokeStyle = 'rgba(0,0,0,.18)'; ctx.lineWidth = 4; for (let xx = -150; xx < 180; xx += 40) { ctx.beginPath(); ctx.moveTo(xx, -296); ctx.lineTo(xx, -4); ctx.stroke(); }
+  ctx.fillStyle = '#6b3f22'; ctx.beginPath(); ctx.moveTo(-215, -290); ctx.lineTo(0, -420); ctx.lineTo(215, -290); ctx.closePath(); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
+  ctx.fillStyle = '#2b1a10'; rr(-90, -230, 180, 230, 6); ctx.fill(); if (open) { for (let i = 0; i < 3; i++) { ctx.fillStyle = ['#9aa5b1', '#8a95a1', '#9aa5b1'][i]; rr(-80 + i * 56, -215, 48, 210, 6); ctx.fill(); ctx.fillStyle = '#5a6570'; for (let q = 0; q < 4; q++) ctx.fillRect(-72 + i * 56, -200 + q * 10, 32, 4); } ctx.fillStyle = '#c0703a'; ctx.beginPath(); ctx.moveTo(90, -230); ctx.lineTo(170, -250); ctx.lineTo(170, 20); ctx.lineTo(90, 0); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+  else { ctx.fillStyle = '#c0703a'; rr(-90, -230, 180, 230, 6); ctx.fill(); ctx.stroke(); circ3(60, -110, 10, '#ffd43b'); }
+  ctx.fillStyle = '#f5ecd0'; rr(-150, -360, 300, 60, 10); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.stroke(); ctx.fillStyle = C.ink; ctx.font = `900 40px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('LOCKER ROOM', 0, -328);
+  ctx.restore(); }
+function circ3(x, y, r, c) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
+function portaPotty(x, y, s, rot) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s); ctx.fillStyle = '#3a7bd5'; rr(-50, -170, 100, 170, 10); ctx.fill(); ctx.fillStyle = '#2c5fa8'; rr(-56, -186, 112, 24, 10); ctx.fill(); ctx.fillStyle = '#fff'; ctx.font = `800 15px ${FONT}`; ctx.textAlign = 'center'; ctx.fillText('LOCKER', 0, -120); ctx.fillText('ROOM', 0, -102); ctx.restore(); }
+function hud(t) { const Lh = TL.lines.find(l => t >= l.start - .15 && t <= l.end + .3); if (Lh && ['h_proof', 'h_cta', 'h_sign'].includes(Lh.scene)) return; ctx.save(); ctx.translate(87, 226); ctx.scale(.84, .84); ctx.save(); shadowOn(10, 6); ctx.fillStyle = C.orange; rr(40, 60, 380, 96, 26); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); ctx.restore(); txt('HOW IT WORKS', 230, 108, 50, '#fff', { stroke: 8 });
   const L = TL.lines.find(l => t >= l.start - .15 && t <= l.end + .3); const r = L ? { h_likes: 1, h_comment: 2, h_build: 2, h_join: 3, h_sign: 3, h_proof: 3 }[L.scene] : 0;
-  if (r) { ctx.save(); shadowOn(10, 6); ctx.fillStyle = '#fff'; rr(760, 60, 280, 96, 26); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); ctx.restore(); txt('RULE ' + r + ' / 3', 900, 108, 48, C.teal); } }
+  if (r) { ctx.save(); shadowOn(10, 6); ctx.fillStyle = '#fff'; rr(760, 60, 280, 96, 26); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); ctx.restore(); txt('RULE ' + r + ' / 3', 900, 108, 48, C.teal); } ctx.restore(); }
 function abs(scene, key) { const L = sceneLine(scene); return L.start + wordP(scene, key) * (L.end - L.start); }
 function bubbleC(x, y, w, user, msg, k, hl) { if (k <= 0) return; ctx.save(); ctx.globalAlpha = clamp(k * 3); ctx.translate((1 - eOut(clamp(k))) * 300, 0); shadowOn(14, 8); ctx.fillStyle = hl ? '#fff7cc' : '#fff'; rr(x, y, w, 130, 30); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = hl ? C.yellow : C.ink; ctx.lineWidth = hl ? 10 : 5; ctx.stroke();
   ctx.fillStyle = '#ddd'; ctx.beginPath(); ctx.arc(x + 65, y + 65, 42, 0, 7); ctx.fill(); ctx.fillStyle = '#bbb'; ctx.beginPath(); ctx.arc(x + 65, y + 52, 16, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(x + 65, y + 92, 26, 15, 0, Math.PI, 0); ctx.fill();
@@ -914,8 +923,8 @@ function bubbleC(x, y, w, user, msg, k, hl) { if (k <= 0) return; ctx.save(); ct
 Object.assign(SCENES, {
   h_hook(t, u, p) { drawStadium(t, { excite: .2 });
     drawPlayer(200, 1420, .62, { ...TINY, helmet: true, face: 'scared' }); drawPlayer(470, 1410, .95, { ...LOU, helmet: true, helmetSmall: true, face: 'sad' }); drawPlayer(820, 1420, .82, { ...EARL, helmet: true, face: 'happy' });
-    stamp('BROKE', 330, 520, 110, seg(p, wordP('h_hook', 'broke') - .02, wordP('h_hook', 'broke') + .08), C.red, -.1);
-    stamp('TERRIBLE', 690, 720, 96, seg(p, wordP('h_hook', 'terrible') - .02, wordP('h_hook', 'terrible') + .08), '#fff', .08);
+    stamp('BROKE', 400, 540, 100, seg(p, wordP('h_hook', 'broke') - .02, wordP('h_hook', 'broke') + .08), C.red, -.1);
+    stamp('TERRIBLE', 600, 740, 84, seg(p, wordP('h_hook', 'terrible') - .02, wordP('h_hook', 'terrible') + .08), '#fff', .08);
     stamp('RUN BY YOU', W / 2, 1000, 140, seg(p, wordP('h_hook', 'you') - .02, wordP('h_hook', 'you') + .08), C.yellow, -.05); },
   h_likes(t, u, p) { drawStadium(t); dim(.45); const r = rng(8);
     for (let i = 0; i < 14; i++) { const x = 100 + r() * 880, sp = 180 + r() * 160, ph = r(); const y = 1500 - ((u * sp + ph * 900) % 900); ctx.save(); ctx.globalAlpha = .8; heart(x, y, 24 + r() * 20); ctx.restore(); }
@@ -926,38 +935,39 @@ Object.assign(SCENES, {
     const k = seg(p, b, 1); if (k > 0) { card(190, 1010, 700, 230, k, '#fff'); txt('TEAM FUND', 350, 70, 46, '#888'); const v = Math.round(403 * eOut(seg(p, b + .02, 1))); txt('$' + v, 350, 160, 110, '#1f9d55'); endCard(); }
     stamp('RULE 1', W / 2, 330, 120, seg(p, 0.12, .22), C.yellow, -.05); },
   h_comment(t, u, p) { drawStadium(t); dim(.5); const m = wordP('h_comment', 'most'), pk = wordP('h_comment', 'picks'), ord = p > pk;
-    const rows = [['@fan_one', 'Goal posts', 4], ['@fan_two', 'Gear', 13], ['@fan_three', 'Real grass', 9]];
+    const rows = [['@fan_one', 'Goal posts', 1], ['@dont.cross.me3', 'Locker room', 2], ['@fan_three', 'Real grass', 1]];
     const order = ord ? [1, 2, 0] : [0, 1, 2];
     order.forEach((ri, slot) => { const [us, msg, lk] = rows[ri]; const y = 560 + slot * 190; bubbleC(90, y, 900, us, msg, seg(p, m - .15 + ri * .06, m + ri * .06), ord && ri === 1); heart(880, y + 52, 34); txt(String(lk), 880, y + 102, 34, C.red); });
     stamp('RULE 2', W / 2, 330, 120, seg(p, 0, .1), C.yellow, -.05);
-    stamp('WINNER', 760, 520, 90, seg(p, pk, pk + .1), C.yellow, .08);
+    stamp('WINNER', 640, 520, 80, seg(p, pk, pk + .1), C.yellow, .08);
     stamp('MOST LIKES = UPGRADE', W / 2, 1300, 62, seg(p, pk + .05, pk + .15), '#fff', -.04); },
-  h_build(t, u, p) { drawStadium(t); ladderPost(980, 1330, 1.1); const bd = wordP('h_build', 'build'), ld = wordP('h_build', 'ladder');
-    [170, 400, 650].forEach((x, i) => { const k = seg(p, bd + i * .06, bd + i * .06 + .1), o = { ...[TINY, EARL, { num: 12, skin: '#8d5524' }][i], face: 'happy', hair: '#3b2a1a' }; if (k >= 1) { o.helmet = true; o.hair = null; }
-      drawPlayer(x, 1420, .8, o); if (k > 0 && k < 1) withT(x, lerp(-100, 1420 - 225 * .8 - 60, eIn(k)), .8, k * 6, () => drawHelmet(0, 0, C.teal, C.orange)); });
-    stamp('HELMETS: BOUGHT', W / 2, 520, 86, seg(p, bd + .15, bd + .25), C.yellow, -.05);
-    stamp('ONLY IF YOU PAY', W / 2, 700, 86, seg(p, wordP('h_build', 'better') - .02, wordP('h_build', 'better') + .08), '#fff', .04);
-    stamp('STILL A LADDER', 680, 940, 70, seg(p, ld - .02, ld + .08), C.red, -.08); },
+  h_build(t, u, p) { drawStadium(t); const bt = wordP('h_build', 'bought'), sh = wordP('h_build', 'shed');
+    const out = seg(p, bt, bt + .2); if (out < 1) portaPotty(lerp(320, -300, eIn(out)), 1400, 2.2, -.06 - out * .5);
+    const inn = eBack(seg(p, bt + .08, bt + .25)); if (inn > 0) withT(560, 1430, inn, 0, () => drawShed(0, 0, 1.2, p > sh));
+    drawPlayer(930, 1450, .8, { ...LOU, helmet: true, helmetSmall: true, face: 'happy', armsUp: p > sh, emote: p > sh ? 'heart' : null });
+    stamp('TOP COMMENT: LOCKER ROOM', W / 2, 600, 48, seg(p, wordP('h_build', 'locker') - .02, wordP('h_build', 'locker') + .08), '#fff', -.04);
+    stamp('BOUGHT!', W / 2, 740, 100, seg(p, bt - .02, bt + .08), C.yellow, .05);
+    stamp("IT'S A SHED", W / 2, 870, 84, seg(p, sh - .02, sh + .08), '#fff', -.05); },
   h_join(t, u, p) { drawStadium(t); dim(.5); const items = [['quarterback', '@your_name', 'Can I be QB?'], ['kicker', '@your_name', 'Kicker please'], ['hot', '@your_name', 'Hot dog guy!!']];
     items.forEach(([key, us, msg], i) => { const a = wordP('h_join', key); bubbleC(90, 760 + i * 190, 900, us, msg, seg(p, a - .05, a + .03), false); });
     stamp('RULE 3', W / 2, 330, 120, seg(p, 0, .1), C.yellow, -.05);
-    stamp('COMMENT YOUR POSITION', W / 2, 560, 56, seg(p, wordP('h_join', 'comment') - .02, wordP('h_join', 'comment') + .08), '#fff', -.04); },
+    stamp('COMMENT YOUR POSITION', W / 2, 560, 48, seg(p, wordP('h_join', 'comment') - .02, wordP('h_join', 'comment') + .08), '#fff', -.04); },
   h_sign(t, u, p) { drawStadium(t, { excite: p > wordP('h_sign', 'game') ? .9 : .2 }); const pk = wordP('h_sign', 'pick'), rs = wordP('h_sign', 'roster'), gm = wordP('h_sign', 'game');
     drawPlayer(170, 1420, .62, { ...TINY, helmet: true }); drawPlayer(400, 1410, .95, { ...LOU, helmet: true, helmetSmall: true }); 
     const nx = lerp(1250, 720, eOut(seg(p, pk, pk + .25))); drawPlayer(nx, 1420, .85, { num: '00', helmet: true, run: p < pk + .25 ? t * 24 : 0, skin: '#e0ac69', armsUp: p > gm, emote: p > gm ? 'heart' : null });
     if (p > pk + .1) withT(nx, 1000, 1, -.03, () => { ctx.fillStyle = C.yellow; rr(-150, -40, 300, 80, 20); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); txt('@YOU', 0, 3, 50, C.ink); });
     const k = seg(p, rs - .03, rs + .08); if (k > 0) { card(170, 330, 740, 380, k, C.cream); txt('ROSTER', 370, 70, 56, C.ink); txt('#1 TINY  •  #55 BIG LOU', 370, 160, 40, '#666', { weight: 800 }); txt('#3 EARL', 370, 220, 40, '#666', { weight: 800 }); ctx.fillStyle = C.yellow; rr(70, 260, 600, 80, 20); ctx.fill(); txt('#00 @YOU', 370, 302, 50, C.teal); endCard(); }
     if (p > gm) confetti(abs('h_sign', 'game'), t); },
-  h_proof(t, u, p) { drawStadium(t); dim(.5); card(70, 300, 940, 1060, seg(u, 0, .3), C.cream); txt('DAY 2 SIGNINGS', 470, 85, 66, C.ink);
-    const rows = [['LINEBACKER', 'therealmtb_44', 'linebacker'], ['TIGHT END', 'mricey12', 'tight'], ['RIGHT GUARD', 'ccilxx242', 'right'], ['HOT DOG GUY', 'javiviiii2', 'hot']];
+  h_proof(t, u, p) { drawStadium(t); dim(.5); card(70, 300, 940, 1060, seg(u, 0, .3), C.cream); txt('DAY 3 SIGNINGS', 470, 85, 66, C.ink);
+    const rows = [['QUARTERBACK', 'j065336', 'quarterback'], ['WIDE RECEIVER', 'dont.cross.me3', 'receiver'], ['CORNERBACK', 'kiosk229', 'cornerback'], ['HEAD CHEERLEADER', 'dih0423', 'cheerleader']];
     rows.forEach(([pos, name, key], i) => { const y = 220 + i * 170, at = wordP('h_proof', key), kk = seg(p, at - .04, at + .04); ctx.save(); ctx.globalAlpha = kk; ctx.translate((1 - eOut(kk)) * 200, 0);
       ctx.fillStyle = i < 3 ? C.teal : '#ff4a4a'; rr(40, y - 66, 860, 132, 24); ctx.fill(); txt(pos, 80, y - 24, 42, '#fff', { align: 'left' }); txt(name, 80, y + 28, 48, C.yellow, { align: 'left', stroke: 6 }); ctx.restore(); });
-    endCard(); stamp('6 FANS JOINED', W / 2, 1480, 90, seg(p, wordP('h_proof', 'six') - .02, wordP('h_proof', 'six') + .08), C.yellow, -.04); },
+    endCard(); stamp('7 FANS JOINED', W / 2, 1290, 80, seg(p, wordP('h_proof', 'seven') - .02, wordP('h_proof', 'seven') + .08), C.yellow, -.04); },
   h_cta(t, u, p) { drawStadium(t, { excite: .5 }); dim(.45);
     const steps = [['like', '1', 'LIKE', '= $1 FOR THE TEAM', '#ff4a4a'], ['comment', '2', 'COMMENT', 'YOUR POSITION', C.teal], ['follow', '3', 'FOLLOW', 'NEW DAY EVERY DAY', C.orange]];
     steps.forEach(([key, n, a, b, col], i) => { const k = seg(p, wordP('h_cta', key) - .04, wordP('h_cta', key) + .04); if (k <= 0) return; withT(W / 2, 520 + i * 260, eBack(k), (i - 1) * .03, () => { shadowOn(16, 8); ctx.fillStyle = col; rr(-420, -105, 840, 210, 36); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
       ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-320, 0, 62, 0, 7); ctx.fill(); txt(n, -320, 4, 80, col); txt(a, 60, -36, 84, '#fff', { stroke: 10 }); txt(b, 60, 50, 44, C.yellow, { stroke: 6 }); }); });
-    const yk = seg(p, wordP('h_cta', 'maybe') - .02, wordP('h_cta', 'maybe') + .08); stamp("MAYBE TOMORROW IT'S YOU", W / 2, 1360, 52, yk, '#fff', -.04); },
+    const yk = seg(p, wordP('h_cta', 'maybe') - .02, wordP('h_cta', 'maybe') + .08); stamp("MAYBE TOMORROW IT'S YOU", W / 2, 1360, 44, yk, '#fff', -.04); },
 });
 </script>
 </body></html>

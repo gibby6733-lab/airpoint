@@ -65,19 +65,15 @@
   },
   {
    "scene": "h_build",
-   "text": "Then we build it. The stadium only gets better if you pay for it. Right now, our goal post is a ladder.",
+   "text": "Then we build it. Day three's top comment said locker room, so we bought one. It's a garden shed.",
    "sfx": [
     [
      "spend",
-     "@build"
+     "@bought"
     ],
     [
      "boing",
-     "@better"
-    ],
-    [
-     "sad",
-     "@ladder"
+     "@shed"
     ]
    ]
   },
@@ -123,23 +119,23 @@
   },
   {
    "scene": "h_proof",
-   "text": "On day two, six of you joined. A linebacker, a tight end, a right guard, and a hot dog guy.",
+   "text": "On day three, seven of you joined. A quarterback, a receiver, a cornerback, and a cheerleader.",
    "sfx": [
     [
      "pop",
-     "@linebacker"
+     "@quarterback"
     ],
     [
      "pop",
-     "@tight"
+     "@receiver"
     ],
     [
      "pop",
-     "@right"
+     "@cornerback"
     ],
     [
      "honk",
-     "@hot"
+     "@cheerleader"
     ]
    ]
   },
