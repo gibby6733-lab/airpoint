@@ -171,6 +171,6 @@ b("Comment your score. And subscribe, because your next move is coming.", scene=
 b("And tell me which move almost got you.", scene="score", cta=True, intensity=.3)
 
 json.dump({"series": "Your Move", "episode": 1, "day": 1, "title": "Your Move: Escape the City Before It Falls", "lesson": "", "vertical": True, "style": "stick", "lead": .2,
-           "speeds": {"deep": 1.0}, "fps": 60, "crf": 17, "width": 1920, "height": 1080, "mix": {"music": .06, "ambience": .035}, "beats": B},
+           "speeds": {"deep": 1.0}, "fps": 30, "crf": 17, "width": 1920, "height": 1080, "mix": {"music": .06, "ambience": .035}, "beats": B},
           open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "script.json"), "w"), indent=1)
 print(len(B), "beats,", sum(len(x["text"].split()) for x in B), "words")
