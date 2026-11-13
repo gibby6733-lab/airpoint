@@ -1049,7 +1049,7 @@ Object.assign(SCENES, {
     stamp('$1,990 IN THE BANK', W / 2, 1380, 84, kw('fund4', 'thousand', p), C.yellow, -.05); },
   comment4(t, u, p) { drawStadium(t); dim(.45); card(90, 560, 900, 420, seg(u, 0, .3), '#fff');
     ctx.fillStyle = '#ddd'; ctx.beginPath(); ctx.arc(110, 120, 60, 0, 7); ctx.fill(); ctx.fillStyle = '#bbb'; ctx.beginPath(); ctx.arc(110, 105, 24, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(110, 160, 40, 22, 0, Math.PI, 0); ctx.fill();
-    txt('drew21762', 200, 70, 34, '#888', { align: 'left', weight: 800 }); txt('O line and u should', 200, 128, 52, C.ink, { align: 'left' }); txt('get a new field', 200, 190, 52, C.ink, { align: 'left' });
+    txt('𝕮𝖍𝖗𝖔𝖒𝖊', 200, 70, 34, '#888', { align: 'left', weight: 800 }); txt('O line and u should', 200, 128, 52, C.ink, { align: 'left' }); txt('get a new field', 200, 190, 52, C.ink, { align: 'left' });
     heart(800, 140, 60); txt('9', 800, 230, 50, C.red); ctx.fillStyle = '#eee'; rr(60, 270, 780, 90, 20); ctx.fill(); txt('Field · $500', 450, 316, 44, C.teal, { weight: 800 }); endCard();
     stamp('WINNER', W / 2, 420, 140, seg(p, .15, .27), C.yellow, -.08);
     stamp('GOODBYE MUD', W / 2, 1180, 90, kw('comment4', 'goodbye', p), '#8b5a2b', .04); },
@@ -1059,7 +1059,7 @@ Object.assign(SCENES, {
     stamp('-$500', 760, 440, 110, kw('field', 'five', p), C.red, .06); stamp('REAL GRASS!', W / 2, 640, 110, kw('field', 'grass', p), C.yellow, -.05);
     stamp('THE COW APPROVES', W / 2, 840, 64, kw('field', 'cow', p), '#fff', .04); },
   signings4(t, u, p) { drawStadium(t); dim(.5); card(70, 230, 940, 1180, seg(u, 0, .3), C.cream); txt('NEW SIGNINGS', 470, 70, 66, C.ink);
-    const rows = [['O-LINE', 'drew21762', 'line', OL4], ['RUNNING BACK', 'so.cxmp.13', 'running', RB4], ['SAFETY', 'Rebel-049', 'safety', SF4], ['D-LINE', 'cxdename_c.j', 'rusher', DL4], ['WIDE RECEIVER', 'sponge2k26', 'receiver', WR4], ['CORNERBACK', 'eastern', 'cornerback', CB4], ['BACKUP QB', 'thepeoplechamptn', 'backup', QB24], ['KICKER', 'Lucas', 'kicker', K4]];
+    const rows = [['O-LINE', '𝕮𝖍𝖗𝖔𝖒𝖊', 'line', OL4], ['RUNNING BACK', 'so.cxmp.13', 'running', RB4], ['SAFETY', 'Rebel-049', 'safety', SF4], ['D-LINE', 'cxdename_c.j', 'rusher', DL4], ['WIDE RECEIVER', 'sponge2k26', 'receiver', WR4], ['CORNERBACK', 'eastern', 'cornerback', CB4], ['BACKUP QB', 'thepeoplechamptn', 'backup', QB24], ['KICKER', 'Lucas', 'kicker', K4]];
     rows.forEach(([pos, name, key, o], i) => { const y = 180 + i * 122, kk = seg(p, .08 + i * .09, .14 + i * .09); ctx.save(); ctx.globalAlpha = kk; ctx.translate((1 - eOut(kk)) * 200, 0);
       ctx.fillStyle = C.teal; rr(40, y - 54, 860, 108, 24); ctx.fill(); txt(pos, 80, y - 20, 32, '#fff', { align: 'left' }); txt(name, 80, y + 22, 40, C.yellow, { align: 'left', stroke: 6, maxW: 640 });
       drawPlayer(820, y + 50, .25, { ...o, helmet: true }); ctx.restore(); });
@@ -1067,7 +1067,7 @@ Object.assign(SCENES, {
   matchcard4(t, u, p) { versus2(u, p, frogLogo, '#2d6a4f', 'BOGTOWN', 'BULLFROGS', '#b7e4c7', 'GAME 4', 'BIGGEST TEAM IN THE LEAGUE', '0 - 3'); },
   g_block(t, u, p) { drawStadium(t, { excite: .3 }); const tw = wordP('g_block', 'twice'), hd = wordP('g_block', 'hides');
     const push = Math.sin(t * 10) * 6; drawPlayer(720 + push, 1440, 1.15, { ...FROG, num: 99, helmet: true, flip: true, wide: 1.9, skin: '#8d5524', face: 'angry', armR: 1.4 });
-    drawPlayer(440 + push, 1440, .85, { ...OL4, helmet: true, rot: -.12, armR: 1.4, face: 'angry', emote: p > tw ? '!' : null }); tag(440, 1060, 'drew21762');
+    drawPlayer(440 + push, 1440, .85, { ...OL4, helmet: true, rot: -.12, armR: 1.4, face: 'angry', emote: p > tw ? '!' : null }); tag(440, 1060, '𝕮𝖍𝖗𝖔𝖒𝖊');
     if (p > hd - .05) drawPlayer(190, 1450, .85, { ...LOU, helmet: true, helmetSmall: true, face: 'scared', emote: 'sweat', rot: -.08 });
     stamp('TWICE HIS SIZE', W / 2, 620, 96, kw('g_block', 'twice', p), '#fff', -.05); stamp('LOU IS HIDING', W / 2, 820, 96, kw('g_block', 'hides', p), C.yellow, .05);
     scorebug(0, 0, 'Q1', '14:20', '1ST&10'); },
