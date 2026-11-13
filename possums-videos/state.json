@@ -1,27 +1,27 @@
 {
- "after_day": 3,
- "fund_dollars": 859,
+ "after_day": 4,
+ "fund_dollars": 1490,
  "record": {
   "wins": 0,
-  "losses": 3
+  "losses": 4
  },
  "fans": 0,
- "next_opponent": "Bogtown Bullfrogs (biggest team in the league)",
+ "next_opponent": "Salt Flats Snails (slowest team in the league)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
-  "locker room: a garden shed with lockers (Day 3, $200)"
+  "locker room: a garden shed with lockers (Day 3, $200)",
+  "field: real grass (Day 4, $500)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
   "stands": "wooden bleachers falling apart",
-  "field": "mud",
+  "field": "real grass (one mud puddle left)",
   "goal_posts": "a ladder",
   "scoreboard": "none",
   "locker_room": "a garden shed with three lockers"
  },
  "upgrade_prices": {
   "stands": 250,
-  "field": 500,
   "goal_posts": 100,
   "scoreboard": 150
  },
@@ -75,43 +75,71 @@
     "hi453470 assistant coach",
     "dih0423 head cheerleader"
    ]
+  },
+  {
+   "day": 4,
+   "built": "2026-11-13",
+   "likes_in": 1131,
+   "likes_tiktok": 1034,
+   "likes_instagram": 97,
+   "winning_comment": "O line and u should get a new field (drew21762)",
+   "comment_likes": 9,
+   "bought": "field: real grass $500",
+   "opponent": "Bogtown Bullfrogs",
+   "score": "10-21 L",
+   "note": "Most points ever; first lead in team history (10-7, Lucas FG off the ladder)",
+   "fan_signings": [
+    "drew21762 O-line",
+    "so.cxmp.13 RB",
+    "Rebel-049 S",
+    "cxdename_c.j D-line",
+    "sponge2k26 WR",
+    "eastern CB",
+    "thepeoplechamptn QB2",
+    "Lucas K"
+   ]
   }
  ],
  "fan_roster": [
   {
-   "name": "j065336",
-   "role": "quarterback",
-   "trait": "day 2 of asking"
+   "name": "drew21762",
+   "role": "o-line",
+   "trait": "blocked a frog twice his size"
   },
   {
-   "name": "dont.cross.me3",
-   "role": "wide receiver",
-   "trait": "caught the first TD in team history"
+   "name": "so.cxmp.13",
+   "role": "running back",
+   "trait": "\"just hand it off, I'll score\" - and he did"
   },
   {
-   "name": "battt055",
+   "name": "Rebel-049",
+   "role": "safety",
+   "trait": "caught his own cornerback"
+  },
+  {
+   "name": "cxdename_c.j",
    "role": "d-line",
-   "trait": "tackled Big Lou on his first play"
+   "trait": "asked last video, got a sack"
   },
   {
-   "name": "camirvine54",
-   "role": "linebacker",
-   "trait": "said please three times"
+   "name": "sponge2k26",
+   "role": "wide receiver",
+   "trait": "slipped on the last mud"
   },
   {
-   "name": "kiosk229",
+   "name": "eastern",
    "role": "cornerback",
-   "trait": "first interception in team history"
+   "trait": "caught the safety instead of the ball"
   },
   {
-   "name": "hi453470",
-   "role": "assistant coach",
-   "trait": "drew a smiley face as the play"
+   "name": "thepeoplechamptn",
+   "role": "backup quarterback",
+   "trait": "warmed up all game, never went in"
   },
   {
-   "name": "dih0423",
-   "role": "head cheerleader",
-   "trait": "so loud the cow joined in"
+   "name": "Lucas",
+   "role": "kicker",
+   "trait": "field goal off the ladder"
   }
  ],
  "accounts": {

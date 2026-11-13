@@ -1,0 +1,303 @@
+{
+ "episode": 4,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day four. One thousand, one hundred and thirty one likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund4",
+   "text": "That's almost two thousand dollars!",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@thousand"
+    ]
+   ]
+  },
+  {
+   "scene": "comment4",
+   "text": "The top comment said, get a new field. Goodbye, mud!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@field"
+    ],
+    [
+     "sad",
+     "@goodbye"
+    ]
+   ]
+  },
+  {
+   "scene": "field",
+   "text": "Five hundred dollars bought real grass. The cow approves.",
+   "sfx": [
+    [
+     "spend",
+     "@five"
+    ],
+    [
+     "ding",
+     "@grass"
+    ],
+    [
+     "honk",
+     "@cow"
+    ]
+   ]
+  },
+  {
+   "scene": "signings4",
+   "text": "And eight of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     0.45
+    ],
+    [
+     "pop",
+     0.6
+    ],
+    [
+     "ding",
+     0.85
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard4",
+   "text": "Game four. The Bogtown Bullfrogs. The biggest team in the league.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@biggest"
+    ]
+   ]
+  },
+  {
+   "scene": "g_block",
+   "text": "Our new O lineman blocks a frog twice his size. Big Lou hides.",
+   "sfx": [
+    [
+     "whistle",
+     0.05
+    ],
+    [
+     "bonk",
+     "@blocks"
+    ],
+    [
+     "boing",
+     "@hides"
+    ]
+   ]
+  },
+  {
+   "scene": "g_run",
+   "text": "Our running back said, just hand it off, I'll score. So we did. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@so"
+    ],
+    [
+     "horn",
+     "@touchdown"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_sack",
+   "text": "Our pass rusher asked for this last video. He sacks their quarterback!",
+   "sfx": [
+    [
+     "pop",
+     "@asked"
+    ],
+    [
+     "bonk",
+     "@sacks"
+    ],
+    [
+     "crowd",
+     "@quarterback"
+    ]
+   ]
+  },
+  {
+   "scene": "g_collide",
+   "text": "Our safety and our corner both jump for the pick, and catch each other.",
+   "sfx": [
+    [
+     "whoosh",
+     "@jump"
+    ],
+    [
+     "bonk",
+     "@catch"
+    ],
+    [
+     "sad",
+     "@other"
+    ]
+   ]
+  },
+  {
+   "scene": "g_mud",
+   "text": "Our receiver catches a bomb, then slips on the last mud.",
+   "sfx": [
+    [
+     "ding",
+     "@catches"
+    ],
+    [
+     "slide",
+     "@slips"
+    ],
+    [
+     "boing",
+     "@mud"
+    ]
+   ]
+  },
+  {
+   "scene": "g_kick",
+   "text": "Our new kicker kicks it off the ladder, and it's good! We take the lead!",
+   "sfx": [
+    [
+     "kick",
+     "@kicks"
+    ],
+    [
+     "bonk",
+     "@ladder"
+    ],
+    [
+     "horn",
+     "@good"
+    ],
+    [
+     "crowd",
+     "@lead"
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb2",
+   "text": "Our backup quarterback? Still warming up.",
+   "sfx": [
+    [
+     "whistle",
+     "@still"
+    ],
+    [
+     "sad",
+     "@up"
+    ]
+   ]
+  },
+  {
+   "scene": "g_final",
+   "text": "Then the Bullfrogs hopped in for two touchdowns.",
+   "sfx": [
+    [
+     "horn",
+     "@two"
+    ],
+    [
+     "horn",
+     "@touchdowns"
+    ]
+   ]
+  },
+  {
+   "scene": "standings4",
+   "text": "Final, twenty one to ten. Our most points ever!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@most"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame4",
+   "text": "Tomorrow, the Salt Flats Snails. The slowest team in the league.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@slowest"
+    ]
+   ]
+  },
+  {
+   "scene": "cta4",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Stands, goal posts, or a scoreboard. Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@goal"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

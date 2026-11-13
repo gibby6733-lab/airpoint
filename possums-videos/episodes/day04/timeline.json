@@ -1,0 +1,1453 @@
+{
+ "duration": 68.178,
+ "lines": [
+  {
+   "scene": "g_kick",
+   "text": "Our new kicker kicks it off the ladder, and it's good! We take the lead!",
+   "sfx": [
+    [
+     "kick",
+     "@kicks"
+    ],
+    [
+     "bonk",
+     "@ladder"
+    ],
+    [
+     "horn",
+     "@good"
+    ],
+    [
+     "crowd",
+     "@lead"
+    ]
+   ],
+   "start": 0.41799999999999926,
+   "end": 3.942999999999998,
+   "words": [
+    {
+     "w": "Our",
+     "s": 0.418
+    },
+    {
+     "w": "new",
+     "s": 0.607
+    },
+    {
+     "w": "kicker",
+     "s": 0.797
+    },
+    {
+     "w": "kicks",
+     "s": 1.1
+    },
+    {
+     "w": "it",
+     "s": 1.365
+    },
+    {
+     "w": "off",
+     "s": 1.517
+    },
+    {
+     "w": "the",
+     "s": 1.706
+    },
+    {
+     "w": "ladder,",
+     "s": 1.896
+    },
+    {
+     "w": "and",
+     "s": 2.313
+    },
+    {
+     "w": "it's",
+     "s": 2.502
+    },
+    {
+     "w": "good!",
+     "s": 2.692
+    },
+    {
+     "w": "We",
+     "s": 3.033
+    },
+    {
+     "w": "take",
+     "s": 3.185
+    },
+    {
+     "w": "the",
+     "s": 3.412
+    },
+    {
+     "w": "lead!",
+     "s": 3.602
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     1.1
+    ],
+    [
+     "bonk",
+     1.896
+    ],
+    [
+     "horn",
+     2.692
+    ],
+    [
+     "crowd",
+     3.602
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day four. One thousand, one hundred and thirty one likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 5.093,
+   "end": 8.539,
+   "words": [
+    {
+     "w": "Day",
+     "s": 5.093
+    },
+    {
+     "w": "four.",
+     "s": 5.326
+    },
+    {
+     "w": "One",
+     "s": 5.745
+    },
+    {
+     "w": "thousand,",
+     "s": 5.978
+    },
+    {
+     "w": "one",
+     "s": 6.583
+    },
+    {
+     "w": "hundred",
+     "s": 6.816
+    },
+    {
+     "w": "and",
+     "s": 7.235
+    },
+    {
+     "w": "thirty",
+     "s": 7.468
+    },
+    {
+     "w": "one",
+     "s": 7.84
+    },
+    {
+     "w": "likes.",
+     "s": 8.073
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     5.093
+    ],
+    [
+     "stamp",
+     5.265
+    ]
+   ]
+  },
+  {
+   "scene": "fund4",
+   "text": "That's almost two thousand dollars!",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@thousand"
+    ]
+   ],
+   "start": 8.759,
+   "end": 10.522,
+   "words": [
+    {
+     "w": "That's",
+     "s": 8.759
+    },
+    {
+     "w": "almost",
+     "s": 9.053
+    },
+    {
+     "w": "two",
+     "s": 9.388
+    },
+    {
+     "w": "thousand",
+     "s": 9.598
+    },
+    {
+     "w": "dollars!",
+     "s": 10.018
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     9.023
+    ],
+    [
+     "ding",
+     9.598
+    ]
+   ]
+  },
+  {
+   "scene": "comment4",
+   "text": "The top comment said, get a new field. Goodbye, mud!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@field"
+    ],
+    [
+     "sad",
+     "@goodbye"
+    ]
+   ],
+   "start": 10.742,
+   "end": 13.821,
+   "words": [
+    {
+     "w": "The",
+     "s": 10.742
+    },
+    {
+     "w": "top",
+     "s": 10.959
+    },
+    {
+     "w": "comment",
+     "s": 11.176
+    },
+    {
+     "w": "said,",
+     "s": 11.566
+    },
+    {
+     "w": "get",
+     "s": 11.956
+    },
+    {
+     "w": "a",
+     "s": 12.173
+    },
+    {
+     "w": "new",
+     "s": 12.303
+    },
+    {
+     "w": "field.",
+     "s": 12.52
+    },
+    {
+     "w": "Goodbye,",
+     "s": 12.954
+    },
+    {
+     "w": "mud!",
+     "s": 13.474
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.742
+    ],
+    [
+     "ding",
+     12.52
+    ],
+    [
+     "sad",
+     12.954
+    ]
+   ]
+  },
+  {
+   "scene": "field",
+   "text": "Five hundred dollars bought real grass. The cow approves.",
+   "sfx": [
+    [
+     "spend",
+     "@five"
+    ],
+    [
+     "ding",
+     "@grass"
+    ],
+    [
+     "honk",
+     "@cow"
+    ]
+   ],
+   "start": 14.041,
+   "end": 17.568,
+   "words": [
+    {
+     "w": "Five",
+     "s": 14.041
+    },
+    {
+     "w": "hundred",
+     "s": 14.339
+    },
+    {
+     "w": "dollars",
+     "s": 14.786
+    },
+    {
+     "w": "bought",
+     "s": 15.233
+    },
+    {
+     "w": "real",
+     "s": 15.631
+    },
+    {
+     "w": "grass.",
+     "s": 15.929
+    },
+    {
+     "w": "The",
+     "s": 16.426
+    },
+    {
+     "w": "cow",
+     "s": 16.674
+    },
+    {
+     "w": "approves.",
+     "s": 16.922
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     14.041
+    ],
+    [
+     "ding",
+     15.929
+    ],
+    [
+     "honk",
+     16.674
+    ]
+   ]
+  },
+  {
+   "scene": "signings4",
+   "text": "And eight of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     0.45
+    ],
+    [
+     "pop",
+     0.6
+    ],
+    [
+     "ding",
+     0.85
+    ]
+   ],
+   "start": 17.788,
+   "end": 19.166,
+   "words": [
+    {
+     "w": "And",
+     "s": 17.788
+    },
+    {
+     "w": "eight",
+     "s": 17.948
+    },
+    {
+     "w": "of",
+     "s": 18.173
+    },
+    {
+     "w": "you",
+     "s": 18.301
+    },
+    {
+     "w": "joined",
+     "s": 18.461
+    },
+    {
+     "w": "the",
+     "s": 18.718
+    },
+    {
+     "w": "team!",
+     "s": 18.878
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     18.201
+    ],
+    [
+     "pop",
+     18.408
+    ],
+    [
+     "pop",
+     18.615
+    ],
+    [
+     "ding",
+     18.959
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard4",
+   "text": "Game four. The Bogtown Bullfrogs. The biggest team in the league.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@biggest"
+    ]
+   ],
+   "start": 19.386,
+   "end": 22.979,
+   "words": [
+    {
+     "w": "Game",
+     "s": 19.386
+    },
+    {
+     "w": "four.",
+     "s": 19.646
+    },
+    {
+     "w": "The",
+     "s": 20.036
+    },
+    {
+     "w": "Bogtown",
+     "s": 20.252
+    },
+    {
+     "w": "Bullfrogs.",
+     "s": 20.642
+    },
+    {
+     "w": "The",
+     "s": 21.247
+    },
+    {
+     "w": "biggest",
+     "s": 21.464
+    },
+    {
+     "w": "team",
+     "s": 21.853
+    },
+    {
+     "w": "in",
+     "s": 22.113
+    },
+    {
+     "w": "the",
+     "s": 22.286
+    },
+    {
+     "w": "league.",
+     "s": 22.503
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     19.386
+    ],
+    [
+     "stamp",
+     21.464
+    ]
+   ]
+  },
+  {
+   "scene": "g_block",
+   "text": "Our new O lineman blocks a frog twice his size. Big Lou hides.",
+   "sfx": [
+    [
+     "whistle",
+     0.05
+    ],
+    [
+     "bonk",
+     "@blocks"
+    ],
+    [
+     "boing",
+     "@hides"
+    ]
+   ],
+   "start": 23.199,
+   "end": 27.272,
+   "words": [
+    {
+     "w": "Our",
+     "s": 23.199
+    },
+    {
+     "w": "new",
+     "s": 23.453
+    },
+    {
+     "w": "O",
+     "s": 23.708
+    },
+    {
+     "w": "lineman",
+     "s": 23.861
+    },
+    {
+     "w": "blocks",
+     "s": 24.319
+    },
+    {
+     "w": "a",
+     "s": 24.726
+    },
+    {
+     "w": "frog",
+     "s": 24.879
+    },
+    {
+     "w": "twice",
+     "s": 25.185
+    },
+    {
+     "w": "his",
+     "s": 25.541
+    },
+    {
+     "w": "size.",
+     "s": 25.796
+    },
+    {
+     "w": "Big",
+     "s": 26.254
+    },
+    {
+     "w": "Lou",
+     "s": 26.509
+    },
+    {
+     "w": "hides.",
+     "s": 26.763
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     23.403
+    ],
+    [
+     "bonk",
+     24.319
+    ],
+    [
+     "boing",
+     26.763
+    ]
+   ]
+  },
+  {
+   "scene": "g_run",
+   "text": "Our running back said, just hand it off, I'll score. So we did. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@so"
+    ],
+    [
+     "horn",
+     "@touchdown"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 27.492,
+   "end": 31.386,
+   "words": [
+    {
+     "w": "Our",
+     "s": 27.492
+    },
+    {
+     "w": "running",
+     "s": 27.691
+    },
+    {
+     "w": "back",
+     "s": 28.049
+    },
+    {
+     "w": "said,",
+     "s": 28.287
+    },
+    {
+     "w": "just",
+     "s": 28.644
+    },
+    {
+     "w": "hand",
+     "s": 28.883
+    },
+    {
+     "w": "it",
+     "s": 29.121
+    },
+    {
+     "w": "off,",
+     "s": 29.28
+    },
+    {
+     "w": "I'll",
+     "s": 29.598
+    },
+    {
+     "w": "score.",
+     "s": 29.797
+    },
+    {
+     "w": "So",
+     "s": 30.194
+    },
+    {
+     "w": "we",
+     "s": 30.353
+    },
+    {
+     "w": "did.",
+     "s": 30.512
+    },
+    {
+     "w": "Touchdown!",
+     "s": 30.829
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     30.194
+    ],
+    [
+     "horn",
+     30.829
+    ],
+    [
+     "crowd",
+     30.829
+    ]
+   ]
+  },
+  {
+   "scene": "g_sack",
+   "text": "Our pass rusher asked for this last video. He sacks their quarterback!",
+   "sfx": [
+    [
+     "pop",
+     "@asked"
+    ],
+    [
+     "bonk",
+     "@sacks"
+    ],
+    [
+     "crowd",
+     "@quarterback"
+    ]
+   ],
+   "start": 31.606,
+   "end": 35.545,
+   "words": [
+    {
+     "w": "Our",
+     "s": 31.606
+    },
+    {
+     "w": "pass",
+     "s": 31.832
+    },
+    {
+     "w": "rusher",
+     "s": 32.104
+    },
+    {
+     "w": "asked",
+     "s": 32.466
+    },
+    {
+     "w": "for",
+     "s": 32.783
+    },
+    {
+     "w": "this",
+     "s": 33.009
+    },
+    {
+     "w": "last",
+     "s": 33.281
+    },
+    {
+     "w": "video.",
+     "s": 33.552
+    },
+    {
+     "w": "He",
+     "s": 34.005
+    },
+    {
+     "w": "sacks",
+     "s": 34.186
+    },
+    {
+     "w": "their",
+     "s": 34.503
+    },
+    {
+     "w": "quarterback!",
+     "s": 34.82
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     32.466
+    ],
+    [
+     "bonk",
+     34.186
+    ],
+    [
+     "crowd",
+     34.82
+    ]
+   ]
+  },
+  {
+   "scene": "g_collide",
+   "text": "Our safety and our corner both jump for the pick, and catch each other.",
+   "sfx": [
+    [
+     "whoosh",
+     "@jump"
+    ],
+    [
+     "bonk",
+     "@catch"
+    ],
+    [
+     "sad",
+     "@other"
+    ]
+   ],
+   "start": 35.765,
+   "end": 39.559,
+   "words": [
+    {
+     "w": "Our",
+     "s": 35.765
+    },
+    {
+     "w": "safety",
+     "s": 35.975
+    },
+    {
+     "w": "and",
+     "s": 36.313
+    },
+    {
+     "w": "our",
+     "s": 36.523
+    },
+    {
+     "w": "corner",
+     "s": 36.734
+    },
+    {
+     "w": "both",
+     "s": 37.072
+    },
+    {
+     "w": "jump",
+     "s": 37.325
+    },
+    {
+     "w": "for",
+     "s": 37.578
+    },
+    {
+     "w": "the",
+     "s": 37.788
+    },
+    {
+     "w": "pick,",
+     "s": 37.999
+    },
+    {
+     "w": "and",
+     "s": 38.379
+    },
+    {
+     "w": "catch",
+     "s": 38.59
+    },
+    {
+     "w": "each",
+     "s": 38.885
+    },
+    {
+     "w": "other.",
+     "s": 39.138
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     37.325
+    ],
+    [
+     "bonk",
+     38.59
+    ],
+    [
+     "sad",
+     39.138
+    ]
+   ]
+  },
+  {
+   "scene": "g_mud",
+   "text": "Our receiver catches a bomb, then slips on the last mud.",
+   "sfx": [
+    [
+     "ding",
+     "@catches"
+    ],
+    [
+     "slide",
+     "@slips"
+    ],
+    [
+     "boing",
+     "@mud"
+    ]
+   ],
+   "start": 39.779,
+   "end": 42.913,
+   "words": [
+    {
+     "w": "Our",
+     "s": 39.779
+    },
+    {
+     "w": "receiver",
+     "s": 39.997
+    },
+    {
+     "w": "catches",
+     "s": 40.432
+    },
+    {
+     "w": "a",
+     "s": 40.824
+    },
+    {
+     "w": "bomb,",
+     "s": 40.954
+    },
+    {
+     "w": "then",
+     "s": 41.346
+    },
+    {
+     "w": "slips",
+     "s": 41.607
+    },
+    {
+     "w": "on",
+     "s": 41.912
+    },
+    {
+     "w": "the",
+     "s": 42.086
+    },
+    {
+     "w": "last",
+     "s": 42.303
+    },
+    {
+     "w": "mud.",
+     "s": 42.565
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     40.432
+    ],
+    [
+     "slide",
+     41.607
+    ],
+    [
+     "boing",
+     42.565
+    ]
+   ]
+  },
+  {
+   "scene": "g_kick",
+   "text": "Our new kicker kicks it off the ladder, and it's good! We take the lead!",
+   "sfx": [
+    [
+     "kick",
+     "@kicks"
+    ],
+    [
+     "bonk",
+     "@ladder"
+    ],
+    [
+     "horn",
+     "@good"
+    ],
+    [
+     "crowd",
+     "@lead"
+    ]
+   ],
+   "start": 43.133,
+   "end": 46.658,
+   "words": [
+    {
+     "w": "Our",
+     "s": 43.133
+    },
+    {
+     "w": "new",
+     "s": 43.322
+    },
+    {
+     "w": "kicker",
+     "s": 43.512
+    },
+    {
+     "w": "kicks",
+     "s": 43.815
+    },
+    {
+     "w": "it",
+     "s": 44.08
+    },
+    {
+     "w": "off",
+     "s": 44.232
+    },
+    {
+     "w": "the",
+     "s": 44.421
+    },
+    {
+     "w": "ladder,",
+     "s": 44.611
+    },
+    {
+     "w": "and",
+     "s": 45.028
+    },
+    {
+     "w": "it's",
+     "s": 45.217
+    },
+    {
+     "w": "good!",
+     "s": 45.407
+    },
+    {
+     "w": "We",
+     "s": 45.748
+    },
+    {
+     "w": "take",
+     "s": 45.9
+    },
+    {
+     "w": "the",
+     "s": 46.127
+    },
+    {
+     "w": "lead!",
+     "s": 46.317
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     43.815
+    ],
+    [
+     "bonk",
+     44.611
+    ],
+    [
+     "horn",
+     45.407
+    ],
+    [
+     "crowd",
+     46.317
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb2",
+   "text": "Our backup quarterback? Still warming up.",
+   "sfx": [
+    [
+     "whistle",
+     "@still"
+    ],
+    [
+     "sad",
+     "@up"
+    ]
+   ],
+   "start": 46.878,
+   "end": 49.177,
+   "words": [
+    {
+     "w": "Our",
+     "s": 46.878
+    },
+    {
+     "w": "backup",
+     "s": 47.099
+    },
+    {
+     "w": "quarterback?",
+     "s": 47.453
+    },
+    {
+     "w": "Still",
+     "s": 48.16
+    },
+    {
+     "w": "warming",
+     "s": 48.47
+    },
+    {
+     "w": "up.",
+     "s": 48.868
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     48.16
+    ],
+    [
+     "sad",
+     48.868
+    ]
+   ]
+  },
+  {
+   "scene": "g_final",
+   "text": "Then the Bullfrogs hopped in for two touchdowns.",
+   "sfx": [
+    [
+     "horn",
+     "@two"
+    ],
+    [
+     "horn",
+     "@touchdowns"
+    ]
+   ],
+   "start": 49.397,
+   "end": 51.719,
+   "words": [
+    {
+     "w": "Then",
+     "s": 49.397
+    },
+    {
+     "w": "the",
+     "s": 49.633
+    },
+    {
+     "w": "Bullfrogs",
+     "s": 49.83
+    },
+    {
+     "w": "hopped",
+     "s": 50.263
+    },
+    {
+     "w": "in",
+     "s": 50.578
+    },
+    {
+     "w": "for",
+     "s": 50.735
+    },
+    {
+     "w": "two",
+     "s": 50.932
+    },
+    {
+     "w": "touchdowns.",
+     "s": 51.129
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     50.932
+    ],
+    [
+     "horn",
+     51.129
+    ]
+   ]
+  },
+  {
+   "scene": "standings4",
+   "text": "Final, twenty one to ten. Our most points ever!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@most"
+    ]
+   ],
+   "start": 51.939,
+   "end": 54.742,
+   "words": [
+    {
+     "w": "Final,",
+     "s": 51.939
+    },
+    {
+     "w": "twenty",
+     "s": 52.384
+    },
+    {
+     "w": "one",
+     "s": 52.74
+    },
+    {
+     "w": "to",
+     "s": 52.962
+    },
+    {
+     "w": "ten.",
+     "s": 53.14
+    },
+    {
+     "w": "Our",
+     "s": 53.496
+    },
+    {
+     "w": "most",
+     "s": 53.718
+    },
+    {
+     "w": "points",
+     "s": 53.985
+    },
+    {
+     "w": "ever!",
+     "s": 54.341
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     51.939
+    ],
+    [
+     "ding",
+     53.718
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame4",
+   "text": "Tomorrow, the Salt Flats Snails. The slowest team in the league.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@slowest"
+    ]
+   ],
+   "start": 54.962,
+   "end": 58.59,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 54.962
+    },
+    {
+     "w": "the",
+     "s": 55.537
+    },
+    {
+     "w": "Salt",
+     "s": 55.758
+    },
+    {
+     "w": "Flats",
+     "s": 56.024
+    },
+    {
+     "w": "Snails.",
+     "s": 56.334
+    },
+    {
+     "w": "The",
+     "s": 56.82
+    },
+    {
+     "w": "slowest",
+     "s": 57.042
+    },
+    {
+     "w": "team",
+     "s": 57.44
+    },
+    {
+     "w": "in",
+     "s": 57.705
+    },
+    {
+     "w": "the",
+     "s": 57.882
+    },
+    {
+     "w": "league.",
+     "s": 58.104
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     54.962
+    ],
+    [
+     "stamp",
+     57.042
+    ]
+   ]
+  },
+  {
+   "scene": "cta4",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Stands, goal posts, or a scoreboard. Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@goal"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 58.81,
+   "end": 66.678,
+   "words": [
+    {
+     "w": "Every",
+     "s": 58.81
+    },
+    {
+     "w": "like",
+     "s": 59.134
+    },
+    {
+     "w": "is",
+     "s": 59.412
+    },
+    {
+     "w": "a",
+     "s": 59.597
+    },
+    {
+     "w": "dollar.",
+     "s": 59.736
+    },
+    {
+     "w": "The",
+     "s": 60.245
+    },
+    {
+     "w": "top",
+     "s": 60.476
+    },
+    {
+     "w": "comment",
+     "s": 60.708
+    },
+    {
+     "w": "picks",
+     "s": 61.124
+    },
+    {
+     "w": "the",
+     "s": 61.448
+    },
+    {
+     "w": "upgrade.",
+     "s": 61.68
+    },
+    {
+     "w": "Stands,",
+     "s": 62.235
+    },
+    {
+     "w": "goal",
+     "s": 62.744
+    },
+    {
+     "w": "posts,",
+     "s": 63.022
+    },
+    {
+     "w": "or",
+     "s": 63.485
+    },
+    {
+     "w": "a",
+     "s": 63.67
+    },
+    {
+     "w": "scoreboard.",
+     "s": 63.809
+    },
+    {
+     "w": "Want",
+     "s": 64.503
+    },
+    {
+     "w": "to",
+     "s": 64.781
+    },
+    {
+     "w": "play?",
+     "s": 64.966
+    },
+    {
+     "w": "Comment",
+     "s": 65.382
+    },
+    {
+     "w": "your",
+     "s": 65.799
+    },
+    {
+     "w": "position.",
+     "s": 66.076
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     59.736
+    ],
+    [
+     "pop",
+     62.235
+    ],
+    [
+     "pop",
+     62.744
+    ],
+    [
+     "pop",
+     63.809
+    ],
+    [
+     "ding",
+     60.708
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

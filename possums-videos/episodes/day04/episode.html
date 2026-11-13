@@ -1,0 +1,1137 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<svg width="0" height="0" style="position:absolute"><filter id="b0" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter><filter id="b1" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="10" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter><filter id="b2" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="17" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<script>
+const W = 1080, H = 1920;
+const cv = document.getElementById('c');
+let ctx = cv.getContext('2d'); let PXo = 0, PYo = 0;
+let TL = null;            // timeline injected by renderer
+const FONT = 'Inter';
+
+// ---------------------------------------------------------------- helpers
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const seg = (u, a, b) => clamp((u - a) / (b - a));
+const eOut = k => 1 - Math.pow(1 - k, 3);
+const eIn = k => k * k * k;
+const eBack = k => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(k - 1, 3) + c1 * Math.pow(k - 1, 2); };
+const eInOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+
+const C = {
+  teal: '#11a5ad', tealDk: '#0a6f75', orange: '#ff8a1f', cream: '#fff6e3',
+  gopher: '#7a4a2a', gopherDk: '#4e2e18', mustard: '#f2c230',
+  ink: '#1b1b2f', grass: '#4cae4f', grass2: '#45a148', sky1: '#7fd0ff', sky2: '#d7f1ff',
+  red: '#ff4a4a', yellow: '#ffd43b', white: '#ffffff'
+};
+
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+function txt(s, x, y, size, color = C.white, opts = {}) {
+  ctx.save();
+  ctx.font = `${opts.weight || 900} ${size}px ${FONT}`;
+  ctx.textAlign = opts.align || 'center';
+  ctx.textBaseline = 'middle';
+  if (opts.stroke) { ctx.lineJoin = 'round'; ctx.lineWidth = opts.stroke; ctx.strokeStyle = opts.strokeColor || C.ink; ctx.strokeText(s, x, y); }
+  ctx.fillStyle = color; ctx.fillText(s, x, y);
+  ctx.restore();
+}
+function withT(x, y, sc, rot, fn) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot || 0); ctx.scale(sc, sc); fn(); ctx.restore(); }
+function shadowOn(b = 18, oy = 10) { ctx.shadowColor = 'rgba(0,0,0,.28)'; ctx.shadowBlur = b; ctx.shadowOffsetY = oy; }
+
+// ---------------------------------------------------------------- background
+// run-down home field: everything here is meant to be "upgradable"
+const FANS = [ // sparse locals on the bleachers
+  { x: 230, row: 0, c: '#ff6b6b', skin: '#ffdbac' }, { x: 300, row: 2, c: '#4dabf7', skin: '#8d5524' },
+  { x: 470, row: 1, c: '#ffd43b', skin: '#e0ac69' }, { x: 560, row: 3, c: '#69db7c', skin: '#c68642' },
+  { x: 650, row: 0, c: '#da77f2', skin: '#ffdbac' }, { x: 380, row: 3, c: '#ff922b', skin: '#f1c27d' }];
+const FIELD_JUNK = (() => { const r = rng(21), a = { mud: [], weeds: [], puddles: [] };
+  for (let i = 0; i < 9; i++) a.mud.push([r() * W, 830 + r() * 1050, 70 + r() * 120, 30 + r() * 45]);
+  for (let i = 0; i < 4; i++) a.puddles.push([r() * W, 900 + r() * 950, 60 + r() * 60, 18 + r() * 14]);
+  for (let i = 0; i < 26; i++) a.weeds.push([r() * W, 800 + r() * 1100, r()]);
+  return a; })();
+function drawStadium(t, o = {}) {
+  ctx.save(); ctx.translate(PXo * .6, PYo * .2); const g = ctx.createLinearGradient(0, 0, 0, 760); g.addColorStop(0, '#9fb0bd'); g.addColorStop(1, '#dde3e6');
+  ctx.fillStyle = g; ctx.fillRect(-500, -400, W + 1000, 1180);
+  ctx.fillStyle = 'rgba(150,158,168,.9)';
+  for (let i = 0; i < 4; i++) { const x = ((i * 330 + t * 12) % (W + 400)) - 200, y = 90 + (i % 2) * 90;
+    ctx.beginPath(); ctx.arc(x, y, 46, 0, 7); ctx.arc(x + 50, y - 20, 56, 0, 7); ctx.arc(x + 110, y, 44, 0, 7); ctx.fill(); }
+  // distant hill + trees
+  ctx.fillStyle = '#8fa37a'; ctx.beginPath(); ctx.ellipse(300, 760, 600, 260, 0, Math.PI, 0); ctx.fill();
+  ctx.fillStyle = '#7f9468'; ctx.beginPath(); ctx.ellipse(900, 770, 420, 200, 0, Math.PI, 0); ctx.fill(); ctx.restore(); ctx.save(); ctx.translate(PXo * .25, 0);
+  // leaning light pole with one flickering bulb
+  ctx.save(); ctx.translate(960, 760); ctx.rotate(.12); ctx.fillStyle = '#6b6b6b'; ctx.fillRect(-8, -560, 16, 560);
+  ctx.fillStyle = '#555'; rr(-60, -600, 120, 50, 8); ctx.fill();
+  const on = Math.sin(t * 23) > -.2; ctx.fillStyle = on ? '#fff3a0' : '#777'; ctx.beginPath(); ctx.arc(-30, -575, 14, 0, 7); ctx.fill();
+  ctx.fillStyle = '#333'; ctx.beginPath(); ctx.arc(0, -575, 14, 0, 7); ctx.arc(30, -575, 14, 0, 7); ctx.fill(); ctx.restore();
+  ctx.restore();
+  // rickety wooden bleachers
+  const bx0 = 140, bx1 = 800;
+  ctx.strokeStyle = '#5a3a1e'; ctx.lineWidth = 10;
+  for (let x = bx0 + 20; x < bx1; x += 110) { ctx.beginPath(); ctx.moveTo(x, 740); ctx.lineTo(x + 90, 470); ctx.moveTo(x + 90, 740); ctx.lineTo(x, 470); ctx.stroke(); }
+  for (let row = 0; row < 4; row++) { const y = 480 + row * 66;
+    ctx.fillStyle = row % 2 ? '#9a6a3d' : '#8a5a33';
+    // row 1 has a missing chunk, row 3 sags
+    if (row === 1) { rr(bx0, y, 300, 22, 4); ctx.fill(); rr(bx0 + 390, y, bx1 - bx0 - 390, 22, 4); ctx.fill(); }
+    else if (row === 3) { ctx.save(); ctx.translate(bx0, y); ctx.rotate(.025); rr(0, 0, bx1 - bx0, 22, 4); ctx.fill(); ctx.restore(); }
+    else { rr(bx0, y, bx1 - bx0, 22, 4); ctx.fill(); }
+  }
+  // broken plank hanging
+  ctx.save(); ctx.translate(bx0 + 300, 546); ctx.rotate(.9); ctx.fillStyle = '#7a4d2a'; ctx.fillRect(0, 0, 90, 18); ctx.restore();
+  // fans (few) + a cow
+  const excite = o.excite || 0;
+  for (const [i, p] of FANS.entries()) { const bob = Math.sin(t * 9 + i) * 8 * excite; const y = 455 + p.row * 66 + bob;
+    ctx.fillStyle = p.c; rr(p.x - 14, y - 4, 28, 30, 8); ctx.fill();
+    ctx.fillStyle = p.skin; ctx.beginPath(); ctx.arc(p.x, y - 15, 13, 0, 7); ctx.fill();
+    if (excite > .3) { ctx.strokeStyle = p.skin; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(p.x - 12, y + 2); ctx.lineTo(p.x - 20, y - 30 + bob * .5); ctx.moveTo(p.x + 12, y + 2); ctx.lineTo(p.x + 20, y - 30 - bob * .5); ctx.stroke(); } }
+  cow(745, 690, .55, t);
+  // porta-potty "locker room" (Day 3: replaced by a garden shed once bought)
+  if (typeof lockerShown === 'function' && lockerShown()) drawShed(870, 738, .42, false); else { ctx.save(); ctx.translate(870, 735); ctx.rotate(-.06); ctx.fillStyle = '#3a7bd5'; rr(-50, -170, 100, 170, 10); ctx.fill();
+  ctx.fillStyle = '#2c5fa8'; rr(-56, -186, 112, 24, 10); ctx.fill(); ctx.fillStyle = '#fff'; ctx.font = `800 15px ${FONT}`; ctx.textAlign = 'center'; ctx.fillText('LOCKER', 0, -120); ctx.fillText('ROOM', 0, -102); ctx.restore(); }
+  // chain-link fence + crooked sign with missing letters
+  ctx.strokeStyle = 'rgba(120,120,120,.8)'; ctx.lineWidth = 3;
+  for (let x = -40; x < W + 40; x += 22) { ctx.beginPath(); ctx.moveTo(x, 700); ctx.lineTo(x + 76, 776); ctx.moveTo(x + 76, 700); ctx.lineTo(x, 776); ctx.stroke(); }
+  ctx.fillStyle = '#777'; for (let x = 20; x < W; x += 180) ctx.fillRect(x, 690, 10, 86);
+  ctx.save(); ctx.translate(330, 712); ctx.rotate(-.05); ctx.fillStyle = '#e8dcc0'; rr(-170, -26, 340, 52, 6); ctx.fill(); ctx.strokeStyle = '#6b4a2b'; ctx.lineWidth = 4; ctx.stroke();
+  ctx.fillStyle = '#6b4a2b'; ctx.font = `900 24px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('MUDV LLE MEMOR AL F ELD', 0, 2); ctx.restore();
+  // field: patchy, muddy, crooked faded lines
+  ctx.fillStyle = '#7b9a46'; ctx.fillRect(0, 776, W, H - 776);
+  for (let i = 0; i < 9; i += 2) { ctx.fillStyle = 'rgba(0,0,0,.04)'; ctx.fillRect(i * 120, 776, 120, H - 776); }
+  for (const [x, y, w, h] of FIELD_JUNK.mud) { ctx.fillStyle = '#8b6b3e'; ctx.beginPath(); ctx.ellipse(x, y, w, h, 0, 0, 7); ctx.fill(); ctx.fillStyle = '#7a5c33'; ctx.beginPath(); ctx.ellipse(x + 10, y + 4, w * .6, h * .5, 0, 0, 7); ctx.fill(); }
+  for (const [x, y, w, h] of FIELD_JUNK.puddles) { ctx.fillStyle = '#7f98a8'; ctx.beginPath(); ctx.ellipse(x, y, w, h, 0, 0, 7); ctx.fill(); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(x - w * .4, y - 3, w * .3, 4); }
+  ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = 6; ctx.setLineDash([60, 28, 20, 44]);
+  for (let i = 0; i < 9; i++) { if (i === 3 || i === 7) continue; const x = i * 120 + 30; ctx.beginPath(); ctx.moveTo(x, 776); ctx.quadraticCurveTo(x + (i % 2 ? 40 : -35), 1300, x + (i % 3 - 1) * 30, H); ctx.stroke(); }
+  ctx.setLineDash([]);
+  for (const [x, y, k] of FIELD_JUNK.weeds) { ctx.strokeStyle = k > .5 ? '#5c7a2e' : '#a39a4a'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 10, y - 26); ctx.moveTo(x, y); ctx.lineTo(x + 2, y - 32); ctx.moveTo(x, y); ctx.lineTo(x + 12, y - 22); ctx.stroke(); }
+  // old tire
+  ctx.strokeStyle = '#222'; ctx.lineWidth = 16; ctx.beginPath(); ctx.ellipse(120, 1880, 50, 20, 0, 0, 7); ctx.stroke();
+}
+function cow(x, y, s, t) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  ctx.fillStyle = '#fff'; rr(-80, -110, 160, 80, 30); ctx.fill();
+  ctx.fillStyle = '#222'; ctx.beginPath(); ctx.ellipse(-30, -85, 22, 16, 0, 0, 7); ctx.ellipse(35, -60, 18, 12, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.fillRect(-70, -40, 18, 40); ctx.fillRect(50, -40, 18, 40);
+  ctx.fillStyle = '#fff'; rr(60, -150, 70, 60, 20); ctx.fill(); ctx.fillStyle = '#f4a6b8'; rr(85, -112, 50, 28, 12); ctx.fill();
+  ctx.fillStyle = '#222'; ctx.beginPath(); ctx.arc(85, -130, 6, 0, 7); ctx.fill();
+  ctx.fillStyle = '#e8d8b0'; ctx.beginPath(); ctx.moveTo(70, -150); ctx.lineTo(62, -175); ctx.lineTo(82, -150); ctx.fill();
+  ctx.restore();
+}
+function ladderPost(x, y, s = 1) { // goal post made from a ladder + duct tape
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(.05);
+  ctx.strokeStyle = '#b07a3a'; ctx.lineWidth = 12;
+  ctx.beginPath(); ctx.moveTo(-14, 0); ctx.lineTo(-14, -320); ctx.moveTo(14, 0); ctx.lineTo(14, -320); ctx.stroke();
+  ctx.lineWidth = 7; for (let k = -30; k > -320; k -= 40) { ctx.beginPath(); ctx.moveTo(-14, k); ctx.lineTo(14, k); ctx.stroke(); }
+  ctx.save(); ctx.translate(0, -300); ctx.rotate(-.12); ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(-90, 0); ctx.lineTo(90, 0); ctx.moveTo(-90, 0); ctx.lineTo(-100, -200); ctx.moveTo(90, 0); ctx.lineTo(80, -150); ctx.stroke();
+  ctx.fillStyle = '#b8b8b8'; rr(-24, -10, 48, 20, 4); ctx.fill(); ctx.restore();
+  ctx.restore();
+}
+function endZone(x, label, color) {
+  ctx.save(); ctx.globalAlpha = .6; ctx.fillStyle = color; ctx.fillRect(x, 776, W - x + 400, H - 776); ctx.restore();
+  for (const [mx, my, mw, mh] of FIELD_JUNK.mud) if (mx > x) { ctx.fillStyle = '#8b6b3e'; ctx.beginPath(); ctx.ellipse(mx, my, mw, mh, 0, 0, 7); ctx.fill(); }
+  ctx.save(); ctx.translate(x + 120, 1180); ctx.rotate(-Math.PI / 2); txt(label, 0, 0, 92, 'rgba(255,255,255,.6)'); ctx.restore();
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 10; ctx.beginPath(); ctx.moveTo(x, 776); ctx.lineTo(x, H); ctx.stroke();
+}
+function dim(a) { ctx.fillStyle = `rgba(16,18,40,${a})`; ctx.fillRect(0, 0, W, H); }
+
+// ---------------------------------------------------------------- characters
+// feet at (0,0), ~340px tall at scale 1
+
+let T_NOW = 0;
+function emote(type, x, y, t) { const K = C.ink; withT(x, y + Math.sin(t * 5) * 8, 1 + .08 * Math.sin(t * 9), Math.sin(t * 4) * .12, () => {
+  if (type === '!' || type === '?') { ctx.fillStyle = '#fff'; ctx.strokeStyle = K; ctx.lineWidth = 6; rr(-50, -70, 100, 130, 40); ctx.fill(); ctx.stroke(); txt(type, 0, -2, 96, type === '!' ? '#e04a3a' : '#1f6fd1', { weight: 900 }); }
+  else if (type === 'anger') { ctx.strokeStyle = '#e04a3a'; ctx.lineWidth = 12; ctx.lineCap = 'round'; for (let q = 0; q < 4; q++) { ctx.save(); ctx.rotate(q * Math.PI / 2); ctx.beginPath(); ctx.moveTo(14, -48); ctx.quadraticCurveTo(14, -14, 48, -14); ctx.stroke(); ctx.restore(); } }
+  else if (type === 'heart') { ctx.fillStyle = '#ff5a8a'; ctx.strokeStyle = K; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(0, 40); ctx.bezierCurveTo(-70, -10, -40, -70, 0, -30); ctx.bezierCurveTo(40, -70, 70, -10, 0, 40); ctx.fill(); ctx.stroke(); }
+  else if (type === 'sweat') { for (const [dx, dy, r] of [[-20, 0, 1], [30, 30, .7]]) { ctx.fillStyle = '#7fd0ff'; ctx.strokeStyle = K; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(dx, dy - 40 * r); ctx.quadraticCurveTo(dx + 28 * r, dy + 10 * r, dx, dy + 24 * r); ctx.quadraticCurveTo(dx - 28 * r, dy + 10 * r, dx, dy - 40 * r); ctx.fill(); ctx.stroke(); } } }); }
+function drawPlayer(x, y, s, o = {}) {
+  const jersey = o.jersey || C.teal, trim = o.trim || C.orange, skin = o.skin || '#e0ac69';
+  const wide = o.wide || 1, run = o.run || 0, flip = o.flip ? -1 : 1;
+  ctx.save(); ctx.translate(x, y); ctx.scale(s * flip, s);
+  if (o.rot) ctx.rotate(o.rot);
+  // shadow
+  ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(0, 4, 70 * wide, 14, 0, 0, 7); ctx.fill();
+  // legs
+  const lg = Math.sin(run) * 28, crouch = o.crouch || 0;
+  ctx.fillStyle = '#f5f5f5';
+  ctx.save(); ctx.translate(-20 * wide, -90 + crouch * 20); ctx.rotate(lg * .02); rr(-17, 0, 34, 88 - crouch * 18, 14); ctx.fill(); ctx.fillStyle = C.ink; rr(-20, 70 - crouch * 18, 44, 22, 10); ctx.fill(); ctx.restore();
+  ctx.fillStyle = '#f5f5f5';
+  ctx.save(); ctx.translate(20 * wide, -90 + crouch * 20); ctx.rotate(-lg * .02); rr(-17, 0, 34, 88 - crouch * 18, 14); ctx.fill(); ctx.fillStyle = C.ink; rr(-20, 70 - crouch * 18, 44, 22, 10); ctx.fill(); ctx.restore();
+  // body
+  const by = -200 + crouch * 40;
+  ctx.fillStyle = jersey; rr(-62 * wide, by, 124 * wide, 120, 30); ctx.fill();
+  ctx.fillStyle = trim; ctx.fillRect(-62 * wide, by + 92, 124 * wide, 10);
+  // pads
+  ctx.fillStyle = jersey; ctx.beginPath(); ctx.ellipse(-62 * wide, by + 18, 30, 24, -.4, 0, 7); ctx.ellipse(62 * wide, by + 18, 30, 24, .4, 0, 7); ctx.fill();
+  if (o.num !== undefined) { ctx.save(); ctx.scale(flip, 1); txt(String(o.num), 0, by + 54, 56, '#fff', { stroke: 6, strokeColor: trim }); ctx.restore(); }
+  // arms
+  ctx.strokeStyle = skin; ctx.lineWidth = 22; ctx.lineCap = 'round';
+  const armL = o.armsUp ? -2.4 : (o.armL ?? 0.35 + Math.sin(run) * .5), armR = o.armsUp ? 2.4 : (o.armR ?? -0.35 - Math.sin(run) * .5);
+  ctx.beginPath(); ctx.moveTo(-66 * wide, by + 30); ctx.lineTo(-66 * wide + Math.sin(armL) * -70, by + 30 + Math.cos(armL) * 70); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(66 * wide, by + 30); ctx.lineTo(66 * wide + Math.sin(armR) * -70, by + 30 + Math.cos(armR) * 70); ctx.stroke();
+  // head
+  const hy = by - 58;
+  ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(0, hy, 60, 0, 7); ctx.fill();
+  // face
+  const face = o.face || 'happy';
+  const eyeR = face === 'scared' ? 17 : 13;
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-22, hy - 6, eyeR, 0, 7); ctx.arc(22, hy - 6, eyeR, 0, 7); ctx.fill();
+  ctx.fillStyle = C.ink;
+  if (face === 'sleepy' || face === 'sad') { ctx.fillRect(-34, hy - 6, 24, 5); ctx.fillRect(10, hy - 6, 24, 5); }
+  else { const pr = face === 'scared' ? 6 : 7; ctx.beginPath(); ctx.arc(-19, hy - 4, pr, 0, 7); ctx.arc(25, hy - 4, pr, 0, 7); ctx.fill(); }
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.beginPath();
+  if (face === 'scared') { ctx.fillStyle = '#5a1a1a'; ctx.ellipse(0, hy + 30, 16, 20, 0, 0, 7); ctx.fill(); }
+  else if (face === 'sad') { ctx.arc(0, hy + 40, 16, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke(); }
+  else { ctx.arc(0, hy + 14, 22, .2, Math.PI - .2); ctx.stroke(); }
+  { const br = face === 'scared' ? -14 : face === 'sad' ? -6 : face === 'angry' ? 2 : -4, tl = sd => face === 'angry' ? -sd * .4 : face === 'scared' || face === 'sad' ? sd * .32 : 0; ctx.fillStyle = C.ink; for (const sd of [-1, 1]) { ctx.save(); ctx.translate(sd * 22 + 2, hy - 30 + br); ctx.rotate(tl(sd)); rr(-15, -4, 30, 8, 4); ctx.fill(); ctx.restore(); }
+    ctx.fillStyle = 'rgba(255,110,110,.25)'; ctx.beginPath(); ctx.ellipse(-40, hy + 14, 12, 7, 0, 0, 7); ctx.ellipse(44, hy + 14, 12, 7, 0, 0, 7); ctx.fill(); }
+  const em = o.emote === undefined ? (face === 'scared' ? '!' : face === 'sad' ? 'sweat' : null) : o.emote; if (em) withT(80, hy - 90, .7, 0, () => { ctx.scale(flip, 1); emote(em, 0, 0, T_NOW); });
+  if (o.mustache) { ctx.fillStyle = '#6b4a2b'; ctx.beginPath(); ctx.ellipse(-14, hy + 16, 18, 8, .2, 0, 7); ctx.ellipse(14, hy + 16, 18, 8, -.2, 0, 7); ctx.fill(); }
+  // helmet / cap
+  if (o.helmet) { ctx.save(); if (o.helmetBack) { ctx.translate(0, hy); ctx.scale(-1, 1); ctx.rotate(o.helmetSpin || 0); ctx.translate(0, -hy); } if (o.helmetSmall) { ctx.translate(0, hy - 62); ctx.scale(.45, .45); ctx.translate(0, -hy); } drawHelmet(0, hy, o.helmetColor || jersey, trim); ctx.restore(); }
+  else if (o.cap) { ctx.fillStyle = o.cap; ctx.beginPath(); ctx.arc(0, hy - 18, 58, Math.PI, 0); ctx.fill(); rr(0, hy - 26, 80, 14, 7); ctx.fill(); }
+  else if (o.hair) { ctx.fillStyle = o.hair; ctx.beginPath(); ctx.arc(0, hy - 14, 60, Math.PI * 1.05, Math.PI * 1.95); ctx.fill(); }
+  if (o.sweat) { ctx.fillStyle = '#9fe0ff'; ctx.beginPath(); ctx.arc(54, hy - 30, 9, 0, 7); ctx.fill(); ctx.beginPath(); ctx.arc(-58, hy - 10, 7, 0, 7); ctx.fill(); }
+  if (o.ball) { drawBall(o.ball[0], o.ball[1], 1, o.ball[2] || 0); }
+  ctx.restore();
+}
+function drawHelmet(x, y, color, trim) {
+  ctx.save(); ctx.translate(x, y);
+  ctx.fillStyle = color; ctx.beginPath(); ctx.arc(0, -6, 68, Math.PI * .95, Math.PI * 2.08); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = trim; ctx.fillRect(-8, -74, 16, 66);
+  ctx.strokeStyle = '#ddd'; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(62, 6); ctx.lineTo(62, 40); ctx.moveTo(40, 22); ctx.lineTo(74, 22); ctx.stroke();
+  ctx.restore();
+}
+function drawBall(x, y, s = 1, rot = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s);
+  ctx.fillStyle = '#8b4a1f'; ctx.beginPath(); ctx.ellipse(0, 0, 34, 21, 0, 0, 7); ctx.fill();
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-12, 0); ctx.lineTo(12, 0);
+  for (let i = -8; i <= 8; i += 8) { ctx.moveTo(i, -5); ctx.lineTo(i, 5); } ctx.stroke();
+  ctx.restore();
+}
+function drawCoach(x, y, s, t, o = {}) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  const bounce = Math.abs(Math.sin(t * 7)) * 14 * (o.bounce ?? 1);
+  ctx.translate(0, -bounce);
+  ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(0, bounce + 4, 80, 14, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#2d3a5a'; rr(-48, -110, 40, 112, 14); ctx.fill(); rr(8, -110, 40, 112, 14); ctx.fill();
+  ctx.fillStyle = C.orange; rr(-75, -270, 150, 170, 40); ctx.fill();
+  ctx.fillStyle = C.teal; ctx.fillRect(-75, -150, 150, 14);
+  txt('COACH', 0, -195, 30, '#fff', { stroke: 5, strokeColor: '#b85d00' });
+  // arms
+  ctx.strokeStyle = '#ffdbac'; ctx.lineWidth = 24; ctx.lineCap = 'round';
+  const wave = Math.sin(t * 10) * .35;
+  const up = o.armsUp ?? 1;
+  ctx.beginPath(); ctx.moveTo(-72, -245); ctx.lineTo(-72 - 70, -245 - 80 * up + wave * 40); ctx.stroke();
+  if (o.point) { ctx.beginPath(); ctx.moveTo(72, -245); ctx.lineTo(160, -215); ctx.stroke(); }
+  else { ctx.beginPath(); ctx.moveTo(72, -245); ctx.lineTo(72 + 70, -245 - 80 * up - wave * 40); ctx.stroke(); }
+  // whistle
+  ctx.strokeStyle = '#ddd'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-30, -268); ctx.lineTo(0, -238); ctx.lineTo(30, -268); ctx.stroke();
+  ctx.fillStyle = '#c0c0c0'; rr(-12, -244, 24, 14, 5); ctx.fill();
+  // head
+  const hy = -330;
+  ctx.fillStyle = '#ffdbac'; ctx.beginPath(); ctx.arc(0, hy, 68, 0, 7); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-24, hy - 6, 15, 0, 7); ctx.arc(24, hy - 6, 15, 0, 7); ctx.fill();
+  ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(-20, hy - 4, 7, 0, 7); ctx.arc(28, hy - 4, 7, 0, 7); ctx.fill();
+  ctx.fillStyle = '#5a1a1a'; ctx.beginPath(); ctx.arc(0, hy + 20, 26, 0, Math.PI); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.fillRect(-18, hy + 20, 36, 8);
+  ctx.fillStyle = '#c96'; ctx.beginPath(); ctx.ellipse(0, hy + 10, 30, 8, 0, Math.PI, 0); ctx.fill();
+  // cap
+  ctx.fillStyle = C.teal; ctx.beginPath(); ctx.arc(0, hy - 22, 66, Math.PI, 0); ctx.fill(); rr(-10, hy - 30, 100, 16, 8); ctx.fill();
+  ctx.fillStyle = C.orange; ctx.beginPath(); ctx.arc(0, hy - 60, 14, 0, 7); ctx.fill();
+  ctx.restore();
+}
+function drawBird(x, y, s, t, hit = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(hit * 2.5);
+  const f = Math.sin(t * 22) * .7;
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(0, 0, 42, 22, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#ddd'; ctx.save(); ctx.rotate(f); ctx.beginPath(); ctx.ellipse(-6, -24, 14, 40, .9, 0, 7); ctx.fill(); ctx.restore();
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(38, -14, 18, 0, 7); ctx.fill();
+  ctx.fillStyle = C.mustard; ctx.beginPath(); ctx.moveTo(52, -14); ctx.lineTo(80, -8); ctx.lineTo(52, -4); ctx.fill();
+  ctx.fillStyle = C.ink; if (hit > 0) { txt('x', 40, -18, 20, C.ink); } else { ctx.beginPath(); ctx.arc(42, -18, 4, 0, 7); ctx.fill(); }
+  ctx.restore();
+}
+function drawBus(x, y, s, crack = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  ctx.fillStyle = '#ffcc00'; rr(0, -200, 420, 170, 26); ctx.fill();
+  ctx.fillStyle = '#222'; ctx.fillRect(0, -70, 420, 12);
+  for (let i = 0; i < 4; i++) { ctx.fillStyle = '#9fd8ff'; rr(24 + i * 96, -180, 80, 70, 10); ctx.fill(); }
+  txt('MUDVILLE', 210, -90, 30, '#222', { weight: 900 });
+  ctx.fillStyle = '#222'; ctx.beginPath(); ctx.arc(90, -30, 34, 0, 7); ctx.arc(330, -30, 34, 0, 7); ctx.fill();
+  ctx.fillStyle = '#888'; ctx.beginPath(); ctx.arc(90, -30, 14, 0, 7); ctx.arc(330, -30, 14, 0, 7); ctx.fill();
+  if (crack > 0) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; const cx = 360, cy = -145;
+    for (let i = 0; i < 8; i++) { const a = i / 8 * 6.28; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * 45 * crack, cy + Math.sin(a) * 38 * crack); ctx.stroke(); } }
+  ctx.restore();
+}
+function logo(x, y, r) {
+  ctx.save(); ctx.translate(x, y);
+  ctx.fillStyle = C.teal; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+  ctx.strokeStyle = C.orange; ctx.lineWidth = r * .1; ctx.stroke();
+  const k = r / 100;
+  ctx.fillStyle = '#c9c9d4'; ctx.beginPath(); ctx.arc(-48 * k, -42 * k, 26 * k, 0, 7); ctx.arc(48 * k, -42 * k, 26 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = '#ffb3c6'; ctx.beginPath(); ctx.arc(-48 * k, -42 * k, 13 * k, 0, 7); ctx.arc(48 * k, -42 * k, 13 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = '#e9e9f0'; ctx.beginPath(); ctx.moveTo(-60 * k, -20 * k); ctx.quadraticCurveTo(0, -70 * k, 60 * k, -20 * k); ctx.lineTo(0, 62 * k); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(-22 * k, -8 * k, 9 * k, 0, 7); ctx.arc(22 * k, -8 * k, 9 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = '#ff7aa2'; ctx.beginPath(); ctx.arc(0, 52 * k, 9 * k, 0, 7); ctx.fill();
+  ctx.restore();
+}
+
+// ---------------------------------------------------------------- UI pieces
+function card(x, y, w, h, k, color = C.cream) {
+  const s = eBack(clamp(k)); ctx.save(); ctx.translate(x + w / 2, y + h / 2); ctx.scale(s, s); ctx.translate(-w / 2, -h / 2);
+  shadowOn(30, 16); ctx.fillStyle = color; rr(0, 0, w, h, 40); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
+}
+function endCard() { ctx.restore(); }
+function bubble(x, y, s, label, k, color = '#fff') {
+  if (k <= 0) return; const sc = eBack(clamp(k)) * s;
+  withT(x, y, sc, -.06, () => { shadowOn(10, 6); ctx.fillStyle = color; ctx.beginPath(); ctx.ellipse(0, 0, 190, 90, 0, 0, 7); ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 7; ctx.stroke(); ctx.beginPath(); ctx.moveTo(-60, 70); ctx.lineTo(-90, 140); ctx.lineTo(-10, 82); ctx.fillStyle = color; ctx.fill();
+    txt(label, 0, 0, 62, C.ink); });
+}
+function stamp(label, x, y, size, k, color = C.yellow, rot = -.08) {
+  if (k <= 0) return; const s = k < 1 ? lerp(2.6, 1, eOut(k)) : 1;
+  ctx.save(); ctx.globalAlpha = clamp(k * 3); withT(x, y, s, rot, () => txt(label, 0, 0, size, color, { stroke: size * .16 })); ctx.restore();
+}
+function scorebug(home, away, qtr, clock, extra) {
+  shadowOn(14, 8); ctx.fillStyle = C.ink; rr(90, 210, 900, 120, 26); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.fillStyle = C.teal; rr(100, 220, 250, 100, 18); ctx.fill();
+  ctx.fillStyle = C.gopher; rr(470, 220, 250, 100, 18); ctx.fill();
+  txt('MUD', 175, 270, 44, '#fff'); txt(String(home), 300, 270, 60, C.yellow);
+  txt('DGG', 545, 270, 44, '#fff'); txt(String(away), 670, 270, 60, C.yellow);
+  txt(qtr, 790, 248, 32, '#fff', { weight: 800 }); txt(clock, 790, 292, 32, C.yellow, { weight: 800 });
+  txt(extra || '', 915, 270, 28, '#fff', { weight: 800 });
+}
+function confetti(t0, t, n = 90) {
+  const r = rng(99); const dt = t - t0; if (dt < 0) return;
+  const cols = [C.orange, C.teal, C.yellow, '#fff', C.red];
+  for (let i = 0; i < n; i++) { const x0 = r() * W, vy = 380 + r() * 400, sw = r() * 6.28, c = cols[(r() * 5) | 0];
+    const y = -40 + dt * vy, x = x0 + Math.sin(dt * 4 + sw) * 50; if (y > H) continue;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(dt * 6 + sw); ctx.fillStyle = c; ctx.fillRect(-10, -6, 20, 12); ctx.restore(); }
+}
+
+// ---------------------------------------------------------------- HUD (day + fund)
+function fundAt(t) {
+  const L = sceneLine('profile'), H2 = sceneLine('helmet');
+  if (!L || t < L.start) return null;
+  let v = 0; const tc = L.start + .78 * (L.end - L.start);
+  v = Math.round(12 * eOut(seg(t, tc - .5, tc + .2)));
+  if (H2 && t > H2.start + .25 * (H2.end - H2.start)) v = Math.max(0, 12 - Math.round(12 * seg(t, H2.start + .25 * (H2.end - H2.start), H2.start + .45 * (H2.end - H2.start))));
+  return v;
+}
+
+function fundCont(t) { const L = sceneLine('fund'); if (!L || t < L.start) return 0; let v = 403 * eOut(seg(t, L.start + .2, L.start + 1.4)); const a = absWord('purchase', 'fifty'); if (t > a) v = 403 - 50 * seg(t, a, a + .6); return v; }
+function T_FLASH(t) { const L = sceneLine('fund'), a = absWord('purchase', 'fifty'); if (L && t > L.start + 1.4 && t < L.start + 2.2) return 1; if (t > a + .6 && t < a + 1.3) return -1; return 0; }
+function rollNum(v, rx, cy, size, col) { const n = Math.max(1, String(Math.floor(v + 1e-6)).length), dw = size * .62, chars = ['$']; for (let p = n - 1; p >= 0; p--) chars.push(p);
+  let x = rx - chars.length * dw + dw / 2; ctx.save(); rr(870, 70, 160, 78, 18); ctx.clip();
+  for (const c of chars) { if (c === '$') txt('$', x, cy, size, col); else { const pw = Math.pow(10, c), xv = v / pw, dg = Math.floor(xv + 1e-6) % 10, lower = v - Math.floor(v / pw + 1e-6) * pw, roll = c === 0 ? xv - Math.floor(xv + 1e-6) : clamp(lower - (pw - 1));
+    txt(String(dg), x, cy - roll * size * 1.15, size, col); if (roll > .01) txt(String((dg + 1) % 10), x, cy + (1 - roll) * size * 1.15, size, col); } x += dw; } ctx.restore(); }
+function hud(t) {
+  if (TL.lines.find(l => l.cold && t < l.end + 1.1)) return;
+  // day badge
+  ctx.save(); shadowOn(10, 6); ctx.fillStyle = C.orange; rr(40, 60, 230, 96, 26); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); ctx.restore();
+  txt('DAY 4', 155, 108, 56, '#fff', { stroke: 8 });
+  const f = fundAt(t);
+  if (f !== null) {
+    ctx.save(); shadowOn(10, 6); ctx.fillStyle = '#fff'; rr(610, 60, 430, 96, 26); ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); ctx.restore();
+    txt('TEAM FUND', 760, 108, 34, C.ink, { weight: 800 });
+    const fc = fundCont(t), dv = fundCont(t + .05) - fundCont(t - .05), live = Math.abs(dv) > .01; if (live || T_FLASH(t)) { const up = live ? dv > 0 : T_FLASH(t) > 0; ctx.fillStyle = up ? 'rgba(31,157,85,.35)' : 'rgba(224,74,58,.35)'; rr(610, 60, 430, 96, 26); ctx.fill(); }
+    rollNum(fc, 1030, 110, 48, fc > 0.5 ? '#1f9d55' : C.red);
+  }
+}
+
+// ---------------------------------------------------------------- captions
+function captions(t) {
+  const L = TL.lines.find(l => t >= l.start - .05 && t <= l.end + .15); if (!L) return;
+  const ws = L.words; let ci = ws.findIndex((w, i) => t >= w.s && (i === ws.length - 1 || t < ws[i + 1].s)); if (ci < 0) ci = 0;
+  const CH = 3; const c0 = Math.floor(ci / CH) * CH; const chunk = ws.slice(c0, c0 + CH);
+  ctx.save(); ctx.font = `900 84px ${FONT}`;
+  const parts = chunk.map(w => w.w.toUpperCase()); const sp = 22;
+  const widths = parts.map(p => ctx.measureText(p).width); const total = widths.reduce((a, b) => a + b, 0) + sp * (parts.length - 1);
+  const fit = Math.min(1, 960 / total);
+  let x = W / 2 - total * fit / 2; const y = 1640;
+  parts.forEach((p, i) => { const active = c0 + i === ci; const k = active ? eBack(clamp((t - ws[c0 + i].s) / .12)) : 1;
+    withT(x + widths[i] * fit / 2, y, (active ? lerp(.8, 1.08, k) : 1) * fit, 0, () => txt(p, 0, 0, 84, active ? C.yellow : '#fff', { stroke: 16 }));
+    x += (widths[i] + sp) * fit; });
+  ctx.restore();
+}
+
+// ---------------------------------------------------------------- scenes
+function wordP(name, key) { const L = sceneLine(name); key = key.toLowerCase();
+  const w = L.words.find(w => w.w.toLowerCase().replace(/[^a-z0-9]/g, '').startsWith(key)); return w ? (w.s - L.start) / (L.end - L.start) : 1; }
+function sceneLine(name) { return TL.lines.find(l => l.scene === name && !l.cold); }
+
+const SCENES = {
+  intro(t, u, p) {
+    drawStadium(t);
+    drawCoach(W / 2, 1420, 1.25, t);
+    stamp('DAY 4', W / 2, 560, 230, seg(u, 0, .35), C.yellow, -.1);
+    const k = seg(u, .9, 1.3);
+    if (k > 0) withT(W / 2, 830, eBack(k), .04, () => { shadowOn(16, 8); ctx.fillStyle = C.red; rr(-430, -60, 860, 120, 20); ctx.fill(); ctx.shadowColor = 'transparent';
+      txt('WORST TEAM IN AMERICA', 0, 2, 60, '#fff', { stroke: 8 }); });
+  },
+  profile(t, u, p) {
+    drawStadium(t); dim(.35);
+    card(90, 300, 900, 1100, seg(u, 0, .35));
+    logo(450, 230, 140);
+    txt('Mudville Possums', 450, 450, 72, C.ink); txt('@mudville.possums', 450, 530, 40, '#666', { weight: 700 });
+    const stats = [['FANS', '0'], ['WINS', '0'], ['LOSSES', '0']];
+    stats.forEach(([a, b], i) => { const x = 150 + i * 300, kk = seg(p, .25 + i * .1, .4 + i * .1);
+      ctx.save(); ctx.globalAlpha = kk; txt(b, x, 680, 110, C.teal); txt(a, x, 770, 38, C.ink, { weight: 800 }); ctx.restore(); });
+    const kk = seg(p, .6, .75); ctx.save(); ctx.globalAlpha = kk;
+    ctx.fillStyle = '#e8f8ee'; rr(70, 860, 760, 170, 30); ctx.fill(); ctx.strokeStyle = '#1f9d55'; ctx.lineWidth = 6; ctx.stroke();
+    txt('TEAM FUND', 450, 910, 44, C.ink, { weight: 800 }); txt('$' + Math.round(12 * eOut(seg(p, .68, .82))), 450, 985, 86, '#1f9d55');
+    ctx.restore();
+    endCard();
+  },
+  likes(t, u, p) {
+    drawStadium(t); dim(.35);
+    const r = rng(5);
+    for (let i = 0; i < 14; i++) { const x = 120 + r() * 840, sp = 160 + r() * 140, ph = r(); const y = 1500 - ((u * sp + ph * 900) % 900);
+      ctx.save(); ctx.globalAlpha = .85; heart(x, y, 26 + r() * 20); ctx.restore(); }
+    const k = seg(u, 0, .35); const pulse = 1 + Math.sin(t * 12) * .05;
+    withT(W / 2, 760, eBack(k) * pulse, 0, () => thumb());
+    const k2 = seg(p, .35, .5);
+    if (k2 > 0) withT(W / 2, 1170, eBack(k2), -.05, () => { shadowOn(16, 8); ctx.fillStyle = '#1f9d55'; rr(-420, -90, 840, 180, 30); ctx.fill(); ctx.shadowColor = 'transparent';
+      ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, 4, 110, '#fff', { stroke: 10 }); });
+    const k3 = seg(p, wordP('likes', 'video') - .02, wordP('likes', 'video') + .08);
+    if (k3 > 0) withT(W / 2, 1360, eBack(k3), .03, () => { shadowOn(12, 6); ctx.fillStyle = C.ink; rr(-400, -60, 800, 120, 60); ctx.fill(); ctx.shadowColor = 'transparent';
+      txt('ON THIS VIDEO', 0, 3, 62, '#fff'); });
+  },
+  helmet(t, u, p) {
+    drawStadium(t);
+    const xs = [250, 540, 830];
+    const hopT = seg(p, .55, 1); // helmet hops between heads
+    const seq = hopT * 3; const idx = Math.min(2, Math.floor(seq)); const fr = seq - idx;
+    xs.forEach((x, i) => drawPlayer(x, 1420, 1.0, { num: [12, 7, 33][i], face: 'happy', hair: '#3b2a1a', skin: ['#e0ac69', '#8d5524', '#ffdbac'][i], run: 0 }));
+    // helmet position
+    let hx, hy;
+    if (p < .55) { hx = W / 2; hy = lerp(-200, 520, eOut(seg(p, .3, .5))); }
+    else { const a = xs[idx], b = xs[Math.min(2, idx + 1)]; const ff = idx === 2 ? 1 : eInOut(fr);
+      hx = idx === 2 && fr > 0 ? xs[2] : lerp(a, b, ff); hy = 1420 - 258 - Math.sin(ff * Math.PI) * 220 * (idx < 2 ? 1 : 0); }
+    if (p < .55) { withT(hx, hy, 1.4, Math.sin(t * 4) * .2, () => drawHelmet(0, 0, C.teal, C.orange)); txt('$12', hx, hy + 140, 70, C.yellow, { stroke: 10 }); }
+    else drawHelmet(hx, hy, C.teal, C.orange);
+    stamp('ONE (1) HELMET', W / 2, 340, 88, seg(p, .2, .3), '#fff', -.05);
+  },
+  roster_lou(t, u, p) { roster(t, u, p, { name: 'BIG LOU', pos: 'CENTER', stat: 'FEAR OF BALL', val: '99', num: 55, o: { wide: 1.6, face: p > .55 ? 'scared' : 'happy', helmet: true, skin: '#c68642', sweat: p > .55 } }); },
+  roster_tiny(t, u, p) { roster(t, u, p, { name: 'TINY', pos: 'QUARTERBACK', stat: 'HEIGHT', val: "5'1\"", num: 1, small: true, o: { helmet: true, skin: '#ffdbac' } }); },
+  roster_earl(t, u, p) { roster(t, u, p, { name: 'EARL', pos: 'KICKER', stat: 'ALSO', val: 'BUS DRIVER', num: 3, o: { mustache: true, cap: '#2d3a5a', skin: '#f1c27d' }, bus: true }); },
+  matchcard(t, u, p) {
+    const k = eOut(seg(u, 0, .4));
+    ctx.fillStyle = C.teal; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(lerp(-600, 640, k), 0); ctx.lineTo(lerp(-800, 440, k), H); ctx.lineTo(0, H); ctx.fill();
+    ctx.fillStyle = C.gopher; ctx.beginPath(); ctx.moveTo(W, 0); ctx.lineTo(lerp(W + 800, 640, k), 0); ctx.lineTo(lerp(W + 600, 440, k), H); ctx.lineTo(W, H); ctx.fill();
+    ctx.strokeStyle = C.yellow; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(640, 0); ctx.lineTo(440, H); ctx.stroke();
+    ctx.globalAlpha = k;
+    logo(300, 620, 170); txt('MUDVILLE', 300, 860, 70, '#fff', { stroke: 10 }); txt('POSSUMS', 300, 940, 70, C.orange, { stroke: 10 });
+    gopherLogo(780, 1050, 170); txt('DRY GULCH', 780, 1290, 70, '#fff', { stroke: 10 }); txt('GOPHERS', 780, 1370, 70, C.mustard, { stroke: 10 });
+    ctx.globalAlpha = 1;
+    stamp('VS', 540, 1000, 220, seg(u, .35, .6), C.yellow, -.12);
+    stamp('GAME 1', 540, 320, 110, seg(u, .5, .7), '#fff', 0);
+  },
+  play1(t, u, p) {
+    drawStadium(t, { excite: .2, full: 1 });
+    const ps = wordP('play1', 'screams'), pr = wordP('play1', 'runs'); const scream = seg(p, ps - .04, ps + .04), run = seg(p, pr, 1);
+    // gophers line
+    [700, 830, 960].forEach((x, i) => drawPlayer(x, 1400, .82, { jersey: C.gopher, trim: C.mustard, num: [91, 54, 22][i], flip: true, helmet: true, crouch: 1, face: 'happy', skin: ['#8d5524', '#e0ac69', '#c68642'][i] }));
+    drawPlayer(200, 1420, .62, { num: 1, helmet: true, skin: '#ffdbac', face: run > 0 ? 'scared' : 'happy' });
+    // Lou
+    const lx = lerp(450, 120, eIn(run)), ly = lerp(1410, 640, eIn(run)), ls = lerp(.95, .35, run);
+    if (run < 1) drawPlayer(lx, ly, ls, { wide: 1.6, num: 55, helmet: true, skin: '#c68642', face: scream > 0 ? 'scared' : 'happy', crouch: scream > 0 ? 0 : 1, run: run > 0 ? t * 26 : 0, armsUp: run > 0, sweat: scream > 0 });
+    drawBall(lerp(530, 560, run), lerp(1395, 1405, run), 1, run * .5);
+    bubble(lx + 200 * ls, ly - 480 * ls, ls * 1.1, 'AAAAH!', scream, '#fff');
+    scorebug(0, 0, 'Q1', '15:00', '1ST&10');
+  },
+  play1_td(t, u, p) {
+    drawStadium(t, { excite: 1, full: 1 });
+    const gx = lerp(560, 1250, eIn(seg(p, 0, .6)));
+    drawPlayer(gx, 1420, .82, { jersey: C.gopher, trim: C.mustard, num: 22, helmet: true, run: t * 28, skin: '#c68642', ball: [70, -150, -.5] });
+    [300, 420].forEach((x, i) => drawPlayer(x, 1420, .8, { num: [1, 33][i], helmet: true, face: 'sad', skin: ['#ffdbac', '#8d5524'][i] }));
+    // Lou in stands
+    drawPlayer(140, 640, .3, { wide: 1.6, num: 55, helmet: true, skin: '#c68642', face: 'scared', armsUp: true });
+    stamp('TOUCHDOWN', W / 2, 1000, 120, seg(p, .2, .35), C.mustard, -.06);
+    stamp('GOPHERS', W / 2, 1130, 90, seg(p, .3, .45), '#fff', -.06);
+    scorebug(0, p > .25 ? 7 : 0, 'Q1', '14:52', '');
+  },
+  sack(t, u, p) {
+    drawStadium(t, { excite: .3, full: 1 });
+    const pile = eIn(seg(p, .6, .8)), hit = p > .8;
+    const tx = 400;
+    if (!hit) drawPlayer(tx, 1420, .62, { num: 1, helmet: true, skin: '#ffdbac', face: p > .55 ? 'scared' : 'happy', armL: 1.2, ball: [40, -200, -.4] });
+    [[820, 1420], [700, 1100], [960, 1250]].forEach(([x0, y0], i) => {
+      const x = lerp(x0, tx + (i - 1) * 50, pile), y = lerp(y0, 1420 - (hit ? i * 70 : 0), pile);
+      drawPlayer(x, y, .82, { jersey: C.gopher, trim: C.mustard, num: [91, 54, 22][i], helmet: true, flip: true, run: p < .8 ? t * 22 : 0, skin: ['#8d5524', '#e0ac69', '#c68642'][i], rot: hit ? (i - 1) * .4 : 0 });
+    });
+    if (hit) { withT(tx - 120, 1440, 1, 0, () => { ctx.fillStyle = '#ffdbac'; ctx.beginPath(); ctx.arc(0, -20, 26, 0, 7); ctx.fill(); }); txt('help', tx - 200, 1340, 34, '#fff', { stroke: 6, weight: 800 }); }
+    stamp('TRICK PLAY', W / 2, 600, 110, seg(p, .2, .32), '#fff', -.05);
+    stamp('FLATTENED', W / 2, 1000, 130, seg(p, .8, .88), C.red, -.08);
+    scorebug(0, 7, 'Q2', '9:12', '3RD&8');
+  },
+  sack_td(t, u, p) {
+    drawStadium(t, { excite: 1, full: 1 });
+    [[330, -.4], [400, 0], [470, .4]].forEach(([x, r], i) => drawPlayer(x, 1420, .82, { jersey: C.gopher, trim: C.mustard, num: [91, 54, 22][i], helmet: true, flip: true, skin: ['#8d5524', '#e0ac69', '#c68642'][i], rot: r * (1 - seg(p, 0, .3)) }));
+    const gx = lerp(520, 1250, eIn(seg(p, .1, .7)));
+    drawPlayer(gx, 1420, .82, { jersey: C.gopher, trim: C.mustard, num: 54, helmet: true, run: t * 28, skin: '#e0ac69', ball: [70, -150, -.5] });
+    drawPlayer(250, 1420, .62, { num: 1, helmet: true, skin: '#ffdbac', face: 'sleepy', rot: -1.4 });
+    stamp('FUMBLE', W / 2, 600, 120, seg(p, 0, .15), C.yellow, -.05);
+    stamp('14 - 0', W / 2, 1000, 150, seg(p, .55, .7), C.mustard, -.06);
+    scorebug(0, p > .55 ? 14 : 7, 'Q2', '9:05', '');
+  },
+  halftime(t, u, p) {
+    drawStadium(t, { excite: p > .7 ? .8 : .1, full: 1 });
+    const bx = lerp(-460, 330, eOut(seg(p, 0, .3)));
+    drawBus(bx, 1420, 1.0, 0);
+    // Earl's face in driver window
+    withT(bx + 360, 1420 - 120, .45, 0, () => { ctx.fillStyle = '#f1c27d'; ctx.beginPath(); ctx.arc(0, -40, 60, 0, 7); ctx.fill(); ctx.fillStyle = '#6b4a2b'; ctx.beginPath(); ctx.ellipse(-14, -24, 18, 8, .2, 0, 7); ctx.ellipse(14, -24, 18, 8, -.2, 0, 7); ctx.fill(); ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(-20, -52, 7, 0, 7); ctx.arc(20, -52, 7, 0, 7); ctx.fill(); });
+    const honk = (p > .18 && p < .3) || (p > .38 && p < .52);
+    if (honk) { stamp('HONK!', bx + 300, 1080, 100, 1, C.yellow, -.1); for (let i = 0; i < 3; i++) txt('♪', bx + 120 + i * 120, 1100 - ((t * 200 + i * 60) % 200), 70, '#fff', { stroke: 8 }); }
+    stamp('HALFTIME SHOW', W / 2, 360 + 330, 100, seg(p, .05, .18), '#fff', -.04);
+    if (p > .7) { const r = rng(3); for (let i = 0; i < 6; i++) bubble(120 + r() * 840, 470 + r() * 200, .45, 'BOO', seg(p, .7 + i * .03, .78 + i * .03), '#fff'); }
+    scorebug(0, 14, 'HALF', '0:00', '');
+  },
+  nextgame(t, u, p) {
+    const k = eOut(seg(u, 0, .4));
+    ctx.fillStyle = '#1b1b2f'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = C.teal; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(lerp(-600, 640, k), 0); ctx.lineTo(lerp(-800, 440, k), H); ctx.lineTo(0, H); ctx.fill();
+    ctx.fillStyle = '#3a3f4b'; ctx.beginPath(); ctx.moveTo(W, 0); ctx.lineTo(lerp(W + 800, 640, k), 0); ctx.lineTo(lerp(W + 600, 440, k), H); ctx.lineTo(W, H); ctx.fill();
+    ctx.strokeStyle = C.yellow; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(640, 0); ctx.lineTo(440, H); ctx.stroke();
+    ctx.globalAlpha = k;
+    logo(300, 620, 170); txt('MUDVILLE', 300, 860, 70, '#fff', { stroke: 10 }); txt('0 - 1', 300, 950, 80, C.red, { stroke: 10 });
+    badgerLogo(780, 1050, 170); txt('PINE HOLLOW', 780, 1290, 66, '#fff', { stroke: 10 }); txt('BADGERS', 780, 1370, 70, '#e8e8e8', { stroke: 10 });
+    ctx.globalAlpha = 1;
+    stamp('TOMORROW', 540, 330, 110, seg(u, .3, .5), '#fff', 0);
+    stamp('VS', 540, 1000, 200, seg(u, .4, .65), C.yellow, -.12);
+    stamp('UNBEATEN IN 4 YEARS', 540, 1480, 74, seg(p, .72, .82), C.red, -.05);
+  },
+  stadium_tour(t, u, p) {
+    drawStadium(t);
+    ladderPost(990, 1330, 1.1);
+    const call = (label, lx, ly, tx, ty, k, col = C.red) => { if (k <= 0) return; const e = eBack(clamp(k));
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 8; ctx.setLineDash([16, 12]); ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(lerp(lx, tx, clamp(k * 1.5)), lerp(ly, ty, clamp(k * 1.5))); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(tx, ty, 14 * clamp(k * 2), 0, 7); ctx.fill();
+      withT(lx, ly, e, -.04, () => { ctx.font = `900 46px ${FONT}`; const w = ctx.measureText(label).width + 60; shadowOn(12, 6); ctx.fillStyle = '#fff'; rr(-w / 2, -45, w, 90, 22); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); txt(label, 0, 2, 46, col); }); };
+    call('FALLING APART', 330, 300, 470, 520, seg(p, wordP('stadium_tour', 'bleachers') - .02, wordP('stadium_tour', 'bleachers') + .08));
+    call('MADE OF MUD', 360, 1180, 300, 1000, seg(p, wordP('stadium_tour', 'field') - .02, wordP('stadium_tour', 'field') + .08), '#8b5a2b');
+    call('A LADDER', 700, 900, 975, 1040, seg(p, wordP('stadium_tour', 'ladder') - .02, wordP('stadium_tour', 'ladder') + .08));
+    call('LOCKER ROOM?', 780, 330, 870, 600, seg(p, wordP('stadium_tour', 'goal') + .02, wordP('stadium_tour', 'goal') + .12), '#3a7bd5');
+    stamp('HOME STADIUM', W / 2, 1420, 96, seg(p, 0, .12), C.yellow, -.04);
+  },
+  play2(t, u, p) {
+    drawStadium(t, { excite: .3, full: 1 });
+    const throwK = seg(p, .7, .8);
+    const tx = lerp(420, 300, eOut(seg(p, 0, .5)));
+    drawPlayer(tx, 1420, .62, { num: 1, helmet: true, skin: '#ffdbac', face: 'happy', armR: throwK > 0 ? lerp(2.6, -.8, throwK) : 2.6, ball: throwK > 0 ? null : [90, -340, -.6] });
+    [650, 800].forEach((x, i) => drawPlayer(x, 1420, .82, { jersey: C.gopher, trim: C.mustard, num: [91, 54][i], helmet: true, flip: true, run: t * 18, skin: ['#8d5524', '#e0ac69'][i] }));
+    if (throwK > 0) { const bk = seg(p, .78, 1); drawBall(lerp(tx + 55, 900, bk), lerp(1200, -100, bk) - Math.sin(bk * Math.PI) * 300, 1.1, bk * 12); }
+    stamp('HAIL MARY', W / 2, 600, 120, seg(p, .55, .7), C.yellow, -.05);
+    scorebug(0, 21, 'Q4', '0:04', '4TH&30');
+  },
+  play2_b(t, u, p) {
+    drawStadium(t, { excite: p > .75 ? 1 : .3, full: 1, scroll: 0 });
+    endZone(720, 'POSSUMS', C.teal);
+    // seagull flying left to right
+    const hitK = seg(p, .1, .2), birdFall = seg(p, .18, .5);
+    const bx = lerp(-100, 380, seg(p, 0, .14)) + birdFall * 300, by = 520 + birdFall * 900;
+    drawBird(bx, by, 1.4, t, birdFall > 0 ? birdFall : 0);
+    if (hitK > 0 && hitK < 1) stamp('SQUAWK!', 360, 400, 80, hitK, '#fff', -.1);
+    // Earl
+    const bonkK = seg(p, .3, .4);
+    drawPlayer(560, 1420, .82, { num: 3, mustache: true, helmet: true, skin: '#f1c27d', face: bonkK > 0 && p < .6 ? 'scared' : 'happy', armsUp: p > .75 });
+    if (bonkK > 0 && p < .6) { for (let i = 0; i < 4; i++) { const a = t * 6 + i * 1.57; txt('★', 560 + Math.cos(a) * 90, 1000 + Math.sin(a) * 30, 40, C.yellow, { stroke: 4 }); } }
+    // ball path: from top -> bird (380,520) -> earl head (560,1060) -> end zone (900, 1380)
+    let x, y, r;
+    if (p < .12) { const k = seg(p, 0, .12); x = lerp(300, 400, k); y = lerp(-80, 500, k); }
+    else if (p < .33) { const k = seg(p, .12, .33); x = lerp(400, 560, k); y = lerp(500, 1040, eIn(k)); }
+    else { const k = seg(p, .33, .62); x = lerp(560, 900, k); y = lerp(1040, 1390, k) - Math.sin(k * Math.PI) * 300; }
+    r = p * 30;
+    drawBall(x, y, 1.1, p < .62 ? r : 0);
+    stamp('BONK', 380, 920, 110, bonkK, C.red, -.12);
+    const tdK = seg(p, .7, .8);
+    stamp('TOUCHDOWN!', W / 2, 560, 130, tdK, C.yellow, -.06);
+    if (tdK > 0) confetti(sceneLine('play2_b').start + .75 * (sceneLine('play2_b').end - sceneLine('play2_b').start), t);
+    scorebug(p > .7 ? 6 : 0, 21, 'Q4', '0:00', '');
+  },
+  kick(t, u, p) {
+    drawStadium(t, { excite: .2, full: 1 });
+    const crack = seg(p, .68, .75);
+    drawBus(20, 1050, 1.0, crack);
+    const kickK = seg(p, .1, .2);
+    drawPlayer(720, 1420, .82, { num: 3, mustache: true, helmet: true, skin: '#f1c27d', face: crack > 0 ? 'sad' : 'happy', rot: kickK > 0 && kickK < 1 ? -.15 : 0 });
+    // goal posts on right
+    ladderPost(990, 1330, 1.1);
+    const fk = seg(p, .15, .7);
+    if (fk < 1) drawBall(lerp(800, 380, fk), lerp(1400, 905, fk) - Math.sin(fk * Math.PI) * 260, 1, fk * 20);
+    stamp('NO GOOD', W / 2, 600, 140, seg(p, .75, .85), C.red, -.08);
+    scorebug(6, 21, 'Q4', '0:00', 'PAT');
+  },
+  standings(t, u, p) {
+    drawStadium(t); dim(.45);
+    const k = seg(u, 0, .35);
+    card(70, 260, 940, 1180, k, '#fff');
+    txt('LEAGUE TABLE', 470, 90, 64, C.ink);
+    const rows = [['Dry Gulch Gophers', '1-0'], ['Pine Hollow Badgers', '1-0'], ['Red Rock Rattlers', '1-0'], ['Big Muddy Catfish', '1-0'], ['Twin Forks Turkeys', '0-1'], ['Cedar Bluff Moose', '0-1'], ['Salt Flats Snails', '0-1'], ['MUDVILLE POSSUMS', '0-1']];
+    txt('TEAM', 90, 170, 30, '#888', { align: 'left', weight: 800 }); txt('W-L', 800, 170, 30, '#888', { weight: 800 });
+    rows.forEach(([n, wl], i) => { const y = 240 + i * 110; const last = i === 7; const kk = seg(p, .1 + i * .04, .2 + i * .04);
+      ctx.save(); ctx.globalAlpha = kk;
+      const shake = last ? Math.sin(t * 40) * 6 * seg(p, .55, .6) * (1 - seg(p, .8, .9)) : 0;
+      ctx.translate(shake, 0);
+      if (last) { ctx.fillStyle = '#ffe3e3'; rr(30, y - 46, 880, 92, 18); ctx.fill(); ctx.strokeStyle = C.red; ctx.lineWidth = 6; ctx.stroke(); }
+      txt(String(i + 1), 70, y, 42, last ? C.red : C.ink); txt(n, 120, y, 42, last ? C.red : C.ink, { align: 'left', weight: last ? 900 : 700 }); txt(wl, 800, y, 42, last ? C.red : C.ink);
+      ctx.restore(); });
+    txt('FINAL: POSSUMS 6, GOPHERS 21', 470, 1110, 46, C.ink);
+    endCard();
+  },
+  cta(t, u, p) {
+    drawStadium(t, { excite: .2 }); dim(.45);
+    const k = seg(u, 0, .3);
+    withT(W / 2, 330, eBack(k), -.04, () => { shadowOn(16, 8); ctx.fillStyle = '#1f9d55'; rr(-420, -85, 840, 170, 30); ctx.fill(); ctx.shadowColor = 'transparent';
+      ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, -22, 76, '#fff', { stroke: 8 }); txt('ON THIS VIDEO', 0, 50, 40, C.yellow, { stroke: 6 }); });
+    const k2 = seg(p, wordP('cta', 'most') - .05, wordP('cta', 'most') + .05);
+    if (k2 > 0) withT(W / 2, 930, eBack(k2), 0, () => {
+      shadowOn(20, 10); ctx.fillStyle = C.cream; rr(-430, -470, 860, 900, 40); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
+      txt('UPGRADE SHOP', 0, -395, 72, C.ink);
+      const items = [['GEAR', 'helmets for everyone', '$50', wordP('cta', 'gear')], ['STANDS', 'seats that hold people', '$250', wordP('cta', 'stands')], ['FIELD', 'actual grass', '$500', wordP('cta', 'field')], ['GOAL POSTS', 'not a ladder', '$100', wordP('cta', 'goal')], ['SCOREBOARD', 'we have none', '$150', 9]];
+      items.forEach(([n, sub, pr, at], i) => { const y = -280 + i * 140; const on = p >= at - .01 && (i === 3 ? true : p < items[i + 1][3] - .01);
+        ctx.fillStyle = on ? C.yellow : '#fff'; rr(-390, y - 58, 780, 116, 24); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.stroke();
+        txt(n, -360, y - 14, 50, C.ink, { align: 'left' }); txt(sub, -360, y + 30, 30, '#666', { align: 'left', weight: 600 }); txt(pr, 360, y, 54, '#1f9d55', { align: 'right' }); });
+    });
+    const k3 = seg(p, .88, .98);
+    if (k3 > 0) { const yb = Math.sin(t * 8) * 14; withT(W / 2, 1490 + yb, eBack(k3), -.03, () => { txt('MOST-LIKED COMMENT WINS', 0, 0, 64, C.yellow, { stroke: 12 }); txt('COMMENT BELOW', 0, 70, 40, '#fff', { stroke: 8 }); }); }
+  }
+
+};
+function heart(x, y, s) { ctx.save(); ctx.translate(x, y); ctx.scale(s / 30, s / 30); ctx.fillStyle = C.red; ctx.beginPath(); ctx.moveTo(0, 10); ctx.bezierCurveTo(-30, -14, -14, -36, 0, -18); ctx.bezierCurveTo(14, -36, 30, -14, 0, 10); ctx.fill(); ctx.restore(); }
+function thumb() {
+  shadowOn(20, 10); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(0, 0, 230, 0, 7); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 10; ctx.stroke();
+  ctx.fillStyle = '#3b82f6'; rr(-130, -20, 70, 150, 14); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-50, -20); ctx.lineTo(-10, -150); ctx.quadraticCurveTo(30, -170, 30, -110); ctx.lineTo(20, -40); ctx.lineTo(120, -40); ctx.quadraticCurveTo(150, -30, 135, 10); ctx.lineTo(110, 120); ctx.quadraticCurveTo(100, 140, 70, 140); ctx.lineTo(-50, 140); ctx.closePath(); ctx.fill();
+}
+function badgerLogo(x, y, r) {
+  ctx.save(); ctx.translate(x, y); const k = r / 100;
+  ctx.fillStyle = '#2b2f3a'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = '#e8e8e8'; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.fillStyle = '#e8e8e8'; ctx.beginPath(); ctx.ellipse(0, 0, 66 * k, 60 * k, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#2b2f3a'; ctx.beginPath(); ctx.ellipse(-30 * k, -6 * k, 18 * k, 40 * k, -.2, 0, 7); ctx.ellipse(30 * k, -6 * k, 18 * k, 40 * k, .2, 0, 7); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-28 * k, -6 * k, 9 * k, 0, 7); ctx.arc(28 * k, -6 * k, 9 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = C.red; ctx.beginPath(); ctx.arc(-28 * k, -4 * k, 5 * k, 0, 7); ctx.arc(28 * k, -4 * k, 5 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(0, 40 * k, 10 * k, 0, 7); ctx.fill();
+  ctx.restore();
+}
+function gopherLogo(x, y, r) {
+  ctx.save(); ctx.translate(x, y); const k = r / 100;
+  ctx.fillStyle = C.gopher; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = C.mustard; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.fillStyle = '#b07a4a'; ctx.beginPath(); ctx.arc(-50 * k, -50 * k, 20 * k, 0, 7); ctx.arc(50 * k, -50 * k, 20 * k, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(0, 0, 62 * k, 58 * k, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(-22 * k, -14 * k, 8 * k, 0, 7); ctx.arc(22 * k, -14 * k, 8 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.fillRect(-12 * k, 18 * k, 11 * k, 20 * k); ctx.fillRect(1 * k, 18 * k, 11 * k, 20 * k);
+  ctx.restore();
+}
+function roster(t, u, p, d) {
+  drawStadium(t); dim(.4);
+  const k = eOut(seg(u, 0, .3)); const x = lerp(W + 600, W / 2, k);
+  withT(x, 900, 1, -.04 + (1 - k) * .3, () => {
+    shadowOn(30, 16); ctx.fillStyle = C.yellow; rr(-380, -560, 760, 1060, 40); ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 10; ctx.stroke();
+    ctx.fillStyle = C.sky2; rr(-340, -520, 680, 640, 26); ctx.fill();
+    ctx.fillStyle = C.grass; ctx.fillRect(-340, 0, 680, 120);
+    if (d.bus) drawBus(-330, 110, .55, 0);
+    drawPlayer(d.bus ? 60 : 0, 100, d.small ? .9 : 1.25, { num: d.num, ...d.o });
+    ctx.fillStyle = C.ink; rr(-340, 140, 680, 120, 20); ctx.fill();
+    txt(d.name, 0, 200, 86, '#fff');
+    txt(d.pos, 0, 305, 50, C.tealDk);
+    const sk = seg(p, .35, .5);
+    ctx.save(); ctx.globalAlpha = sk;
+    ctx.fillStyle = '#fff'; rr(-330, 350, 660, 120, 24); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke();
+    txt(d.stat, -310, 410, 44, C.ink, { align: 'left', weight: 800 }); txt(d.val, 310, 410, 60, C.red, { align: 'right' });
+    ctx.restore();
+  });
+  txt('NEW SIGNING', W / 2, 270, 70, '#fff', { stroke: 10 });
+}
+
+// ---------------------------------------------------------------- frame
+function camAt(t, L, p, i) { let z = 1.07 + .05 * p, cx = 540 + (i % 2 ? 1 : -1) * (p - .5) * 60, cy = 1000;
+  const PUNCH = { stamp: 1, horn: 1, cash: 1, ding: .7, kick: 1, bonk: 1, spend: 1 }, SH = { boing: 10, bonk: 18, crowd: 6, kick: 10, stamp: 12, horn: 6, whistle: 4, spend: 8 };
+  let sx = 0, sy = 0; for (let j = Math.max(0, i - 1); j <= Math.min(TL.lines.length - 1, i + 1); j++) for (const [n, st] of (TL.lines[j].sfx_times || [])) { const d = t - st; if (d <= 0) continue;
+    if (PUNCH[n] && d < 1.2) z *= 1 + .07 * PUNCH[n] * Math.exp(-d * 5) * Math.min(1, d * 22); if (SH[n] && d < .5) { const a = SH[n] * Math.exp(-d * 9); sx += Math.sin(t * 95 + st) * a; sy += Math.cos(t * 83 + st) * a; } }
+  const hw = 540 / z, hh = 960 / z; return { z, cx: clamp(cx + sx, hw, W - hw), cy: clamp(cy + sy, hh, H - hh) }; }
+const NOFX = ['matchcard', 'nextgame'];
+function fg(sc, t) { if (NOFX.includes(sc)) return; ctx.save(); ctx.translate(-PXo * .6, -PYo * .25); ctx.filter = 'blur(8px)'; for (const [x, y, r, c] of [[-70, 1930, 160, '#4f6b2a'], [80, 2010, 120, '#5c7a2e'], [1150, 1940, 160, '#4f6b2a'], [1000, 2010, 120, '#5c7a2e']]) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
+  ctx.strokeStyle = '#4f6b2a'; ctx.lineWidth = 14; ctx.lineCap = 'round'; for (let i = 0; i < 6; i++) { const x = 160 + i * 150 + (i > 2 ? 140 : 0), sw = Math.sin(t * 2 + i) * 12; ctx.beginPath(); ctx.moveTo(x, H + 20); ctx.quadraticCurveTo(x + sw, H - 70, x + 18 + sw, H - 130 - (i % 3) * 25); ctx.stroke(); } ctx.filter = 'none'; ctx.restore(); }
+function drawLine(L2, i, t) { const u = t - L2.start, p = clamp(u / (L2.end - L2.start)), c = camAt(t, L2, p, i); PXo = c.cx - 540; PYo = c.cy - 960;
+  ctx.save(); if (!NOFX.includes(L2.scene)) { ctx.translate(540, 960); ctx.scale(c.z, c.z); ctx.translate(-c.cx, -c.cy); } else { PXo = PYo = 0; } SCENES[L2.scene](t, u, p); fg(L2.scene, t); ctx.restore(); }
+const OFF = document.createElement('canvas'), OFF2 = document.createElement('canvas'); OFF.width = OFF2.width = W; OFF.height = OFF2.height = H; const octx = OFF.getContext('2d'), o2 = OFF2.getContext('2d'), MAIN = ctx;
+function renderTo(c2, fn) { const keep = ctx; ctx = c2; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H); fn(); ctx = keep; }
+function transition(type, P, L, i, u, t) { const e = eInOut(u);
+  if (type === 'whip') { renderTo(o2, () => { ctx.save(); ctx.translate(-e * W, 0); drawLine(P, i - 1, t); ctx.restore(); ctx.save(); ctx.translate((1 - e) * W, 0); drawLine(L, i, t); ctx.restore(); });
+    ctx.filter = `blur(${(Math.sin(u * Math.PI) * 18).toFixed(1)}px)`; ctx.drawImage(OFF2, 0, 0); ctx.filter = 'none'; ctx.strokeStyle = `rgba(255,255,255,${.6 * Math.sin(u * Math.PI)})`; ctx.lineWidth = 8; const r = rng(Math.floor(t * 60)); for (let q = 0; q < 16; q++) { const y = r() * H, x = r() * W; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 300, y); ctx.stroke(); } }
+  else if (type === 'zoom') { renderTo(o2, () => drawLine(P, i - 1, t)); ctx.save(); ctx.translate(540, 960); ctx.scale(1 + e * .7, 1 + e * .7); ctx.rotate(e * .15); ctx.globalAlpha = 1 - e; ctx.drawImage(OFF2, -540, -960); ctx.restore();
+    renderTo(o2, () => drawLine(L, i, t)); ctx.save(); ctx.translate(540, 960); ctx.scale(.8 + .2 * e, .8 + .2 * e); ctx.rotate((1 - e) * -.12); ctx.globalAlpha = e; ctx.drawImage(OFF2, -540, -960); ctx.restore(); }
+  else if (type === 'ball') { if (u < .5) drawLine(P, i - 1, t); else drawLine(L, i, t); drawBall(lerp(W + 900, -900, e), 960, 34, Math.PI / 2 + .15 + e * .3); }
+  else { drawLine(P, i - 1, t); renderTo(o2, () => drawLine(L, i, t)); const R = e * 1300; ctx.save(); ctx.beginPath(); ctx.arc(540, 1150, R, 0, 7); ctx.clip(); ctx.drawImage(OFF2, 0, 0); ctx.restore(); ctx.strokeStyle = C.ink; ctx.lineWidth = 22; ctx.beginPath(); ctx.arc(540, 1150, R, 0, 7); ctx.stroke(); ctx.strokeStyle = C.yellow; ctx.lineWidth = 8; ctx.stroke(); } }
+let GRAIN = null;
+function grain(t) { if (!GRAIN) { const g = document.createElement('canvas'); g.width = g.height = 256; const gx = g.getContext('2d'), id = gx.createImageData(256, 256), r = rng(5); for (let q = 0; q < id.data.length; q += 4) { const v = r() * 255; id.data[q] = id.data[q + 1] = id.data[q + 2] = v; id.data[q + 3] = 255; } gx.putImageData(id, 0, 0); GRAIN = ctx.createPattern(g, 'repeat'); }
+  const st = Math.floor(t * 12); ctx.save(); ctx.globalAlpha = .06; ctx.globalCompositeOperation = 'overlay'; ctx.translate((st * 97) % 256 - 256, (st * 61) % 256 - 256); ctx.fillStyle = GRAIN; ctx.fillRect(0, 0, W + 512, H + 512); ctx.restore(); }
+function rewindFx(r, t) { const q = rng(Math.floor(t * 30)); for (let b = 0; b < 7; b++) { const y = q() * H, h = 30 + q() * 110, dx = (q() - .5) * 120 * r; ctx.drawImage(OFF, 0, y, W, h, dx, y, W, h); }
+  ctx.fillStyle = `rgba(40,60,160,${.3 * r})`; ctx.fillRect(0, 0, W, H); ctx.fillStyle = `rgba(0,0,0,${.25 * r})`; for (let y = 0; y < H; y += 8) ctx.fillRect(0, y, W, 3);
+  if (Math.floor(t * 6) % 2 === 0) withT(540, 1100, 1, 0, () => { ctx.globalAlpha = r; ctx.fillStyle = '#fff'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; for (const ox of [-150, -70]) { ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox + 80, -50); ctx.lineTo(ox + 80, 50); ctx.closePath(); ctx.fill(); ctx.stroke(); } txt('REWIND', 130, 4, 84, '#fff', { stroke: 12 }); ctx.globalAlpha = 1; }); }
+window.renderFrame = function (t) { T_NOW = t; window.SBARGS = null;
+  MAIN.setTransform(1, 0, 0, 1, 0, 0); MAIN.globalAlpha = 1; ctx = octx; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  let i = 0; for (let j = 0; j < TL.lines.length; j++) if (t >= TL.lines[j].start - .15) i = j; const L = TL.lines[i], P = TL.lines[i - 1], T0 = L.start - .15, TD = .42;
+  if (P && P.scene !== L.scene && t < T0 + TD) { let n = 0; for (let j = 1; j <= i; j++) if (TL.lines[j].scene !== TL.lines[j - 1].scene) n++; transition(['zoom', 'whip', 'ball', 'iris'][(n - 1) % 4], P, L, i, clamp((t - T0) / TD), t); }
+  else drawLine(L, i, t);
+  ctx = MAIN; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H); ctx.filter = `url(#b${Math.floor(t * 8) % 3})`; ctx.drawImage(OFF, 0, 0); ctx.filter = 'none';
+  if (L.rewind) { const nx = TL.lines[i + 1]; const r = seg(t, L.end + .1, nx.start - .15); if (r > 0) rewindFx(r, t); }
+  const vg = ctx.createRadialGradient(540, 960, 500, 540, 960, 1250); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(10,10,30,.3)'); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H); grain(t);
+  if (L.scene !== 'matchcard' && L.scene !== 'nextgame') hud(t);
+  if (window.SBARGS) { _SB(...SBARGS); window.SBARGS = null; }
+  captions(t);
+  const last = TL.lines[TL.lines.length - 1];
+  if (t > last.end + .2) { const k = seg(t, last.end + .2, last.end + .6); withT(W / 2, 1690, eBack(k), 0, () => { ctx.fillStyle = C.orange; rr(-360, -70, 720, 140, 30); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('FOLLOW FOR DAY 4', 0, 4, 60, '#fff', { stroke: 8 }); }); }
+};
+window.setTimeline = tl => { TL = tl; };
+</script>
+<script>
+// ======================= DAY 2 additions =======================
+const BADGER = { jersey: '#2b2f3a', trim: '#e8e8e8' };
+const OPP = { abbr: 'PHB', color: '#2b2f3a' };
+function absWord(scene, key) { const L = sceneLine(scene); return L.start + wordP(scene, key) * (L.end - L.start); }
+function fundAt(t) {
+  const L = sceneLine('fund'); if (!L || t < L.start) return 0;
+  let v = Math.round(403 * eOut(seg(t, L.start + .2, L.start + 1.4)));
+  const a = absWord('purchase', 'fifty'); if (t > a) v = 403 - Math.round(50 * seg(t, a, a + .6));
+  return v;
+}
+function scorebug(home, away, qtr, clock, extra) {
+  shadowOn(14, 8); ctx.fillStyle = C.ink; rr(90, 210, 900, 120, 26); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.fillStyle = C.teal; rr(100, 220, 250, 100, 18); ctx.fill();
+  ctx.fillStyle = '#4a5060'; rr(470, 220, 250, 100, 18); ctx.fill();
+  txt('MUD', 175, 270, 44, '#fff'); txt(String(home), 300, 270, 60, C.yellow);
+  txt(OPP.abbr, 545, 270, 44, '#fff'); txt(String(away), 670, 270, 60, C.yellow);
+  txt(qtr, 790, 248, 32, '#fff', { weight: 800 }); txt(clock, 790, 292, 32, C.yellow, { weight: 800 });
+  txt(extra || '', 915, 270, 28, '#fff', { weight: 800 });
+}
+function rattlerLogo(x, y, r) {
+  ctx.save(); ctx.translate(x, y); const k = r / 100;
+  ctx.fillStyle = '#9d0208'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = '#ffba08'; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.strokeStyle = '#6a994e'; ctx.lineWidth = 26 * k; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(0, 18 * k, 46 * k, Math.PI * .1, Math.PI * 1.6); ctx.stroke();
+  ctx.fillStyle = '#6a994e'; ctx.beginPath(); ctx.ellipse(20 * k, -36 * k, 40 * k, 28 * k, -.2, 0, 7); ctx.fill();
+  ctx.fillStyle = '#ffba08'; ctx.beginPath(); ctx.arc(8 * k, -44 * k, 8 * k, 0, 7); ctx.arc(36 * k, -48 * k, 8 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = C.ink; ctx.fillRect(6 * k, -50 * k, 4 * k, 12 * k); ctx.fillRect(34 * k, -54 * k, 4 * k, 12 * k);
+  ctx.strokeStyle = '#ff4a4a'; ctx.lineWidth = 4 * k; ctx.beginPath(); ctx.moveTo(56 * k, -30 * k); ctx.lineTo(78 * k, -26 * k); ctx.lineTo(88 * k, -34 * k); ctx.moveTo(78 * k, -26 * k); ctx.lineTo(88 * k, -18 * k); ctx.stroke();
+  ctx.restore();
+}
+function versus2(u, p, oppLogo, oppColor, oppTown, oppName, oppC2, top, sub, rec) {
+  const k = eOut(seg(u, 0, .4));
+  ctx.fillStyle = C.ink; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = C.teal; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(lerp(-600, 640, k), 0); ctx.lineTo(lerp(-800, 440, k), H); ctx.lineTo(0, H); ctx.fill();
+  ctx.fillStyle = oppColor; ctx.beginPath(); ctx.moveTo(W, 0); ctx.lineTo(lerp(W + 800, 640, k), 0); ctx.lineTo(lerp(W + 600, 440, k), H); ctx.lineTo(W, H); ctx.fill();
+  ctx.strokeStyle = C.yellow; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(640, 0); ctx.lineTo(440, H); ctx.stroke();
+  ctx.globalAlpha = k;
+  logo(300, 620, 170); txt('MUDVILLE', 300, 860, 70, '#fff', { stroke: 10 }); txt(rec, 300, 950, 80, C.red, { stroke: 10 });
+  oppLogo(780, 1050, 170); txt(oppTown, 780, 1290, oppTown.length > 10 ? 58 : 66, '#fff', { stroke: 10 }); txt(oppName, 780, 1370, 70, oppC2, { stroke: 10 });
+  ctx.globalAlpha = 1;
+  stamp(top, 540, 330, 110, seg(u, .3, .5), '#fff', 0);
+  stamp('VS', 540, 1000, 200, seg(u, .4, .65), C.yellow, -.12);
+  if (sub) stamp(sub, 540, 1480, Math.min(74, 1120 / sub.length), seg(p, .65, .78), C.red, -.05);
+}
+const LOU = { wide: 1.6, num: 55, skin: '#c68642' }, TINY = { num: 1, skin: '#ffdbac' }, EARL = { num: 3, mustache: true, skin: '#f1c27d' };
+Object.assign(SCENES, {
+  signings(t, u, p) {
+    drawStadium(t); dim(.5);
+    card(70, 250, 940, 1130, seg(u, 0, .3), C.cream);
+    txt('NEW SIGNINGS', 470, 85, 70, C.ink);
+    const rows = [['LINEBACKER', 'therealmtb_44', 'linebacker'], ['TIGHT END', 'mricey12', 'tight'], ['RIGHT GUARD', 'ccilxx242', 'right'],
+                  ['GROUNDSKEEPER', 'andrew.bonsick', 'groundskeeper'], ['TICKET COLLECTOR', 'sarah52664', 'ticket']];
+    rows.forEach(([pos, name, key], i) => { const y = 210 + i * 160, at = wordP('signings', key), kk = seg(p, at - .04, at + .04);
+      ctx.save(); ctx.globalAlpha = kk; ctx.translate((1 - eOut(kk)) * 200, 0);
+      ctx.fillStyle = i < 3 ? C.teal : C.orange; rr(40, y - 62, 860, 124, 24); ctx.fill();
+      txt(pos, 80, y - 22, 40, '#fff', { align: 'left' }); txt(name, 80, y + 26, 46, C.yellow, { align: 'left', stroke: 6 });
+      if (i < 3) { drawPlayer(820, y + 58, .3, { num: [52, 88, 66][i], helmet: true, skin: ['#c68642', '#ffdbac', '#8d5524'][i] }); }
+      ctx.restore(); });
+    endCard();
+    stamp('WELCOME TO THE TEAM', W / 2, 1480, 64, seg(p, .9, .98), C.yellow, -.04);
+  },
+  hotdog(t, u, p) {
+    drawStadium(t, { excite: .3 });
+    drawBus(330, 1440, 1.0, 0);
+    withT(540, 1150, 1, -.04, () => { ctx.fillStyle = '#ff4a4a'; rr(-170, -40, 340, 80, 14); ctx.fill(); txt('HOT DOGS $1', 0, 2, 44, '#fff', { stroke: 6 }); });
+    stamp('javiviiii2', 820, 1500, 64, seg(p, .1, .25), C.yellow, -.04);
+    drawPlayer(820, 1440, .8, { num: '', pads: false, jersey: '#fff', trim: '#ff4a4a', skin: '#e0ac69', cap: '#ff4a4a', armR: 2.2 });
+    withT(890, 1180, 1, Math.sin(t * 6) * .2, () => { ctx.fillStyle = '#e9b872'; rr(-50, -14, 100, 28, 14); ctx.fill(); ctx.fillStyle = '#b5482b'; rr(-56, -8, 112, 16, 8); ctx.fill(); ctx.strokeStyle = '#ffd43b'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-40, -6); for (let i = -40; i < 40; i += 10) ctx.lineTo(i + 5, (i / 10) % 2 ? -10 : -2); ctx.stroke(); });
+    stamp('NEW STAFF', W / 2, 640, 110, seg(p, 0, .15), C.yellow, -.05);
+  },
+  b_timeout(t, u, p) {
+    drawStadium(t, { excite: .1 });
+    const to = wordP('b_timeout', 'timeout'), none = wordP('b_timeout', 'no');
+    drawPlayer(380, 1420, .7, { ...TINY, helmet: true, helmetBack: true, armL: p > to ? -1.6 : .3, armR: p > to ? 1.6 : -.3, face: p > none ? 'scared' : 'happy' });
+    if (p > to) { ctx.strokeStyle = '#ffdbac'; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(330, 1090); ctx.lineTo(430, 1090); ctx.moveTo(380, 1090); ctx.lineTo(380, 1150); ctx.stroke(); }
+    // referee with flag
+    drawPlayer(760, 1420, .8, { num: '', pads: false, jersey: '#fff', trim: '#111', skin: '#c68642', cap: '#111', flip: true, armR: p > none ? 2.6 : -.3,
+      extra: () => { ctx.fillStyle = '#111'; for (let i = -50; i < 60; i += 28) ctx.fillRect(i, -190, 12, 110); } });
+    if (p > none) { const k = seg(p, none, none + .15); withT(lerp(740, 600, k), lerp(1100, 1380, k) - Math.sin(k * Math.PI) * 200, 1, k * 8, () => { ctx.fillStyle = '#ffd43b'; rr(-30, -20, 60, 40, 6); ctx.fill(); }); }
+    stamp('TIMEOUT?', W / 2, 640, 110, seg(p, to - .02, to + .08), '#fff', -.05);
+    stamp('NONE LEFT', W / 2, 960, 120, seg(p, none, none + .1), C.red, -.06);
+    scorebug(0, 7, 'Q2', '11:40', '');
+  },
+  fund(t, u, p) {
+    drawStadium(t); dim(.4);
+    const r = rng(8);
+    for (let i = 0; i < 16; i++) { const x = 100 + r() * 880, sp = 180 + r() * 160, ph = r(); const y = 1500 - ((u * sp + ph * 900) % 900); ctx.save(); ctx.globalAlpha = .85; heart(x, y, 26 + r() * 22); ctx.restore(); }
+    card(140, 470, 800, 760, seg(u, 0, .3), '#fff');
+    txt('DAY 1 VIDEO', 400, 90, 56, '#888');
+    heart(400, 300, 150);
+    txt(Math.round(403 * eOut(seg(u, .2, 1.2))) + ' LIKES', 400, 470, 96, C.ink); txt('TikTok 392 + Instagram 11', 400, 535, 34, '#888', { weight: 700 });
+    const k = seg(p, .45, .6); ctx.save(); ctx.globalAlpha = k;
+    ctx.fillStyle = '#1f9d55'; rr(110, 580, 580, 140, 30); ctx.fill(); txt('= $403', 400, 652, 100, '#fff', { stroke: 8 }); ctx.restore();
+    endCard();
+  },
+  comment(t, u, p) {
+    drawStadium(t); dim(.45);
+    card(90, 560, 900, 420, seg(u, 0, .3), '#fff');
+    ctx.fillStyle = '#ddd'; ctx.beginPath(); ctx.arc(110, 120, 60, 0, 7); ctx.fill();
+    ctx.fillStyle = '#bbb'; ctx.beginPath(); ctx.arc(110, 105, 24, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(110, 160, 40, 22, 0, Math.PI, 0); ctx.fill();
+    txt('TOP COMMENT', 200, 80, 34, '#888', { align: 'left', weight: 800 });
+    txt('Gear', 200, 150, 90, C.ink, { align: 'left' });
+    heart(760, 140, 60); txt('13', 760, 230, 50, C.red);
+    ctx.fillStyle = '#eee'; rr(60, 270, 780, 90, 20); ctx.fill(); txt('Helmets for everyone · $50', 450, 316, 44, C.teal, { weight: 800 });
+    endCard();
+    stamp('WINNER', W / 2, 420, 140, seg(p, .2, .32), C.yellow, -.08);
+  },
+  purchase(t, u, p) {
+    drawStadium(t);
+    const xs = [170, 400, 650, 890], who = [TINY, EARL, { num: 12, skin: '#8d5524' }, LOU];
+    const ev = wordP('purchase', 'helmets'), sm = wordP('purchase', 'small');
+    xs.forEach((x, i) => { const k = seg(p, ev + i * .08, ev + i * .08 + .1); const o = { ...who[i], face: i === 3 && p > sm ? 'sad' : 'happy', hair: '#3b2a1a' };
+      if (k >= 1) { o.helmet = true; o.hair = null; if (i === 3) o.helmetSmall = true; }
+      drawPlayer(x, 1420, i === 3 ? .95 : .8, o);
+      if (k > 0 && k < 1) withT(x, lerp(-100, 1420 - (i === 3 ? 270 : 225) * (i === 3 ? .95 : .8) - 60, eIn(k)), i === 3 ? .4 : .8, k * 6, () => drawHelmet(0, 0, C.teal, C.orange)); });
+    stamp('-$50', 860, 380, 110, seg(absWord('purchase', 'fifty'), 0, 1) > 0 ? seg(p, wordP('purchase', 'fifty'), wordP('purchase', 'fifty') + .1) : 0, C.red, .06);
+    stamp('HELMETS FOR EVERYONE', W / 2, 560, 70, seg(p, ev, ev + .1), '#fff', -.04);
+    stamp('TOO SMALL', 760, 900, 76, seg(p, sm - .02, sm + .08), C.red, -.1);
+  },
+  tour2(t, u, p) {
+    drawStadium(t); ladderPost(990, 1330, 1.1);
+    const call = (label, lx, ly, tx, ty, k, col = C.red) => { if (k <= 0) return; const e = eBack(clamp(k));
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 8; ctx.setLineDash([16, 12]); ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(lerp(lx, tx, clamp(k * 1.5)), lerp(ly, ty, clamp(k * 1.5))); ctx.stroke(); ctx.setLineDash([]);
+      withT(lx, ly, e, -.04, () => { ctx.font = `900 46px ${FONT}`; const w = ctx.measureText(label).width + 60; shadowOn(12, 6); ctx.fillStyle = '#fff'; rr(-w / 2, -45, w, 90, 22); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 6; ctx.stroke(); txt(label, 0, 2, 46, col); }); };
+    call('STILL BROKEN', 330, 300, 470, 520, seg(p, wordP('tour2', 'bleachers') - .02, wordP('tour2', 'bleachers') + .08));
+    call('STILL MUD', 360, 1180, 300, 1000, seg(p, wordP('tour2', 'mud') - .02, wordP('tour2', 'mud') + .08), '#8b5a2b');
+    call('STILL A LADDER', 680, 900, 975, 1040, seg(p, wordP('tour2', 'ladder') - .02, wordP('tour2', 'ladder') + .08));
+  },
+  matchcard(t, u, p) { versus2(u, p, badgerLogo, '#3a3f4b', 'PINE HOLLOW', 'BADGERS', '#e8e8e8', 'GAME 2', 'UNBEATEN IN 4 YEARS', '0 - 1'); },
+  b_play1(t, u, p) {
+    drawStadium(t, { excite: .3 });
+    const sn = wordP('b_play1', 'snaps'); const fly = seg(p, sn, sn + .25);
+    [720, 860].forEach((x, i) => drawPlayer(x, 1400, .82, { ...BADGER, num: [44, 90][i], flip: true, helmet: true, crouch: 1, skin: ['#8d5524', '#e0ac69'][i], armsUp: i === 0 && fly > .7 }));
+    drawPlayer(200, 1420, .62, { ...TINY, helmet: true, face: fly > 0 ? 'scared' : 'happy' });
+    drawPlayer(450, 1410, .95, { ...LOU, helmet: true, helmetSmall: true, crouch: 1, face: 'happy' });
+    if (fly <= 0) drawBall(530, 1395, 1, 0); else if (fly < 1) drawBall(lerp(530, 720, fly), lerp(1395, 1180, fly) - Math.sin(fly * Math.PI) * 120, 1, fly * 10);
+    stamp('NOT SCARED', W / 2, 640, 110, seg(p, wordP('b_play1', 'scared') - .02, wordP('b_play1', 'scared') + .08), '#fff', -.05);
+    stamp('WRONG WAY', W / 2, 1000, 88, seg(p, sn + .2, sn + .3), C.red, -.06);
+    scorebug(0, 0, 'Q1', '15:00', '1ST&10');
+  },
+  b_play1_td(t, u, p) {
+    drawStadium(t, { excite: 1 });
+    const gx = lerp(720, 1250, eIn(seg(p, 0, .7)));
+    drawPlayer(gx, 1420, .82, { ...BADGER, num: 44, helmet: true, run: t * 28, skin: '#8d5524', ball: [70, -150, -.5] });
+    drawPlayer(420, 1420, .95, { ...LOU, helmet: true, helmetSmall: true, face: 'sad' });
+    stamp('PICK SIX', W / 2, 1000, 140, seg(p, .15, .3), C.red, -.06);
+    scorebug(0, p > .5 ? 7 : 0, 'Q1', '14:41', '');
+  },
+  b_montage(t, u, p) {
+    drawStadium(t, { excite: .8 });
+    const n = Math.min(3, Math.floor(p * 3.6)); const sc = 7 + n * 7;
+    for (let i = 0; i < 3; i++) { const k = seg(p, i / 3.6, (i + .8) / 3.6); if (k <= 0) continue; const x = lerp(-100, 1200, k);
+      drawPlayer(x, 1420 - i * 30, .75, { ...BADGER, num: [44, 7, 21][i], helmet: true, run: t * 28, skin: ['#8d5524', '#ffdbac', '#c68642'][i], ball: [70, -150, -.5] }); }
+    if (n > 0) stamp('TD', 250 + n * 150, 760 + n * 80, 120, 1, '#e8e8e8', (n - 2) * .1);
+    stamp('HALFTIME', W / 2, 1000, 120, seg(p, .85, .95), '#fff', -.04);
+    scorebug(0, sc, 'Q2', '0:00', '');
+  },
+  b_fg(t, u, p) {
+    const gd = wordP('b_fg', 'right'); const kick = wordP('b_fg', 'kicks');
+    drawStadium(t, { excite: p > gd ? 1 : .2 });
+    ladderPost(930, 1330, 1.1);
+    const kk = seg(p, kick, kick + .06);
+    drawPlayer(170, 1420, .82, { ...EARL, helmet: true, rot: kk > 0 && kk < 1 ? -.15 : 0, armsUp: p > gd });
+    const f = seg(p, kick + .03, gd);
+    if (f <= 0) drawBall(240, 1400, 1, 0); else drawBall(lerp(240, 935, f), lerp(1400, 900, f) - Math.sin(f * Math.PI) * 520, 1, f * 20);
+    stamp('60 YARDS', W / 2, 640, 110, seg(p, kick, kick + .1), '#fff', -.05);
+    stamp("IT'S GOOD!", W / 2, 1000, 150, seg(p, gd - .02, gd + .08), C.yellow, -.06);
+    if (p > gd) confetti(absWord('b_fg', 'right'), t);
+    scorebug(p > gd ? 3 : 0, 28, 'Q3', '9:12', 'FG');
+  },
+  b_tiny(t, u, p) {
+    drawStadium(t, { excite: .3 });
+    const hit = wordP('b_tiny', 'hit'); const sp = seg(p, hit, wordP('b_tiny', 'backwards') + .05);
+    const bx = lerp(900, 560, eIn(seg(p, 0, hit)));
+    drawPlayer(380, 1420 + (p > hit ? 0 : 0), .62, { ...TINY, helmet: true, helmetBack: sp > .5, helmetSpin: sp > 0 && sp < 1 ? sp * 12 : 0, face: p > hit ? 'scared' : 'happy', rot: p > hit ? -.25 : 0 });
+    drawPlayer(bx, 1420, .9, { ...BADGER, num: 90, helmet: true, flip: true, run: p < hit ? t * 24 : 0, skin: '#e0ac69' });
+    if (p > hit) for (let i = 0; i < 4; i++) { const a = t * 6 + i * 1.57; txt('★', 380 + Math.cos(a) * 80, 1150 + Math.sin(a) * 26, 36, C.yellow, { stroke: 4 }); }
+    stamp('BACKWARDS', W / 2, 760, 110, seg(p, wordP('b_tiny', 'backwards') - .02, wordP('b_tiny', 'backwards') + .08), C.red, -.06);
+    scorebug(3, 28, 'Q4', '0:02', '');
+  },
+  standings(t, u, p) {
+    drawStadium(t); dim(.45);
+    card(70, 260, 940, 1180, seg(u, 0, .35), '#fff');
+    txt('LEAGUE TABLE', 470, 90, 64, C.ink);
+    const rows = [['Pine Hollow Badgers', '2-0'], ['Red Rock Rattlers', '2-0'], ['Dry Gulch Gophers', '1-1'], ['Big Muddy Catfish', '1-1'], ['Twin Forks Turkeys', '1-1'], ['Cedar Bluff Moose', '1-1'], ['Salt Flats Snails', '0-2'], ['MUDVILLE POSSUMS', '0-2']];
+    txt('TEAM', 90, 170, 30, '#888', { align: 'left', weight: 800 }); txt('W-L', 800, 170, 30, '#888', { weight: 800 });
+    rows.forEach(([n, wl], i) => { const y = 240 + i * 110, last = i === 7, kk = seg(p, .1 + i * .04, .2 + i * .04);
+      ctx.save(); ctx.globalAlpha = kk;
+      if (last) { ctx.fillStyle = '#ffe3e3'; rr(30, y - 46, 880, 92, 18); ctx.fill(); ctx.strokeStyle = C.red; ctx.lineWidth = 6; ctx.stroke(); }
+      txt(String(i + 1), 70, y, 42, last ? C.red : C.ink); txt(n, 120, y, 42, last ? C.red : C.ink, { align: 'left', weight: last ? 900 : 700 }); txt(wl, 800, y, 42, last ? C.red : C.ink);
+      ctx.restore(); });
+    txt('FINAL: POSSUMS 3, BADGERS 28', 470, 1110, 46, C.ink);
+    endCard();
+    stamp('WE SCORED!', W / 2, 205, 90, seg(p, wordP('standings', 'but') - .02, wordP('standings', 'but') + .1), C.yellow, -.05);
+  },
+  nextgame(t, u, p) { versus2(u, p, rattlerLogo, '#9d0208', 'RED ROCK', 'RATTLERS', '#ffba08', 'TOMORROW', "HAVEN'T ALLOWED A POINT", '0 - 2'); },
+  cta(t, u, p) {
+    drawStadium(t, { excite: .2 }); dim(.45);
+    withT(W / 2, 330, eBack(seg(u, 0, .3)), -.04, () => { shadowOn(16, 8); ctx.fillStyle = '#1f9d55'; rr(-420, -85, 840, 170, 30); ctx.fill(); ctx.shadowColor = 'transparent';
+      ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, -22, 76, '#fff', { stroke: 8 }); txt('ON THIS VIDEO', 0, 50, 40, C.yellow, { stroke: 6 }); });
+    const k2 = seg(p, wordP('cta', 'most') - .05, wordP('cta', 'most') + .05);
+    if (k2 > 0) withT(W / 2, 930, eBack(k2), 0, () => {
+      shadowOn(20, 10); ctx.fillStyle = C.cream; rr(-430, -470, 860, 900, 40); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
+      txt('UPGRADE SHOP', 0, -395, 72, C.ink);
+      const items = [['STANDS', 'seats that hold people', '$250', 'stands'], ['FIELD', 'actual grass', '$500', 'field'], ['GOAL POSTS', 'not a ladder', '$100', 'goal'], ['SCOREBOARD', 'we have none', '$150', 'scoreboard'], ['LOCKER ROOM', 'not a porta-potty', '$200', null]].map(([a, b, c, key]) => [a, b, c, key ? wordP('cta', key) : 9]);
+      items.forEach(([n, sub, pr, at], i) => { const y = -280 + i * 140; const nx = items.slice(i + 1).map(x => x[3]).find(a => a < 9); const on = at < 9 && p >= at - .01 && (nx === undefined || p < nx - .01);
+        ctx.fillStyle = on ? C.yellow : '#fff'; rr(-390, y - 58, 780, 116, 24); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.stroke();
+        txt(n, -360, y - 14, 50, C.ink, { align: 'left' }); txt(sub, -360, y + 30, 30, '#666', { align: 'left', weight: 600 }); txt(pr, 360, y, 54, '#1f9d55', { align: 'right' }); });
+    });
+    const k3 = seg(p, .88, .98);
+    if (k3 > 0) { const yb = Math.sin(t * 8) * 14; withT(W / 2, 1490 + yb, eBack(k3), -.03, () => { txt('MOST-LIKED COMMENT WINS', 0, 0, 64, C.yellow, { stroke: 12 }); txt('COMMENT BELOW', 0, 70, 40, '#fff', { stroke: 8 }); }); }
+  },
+});
+</script>
+<script>
+// ======================= DAY 3 =======================
+const _SB = scorebug; scorebug = (...a) => { window.SBARGS = a; };  // scoreboard drawn on screen (not zoomed by the camera)
+OPP.abbr = 'RRR';
+const RAT = { jersey: '#9d0208', trim: '#ffba08' };
+const QB = { num: 7, skin: '#8d5524' }, WR = { num: 11, skin: '#e0ac69' }, DL = { num: 90, skin: '#c68642', wide: 1.2 }, LB = { num: 54, skin: '#ffdbac' }, CB = { num: 24, skin: '#8d5524' };
+function abs3(scene, key) { const L = sceneLine(scene); return L.start + wordP(scene, key) * (L.end - L.start); }
+function kw(scene, key, p, d = .08) { const w = wordP(scene, key); return seg(p, w - .02, w + d); }
+function lockerShown() { return T_NOW > abs3('locker', 'two') + .3 || TL.lines.some(l => l.cold && T_NOW < l.end + 1.2); }
+function fundCont(t) { const L = sceneLine('fund3'); if (!L || t < L.start) return 353; let v = 353 + 706 * eOut(seg(t, L.start + .15, L.start + 1.5)); const a = abs3('locker', 'two'); if (t > a) v = 1059 - 200 * seg(t, a, a + .6); return v; }
+function fundAt(t) { return Math.round(fundCont(t)); }
+function T_FLASH(t) { const L = sceneLine('fund3'), a = abs3('locker', 'two'); if (L && t > L.start + 1.5 && t < L.start + 2.3) return 1; if (t > a + .6 && t < a + 1.3) return -1; return 0; }
+function tag(x, y, name, col = C.yellow) { ctx.save(); ctx.font = `900 34px ${FONT}`; const w = ctx.measureText(name).width + 40; shadowOn(8, 4); ctx.fillStyle = C.ink; rr(x - w / 2, y - 28, w, 56, 16); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.restore(); txt(name, x, y + 2, 34, col); }
+function drawShed(x, y, s, open) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  ctx.fillStyle = '#a0522d'; rr(-180, -300, 360, 300, 8); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); ctx.strokeStyle = 'rgba(0,0,0,.18)'; ctx.lineWidth = 4; for (let xx = -150; xx < 180; xx += 40) { ctx.beginPath(); ctx.moveTo(xx, -296); ctx.lineTo(xx, -4); ctx.stroke(); }
+  ctx.fillStyle = '#6b3f22'; ctx.beginPath(); ctx.moveTo(-215, -290); ctx.lineTo(0, -420); ctx.lineTo(215, -290); ctx.closePath(); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
+  ctx.fillStyle = '#2b1a10'; rr(-90, -230, 180, 230, 6); ctx.fill(); if (open) { for (let i = 0; i < 3; i++) { ctx.fillStyle = ['#9aa5b1', '#8a95a1', '#9aa5b1'][i]; rr(-80 + i * 56, -215, 48, 210, 6); ctx.fill(); ctx.fillStyle = '#5a6570'; for (let q = 0; q < 4; q++) ctx.fillRect(-72 + i * 56, -200 + q * 10, 32, 4); } ctx.fillStyle = '#c0703a'; ctx.beginPath(); ctx.moveTo(90, -230); ctx.lineTo(170, -250); ctx.lineTo(170, 20); ctx.lineTo(90, 0); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+  else { ctx.fillStyle = '#c0703a'; rr(-90, -230, 180, 230, 6); ctx.fill(); ctx.stroke(); circ3(60, -110, 10, '#ffd43b'); }
+  ctx.fillStyle = '#f5ecd0'; rr(-150, -360, 300, 60, 10); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.stroke(); ctx.fillStyle = C.ink; ctx.font = `900 40px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('LOCKER ROOM', 0, -328);
+  ctx.restore(); }
+function circ3(x, y, r, c) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
+function portaPotty(x, y, s, rot) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s); ctx.fillStyle = '#3a7bd5'; rr(-50, -170, 100, 170, 10); ctx.fill(); ctx.fillStyle = '#2c5fa8'; rr(-56, -186, 112, 24, 10); ctx.fill(); ctx.fillStyle = '#fff'; ctx.font = `800 15px ${FONT}`; ctx.textAlign = 'center'; ctx.fillText('LOCKER', 0, -120); ctx.fillText('ROOM', 0, -102); ctx.restore(); }
+function frogLogo(x, y, r) { ctx.save(); ctx.translate(x, y); const k = r / 100; ctx.fillStyle = '#2d6a4f'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = '#b7e4c7'; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.fillStyle = '#74c69d'; ctx.beginPath(); ctx.ellipse(0, 20 * k, 70 * k, 48 * k, 0, 0, 7); ctx.fill(); for (const sd of [-1, 1]) { ctx.fillStyle = '#74c69d'; ctx.beginPath(); ctx.arc(sd * 36 * k, -30 * k, 24 * k, 0, 7); ctx.fill(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(sd * 36 * k, -32 * k, 14 * k, 0, 7); ctx.fill(); ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(sd * 36 * k, -30 * k, 7 * k, 0, 7); ctx.fill(); }
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 6 * k; ctx.beginPath(); ctx.arc(0, 18 * k, 40 * k, .2, Math.PI - .2); ctx.stroke(); ctx.restore(); }
+function poms(x, y, t) { for (const sd of [-1, 1]) { const yy = y - 40 + Math.sin(t * 14 + sd) * 30; for (let i = 0; i < 9; i++) { const a = i / 9 * 6.28; ctx.fillStyle = i % 2 ? C.orange : C.teal; ctx.beginPath(); ctx.arc(x + sd * 90 + Math.cos(a) * 26, yy + Math.sin(a) * 26, 16, 0, 7); ctx.fill(); } } }
+Object.assign(SCENES, {
+  fund3(t, u, p) { drawStadium(t); dim(.4); const r = rng(8);
+    for (let i = 0; i < 18; i++) { const x = 100 + r() * 880, sp = 180 + r() * 160, ph = r(); const y = 1500 - ((u * sp + ph * 900) % 900); ctx.save(); ctx.globalAlpha = .85; heart(x, y, 26 + r() * 22); ctx.restore(); }
+    card(140, 430, 800, 800, seg(u, 0, .3), '#fff'); txt('DAY 2 VIDEO', 400, 90, 56, '#888'); heart(400, 290, 150);
+    txt(Math.round(706 * eOut(seg(u, .1, 1.2))) + ' LIKES', 400, 460, 96, C.ink); txt('TikTok 516 + Instagram 190', 400, 525, 34, '#888', { weight: 700 });
+    const k = seg(p, .35, .5); ctx.save(); ctx.globalAlpha = k; ctx.fillStyle = '#1f9d55'; rr(110, 580, 580, 140, 30); ctx.fill(); txt('= $706', 400, 652, 100, '#fff', { stroke: 8 }); ctx.restore(); endCard();
+    stamp('$1,059 IN THE BANK', W / 2, 1380, 84, kw('fund3', 'thousand', p), C.yellow, -.05); },
+  comment3(t, u, p) { drawStadium(t); dim(.45); card(90, 560, 900, 420, seg(u, 0, .3), '#fff');
+    ctx.fillStyle = '#ddd'; ctx.beginPath(); ctx.arc(110, 120, 60, 0, 7); ctx.fill(); ctx.fillStyle = '#bbb'; ctx.beginPath(); ctx.arc(110, 105, 24, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(110, 160, 40, 22, 0, Math.PI, 0); ctx.fill();
+    txt('dont.cross.me3', 200, 80, 34, '#888', { align: 'left', weight: 800 }); txt('locker room', 200, 150, 84, C.ink, { align: 'left' });
+    heart(780, 140, 60); txt('2', 780, 230, 50, C.red); ctx.fillStyle = '#eee'; rr(60, 270, 780, 90, 20); ctx.fill(); txt('Locker room · $200', 450, 316, 44, C.teal, { weight: 800 }); endCard();
+    stamp('WINNER', W / 2, 420, 140, seg(p, .15, .27), C.yellow, -.08);
+    stamp('GOODBYE PORTA POTTY', W / 2, 1180, 70, kw('comment3', 'goodbye', p), C.red, .04); },
+  locker(t, u, p) { drawStadium(t); const tw = wordP('locker', 'two'), sh = wordP('locker', 'shed'), lk = wordP('locker', 'lockers');
+    const out = seg(p, tw, tw + .25); if (out < 1) portaPotty(lerp(300, -300, eIn(out)), 1400, 2.2, -.06 - out * .5);
+    const inn = eBack(seg(p, tw + .1, tw + .3)); if (inn > 0) withT(560, 1430, inn, 0, () => drawShed(0, 0, 1.25, p > lk - .03));
+    drawPlayer(170, 1450, .55, { ...TINY, helmet: true, face: p > lk ? 'happy' : 'scared', emote: p > sh && p < lk ? '?' : null }); drawPlayer(930, 1450, .8, { ...LOU, helmet: true, helmetSmall: true, face: 'happy', armsUp: p > lk, emote: p > lk ? 'heart' : null });
+    stamp('-$200', 760, 440, 110, kw('locker', 'two', p), C.red, .06);
+    stamp("IT'S A SHED", W / 2, 620, 100, kw('locker', 'shed', p), '#fff', -.05);
+    stamp('WITH LOCKERS!', W / 2, 800, 100, kw('locker', 'lockers', p), C.yellow, .04); },
+  signings3(t, u, p) { drawStadium(t); dim(.5); card(70, 250, 940, 1130, seg(u, 0, .3), C.cream); txt('NEW SIGNINGS', 470, 80, 68, C.ink);
+    const rows = [['QUARTERBACK', 'j065336', 'quarterback', QB], ['WIDE RECEIVER', 'dont.cross.me3', 'receiver', WR], ['D-LINE', 'battt055', 'lineman', DL], ['LINEBACKER', 'camirvine54', 'linebacker', LB], ['CORNERBACK', 'kiosk229', 'cornerback', CB], ['ASSISTANT COACH', 'hi453470', 'assistant', null], ['HEAD CHEERLEADER', 'dih0423', 'cheerleader', null]];
+    rows.forEach(([pos, name, key, o], i) => { const y = 200 + i * 132, kk = kw('signings3', key, p, .05); ctx.save(); ctx.globalAlpha = kk; ctx.translate((1 - eOut(kk)) * 200, 0);
+      ctx.fillStyle = o ? C.teal : C.orange; rr(40, y - 58, 860, 116, 24); ctx.fill(); txt(pos, 80, y - 20, 36, '#fff', { align: 'left' }); txt(name, 80, y + 26, 44, C.yellow, { align: 'left', stroke: 6 });
+      if (o) drawPlayer(820, y + 54, .27, { ...o, helmet: true }); ctx.restore(); });
+    endCard(); stamp('WELCOME TO THE TEAM', W / 2, 1480, 64, seg(p, .93, .99), C.yellow, -.04); },
+  matchcard3(t, u, p) { versus2(u, p, rattlerLogo, '#9d0208', 'RED ROCK', 'RATTLERS', '#ffba08', 'GAME 3', "HAVEN'T ALLOWED A POINT", '0 - 2'); },
+  r_kick(t, u, p) { drawStadium(t, { excite: .3 }); const tk = wordP('r_kick', 'lou');
+    const rx = lerp(1250, -250, eIn(seg(p, .05, 1))); drawPlayer(rx, 1430, .82, { ...RAT, num: 22, helmet: true, flip: true, run: t * 28, skin: '#e0ac69', ball: [70, -150, -.5] });
+    const hit = p > tk; const dx = hit ? 400 : lerp(-150, 330, eIn(seg(p, .25, tk)));
+    drawPlayer(470, 1420, .95, { ...LOU, helmet: true, helmetSmall: true, face: hit ? 'scared' : 'happy', rot: hit ? .5 : 0 });
+    drawPlayer(dx, 1425, .85, { ...DL, helmet: true, run: hit ? 0 : t * 26, rot: hit ? .35 : 0 }); if (p > .25) tag(dx, 1060, 'battt055');
+    if (hit) for (let i = 0; i < 4; i++) { const a = t * 6 + i * 1.57; txt('★', 470 + Math.cos(a) * 90, 1150 + Math.sin(a) * 26, 38, C.yellow, { stroke: 4 }); }
+    stamp('FIRST TACKLE', W / 2, 620, 100, kw('r_kick', 'tackle', p), '#fff', -.05); stamp('WRONG GUY', W / 2, 820, 120, seg(p, tk, tk + .08), C.red, .05);
+    scorebug(0, 0, 'Q1', '15:00', 'KICK'); },
+  r_pick(t, u, p) { drawStadium(t, { excite: p > wordP('r_pick', 'picks') ? 1 : .3 }); const pk = wordP('r_pick', 'picks');
+    drawPlayer(900, 1420, .85, { ...RAT, num: 12, helmet: true, flip: true, armR: p < pk - .1 ? 2.4 : -.3, skin: '#ffdbac', face: p > pk ? 'scared' : 'happy' });
+    const f = seg(p, 0, pk); const cx = lerp(870, 380, f), cy = lerp(1180, 1110, f) - Math.sin(f * Math.PI) * 300; if (p < pk) drawBall(cx, cy, 1.1, f * 8);
+    drawPlayer(380, 1420, .85, { ...CB, helmet: true, armsUp: p > pk - .05, face: 'happy', emote: p > pk ? '!' : null, ball: p > pk ? [0, -330, 0] : null }); tag(380, 1050 - (p > pk ? 70 : 0), 'kiosk229');
+    stamp('INTERCEPTION!', W / 2, 620, 96, seg(p, pk, pk + .08), C.yellow, -.06); stamp('FIRST IN TEAM HISTORY', W / 2, 800, 70, kw('r_pick', 'first', p), '#fff', .04);
+    if (p > pk) confetti(abs3('r_pick', 'picks'), t); scorebug(0, 0, 'Q1', '11:02', 'INT'); },
+  r_huddle(t, u, p) { drawStadium(t); const sm = wordP('r_huddle', 'smiley');
+    drawPlayer(200, 1440, .6, { ...TINY, helmet: true, emote: p > sm ? '?' : null }); drawPlayer(860, 1440, .9, { ...LOU, helmet: true, helmetSmall: true, emote: p > sm ? '?' : null }); drawPlayer(700, 1450, .8, { ...EARL, helmet: true });
+    drawPlayer(420, 1450, .85, { num: '', pads: false, jersey: '#fff', trim: C.teal, skin: '#c68642', cap: C.teal, armR: 1.4, face: 'happy' }); tag(420, 1080, 'hi453470', '#fff');
+    withT(560, 760, eBack(seg(p, .05, .2)), -.04, () => { ctx.fillStyle = '#8b5a2b'; rr(-260, -330, 520, 660, 24); ctx.fill(); ctx.fillStyle = '#f5f5f0'; rr(-230, -280, 460, 590, 12); ctx.fill(); ctx.fillStyle = '#999'; rr(-70, -350, 140, 50, 10); ctx.fill();
+      txt('THE PLAY', 0, -220, 54, C.ink); const k = seg(p, sm - .25, sm); ctx.strokeStyle = C.ink; ctx.lineWidth = 12; ctx.lineCap = 'round';
+      if (k > 0) { ctx.beginPath(); ctx.arc(0, 40, 150, 0, Math.PI * 2 * Math.min(1, k * 1.5)); ctx.stroke(); }
+      if (k > .5) { circ3(-55, -10, 18, C.ink); circ3(55, -10, 18, C.ink); } if (k > .8) { ctx.beginPath(); ctx.arc(0, 50, 80, .25, Math.PI - .25); ctx.stroke(); } });
+    stamp('A SMILEY FACE', W / 2, 1260, 90, seg(p, sm, sm + .08), C.yellow, .05); scorebug(0, 0, 'Q2', '4:15', 'HUDDLE'); },
+  r_td(t, u, p) { const th = wordP('r_td', 'throws'), td = wordP('r_td', 'touchdown'); drawStadium(t, { excite: p > td ? 1 : .3 }); ladderPost(990, 1330, 1.1);
+    drawPlayer(200, 1430, .85, { ...QB, helmet: true, armR: p > th - .05 && p < th + .1 ? 2.6 : -.3, armsUp: p > td, face: 'happy' }); tag(200, 1060, 'j065336');
+    const wx = lerp(500, 840, eOut(seg(p, 0, td))); drawPlayer(wx, 1430, .85, { ...WR, helmet: true, run: p < td ? t * 26 : 0, armsUp: p > td - .03, ball: p > td ? [0, -330, 0] : null, emote: p > td ? 'heart' : null }); tag(wx, 1060 - (p > td ? 80 : 0), 'dont.cross.me3');
+    drawPlayer(lerp(700, 980, eOut(seg(p, 0, td))), 1440, .8, { ...RAT, num: 31, helmet: true, flip: true, run: t * 24, skin: '#8d5524', face: p > td ? 'sad' : 'happy' });
+    const f = seg(p, th, td); if (f > 0 && f < 1) drawBall(lerp(260, wx, f), lerp(1120, 1110, f) - Math.sin(f * Math.PI) * 520, 1.1, f * 14);
+    stamp('TOUCHDOWN!', W / 2, 640, 112, seg(p, td, td + .08), C.yellow, -.06); stamp('FIRST IN POSSUMS HISTORY', W / 2, 830, 58, kw('r_td', 'first', p), '#fff', .04);
+    if (p > td) confetti(abs3('r_td', 'touchdown'), t); scorebug(p > td ? 7 : 0, 0, 'Q2', '0:41', p > td ? 'TD!' : '2ND&9'); },
+  r_cheer(t, u, p) { const lo = wordP('r_cheer', 'loud'), cw = wordP('r_cheer', 'cow'); drawStadium(t, { excite: p > lo ? 1 : .5 });
+    const jump = Math.abs(Math.sin(t * 7)) * 50; drawPlayer(540, 1450 - jump, .9, { num: '', pads: false, jersey: C.orange, trim: C.teal, skin: '#ffdbac', hair: '#3b2a1a', armsUp: true, face: 'happy' }); poms(540, 1450 - jump - 230, t); tag(540, 1000 - jump, 'dih0423');
+    if (p > lo) for (let i = 0; i < 3; i++) { const r = 80 + ((t * 300 + i * 120) % 360); ctx.strokeStyle = `rgba(255,255,255,${1 - r / 440})`; ctx.lineWidth = 8; ctx.beginPath(); ctx.arc(540, 1080, r, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke(); }
+    stamp('GO TEAM!', W / 2, 640, 130, kw('r_cheer', 'loud', p), C.yellow, -.06); bubble(760, 520, .8, 'MOOOO!', seg(p, cw - .02, cw + .08));
+    scorebug(7, 0, 'Q2', '0:00', 'HALF'); },
+  r_montage(t, u, p) { drawStadium(t, { excite: .8 }); const n = Math.min(4, Math.floor(p * 4.8));
+    for (let i = 0; i < 4; i++) { const k = seg(p, i / 4.8, (i + .8) / 4.8); if (k <= 0) continue; drawPlayer(lerp(-100, 1200, k), 1430 - i * 25, .78, { ...RAT, num: [22, 8, 31, 5][i], helmet: true, run: t * 28, skin: ['#e0ac69', '#ffdbac', '#8d5524', '#c68642'][i], ball: [70, -150, -.5] }); }
+    if (n > 0) stamp('TD', 230 + n * 140, 720 + n * 70, 120, 1, '#ffba08', (n - 2) * .1);
+    stamp('FINAL', W / 2, 1050, 130, seg(p, .88, .97), '#fff', -.04); scorebug(7, n * 7, 'Q4', n >= 4 ? '0:00' : '8:20', ''); },
+  standings3(t, u, p) { drawStadium(t); dim(.45); card(70, 260, 940, 1180, seg(u, 0, .35), '#fff'); txt('LEAGUE TABLE', 470, 90, 64, C.ink);
+    const rows = [['Pine Hollow Badgers', '3-0'], ['Red Rock Rattlers', '3-0'], ['Dry Gulch Gophers', '2-1'], ['Bogtown Bullfrogs', '2-1'], ['Big Muddy Catfish', '1-2'], ['Cedar Bluff Moose', '1-2'], ['Salt Flats Snails', '1-2'], ['MUDVILLE POSSUMS', '0-3']];
+    txt('TEAM', 90, 170, 30, '#888', { align: 'left', weight: 800 }); txt('W-L', 800, 170, 30, '#888', { weight: 800 });
+    rows.forEach(([n, wl], i) => { const y = 240 + i * 110, last = i === 7, kk = seg(p, .05 + i * .04, .15 + i * .04); ctx.save(); ctx.globalAlpha = kk;
+      if (last) { ctx.fillStyle = '#ffe3e3'; rr(30, y - 46, 880, 92, 18); ctx.fill(); ctx.strokeStyle = C.red; ctx.lineWidth = 6; ctx.stroke(); }
+      txt(String(i + 1), 70, y, 42, last ? C.red : C.ink); txt(n, 120, y, 42, last ? C.red : C.ink, { align: 'left', weight: last ? 900 : 700 }); txt(wl, 800, y, 42, last ? C.red : C.ink); ctx.restore(); });
+    txt('FINAL: RATTLERS 28, POSSUMS 7', 470, 1110, 46, C.ink); endCard();
+    stamp('STREAK BROKEN!', W / 2, 205, 90, kw('standings3', 'streak', p), C.yellow, -.05); },
+  nextgame3(t, u, p) { versus2(u, p, frogLogo, '#2d6a4f', 'BOGTOWN', 'BULLFROGS', '#b7e4c7', 'TOMORROW', 'BIGGEST TEAM IN THE LEAGUE', '0 - 3'); },
+  cta3(t, u, p) { drawStadium(t, { excite: .2 }); dim(.45);
+    withT(W / 2, 330, eBack(seg(u, 0, .3)), -.04, () => { shadowOn(16, 8); ctx.fillStyle = '#1f9d55'; rr(-420, -85, 840, 170, 30); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, -22, 76, '#fff', { stroke: 8 }); txt('ON THIS VIDEO', 0, 50, 40, C.yellow, { stroke: 6 }); });
+    const k2 = seg(p, wordP('cta3', 'most') - .05, wordP('cta3', 'most') + .05);
+    if (k2 > 0) withT(W / 2, 900, eBack(k2), 0, () => { shadowOn(20, 10); ctx.fillStyle = C.cream; rr(-430, -400, 860, 760, 40); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('UPGRADE SHOP', 0, -325, 72, C.ink);
+      const items = [['STANDS', 'seats that hold people', '$250', 'stands'], ['FIELD', 'actual grass', '$500', 'grass'], ['GOAL POSTS', 'not a ladder', '$100', 'goal'], ['SCOREBOARD', 'we have none', '$150', 'scoreboard']].map(([a, b, c, key]) => [a, b, c, wordP('cta3', key)]);
+      items.forEach(([n, sub, pr, at], i) => { const y = -200 + i * 140, nx = items[i + 1] ? items[i + 1][3] : 9, on = p >= at - .01 && p < nx - .01 && p < wordP('cta3', 'want');
+        ctx.fillStyle = on ? C.yellow : '#fff'; rr(-390, y - 58, 780, 116, 24); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.stroke();
+        txt(n, -360, y - 14, 50, C.ink, { align: 'left' }); txt(sub, -360, y + 30, 30, '#666', { align: 'left', weight: 600 }); txt(pr, 360, y, 54, '#1f9d55', { align: 'right' }); }); });
+    const k3 = seg(p, wordP('cta3', 'comment') - .03, wordP('cta3', 'comment') + .05);
+    if (k3 > 0) { const yb = Math.sin(t * 8) * 14; withT(W / 2, 1400 + yb, eBack(k3), -.03, () => { txt('COMMENT YOUR POSITION', 0, 0, 62, C.yellow, { stroke: 12 }); txt('TO JOIN THE TEAM', 0, 70, 40, '#fff', { stroke: 8 }); }); } },
+});
+</script>
+<script>
+// ======================= DAY 4 =======================
+OPP.abbr = 'BOG'; NOFX.push('matchcard4', 'nextgame4');
+const FROG = { jersey: '#2d6a4f', trim: '#b7e4c7' };
+const OL4 = { num: 72, skin: '#e0ac69', wide: 1.4 }, RB4 = { num: 22, skin: '#8d5524' }, SF4 = { num: 21, skin: '#c68642' }, DL4 = { num: 94, skin: '#8d5524', wide: 1.3 },
+  WR4 = { num: 80, skin: '#ffdbac' }, CB4 = { num: 16, skin: '#e0ac69' }, QB24 = { num: 12, skin: '#c68642' }, K4 = { num: 4, skin: '#ffdbac' };
+function lockerShown() { return true; }
+function abs4(scene, key) { const L = sceneLine(scene); return L ? L.start + wordP(scene, key) * (L.end - L.start) : 1e9; }
+function grassShown() { return T_NOW > abs4('field', 'five') + 1.4 || TL.lines.some(l => l.cold && T_NOW < l.end + 1.2); }
+function fundCont(t) { const L = sceneLine('fund4'); if (!L || t < L.start) return 859; let v = 859 + 1131 * eOut(seg(t, L.start + .15, L.start + 1.5)); const a = abs4('field', 'five'); if (t > a) v = 1990 - 500 * seg(t, a, a + .6); return v; }
+function fundAt(t) { return Math.round(fundCont(t)); }
+function T_FLASH(t) { const L = sceneLine('fund4'), a = abs4('field', 'five'); if (L && t > L.start + 1.5 && t < L.start + 2.3) return 1; if (t > a + .6 && t < a + 1.3) return -1; return 0; }
+function grassField(x1 = W, puddle = false) { ctx.save(); ctx.beginPath(); ctx.rect(-300, 776, x1 + 300, H); ctx.clip();
+  for (let i = -3; i < 12; i++) { ctx.fillStyle = i % 2 ? '#3f9a3a' : '#48a843'; ctx.fillRect(i * 120, 776, 120, H - 776); }
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 8; for (let i = -2; i < 11; i += 2) { ctx.beginPath(); ctx.moveTo(i * 120, 776); ctx.lineTo(i * 120, H); ctx.stroke(); }
+  ctx.fillStyle = 'rgba(255,255,255,.85)'; for (let i = -2; i < 11; i++) for (const y of [1150, 1600]) ctx.fillRect(i * 120 - 4, y, 8, 26);
+  const r = rng(77); ctx.strokeStyle = 'rgba(30,90,30,.5)'; ctx.lineWidth = 3; for (let i = 0; i < 70; i++) { const x = r() * W, y = 800 + r() * 1100; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 4, y - 14); ctx.moveTo(x, y); ctx.lineTo(x + 4, y - 12); ctx.stroke(); }
+  if (puddle) { ctx.fillStyle = '#8b6b3e'; ctx.beginPath(); ctx.ellipse(640, 1460, 150, 40, 0, 0, 7); ctx.fill(); ctx.fillStyle = '#7a5c33'; ctx.beginPath(); ctx.ellipse(650, 1464, 90, 22, 0, 0, 7); ctx.fill(); }
+  ctx.restore(); }
+const _DS3 = drawStadium; drawStadium = function (t, o = {}) { _DS3(t, o); if (grassShown()) grassField(W, o.puddle); };
+function snailLogo(x, y, r) { ctx.save(); ctx.translate(x, y); const k = r / 100; ctx.fillStyle = '#7b4fa0'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = '#e9d8a6'; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.fillStyle = '#e9d8a6'; ctx.beginPath(); ctx.ellipse(-5 * k, 40 * k, 75 * k, 22 * k, 0, 0, 7); ctx.fill(); ctx.fillStyle = '#c98b4a'; ctx.beginPath(); ctx.arc(10 * k, -5 * k, 48 * k, 0, 7); ctx.fill();
+  ctx.strokeStyle = '#7a4a1a'; ctx.lineWidth = 7 * k; ctx.beginPath(); for (let a = 0; a < 12; a += .2) { const rr2 = 4 * k + a * 3.4 * k; ctx.lineTo(10 * k + Math.cos(a) * rr2, -5 * k + Math.sin(a) * rr2); } ctx.stroke();
+  ctx.strokeStyle = '#e9d8a6'; ctx.lineWidth = 6 * k; ctx.beginPath(); ctx.moveTo(-60 * k, 30 * k); ctx.lineTo(-72 * k, -30 * k); ctx.moveTo(-50 * k, 30 * k); ctx.lineTo(-48 * k, -26 * k); ctx.stroke(); ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(-72 * k, -32 * k, 6 * k, 0, 7); ctx.arc(-48 * k, -28 * k, 6 * k, 0, 7); ctx.fill(); ctx.restore(); }
+function sodRoll(x, y, t) { ctx.save(); ctx.translate(x, y); ctx.fillStyle = '#3f9a3a'; ctx.beginPath(); ctx.ellipse(0, 0, 70, 560, 0, 0, 7); ctx.fill(); ctx.strokeStyle = '#2d6e2a'; ctx.lineWidth = 6; ctx.stroke(); ctx.fillStyle = '#7a5c33'; ctx.beginPath(); ctx.ellipse(-20, 0, 30, 540, 0, 0, 7); ctx.fill(); ctx.restore(); }
+Object.assign(SCENES, {
+  fund4(t, u, p) { drawStadium(t); dim(.4); const r = rng(8);
+    for (let i = 0; i < 22; i++) { const x = 100 + r() * 880, sp = 180 + r() * 160, ph = r(); const y = 1500 - ((u * sp + ph * 900) % 900); ctx.save(); ctx.globalAlpha = .85; heart(x, y, 26 + r() * 22); ctx.restore(); }
+    card(140, 430, 800, 800, seg(u, 0, .3), '#fff'); txt('DAY 3 VIDEO', 400, 90, 56, '#888'); heart(400, 290, 150);
+    txt(Math.round(1131 * eOut(seg(u, .1, 1.2))).toLocaleString('en-US') + ' LIKES', 400, 460, 92, C.ink, { maxW: 740 }); txt('TikTok 1,034 + Instagram 97', 400, 525, 34, '#888', { weight: 700 });
+    const k = seg(p, .3, .45); ctx.save(); ctx.globalAlpha = k; ctx.fillStyle = '#1f9d55'; rr(90, 580, 620, 140, 30); ctx.fill(); txt('= $1,131', 400, 652, 100, '#fff', { stroke: 8 }); ctx.restore(); endCard();
+    stamp('$1,990 IN THE BANK', W / 2, 1380, 84, kw('fund4', 'thousand', p), C.yellow, -.05); },
+  comment4(t, u, p) { drawStadium(t); dim(.45); card(90, 560, 900, 420, seg(u, 0, .3), '#fff');
+    ctx.fillStyle = '#ddd'; ctx.beginPath(); ctx.arc(110, 120, 60, 0, 7); ctx.fill(); ctx.fillStyle = '#bbb'; ctx.beginPath(); ctx.arc(110, 105, 24, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(110, 160, 40, 22, 0, Math.PI, 0); ctx.fill();
+    txt('drew21762', 200, 70, 34, '#888', { align: 'left', weight: 800 }); txt('O line and u should', 200, 128, 52, C.ink, { align: 'left' }); txt('get a new field', 200, 190, 52, C.ink, { align: 'left' });
+    heart(800, 140, 60); txt('9', 800, 230, 50, C.red); ctx.fillStyle = '#eee'; rr(60, 270, 780, 90, 20); ctx.fill(); txt('Field · $500', 450, 316, 44, C.teal, { weight: 800 }); endCard();
+    stamp('WINNER', W / 2, 420, 140, seg(p, .15, .27), C.yellow, -.08);
+    stamp('GOODBYE MUD', W / 2, 1180, 90, kw('comment4', 'goodbye', p), '#8b5a2b', .04); },
+  field(t, u, p) { drawStadium(t); const fv = wordP('field', 'five'), gr = wordP('field', 'grass'), cw = wordP('field', 'cow');
+    const k = eInOut(seg(p, fv + .02, gr + .05)), x1 = lerp(-80, W + 120, k); if (k > 0) grassField(x1); if (k > 0 && k < 1) { sodRoll(x1, 1340, t); drawPlayer(x1 - 150, 1440, .8, { ...LOU, helmet: true, helmetSmall: true, run: t * 24, face: 'happy', armR: 1.5 }); }
+    if (k >= 1) { drawPlayer(200, 1450, .6, { ...TINY, helmet: true, face: 'happy', armsUp: p > gr + .1, emote: p > gr + .1 ? 'heart' : null }); cow(680, 1480, 1.3, t); if (p > cw) { const m = Math.abs(Math.sin(t * 9)) * 8; ctx.fillStyle = '#48a843'; ctx.fillRect(820, 1350 + m, 40, 12); } }
+    stamp('-$500', 760, 440, 110, kw('field', 'five', p), C.red, .06); stamp('REAL GRASS!', W / 2, 640, 110, kw('field', 'grass', p), C.yellow, -.05);
+    stamp('THE COW APPROVES', W / 2, 840, 64, kw('field', 'cow', p), '#fff', .04); },
+  signings4(t, u, p) { drawStadium(t); dim(.5); card(70, 230, 940, 1180, seg(u, 0, .3), C.cream); txt('NEW SIGNINGS', 470, 70, 66, C.ink);
+    const rows = [['O-LINE', 'drew21762', 'line', OL4], ['RUNNING BACK', 'so.cxmp.13', 'running', RB4], ['SAFETY', 'Rebel-049', 'safety', SF4], ['D-LINE', 'cxdename_c.j', 'rusher', DL4], ['WIDE RECEIVER', 'sponge2k26', 'receiver', WR4], ['CORNERBACK', 'eastern', 'cornerback', CB4], ['BACKUP QB', 'thepeoplechamptn', 'backup', QB24], ['KICKER', 'Lucas', 'kicker', K4]];
+    rows.forEach(([pos, name, key, o], i) => { const y = 180 + i * 122, kk = seg(p, .08 + i * .09, .14 + i * .09); ctx.save(); ctx.globalAlpha = kk; ctx.translate((1 - eOut(kk)) * 200, 0);
+      ctx.fillStyle = C.teal; rr(40, y - 54, 860, 108, 24); ctx.fill(); txt(pos, 80, y - 20, 32, '#fff', { align: 'left' }); txt(name, 80, y + 22, 40, C.yellow, { align: 'left', stroke: 6, maxW: 640 });
+      drawPlayer(820, y + 50, .25, { ...o, helmet: true }); ctx.restore(); });
+    endCard(); stamp('WELCOME TO THE TEAM', W / 2, 1500, 64, seg(p, .93, .99), C.yellow, -.04); },
+  matchcard4(t, u, p) { versus2(u, p, frogLogo, '#2d6a4f', 'BOGTOWN', 'BULLFROGS', '#b7e4c7', 'GAME 4', 'BIGGEST TEAM IN THE LEAGUE', '0 - 3'); },
+  g_block(t, u, p) { drawStadium(t, { excite: .3 }); const tw = wordP('g_block', 'twice'), hd = wordP('g_block', 'hides');
+    const push = Math.sin(t * 10) * 6; drawPlayer(720 + push, 1440, 1.15, { ...FROG, num: 99, helmet: true, flip: true, wide: 1.9, skin: '#8d5524', face: 'angry', armR: 1.4 });
+    drawPlayer(440 + push, 1440, .85, { ...OL4, helmet: true, rot: -.12, armR: 1.4, face: 'angry', emote: p > tw ? '!' : null }); tag(440, 1060, 'drew21762');
+    if (p > hd - .05) drawPlayer(190, 1450, .85, { ...LOU, helmet: true, helmetSmall: true, face: 'scared', emote: 'sweat', rot: -.08 });
+    stamp('TWICE HIS SIZE', W / 2, 620, 96, kw('g_block', 'twice', p), '#fff', -.05); stamp('LOU IS HIDING', W / 2, 820, 96, kw('g_block', 'hides', p), C.yellow, .05);
+    scorebug(0, 0, 'Q1', '14:20', '1ST&10'); },
+  g_run(t, u, p) { const js = wordP('g_run', 'just'), so = wordP('g_run', 'so'), td = wordP('g_run', 'touchdown'); drawStadium(t, { excite: p > td ? 1 : .4 });
+    drawPlayer(200, 1440, .62, { ...TINY, helmet: true, face: 'happy', armR: p > so && p < so + .1 ? 1.6 : -.3 });
+    const f = seg(p, so, td), rx = lerp(280, 900, eInOut(f));
+    for (let i = 0; i < 2; i++) drawPlayer(lerp(520 - i * 150, 700 - i * 140, eInOut(f)), 1450 + i * 20, .95, { ...FROG, num: [90, 77][i], helmet: true, wide: 1.7, run: t * 22, skin: ['#c68642', '#ffdbac'][i], face: p > td ? 'sad' : 'angry' });
+    drawPlayer(rx, 1440, .85, { ...RB4, helmet: true, run: f > 0 && f < 1 ? t * 30 : 0, ball: p > so ? [60, -150, -.5] : null, armsUp: p > td, emote: p > td ? 'heart' : null, face: 'happy' }); tag(rx, 1060 - (p > td ? 60 : 0), 'so.cxmp.13');
+    stamp('"JUST HAND IT OFF"', W / 2, 620, 80, kw('g_run', 'just', p), '#fff', -.05); stamp('TOUCHDOWN!', W / 2, 820, 120, seg(p, td, td + .08), C.yellow, .05);
+    if (p > td) confetti(abs4('g_run', 'touchdown'), t); scorebug(p > td ? 7 : 0, 0, 'Q1', '9:12', p > td ? 'TD!' : '2ND&4'); },
+  g_sack(t, u, p) { const sk = wordP('g_sack', 'sacks'); drawStadium(t, { excite: p > sk ? 1 : .3 }); const hit = p > sk;
+    drawPlayer(hit ? 700 : 680, 1440, .95, { ...FROG, num: 8, helmet: true, flip: true, wide: 1.3, skin: '#e0ac69', rot: hit ? 1.2 : 0, face: hit ? 'scared' : 'happy', ball: hit ? null : [60, -150, -.5] });
+    const dx = hit ? 590 : lerp(-150, 560, eIn(seg(p, .25, sk))); drawPlayer(dx, 1440, .9, { ...DL4, helmet: true, run: hit ? 0 : t * 28, rot: hit ? .4 : 0, face: 'angry' }); tag(dx, 1060, 'cxdename_c.j');
+    if (hit) drawBall(880, 1300 - Math.abs(Math.sin(t * 8)) * 80, 1, t * 6);
+    stamp('ASKED LAST VIDEO', W / 2, 620, 84, kw('g_sack', 'asked', p), '#fff', -.05); stamp('SACK!', W / 2, 820, 150, seg(p, sk, sk + .08), C.yellow, .05);
+    scorebug(7, 0, 'Q2', '6:40', hit ? 'SACK' : '3RD&8'); },
+  g_collide(t, u, p) { const jp = wordP('g_collide', 'jump'), ct = wordP('g_collide', 'catch'); drawStadium(t, { excite: .5 });
+    const f = seg(p, 0, ct), meet = p > ct; const sx = meet ? 470 : lerp(140, 470, eIn(seg(p, jp - .1, ct))), cx = meet ? 610 : lerp(940, 610, eIn(seg(p, jp - .1, ct))), up = p > jp ? Math.sin(seg(p, jp, ct + .1) * Math.PI) * 160 : 0;
+    drawPlayer(sx, 1440 - up, .85, { ...SF4, helmet: true, armsUp: p > jp, face: meet ? 'scared' : 'happy', rot: meet ? .25 : 0 }); tag(sx, 1040 - up, 'Rebel-049');
+    drawPlayer(cx, 1440 - up, .85, { ...CB4, helmet: true, flip: true, armsUp: p > jp, face: meet ? 'scared' : 'happy', rot: meet ? .25 : 0 }); tag(cx, 960 - up, 'eastern', '#fff');
+    if (!meet) drawBall(lerp(900, 540, f), lerp(900, 1050, f) - Math.sin(f * Math.PI) * 260, 1, f * 10); else { const g = seg(p, ct, 1); drawBall(lerp(540, 940, g), lerp(1050, 1300, g), 1, t * 6); drawPlayer(960, 1440, .9, { ...FROG, num: 81, helmet: true, flip: true, skin: '#8d5524', wide: 1.4, armsUp: g > .7, ball: g > .7 ? [0, -330, 0] : null }); }
+    if (meet) { for (let i = 0; i < 4; i++) { const a = t * 6 + i * 1.57; txt('★', 540 + Math.cos(a) * 100, 1010 - up + Math.sin(a) * 30, 38, C.yellow, { stroke: 4 }); } }
+    stamp('BOTH JUMP', W / 2, 620, 110, kw('g_collide', 'jump', p), '#fff', -.05); stamp('CAUGHT EACH OTHER', W / 2, 820, 84, seg(p, ct, ct + .08), C.red, .05);
+    scorebug(7, p > .92 ? 7 : 0, 'Q2', '1:05', p > .92 ? 'TD BOG' : '2ND&6'); },
+  g_mud(t, u, p) { const cc = wordP('g_mud', 'catches'), sl = wordP('g_mud', 'slips'); drawStadium(t, { excite: .6, puddle: true });
+    const wx = lerp(180, 620, eOut(seg(p, 0, sl))), fall = p > sl; drawPlayer(wx, 1450, .85, { ...WR4, helmet: true, run: fall ? 0 : t * 26, armsUp: p > cc - .03 && !fall, ball: p > cc && !fall ? [0, -330, 0] : null, rot: fall ? -1.35 * eOut(seg(p, sl, sl + .1)) : 0, face: fall ? 'scared' : 'happy', emote: fall ? '?' : null }); tag(wx, 1060 + (fall ? 250 : 0), 'sponge2k26');
+    if (fall) drawBall(lerp(620, 900, seg(p, sl, 1)), 1420 - Math.abs(Math.sin(t * 7)) * 120, 1, t * 8); const f = seg(p, 0, cc); if (f < 1) drawBall(lerp(-50, wx, f), lerp(900, 1110, f) - Math.sin(f * Math.PI) * 400, 1.1, f * 12);
+    stamp('CAUGHT IT!', W / 2, 620, 110, seg(p, cc, cc + .08), C.yellow, -.05); stamp('THE LAST MUD', W / 2, 820, 100, kw('g_mud', 'mud', p), '#8b5a2b', .05);
+    scorebug(7, 7, 'Q3', '7:33', fall ? 'FUMBLE?' : '1ST&10'); },
+  g_kick(t, u, p) { const kk = wordP('g_kick', 'kicks'), ld = wordP('g_kick', 'ladder'), gd = wordP('g_kick', 'good'); drawStadium(t, { excite: p > gd ? 1 : .4 }); ladderPost(900, 1330, 1.1);
+    drawPlayer(250, 1450, .85, { ...K4, helmet: true, face: 'happy', armsUp: p > gd, rot: p > kk && p < kk + .08 ? -.15 : 0 }); tag(250, 1070, 'Lucas');
+    const f = seg(p, kk, ld), g = seg(p, ld, gd); let bx, by; if (f < 1) { bx = lerp(300, 880, f); by = lerp(1400, 1060, f) - Math.sin(f * Math.PI) * 260; } else { bx = lerp(880, 930, g); by = lerp(1060, 860, g) - Math.sin(g * Math.PI) * 120; }
+    if (p > kk && p < gd + .15) drawBall(bx, by, 1, p * 20); if (p > ld && p < ld + .06) for (let i = 0; i < 6; i++) { const a = i / 6 * 6.28; ctx.strokeStyle = '#fff'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(880 + Math.cos(a) * 40, 1060 + Math.sin(a) * 40); ctx.lineTo(880 + Math.cos(a) * 90, 1060 + Math.sin(a) * 90); ctx.stroke(); }
+    stamp('OFF THE LADDER', W / 2, 620, 96, kw('g_kick', 'ladder', p), '#fff', -.05); stamp("IT'S GOOD!", W / 2, 820, 130, seg(p, gd, gd + .08), C.yellow, .05);
+    if (p > gd) confetti(abs4('g_kick', 'good'), t); scorebug(p > gd ? 10 : 7, 7, 'Q4', '4:02', p > gd ? 'FG!' : '4TH&5'); },
+  g_qb2(t, u, p) { drawStadium(t, { excite: .3 }); const wh = wordP('g_qb2', 'whole'), nv = wordP('g_qb2', 'up');
+    drawPlayer(380, 1450, .85, { ...QB24, helmet: true, run: p < nv ? t * 20 : 0, armR: Math.sin(t * 6) > 0 ? 2.4 : -.3, face: p > nv ? 'sad' : 'happy', emote: p > nv ? 'sweat' : null }); tag(380, 1060, 'thepeoplechamptn');
+    drawCoach(820, 1450, .9, t); const ck = Math.floor(seg(p, 0, nv) * 4); txt(['Q1', 'Q2', 'Q3', 'Q4'][Math.min(3, ck)], 820, 1000, 70, '#fff', { stroke: 10 });
+    stamp('STILL WARMING UP', W / 2, 620, 90, kw('g_qb2', 'still', p), '#fff', -.05); stamp('NEVER WENT IN', W / 2, 820, 100, kw('g_qb2', 'up', p), C.red, .05);
+    scorebug(10, 7, 'Q4', '2:00', 'LEAD!'); },
+  g_final(t, u, p) { drawStadium(t, { excite: .8 }); const n = Math.min(2, Math.floor(p * 2.6));
+    for (let i = 0; i < 2; i++) { const k = seg(p, i / 2.6, (i + .9) / 2.6); if (k <= 0) continue; drawPlayer(lerp(-150, 1250, k), 1440 - Math.abs(Math.sin(k * 18)) * 160, .9, { ...FROG, num: [22, 81][i], helmet: true, wide: 1.6, skin: ['#e0ac69', '#8d5524'][i], ball: [70, -150, -.5], face: 'happy' }); }
+    if (n > 0) stamp('HOP', 300 + n * 180, 700 + n * 90, 110, 1, '#b7e4c7', (n - 1.5) * .15);
+    drawPlayer(160, 1460, .6, { ...TINY, helmet: true, face: 'scared', emote: '!' }); stamp('FINAL', W / 2, 1100, 130, seg(p, .85, .95), '#fff', -.04); scorebug(10, 7 + n * 7, 'Q4', n >= 2 ? '0:00' : '1:10', ''); },
+  standings4(t, u, p) { drawStadium(t); dim(.45); card(70, 260, 940, 1180, seg(u, 0, .35), '#fff'); txt('LEAGUE TABLE', 470, 90, 64, C.ink);
+    const rows = [['Pine Hollow Badgers', '4-0'], ['Red Rock Rattlers', '4-0'], ['Bogtown Bullfrogs', '3-1'], ['Dry Gulch Gophers', '2-2'], ['Big Muddy Catfish', '2-2'], ['Cedar Bluff Moose', '1-3'], ['Salt Flats Snails', '1-3'], ['MUDVILLE POSSUMS', '0-4']];
+    txt('TEAM', 90, 170, 30, '#888', { align: 'left', weight: 800 }); txt('W-L', 800, 170, 30, '#888', { weight: 800 });
+    rows.forEach(([n, wl], i) => { const y = 240 + i * 110, last = i === 7, kk = seg(p, .05 + i * .04, .15 + i * .04); ctx.save(); ctx.globalAlpha = kk;
+      if (last) { ctx.fillStyle = '#ffe3e3'; rr(30, y - 46, 880, 92, 18); ctx.fill(); ctx.strokeStyle = C.red; ctx.lineWidth = 6; ctx.stroke(); }
+      txt(String(i + 1), 70, y, 42, last ? C.red : C.ink); txt(n, 120, y, 42, last ? C.red : C.ink, { align: 'left', weight: last ? 900 : 700 }); txt(wl, 800, y, 42, last ? C.red : C.ink); ctx.restore(); });
+    txt('FINAL: BULLFROGS 21, POSSUMS 10', 470, 1110, 44, C.ink, { maxW: 860 }); endCard();
+    stamp('MOST POINTS EVER!', W / 2, 1530, 86, kw('standings4', 'most', p), C.yellow, -.05); },
+  nextgame4(t, u, p) { versus2(u, p, snailLogo, '#7b4fa0', 'SALT FLATS', 'SNAILS', '#e9d8a6', 'TOMORROW', 'SLOWEST TEAM IN THE LEAGUE', '0 - 4'); },
+  cta4(t, u, p) { drawStadium(t, { excite: .2 }); dim(.45);
+    withT(W / 2, 330, eBack(seg(u, 0, .3)), -.04, () => { shadowOn(16, 8); ctx.fillStyle = '#1f9d55'; rr(-420, -85, 840, 170, 30); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, -22, 76, '#fff', { stroke: 8 }); txt('ON THIS VIDEO', 0, 50, 40, C.yellow, { stroke: 6 }); });
+    const k2 = seg(p, wordP('cta4', 'top') - .05, wordP('cta4', 'top') + .05);
+    if (k2 > 0) withT(W / 2, 860, eBack(k2), 0, () => { shadowOn(20, 10); ctx.fillStyle = C.cream; rr(-430, -330, 860, 600, 40); ctx.fill(); ctx.shadowColor = 'transparent'; ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('UPGRADE SHOP', 0, -255, 72, C.ink);
+      const items = [['STANDS', 'seats that hold people', '$250', 'stands'], ['GOAL POSTS', 'not a ladder', '$100', 'goal'], ['SCOREBOARD', 'we have none', '$150', 'scoreboard']].map(([a, b, c, key]) => [a, b, c, wordP('cta4', key)]);
+      items.forEach(([n, sub, pr, at], i) => { const y = -130 + i * 140, nx = items[i + 1] ? items[i + 1][3] : 9, on = p >= at - .01 && p < nx - .01 && p < wordP('cta4', 'want');
+        ctx.fillStyle = on ? C.yellow : '#fff'; rr(-390, y - 58, 780, 116, 24); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.stroke();
+        txt(n, -360, y - 14, 50, C.ink, { align: 'left' }); txt(sub, -360, y + 30, 30, '#666', { align: 'left', weight: 600 }); txt(pr, 360, y, 54, '#1f9d55', { align: 'right' }); }); });
+    const k3 = seg(p, wordP('cta4', 'comment') - .03, wordP('cta4', 'comment') + .05);
+    if (k3 > 0) { const yb = Math.sin(t * 8) * 14; withT(W / 2, 1400 + yb, eBack(k3), -.03, () => { txt('COMMENT YOUR POSITION', 0, 0, 62, C.yellow, { stroke: 12 }); txt('TO JOIN THE TEAM', 0, 70, 40, '#fff', { stroke: 8 }); }); } },
+});
+</script>
+
+</body></html>
