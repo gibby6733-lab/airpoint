@@ -196,5 +196,5 @@ for b in beats:
         seen.add(b["act"]); s0 = 0 if not chap else b["start"]; chap.append(f"{int(s0 // 60)}:{int(s0 % 60):02d} {b['act']}")
 open(os.path.join(d, "chapters.txt"), "w").write("\n".join(chap) + "\n")
 json.dump({"width": S.get("width", 1920), "height": S.get("height", 1080), "vertical": bool(S.get("vertical")), "day": S.get("day"), "lesson": S.get("lesson"), "style": S.get("style"), "duration": round(total, 3), "series": S["series"], "episode": S["episode"], "title": S["title"],
-           **{k: S[k] for k in ("fps", "crf") if k in S}, "beats": beats, "lines": [{"start": b["start"], "end": b["end"], "words": b["words"]} for b in beats if b["text"]]},
+           **{k: S[k] for k in ("fps", "crf", "theme", "titleText", "titleSub", "badLabel") if k in S}, "beats": beats, "lines": [{"start": b["start"], "end": b["end"], "words": b["words"]} for b in beats if b["text"]]},
           open(os.path.join(d, "timeline.json"), "w"), indent=0)

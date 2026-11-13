@@ -1,0 +1,4087 @@
+{
+ "series": "Your Move",
+ "episode": 2,
+ "day": 2,
+ "title": "Your Move: Survive the Mountain",
+ "lesson": "",
+ "vertical": true,
+ "style": "stick",
+ "lead": 0.2,
+ "theme": "mountain",
+ "titleText": "SURVIVE THE MOUNTAIN",
+ "titleSub": "10 MOVES \u2022 4 DAYS",
+ "badLabel": "WOLF FOOD",
+ "speeds": {
+  "deep": 1.0
+ },
+ "fps": 30,
+ "crf": 17,
+ "width": 1920,
+ "height": 1080,
+ "mix": {
+  "music": 0.06,
+  "ambience": 0.035
+ },
+ "beats": [
+  {
+   "sp": "deep",
+   "text": "Night three. Twelve wolves. One fire. And it's burning out.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 0.5,
+   "wolves": {
+    "n": 7,
+    "r0": 760,
+    "r1": 560,
+    "walk": true
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "12 WOLVES",
+     "w": "twelve",
+     "c": "#ff5a4a",
+     "big": true
+    },
+    {
+     "t": "FIRE: DYING",
+     "w": "burning",
+     "c": "#ffe14a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "bark",
+     0.3
+    ],
+    [
+     "bark",
+     1.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The biggest one steps into the light. And Maya whispers. Don't run.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 0.45,
+   "wolves": {
+    "n": 7,
+    "r0": 560,
+    "r1": 450
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "rewind": true,
+   "cards": [
+    {
+     "t": "DON'T RUN",
+     "w": "run",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "bark",
+     0.6
+    ],
+    [
+     "sting",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Four days earlier, you were on a plane.",
+   "clock": "2:00 AM",
+   "scene": "title",
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "reveal",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "This is Your Move. Ten choices. Pause the video, pick your move, and keep count. Get them right, and you walk off this mountain.",
+   "clock": "2:00 AM",
+   "scene": "title",
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "tick",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Flight two eleven. Thirty eight thousand feet over the Rocky Mountains. You're halfway through a movie.",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "chapter": [
+    "1",
+    "THE PLANE"
+   ],
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.6
+   },
+   "intensity": 0.4,
+   "cards": [
+    {
+     "t": "38,000 FT",
+     "w": "thirty"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "radio",
+   "text": "Ladies and gentlemen, we've lost an engine. Please return to your seats and fasten your seatbelts.",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "storm": true,
+   "tilt": 0.02,
+   "alarm": true,
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.6
+   },
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "static",
+     0
+    ],
+    [
+     "sting",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then the second engine goes quiet. And the oxygen masks drop.",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "storm": true,
+   "tilt": 0.05,
+   "alarm": true,
+   "masks": 0.35,
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.6
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "0 ENGINES",
+     "w": "second",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "sputter",
+     0.2
+    ],
+    [
+     "sting",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Out the window there are no clouds anymore. Just trees. Getting closer, fast.",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "storm": true,
+   "tilt": 0.06,
+   "alarm": true,
+   "masks": 0,
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.6
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "TREES",
+     "w": "trees",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Heads down! Brace! Brace! Brace!",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "storm": true,
+   "tilt": 0.06,
+   "alarm": true,
+   "masks": 0,
+   "pal": {
+    "x0": 1350,
+    "x1": null,
+    "pose": "point",
+    "flip": true,
+    "y": 880
+   },
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.6
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "scream",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your bag is right above you. Your phone, your jacket, everything you brought.",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "storm": true,
+   "tilt": 0.05,
+   "alarm": true,
+   "masks": 0,
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "think",
+    "flip": false,
+    "s": 0.6
+   },
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "YOUR BAG",
+     "w": "bag",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "rattle",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Grab your bag? Or get your head down?",
+   "clock": "4:12 PM",
+   "scene": "choice",
+   "bg": "cabin",
+   "opt1": "Grab your bag from the bin",
+   "opt2": "Head down and brace",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "4:12 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "cabin",
+   "opt1": "Grab your bag from the bin",
+   "opt2": "Head down and brace",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you grabbed your bag, you're standing when the plane hits the trees. You don't remember the next hour.",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "stamp": "wrong",
+   "storm": true,
+   "alarm": true,
+   "impact": 0.45,
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "point",
+    "flip": false,
+    "s": 0.6
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     1.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "In a crash, the brace position protects your head from flying debris and the seat in front of you. Bags can be replaced. Heads can't.",
+   "clock": "4:12 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "BRACE POSITION",
+    "lines": [
+     "HEAD DOWN",
+     "HANDS ON YOUR HEAD",
+     [
+      "BAGS CAN WAIT",
+      "#c0392b"
+     ]
+    ],
+    "src": "FAA passenger safety guidance on brace positions"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you braced, good move. You feel the belly of the plane scrape the treetops. Then the whole world goes white.",
+   "clock": "4:12 PM",
+   "scene": "cabin",
+   "stamp": "right",
+   "storm": true,
+   "alarm": true,
+   "impact": 0.55,
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 880,
+    "y1": 880,
+    "pose": "think",
+    "flip": false,
+    "s": 0.6
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "scrape",
+     0.5
+    ],
+    [
+     "crash",
+     2.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You wake up face down in the snow. The plane is in two pieces. And the back half is on fire.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "chapter": [
+    "2",
+    "THE WRECK"
+   ],
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "burn": true,
+   "snow": 0.15,
+   "you": {
+    "x0": 380,
+    "x1": 380,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "2 PIECES",
+     "w": "pieces",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "FIRE",
+     "w": "fire",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "crash",
+     0.2
+    ],
+    [
+     "whoosh",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Someone is still inside. The flight attendant. Maya.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "burn": true,
+   "snow": 0.15,
+   "you": {
+    "x0": 380,
+    "x1": 980,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "MAYA",
+     "w": "maya",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "steps",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You drag her out by the jacket, ten seconds before the fuel tank goes up.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "burn": true,
+   "snow": 0.15,
+   "you": {
+    "x0": 980,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": true,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1060,
+    "x1": 600,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "10 SECONDS",
+     "w": "ten",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "bang",
+     2.6
+    ],
+    [
+     "crash",
+     2.8
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Thank you. I'm Maya. Is anyone else...?",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "burn": true,
+   "snow": 0.15,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 640,
+    "x1": null,
+    "pose": "talk",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "Her leg is cut. Not deep, but she can only limp.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "burn": true,
+   "snow": 0.15,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 640,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "MAYA: HURT LEG",
+     "w": "leg",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You check what you have. A lighter. A water bottle. And from the plane's emergency kit, one red flare. Remember that flare.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "burn": true,
+   "snow": 0.15,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 640,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "LIGHTER",
+     "w": "lighter"
+    },
+    {
+     "t": "WATER BOTTLE",
+     "w": "water"
+    },
+    {
+     "t": "1 FLARE",
+     "w": "flare",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "rattle",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Nobody else. Just the two of you, somewhere in the mountains. And the sun goes down in one hour.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "dusk",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "burn": true,
+   "snow": 0.2,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 640,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "JUST YOU TWO",
+     "w": "two",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "SUNSET: 1 HOUR",
+     "w": "sun",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Far below, you think you can see a road. Maybe. It's a long way down.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "tod": "dusk",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "snow": 0.2,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 640,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "ROAD?",
+     "w": "road",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Walk down the mountain to find help? Or stay with the wreck?",
+   "clock": "4:40 PM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Walk down to find help",
+   "opt2": "Stay with the wreck",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "dusk",
+   "wreck": [
+    1250,
+    0.9
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "4:40 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Walk down to find help",
+   "opt2": "Stay with the wreck",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "dusk",
+   "wreck": [
+    1250,
+    0.9
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you walked, night catches you halfway down. In the dark, every slope looks the same. You're lost, and nobody knows where to look.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "night",
+   "trees": 6,
+   "snow": 0.35,
+   "tracks": 900,
+   "you": {
+    "x0": 300,
+    "x1": 1100,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 200,
+    "x1": 1000,
+    "pose": "run",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "sting",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "In the morning, rescuers reach the wreck in twenty minutes. It takes them three days to find you.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "dawn",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "heli": [
+    1500,
+    1300,
+    200,
+    220,
+    0.45
+   ],
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "engine",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Search teams look for the wreck first. From the air, a plane is huge. A person is a dot.",
+   "clock": "4:40 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "STAY WITH THE WRECK",
+    "lines": [
+     "A PLANE IS BIG",
+     "A PERSON IS A DOT",
+     [
+      "STAY WITH THE WRECK",
+      "#c0392b"
+     ]
+    ],
+    "src": "standard aviation search and rescue advice"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you stayed, good move. The front half still has walls and a roof. That's your shelter tonight.",
+   "clock": "4:40 PM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "dusk",
+   "wreck": [
+    1250,
+    0.9
+   ],
+   "snow": 0.2,
+   "you": {
+    "x0": 700,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 560,
+    "x1": 820,
+    "pose": "idle",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "Night one. Your lips are cracking. You haven't had a drink since the plane.",
+   "clock": "11:00 PM",
+   "scene": "mountain",
+   "tod": "night",
+   "chapter": [
+    "3",
+    "THE THIRST"
+   ],
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    0.8
+   ],
+   "snow": 0.15,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 880,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.4,
+   "cards": [
+    {
+     "t": "THIRSTY",
+     "w": "lips",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And you're sitting on a mountain made of water.",
+   "clock": "11:00 PM",
+   "scene": "mountain",
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    0.8
+   ],
+   "snow": 0.15,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 880,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.4,
+   "cards": [
+    {
+     "t": "SNOW = WATER?",
+     "w": "water",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "We could just eat the snow, right?",
+   "clock": "11:00 PM",
+   "scene": "mountain",
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    0.8
+   ],
+   "snow": 0.15,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 880,
+    "x1": null,
+    "pose": "talk",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.4
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Eat the snow? Or melt it first?",
+   "clock": "11:00 PM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Eat the snow",
+   "opt2": "Melt it by the fire",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    0.8
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "11:00 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Eat the snow",
+   "opt2": "Melt it by the fire",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    0.8
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you ate it, your body burns its own heat to melt every mouthful. Ten minutes later, you're shaking. Hard.",
+   "clock": "11:00 PM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    0.5
+   ],
+   "snow": 0.2,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 880,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "SHIVERING",
+     "w": "shaking",
+     "c": "#ff5a4a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Eating snow lowers your body temperature and costs you energy you can't spare. Always melt it first.",
+   "clock": "11:00 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE SNOW RULE",
+    "lines": [
+     "EATING SNOW",
+     [
+      "STEALS BODY HEAT",
+      "#c0392b"
+     ],
+     "MELT IT FIRST"
+    ],
+    "src": "wilderness survival guidance on hypothermia"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you melted it, good move. A water bottle from the plane, held over the fire. Warm water. The best thing you've ever tasted.",
+   "clock": "11:00 PM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    1
+   ],
+   "snow": 0.15,
+   "you": {
+    "x0": 600,
+    "x1": 600,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 880,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "ding",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The rule of threes. Three hours without shelter in this cold. Three days without water. You've solved both. For now.",
+   "clock": "11:00 PM",
+   "scene": "mountain",
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    1
+   ],
+   "snow": 0.15,
+   "you": {
+    "x0": 600,
+    "x1": 600,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 880,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.4,
+   "cards": [
+    {
+     "t": "3 HOURS: SHELTER",
+     "w": "hours",
+     "c": "#7cd67c"
+    },
+    {
+     "t": "3 DAYS: WATER",
+     "w": "days",
+     "c": "#7cd67c"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Somewhere far off, something howls. Then another. Maya pretends she didn't hear it.",
+   "clock": "11:00 PM",
+   "scene": "mountain",
+   "tod": "night",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "camp": [
+    700,
+    0.9
+   ],
+   "snow": 0.15,
+   "trees": 5,
+   "you": {
+    "x0": 600,
+    "x1": 600,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 880,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.7,
+   "sfx": [
+    [
+     "bark",
+     0.8
+    ],
+    [
+     "bark",
+     2.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Morning. Day two. You hear it before you see it. An engine. A search helicopter.",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "chapter": [
+    "4",
+    "THE SIGNAL"
+   ],
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "heli": [
+    2100,
+    1500,
+    180,
+    160,
+    0.28
+   ],
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 760,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.7,
+   "cards": [
+    {
+     "t": "HELICOPTER",
+     "w": "helicopter",
+     "c": "#7cd67c"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "It's high. It's fast. And it's about to fly right past you.",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "heli": [
+    1500,
+    900,
+    160,
+    150,
+    0.28
+   ],
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 760,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "engine",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Wave! Make them see us!",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "heli": [
+    900,
+    600,
+    150,
+    150,
+    0.28
+   ],
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 760,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8
+  },
+  {
+   "sp": "deep",
+   "text": "You have maybe thirty seconds before it's over the next ridge and gone.",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "heli": [
+    700,
+    500,
+    150,
+    150,
+    0.28
+   ],
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 760,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "30 SECONDS",
+     "w": "thirty",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "tick",
+     0.5
+    ],
+    [
+     "tick",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Build three signal fires? Or jump, wave and scream?",
+   "clock": "8:15 AM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Build three signal fires",
+   "opt2": "Jump, wave and scream",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "day",
+   "wreck": [
+    1350,
+    0.9
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "8:15 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Build three signal fires",
+   "opt2": "Jump, wave and scream",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "day",
+   "wreck": [
+    1350,
+    0.9
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you waved, you're a dot in the snow, waving its arms. From the air, you look like a rock. The helicopter flies on.",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "day",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "heli": [
+    600,
+    -300,
+    150,
+    120,
+    0.28
+   ],
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 760,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "engine",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Three of anything is the signal for distress. Three fires. Three whistles. Three piles of rocks. And on snow, dark smoke stands out.",
+   "clock": "8:15 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE SIGNAL",
+    "lines": [
+     "3 OF ANYTHING",
+     [
+      "= HELP",
+      "#c0392b"
+     ],
+     "DARK SMOKE ON WHITE SNOW"
+    ],
+    "src": "internationally recognized distress signals"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you built three fires and threw seat foam on them for black smoke, good move. The helicopter banks. It circles once. It saw you.",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "day",
+   "three": "lit",
+   "heli": [
+    1500,
+    900,
+    200,
+    160,
+    0.4
+   ],
+   "you": {
+    "x0": 380,
+    "x1": 380,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1450,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "THEY SAW YOU",
+     "w": "saw",
+     "c": "#7cd67c",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Maya runs to the cockpit radio. It crackles to life.",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 760,
+    "x1": 1150,
+    "pose": "run",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "static",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "radio",
+   "text": "Survivors spotted. Storm incoming. Earliest rescue is forty eight hours.",
+   "clock": "8:15 AM",
+   "scene": "mountain",
+   "tod": "storm",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "snow": 0.3,
+   "wind": 0.6,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1150,
+    "x1": null,
+    "pose": "scared",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "48 HOURS",
+     "w": "forty",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "static",
+     0
+    ],
+    [
+     "thunder",
+     2.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The storm hits like a wall. Sixty mile an hour winds. You can't see your own feet.",
+   "clock": "1:30 PM",
+   "scene": "mountain",
+   "tod": "storm",
+   "chapter": [
+    "5",
+    "THE STORM"
+   ],
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "snow": 1,
+   "wind": 1.2,
+   "white": 0.45,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 700,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "60 MPH WIND",
+     "w": "sixty",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "thunder",
+     0.3
+    ],
+    [
+     "whoosh",
+     1.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The wreck is groaning in the wind. Three hundred yards away, there's a line of trees. Real shelter.",
+   "clock": "1:30 PM",
+   "scene": "mountain",
+   "tod": "storm",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "trees": 8,
+   "snow": 1,
+   "wind": 1.2,
+   "white": 0.35,
+   "you": {
+    "x0": 520,
+    "x1": 520,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 700,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "TREES: 300 YARDS",
+     "w": "three",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "scrape",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Walk to the trees through the whiteout? Or dig in where you are?",
+   "clock": "1:30 PM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Walk to the trees",
+   "opt2": "Dig in and wait",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "storm",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "snow": 1,
+   "white": 0.4
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "1:30 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Walk to the trees",
+   "opt2": "Dig in and wait",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "storm",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "snow": 1,
+   "white": 0.4
+  },
+  {
+   "sp": "deep",
+   "text": "If you walked, you walk for an hour. And end up right back at the wreck. You walked in a circle.",
+   "clock": "1:30 PM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "storm",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "snow": 1,
+   "wind": 1.2,
+   "white": [
+    0.4,
+    0.75
+   ],
+   "tracks": 1400,
+   "you": {
+    "x0": 300,
+    "x1": 1200,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 200,
+    "x1": 1100,
+    "pose": "run",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.9
+  },
+  {
+   "sp": "deep",
+   "text": "And you've burned an hour of body heat you'll never get back.",
+   "clock": "1:30 PM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "storm",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "snow": 1,
+   "wind": 1.2,
+   "white": 0.6,
+   "you": {
+    "x0": 1200,
+    "x1": 1200,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1050,
+    "x1": null,
+    "pose": "scared",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.8
+  },
+  {
+   "sp": "deep",
+   "text": "In a whiteout, people walk in circles. With no landmarks, nobody walks straight. Scientists have actually tested it.",
+   "clock": "1:30 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "WHITEOUT",
+    "lines": [
+     "NO LANDMARKS",
+     [
+      "= YOU WALK IN CIRCLES",
+      "#c0392b"
+     ],
+     "STAY PUT"
+    ],
+    "src": "Souman et al., Current Biology (2009): people walk in circles without visual cues"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you dug in, good move. A trench in the snow behind the wreck, lined with seat cushions. Snow is one of the best insulators on Earth.",
+   "clock": "1:30 PM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "storm",
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "snow": 0.9,
+   "wind": 1,
+   "white": 0.3,
+   "you": {
+    "x0": 620,
+    "x1": 620,
+    "y0": 900,
+    "y1": 900,
+    "pose": "push",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 820,
+    "x1": null,
+    "pose": "push",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "SNOW = INSULATION",
+     "w": "insulators",
+     "c": "#7cd67c"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "At midnight, Maya stops talking. Her lips are blue. And she's stopped shivering.",
+   "clock": "1:30 PM",
+   "scene": "mountain",
+   "tod": "storm",
+   "snow": 0.9,
+   "wind": 1,
+   "white": 0.3,
+   "wreck": [
+    1350,
+    0.9
+   ],
+   "you": {
+    "x0": 620,
+    "x1": 620,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 820,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "STOPPED SHIVERING",
+     "w": "shivering",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "sting",
+     1.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Shivering is your body fighting the cold. When it stops, the fight is being lost. You pull her close and share your heat until she starts shaking again.",
+   "clock": "1:30 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "HYPOTHERMIA",
+    "lines": [
+     "SHIVERING = FIGHTING BACK",
+     [
+      "NO SHIVERING = DANGER",
+      "#c0392b"
+     ],
+     "SHARE BODY HEAT"
+    ],
+    "src": "medical first-aid guidance on hypothermia"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "The storm screams all night. By morning, the wreck is gone. Buried under six feet of snow.",
+   "clock": "1:30 PM",
+   "scene": "mountain",
+   "tod": "dawn",
+   "snow": 0.2,
+   "you": {
+    "x0": 620,
+    "x1": 620,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 820,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "6 FT OF SNOW",
+     "w": "six",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "sting",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Quick check. Halfway through. If you're five for five, don't get cocky. Chapter eight gets almost everybody.",
+   "clock": "1:30 PM",
+   "scene": "title",
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "tick",
+     0.5
+    ],
+    [
+     "sting",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Day three. The radio is buried with the wreck. If you want to be found, you have to get lower. Down to the valley.",
+   "clock": "7:40 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "chapter": [
+    "6",
+    "THE SLOPE"
+   ],
+   "slope": true,
+   "ridge": true,
+   "you": {
+    "x0": 1300,
+    "x1": 1300,
+    "y0": 900,
+    "y1": 900,
+    "pose": "think",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1480,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "Straight down the open slope is twenty minutes. Along the rocky ridge, it's two hours.",
+   "clock": "7:40 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "slope": true,
+   "ridge": true,
+   "you": {
+    "x0": 1300,
+    "x1": 1300,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": true,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1480,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "SLOPE: 20 MIN",
+     "w": "twenty",
+     "c": "#ffe14a"
+    },
+    {
+     "t": "RIDGE: 2 HOURS",
+     "w": "two",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "The slope's faster. I'm freezing. Let's go.",
+   "clock": "7:40 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "slope": true,
+   "ridge": true,
+   "you": {
+    "x0": 1300,
+    "x1": 1300,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1480,
+    "x1": null,
+    "pose": "talk",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. The fast open slope? Or the long ridge?",
+   "clock": "7:40 AM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "The fast open slope",
+   "opt2": "The long ridge",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "day",
+   "slope": true,
+   "ridge": true
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "7:40 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "The fast open slope",
+   "opt2": "The long ridge",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "day",
+   "slope": true,
+   "ridge": true
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the slope, halfway down you hear a crack. Like a gunshot. Then the whole hill starts to move.",
+   "clock": "7:40 AM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "day",
+   "slope": true,
+   "avalanche": [
+    0.45,
+    1
+   ],
+   "you": {
+    "x0": 700,
+    "x1": 1300,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 560,
+    "x1": 1150,
+    "pose": "run",
+    "flip": false,
+    "y": 900
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "crash",
+     2.4
+    ],
+    [
+     "thunder",
+     2.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You dive behind a boulder. The snow roars past for ten seconds. Then silence. Maya is gone.",
+   "clock": "7:40 AM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "day",
+   "slope": true,
+   "snow": 0.6,
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "sfx": [
+    [
+     "thunder",
+     0.2
+    ],
+    [
+     "sting",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Most avalanches happen on slopes between thirty and forty five degrees. And fresh snow from a storm makes it far worse.",
+   "clock": "7:40 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "AVALANCHE FACT",
+    "lines": [
+     "30 TO 45 DEGREE SLOPES",
+     [
+      "FRESH SNOW = DANGER",
+      "#c0392b"
+     ],
+     "STAY ON THE RIDGES"
+    ],
+    "src": "avalanche safety centers (e.g. avalanche.org)"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you took the ridge, good move. Two hours in, you hear the crack anyway. And watch the slope you almost took slide away below you.",
+   "clock": "7:40 AM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "day",
+   "slope": true,
+   "ridge": true,
+   "avalanche": [
+    0.4,
+    1
+   ],
+   "you": {
+    "x0": 1350,
+    "x1": 1350,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": true,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1520,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "thunder",
+     1.8
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "We would have been under that.",
+   "clock": "7:40 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "slope": true,
+   "ridge": true,
+   "snow": 0.3,
+   "you": {
+    "x0": 1350,
+    "x1": 1350,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": true,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1520,
+    "x1": null,
+    "pose": "talk",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.6
+  },
+  {
+   "sp": "deep",
+   "text": "By noon, you reach the valley floor. And a frozen river blocks the way.",
+   "clock": "12:10 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "chapter": [
+    "7",
+    "THE RIVER"
+   ],
+   "river": true,
+   "trees": 7,
+   "you": {
+    "x0": 420,
+    "x1": 420,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 600,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 1000
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "The ice looks solid. It's twenty steps across. On the other side, the forest looks a lot like a way out.",
+   "clock": "12:10 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "river": true,
+   "trees": 7,
+   "you": {
+    "x0": 420,
+    "x1": 420,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 600,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 1000
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "20 STEPS",
+     "w": "twenty",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "My leg can't do two more hours of this.",
+   "clock": "12:10 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "river": true,
+   "trees": 7,
+   "you": {
+    "x0": 420,
+    "x1": 420,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 600,
+    "x1": null,
+    "pose": "talk",
+    "flip": true,
+    "y": 1000
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Follow the river downstream? Or walk across the ice?",
+   "clock": "12:10 PM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Follow the river downstream",
+   "opt2": "Walk across the ice",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "day",
+   "river": true,
+   "trees": 7
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "12:10 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Follow the river downstream",
+   "opt2": "Walk across the ice",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "day",
+   "river": true,
+   "trees": 7
+  },
+  {
+   "sp": "deep",
+   "text": "If you crossed, step fifteen goes straight through. The water is so cold it knocks the air out of your lungs.",
+   "clock": "12:10 PM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "day",
+   "river": true,
+   "crack": [
+    0.2,
+    0.5
+   ],
+   "hole": 0.5,
+   "crackX": 1000,
+   "trees": 7,
+   "you": {
+    "x0": 700,
+    "x1": 1000,
+    "y0": 905,
+    "y1": 905,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "THIN ICE",
+     "w": "fifteen",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "crash",
+     1.4
+    ],
+    [
+     "scream",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Ice over moving water is thinner, and you can't tell by looking. You need at least four inches of solid ice. And remember the cold water rule. One minute of shock. Ten before your arms quit.",
+   "clock": "12:10 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE ICE RULE",
+    "lines": [
+     "4 INCHES MINIMUM",
+     [
+      "RIVER ICE = THIN ICE",
+      "#c0392b"
+     ],
+     "1 MIN SHOCK \u2022 10 MIN ARMS"
+    ],
+    "src": "ice safety guidance (e.g. Minnesota DNR) + cold-water 1-10-1 principle"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you followed the river, good move. Rivers run downhill. And downhill is where people live.",
+   "clock": "12:10 PM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "day",
+   "river": true,
+   "trees": 7,
+   "tracks": 1600,
+   "you": {
+    "x0": 300,
+    "x1": 1300,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "run",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 150,
+    "x1": 1150,
+    "pose": "run",
+    "flip": false,
+    "y": 1000
+   },
+   "intensity": 0.6,
+   "cards": [
+    {
+     "t": "DOWNHILL = PEOPLE",
+     "w": "downhill",
+     "c": "#7cd67c"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "An hour later, you find old tire tracks along the bank, half filled with snow. Somebody drove here. Once.",
+   "clock": "12:10 PM",
+   "scene": "mountain",
+   "tod": "day",
+   "river": true,
+   "trees": 7,
+   "tracks": 1800,
+   "you": {
+    "x0": 900,
+    "x1": 900,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1080,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 1000
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "TIRE TRACKS",
+     "w": "tire",
+     "c": "#7cd67c"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "But by sunset, there's still no town. And it's starting to snow again.",
+   "clock": "12:10 PM",
+   "scene": "mountain",
+   "tod": "dusk",
+   "river": true,
+   "trees": 7,
+   "snow": 0.4,
+   "you": {
+    "x0": 1100,
+    "x1": 1100,
+    "y0": 1000,
+    "y1": 1000,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1280,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 1000
+   },
+   "intensity": 0.6
+  },
+  {
+   "sp": "deep",
+   "text": "You find a cave in the rocks. Out of the wind. Maya almost cries.",
+   "clock": "6:30 PM",
+   "scene": "cave",
+   "chapter": [
+    "8",
+    "THE CAVE"
+   ],
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 720,
+    "x1": null,
+    "pose": "cheer",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your legs feel like concrete. Your stomach stopped growling yesterday. That's not a good sign. But it's not the thing that kills you.",
+   "clock": "6:30 PM",
+   "scene": "cave",
+   "you": {
+    "x0": 560,
+    "x1": 560,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 720,
+    "x1": null,
+    "pose": "idle",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "You can survive about three weeks without food. Cold and thirst will get you long before hunger does.",
+   "clock": "6:30 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE RULE OF THREES",
+    "lines": [
+     "3 HOURS WITHOUT SHELTER",
+     "3 DAYS WITHOUT WATER",
+     [
+      "3 WEEKS WITHOUT FOOD",
+      "#c0392b"
+     ]
+    ],
+    "src": "the survival rule of threes (rough guide)"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "And the cave goes deep. It's warmer further in. Way warmer.",
+   "clock": "6:30 PM",
+   "scene": "cave",
+   "you": {
+    "x0": 720,
+    "x1": 720,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 560,
+    "x1": null,
+    "pose": "idle",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "WARMER INSIDE?",
+     "w": "warmer",
+     "c": "#ffe14a"
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Sleep deep inside the cave? Or stay by the entrance with a fire?",
+   "clock": "6:30 PM",
+   "scene": "choice",
+   "bg": "cave",
+   "opt1": "Go deep inside",
+   "opt2": "Stay by the entrance with a fire",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "6:30 PM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "cave",
+   "opt1": "Go deep inside",
+   "opt2": "Stay by the entrance with a fire",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "If you went deep, that warm air is coming from something breathing. Something big. And it just woke up.",
+   "clock": "6:30 PM",
+   "scene": "cave",
+   "stamp": "wrong",
+   "bear": "wake",
+   "wakeAt": 0.55,
+   "you": {
+    "x0": 1150,
+    "x1": 900,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1000,
+    "x1": 760,
+    "pose": "scared",
+    "flip": false,
+    "y": 900
+   },
+   "efx": [
+    "shake"
+   ],
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "BEAR",
+     "w": "big",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "sting",
+     2.2
+    ],
+    [
+     "scream",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You back out slowly, never turning your back on it. It doesn't follow you. This time.",
+   "clock": "6:30 PM",
+   "scene": "cave",
+   "stamp": "wrong",
+   "bear": "wake",
+   "wakeAt": 0,
+   "you": {
+    "x0": 760,
+    "x1": 420,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": true,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 640,
+    "x1": 320,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "sting",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Warm, quiet caves are exactly where bears sleep through winter. Stay near the entrance, where you can see out and get out.",
+   "clock": "6:30 PM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE CAVE RULE",
+    "lines": [
+     "WARM CAVE?",
+     [
+      "IT MIGHT BE TAKEN",
+      "#c0392b"
+     ],
+     "STAY BY THE EXIT"
+    ],
+    "src": "wildlife safety guidance"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you stayed by the entrance, good move. Fire in the cave mouth, smoke drifting out, warmth bouncing off the rock. You sleep for the first time in two days.",
+   "clock": "6:30 PM",
+   "scene": "cave",
+   "stamp": "right",
+   "camp": [
+    640,
+    1
+   ],
+   "you": {
+    "x0": 820,
+    "x1": 820,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 960,
+    "x1": null,
+    "pose": "idle",
+    "flip": false,
+    "y": 900
+   },
+   "intensity": 0.3
+  },
+  {
+   "sp": "deep",
+   "text": "Then, at two in the morning, Maya shakes you awake. Eyes. Outside. A lot of eyes.",
+   "clock": "6:30 PM",
+   "scene": "cave",
+   "camp": [
+    640,
+    0.7
+   ],
+   "you": {
+    "x0": 820,
+    "x1": 820,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 960,
+    "x1": null,
+    "pose": "point",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.9,
+   "cards": [
+    {
+     "t": "EYES",
+     "w": "eyes",
+     "c": "#ff5a4a",
+     "big": true
+    }
+   ],
+   "sfx": [
+    [
+     "sting",
+     0.2
+    ],
+    [
+     "bark",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Twelve wolves. One fire. And it's burning out. You've seen this before.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "chapter": [
+    "9",
+    "THE WOLVES"
+   ],
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 0.5,
+   "wolves": {
+    "n": 7,
+    "r0": 760,
+    "r1": 560,
+    "walk": true
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "12 WOLVES",
+     "w": "twelve",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "bark",
+     0.4
+    ],
+    [
+     "bark",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "The biggest one steps into the light.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 0.45,
+   "wolves": {
+    "n": 7,
+    "r0": 560,
+    "r1": 450
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "bark",
+     0.8
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Don't run. Please. Don't run.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 0.45,
+   "wolves": {
+    "n": 7,
+    "r0": 450,
+    "r1": 440
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "talk",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1
+  },
+  {
+   "sp": "deep",
+   "text": "Their breath steams in the firelight. You can hear them breathing.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 0.45,
+   "wolves": {
+    "n": 7,
+    "r0": 440,
+    "r1": 420
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "bark",
+     1.6
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Stand tall and make noise? Or run for the trees?",
+   "clock": "2:00 AM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Stand tall and make noise",
+   "opt2": "Run for the trees",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "wolves": {
+    "n": 7,
+    "r0": 450,
+    "r1": 450
+   }
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "2:00 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Stand tall and make noise",
+   "opt2": "Run for the trees",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "wolves": {
+    "n": 7,
+    "r0": 450,
+    "r1": 450
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you ran, you just told twelve hunters you're prey. Wolves chase whatever runs. And in deep snow, they are much faster than you.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    0.4
+   ],
+   "wolves": {
+    "n": 7,
+    "r0": 450,
+    "r1": 160,
+    "walk": true
+   },
+   "you": {
+    "x0": 780,
+    "x1": 200,
+    "y0": 900,
+    "y1": 900,
+    "pose": "run",
+    "flip": true,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": 300,
+    "pose": "run",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "bark",
+     0.3
+    ],
+    [
+     "bark",
+     1.0
+    ],
+    [
+     "scream",
+     2.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Never run from a predator. Make yourself big, make noise, and keep the fire between you. Wolf attacks on people are rare. Running makes one far more likely.",
+   "clock": "2:00 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE PREDATOR RULE",
+    "lines": [
+     [
+      "NEVER RUN",
+      "#c0392b"
+     ],
+     "LOOK BIG \u2022 MAKE NOISE",
+     "KEEP THE FIRE BETWEEN YOU"
+    ],
+    "src": "wildlife agency guidance on wolf encounters"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you stood your ground, good move. You throw the last branch on the fire, raise your arms, and roar. Maya bangs two pieces of the plane together.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 1,
+   "wolves": {
+    "n": 7,
+    "r0": 450,
+    "r1": 620
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "bang",
+     2.6
+    ],
+    [
+     "bang",
+     3.0
+    ],
+    [
+     "bang",
+     3.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "It lasts eleven minutes. The longest eleven minutes of your life.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "campLvl": 1,
+   "wolves": {
+    "n": 7,
+    "r0": 620,
+    "r1": 640
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "cards": [
+    {
+     "t": "11 MINUTES",
+     "w": "eleven",
+     "c": "#ffe14a"
+    }
+   ],
+   "sfx": [
+    [
+     "bark",
+     1.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "One by one, the eyes slide back into the dark.",
+   "clock": "2:00 AM",
+   "scene": "mountain",
+   "tod": "night",
+   "trees": 9,
+   "snow": 0.25,
+   "wind": 0.4,
+   "camp": [
+    960,
+    1
+   ],
+   "wolves": {
+    "n": 7,
+    "r0": 620,
+    "r1": 1100,
+    "walk": true
+   },
+   "you": {
+    "x0": 780,
+    "x1": 780,
+    "y0": 900,
+    "y1": 900,
+    "pose": "idle",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 1140,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "Day four. Dawn. You have one thing left from the plane. A single emergency flare.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "dawn",
+   "chapter": [
+    "10",
+    "THE FLARE"
+   ],
+   "trees": 6,
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "point",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "idle",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.5,
+   "cards": [
+    {
+     "t": "1 FLARE",
+     "w": "single",
+     "c": "#ffe14a",
+     "big": true
+    }
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Then you hear it. Rotors. Far away, somewhere behind the ridge.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "dawn",
+   "trees": 6,
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "point",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "engine",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Light it! Light it now!",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "dawn",
+   "trees": 6,
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "scared",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "talk",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.9
+  },
+  {
+   "sp": "deep",
+   "text": "Your move. Light the flare now? Or wait until you can see the helicopter?",
+   "clock": "6:50 AM",
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Light it now",
+   "opt2": "Wait until you see it",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ],
+   "tod": "dawn",
+   "trees": 6
+  },
+  {
+   "sp": "",
+   "text": "",
+   "clock": "6:50 AM",
+   "hold": 2.6,
+   "scene": "choice",
+   "bg": "mountain",
+   "opt1": "Light it now",
+   "opt2": "Wait until you see it",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.87
+    ],
+    [
+     "tick",
+     1.73
+    ]
+   ],
+   "tod": "dawn",
+   "trees": 6
+  },
+  {
+   "sp": "deep",
+   "text": "If you lit it now, a hand flare burns for about a minute. The helicopter clears the ridge two minutes later. Your flare is ash.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "dawn",
+   "trees": 6,
+   "flare": [
+    880,
+    600
+   ],
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "sting",
+     3.0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "You hear it pass overhead, behind the trees. You scream until your voice cracks. It never sees you.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "stamp": "wrong",
+   "tod": "dawn",
+   "trees": 6,
+   "heli": [
+    1200,
+    -200,
+    120,
+    100,
+    0.3
+   ],
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "scared",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "engine",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "A hand flare burns for about one minute. Save it until the aircraft can actually see you.",
+   "clock": "6:50 AM",
+   "scene": "paper",
+   "paper": {
+    "title": "THE FLARE RULE",
+    "lines": [
+     "ONE FLARE",
+     [
+      "= ONE MINUTE",
+      "#c0392b"
+     ],
+     "WAIT UNTIL YOU SEE THEM"
+    ],
+    "src": "maritime and aviation signaling guidance"
+   }
+  },
+  {
+   "sp": "deep",
+   "text": "If you waited, good move. The helicopter clears the ridge. You light the flare and hold it over your head. Bright red light. Red smoke.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "stamp": "right",
+   "tod": "dawn",
+   "trees": 6,
+   "flare": [
+    880,
+    600
+   ],
+   "heli": [
+    2200,
+    1300,
+    220,
+    260,
+    0.55
+   ],
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "engine",
+     0
+    ],
+    [
+     "whoosh",
+     2.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "It turns. It's coming straight for you.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "dawn",
+   "trees": 6,
+   "flare": [
+    880,
+    600
+   ],
+   "heli": [
+    1300,
+    960,
+    260,
+    300,
+    0.7,
+    0,
+    true
+   ],
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "sfx": [
+    [
+     "engine",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Fifty seconds of flare left. Forty. The pilot dips the nose.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "dawn",
+   "trees": 6,
+   "flare": [
+    880,
+    600
+   ],
+   "heli": [
+    960,
+    960,
+    300,
+    300,
+    0.75,
+    0,
+    true
+   ],
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 1,
+   "cards": [
+    {
+     "t": "0:40",
+     "w": "forty",
+     "c": "#ff5a4a"
+    }
+   ],
+   "sfx": [
+    [
+     "engine",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "radio",
+   "text": "We see you. Hold your position. We're coming down.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "trees": 6,
+   "heli": [
+    960,
+    960,
+    300,
+    300,
+    0.75,
+    300,
+    true
+   ],
+   "you": {
+    "x0": 800,
+    "x1": 800,
+    "y0": 900,
+    "y1": 900,
+    "pose": "cheer",
+    "flip": false,
+    "s": 0.72
+   },
+   "pal": {
+    "x0": 980,
+    "x1": null,
+    "pose": "cheer",
+    "flip": true,
+    "y": 900
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "static",
+     0
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "A rescuer drops down on a cable, grabs Maya first, then you. The ground falls away below your boots.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "trees": 6,
+   "heli": [
+    960,
+    960,
+    300,
+    260,
+    0.75,
+    320
+   ],
+   "you": {
+    "x0": 960,
+    "x1": 960,
+    "y0": 900,
+    "y1": 700,
+    "pose": "hang",
+    "flip": false,
+    "s": 0.72
+   },
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "engine",
+     0
+    ],
+    [
+     "whoosh",
+     2.0
+    ]
+   ]
+  },
+  {
+   "sp": "mags",
+   "text": "Maya grabs your hand and yells over the rotors. Your move. Every single time.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "heli": [
+    960,
+    1100,
+    260,
+    200,
+    0.75
+   ],
+   "intensity": 0.5
+  },
+  {
+   "sp": "deep",
+   "text": "You made it. Four days. Ten moves. Two people walked off that mountain.",
+   "clock": "6:50 AM",
+   "scene": "mountain",
+   "tod": "day",
+   "trees": 6,
+   "heli": [
+    960,
+    1500,
+    300,
+    160,
+    0.75
+   ],
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "reveal",
+     0.2
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Back home, the news calls it a miracle. It wasn't a miracle. It was ten good moves.",
+   "clock": "6:50 AM",
+   "scene": "title",
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "reveal",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Now count your moves. Ten out of ten, you're a legend. Seven or more, you survived. Under five, you're wolf food.",
+   "clock": "6:50 AM",
+   "scene": "score",
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "ding",
+     0.5
+    ],
+    [
+     "ding",
+     2.5
+    ],
+    [
+     "ding",
+     4.5
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "Comment your score. And subscribe, because your next move is coming.",
+   "clock": "6:50 AM",
+   "scene": "score",
+   "cta": true,
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "reveal",
+     0.3
+    ]
+   ]
+  },
+  {
+   "sp": "deep",
+   "text": "And tell me which move almost got you.",
+   "clock": "6:50 AM",
+   "scene": "score",
+   "cta": true,
+   "intensity": 0.3
+  }
+ ]
+}
