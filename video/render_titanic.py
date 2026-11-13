@@ -328,6 +328,12 @@ S = [
          body="It changed the sea for good: lifeboats for all, 24-hour radio watch, and an Ice Patrol that still tracks icebergs today."),
 ]
 
+import soundfile as _sf, os as _os
+_ND = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "narr")
+LEAD, TAIL = 0.5, 1.1
+for _i, _sc in enumerate(S):
+    _sc["dur"] = round((LEAD + _sf.info(f"{_ND}/{_i:02d}.wav").duration + TAIL) * 30) / 30
+
 def draw_frame(sc, t, img):
     d = ImageDraw.Draw(img, "RGBA")
     dur = sc["dur"]
