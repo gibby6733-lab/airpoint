@@ -42,7 +42,7 @@ The Titanic didn't sink because of one iceberg. It sank because of 7 small failu
 
 Which failure surprised you most? 👇
 
-#titanic #history #shorts #historyfacts #didyouknow
+#TheRealReason #titanic #history #shorts #historyfacts #didyouknow
 
 ---
 
@@ -56,7 +56,7 @@ The Hindenburg was designed for helium, a gas that can't burn. So why was it ful
 
 Would you have flown on it? 👇
 
-#hindenburg #history #shorts #aviationhistory #historyfacts
+#TheRealReason #hindenburg #history #shorts #aviationhistory #historyfacts
 
 ---
 
@@ -68,7 +68,7 @@ Would you have flown on it? 👇
 **Description:**
 At 1:23 a.m. on April 26, 1986, operators pressed AZ-5, the emergency shutdown button. Instead of stopping the reactor, it made the power spike to around 10× its maximum. The designers knew about the flaw. The operators were never told.
 
-#chernobyl #history #shorts #nuclear #historyfacts
+#TheRealReason #chernobyl #history #shorts #nuclear #historyfacts
 
 ---
 
@@ -80,7 +80,7 @@ At 1:23 a.m. on April 26, 1986, operators pressed AZ-5, the emergency shutdown b
 **Description:**
 It was 36°F on launch morning, the coldest NASA had ever tried. Engineers begged to delay because the booster O-rings could fail in the cold. They were overruled. 73 seconds after liftoff, Challenger broke apart. In memory of the 7 crew members.
 
-#challenger #nasa #shorts #spacehistory #history
+#TheRealReason #challenger #nasa #shorts #spacehistory #history
 
 ---
 
@@ -94,7 +94,7 @@ Galloping Gertie didn't collapse from resonance. The wind was steady, not pulsin
 
 Did your teacher tell you "resonance"? 👇
 
-#tacomanarrows #physics #shorts #engineering #history
+#TheRealReason #tacomanarrows #physics #shorts #engineering #history
 
 ---
 
@@ -108,7 +108,7 @@ Boston, January 15, 1919: a tank holding 2.3 million gallons of molasses burst a
 
 Had you ever heard of this? 👇
 
-#molassesflood #boston #shorts #weirdhistory #history
+#TheRealReason #molassesflood #boston #shorts #weirdhistory #history
 
 ---
 
@@ -120,7 +120,7 @@ Had you ever heard of this? 👇
 **Description:**
 In 79 AD, Vesuvius buried Pompeii, but lava wasn't the killer. After hours of falling stone, a pyroclastic surge of superheated gas and ash raced downhill at over 100 mph. The famous plaster casts show exactly where people were caught.
 
-#pompeii #vesuvius #shorts #ancienthistory #history
+#TheRealReason #pompeii #vesuvius #shorts #ancienthistory #history
 
 ---
 
