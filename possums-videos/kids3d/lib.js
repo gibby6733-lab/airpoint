@@ -1,7 +1,8 @@
 // kids3d — a small three.js toolkit for soft "toy 3D" kids cartoons (9:16, deterministic: everything is a function of time t).
 import * as THREE from './vendor/three.module.js';
 export { THREE };
-export const W = 1080, H = 1920;
+export let W = 1080, H = 1920;
+export function setSize(w, h) { W = w; H = h; }
 export const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k, seg = (u, a, b) => clamp((u - a) / (b - a));
 export const eOut = k => 1 - Math.pow(1 - k, 3), eIn = k => k * k * k, eInOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
 export const eBack = k => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(k - 1, 3) + c1 * Math.pow(k - 1, 2); };
@@ -9,7 +10,7 @@ export const eElastic = k => k === 0 || k === 1 ? k : Math.pow(2, -10 * k) * Mat
 export function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
 
 // ------------------------------------------------------------------ renderer / scene
-export function setup() {
+export function setup(w, h) { if (w) setSize(w, h);
   const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, powerPreference: 'high-performance' });
   r.setPixelRatio(1); r.setSize(W, H); r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
   r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 1.05; r.outputColorSpace = THREE.SRGBColorSpace;
@@ -239,10 +240,10 @@ export function captions(c, TL, t, colors) {
   const L = TL.lines.find(l => t >= l.start - .05 && t <= l.end + .25); if (!L || L.nocap) return;
   const ws = L.words; let ci = ws.findIndex((w, i) => t >= w.s && (i === ws.length - 1 || t < ws[i + 1].s)); if (ci < 0) ci = 0;
   const per = 4, c0 = Math.floor(ci / per) * per, ch = ws.slice(c0, c0 + per); c.save(); c.font = '700 84px Fredoka';
-  const ps = ch.map(w => w.w.replace(/[.,!?]+$/, '').toUpperCase() + (/[!?]$/.test(w.w) ? w.w.slice(-1) : '')), sp = 24, wd = ps.map(p => c.measureText(p).width), tot = wd.reduce((a, b) => a + b, 0) + sp * (ps.length - 1), f = Math.min(1, 860 / tot);
-  let x = W / 2 - tot * f / 2; const y = 1440;
+  const ps = ch.map(w => w.w.replace(/[.,!?…—]+$/, '').toUpperCase() + (/[!?]$/.test(w.w) ? w.w.slice(-1) : '')), sp = 24, wd = ps.map(p => c.measureText(p).width), tot = wd.reduce((a, b) => a + b, 0) + sp * (ps.length - 1), f = Math.min(W > H ? .8 : 1, (W > H ? 1500 : 860) / tot);
+  let x = W / 2 - tot * f / 2; const y = W > H ? H - 120 : 1440;
   ps.forEach((p, q) => { const act = c0 + q === ci, k = act ? eBack(clamp((t - ws[c0 + q].s) / .14)) : 1, col = act ? colors[(c0 + q) % colors.length] : '#ffffff';
     c.save(); c.translate(x + wd[q] * f / 2, y - (act ? 10 * k : 0)); c.scale(f * (act ? lerp(.85, 1.12, k) : 1), f * (act ? lerp(.85, 1.12, k) : 1)); txt(c, p, 0, 6, 84, 'rgba(0,0,0,.25)', { stroke: 18, sc: 'rgba(0,0,0,.25)' }); txt(c, p, 0, 0, 84, col, { stroke: 16 }); c.restore(); x += (wd[q] + sp) * f; });
   c.restore();
 }
-export function vignette(c, a = .28) { const g = c.createRadialGradient(W / 2, H / 2, 500, W / 2, H / 2, 1250); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(20,10,40,${a})`); c.fillStyle = g; c.fillRect(0, 0, W, H); }
+export function vignette(c, a = .28) { const R = Math.max(W, H); const g = c.createRadialGradient(W / 2, H / 2, R * .26, W / 2, H / 2, R * .65); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(20,10,40,${a})`); c.fillStyle = g; c.fillRect(0, 0, W, H); }

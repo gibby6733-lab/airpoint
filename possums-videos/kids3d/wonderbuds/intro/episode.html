@@ -1,0 +1,112 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>@font-face{font-family:Fredoka;src:url(../../vendor/Fredoka.ttf)}html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><script type="module">
+// WonderBuds show intro — plays before every episode. Each friend introduces themself in their own spot of WonderBuds Village.
+import { THREE, W, H, setup, mat, mesh, group, SPH, CAP, clamp, lerp, seg, eOut, eIn, eInOut, eBack, eElastic, rng, txt, vignette, starTex } from '../../lib.js';
+import { buildVillage, SPOTS } from '../village.js';
+import { BUILD, act } from '../cast.js';
+await document.fonts.load('700 80px Fredoka');
+const B = await (await fetch('../bible.json')).json();
+const { r, scene, cam, octx } = setup(1920, 1080); cam.fov = 35; cam.updateProjectionMatrix();
+const V = buildVillage(scene, r); let TL = null;
+const IDS = ['rosie', 'pudding', 'ollie', 'clover', 'ziggy'], COL = { rosie: '#e8642c', pudding: '#9b7fd6', ollie: '#3d8fd6', clover: '#3fb68f', ziggy: '#8a5a3c' };
+const C = {}; for (const id of IDS) { C[id] = BUILD[id](); scene.add(C[id].root); }
+// ---------------------------------------------------------------- props
+const compass = group(C.rosie.arms[1], 0, -.86, .18); mesh(new THREE.CylinderGeometry(.2, .2, .07, 24), mat('#ffc93c', { kind: 'gloss' }), 0, 0, 0, compass, { r: [Math.PI / 2, 0, 0] }); mesh(new THREE.CircleGeometry(.16, 24), mat('#fffaf0'), 0, 0, .04, compass, { cast: false });
+const needle = mesh(new THREE.ConeGeometry(.035, .26, 6), mat('#e03131'), 0, 0, .05, compass, { cast: false }); needle.rotation.z = .3;
+const cup = group(C.pudding.arms[1], 0, -.75, .3); mesh(new THREE.CylinderGeometry(.24, .17, .3, 16), mat('#69c0ff', { kind: 'gloss' }), 0, 0, 0, cup); const frost = group(cup, 0, .2, 0); mesh(SPH(.27, 16, 12), mat('#fff0f6', { rough: .4 }), 0, 0, 0, frost, { s: [1, .7, 1] }); mesh(SPH(.17, 16, 12), mat('#fff0f6', { rough: .4 }), 0, .17, 0, frost); mesh(SPH(.08), mat('#e03131', { kind: 'gloss' }), 0, .33, 0, frost);
+const nose = mesh(SPH(.12, 12, 8), mat('#ffb3d1', { rough: .4 }), 0, -.15, .98, C.pudding.head, { cast: false }); nose.visible = false;
+const bulb = group(scene); mesh(SPH(.32, 20, 14), new THREE.MeshStandardMaterial({ color: '#fff3a0', emissive: '#ffe066', emissiveIntensity: 1.2 }), 0, 0, 0, bulb, { cast: false }); mesh(new THREE.CylinderGeometry(.14, .14, .2, 12), mat('#9aa5b1', { kind: 'gloss' }), 0, -.33, 0, bulb);
+const fly = group(scene); const fwl = mesh(SPH(.18, 12, 8), mat('#ffb02e', { side: THREE.DoubleSide }), -.16, 0, 0, fly, { s: [1, .12, .8], cast: false }), fwr = mesh(SPH(.18, 12, 8), mat('#ffb02e', { side: THREE.DoubleSide }), .16, 0, 0, fly, { s: [1, .12, .8], cast: false }); mesh(CAP(.025, .2, 4), mat('#2b1d1d'), 0, 0, 0, fly, { r: [Math.PI / 2, 0, 0], cast: false });
+const rope = mesh(new THREE.CylinderGeometry(.045, .045, 1, 8), mat('#c9a46a', { rough: .9 }), 0, 0, 0, scene);
+const dust = Array.from({ length: 14 }, () => mesh(SPH(.35, 10, 8), mat('#f2dfae', { transparent: true, opacity: .7, rough: 1 }), 0, -9, 0, scene, { cast: false, recv: false }));
+const STAR = starTex(), sparks = Array.from({ length: 40 }, () => { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: STAR, transparent: true, depthWrite: false, color: '#fff7c0' })); s.visible = false; scene.add(s); return s; });
+const CN = 360, confetti = new THREE.InstancedMesh(new THREE.PlaneGeometry(.16, .26), new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, roughness: .5 }), CN); confetti.frustumCulled = false; scene.add(confetti);
+{ const cc = ['#ff6b6b', '#ffd43b', '#4dabf7', '#69db7c', '#da77f2', '#ff9f43'].map(c => new THREE.Color(c)); for (let i = 0; i < CN; i++) confetti.setColorAt(i, cc[i % 6]); }
+// ---------------------------------------------------------------- places
+const P = { rosie: [0, .92, 2.62], pudding: [SPOTS.bakery[0] - .4, 0, SPOTS.bakery[1] + 4.4], ollie: [.9, 5.2, SPOTS.treehouse[1] + 1.9], clover: [SPOTS.garden[0] + .3, 0, SPOTS.garden[1] + 1.2], ziggy: [SPOTS.playground[0] + 1.4, 0, SPOTS.playground[1] + 1.6] };
+const FIN = { rosie: [0, 5.0], pudding: [-2.4, 5.3], ollie: [2.4, 5.3], clover: [-4.7, 6.0], ziggy: [4.7, 6.0] };
+const segOf = t => TL.segs.find(s => t >= s.start && t < s.end) || TL.segs[TL.segs.length - 1];
+const S = n => TL.segs.find(s => s.name === n);
+const vis = (id, t) => { const v = TL.vis[id]; const f = Math.floor(t * TL.fps); return { o: v.o[f] || 0, w: v.w[f] || 0 }; };
+const M4 = new THREE.Matrix4(), V3 = new THREE.Vector3(), Q = new THREE.Quaternion(), S3 = new THREE.Vector3(), E = new THREE.Euler();
+function facing(x, z, k = .85) { return Math.atan2(cam.position.x - x, cam.position.z - z) * k; }
+function sparkAt(i0, n, t, t0, p, spread) { const dt = t - t0; if (dt < 0 || dt > 1.1) return i0; const rr = rng(Math.floor(t0 * 100)); for (let k = 0; k < n && i0 < sparks.length; k++, i0++) { const s = sparks[i0], a = rr() * 6.28, el = rr() * 1.4, d = eOut(clamp(dt / .8)) * spread * (.4 + rr() * .6); s.visible = true; s.position.set(p[0] + Math.cos(a) * Math.cos(el) * d, p[1] + Math.sin(el) * d * .8, p[2] + Math.sin(a) * Math.cos(el) * d * .6); s.scale.setScalar(Math.sin(clamp(dt / 1.1) * Math.PI) * (.3 + rr() * .3)); } return i0; }
+
+// ---------------------------------------------------------------- camera per segment
+function camFor(name, u, t, s) {
+  const k = eInOut(u);
+  if (name === 'title') { const a = eInOut(seg(u, 0, .7)), b = eInOut(seg(u, .62, 1)); return [[0, lerp(46, 7.5, a) - b * 3, lerp(88, 27, a) - b * 10], [0, lerp(0, 3, a), lerp(-6, 0, a)]]; }
+  if (name === 'rosie') { const p = C.rosie.root.position; return [[lerp(4, 1.6, k), lerp(3.4, 3.0, k), lerp(13, 9.5, k) + eInOut(seg(u, .6, 1)) * 4.5], [p.x * .5, 2.2 + p.y * .3, p.z]]; }
+  if (name === 'pudding') { const p = C.pudding.root.position; return [[p.x + lerp(2, .6, k), lerp(2.8, 2.4, k) + p.y * .4, p.z + lerp(9, 6.4, k)], [p.x, 1.8 + p.y * .6, p.z]]; }
+  if (name === 'ollie') { const p = P.ollie; return [[p[0] + lerp(3.6, 1.4, k), lerp(7.6, 6.9, k), p[2] + lerp(10, 6.8, k)], [p[0] - .3 * (1 - k), 6.7, p[2]]]; }
+  if (name === 'clover') { const p = P.clover; return [[p[0] + lerp(2.2, .7, k), lerp(2.2, 2.0, k), p[2] + lerp(8.5, 5.8, k)], [p[0], 1.75, p[2]]]; }
+  if (name === 'ziggy') { const p = C.ziggy.root.position, zz = seg(u, .55, .85); return [[SPOTS.playground[0] + lerp(-3, 0, k), 3.6 - k * .4 + zz * 1.2, SPOTS.playground[1] + lerp(13, 10.5, k) + zz * 3], [lerp(p.x, SPOTS.playground[0], zz * .7), lerp(2.5, 1.9, k), lerp(p.z, SPOTS.playground[1], .3)]]; }
+  const fu = seg(u, .55, 1); return [[0, lerp(3.1, 6.5, eInOut(fu)), lerp(17.5, 25, eInOut(fu))], [0, lerp(2.0, 3.0, fu), 4.5]];
+}
+// ---------------------------------------------------------------- characters per moment
+function stage(t) {
+  const sg = segOf(t), u = (t - sg.start) / (sg.end - sg.start), lt = t - sg.start;
+  // defaults: everybody in their own spot, idle
+  for (const id of IDS) { const R = C[id]; R.root.position.set(...P[id]); R.root.rotation.set(0, facing(...[P[id][0], P[id][2]], .5), 0); R.root.scale.setScalar(1); }
+  compass.visible = sg.name === 'rosie'; cup.visible = sg.name === 'pudding'; bulb.visible = false; fly.visible = false; rope.visible = false; dust.forEach(d => d.position.y = -9);
+  const st = {}; for (const id of IDS) { const v = vis(id, t); st[id] = { t, ph: IDS.indexOf(id), talk: v.o, viseme: { wide: v.w }, expr: 'happy' }; }
+  const nm = sg.name;
+  if (nm === 'rosie') { const jump = seg(lt, 5.1, 5.6), R = C.rosie; st.rosie.expr = 'determined';
+    if (jump > 0) { const p = [0, lerp(.92, 0, eIn(jump)) + Math.sin(jump * Math.PI) * .9, lerp(2.62, 4.2, jump) + seg(lt, 5.6, 7.6) * 1.2]; R.root.position.set(...p); st.rosie.walk = lt > 5.6; st.rosie.squash = lt > 5.6 && lt < 5.9 ? Math.sin((lt - 5.6) / .3 * Math.PI) * .2 : 0; }
+    R.root.rotation.y = facing(R.root.position.x, R.root.position.z); }
+  if (nm === 'pudding') { const R = C.pudding, hov = seg(lt, 5.0, 5.5) * (1 - seg(lt, 6.0, 6.3)); R.root.position.y = eOut(hov) * 1.5 + Math.sin(t * 9) * .05 * hov; st.pudding.excited = lt > 4.9 && lt < 6.4; st.pudding.expr = lt > 5 && lt < 6.3 ? 'surprised' : 'laugh';
+    if (lt > 6.3 && lt < 6.7) st.pudding.squash = Math.sin((lt - 6.3) / .4 * Math.PI) * .25; nose.visible = lt > 1.05 && lt < 7.6; frost.scale.setScalar(lt > 1.05 ? .7 : 1); }
+  if (nm === 'ollie') { const R = C.ollie, turn = eInOut(seg(lt, 1.0, 1.6)); R.root.rotation.y = lerp(-1.3, facing(P.ollie[0], P.ollie[2]), turn); st.ollie.expr = lt > 4.2 ? 'surprised' : (lt > 1.6 ? 'thinking' : 'happy'); st.ollie.chinTap = lt > 2.6 && lt < 4.2;
+    if (lt > 4.2 && lt < 7.4) { bulb.visible = true; const k = eBack(seg(lt, 4.2, 4.6)); bulb.scale.setScalar(Math.max(.01, k)); bulb.position.set(P.ollie[0], 5.2 + 3.4 + Math.sin(t * 4) * .06, P.ollie[2]); } }
+  if (nm === 'clover') { const R = C.clover; st.clover.expr = lt < 1.5 ? 'nervous' : (lt > 5.3 ? 'laugh' : 'happy'); if (lt > 3 && lt < 5.6) st.clover.look = [0, -.55];
+    fly.visible = lt > 2.6 && lt < 7.6; const nosePos = R.head.localToWorld(new THREE.Vector3(0, -.08, .88)); fly.scale.setScalar(.7); const kin = eInOut(seg(lt, 2.6, 4.3)), kout = eIn(seg(lt, 5.8, 7.6));
+    fly.position.set(lerp(nosePos.x + 4, nosePos.x, kin) + kout * 3, lerp(nosePos.y + 1.5, nosePos.y + .05, kin) + Math.sin(t * 5) * .15 * (1 - (kin > .99 && kout === 0 ? 1 : 0)) + kout * 2, nosePos.z + (1 - kin) * .5 + kout);
+    const fl = (kin > .99 && kout === 0) ? Math.sin(t * 6) * .4 : Math.sin(t * 28) * .9; fwl.rotation.z = fl; fwr.rotation.z = -fl; fly.rotation.set(Math.PI / 2, 0, .2); st.clover.wave = lt > 6.4; }
+  if (nm === 'ziggy') { const R = C.ziggy, A = V.ropeAnchor, L = 4.6;
+    if (lt < 1.05) { const th = .85 * Math.cos(lt * 3.0 + .2) ; const hand = [A.x + Math.sin(th) * L, A.y - Math.cos(th) * L, A.z]; R.root.position.set(hand[0], hand[1] - 2.55, hand[2] + .1); R.root.rotation.set(0, .4, th * .6); st.ziggy.arms = 'up'; st.ziggy.tuck = true; rope.visible = true;
+      const a = new THREE.Vector3(A.x, A.y, A.z), b = new THREE.Vector3(...hand); rope.position.copy(a).add(b).multiplyScalar(.5); rope.scale.set(1, a.distanceTo(b), 1); rope.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize()); }
+    else if (lt < 1.45) { const k = seg(lt, 1.05, 1.45); const th = .85 * Math.cos(1.05 * 3.0 + .2); const h0 = [A.x + Math.sin(th) * L, A.y - Math.cos(th) * L - 2.55, A.z + .1]; R.root.position.set(lerp(h0[0], P.ziggy[0], k), lerp(h0[1], 0, k) + Math.sin(k * Math.PI) * 1.4, lerp(h0[2], P.ziggy[2], k)); R.root.rotation.set(0, 0, (1 - k) * 6.28); st.ziggy.arms = 'up'; }
+    else if (lt > 4.6 && lt < 6.4) { const k = seg(lt, 4.6, 6.4), a = k * Math.PI * 2, cx = SPOTS.playground[0], cz = SPOTS.playground[1] + 1.2, rad = 4.5; R.root.position.set(cx + Math.sin(a) * rad, 0, cz + Math.cos(a) * rad * .8); R.root.rotation.set(0, a + Math.PI / 2, -.25); st.ziggy.walk = true; st.ziggy.t = t * 2.2;
+      dust.forEach((d, i) => { const ka = a - .25 * (i + 1); if (ka < 0) return; d.position.set(cx + Math.sin(ka) * rad, .3, cz + Math.cos(ka) * rad * .8); d.scale.setScalar(.5 + i * .12); d.material.opacity = .65 * (1 - i / 14); }); }
+    if (lt >= 1.45 && lt < 1.8) st.ziggy.squash = Math.sin((lt - 1.45) / .35 * Math.PI) * .25; if (lt >= 6.4 && lt < 6.8) st.ziggy.squash = Math.sin((lt - 6.4) / .4 * Math.PI) * .25; if (lt > 6.8) st.ziggy.arms = 'cheer'; st.ziggy.expr = 'laugh'; if (lt > 1.45 && lt < 4.6) st.ziggy.hop = Math.abs(Math.sin(t * 7)) * .25; }
+  if (nm === 'finale') { const run = seg(lt, 0, 1.1);
+    IDS.forEach((id, i) => { const R = C[id], from = id === 'ollie' ? [8, 0, -2] : id === 'rosie' ? [0, 0, -3] : [P[id][0] * .5, 0, P[id][2] * .5], to = FIN[id];
+      R.root.position.set(lerp(from[0], to[0], eOut(run)), 0, lerp(from[2], to[1], eOut(run))); R.root.rotation.set(0, run < 1 ? Math.atan2(to[0] - from[0], to[1] - from[2]) : facing(to[0], to[1], .6), 0); st[id].walk = run < 1; if (run < 1) st[id].t = t * 1.6;
+      const j = seg(lt, 4.35, 5.05); if (j > 0 && j < 1) { st[id].hop = Math.sin(j * Math.PI) * 1.4; st[id].arms = 'up'; } else if (lt > 5.05) { st[id].arms = 'cheer'; st[id].hop = Math.abs(Math.sin((t + i * .2) * 6)) * .15; } else if (run >= 1) st[id].arms = i % 2 ? 'cheer' : null;
+      st[id].expr = lt > 4.3 ? 'laugh' : 'happy'; st[id].excited = true; }); }
+  for (const id of IDS) act(C[id], st[id]);
+  // gesture overrides (after act)
+  if (nm === 'rosie') { const lt2 = lt; if (lt2 < 3.6) C.rosie.arms[1].rotation.set(-1.15, 0, -.25); else if (lt2 < 5.1) C.rosie.arms[1].rotation.set(-1.55, 0, -.05); needle.rotation.z = .3 + Math.sin(t * 3) * .5; }
+  if (nm === 'pudding') { const bite = Math.sin(seg(lt, .6, 1.3) * Math.PI); C.pudding.arms[1].rotation.set(-1.1 - bite * .9, 0, -.25 - bite * .2); }
+  if (nm === 'ollie' && lt > 1.6 && lt < 2.4) C.ollie.arms[0].rotation.set(-2.5, 0, .3);
+  return sg;
+}
+// ---------------------------------------------------------------- 2D overlay: logo, name cards, wipes
+const LOGO = 'WonderBuds'.split(''), LCOL = ['#ff6b6b', '#ff9f43', '#ffd43b', '#69db7c', '#4dabf7', '#9775fa', '#ff6b6b', '#ffd43b', '#69db7c', '#4dabf7'];
+function logo(c, t, t0, x, y, s) { if (t < t0) return; c.save(); c.translate(x, y); c.scale(s, s); c.font = '700 190px Fredoka'; const ws = LOGO.map(ch => c.measureText(ch).width), tot = ws.reduce((a, b) => a + b, 0); let xx = -tot / 2;
+  LOGO.forEach((ch, i) => { const k = eBack(clamp((t - t0 - i * .06) / .35)), yy = Math.sin(t * 5 + i * .7) * 8; c.save(); c.translate(xx + ws[i] / 2, yy); c.rotate(Math.sin(t * 3 + i) * .05); c.scale(k, k); txt(c, ch, 0, 12, 190, 'rgba(0,0,0,.25)', { stroke: 34, sc: 'rgba(0,0,0,.25)' }); txt(c, ch, 0, 0, 190, LCOL[i], { stroke: 30, sc: '#ffffff' }); c.restore(); xx += ws[i]; });
+  const k = eBack(clamp((t - t0 - .7) / .4)); c.save(); c.translate(0, 135); c.scale(k, k); c.fillStyle = '#ffffff'; c.beginPath(); c.roundRect(-300, -42, 600, 84, 42); c.fill(); txt(c, 'FIVE BEST FRIENDS!', 0, 3, 50, '#ff6b6b'); c.restore(); c.restore(); }
+function nameCard(c, id, lt, len) { const ch = B.characters[id], kin = eBack(clamp((lt - .4) / .45)), kout = eIn(clamp((lt - (len - .7)) / .4)), x = lerp(-700, 70, kin) - kout * 800, y = H - 270;
+  c.save(); c.translate(x, y); c.rotate(-.03); c.fillStyle = 'rgba(0,0,0,.2)'; c.beginPath(); c.roundRect(10, 14, 640, 190, 46); c.fill(); c.fillStyle = COL[id]; c.beginPath(); c.roundRect(0, 0, 640, 190, 46); c.fill(); c.lineWidth = 10; c.strokeStyle = '#ffffff'; c.stroke();
+  txt(c, ch.name.toUpperCase(), 40, 78, 104, '#ffffff', { align: 'left', stroke: 14, sc: 'rgba(0,0,0,.18)' }); txt(c, `${ch.role.toUpperCase()} · ${ch.species.toUpperCase()}`, 44, 150, 40, '#fffbe6', { align: 'left', maxW: 560 }); c.restore(); }
+function wipe(c, t) { for (const s of TL.segs.slice(1)) { const d = t - s.start; if (d < -.32 || d > .32) continue; const k = d < 0 ? eIn(clamp((d + .32) / .32)) : 1 - eOut(clamp(d / .32)), R = k * Math.hypot(W, H) * .55, col = COL[s.name] || '#ff6b6b';
+  c.save(); c.beginPath(); c.arc(W / 2, H / 2, R, 0, 7); c.fillStyle = col; c.fill(); c.lineWidth = 26; c.strokeStyle = '#ffffff'; c.stroke(); if (k > .6) { c.globalAlpha = (k - .6) / .4; for (let i = 0; i < 8; i++) { const a = i / 8 * 6.28 + t * 2; txt(c, '★', W / 2 + Math.cos(a) * 260, H / 2 + Math.sin(a) * 260, 70, '#ffffff'); } } c.restore(); } }
+// ---------------------------------------------------------------- frame
+window.setTimeline = tl => { TL = tl; }; window.ready = Promise.resolve();
+window.renderFrame = function (t) {
+  V.update(t); let sg = stage(t), u = (t - sg.start) / (sg.end - sg.start);
+  for (let pass = 0; pass < 2; pass++) { const [p, g] = camFor(sg.name, clamp(u), t, sg); cam.position.set(p[0] + Math.sin(t * 1.3) * .04, p[1] + Math.sin(t * 1.1) * .03, p[2]); cam.lookAt(...g); cam.updateMatrixWorld(); if (!pass) sg = stage(t); }
+  // sparkles + confetti
+  let si = 0; const st = n => S(n).start; si = sparkAt(si, 8, t, st('rosie') + .9, [0, 2.4, 3.2], 1.2); si = sparkAt(si, 10, t, st('ollie') + 4.2, [P.ollie[0], 8.6, P.ollie[2]], 1.5); si = sparkAt(si, 8, t, st('clover') + 4.3, [P.clover[0], 2.2, P.clover[2] + .7], 1);
+  si = sparkAt(si, 10, t, st('pudding') + 5.0, [P.pudding[0], 2.5, P.pudding[2]], 1.6); si = sparkAt(si, 12, t, st('finale') + 4.4, [0, 4, 5], 5); for (; si < sparks.length; si++) sparks[si].visible = false;
+  const ct = t - (st('finale') + 4.4); confetti.visible = ct > 0;
+  if (ct > 0) { for (let i = 0; i < CN; i++) { const rr = rng(i * 7 + 1), x = (rr() - .5) * 16, z = 2 + rr() * 6, v = 3 + rr() * 5, y = 1 + v * ct - 2.2 * ct * ct * (1 + rr()) ; const yy = Math.max(.05, y + 4); M4.compose(V3.set(x + Math.sin(t * 2 + i) * .4 * ct, yy, z), Q.setFromEuler(E.set(t * (2 + rr() * 3) + i, t * 3 + i, 0)), S3.setScalar(yy <= .06 ? .8 : 1)); confetti.setMatrixAt(i, M4); } confetti.instanceMatrix.needsUpdate = true; }
+  r.render(scene, cam); const c = octx; c.drawImage(r.domElement, 0, 0); vignette(c, .18);
+  if (sg.name === 'title') { logo(c, t, 1.5, W / 2, 330, 1); }
+  if (IDS.includes(sg.name)) nameCard(c, sg.name, t - sg.start, sg.end - sg.start);
+  if (sg.name === 'finale') { const lt = t - sg.start; if (lt > 5.0) logo(c, t, sg.start + 5.0, W / 2, 230, .85); }
+  wipe(c, t);
+  const fi = 1 - clamp(t / .4); if (fi > 0) { c.fillStyle = `rgba(255,255,255,${fi})`; c.fillRect(0, 0, W, H); }
+};
+</script></body></html>
