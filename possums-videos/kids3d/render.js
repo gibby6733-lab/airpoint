@@ -13,7 +13,8 @@ async function page(port) {
   const b = await chromium.launch(GPU ? { headless: !process.argv.includes('--headed'), args: ['--ignore-gpu-blocklist', '--enable-gpu', '--enable-gpu-rasterization', '--use-angle=default', '--enable-zero-copy'] }
                                        : { args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const p = await b.newPage({ viewport: { width: tl.width || 1080, height: tl.height || 1920 } }); p.on('pageerror', e => { console.error('PAGE ERROR', e.message); process.exit(1); }); p.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });
-  await p.goto(`http://127.0.0.1:${port}/${rel}/episode.html`); await p.waitForFunction('window.renderFrame && window.ready'); await p.evaluate(async tl => { await window.ready; window.setTimeline(tl); }, tl); return { b, p };
+  await p.goto(`http://127.0.0.1:${port}/${rel}/episode.html`); await p.waitForFunction('window.renderFrame && window.ready'); const MB = process.argv.includes('--mb') ? +process.argv[process.argv.indexOf('--mb') + 1] : (GPU ? 4 : 1);   // motion-blur samples per frame (GPU only by default)
+  await p.evaluate(async ([tl, MB]) => { await window.ready; window.setTimeline(tl); window.MB = MB; }, [tl, MB]); return { b, p };
 }
 const grab = (p, t, q = .92) => p.evaluate(([t, q]) => { renderFrame(t); return document.getElementById('c').toDataURL('image/jpeg', q); }, [t, q]);
 (async () => {
@@ -38,7 +39,7 @@ const grab = (p, t, q = .92) => p.evaluate(([t, q]) => { renderFrame(t); return 
   // full render: split into parts rendered by child processes
   srv.close(); const N = +(args[args.indexOf('--workers') + 1] || 4) || 4, total = Math.ceil(tl.duration * FPS), tmp = path.join(ep, '_parts'); fs.rmSync(tmp, { recursive: true, force: true }); fs.mkdirSync(tmp);
   await Promise.all(Array.from({ length: N }, (_, i) => new Promise((res, rej) => { const a = Math.floor(total * i / N), z = Math.floor(total * (i + 1) / N);
-    const c = spawn('node', [__filename, ep, '--part', a, z, path.join(tmp, `p${i}.mp4`), ...process.argv.filter(x => x === '--gpu' || x === '--headed')], { stdio: 'inherit' }); c.on('close', code => code ? rej(new Error('part ' + i)) : res()); })));
+    const c = spawn('node', [__filename, ep, '--part', a, z, path.join(tmp, `p${i}.mp4`), ...process.argv.filter(x => x === '--gpu' || x === '--headed'), ...(process.argv.includes('--mb') ? ['--mb', process.argv[process.argv.indexOf('--mb') + 1]] : [])], { stdio: 'inherit' }); c.on('close', code => code ? rej(new Error('part ' + i)) : res()); })));
   fs.writeFileSync(path.join(tmp, 'list.txt'), Array.from({ length: N }, (_, i) => `file 'p${i}.mp4'`).join('\n'));
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', path.join(tmp, 'list.txt'), '-i', path.join(ep, 'audio.wav'), '-c:v', 'copy', '-aspect', (tl.width || 1080) > (tl.height || 1920) ? '16:9' : '9:16',
     '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', '-movflags', '+faststart', path.join(ep, 'episode.mp4')]);

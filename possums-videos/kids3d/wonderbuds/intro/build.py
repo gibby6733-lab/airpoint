@@ -90,7 +90,7 @@ v_env = np.convolve(np.abs(voice), np.ones(2400) / 2400, mode="same"); duck = 1 
 mix = voice * 1.05 + music * .55 * duck + fx * .55
 x = np.arange(N) / SR; mix *= np.clip((DUR - x) / .6, 0, 1); mix = mix / (np.abs(mix).max() + 1e-6) * .89
 sf.write(os.path.join(HERE, "audio.wav"), mix.astype(np.float32), SR)
-json.dump({"width": 1920, "height": 1080, "fps": FPS, "crf": 18, "duration": round(DUR, 3), "bpm": BPM, "bar": bar,
+json.dump({"width": 1920, "height": 1080, "fps": 60, "vis_fps": FPS, "crf": 18, "duration": round(DUR, 3), "bpm": BPM, "bar": bar,
            "segs": [{"name": n, "start": s * bar, "end": (s + l) * bar} for n, s, l in SEGS], "lines": tl_lines,
            "vis": {c: {"o": [round(float(v), 2) for v in d["o"]], "w": [round(float(v), 2) for v in d["w"]]} for c, d in vis.items()}},
           open(os.path.join(HERE, "timeline.json"), "w"))
