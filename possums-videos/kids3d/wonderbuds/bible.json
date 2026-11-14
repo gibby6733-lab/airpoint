@@ -19,8 +19,10 @@
    "look": "Rust-orange fur, white face markings and cheek patches, dark brown arms and legs, bushy ringed tail, teal scarf, little yellow backpack.",
    "voice": {
     "voice": "af_bella",
-    "speed": 1.04,
-    "pitch": 1.24,
+    "speed": 1.05,
+    "pitch": 1.26,
+    "formant": 1.12,
+    "expr": 1.3,
     "style": "Bright, confident, clear; speaks in short excited bursts."
    },
    "phrases": [
@@ -48,8 +50,10 @@
    "look": "Round lavender hippo, big soft snout, tiny ears, two little teeth, rainbow propeller beanie that spins when he's excited.",
    "voice": {
     "voice": "am_puck",
-    "speed": 1.0,
-    "pitch": 1.16,
+    "speed": 0.98,
+    "pitch": 1.32,
+    "formant": 1.12,
+    "expr": 1.45,
     "style": "Goofy, bouncy, a bit slower, laughs a lot (hee-hee!)."
    },
    "phrases": [
@@ -80,7 +84,9 @@
    "voice": {
     "voice": "bm_fable",
     "speed": 1.0,
-    "pitch": 1.42,
+    "pitch": 1.78,
+    "formant": 1.15,
+    "expr": 1.15,
     "style": "Gentle British accent, precise, says 'Hmm\u2026' before ideas."
    },
    "phrases": [
@@ -108,8 +114,11 @@
    "look": "Cream bunny with very long ears (one floppy), pink nose, mint hoodie, little daisy clip on her ear, fluffy tail.",
    "voice": {
     "voice": "af_nicole",
-    "speed": 1.0,
-    "pitch": 1.32,
+    "speed": 1.06,
+    "pitch": 1.52,
+    "formant": 1.14,
+    "expr": 1.0,
+    "breath": 0.08,
     "style": "Soft, gentle, a little breathy; slows down when nervous."
    },
    "phrases": [
@@ -137,8 +146,10 @@
    "look": "Chocolate-brown monkey, peach face and belly, long curly tail, red sneakers, yellow lightning-bolt headband.",
    "voice": {
     "voice": "af_sky",
-    "speed": 1.18,
-    "pitch": 1.48,
+    "speed": 1.16,
+    "pitch": 1.68,
+    "formant": 1.18,
+    "expr": 1.5,
     "style": "Fast, high, excited; repeats words: 'Ready? Ready! READY!'"
    },
    "phrases": [
