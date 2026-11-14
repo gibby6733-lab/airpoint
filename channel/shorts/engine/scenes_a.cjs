@@ -151,7 +151,7 @@ SC[6] = {
   hook: 'The dead follow noise. So I bowled.', fact: 0, bed: 'drone',
   sfx: [['crash', 6, 0, 1.4], ['crash', 9, 0, 1.4], ['crash', 11, 0, 1.4], ['thump', 12, 0.3, 1.2], ['boom', 13, 0, 1], ['click', 14, 0, 1], ['heartbeat', 16, 0, 1.4]],
   shots: [
-    sh(0, (lt, T) => { darkBG('#1e1428', '#06030a'); g.save(); g.translate(540, 900); g.rotate(Math.sin(T) * 0.1); g.fillStyle = '#fff'; g.beginPath(); g.ellipse(0, 0, 150, 420, 0, 0, 7); g.fill(); rect(-150, -160, 300, 40, '#c33'); rect(-150, -100, 300, 20, '#c33'); g.restore(); C.textBox('3.5 LB', 540, 1450, 140, '#ffd23f', '#000', 18, 'Anton'); }, { cam: [1.0, 1.1] }),
+    sh(0, (lt, T) => { darkBG('#1e1428', '#06030a'); g.save(); g.translate(540, 820); g.rotate(Math.sin(T) * 0.1); g.fillStyle = '#fff'; g.beginPath(); g.ellipse(0, 0, 130, 340, 0, 0, 7); g.fill(); rect(-130, -130, 260, 34, '#c33'); rect(-130, -80, 260, 18, '#c33'); g.restore(); C.textBox('3.5 LB', 540, 1270, 140, '#ffd23f', '#000', 18, 'Anton'); }, { cam: [1.0, 1.1] }),
     sh(1, (lt, T) => { lanes(T); pinsExplode(lt, 540, 700, 1.4); }, { sfx: ['crash'], hit: true }),
     sh(2, (lt, T) => { darkBG('#1a1220', '#050208'); rect(0, 900, W, 300, '#333'); for (let i = 0; i < 8; i++) rect(80 + i * 120, 820, 40, 80, '#fff'); fig({ x: 540, y: 1750, s: 2.2, ...HERO('#7a3a9a'), pose: 'hold', face: 'neutral' }); }, { cam: [1.0, 1.05] }),
     sh(3, (lt, T) => { lanes(T); crowd(T, { n: 16, y0: 700, y1: 1800, sMin: 0.3, sMax: 1.3, adv: 0.04, dir: 1 }); }, { cam: [1.0, 1.08] }),
