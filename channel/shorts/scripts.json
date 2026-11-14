@@ -1,0 +1,272 @@
+[
+ {
+  "n": 1,
+  "slug": "pump-four",
+  "place": "gas station",
+  "title": "Never Look at Pump Four After 2 AM",
+  "fact": "At night a window becomes a mirror for whoever is on the brighter side",
+  "source": "Physics of one-way mirrors / reflection at night",
+  "text": "At two-thirteen in the morning, the bell rang at pump four. There was no car. Just a man, hugging the nozzle, staring at my window. I froze. Store lights off. Outside, the canopy was bright as noon. Here's the thing. At night, when it's brighter outside than inside, a window turns into a mirror for whoever's on the bright side. He couldn't see me. Only himself. He pressed his nose to the glass and smiled at his reflection. Then a little hand tugged my sleeve. The girl I was hiding had switched on the desk lamp. Behind the glass, his smile stopped. Would you have turned the lamp off, before the bell rang at pump four?"
+ },
+ {
+  "n": 2,
+  "slug": "the-locker",
+  "place": "butcher shop meat locker",
+  "title": "The Butcher Had One Rule About the Meat Locker",
+  "fact": "A full freezer keeps food frozen about 48 hours with the door shut (half-full: about 24)",
+  "source": "USDA Food Safety and Inspection Service",
+  "text": "The butcher gave me one rule. Never open the meat locker after midnight. Night three of the outbreak, the power was out, and we were starving. A full freezer keeps food frozen for about forty-eight hours, if you keep the door shut. Every time you open it, that clock runs faster. So we opened it once a day. Five seconds. In and out. On night four, I counted the hooks. Twelve. On night five, there were thirteen. The new one was wearing an apron. And it was still swinging. Would you open the meat locker, after midnight?"
+ },
+ {
+  "n": 3,
+  "slug": "ten-seconds",
+  "place": "hospital",
+  "title": "A Hospital Has 10 Seconds When the Power Dies",
+  "fact": "Hospital backup power must restore critical lighting within 10 seconds",
+  "source": "NFPA 99 / NFPA 110 emergency power rules",
+  "text": "When the power dies in a hospital, the backup generators get ten seconds to bring the critical lights back. That's the rule. Tonight, the hallway went black. One. Two. Down the corridor, a gurney started rolling. Three. Four. Wheels squeaking. Toward me. Five. Six. Seven. I could hear breathing. Not mine. Eight. Nine. The lights came back. The gurney was right in front of me. Empty. Sheet folded neatly. And the body bag in room twelve, the one I zipped shut an hour ago, was open. What would you do, when the power dies in a hospital?"
+ },
+ {
+  "n": 4,
+  "slug": "exit-signs",
+  "place": "movie theater",
+  "title": "Exit Signs Stay On for 90 Minutes. Then What?",
+  "fact": "Emergency exit lighting must last at least 90 minutes on battery",
+  "source": "NFPA 101 Life Safety Code",
+  "text": "The last movie ended at midnight. The outbreak started at twelve-oh-five. I locked myself in the projection booth. Then the power went out. Most people don't know this. Exit signs have batteries, and they have to stay lit for at least ninety minutes. So for ninety minutes, the theater glowed red. And I watched them come in, through the side door I forgot to lock. Row after row, sitting down, facing the blank screen. Waiting for the movie. At minute eighty-nine, the exit signs flickered. And every head turned to the booth. Would you play one more movie, after the last movie ended?"
+ },
+ {
+  "n": 5,
+  "slug": "shark-tunnel",
+  "place": "aquarium",
+  "title": "I Hid in the Shark Tunnel During the Outbreak",
+  "fact": "Big aquarium windows are acrylic, and the largest panels can be over a foot thick",
+  "source": "Public aquarium construction (e.g. Georgia Aquarium)",
+  "text": "The safest room in the city was underwater. I was the night keeper at the aquarium, so when the outbreak hit, I ran into the shark tunnel. Big aquarium windows aren't glass. They're acrylic, and the biggest panels can be more than a foot thick. Nothing gets through. For three nights, I slept under the sharks. On the fourth night, I woke up to tapping. Not on the doors. Above me. Something was walking along the bottom of the tank, pressing gray hands against the acrylic. It didn't need to breathe. The sharks swam right past it. Would you sleep in the safest room in the city?"
+ },
+ {
+  "n": 6,
+  "slug": "strike",
+  "place": "bowling alley",
+  "title": "The Dead Follow Noise. So I Started Bowling.",
+  "fact": "A regulation bowling pin weighs about 3.5 pounds",
+  "source": "USBC equipment specifications",
+  "text": "A bowling pin weighs about three and a half pounds. Ten of them falling is the loudest thing in this building. I reset them for a living. When the dead came into the bowling alley, I learned they follow noise. So I made a plan. Lane one. Strike. Every head turned while I crawled toward the exit. Lane two. Strike. Lane three. Strike. I made it to the door and pushed. Locked. Behind me, every lane went dark. The machines stopped. And in the silence, the loudest thing in the building was my breathing. Would you have thrown the ball?"
+ },
+ {
+  "n": 7,
+  "slug": "after-dark",
+  "place": "radio station",
+  "title": "I Kept Broadcasting After Dark. Something Heard Me.",
+  "fact": "AM radio travels much farther at night by bouncing off the upper atmosphere",
+  "source": "FCC, AM skywave propagation",
+  "text": "AM radio travels farther at night. After sunset, the signal bounces off the sky and can reach hundreds of miles. I was the overnight DJ when the outbreak started, so I kept broadcasting. Lock your doors. Stay quiet. Stay off the highway. Every night, the phone lines lit up. Survivors, calling from three states away. On night nine, line four rang. A little girl. She said, we heard you. We're coming. I asked, where are you? She said, outside your door. The dead can't use phones. But they can follow a radio. Would you keep talking, after dark?"
+ },
+ {
+  "n": 8,
+  "slug": "snow-cave",
+  "place": "ski lodge",
+  "title": "I Dug a Snow Cave to Hide From Them",
+  "fact": "Snow is mostly trapped air, so a snow cave stays near freezing even in far colder weather",
+  "source": "Winter survival guidance (US Forest Service / mountaineering)",
+  "text": "The lodge doors couldn't hold them. So I dug into the snow. A snow cave can stay around freezing inside, even when it's much colder outside, because snow is mostly trapped air, and trapped air is insulation. I dug behind the ski lift, kept the entrance small, and waited. Night one, quiet. Night two, I heard skis. Somebody coming down the mountain. Slow. Then stopping, right above me. A ski pole pushed through the roof, an inch from my face. It pulled back out. And something started digging. Would you dig in, or keep running down the mountain?"
+ },
+ {
+  "n": 9,
+  "slug": "the-pattern",
+  "place": "lighthouse",
+  "title": "Someone Copied My Lighthouse Signal",
+  "fact": "Every lighthouse has its own unique flash pattern so ships can identify it",
+  "source": "US Coast Guard Light List",
+  "text": "Every lighthouse has its own flash pattern, so ships know exactly which light they're looking at. Mine flashed white, every ten seconds. Since the outbreak, I kept it running every night, so survivors on boats knew where the safe harbor was. Night twenty, I saw it. The old lighthouse across the bay, dark for a month, was flashing again. White. Every ten seconds. My pattern. Someone over there was copying me. Pulling the boats to the wrong shore. I watched a little sailboat turn toward the wrong light. Would you change your pattern, or keep flashing every ten seconds?"
+ },
+ {
+  "n": 10,
+  "slug": "third-rail",
+  "place": "subway",
+  "title": "The Dead Don't Know About the Third Rail",
+  "fact": "New York City subway third rails carry about 600 volts",
+  "source": "MTA New York City Transit",
+  "text": "Never touch the third rail. In New York, it carries about six hundred volts. I learned that my first night working the subway. Night one of the outbreak, I learned something else. The dead don't know about it. They came down the tunnel toward my platform, and the first one stepped on the rail. Sparks. Then the next. Then the next. The rail was a wall they could never remember. Until the power went out across the city. The sparks stopped. The tunnel went quiet. And then I heard footsteps. Hundreds of them. On the rail. Would you still trust the third rail?"
+ },
+ {
+  "n": 11,
+  "slug": "left-hand",
+  "place": "corn maze",
+  "title": "The Maze Trick That Almost Got Me Killed",
+  "fact": "In a simple maze, keeping one hand on one wall will always lead you out",
+  "source": "Wall-follower rule for simply connected mazes",
+  "text": "Lost in a maze? Put one hand on the wall and never let go. In a simple maze, following one wall will always lead you out. I worked nights at the corn maze, so I knew the trick. When the screaming started at the entrance, I put my left hand on the corn and walked. Left turn. Left turn. Dead end. Turn around, hand still on the wall. I could hear them in the next row, crunching through the stalks. Then my hand touched something that wasn't corn. Cold fingers. Somebody else was using the same trick. Coming the other way. Would you let go of the wall?"
+ },
+ {
+  "n": 12,
+  "slug": "the-stool",
+  "place": "fire lookout tower",
+  "title": "Why Fire Lookouts Stand on a Glass Stool",
+  "fact": "Fire lookouts stand on a wooden stool with glass insulators during lightning storms",
+  "source": "US Forest Service fire lookout safety practice",
+  "text": "Fire lookout towers sit on the highest peak around, so they get hit by lightning. A lot. That's why lookouts keep a wooden stool with glass insulators on its feet. In a storm, you stand on it and touch nothing metal. Night thirty of the outbreak, a storm rolled in. I climbed onto the stool. Lightning hit the tower, and the whole room glowed blue. And in the flash, I saw them. Hundreds, climbing the stairs. Every strike threw a few of them off. But they kept climbing. And the storm was moving away. Would you pray for more lightning?"
+ },
+ {
+  "n": 13,
+  "slug": "air-brakes",
+  "place": "truck stop",
+  "title": "We Hid Inside a Wall of Parked Trucks",
+  "fact": "If a big truck loses air pressure, its spring brakes lock on automatically",
+  "source": "FMCSA commercial driver air brake rules",
+  "text": "Big trucks use air brakes, and they're built so that if they lose air, the brakes lock on by themselves. A truck with no air doesn't roll. I worked the counter at a truck stop when the outbreak hit. Forty trucks in the lot. All parked. All locked. The perfect wall. We lived inside a ring of eighteen-wheelers for a week. On day eight, I woke up to a long hiss. Then another. Then another. Somebody out there was walking from truck to truck, filling the air tanks. And one by one, the wall started to roll. Would you trust a truck with no air?"
+ },
+ {
+  "n": 14,
+  "slug": "the-cast",
+  "place": "natural history museum",
+  "title": "I Hid Inside the T-Rex Skeleton",
+  "fact": "Many museum dinosaur skeletons on display are casts, not real fossil bone",
+  "source": "Natural history museum display practice",
+  "text": "Most dinosaur skeletons in museums aren't real bones. They're casts. Copies. I'm the night guard, so when the outbreak reached the museum, I climbed up inside the T-rex. Its rib cage was just big enough. For two days, they shuffled right under me. Nobody looks up at a dinosaur. On the third night, a kid wandered in. Alive. He stood under the T-rex, staring up, the way kids do. And he yelled, Mom! The dinosaur has a face inside it! Every head in the hall turned. And looked up. Would you hide inside a dinosaur?"
+ },
+ {
+  "n": 15,
+  "slug": "thin-ice",
+  "place": "ice hockey rink",
+  "title": "The Ice Was Only an Inch Thick",
+  "fact": "Hockey rink ice is only about an inch thick, kept frozen by pipes underneath",
+  "source": "NHL / arena ice-making practice",
+  "text": "The ice at a hockey rink is only about an inch thick. Under it, there are pipes full of freezing liquid, keeping it hard. I drove the ice machine at night when the outbreak reached the arena. They came onto the rink and slid around like newborn deer. They couldn't reach me. So I sat in the penalty box and waited. Then the power went out. No power, no cold pipes. By morning, the ice was soft. By noon, it was water on concrete. And they stopped slipping. Would you wait in the penalty box?"
+ },
+ {
+  "n": 16,
+  "slug": "panic-button",
+  "place": "parking garage",
+  "title": "I Had 400 Car Keys and a Plan",
+  "fact": "Most car key fobs have a panic button that sets off the alarm",
+  "source": "Standard vehicle remote keyless entry design",
+  "text": "Almost every car key has a panic button. Press it, and the car screams. I was the night attendant at a six-floor parking garage, and I had a box of four hundred spare keys. So I made a plan. Floor six. Panic. Every one of them climbed toward the noise. Floor one. I ran for the exit. It worked. For an hour. Then the car on floor six went quiet. And somewhere below me, on floor two, another car started screaming. I didn't press it. Somebody else had found my box of keys. Would you press the panic button?"
+ },
+ {
+  "n": 17,
+  "slug": "grease-fire",
+  "place": "fast food kitchen",
+  "title": "Never Put Water on a Grease Fire",
+  "fact": "Never use water on a grease fire: cover it with a lid and turn off the heat",
+  "source": "NFPA cooking fire safety",
+  "text": "Never put water on a grease fire. It explodes. Put a lid on it, turn off the heat, and let it smother. I learned that my first night at the burger place. On day two of the outbreak, I learned the dead are afraid of fire. So we kept the fryers burning and hid in the kitchen, behind a wall of hot oil. Then my coworker panicked and threw a cup of water. The fireball hit the ceiling. The sprinklers came on. Every flame went out. And the drive-thru speaker crackled. Welcome. Can I take your order? It wasn't one of us. Would you put a lid on it?"
+ },
+ {
+  "n": 18,
+  "slug": "weathervane",
+  "place": "construction crane",
+  "title": "Cranes Spin Free in the Wind. I Was Inside One.",
+  "fact": "In high winds, tower cranes are left free to turn like a weathervane so they don't topple",
+  "source": "Tower crane wind safety practice (OSHA / manufacturers)",
+  "text": "In strong wind, tower cranes are left free to spin, like a weathervane. Lock them, and the wind can knock them over. I'm a crane operator. When the outbreak hit, I was in my cab, two hundred feet above the city. Safest seat in the world. Night three, the wind picked up, and the crane started to turn. Slowly. Over the whole city. Every street the arm passed over, I saw them look up. They follow anything that moves. The crane stopped with the arm pointing at the hospital, where the last survivors were hiding. Would you let the wind decide?"
+ },
+ {
+  "n": 19,
+  "slug": "red-button",
+  "place": "shopping mall",
+  "title": "The Kid Pressed the Escalator Button",
+  "fact": "Escalators have red emergency stop buttons at the top and bottom",
+  "source": "ASME A17.1 elevator and escalator safety code",
+  "text": "Every escalator has a red emergency stop button, at the top and at the bottom. I was the mall security guard on the night of the outbreak. The dead couldn't climb an escalator going down. They'd step on, slide back. Step on, slide back. So I set every escalator to run down and hid on the top floor. For three days, it worked. On day four, a little kid ran out of the toy store. Alive. He saw me upstairs and ran for the escalator. He couldn't climb it either. So he did the only thing he could. He pressed the red button. Would you have warned him about the red button?"
+ },
+ {
+  "n": 20,
+  "slug": "one-ten-one",
+  "place": "night ferry",
+  "title": "The 1-10-1 Rule Saved My Life. Almost.",
+  "fact": "Cold water 1-10-1: 1 minute to control breathing, 10 minutes of useful movement, about 1 hour before passing out",
+  "source": "Cold Water Boot Camp (Dr. Gordon Giesbrecht)",
+  "text": "If you fall into freezing water, remember one, ten, one. One minute to get your breathing under control. Ten minutes of useful movement before your muscles quit. About one hour before you pass out. I was the night deckhand on the last ferry out of the city. Halfway across, something hit the side. Then something climbed aboard. I went over the rail. One minute. Breathe. Ten minutes. Swim to the buoy. I made it. Then I looked back. The ferry was empty. Every one of them had followed me into the water. And the dead don't get cold. Would you have jumped?"
+ },
+ {
+  "n": 21,
+  "slug": "ration",
+  "place": "desert motel",
+  "title": "Drink It or Save It? The Desert Decides.",
+  "fact": "In desert heat, don't ration water: drink it. People have died with water still in their bottles",
+  "source": "US Army survival guidance / National Park Service desert safety",
+  "text": "In the desert, don't ration your water. Drink it when you're thirsty. People have been found dead from dehydration with water still in their bottles. I ran the front desk at the last motel before the desert. On day five of the outbreak, we had twelve bottles left, and six guests. Mister Hale said we should save them. I drank mine. He saved his. On day six, Mister Hale didn't come out of room nine. Through the window, I could see him, standing very still. Still holding his full bottle. Would you drink it, or save it?"
+ },
+ {
+  "n": 22,
+  "slug": "thirteen",
+  "place": "cave",
+  "title": "In the Dark, I Counted Twelve People",
+  "fact": "In a cave's total darkness, your eyes never adjust, because there is no light at all",
+  "source": "US National Park Service cave education",
+  "text": "In a cave, total darkness isn't like night. Your eyes never adjust, because there's nothing to adjust to. I give cave tours, and I was a mile underground with my group when the outbreak hit above us. We stayed down there a week, with one flashlight. On day seven, the batteries died. In total dark, you hear everything. Water dripping. Your own heartbeat. Twelve people breathing. I counted them out loud, to keep everyone calm. Ten. Eleven. Twelve. And from the dark behind me, somebody whispered, thirteen. Would you have kept counting?"
+ },
+ {
+  "n": 23,
+  "slug": "tailpipe",
+  "place": "snowplow on a highway",
+  "title": "I Dug Out Their Tailpipe. I Shouldn't Have.",
+  "fact": "If stranded in snow, keep the tailpipe clear: a blocked exhaust can fill the car with carbon monoxide",
+  "source": "National Weather Service winter safety",
+  "text": "If your car is stuck in snow, keep the tailpipe clear. If it's buried, exhaust can fill the car with carbon monoxide. No smell. No color. You just get sleepy. I drove the night snowplow when the outbreak hit. On night two, I found a stuck minivan. Engine running. Windows fogged. A whole family inside. Asleep. I dug out the tailpipe and banged on the glass. They woke up. Thank God. Then they turned toward the window. And their eyes were wrong. It wasn't the exhaust that made them sleepy. Would you have dug them out?"
+ },
+ {
+  "n": 24,
+  "slug": "the-chute",
+  "place": "grain silo",
+  "title": "Grain Moves Like Quicksand",
+  "fact": "Flowing grain can trap a person to the knees in seconds, too deep to pull free",
+  "source": "OSHA grain handling safety",
+  "text": "Flowing grain is like quicksand. In just a few seconds, you can sink to your knees, and you won't be able to pull yourself out. I worked nights at the grain elevator when the outbreak reached our farm town. They followed me into the silo. I climbed the ladder. They followed. So I opened the chute at the bottom. The grain started to flow, and one by one, they sank. They didn't know how to climb. Then the rung under my boot snapped. And I slid down into the grain, with them. Would you open the chute?"
+ },
+ {
+  "n": 25,
+  "slug": "fire-doors",
+  "place": "middle school",
+  "title": "I Pulled the Fire Alarm to Trap Them",
+  "fact": "School fire doors are held open by magnets that release when the alarm sounds, and they never lock",
+  "source": "NFPA 80 fire door standard",
+  "text": "When a school fire alarm goes off, the big hallway fire doors swing shut by themselves. They're held open by magnets, and the alarm cuts the power. I'm the night janitor at Westbrook Middle School. When the outbreak hit, I pulled the alarm. Every hallway sealed into a box. The dead were trapped in the gym wing. I was safe in the east wing. But fire doors never lock. They can't. They're exits. The dead didn't know that. Until one of them leaned on the door. Would you pull the fire alarm?"
+ },
+ {
+  "n": 26,
+  "slug": "silent",
+  "place": "hotel swimming pool",
+  "title": "Drowning Doesn't Look Like Drowning",
+  "fact": "Real drowning is usually silent: people can't wave or call for help",
+  "source": "US Coast Guard / instinctive drowning response research",
+  "text": "Drowning doesn't look like drowning. No splashing. No yelling. People who are really drowning usually can't call for help at all. They just go quiet. I was the night lifeguard at a hotel pool when the outbreak started. We locked ourselves in. Then the lights went out. I counted heads with my flashlight. Ten. All floating. All quiet. Too quiet. And then I remembered my training. Silent doesn't mean safe. I jumped in to pull the first one out. And all around me, the water started to move. Would you have jumped in?"
+ },
+ {
+  "n": 27,
+  "slug": "the-cables",
+  "place": "elevator shaft",
+  "title": "Elevators Almost Never Fall. Almost.",
+  "fact": "Elevators hang from several steel cables, each able to hold the car, plus emergency brakes on the rails",
+  "source": "ASME A17.1 / elevator industry safety",
+  "text": "Elevators almost never fall. They hang from several steel cables, and any one of them can hold the car. If they all snapped, emergency brakes would clamp onto the rails. I fix elevators at night. When the outbreak hit our tower, I hid on top of elevator six, inside the shaft. Totally safe. Then the car started moving. Down. Someone had pressed the button in the lobby. The doors opened, and they flooded in. Hundreds. One cable snapped. Then another. The brakes held. And then, slowly, the car started climbing. Toward me. Would you trust the cables?"
+ },
+ {
+  "n": 28,
+  "slug": "parallel",
+  "place": "beach at night",
+  "title": "How to Escape a Rip Current (and Them)",
+  "fact": "In a rip current, swim parallel to the shore, then swim back in",
+  "source": "NOAA / US Lifesaving Association",
+  "text": "If a rip current pulls you out, don't swim straight back. Swim parallel to the shore, out of the current, then head in. I was on night beach patrol when the outbreak hit, and the dead came down the sand after me. I ran into the water. A rip current grabbed me and dragged me out. Fast. Perfect. They followed me in, and the current took them too. Straight out to sea. I swam sideways, like I was trained. Out of the rip. Back to shore. I stood on the sand, alone. Then I looked down the beach. The tide was bringing them back. Would you swim straight back?"
+ },
+ {
+  "n": 29,
+  "slug": "seatbelt-window-out",
+  "place": "lake at night",
+  "title": "Seatbelt, Window, Out: The Car Went in the Lake",
+  "fact": "If your car goes into water: seatbelt off, window open, get out, kids first, before it sinks",
+  "source": "Car submersion safety research (Dr. Gordon Giesbrecht)",
+  "text": "If your car goes into the water, you have about a minute. Seatbelt off. Window open. Get out. Kids first. Don't wait for it to sink, because by then, the water pressure holds the doors shut. I drove a tow truck the night of the outbreak, and I watched a car slide into the lake. I dove in and banged on the window. A woman. A kid in the back. I broke the glass. Kid first. Then her. On the shore, she hugged her son. Then she turned to me. Thank you, she said. He bit me in the car. Would you have broken the window?"
+ },
+ {
+  "n": 30,
+  "slug": "thirty-minutes",
+  "place": "golf course",
+  "title": "They Learned to Wait 30 Minutes Too",
+  "fact": "Lightning can strike 10 miles from a storm; wait 30 minutes after the last thunder",
+  "source": "NOAA National Weather Service lightning safety",
+  "text": "Lightning can strike ten miles away from a storm. After the last thunder, you're supposed to wait thirty minutes before going outside. I'm the night groundskeeper at a golf course. During the outbreak, storms were the only safe time. The dead stood out on the open fairways, and the lightning found them. Again and again. So every storm, I waited it out in the shed. Tonight, the last thunder rolled away. I counted thirty minutes. Then I stepped outside. They were standing in a line on the green. Facing me. They had learned to wait thirty minutes too. Would you wait thirty minutes?"
+ }
+]
