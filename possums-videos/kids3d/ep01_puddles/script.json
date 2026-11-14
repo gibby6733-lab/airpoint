@@ -1,0 +1,495 @@
+{
+ "title": "Pip's Puddle Jump",
+ "bpm": 104,
+ "fps": 60,
+ "crf": 17,
+ "speakers": {
+  "narr": {
+   "voice": "af_heart",
+   "speed": 1.0
+  },
+  "pip": {
+   "voice": "af_sky",
+   "speed": 1.05,
+   "pitch": 1.18
+  },
+  "bo": {
+   "voice": "am_puck",
+   "speed": 1.05,
+   "pitch": 1.28
+  },
+  "dot": {
+   "voice": "af_nicole",
+   "speed": 1.05,
+   "pitch": 1.32
+  }
+ },
+ "lines": [
+  {
+   "sp": "narr",
+   "beat": "intro",
+   "text": "Pitter, patter, pitter, patter. Here comes the rain!",
+   "sfx": [
+    [
+     "sparkle",
+     0.0
+    ],
+    [
+     "ding",
+     "@rain"
+    ]
+   ]
+  },
+  {
+   "sp": "pip",
+   "beat": "door",
+   "text": "Yay! It's puddle time!",
+   "sfx": [
+    [
+     "pop",
+     "@yay"
+    ],
+    [
+     "giggle",
+     "@puddle"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "dress",
+   "text": "Pip puts on his yellow raincoat, and his big red boots!",
+   "sfx": [
+    [
+     "pop",
+     "@raincoat"
+    ],
+    [
+     "sparkle",
+     "@raincoat"
+    ],
+    [
+     "pop",
+     "@boots"
+    ],
+    [
+     "boing",
+     "@boots"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "path",
+   "text": "Let's count the puddles, and jump in every one!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "ding",
+     "@count"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "chorus",
+   "text": "Jump, jump! Splash, splash! Puddles are so much fun!",
+   "sfx": [
+    [
+     "boing",
+     "@jump"
+    ],
+    [
+     "splash",
+     "@splash"
+    ],
+    [
+     "sparkle",
+     "@fun"
+    ]
+   ],
+   "pause": 0.2
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 1,
+   "text": "Puddle number one. Jump! Splash!",
+   "sfx": [
+    [
+     "boing",
+     "@jump"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 2,
+   "text": "Puddle number two. Jump! Splash!",
+   "sfx": [
+    [
+     "boing",
+     "@jump"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 3,
+   "text": "Puddle number three. Wheee! Splash!",
+   "sfx": [
+    [
+     "boing",
+     "@wheee"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 4,
+   "text": "Puddle number four. Big jump! Splash!",
+   "sfx": [
+    [
+     "boing",
+     "@big"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 5,
+   "friend": "bo",
+   "text": "Puddle number five. Look, it's Bo the frog! Hop, hop, splash!",
+   "sfx": [
+    [
+     "ribbit",
+     "@bo"
+    ],
+    [
+     "boing",
+     "@hop"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "bo",
+   "beat": "friend_talk",
+   "who": "bo",
+   "text": "Ribbit! Can I jump too?",
+   "sfx": [
+    [
+     "ribbit",
+     "@ribbit"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 6,
+   "text": "Puddle number six. Pip and Bo jump together! Splash!",
+   "sfx": [
+    [
+     "boing",
+     "@jump"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 7,
+   "friend": "dot",
+   "text": "Puddle number seven. Quack, quack! Here comes Dot the duck! Splash!",
+   "sfx": [
+    [
+     "quack",
+     "@quack"
+    ],
+    [
+     "boing",
+     "@dot"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "dot",
+   "beat": "friend_talk",
+   "who": "dot",
+   "text": "Quack! Wait for me!",
+   "sfx": [
+    [
+     "quack",
+     "@quack"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 8,
+   "spin": true,
+   "text": "Puddle number eight. Everybody spin! Splash!",
+   "sfx": [
+    [
+     "whoosh",
+     "@everybody"
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 9,
+   "text": "Puddle number nine. Splash!",
+   "sfx": [
+    [
+     "boing",
+     0.55
+    ],
+    [
+     "splash",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "narr",
+   "beat": "big",
+   "n": 10,
+   "text": "Puddle number ten. Uh oh! It's a really big one!",
+   "sfx": [
+    [
+     "boing",
+     "@uh"
+    ],
+    [
+     "ding",
+     "@big"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "jump",
+   "n": 10,
+   "super": true,
+   "text": "One, two, three, jump! Super splash!",
+   "sfx": [
+    [
+     "pop",
+     "@one"
+    ],
+    [
+     "pop",
+     "@two"
+    ],
+    [
+     "pop",
+     "@three"
+    ],
+    [
+     "boing",
+     "@jump"
+    ],
+    [
+     "bigsplash",
+     "@super"
+    ],
+    [
+     "cheer",
+     "@splash"
+    ]
+   ],
+   "pause": 0.35
+  },
+  {
+   "sp": "pip",
+   "beat": "wet",
+   "text": "We're soaking wet!",
+   "sfx": [
+    [
+     "giggle",
+     "@soaking"
+    ],
+    [
+     "shake",
+     "@wet"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "shake",
+   "text": "Shake, shake, shake! Drip, drip, drop!",
+   "sfx": [
+    [
+     "shake",
+     "@shake"
+    ],
+    [
+     "shake",
+     0.35
+    ],
+    [
+     "pop",
+     "@drip"
+    ],
+    [
+     "pop",
+     "@drop"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "rainbow",
+   "rain_stops": true,
+   "text": "Look! The rain stopped, and there's a rainbow!",
+   "sfx": [
+    [
+     "sparkle",
+     "@rain"
+    ],
+    [
+     "sparkle",
+     "@rainbow"
+    ],
+    [
+     "ding",
+     "@rainbow"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "recap",
+   "text": "Let's count them again! One, two, three, four, five, six, seven, eight, nine, ten!",
+   "sfx": [
+    [
+     "pop",
+     "@one"
+    ],
+    [
+     "pop",
+     "@two"
+    ],
+    [
+     "pop",
+     "@three"
+    ],
+    [
+     "pop",
+     "@four"
+    ],
+    [
+     "pop",
+     "@five"
+    ],
+    [
+     "pop",
+     "@six"
+    ],
+    [
+     "pop",
+     "@seven"
+    ],
+    [
+     "pop",
+     "@eight"
+    ],
+    [
+     "pop",
+     "@nine"
+    ],
+    [
+     "ding",
+     "@ten"
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "beat": "chorus",
+   "text": "Jump, jump! Splash, splash! Puddles are so much fun!",
+   "sfx": [
+    [
+     "boing",
+     "@jump"
+    ],
+    [
+     "splash",
+     "@splash"
+    ],
+    [
+     "sparkle",
+     "@fun"
+    ]
+   ],
+   "pause": 0.2
+  },
+  {
+   "sp": "pip",
+   "beat": "bye",
+   "text": "Bye bye! See you next rainy day!",
+   "sfx": [
+    [
+     "giggle",
+     "@bye"
+    ],
+    [
+     "sparkle",
+     "@rainy"
+    ]
+   ]
+  }
+ ]
+}
