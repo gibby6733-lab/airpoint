@@ -13,6 +13,7 @@ Series catchphrase: **“Let's go, WonderBuds!”** · Audience: ages 3–8 · R
 **Personality:** Brave, curious, energetic; first to say yes to an adventure; keeps the group together and always checks everyone is OK.  
 **Special strength:** Courage and leadership — she has a compass and a map in her backpack and always finds the way.  
 **Voice:** Bright, confident, clear; speaks in short excited bursts. *(Kokoro `af_bella` + WORLD vocoder: speed 1.05, pitch ×1.26, formant ×1.12, intonation ×1.3)*  
+**How they talk:** Short, confident sentences. Rallies the group ('Okay, everybody!'), says names a lot, gets interrupted by Ziggy. Mood: mostly excited.  
 **Catchphrases:** “Let's go, WonderBuds!” · “Adventure time!” · “Follow me!” · “Everybody OK? Good!”  
 **Movement:** Purposeful march, points the way, fists on hips when proud.  
 **Running joke:** Her map is always upside down at first.
@@ -28,6 +29,7 @@ Series catchphrase: **“Let's go, WonderBuds!”** · Audience: ages 3–8 · R
 **Personality:** Silly, goofy, loves snacks and puns; turns mistakes into laughs; very loyal and huggable.  
 **Special strength:** Makes everyone laugh when they're worried — and he's surprisingly strong.  
 **Voice:** Goofy, bouncy, a bit slower, laughs a lot (hee-hee!). *(Kokoro `am_puck` + WORLD vocoder: speed 0.98, pitch ×1.32, formant ×1.12, intonation ×1.45)*  
+**How they talk:** Giggles mid-sentence ('hee hee'), turns everything into food ('cookie treasure?'), drawn-out 'Ooooh'. Mood: giggly.  
 **Catchphrases:** “Oopsie-doodle!” · “Is it snack time?” · “Hee-hee-hee!” · “I meant to do that!”  
 **Movement:** Waddles, belly-bounces, spins his propeller.  
 **Running joke:** Always hungry; his propeller spins when he's excited.
@@ -43,6 +45,7 @@ Series catchphrase: **“Let's go, WonderBuds!”** · Audience: ages 3–8 · R
 **Personality:** Thoughtful, curious about how things work, loves puzzles and facts; a bit of a perfectionist.  
 **Special strength:** Solves puzzles and spots clues nobody else sees.  
 **Voice:** Gentle British accent, precise, says 'Hmm…' before ideas. *(Kokoro `bm_fable` + WORLD vocoder: speed 1.0, pitch ×1.78, formant ×1.15, intonation ×1.15)*  
+**How they talk:** Starts with 'Hmm…' and a thinking pause, uses big words then explains them simply, calm and precise. Mood: calm.  
 **Catchphrases:** “Hmm, let me think…” · “I've got it!” · “Fascinating!” · “According to my calculations…”  
 **Movement:** Pushes his glasses up, taps his chin with a wing, hops when excited.  
 **Running joke:** His calculations are always right except about snacks.
@@ -58,6 +61,7 @@ Series catchphrase: **“Let's go, WonderBuds!”** · Audience: ages 3–8 · R
 **Personality:** Sweet, kind, notices feelings; sometimes nervous, but finds her courage when friends need her.  
 **Special strength:** Super hearing with her long ears, and kindness that calms everyone down.  
 **Voice:** Soft, gentle, a little breathy; slows down when nervous. *(Kokoro `af_nicole` + WORLD vocoder: speed 1.06, pitch ×1.52, formant ×1.14, intonation ×1.0, breathy)*  
+**How they talk:** Starts softly with 'Um…', small stutter when nervous ('h-hi'), whispers when she hears something, grows confident at the big moment. Mood: nervous → brave.  
 **Catchphrases:** “M-maybe I can try…” · “I can hear something!” · “We can do it together.” · “Oh my carrots!”  
 **Movement:** Small careful steps, holds her ears when nervous, little hops when happy.  
 **Running joke:** Says 'Oh my carrots!' when surprised.
@@ -73,6 +77,7 @@ Series catchphrase: **“Let's go, WonderBuds!”** · Audience: ages 3–8 · R
 **Personality:** Super playful, never stops moving, races ahead, counts everything out loud; huge heart.  
 **Special strength:** Speed and climbing — gets to high places nobody else can reach.  
 **Voice:** Fast, high, excited; repeats words: 'Ready? Ready! READY!' *(Kokoro `af_sky` + WORLD vocoder: speed 1.16, pitch ×1.68, formant ×1.18, intonation ×1.5)*  
+**How they talk:** Talks fast, repeats words ('Ready? Ready! READY!'), interrupts with guesses, shouts the last word. Mood: excited.  
 **Catchphrases:** “Zoom zoom!” · “Ready? Ready! READY!” · “Race you there!” · “Wheeee!”  
 **Movement:** Bounces in place, cartwheels, swings by his tail.  
 **Running joke:** Races ahead and has to zoom back.
@@ -80,6 +85,7 @@ Series catchphrase: **“Let's go, WonderBuds!”** · Audience: ages 3–8 · R
 **Signature expressions:** happy, laugh, surprised, nervous, thinking, ready! (see reference sheet)
 
 ## Voice rules
+- Delivery: Write lines the way kids talk: contractions, 'ooh', 'whoa', 'wait wait!', giggles. CAPS on a word = emphasis (said louder and higher). '…' = a real thinking pause. A line ending in '—' is interrupted; the next speaker cuts in. Give every line a mood: excited, calm, whisper, giggly, nervous, sad, shout.
 - Each character always uses their own voice profile above; the narrator (`af_heart`) only opens and closes episodes.
 - Pitch order (low → high): Pudding ≈155 Hz (goofy) · Ollie ≈200 Hz (British, precise) · Clover ≈215 Hz (soft, breathy, slower) · Rosie ≈240 Hz (bright, confident) · Ziggy ≈270 Hz (fastest, most excited).
 - Voices are rendered with a formant-preserving vocoder (no sped-up 'chipmunk' effect): `kids3d/voice.py`.

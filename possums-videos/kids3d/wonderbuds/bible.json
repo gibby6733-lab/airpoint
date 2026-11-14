@@ -23,7 +23,8 @@
     "pitch": 1.26,
     "formant": 1.12,
     "expr": 1.3,
-    "style": "Bright, confident, clear; speaks in short excited bursts."
+    "style": "Bright, confident, clear; speaks in short excited bursts.",
+    "habits": "Short, confident sentences. Rallies the group ('Okay, everybody!'), says names a lot, gets interrupted by Ziggy. Mood: mostly excited."
    },
    "phrases": [
     "Let's go, WonderBuds!",
@@ -54,7 +55,8 @@
     "pitch": 1.32,
     "formant": 1.12,
     "expr": 1.45,
-    "style": "Goofy, bouncy, a bit slower, laughs a lot (hee-hee!)."
+    "style": "Goofy, bouncy, a bit slower, laughs a lot (hee-hee!).",
+    "habits": "Giggles mid-sentence ('hee hee'), turns everything into food ('cookie treasure?'), drawn-out 'Ooooh'. Mood: giggly."
    },
    "phrases": [
     "Oopsie-doodle!",
@@ -87,7 +89,8 @@
     "pitch": 1.78,
     "formant": 1.15,
     "expr": 1.15,
-    "style": "Gentle British accent, precise, says 'Hmm\u2026' before ideas."
+    "style": "Gentle British accent, precise, says 'Hmm\u2026' before ideas.",
+    "habits": "Starts with 'Hmm\u2026' and a thinking pause, uses big words then explains them simply, calm and precise. Mood: calm."
    },
    "phrases": [
     "Hmm, let me think\u2026",
@@ -119,7 +122,8 @@
     "formant": 1.14,
     "expr": 1.0,
     "breath": 0.08,
-    "style": "Soft, gentle, a little breathy; slows down when nervous."
+    "style": "Soft, gentle, a little breathy; slows down when nervous.",
+    "habits": "Starts softly with 'Um\u2026', small stutter when nervous ('h-hi'), whispers when she hears something, grows confident at the big moment. Mood: nervous \u2192 brave."
    },
    "phrases": [
     "M-maybe I can try\u2026",
@@ -150,7 +154,8 @@
     "pitch": 1.68,
     "formant": 1.18,
     "expr": 1.5,
-    "style": "Fast, high, excited; repeats words: 'Ready? Ready! READY!'"
+    "style": "Fast, high, excited; repeats words: 'Ready? Ready! READY!'",
+    "habits": "Talks fast, repeats words ('Ready? Ready! READY!'), interrupts with guesses, shouts the last word. Mood: excited."
    },
    "phrases": [
     "Zoom zoom!",
@@ -167,5 +172,12 @@
   "speed": 1.0,
   "pitch": 1.0,
   "style": "Warm storyteller, used sparingly (episode open/close only)."
- }
+ },
+ "delivery_rules": [
+  "Write lines the way kids talk: contractions, 'ooh', 'whoa', 'wait wait!', giggles.",
+  "CAPS on a word = emphasis (said louder and higher).",
+  "'\u2026' = a real thinking pause.",
+  "A line ending in '\u2014' is interrupted; the next speaker cuts in.",
+  "Give every line a mood: excited, calm, whisper, giggly, nervous, sad, shout."
+ ]
 }
