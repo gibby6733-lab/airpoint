@@ -27,6 +27,8 @@ This is a fictional survival story. The real-world details in it are true:
 
 Would you have flipped the lights on? Tell me in the comments.
 
+Narration voice created with ElevenLabs (elevenlabs.io).
+
 New episode every Monday, Wednesday and Friday.
 
 #zombieoutbreak #survivalstory #stickman
@@ -62,5 +64,6 @@ These are generated during the render, timed to the real narration (burned into 
 | Thumbnail matches the story (canopy, the Walk, Sam's headlamp, Junie, the dead pressed to the glass) | ✅ checked |
 | Final video matches the script and title | ⏳ pending until the render |
 | Chapter timestamps | ⏳ pending until the render |
-| Music and sound-effect licenses | ⏳ pending (we'll use ElevenLabs-generated sound or a licensed library) |
+| Music and sound-effect licenses | ✅ the sound effects and drone are generated in code (ours) |
+| Narration license | ⚠️ ElevenLabs free plan: attribution is included in the description. The free plan isn't licensed for commercial use, so upgrade or re-voice before turning on monetization |
 | Thumbnail art matches the final video's art style | ⏳ pending: the current thumbnail is a code-drawn draft; regenerate it in the B4 art style once the episode art exists |
