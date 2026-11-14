@@ -73,8 +73,8 @@ export function faceEyes(E, { blink = 0, look = [0, 0], brow = 0, wide = 1, r })
 export function mouth(parent, o) {
   const g = group(parent, 0, o.y, o.z); g.rotation.x = o.tilt ?? .15;
   const smile = tube([[-o.w, .06, 0], [-o.w * .5, -.05, .02], [0, -.08, .03], [o.w * .5, -.05, .02], [o.w, .06, 0]], o.th || .035, g, mat('#2a1418'));
-  const open = mesh(SPH(o.w * .62, 24, 16), mat('#5a1420', { rough: .5 }), 0, -.05, 0, g, { s: [1, .01, .45], cast: false });
-  const tongue = mesh(SPH(o.w * .4, 16, 12), mat('#ff7a8a'), 0, -.1, .03, g, { s: [1, .01, .4], cast: false });
+  const open = mesh(SPH(Math.max(.11, o.w * .8), 24, 16), mat('#5a1420', { rough: .5 }), 0, -.06, .01, g, { s: [1, .01, .45], cast: false });
+  const tongue = mesh(SPH(Math.max(.06, o.w * .45), 16, 12), mat('#ff7a8a'), 0, -.1, .03, g, { s: [1, .01, .4], cast: false });
   return { g, smile, open, tongue, w: o.w };
 }
 export function faceMouth(M, open = 0, smile = 1) { M.open.scale.y = .01 + open * .75; M.tongue.scale.y = .01 + open * .45; M.tongue.position.y = -.06 - open * .08; M.smile.visible = open < .25; M.smile.scale.y = smile; }
