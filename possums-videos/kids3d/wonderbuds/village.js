@@ -49,12 +49,12 @@ export function buildVillage(scene, r) {
   mesh(new THREE.CylinderGeometry(1.2, .4, .45, 32), stone, 0, 2.6, 0, F); mesh(new THREE.CircleGeometry(1.08, 32), water, 0, 2.82, 0, F, { r: [-Math.PI / 2, 0, 0], cast: false }); mesh(SPH(.32), mat('#ffd43b', { kind: 'gloss' }), 0, 3.15, 0, F);
   const SPN = 140, spray = new THREE.InstancedMesh(SPH(.06, 8, 6), mat('#bfe8ff', { kind: 'water', opacity: .85 }), SPN); spray.frustumCulled = false; scene.add(spray); V.spray = spray;
   const lamp = (x, z) => { const g = group(scene, x, 0, z); mesh(new THREE.CylinderGeometry(.1, .14, 5.6, 10), mat('#3d4a5c', { kind: 'gloss' }), 0, 2.8, 0, g); mesh(SPH(.3, 16, 12), mat('#fff4c2', { emissive: '#ffe08a', ei: .7 }), 0, 5.75, 0, g, { cast: false }); mesh(new THREE.ConeGeometry(.38, .3, 12), mat('#3d4a5c', { kind: 'gloss' }), 0, 6.1, 0, g); return [x, 5.6, z]; };
-  const lamps = [[-7, -7], [7, -7], [8.5, 5], [-8.5, 5]].map(([x, z]) => lamp(x, z));
+  const lamps = [[-7, -7], [7, -7], [9.2, 3], [-9.2, 3]].map(([x, z]) => lamp(x, z));
   V.flags = [];
   for (let i = 0; i < 4; i++) { const a = lamps[i], b = lamps[(i + 1) % 4], pts = []; for (let k = 0; k <= 16; k++) { const u = k / 16; pts.push([lerp(a[0], b[0], u), lerp(a[1], b[1], u) - Math.sin(u * Math.PI) * .8, lerp(a[2], b[2], u)]); }
     tube(pts, .02, scene, mat('#ffffff'));
     for (let k = 1; k < 16; k++) { const p = pts[k], fg = new THREE.ConeGeometry(.22, .5, 3); const f = mesh(fg, mat(CBS[k % 6], { side: THREE.DoubleSide }), p[0], p[1] - .28, p[2], scene, { r: [Math.PI, 0, 0], cast: false }); V.flags.push(f); } }
-  for (const [x, z, ry] of [[-5.2, 6.2, .5], [5.2, 6.2, -.5]]) { const g = group(scene, x, 0, z); g.rotation.y = ry; mesh(new THREE.BoxGeometry(2.2, .14, .6), mat('#c98a4a'), 0, .62, 0, g); mesh(new THREE.BoxGeometry(2.2, .5, .1), mat('#c98a4a'), 0, 1.0, -.28, g); for (const sd of [-1, 1]) mesh(new THREE.BoxGeometry(.1, .6, .5), mat('#3d4a5c'), sd * .95, .3, 0, g); }
+  for (const [x, z, ry] of [[-6.6, -4.6, .9], [6.6, -4.6, -.9]]) { const g = group(scene, x, 0, z); g.rotation.y = ry; mesh(new THREE.BoxGeometry(2.2, .14, .6), mat('#c98a4a'), 0, .62, 0, g); mesh(new THREE.BoxGeometry(2.2, .5, .1), mat('#c98a4a'), 0, 1.0, -.28, g); for (const sd of [-1, 1]) mesh(new THREE.BoxGeometry(.1, .6, .5), mat('#3d4a5c'), sd * .95, .3, 0, g); }
   for (const [x, z] of [[-3.6, -3.2], [3.6, -3.2], [-6.5, 1], [6.5, 1]]) { mesh(new THREE.CylinderGeometry(.45, .35, .6, 16), mat('#e07a4a'), x, .3, z, scene); for (let k = 0; k < 5; k++) mesh(SPH(.16, 10, 8), mat(CBS[k]), x + Math.cos(k * 1.3) * .22, .72, z + Math.sin(k * 1.3) * .22, scene); mesh(SPH(.3, 12, 8), mat('#4caf50'), x, .6, z, scene, { s: [1, .5, 1] }); }
   // signpost to every location
   const sp = group(scene, ...[SPOTS.sign[0], 0, SPOTS.sign[1]]); mesh(new THREE.CylinderGeometry(.12, .15, 4.4, 10), mat('#8a5a33'), 0, 2.2, 0, sp); mesh(SPH(.22), mat('#ffd43b', { kind: 'gloss' }), 0, 4.5, 0, sp);
@@ -83,7 +83,7 @@ export function buildVillage(scene, r) {
   for (const sd of [-1, 1]) mesh(new THREE.CylinderGeometry(.06, .06, 5.2, 6), mat('#8a5a33'), 2.6 + sd * .35, 2.6, 2.6, th); for (let k = 0; k < 9; k++) mesh(new THREE.CylinderGeometry(.04, .04, .7, 6), mat('#8a5a33'), 2.6, .4 + k * .55, 2.6, th, { r: [0, 0, Math.PI / 2] });
   const tel = group(th, -1.6, 5.2, 1.6); for (let k = 0; k < 3; k++) mesh(new THREE.CylinderGeometry(.03, .03, 1.2, 6), mat('#33415c'), Math.cos(k * 2.1) * .25, .55, Math.sin(k * 2.1) * .25, tel, { r: [Math.sin(k * 2.1) * .3, 0, -Math.cos(k * 2.1) * .3] });
   mesh(new THREE.CylinderGeometry(.13, .2, 1.3, 16), mat('#ffd43b', { kind: 'gloss' }), 0, 1.25, 0, tel, { r: [0, 0, 1.0] }); V.telescope = tel;
-  for (let k = 0; k < 5; k++) mesh(new THREE.BoxGeometry(.6, .12, .45), mat(CBS[k]), 1.6, 5.3 + k * .13, 1.4, th, { r: [0, k * .3, 0] });
+  for (let k = 0; k < 5; k++) mesh(new THREE.BoxGeometry(.6, .12, .45), mat(CBS[k]), 2.7, 5.3 + k * .13, .4, th, { r: [0, k * .3, 0] });
   // Clover's Flower Garden + bunny burrow cottage
   const gd = group(scene, SPOTS.garden[0], 0, SPOTS.garden[1]);
   for (let i = 0; i < 22; i++) { const a = i / 22 * Math.PI * 2; if (Math.abs(a - Math.PI * .1) < .25) continue; const x = Math.cos(a) * 7, z = Math.sin(a) * 5.5; mesh(new THREE.BoxGeometry(.2, 1.0, .12), mat('#ffffff'), x, .5, z, gd, { r: [0, -a + Math.PI / 2, 0] }); mesh(new THREE.ConeGeometry(.14, .22, 4), mat('#ffffff'), x, 1.1, z, gd); }
@@ -102,9 +102,9 @@ export function buildVillage(scene, r) {
   const sl = group(pg, 3, 0, -1); for (const sd of [-1, 1]) mesh(new THREE.CylinderGeometry(.08, .08, 3.2, 8), mat('#ff6b6b', { kind: 'gloss' }), sd * .6, 1.6, -1.6, sl); for (let k = 0; k < 6; k++) mesh(new THREE.CylinderGeometry(.05, .05, 1.2, 6), mat('#ffd43b'), 0, .4 + k * .5, -1.6, sl, { r: [0, 0, Math.PI / 2] });
   mesh(new THREE.BoxGeometry(1.4, .12, 1.4), mat('#4dabf7'), 0, 3.2, -1.2, sl); mesh(new THREE.BoxGeometry(1.2, .1, 4.2), mat('#ffd43b', { kind: 'gloss' }), 0, 1.65, .8, sl, { r: [.72, 0, 0] });
   for (const sd of [-1, 1]) mesh(new THREE.BoxGeometry(.1, .35, 4.2), mat('#ffb02e', { kind: 'gloss' }), sd * .62, 1.8, .8, sl, { r: [.72, 0, 0] });
-  const sw = group(pg, 3.5, 0, 4.5); for (const sd of [-1, 1]) { mesh(new THREE.CylinderGeometry(.09, .09, 3.6, 8), mat('#69db7c', { kind: 'gloss' }), sd * 1.6, 1.7, -.6, sw, { r: [-.25, 0, 0] }); mesh(new THREE.CylinderGeometry(.09, .09, 3.6, 8), mat('#69db7c', { kind: 'gloss' }), sd * 1.6, 1.7, .6, sw, { r: [.25, 0, 0] }); }
+  const sw = group(pg, 6.0, 0, 4.0); for (const sd of [-1, 1]) { mesh(new THREE.CylinderGeometry(.09, .09, 3.6, 8), mat('#69db7c', { kind: 'gloss' }), sd * 1.6, 1.7, -.6, sw, { r: [-.25, 0, 0] }); mesh(new THREE.CylinderGeometry(.09, .09, 3.6, 8), mat('#69db7c', { kind: 'gloss' }), sd * 1.6, 1.7, .6, sw, { r: [.25, 0, 0] }); }
   mesh(new THREE.CylinderGeometry(.09, .09, 3.4, 8), mat('#69db7c', { kind: 'gloss' }), 0, 3.45, 0, sw, { r: [0, 0, Math.PI / 2] }); V.swing = group(sw, .6, 3.45, 0); for (const sd of [-1, 1]) mesh(new THREE.CylinderGeometry(.015, .015, 2.4, 4), mat('#555'), sd * .35, -1.2, 0, V.swing); mesh(new THREE.BoxGeometry(.9, .08, .4), mat('#ff6b6b'), 0, -2.4, 0, V.swing);
-  mesh(SPH(.6, 16, 12), mat('#ff6b6b', { kind: 'gloss' }), -1.5, .45, 3.5, pg); mesh(SPH(.4, 16, 12), mat('#4dabf7', { kind: 'gloss' }), 1.2, .32, 2.2, pg);
+  mesh(SPH(.6, 16, 12), mat('#ff6b6b', { kind: 'gloss' }), -4.6, .6, .2, pg); mesh(SPH(.4, 16, 12), mat('#4dabf7', { kind: 'gloss' }), 1.4, .4, -4.6, pg);
   // Rosie's house + extra cottages
   const rh = cottage(scene, SPOTS.rosieHouse[0], SPOTS.rosieHouse[1], { wall: '#ffe3cc', roof: '#c8562a', door: '#20b2aa', ry: .35 }); const fp = group(rh, 2.8, 0, 2.2); mesh(new THREE.CylinderGeometry(.06, .06, 4.5, 8), mat('#ffffff'), 0, 2.25, 0, fp); V.flag = mesh(new THREE.PlaneGeometry(1.4, .9, 8, 4), mat('#20b2aa', { side: THREE.DoubleSide }), .72, 4.0, 0, fp, { cast: false });
   cottage(scene, 9, -15, { wall: '#e3f6ff', roof: '#4dabf7', door: '#ff922b', ry: -.3 }); cottage(scene, -20, 9, { wall: '#fff6c9', roof: '#69db7c', door: '#da77f2', ry: 1.2, w: 4.5 }); cottage(scene, 27, 3, { wall: '#efe3ff', roof: '#9775fa', door: '#ffd43b', ry: -1.3, w: 4.5 });
@@ -115,8 +115,8 @@ export function buildVillage(scene, r) {
   mesh(riv, mat('#5fc0ff', { kind: 'water' }), 0, .05, -41, scene, { cast: false });
   const br = group(scene, SPOTS.bridge[0], 0, SPOTS.bridge[1]); for (let i = 0; i < 7; i++) mesh(new THREE.TorusGeometry(4.6 - i * .02, .16, 8, 32, Math.PI), mat(['#ff6b6b', '#ff9f43', '#ffd43b', '#69db7c', '#4dabf7', '#748ffc', '#b57cff'][i]), (i - 3) * .3, 0, 0, br, { r: [0, Math.PI / 2, 0] });
   mesh(new THREE.BoxGeometry(2.4, .15, 9.5), mat('#c98a4a'), 0, 1.2, 0, br, { s: [1, 1, 1] }).visible = false;
-  const treeSpots = []; const RT = rng(42); for (let i = 0; i < 44; i++) { const a = RT() * Math.PI * 2, d = 30 + RT() * 22; const x = Math.cos(a) * d, z = Math.sin(a) * d * .9; if ((z < -36 && z > -46) || (z > 18 && Math.abs(x) < 16)) continue; treeSpots.push([x, z]); tree(scene, x, z, .9 + RT() * .5, RT() > .5); }
-  for (const [x, z] of [[-11, -2], [11, -1], [-12, 6], [12, 7], [-5, -16], [5, -18], [22, -12], [-24, -12], [24, 18], [-14, 18]]) tree(scene, x, z, .75, true);
+  const treeSpots = []; const RT = rng(42); for (let i = 0; i < 44; i++) { const a = RT() * Math.PI * 2, d = 30 + RT() * 22; const x = Math.cos(a) * d, z = Math.sin(a) * d * .9; if ((z < -36 && z > -46) || (z > 18 && Math.abs(x) < 16)) continue; const ts = .9 + RT() * .5; treeSpots.push([x, z, ts]); tree(scene, x, z, ts, RT() > .5); }
+  for (const [x, z] of [[-11, -2], [11, -1], [-12.5, 8.6], [12.5, 8.6], [-5, -16], [5, -18], [22, -12], [-24, -12], [24, 18], [-14, 18]]) tree(scene, x, z, .75, true);
   [[-13, -9], [13, -11], [-25, 2], [25, -5], [-9, 12], [10, 9], [21, 7], [-12, 15]].forEach(([x, z], i) => bush(scene, x, z, 1, ['#4caf50', '#43a047', '#5cbf55'][i % 3], CBS[i % 6]));
   const avoid = (x, z) => Math.hypot(x, z) < 10.6 || Math.hypot(x - SPOTS.garden[0], (z - SPOTS.garden[1]) * 1.25) < 7.2 || Math.hypot(x - SPOTS.playground[0], z - SPOTS.playground[1]) < 7.2 || Math.hypot(x - SPOTS.bakery[0], z - SPOTS.bakery[1]) < 6 || Math.hypot(x - SPOTS.treehouse[0], z - SPOTS.treehouse[1]) < 6 || (z < -37 && z > -45);
   flowers(scene, 420, [-34, 34, -36, 28, avoid], 13); grass(scene, 14000, [-36, 36, -38, 30, avoid], 7);
@@ -126,6 +126,26 @@ export function buildVillage(scene, r) {
   const sunM = mesh(SPH(7, 32, 16), new THREE.MeshBasicMaterial({ color: '#fff3b0', fog: false }), 70, 75, -170, scene, { cast: false });
   // butterflies
   V.flies = [0, 1, 2, 3].map(i => { const g = group(scene); const c = ['#ffb02e', '#da77f2', '#4dabf7', '#ff6b6b'][i]; const wl = mesh(SPH(.22, 12, 8), mat(c, { side: THREE.DoubleSide }), -.2, 0, 0, g, { s: [1, .12, .8], cast: false }), wr = mesh(SPH(.22, 12, 8), mat(c, { side: THREE.DoubleSide }), .2, 0, 0, g, { s: [1, .12, .8], cast: false }); mesh(CAP(.03, .25, 4), mat('#2b1d1d'), 0, 0, 0, g, { r: [Math.PI / 2, 0, 0], cast: false }); g.userData = { wl, wr }; return g; });
+  // ---------------- collision footprints for QC: c = circle {x,z,r}, b = box {x,z,w,d,ry}; y0..h = vertical extent
+  const O = V.obstacles = []; const ob = (o) => O.push({ y0: 0, h: 9, ...o });
+  ob({ t: 'c', n: 'fountain', x: 0, z: 0, r: 2.75, h: .74 }); ob({ t: 'c', n: 'fountain column', x: 0, z: 0, r: .6, h: 3.5 });
+  lamps.forEach(([x, , z], i) => ob({ t: 'c', n: 'lamp ' + i, x, z, r: .22 }));
+  [[-6.6, -4.6, .9], [6.6, -4.6, -.9]].forEach(([x, z, ry], i) => ob({ t: 'b', n: 'bench ' + i, x, z, w: 2.3, d: .75, ry, h: 1.15 }));
+  [[-3.6, -3.2], [3.6, -3.2], [-6.5, 1], [6.5, 1]].forEach(([x, z], i) => ob({ t: 'c', n: 'flower pot ' + i, x, z, r: .5, h: .95 }));
+  ob({ t: 'c', n: 'signpost', x: SPOTS.sign[0], z: SPOTS.sign[1], r: .22 }); for (const sd of [-1, 1]) ob({ t: 'c', n: 'gate post', x: sd * 4, z: SPOTS.gate[1], r: .5 });
+  ob({ t: 'b', n: 'snack shack', x: SPOTS.bakery[0], z: SPOTS.bakery[1], w: 7.3, d: 5.3, ry: 0 }); ob({ t: 'b', n: 'snack counter', x: SPOTS.bakery[0] - 2.6, z: SPOTS.bakery[1] + 4.6, w: 2.8, d: 1.2, ry: 0, h: 1.25 });
+  ob({ t: 'c', n: 'treehouse trunk', x: SPOTS.treehouse[0], z: SPOTS.treehouse[1] - 1.5, r: 2.0, h: 5 }); ob({ t: 'c', n: 'treehouse ladder', x: 2.6, z: SPOTS.treehouse[1] + 2.6, r: .4, h: 5.2 });
+  ob({ t: 'c', n: 'telescope', x: -1.6, z: SPOTS.treehouse[1] + 1.6, r: .4, y0: 5.2, h: 6.9 }); ob({ t: 'c', n: 'book stack', x: 2.7, z: SPOTS.treehouse[1] + .4, r: .45, y0: 5.2, h: 6.0 }); ob({ t: 'b', n: 'treehouse hut', x: 0, z: SPOTS.treehouse[1] - .8, w: 4.7, d: 3.3, ry: 0, y0: 5.2, h: 9 });
+  [[-3, -2.2], [3.2, -2.5], [-4.6, 1.4], [4.4, 1.2], [0, -3.4], [-1.8, 2.8], [2.2, 3.0]].forEach(([x, z], i) => ob({ t: 'c', n: 'garden flower ' + i, x: SPOTS.garden[0] + x, z: SPOTS.garden[1] + z, r: .3 }));
+  ob({ t: 'c', n: 'bunny burrow', x: SPOTS.garden[0], z: SPOTS.garden[1] - 6.5, r: 4.0, h: 3.2 }); ob({ t: 'c', n: 'watering can', x: SPOTS.garden[0] + 4.8, z: SPOTS.garden[1] - 1, r: .45, h: .8 });
+  const pgx = SPOTS.playground[0], pgz = SPOTS.playground[1];
+  ob({ t: 'c', n: 'playground tree', x: pgx - 3.5, z: pgz - 3, r: .9 }); ob({ t: 'b', n: 'slide', x: pgx + 3, z: pgz - .9, w: 1.5, d: 4.4, ry: 0, h: 3.4 });
+  for (const sx of [-1.6, 1.6]) for (const sz of [-.95, .95]) ob({ t: 'c', n: 'swing post', x: pgx + 6 + sx, z: pgz + 4 + sz, r: .25 });
+  ob({ t: 'c', n: 'red ball', x: pgx - 4.6, z: pgz + .2, r: .6, h: 1.2 }); ob({ t: 'c', n: 'blue ball', x: pgx + 1.4, z: pgz - 4.6, r: .4, h: .8 });
+  [[SPOTS.rosieHouse, .35, 5, 4], [[9, -15], -.3, 5, 4], [[-20, 9], 1.2, 4.5, 4], [[27, 3], -1.3, 4.5, 4]].forEach(([p, ry, w, d], i) => ob({ t: 'b', n: 'house ' + i, x: p[0], z: p[1], w: w + .3, d: d + .3, ry }));
+  [[-11, -2], [11, -1], [-12.5, 8.6], [12.5, 8.6], [-5, -16], [5, -18], [22, -12], [-24, -12], [24, 18], [-14, 18]].forEach(([x, z], i) => ob({ t: 'c', n: 'tree ' + i, x, z, r: .45 }));
+  treeSpots.forEach(([x, z, sc], i) => ob({ t: 'c', n: 'forest tree ' + i, x, z, r: .55 * sc })); ob({ t: 'c', n: 'playground tree trunk', x: pgx - 3.5, z: pgz - 3, r: .85 });
+  [[-13, -9], [13, -11], [-25, 2], [25, -5], [-9, 12], [10, 9], [21, 7], [-12, 15]].forEach(([x, z], i) => ob({ t: 'c', n: 'bush ' + i, x, z, r: 1.1, h: 1.3 }));
   // per-frame ambient animation
   const M4 = new THREE.Matrix4(), V3 = new THREE.Vector3(), Q = new THREE.Quaternion(), S3 = new THREE.Vector3();
   V.update = (t) => {
