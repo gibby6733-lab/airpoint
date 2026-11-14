@@ -7,7 +7,7 @@ const { chromium } = require('playwright'); const http = require('http'), fs = r
 const ROOT = __dirname, ep = path.resolve(process.argv[2]), rel = path.relative(ROOT, ep), args = process.argv.slice(3);
 const tl = JSON.parse(fs.readFileSync(path.join(ep, 'timeline.json'))); const FPS = tl.fps || 60, CRF = String(tl.crf || 17);
 const TYPES = { '.mp3': 'audio/mpeg', '.js': 'text/javascript', '.html': 'text/html', '.ttf': 'font/ttf', '.json': 'application/json', '.png': 'image/png' };
-function serve() { return new Promise(res => { const s = http.createServer((q, r) => { const f = path.join(ROOT, decodeURIComponent(q.url.split('?')[0])); if (!f.startsWith(ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' }); r.end(fs.readFileSync(f)); }); s.listen(0, () => res(s)); }); }
+function serve() { return new Promise(res => { const s = http.createServer((q, r) => { if (q.url.startsWith('/favicon')) { r.writeHead(204); return r.end(); } const f = path.join(ROOT, decodeURIComponent(q.url.split('?')[0])); if (!f.startsWith(ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' }); r.end(fs.readFileSync(f)); }); s.listen(0, () => res(s)); }); }
 async function page(port) {
   const GPU = process.argv.includes('--gpu') || process.env.KIDS3D_GPU === '1';   // --gpu: use the real graphics card (run on a PC with a GPU)
   const b = await chromium.launch(GPU ? { headless: !process.argv.includes('--headed'), args: ['--ignore-gpu-blocklist', '--enable-gpu', '--enable-gpu-rasterization', '--use-angle=default', '--enable-zero-copy'] }
