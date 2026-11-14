@@ -1,0 +1,1289 @@
+{
+ "duration": 68.279,
+ "lines": [
+  {
+   "scene": "g_kick5",
+   "text": "up. Our kicker, real goal posts. It's good!",
+   "sfx": [
+    [
+     "kick",
+     "@kicker"
+    ],
+    [
+     "crowd",
+     "@good"
+    ]
+   ],
+   "start": -0.8969999999999985,
+   "end": 2.733000000000004,
+   "words": [
+    {
+     "w": "up.",
+     "s": 0.056
+    },
+    {
+     "w": "Our",
+     "s": 0.373
+    },
+    {
+     "w": "kicker,",
+     "s": 0.6
+    },
+    {
+     "w": "real",
+     "s": 1.1
+    },
+    {
+     "w": "goal",
+     "s": 1.372
+    },
+    {
+     "w": "posts.",
+     "s": 1.644
+    },
+    {
+     "w": "It's",
+     "s": 2.098
+    },
+    {
+     "w": "good!",
+     "s": 2.325
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     0.6
+    ],
+    [
+     "crowd",
+     2.325
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day five. Two hundred and forty four likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 3.883,
+   "end": 6.389,
+   "words": [
+    {
+     "w": "Day",
+     "s": 3.883
+    },
+    {
+     "w": "five.",
+     "s": 4.107
+    },
+    {
+     "w": "Two",
+     "s": 4.509
+    },
+    {
+     "w": "hundred",
+     "s": 4.733
+    },
+    {
+     "w": "and",
+     "s": 5.136
+    },
+    {
+     "w": "forty",
+     "s": 5.359
+    },
+    {
+     "w": "four",
+     "s": 5.673
+    },
+    {
+     "w": "likes.",
+     "s": 5.941
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     3.883
+    ],
+    [
+     "stamp",
+     4.008
+    ]
+   ]
+  },
+  {
+   "scene": "fund5",
+   "text": "Two hundred forty four dollars! The bank has seventeen hundred and thirty four.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@seventeen"
+    ]
+   ],
+   "start": 6.609,
+   "end": 10.963,
+   "words": [
+    {
+     "w": "Two",
+     "s": 6.609
+    },
+    {
+     "w": "hundred",
+     "s": 6.833
+    },
+    {
+     "w": "forty",
+     "s": 7.237
+    },
+    {
+     "w": "four",
+     "s": 7.551
+    },
+    {
+     "w": "dollars!",
+     "s": 7.82
+    },
+    {
+     "w": "The",
+     "s": 8.359
+    },
+    {
+     "w": "bank",
+     "s": 8.584
+    },
+    {
+     "w": "has",
+     "s": 8.853
+    },
+    {
+     "w": "seventeen",
+     "s": 9.077
+    },
+    {
+     "w": "hundred",
+     "s": 9.571
+    },
+    {
+     "w": "and",
+     "s": 9.975
+    },
+    {
+     "w": "thirty",
+     "s": 10.2
+    },
+    {
+     "w": "four.",
+     "s": 10.559
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     7.262
+    ],
+    [
+     "ding",
+     9.077
+    ]
+   ]
+  },
+  {
+   "scene": "comment5",
+   "text": "The top comment said, goal posts. Goodbye, ladder!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@goal"
+    ],
+    [
+     "sad",
+     "@goodbye"
+    ]
+   ],
+   "start": 11.183,
+   "end": 14.119,
+   "words": [
+    {
+     "w": "The",
+     "s": 11.183
+    },
+    {
+     "w": "top",
+     "s": 11.402
+    },
+    {
+     "w": "comment",
+     "s": 11.621
+    },
+    {
+     "w": "said,",
+     "s": 12.015
+    },
+    {
+     "w": "goal",
+     "s": 12.41
+    },
+    {
+     "w": "posts.",
+     "s": 12.673
+    },
+    {
+     "w": "Goodbye,",
+     "s": 13.111
+    },
+    {
+     "w": "ladder!",
+     "s": 13.637
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     11.183
+    ],
+    [
+     "ding",
+     12.41
+    ],
+    [
+     "sad",
+     13.111
+    ]
+   ]
+  },
+  {
+   "scene": "posts5",
+   "text": "One hundred dollars bought real goal posts. Earl keeps the ladder.",
+   "sfx": [
+    [
+     "spend",
+     "@hundred"
+    ],
+    [
+     "ding",
+     "@real"
+    ],
+    [
+     "honk",
+     "@earl"
+    ]
+   ],
+   "start": 14.339,
+   "end": 18.13,
+   "words": [
+    {
+     "w": "One",
+     "s": 14.339
+    },
+    {
+     "w": "hundred",
+     "s": 14.57
+    },
+    {
+     "w": "dollars",
+     "s": 14.986
+    },
+    {
+     "w": "bought",
+     "s": 15.402
+    },
+    {
+     "w": "real",
+     "s": 15.772
+    },
+    {
+     "w": "goal",
+     "s": 16.049
+    },
+    {
+     "w": "posts.",
+     "s": 16.327
+    },
+    {
+     "w": "Earl",
+     "s": 16.789
+    },
+    {
+     "w": "keeps",
+     "s": 17.067
+    },
+    {
+     "w": "the",
+     "s": 17.39
+    },
+    {
+     "w": "ladder.",
+     "s": 17.622
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     14.57
+    ],
+    [
+     "ding",
+     15.772
+    ],
+    [
+     "honk",
+     16.789
+    ]
+   ]
+  },
+  {
+   "scene": "squad5",
+   "text": "And last video's fans are back!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@back"
+    ]
+   ],
+   "start": 18.35,
+   "end": 19.995,
+   "words": [
+    {
+     "w": "And",
+     "s": 18.35
+    },
+    {
+     "w": "last",
+     "s": 18.561
+    },
+    {
+     "w": "video's",
+     "s": 18.814
+    },
+    {
+     "w": "fans",
+     "s": 19.152
+    },
+    {
+     "w": "are",
+     "s": 19.405
+    },
+    {
+     "w": "back!",
+     "s": 19.616
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     18.843
+    ],
+    [
+     "crowd",
+     19.616
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard5",
+   "text": "Game five. The Salt Flats Snails. The slowest team in the league.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@salt"
+    ]
+   ],
+   "start": 20.215,
+   "end": 23.893,
+   "words": [
+    {
+     "w": "Game",
+     "s": 20.215
+    },
+    {
+     "w": "five.",
+     "s": 20.478
+    },
+    {
+     "w": "The",
+     "s": 20.872
+    },
+    {
+     "w": "Salt",
+     "s": 21.091
+    },
+    {
+     "w": "Flats",
+     "s": 21.354
+    },
+    {
+     "w": "Snails.",
+     "s": 21.66
+    },
+    {
+     "w": "The",
+     "s": 22.142
+    },
+    {
+     "w": "slowest",
+     "s": 22.36
+    },
+    {
+     "w": "team",
+     "s": 22.754
+    },
+    {
+     "w": "in",
+     "s": 23.017
+    },
+    {
+     "w": "the",
+     "s": 23.192
+    },
+    {
+     "w": "league.",
+     "s": 23.411
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     20.215
+    ],
+    [
+     "stamp",
+     21.091
+    ]
+   ]
+  },
+  {
+   "scene": "g_snap",
+   "text": "Their snap takes forty seconds. Tiny falls asleep.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "boing",
+     "@asleep"
+    ]
+   ],
+   "start": 24.113,
+   "end": 27.137,
+   "words": [
+    {
+     "w": "Their",
+     "s": 24.113
+    },
+    {
+     "w": "snap",
+     "s": 24.449
+    },
+    {
+     "w": "takes",
+     "s": 24.737
+    },
+    {
+     "w": "forty",
+     "s": 25.073
+    },
+    {
+     "w": "seconds.",
+     "s": 25.409
+    },
+    {
+     "w": "Tiny",
+     "s": 25.985
+    },
+    {
+     "w": "falls",
+     "s": 26.273
+    },
+    {
+     "w": "asleep.",
+     "s": 26.609
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     24.113
+    ],
+    [
+     "boing",
+     26.609
+    ]
+   ]
+  },
+  {
+   "scene": "g_run5",
+   "text": "Our running back scores before their defense even turns around. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@scores"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 27.357,
+   "end": 31.464,
+   "words": [
+    {
+     "w": "Our",
+     "s": 27.357
+    },
+    {
+     "w": "running",
+     "s": 27.585
+    },
+    {
+     "w": "back",
+     "s": 27.995
+    },
+    {
+     "w": "scores",
+     "s": 28.269
+    },
+    {
+     "w": "before",
+     "s": 28.634
+    },
+    {
+     "w": "their",
+     "s": 28.999
+    },
+    {
+     "w": "defense",
+     "s": 29.319
+    },
+    {
+     "w": "even",
+     "s": 29.73
+    },
+    {
+     "w": "turns",
+     "s": 30.003
+    },
+    {
+     "w": "around.",
+     "s": 30.323
+    },
+    {
+     "w": "Touchdown!",
+     "s": 30.825
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     28.269
+    ],
+    [
+     "crowd",
+     30.825
+    ]
+   ]
+  },
+  {
+   "scene": "g_block5",
+   "text": "Our lineman blocks a snail. It hides in its shell.",
+   "sfx": [
+    [
+     "bonk",
+     "@blocks"
+    ],
+    [
+     "slide",
+     "@hides"
+    ]
+   ],
+   "start": 31.684,
+   "end": 34.515,
+   "words": [
+    {
+     "w": "Our",
+     "s": 31.684
+    },
+    {
+     "w": "lineman",
+     "s": 31.902
+    },
+    {
+     "w": "blocks",
+     "s": 32.294
+    },
+    {
+     "w": "a",
+     "s": 32.642
+    },
+    {
+     "w": "snail.",
+     "s": 32.773
+    },
+    {
+     "w": "It",
+     "s": 33.208
+    },
+    {
+     "w": "hides",
+     "s": 33.382
+    },
+    {
+     "w": "in",
+     "s": 33.687
+    },
+    {
+     "w": "its",
+     "s": 33.861
+    },
+    {
+     "w": "shell.",
+     "s": 34.079
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     32.294
+    ],
+    [
+     "slide",
+     33.382
+    ]
+   ]
+  },
+  {
+   "scene": "g_pick5",
+   "text": "Our safety gets the pick. And this time he didn't catch his own teammate.",
+   "sfx": [
+    [
+     "ding",
+     "@pick"
+    ],
+    [
+     "boing",
+     "@teammate"
+    ]
+   ],
+   "start": 34.735,
+   "end": 38.578,
+   "words": [
+    {
+     "w": "Our",
+     "s": 34.735
+    },
+    {
+     "w": "safety",
+     "s": 34.946
+    },
+    {
+     "w": "gets",
+     "s": 35.284
+    },
+    {
+     "w": "the",
+     "s": 35.537
+    },
+    {
+     "w": "pick.",
+     "s": 35.749
+    },
+    {
+     "w": "And",
+     "s": 36.129
+    },
+    {
+     "w": "this",
+     "s": 36.34
+    },
+    {
+     "w": "time",
+     "s": 36.593
+    },
+    {
+     "w": "he",
+     "s": 36.847
+    },
+    {
+     "w": "didn't",
+     "s": 37.016
+    },
+    {
+     "w": "catch",
+     "s": 37.311
+    },
+    {
+     "w": "his",
+     "s": 37.607
+    },
+    {
+     "w": "own",
+     "s": 37.818
+    },
+    {
+     "w": "teammate.",
+     "s": 38.029
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     35.749
+    ],
+    [
+     "boing",
+     38.029
+    ]
+   ]
+  },
+  {
+   "scene": "g_snailtd",
+   "text": "Then the Snails scored two touchdowns. Very, very slowly.",
+   "sfx": [
+    [
+     "sad",
+     "@two"
+    ],
+    [
+     "boo",
+     "@slowly"
+    ]
+   ],
+   "start": 38.798,
+   "end": 42.1,
+   "words": [
+    {
+     "w": "Then",
+     "s": 38.798
+    },
+    {
+     "w": "the",
+     "s": 39.07
+    },
+    {
+     "w": "Snails",
+     "s": 39.296
+    },
+    {
+     "w": "scored",
+     "s": 39.658
+    },
+    {
+     "w": "two",
+     "s": 40.019
+    },
+    {
+     "w": "touchdowns.",
+     "s": 40.246
+    },
+    {
+     "w": "Very,",
+     "s": 40.924
+    },
+    {
+     "w": "very",
+     "s": 41.331
+    },
+    {
+     "w": "slowly.",
+     "s": 41.602
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     40.019
+    ],
+    [
+     "boo",
+     41.602
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb2_5",
+   "text": "Our backup quarterback finally goes in! He throws to our receiver. Touchdown!",
+   "sfx": [
+    [
+     "whistle",
+     "@finally"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 42.32,
+   "end": 47.009,
+   "words": [
+    {
+     "w": "Our",
+     "s": 42.32
+    },
+    {
+     "w": "backup",
+     "s": 42.564
+    },
+    {
+     "w": "quarterback",
+     "s": 42.955
+    },
+    {
+     "w": "finally",
+     "s": 43.59
+    },
+    {
+     "w": "goes",
+     "s": 44.029
+    },
+    {
+     "w": "in!",
+     "s": 44.322
+    },
+    {
+     "w": "He",
+     "s": 44.664
+    },
+    {
+     "w": "throws",
+     "s": 44.86
+    },
+    {
+     "w": "to",
+     "s": 45.25
+    },
+    {
+     "w": "our",
+     "s": 45.446
+    },
+    {
+     "w": "receiver.",
+     "s": 45.69
+    },
+    {
+     "w": "Touchdown!",
+     "s": 46.325
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     43.59
+    ],
+    [
+     "crowd",
+     46.325
+    ]
+   ]
+  },
+  {
+   "scene": "g_kick5",
+   "text": "Last play. Tied up. Our kicker, real goal posts. It's good!",
+   "sfx": [
+    [
+     "kick",
+     "@kicker"
+    ],
+    [
+     "crowd",
+     "@good"
+    ]
+   ],
+   "start": 47.229,
+   "end": 50.859,
+   "words": [
+    {
+     "w": "Last",
+     "s": 47.229
+    },
+    {
+     "w": "play.",
+     "s": 47.501
+    },
+    {
+     "w": "Tied",
+     "s": 47.91
+    },
+    {
+     "w": "up.",
+     "s": 48.182
+    },
+    {
+     "w": "Our",
+     "s": 48.499
+    },
+    {
+     "w": "kicker,",
+     "s": 48.726
+    },
+    {
+     "w": "real",
+     "s": 49.226
+    },
+    {
+     "w": "goal",
+     "s": 49.498
+    },
+    {
+     "w": "posts.",
+     "s": 49.77
+    },
+    {
+     "w": "It's",
+     "s": 50.224
+    },
+    {
+     "w": "good!",
+     "s": 50.451
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     48.726
+    ],
+    [
+     "crowd",
+     50.451
+    ]
+   ]
+  },
+  {
+   "scene": "g_win5",
+   "text": "We win! Our first win ever!",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "crowd",
+     0.2
+    ]
+   ],
+   "start": 51.079,
+   "end": 52.711,
+   "words": [
+    {
+     "w": "We",
+     "s": 51.079
+    },
+    {
+     "w": "win!",
+     "s": 51.251
+    },
+    {
+     "w": "Our",
+     "s": 51.595
+    },
+    {
+     "w": "first",
+     "s": 51.809
+    },
+    {
+     "w": "win",
+     "s": 52.11
+    },
+    {
+     "w": "ever!",
+     "s": 52.325
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     51.079
+    ],
+    [
+     "crowd",
+     51.405
+    ]
+   ]
+  },
+  {
+   "scene": "standings5",
+   "text": "Final, seventeen to fourteen. One win, four losses!",
+   "sfx": [
+    [
+     "stamp",
+     "@seventeen"
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ],
+   "start": 52.931,
+   "end": 56.158,
+   "words": [
+    {
+     "w": "Final,",
+     "s": 52.931
+    },
+    {
+     "w": "seventeen",
+     "s": 53.406
+    },
+    {
+     "w": "to",
+     "s": 53.928
+    },
+    {
+     "w": "fourteen.",
+     "s": 54.117
+    },
+    {
+     "w": "One",
+     "s": 54.734
+    },
+    {
+     "w": "win,",
+     "s": 54.972
+    },
+    {
+     "w": "four",
+     "s": 55.351
+    },
+    {
+     "w": "losses!",
+     "s": 55.636
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     53.406
+    ],
+    [
+     "ding",
+     54.734
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame5",
+   "text": "Tomorrow, the Iron Ridge Rams. They've never lost a game.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@never"
+    ]
+   ],
+   "start": 56.378,
+   "end": 59.633,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 56.378
+    },
+    {
+     "w": "the",
+     "s": 56.958
+    },
+    {
+     "w": "Iron",
+     "s": 57.18
+    },
+    {
+     "w": "Ridge",
+     "s": 57.448
+    },
+    {
+     "w": "Rams.",
+     "s": 57.76
+    },
+    {
+     "w": "They've",
+     "s": 58.161
+    },
+    {
+     "w": "never",
+     "s": 58.518
+    },
+    {
+     "w": "lost",
+     "s": 58.83
+    },
+    {
+     "w": "a",
+     "s": 59.098
+    },
+    {
+     "w": "game.",
+     "s": 59.231
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     56.378
+    ],
+    [
+     "stamp",
+     58.518
+    ]
+   ]
+  },
+  {
+   "scene": "cta5",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Stands, or a scoreboard. Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 59.853,
+   "end": 66.779,
+   "words": [
+    {
+     "w": "Every",
+     "s": 59.853
+    },
+    {
+     "w": "like",
+     "s": 60.168
+    },
+    {
+     "w": "is",
+     "s": 60.437
+    },
+    {
+     "w": "a",
+     "s": 60.617
+    },
+    {
+     "w": "dollar.",
+     "s": 60.752
+    },
+    {
+     "w": "The",
+     "s": 61.247
+    },
+    {
+     "w": "top",
+     "s": 61.472
+    },
+    {
+     "w": "comment",
+     "s": 61.697
+    },
+    {
+     "w": "picks",
+     "s": 62.101
+    },
+    {
+     "w": "the",
+     "s": 62.416
+    },
+    {
+     "w": "upgrade.",
+     "s": 62.641
+    },
+    {
+     "w": "Stands,",
+     "s": 63.181
+    },
+    {
+     "w": "or",
+     "s": 63.675
+    },
+    {
+     "w": "a",
+     "s": 63.855
+    },
+    {
+     "w": "scoreboard.",
+     "s": 63.99
+    },
+    {
+     "w": "Want",
+     "s": 64.665
+    },
+    {
+     "w": "to",
+     "s": 64.935
+    },
+    {
+     "w": "play?",
+     "s": 65.115
+    },
+    {
+     "w": "Comment",
+     "s": 65.519
+    },
+    {
+     "w": "your",
+     "s": 65.924
+    },
+    {
+     "w": "position.",
+     "s": 66.194
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     60.752
+    ],
+    [
+     "pop",
+     63.181
+    ],
+    [
+     "pop",
+     63.99
+    ],
+    [
+     "ding",
+     61.697
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}
