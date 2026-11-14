@@ -1,0 +1,368 @@
+{
+ "series": "30 Days: $1 to $10,000",
+ "day": 2,
+ "voice": "am_liam",
+ "speed": 1.25,
+ "lines": [
+  {
+   "scene": "foam",
+   "money": 5,
+   "rewind": true,
+   "text": "Day two, and Benny just made a stranger's car disappear!",
+   "sfx": [
+    [
+     "boing",
+     "@disappear"
+    ],
+    [
+     "whoosh",
+     0.9
+    ]
+   ],
+   "punch": [
+    "disappear"
+   ]
+  },
+  {
+   "scene": "votes",
+   "money": 5,
+   "text": "Let's back up. You voted. Car wash, six. Candy, zero!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@six"
+    ],
+    [
+     "sad",
+     "@zero"
+    ]
+   ],
+   "punch": [
+    "six",
+    "zero"
+   ]
+  },
+  {
+   "scene": "crew",
+   "money": 5,
+   "text": "Draco, Jeff the goat shark, Cryptic, Alma, Pain, and Thaddeus. This is the car wash crew!",
+   "sfx": [
+    [
+     "pop",
+     "@draco"
+    ],
+    [
+     "pop",
+     "@jeff"
+    ],
+    [
+     "pop",
+     "@cryptic"
+    ],
+    [
+     "pop",
+     "@alma"
+    ],
+    [
+     "pop",
+     "@pain"
+    ],
+    [
+     "pop",
+     "@thaddeus"
+    ],
+    [
+     "crowd",
+     "@crew"
+    ]
+   ],
+   "punch": [
+    "crew"
+   ]
+  },
+  {
+   "scene": "planb",
+   "money": 5,
+   "text": "But Liam had a backup plan. Candy first, then car wash, just in case. Benny ignores it.",
+   "sfx": [
+    [
+     "pop",
+     "@liam"
+    ],
+    [
+     "ding",
+     "@backup"
+    ],
+    [
+     "swipe",
+     "@ignores"
+    ]
+   ],
+   "punch": [
+    "ignores"
+   ]
+  },
+  {
+   "scene": "store2",
+   "money": 1,
+   "spend": true,
+   "text": "He spends four of his five dollars. A bucket, a sponge, and soap.",
+   "sfx": [
+    [
+     "spend",
+     "@spends"
+    ],
+    [
+     "pop",
+     "@bucket"
+    ],
+    [
+     "pop",
+     "@sponge"
+    ],
+    [
+     "pop",
+     "@soap"
+    ]
+   ],
+   "punch": [
+    "four"
+   ]
+  },
+  {
+   "scene": "sign",
+   "money": 1,
+   "text": "His sign is a pizza box. Car wash, five dollars!",
+   "sfx": [
+    [
+     "stamp",
+     "@pizza"
+    ],
+    [
+     "ding",
+     "@five"
+    ]
+   ],
+   "punch": [
+    "pizza"
+   ]
+  },
+  {
+   "scene": "mom",
+   "money": 1,
+   "text": "First customer? His mom. She pays in hugs.",
+   "sfx": [
+    [
+     "honk",
+     "@first"
+    ],
+    [
+     "boing",
+     "@hugs"
+    ]
+   ],
+   "punch": [
+    "hugs"
+   ]
+  },
+  {
+   "scene": "soap",
+   "money": 1,
+   "text": "Then a real customer! Benny uses the entire bottle of soap.",
+   "sfx": [
+    [
+     "honk",
+     "@real"
+    ],
+    [
+     "slide",
+     "@entire"
+    ]
+   ],
+   "punch": [
+    "entire"
+   ]
+  },
+  {
+   "scene": "foam",
+   "money": 1,
+   "text": "The car vanishes. The owner can't find it. He doesn't pay.",
+   "sfx": [
+    [
+     "boing",
+     "@vanishes"
+    ],
+    [
+     "sad",
+     "@doesn"
+    ]
+   ],
+   "punch": [
+    "vanishes"
+   ]
+  },
+  {
+   "scene": "plates",
+   "money": 1,
+   "text": "But then a line shows up. And look at the license plates. It's you guys!",
+   "sfx": [
+    [
+     "honk",
+     "@line"
+    ],
+    [
+     "pop",
+     "@license"
+    ],
+    [
+     "crowd",
+     "@you"
+    ]
+   ],
+   "punch": [
+    "you"
+   ]
+  },
+  {
+   "scene": "fancars",
+   "money": 1,
+   "text": "Jeff the goat shark's car has a shark fin. Draco's has flames. Thaddeus brought a monster truck!",
+   "sfx": [
+    [
+     "pop",
+     "@jeff"
+    ],
+    [
+     "whoosh",
+     "@flames"
+    ],
+    [
+     "honk",
+     "@monster"
+    ]
+   ],
+   "punch": [
+    "monster"
+   ]
+  },
+  {
+   "scene": "wash6",
+   "money": 31,
+   "text": "Six cars, five dollars each. Thirty dollars!",
+   "sfx": [
+    [
+     "pop",
+     "@six"
+    ],
+    [
+     "cash",
+     "@thirty"
+    ]
+   ],
+   "punch": [
+    "thirty"
+   ]
+  },
+  {
+   "scene": "rival2",
+   "money": 31,
+   "text": "Then the lemonade girl opens a car wash across the street. Four dollars, with a leaf blower!",
+   "sfx": [
+    [
+     "stamp",
+     "@lemonade"
+    ],
+    [
+     "sad",
+     "@four"
+    ],
+    [
+     "whoosh",
+     "@leaf"
+    ]
+   ],
+   "punch": [
+    "four"
+   ]
+  },
+  {
+   "scene": "rain",
+   "money": 31,
+   "text": "And then it rains. Every car in town gets washed for free.",
+   "sfx": [
+    [
+     "whoosh",
+     0.05
+    ],
+    [
+     "boo",
+     "@free"
+    ]
+   ],
+   "punch": [
+    "free"
+   ]
+  },
+  {
+   "scene": "liam2",
+   "money": 31,
+   "text": "Liam was right. Rain doesn't stop candy.",
+   "sfx": [
+    [
+     "ding",
+     "@right"
+    ]
+   ],
+   "punch": [
+    "right"
+   ]
+  },
+  {
+   "scene": "counter2",
+   "money": 31,
+   "text": "Day two. Thirty one dollars. Nine thousand, nine hundred sixty nine to go.",
+   "sfx": [
+    [
+     "ding",
+     "@thirty"
+    ],
+    [
+     "sad",
+     "@go"
+    ]
+   ],
+   "punch": [
+    "thirty"
+   ]
+  },
+  {
+   "scene": "vote2",
+   "money": 31,
+   "text": "Tomorrow it's still raining. Sell umbrellas at the bus stop? Or rent a vacuum and clean car insides? Comment one word. Every voter's name goes on tomorrow's plates!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@umbrellas"
+    ],
+    [
+     "pop",
+     "@vacuum"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

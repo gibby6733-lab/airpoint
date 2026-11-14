@@ -1,0 +1,1543 @@
+{
+ "duration": 63.18,
+ "lines": [
+  {
+   "scene": "foam",
+   "money": 5,
+   "rewind": true,
+   "text": "Day two, and Benny just made a stranger's car disappear!",
+   "sfx": [
+    [
+     "boing",
+     "@disappear"
+    ],
+    [
+     "whoosh",
+     0.9
+    ]
+   ],
+   "punch": [
+    "disappear"
+   ],
+   "start": 0.35,
+   "end": 2.88,
+   "words": [
+    {
+     "w": "Day",
+     "s": 0.35
+    },
+    {
+     "w": "two,",
+     "s": 0.531
+    },
+    {
+     "w": "and",
+     "s": 0.82
+    },
+    {
+     "w": "Benny",
+     "s": 1.001
+    },
+    {
+     "w": "just",
+     "s": 1.254
+    },
+    {
+     "w": "made",
+     "s": 1.47
+    },
+    {
+     "w": "a",
+     "s": 1.687
+    },
+    {
+     "w": "stranger's",
+     "s": 1.796
+    },
+    {
+     "w": "car",
+     "s": 2.193
+    },
+    {
+     "w": "disappear!",
+     "s": 2.374
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     2.374
+    ],
+    [
+     "whoosh",
+     2.627
+    ]
+   ]
+  },
+  {
+   "scene": "votes",
+   "money": 5,
+   "text": "Let's back up. You voted. Car wash, six. Candy, zero!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@six"
+    ],
+    [
+     "sad",
+     "@zero"
+    ]
+   ],
+   "punch": [
+    "six",
+    "zero"
+   ],
+   "start": 3.1,
+   "end": 5.833,
+   "words": [
+    {
+     "w": "Let's",
+     "s": 3.1
+    },
+    {
+     "w": "back",
+     "s": 3.319
+    },
+    {
+     "w": "up.",
+     "s": 3.537
+    },
+    {
+     "w": "You",
+     "s": 3.792
+    },
+    {
+     "w": "voted.",
+     "s": 3.975
+    },
+    {
+     "w": "Car",
+     "s": 4.339
+    },
+    {
+     "w": "wash,",
+     "s": 4.521
+    },
+    {
+     "w": "six.",
+     "s": 4.849
+    },
+    {
+     "w": "Candy,",
+     "s": 5.141
+    },
+    {
+     "w": "zero!",
+     "s": 5.505
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     3.1
+    ],
+    [
+     "stamp",
+     4.849
+    ],
+    [
+     "sad",
+     5.505
+    ]
+   ]
+  },
+  {
+   "scene": "crew",
+   "money": 5,
+   "text": "Draco, Jeff the goat shark, Cryptic, Alma, Pain, and Thaddeus. This is the car wash crew!",
+   "sfx": [
+    [
+     "pop",
+     "@draco"
+    ],
+    [
+     "pop",
+     "@jeff"
+    ],
+    [
+     "pop",
+     "@cryptic"
+    ],
+    [
+     "pop",
+     "@alma"
+    ],
+    [
+     "pop",
+     "@pain"
+    ],
+    [
+     "pop",
+     "@thaddeus"
+    ],
+    [
+     "crowd",
+     "@crew"
+    ]
+   ],
+   "punch": [
+    "crew"
+   ],
+   "start": 6.053,
+   "end": 10.475,
+   "words": [
+    {
+     "w": "Draco,",
+     "s": 6.053
+    },
+    {
+     "w": "Jeff",
+     "s": 6.422
+    },
+    {
+     "w": "the",
+     "s": 6.643
+    },
+    {
+     "w": "goat",
+     "s": 6.827
+    },
+    {
+     "w": "shark,",
+     "s": 7.048
+    },
+    {
+     "w": "Cryptic,",
+     "s": 7.417
+    },
+    {
+     "w": "Alma,",
+     "s": 7.859
+    },
+    {
+     "w": "Pain,",
+     "s": 8.19
+    },
+    {
+     "w": "and",
+     "s": 8.522
+    },
+    {
+     "w": "Thaddeus.",
+     "s": 8.706
+    },
+    {
+     "w": "This",
+     "s": 9.185
+    },
+    {
+     "w": "is",
+     "s": 9.406
+    },
+    {
+     "w": "the",
+     "s": 9.553
+    },
+    {
+     "w": "car",
+     "s": 9.738
+    },
+    {
+     "w": "wash",
+     "s": 9.922
+    },
+    {
+     "w": "crew!",
+     "s": 10.143
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     6.053
+    ],
+    [
+     "pop",
+     6.422
+    ],
+    [
+     "pop",
+     7.417
+    ],
+    [
+     "pop",
+     7.859
+    ],
+    [
+     "pop",
+     8.19
+    ],
+    [
+     "pop",
+     8.706
+    ],
+    [
+     "crowd",
+     10.143
+    ]
+   ]
+  },
+  {
+   "scene": "planb",
+   "money": 5,
+   "text": "But Liam had a backup plan. Candy first, then car wash, just in case. Benny ignores it.",
+   "sfx": [
+    [
+     "pop",
+     "@liam"
+    ],
+    [
+     "ding",
+     "@backup"
+    ],
+    [
+     "swipe",
+     "@ignores"
+    ]
+   ],
+   "punch": [
+    "ignores"
+   ],
+   "start": 10.695,
+   "end": 15.041,
+   "words": [
+    {
+     "w": "But",
+     "s": 10.695
+    },
+    {
+     "w": "Liam",
+     "s": 10.884
+    },
+    {
+     "w": "had",
+     "s": 11.11
+    },
+    {
+     "w": "a",
+     "s": 11.299
+    },
+    {
+     "w": "backup",
+     "s": 11.413
+    },
+    {
+     "w": "plan.",
+     "s": 11.715
+    },
+    {
+     "w": "Candy",
+     "s": 12.055
+    },
+    {
+     "w": "first,",
+     "s": 12.32
+    },
+    {
+     "w": "then",
+     "s": 12.698
+    },
+    {
+     "w": "car",
+     "s": 12.924
+    },
+    {
+     "w": "wash,",
+     "s": 13.113
+    },
+    {
+     "w": "just",
+     "s": 13.453
+    },
+    {
+     "w": "in",
+     "s": 13.68
+    },
+    {
+     "w": "case.",
+     "s": 13.831
+    },
+    {
+     "w": "Benny",
+     "s": 14.171
+    },
+    {
+     "w": "ignores",
+     "s": 14.436
+    },
+    {
+     "w": "it.",
+     "s": 14.776
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.884
+    ],
+    [
+     "ding",
+     11.413
+    ],
+    [
+     "swipe",
+     14.436
+    ]
+   ]
+  },
+  {
+   "scene": "store2",
+   "money": 1,
+   "spend": true,
+   "text": "He spends four of his five dollars. A bucket, a sponge, and soap.",
+   "sfx": [
+    [
+     "spend",
+     "@spends"
+    ],
+    [
+     "pop",
+     "@bucket"
+    ],
+    [
+     "pop",
+     "@sponge"
+    ],
+    [
+     "pop",
+     "@soap"
+    ]
+   ],
+   "punch": [
+    "four"
+   ],
+   "start": 15.261,
+   "end": 18.208,
+   "words": [
+    {
+     "w": "He",
+     "s": 15.261
+    },
+    {
+     "w": "spends",
+     "s": 15.396
+    },
+    {
+     "w": "four",
+     "s": 15.667
+    },
+    {
+     "w": "of",
+     "s": 15.87
+    },
+    {
+     "w": "his",
+     "s": 16.006
+    },
+    {
+     "w": "five",
+     "s": 16.175
+    },
+    {
+     "w": "dollars.",
+     "s": 16.378
+    },
+    {
+     "w": "A",
+     "s": 16.785
+    },
+    {
+     "w": "bucket,",
+     "s": 16.887
+    },
+    {
+     "w": "a",
+     "s": 17.259
+    },
+    {
+     "w": "sponge,",
+     "s": 17.361
+    },
+    {
+     "w": "and",
+     "s": 17.733
+    },
+    {
+     "w": "soap.",
+     "s": 17.903
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     15.396
+    ],
+    [
+     "pop",
+     16.887
+    ],
+    [
+     "pop",
+     17.361
+    ],
+    [
+     "pop",
+     17.903
+    ]
+   ]
+  },
+  {
+   "scene": "sign",
+   "money": 1,
+   "text": "His sign is a pizza box. Car wash, five dollars!",
+   "sfx": [
+    [
+     "stamp",
+     "@pizza"
+    ],
+    [
+     "ding",
+     "@five"
+    ]
+   ],
+   "punch": [
+    "pizza"
+   ],
+   "start": 18.428,
+   "end": 21.231,
+   "words": [
+    {
+     "w": "His",
+     "s": 18.428
+    },
+    {
+     "w": "sign",
+     "s": 18.643
+    },
+    {
+     "w": "is",
+     "s": 18.902
+    },
+    {
+     "w": "a",
+     "s": 19.075
+    },
+    {
+     "w": "pizza",
+     "s": 19.204
+    },
+    {
+     "w": "box.",
+     "s": 19.506
+    },
+    {
+     "w": "Car",
+     "s": 19.851
+    },
+    {
+     "w": "wash,",
+     "s": 20.067
+    },
+    {
+     "w": "five",
+     "s": 20.455
+    },
+    {
+     "w": "dollars!",
+     "s": 20.714
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     19.204
+    ],
+    [
+     "ding",
+     20.455
+    ]
+   ]
+  },
+  {
+   "scene": "mom",
+   "money": 1,
+   "text": "First customer? His mom. She pays in hugs.",
+   "sfx": [
+    [
+     "honk",
+     "@first"
+    ],
+    [
+     "boing",
+     "@hugs"
+    ]
+   ],
+   "punch": [
+    "hugs"
+   ],
+   "start": 21.451,
+   "end": 23.505,
+   "words": [
+    {
+     "w": "First",
+     "s": 21.451
+    },
+    {
+     "w": "customer?",
+     "s": 21.704
+    },
+    {
+     "w": "His",
+     "s": 22.172
+    },
+    {
+     "w": "mom.",
+     "s": 22.352
+    },
+    {
+     "w": "She",
+     "s": 22.64
+    },
+    {
+     "w": "pays",
+     "s": 22.82
+    },
+    {
+     "w": "in",
+     "s": 23.037
+    },
+    {
+     "w": "hugs.",
+     "s": 23.181
+    }
+   ],
+   "sfx_times": [
+    [
+     "honk",
+     21.451
+    ],
+    [
+     "boing",
+     23.181
+    ]
+   ]
+  },
+  {
+   "scene": "soap",
+   "money": 1,
+   "text": "Then a real customer! Benny uses the entire bottle of soap.",
+   "sfx": [
+    [
+     "honk",
+     "@real"
+    ],
+    [
+     "slide",
+     "@entire"
+    ]
+   ],
+   "punch": [
+    "entire"
+   ],
+   "start": 23.725,
+   "end": 26.623,
+   "words": [
+    {
+     "w": "Then",
+     "s": 23.725
+    },
+    {
+     "w": "a",
+     "s": 23.957
+    },
+    {
+     "w": "real",
+     "s": 24.073
+    },
+    {
+     "w": "customer!",
+     "s": 24.305
+    },
+    {
+     "w": "Benny",
+     "s": 24.807
+    },
+    {
+     "w": "uses",
+     "s": 25.077
+    },
+    {
+     "w": "the",
+     "s": 25.309
+    },
+    {
+     "w": "entire",
+     "s": 25.502
+    },
+    {
+     "w": "bottle",
+     "s": 25.811
+    },
+    {
+     "w": "of",
+     "s": 26.12
+    },
+    {
+     "w": "soap.",
+     "s": 26.275
+    }
+   ],
+   "sfx_times": [
+    [
+     "honk",
+     24.073
+    ],
+    [
+     "slide",
+     25.502
+    ]
+   ]
+  },
+  {
+   "scene": "foam",
+   "money": 1,
+   "text": "The car vanishes. The owner can't find it. He doesn't pay.",
+   "sfx": [
+    [
+     "boing",
+     "@vanishes"
+    ],
+    [
+     "sad",
+     "@doesn"
+    ]
+   ],
+   "punch": [
+    "vanishes"
+   ],
+   "start": 26.843,
+   "end": 29.33,
+   "words": [
+    {
+     "w": "The",
+     "s": 26.843
+    },
+    {
+     "w": "car",
+     "s": 27.011
+    },
+    {
+     "w": "vanishes.",
+     "s": 27.179
+    },
+    {
+     "w": "The",
+     "s": 27.616
+    },
+    {
+     "w": "owner",
+     "s": 27.784
+    },
+    {
+     "w": "can't",
+     "s": 28.019
+    },
+    {
+     "w": "find",
+     "s": 28.221
+    },
+    {
+     "w": "it.",
+     "s": 28.423
+    },
+    {
+     "w": "He",
+     "s": 28.658
+    },
+    {
+     "w": "doesn't",
+     "s": 28.792
+    },
+    {
+     "w": "pay.",
+     "s": 29.061
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     27.179
+    ],
+    [
+     "sad",
+     28.792
+    ]
+   ]
+  },
+  {
+   "scene": "plates",
+   "money": 1,
+   "text": "But then a line shows up. And look at the license plates. It's you guys!",
+   "sfx": [
+    [
+     "honk",
+     "@line"
+    ],
+    [
+     "pop",
+     "@license"
+    ],
+    [
+     "crowd",
+     "@you"
+    ]
+   ],
+   "punch": [
+    "you"
+   ],
+   "start": 29.55,
+   "end": 32.66,
+   "words": [
+    {
+     "w": "But",
+     "s": 29.55
+    },
+    {
+     "w": "then",
+     "s": 29.717
+    },
+    {
+     "w": "a",
+     "s": 29.918
+    },
+    {
+     "w": "line",
+     "s": 30.018
+    },
+    {
+     "w": "shows",
+     "s": 30.219
+    },
+    {
+     "w": "up.",
+     "s": 30.453
+    },
+    {
+     "w": "And",
+     "s": 30.687
+    },
+    {
+     "w": "look",
+     "s": 30.854
+    },
+    {
+     "w": "at",
+     "s": 31.055
+    },
+    {
+     "w": "the",
+     "s": 31.189
+    },
+    {
+     "w": "license",
+     "s": 31.356
+    },
+    {
+     "w": "plates.",
+     "s": 31.657
+    },
+    {
+     "w": "It's",
+     "s": 32.025
+    },
+    {
+     "w": "you",
+     "s": 32.192
+    },
+    {
+     "w": "guys!",
+     "s": 32.359
+    }
+   ],
+   "sfx_times": [
+    [
+     "honk",
+     30.018
+    ],
+    [
+     "pop",
+     31.356
+    ],
+    [
+     "crowd",
+     32.192
+    ]
+   ]
+  },
+  {
+   "scene": "fancars",
+   "money": 1,
+   "text": "Jeff the goat shark's car has a shark fin. Draco's has flames. Thaddeus brought a monster truck!",
+   "sfx": [
+    [
+     "pop",
+     "@jeff"
+    ],
+    [
+     "whoosh",
+     "@flames"
+    ],
+    [
+     "honk",
+     "@monster"
+    ]
+   ],
+   "punch": [
+    "monster"
+   ],
+   "start": 32.88,
+   "end": 37.453,
+   "words": [
+    {
+     "w": "Jeff",
+     "s": 32.88
+    },
+    {
+     "w": "the",
+     "s": 33.113
+    },
+    {
+     "w": "goat",
+     "s": 33.306
+    },
+    {
+     "w": "shark's",
+     "s": 33.539
+    },
+    {
+     "w": "car",
+     "s": 33.849
+    },
+    {
+     "w": "has",
+     "s": 34.043
+    },
+    {
+     "w": "a",
+     "s": 34.236
+    },
+    {
+     "w": "shark",
+     "s": 34.353
+    },
+    {
+     "w": "fin.",
+     "s": 34.624
+    },
+    {
+     "w": "Draco's",
+     "s": 34.934
+    },
+    {
+     "w": "has",
+     "s": 35.244
+    },
+    {
+     "w": "flames.",
+     "s": 35.438
+    },
+    {
+     "w": "Thaddeus",
+     "s": 35.864
+    },
+    {
+     "w": "brought",
+     "s": 36.251
+    },
+    {
+     "w": "a",
+     "s": 36.6
+    },
+    {
+     "w": "monster",
+     "s": 36.716
+    },
+    {
+     "w": "truck!",
+     "s": 37.065
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     32.88
+    ],
+    [
+     "whoosh",
+     35.438
+    ],
+    [
+     "honk",
+     36.716
+    ]
+   ]
+  },
+  {
+   "scene": "wash6",
+   "money": 31,
+   "text": "Six cars, five dollars each. Thirty dollars!",
+   "sfx": [
+    [
+     "pop",
+     "@six"
+    ],
+    [
+     "cash",
+     "@thirty"
+    ]
+   ],
+   "punch": [
+    "thirty"
+   ],
+   "start": 37.673,
+   "end": 40.057,
+   "words": [
+    {
+     "w": "Six",
+     "s": 37.673
+    },
+    {
+     "w": "cars,",
+     "s": 37.878
+    },
+    {
+     "w": "five",
+     "s": 38.248
+    },
+    {
+     "w": "dollars",
+     "s": 38.495
+    },
+    {
+     "w": "each.",
+     "s": 38.865
+    },
+    {
+     "w": "Thirty",
+     "s": 39.235
+    },
+    {
+     "w": "dollars!",
+     "s": 39.564
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     37.673
+    ],
+    [
+     "cash",
+     39.235
+    ]
+   ]
+  },
+  {
+   "scene": "rival2",
+   "money": 31,
+   "text": "Then the lemonade girl opens a car wash across the street. Four dollars, with a leaf blower!",
+   "sfx": [
+    [
+     "stamp",
+     "@lemonade"
+    ],
+    [
+     "sad",
+     "@four"
+    ],
+    [
+     "whoosh",
+     "@leaf"
+    ]
+   ],
+   "punch": [
+    "four"
+   ],
+   "start": 40.277,
+   "end": 44.675,
+   "words": [
+    {
+     "w": "Then",
+     "s": 40.277
+    },
+    {
+     "w": "the",
+     "s": 40.504
+    },
+    {
+     "w": "lemonade",
+     "s": 40.694
+    },
+    {
+     "w": "girl",
+     "s": 41.073
+    },
+    {
+     "w": "opens",
+     "s": 41.301
+    },
+    {
+     "w": "a",
+     "s": 41.566
+    },
+    {
+     "w": "car",
+     "s": 41.68
+    },
+    {
+     "w": "wash",
+     "s": 41.869
+    },
+    {
+     "w": "across",
+     "s": 42.097
+    },
+    {
+     "w": "the",
+     "s": 42.4
+    },
+    {
+     "w": "street.",
+     "s": 42.589
+    },
+    {
+     "w": "Four",
+     "s": 43.006
+    },
+    {
+     "w": "dollars,",
+     "s": 43.234
+    },
+    {
+     "w": "with",
+     "s": 43.689
+    },
+    {
+     "w": "a",
+     "s": 43.916
+    },
+    {
+     "w": "leaf",
+     "s": 44.03
+    },
+    {
+     "w": "blower!",
+     "s": 44.257
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     40.694
+    ],
+    [
+     "sad",
+     43.006
+    ],
+    [
+     "whoosh",
+     44.03
+    ]
+   ]
+  },
+  {
+   "scene": "rain",
+   "money": 31,
+   "text": "And then it rains. Every car in town gets washed for free.",
+   "sfx": [
+    [
+     "whoosh",
+     0.05
+    ],
+    [
+     "boo",
+     "@free"
+    ]
+   ],
+   "punch": [
+    "free"
+   ],
+   "start": 44.895,
+   "end": 47.511,
+   "words": [
+    {
+     "w": "And",
+     "s": 44.895
+    },
+    {
+     "w": "then",
+     "s": 45.069
+    },
+    {
+     "w": "it",
+     "s": 45.278
+    },
+    {
+     "w": "rains.",
+     "s": 45.418
+    },
+    {
+     "w": "Every",
+     "s": 45.767
+    },
+    {
+     "w": "car",
+     "s": 46.011
+    },
+    {
+     "w": "in",
+     "s": 46.185
+    },
+    {
+     "w": "town",
+     "s": 46.325
+    },
+    {
+     "w": "gets",
+     "s": 46.534
+    },
+    {
+     "w": "washed",
+     "s": 46.743
+    },
+    {
+     "w": "for",
+     "s": 47.023
+    },
+    {
+     "w": "free.",
+     "s": 47.197
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     45.026
+    ],
+    [
+     "boo",
+     47.197
+    ]
+   ]
+  },
+  {
+   "scene": "liam2",
+   "money": 31,
+   "text": "Liam was right. Rain doesn't stop candy.",
+   "sfx": [
+    [
+     "ding",
+     "@right"
+    ]
+   ],
+   "punch": [
+    "right"
+   ],
+   "start": 47.731,
+   "end": 49.699,
+   "words": [
+    {
+     "w": "Liam",
+     "s": 47.731
+    },
+    {
+     "w": "was",
+     "s": 47.962
+    },
+    {
+     "w": "right.",
+     "s": 48.155
+    },
+    {
+     "w": "Rain",
+     "s": 48.541
+    },
+    {
+     "w": "doesn't",
+     "s": 48.773
+    },
+    {
+     "w": "stop",
+     "s": 49.081
+    },
+    {
+     "w": "candy.",
+     "s": 49.313
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     48.155
+    ]
+   ]
+  },
+  {
+   "scene": "counter2",
+   "money": 31,
+   "text": "Day two. Thirty one dollars. Nine thousand, nine hundred sixty nine to go.",
+   "sfx": [
+    [
+     "ding",
+     "@thirty"
+    ],
+    [
+     "sad",
+     "@go"
+    ]
+   ],
+   "punch": [
+    "thirty"
+   ],
+   "start": 49.919,
+   "end": 53.419,
+   "words": [
+    {
+     "w": "Day",
+     "s": 49.919
+    },
+    {
+     "w": "two.",
+     "s": 50.101
+    },
+    {
+     "w": "Thirty",
+     "s": 50.393
+    },
+    {
+     "w": "one",
+     "s": 50.684
+    },
+    {
+     "w": "dollars.",
+     "s": 50.867
+    },
+    {
+     "w": "Nine",
+     "s": 51.304
+    },
+    {
+     "w": "thousand,",
+     "s": 51.523
+    },
+    {
+     "w": "nine",
+     "s": 51.997
+    },
+    {
+     "w": "hundred",
+     "s": 52.216
+    },
+    {
+     "w": "sixty",
+     "s": 52.544
+    },
+    {
+     "w": "nine",
+     "s": 52.799
+    },
+    {
+     "w": "to",
+     "s": 53.018
+    },
+    {
+     "w": "go.",
+     "s": 53.164
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     50.393
+    ],
+    [
+     "sad",
+     53.164
+    ]
+   ]
+  },
+  {
+   "scene": "vote2",
+   "money": 31,
+   "text": "Tomorrow it's still raining. Sell umbrellas at the bus stop? Or rent a vacuum and clean car insides? Comment one word. Every voter's name goes on tomorrow's plates!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@umbrellas"
+    ],
+    [
+     "pop",
+     "@vacuum"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 53.639,
+   "end": 61.68,
+   "words": [
+    {
+     "w": "Tomorrow",
+     "s": 53.639
+    },
+    {
+     "w": "it's",
+     "s": 54.041
+    },
+    {
+     "w": "still",
+     "s": 54.242
+    },
+    {
+     "w": "raining.",
+     "s": 54.524
+    },
+    {
+     "w": "Sell",
+     "s": 55.006
+    },
+    {
+     "w": "umbrellas",
+     "s": 55.247
+    },
+    {
+     "w": "at",
+     "s": 55.69
+    },
+    {
+     "w": "the",
+     "s": 55.85
+    },
+    {
+     "w": "bus",
+     "s": 56.051
+    },
+    {
+     "w": "stop?",
+     "s": 56.252
+    },
+    {
+     "w": "Or",
+     "s": 56.614
+    },
+    {
+     "w": "rent",
+     "s": 56.775
+    },
+    {
+     "w": "a",
+     "s": 57.016
+    },
+    {
+     "w": "vacuum",
+     "s": 57.137
+    },
+    {
+     "w": "and",
+     "s": 57.459
+    },
+    {
+     "w": "clean",
+     "s": 57.66
+    },
+    {
+     "w": "car",
+     "s": 57.941
+    },
+    {
+     "w": "insides?",
+     "s": 58.142
+    },
+    {
+     "w": "Comment",
+     "s": 58.624
+    },
+    {
+     "w": "one",
+     "s": 58.986
+    },
+    {
+     "w": "word.",
+     "s": 59.187
+    },
+    {
+     "w": "Every",
+     "s": 59.549
+    },
+    {
+     "w": "voter's",
+     "s": 59.831
+    },
+    {
+     "w": "name",
+     "s": 60.152
+    },
+    {
+     "w": "goes",
+     "s": 60.393
+    },
+    {
+     "w": "on",
+     "s": 60.635
+    },
+    {
+     "w": "tomorrow's",
+     "s": 60.796
+    },
+    {
+     "w": "plates!",
+     "s": 61.238
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     53.639
+    ],
+    [
+     "pop",
+     55.247
+    ],
+    [
+     "pop",
+     57.137
+    ],
+    [
+     "ding",
+     58.624
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

@@ -11,6 +11,7 @@ import json, os, re, subprocess, sys
 
 HASHTAGS = "#football #footballfunny #animation #Mudvillepossums"
 d = sys.argv[1]; mp4 = os.path.join(d, "episode.mp4")
+if "tenk" in os.path.abspath(d).split(os.sep): HASHTAGS = "#money #sidehustle #animation #1to10k"   # $1 to $10K series
 res = []  # (ok, label, detail)
 def add(ok, label, detail=""): res.append((bool(ok), label, detail))
 def run(args): return subprocess.run(args, capture_output=True, text=True)
