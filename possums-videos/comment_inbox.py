@@ -1,6 +1,6 @@
 """Print the #comment-replies messages that haven't been answered yet (posted after the bot's last message).
 
-usage: python3 comment_inbox.py
+usage: python3 comment_inbox.py <channel key>   (replies / tenk_replies / possums_stats / possums_results / tenk_results)
 Prints NOTHING_NEW if there's nothing to do. Otherwise prints each pending message's text, and saves attachments
 (screenshots, .txt pastes, screen recordings -> 1 frame/sec) to inbox/ and prints their paths.
 """
@@ -11,8 +11,13 @@ ch = json.load(open(os.path.join(here, "channels.json")))[KEY]
 HDR = {"Authorization": "Bot proxy-injected", "User-Agent": "DiscordBot (daily-video-poster, 1.0)"}
 msgs = json.load(urllib.request.urlopen(urllib.request.Request(f"https://discord.com/api/v10/channels/{ch}/messages?limit=50", headers=HDR), timeout=30))
 msgs.sort(key=lambda m: int(m["id"]))
-last_bot = max((int(m["id"]) for m in msgs if m["author"].get("bot")), default=0)
-pending = [m for m in msgs if not m["author"].get("bot") and int(m["id"]) > last_bot]
+if KEY.endswith("_results"):   # results channels: everything since the last build started (bot message starting with 🔨), so results can come in pieces
+    last_bot = max((int(m["id"]) for m in msgs if m["author"].get("bot") and m["content"].startswith("🔨")), default=0)
+    if not any(not m["author"].get("bot") and int(m["id"]) > max((int(x["id"]) for x in msgs if x["author"].get("bot")), default=0) for m in msgs):
+        print("NOTHING_NEW"); raise SystemExit   # nothing new since the bot last spoke (it already answered / asked for the missing piece)
+else:
+    last_bot = max((int(m["id"]) for m in msgs if m["author"].get("bot")), default=0)
+pending = [m for m in msgs if not m["author"].get("bot") and m.get("type", 0) in (0, 19) and int(m["id"]) > last_bot]
 if not pending:
     print("NOTHING_NEW"); raise SystemExit
 os.makedirs(os.path.join(here, "inbox"), exist_ok=True)

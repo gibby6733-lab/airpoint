@@ -10,6 +10,18 @@ Project: `possums-videos/` (read its `README.md` first — format rules live the
 Team memory: `possums-videos/state.json` (fund, record, upgrades, stadium, roster, history).
 Last episode: the highest `possums-videos/episodes/dayNN/`. New day = `after_day + 1`.
 
+## 0. Results channel (the usual way in)
+The user drops the previous day's results in Discord **#📥send-results** under 🏈 MUDVILLE POSSUMS (key `possums_results`):
+a filled-in template (`TikTok:` link, `Instagram:` link or none, `Likes: TikTok N + Instagram N`) plus a comments screen
+recording or screenshots. Read it with `python3 comment_inbox.py possums_results` (prints NOTHING_NEW, or every message
+since the last build plus the attachment/frame paths to Read). It can arrive in pieces.
+- Missing the like count or the comments → `python3 discord_say.py possums_results "..."` asking only for the missing piece, then stop.
+- Complete → post the check summary as ONE message that starts with `🔨 Building Day N` (likes → $, chosen upgrade with
+  the commenter's name, fan signings by position, opponent). The 🔨 marks those results as used. Then build (steps 2-5).
+- The like count the user typed is the source of truth (Boozeie may not be connected in scheduled runs).
+- Finish with a designed cover (`thumbnail.png`, 1080x1920, big DAY N + the day's hook) before posting; post_discord.py
+  then puts the video, cover, title and caption in #possums-videos. Last, `python3 discord_say.py possums_results "✅ Day N is in #possums-videos"`.
+
 ## 1. Get the inputs (Discord or chat)
 The user starts with "generate day N" — in chat, or in #football-channel (then run the Discord listener:
 `python3 -u discord_listen.py football` under Monitor, reply with `python3 discord_say.py football "..."`).
