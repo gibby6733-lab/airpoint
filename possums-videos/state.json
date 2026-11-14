@@ -1,28 +1,28 @@
 {
- "after_day": 4,
- "fund_dollars": 1490,
+ "after_day": 5,
+ "fund_dollars": 1634,
  "record": {
-  "wins": 0,
+  "wins": 1,
   "losses": 4
  },
  "fans": 0,
- "next_opponent": "Salt Flats Snails (slowest team in the league)",
+ "next_opponent": "Iron Ridge Rams (never lost a game)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
-  "field: real grass (Day 4, $500)"
+  "field: real grass (Day 4, $500)",
+  "goal posts: real yellow goal posts (Day 5, $100)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
   "stands": "wooden bleachers falling apart",
   "field": "real grass (one mud puddle left)",
-  "goal_posts": "a ladder",
+  "goal_posts": "real yellow goal posts (Earl kept the ladder)",
   "scoreboard": "none",
   "locker_room": "a garden shed with three lockers"
  },
  "upgrade_prices": {
   "stands": 250,
-  "goal_posts": 100,
   "scoreboard": 150
  },
  "roster": {
@@ -98,23 +98,35 @@
     "thepeoplechamptn QB2",
     "Lucas K"
    ]
+  },
+  {
+   "day": 5,
+   "built": "2026-11-14",
+   "likes_in": 244,
+   "likes_tiktok": 244,
+   "winning_comment": "Goal posts (trapperm67)",
+   "bought": "goal posts $100",
+   "opponent": "Salt Flats Snails",
+   "score": "17-14 W",
+   "note": "FIRST WIN EVER. Lucas FG through the new goal posts on the last play; QB2 thepeoplechamptn finally went in and threw the tying TD to sponge2k26. Day 4 fans returned (no new position comments read: TikTok comments not reachable from the cloud).",
+   "fan_signings": []
   }
  ],
  "fan_roster": [
   {
    "name": "𝕮𝖍𝖗𝖔𝖒𝖊 (drew21762)",
    "role": "o-line",
-   "trait": "blocked a frog twice his size"
+   "trait": "blocked a snail into its shell"
   },
   {
    "name": "so.cxmp.13",
    "role": "running back",
-   "trait": "\"just hand it off, I'll score\" - and he did"
+   "trait": "scored before the defense turned around"
   },
   {
    "name": "Rebel-049",
    "role": "safety",
-   "trait": "caught his own cornerback"
+   "trait": "got the pick without catching a teammate"
   },
   {
    "name": "cxdename_c.j",
@@ -124,7 +136,7 @@
   {
    "name": "sponge2k26",
    "role": "wide receiver",
-   "trait": "slipped on the last mud"
+   "trait": "caught the tying touchdown"
   },
   {
    "name": "eastern",
@@ -134,12 +146,12 @@
   {
    "name": "thepeoplechamptn",
    "role": "backup quarterback",
-   "trait": "warmed up all game, never went in"
+   "trait": "finally went in, threw the tying TD"
   },
   {
    "name": "Lucas",
    "role": "kicker",
-   "trait": "field goal off the ladder"
+   "trait": "game-winning FG through the new goal posts"
   }
  ],
  "accounts": {
