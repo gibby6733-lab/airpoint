@@ -1,32 +1,34 @@
 # MEDIAN — Main Title Sequence ("Welcome to Median")
 
 **Length:** 30 seconds · **Format:** 1920×1080, 24 fps · **Used on:** every episode, after the cold open.
-**Animatic:** `median_intro_animatic_v01.mp4` (silent, with lyric captions and timing locked).
+**Animatic:** `median_intro_animatic_v02.mp4` (silent, with lyric captions and timing locked).
 **Source:** `intro.html` (every shot is code, so it re-renders the same way every time). Rebuild with:
 ```
 node tools/render-intro.js <framesDir> 24
-ffmpeg -framerate 24 -i <framesDir>/%04d.png -c:v libx264 -pix_fmt yuv420p intro/median_intro_animatic_v01.mp4
+ffmpeg -framerate 24 -i <framesDir>/%04d.png -c:v libx264 -pix_fmt yuv420p intro/median_intro_animatic_v02.mp4
 ```
 
 ## What we took from the reference (structure only)
 A short, sung, upbeat theme: a lead singer trades lines with each kid, every kid gets one line that sums up who they are, one kid gets an "off" gag line, and it ends on a title button. Everything else is ours: an original song, original lyrics, our own band style (a 1970s civic marching band with kazoo, not acoustic folk), and our own town and cast.
 
-## Song: "Welcome to Median" (original lyrics)
-Style: cheerful, *slightly too cheerful* 1970s municipal marching band. Kazoo lead, glockenspiel, tuba, snare, about 132 BPM. A town-band crooner (BAND) trades lines with the kids, who sing in their locked voices.
+## Song: "Median, Median" (original lyrics, v02)
+**v02 change:** the v01 "Come on down to ___" refrain was too close to South Park's song, so it's gone. The hook is now the show's own Median Minute jingle (*"Median, Median, right in the middle!"*), so the intro and the exposition cutaways share one musical identity.
+
+**Style:** a 1970s municipal marching band, *slightly too cheerful*. Kazoo lead, glockenspiel, tuba, snare, about 132 BPM, played like a town parade or a civic PSA jingle. **Music note:** keep it brass-band and parade-like. Avoid acoustic folk, country and bluegrass so it never echoes South Park's theme. The band chorus chants the hook, and the kids answer in their locked voices.
 
 | Time | Who | Line |
 |---|---|---|
 | 0:00–0:03 | — | Kazoo fanfare. Snare roll. |
-| 0:03–0:06 | BAND | ♪ Come on down to Median, it's right there in the middle! ♪ |
-| 0:06–0:07.6 | DEX | ♪ Every day's a brand-new launch— ♪ |
-| 0:07.6–0:09 | WREN | ♪ —and every launch is little. ♪ *(flat, unimpressed)* |
-| 0:09–0:12 | BAND | ♪ Come on down to Median, where the corn is kinda tall! ♪ |
-| 0:12–0:13.5 | MARCUS | ♪ Everything is half off— ♪ |
-| 0:13.5–0:15 | GORDY | ♪ —'cause they're watching through the wall! ♪ |
-| 0:15–0:18 | BAND | ♪ Come on down to Median, try somethin' new today! ♪ |
-| 0:18–0:21 | KENZIE | ♪ Smash that like, 'cause I'm literally okay! ♪ |
-| 0:21–0:24 | TUNK | *(calm, off-key, half-spoken)* Grandpa buried somethin' on the hill… and it's awake. **(the gag line; the music falters for a beat)** |
-| 0:24–0:27.5 | BAND | ♪ So come on down to Median… and buy whatever they make! ♪ |
+| 0:03–0:06 | BAND | ♪ Median! Median! Right in the middle! ♪ |
+| 0:06–0:07.6 | DEX | ♪ This is gonna change the world— ♪ |
+| 0:07.6–0:09 | WREN | ♪ —it's gonna change a little. ♪ *(flat)* |
+| 0:09–0:12 | BAND | ♪ Median! Median! Average and proud! ♪ |
+| 0:12–0:13.5 | MARCUS | ♪ Everything's on sale today— ♪ |
+| 0:13.5–0:15 | GORDY | ♪ —and someone's watching from the cloud! ♪ |
+| 0:15–0:18 | BAND | ♪ Median! Median! America tries it first! ♪ |
+| 0:18–0:21 | KENZIE | ♪ Like and subscribe or it's literally the worst! ♪ |
+| 0:21–0:24 | TUNK | *(calm, off-key, half-spoken)* Grandpa says don't eat the hill… the hill eats first. **(the band falters for a beat)** |
+| 0:24–0:27.5 | BAND | ♪ Median! Median! Neither here nor there! ♪ |
 | 0:27.5–0:30 | ALL | ♪ MEDIAN! ♪ → pen click + "PROMISING." stamp |
 
 ## Shot list
