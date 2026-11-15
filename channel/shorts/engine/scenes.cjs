@@ -73,7 +73,7 @@ SC[1] = {
       fig({ x: 690 + sway, y: 1650, s: 2.6, kind: 'zombie', pose: 'hold', look: [1, 0], lean: -8 });
       g.save(); g.translate(660, 1150); g.rotate(-0.3); rect(-14, -30, 120, 48, '#2b2b2b'); g.restore();
     }, { cam: [1.05, 1.15], cy: 1100, sfx: [['creak', 0.4, 0.6]] }),
-    sh(3, (lt, T) => { storeInterior(T); fig({ x: 540, y: 1560, s: 2.2, ...HERO('#2f5b3a'), pose: 'stand', face: 'shock', look: [0, -0.4] }); rect(-100, 1320, W + 200, 600, '#1a1f2b'); rect(-100, 1300, W + 200, 30, '#252c3c'); }, { cam: [1.15, 1.2], cy: 1100, hit: true, sfx: ['heartbeat'] }),
+    sh(3, (lt, T) => { storeInterior(T); fig({ x: 540, y: 1560, s: 2.2, ...HERO('#2f5b3a'), pose: 'stand', face: 'terrified', look: [0, -0.4] }); rect(-100, 1320, W + 200, 600, '#1a1f2b'); rect(-100, 1300, W + 200, 30, '#252c3c'); }, { cam: [1.15, 1.2], cy: 1100, hit: true, sfx: ['heartbeat'] }),
     sh(4, (lt, T) => { // light switch off
       C.room('#1b2230', '#0e121b', 1700); rect(390, 600, 300, 480, '#d9d4c8'); g.strokeStyle = '#111'; g.lineWidth = 10; g.strokeRect(390, 600, 300, 480);
       rect(480, 740, 120, 200, '#8b867c'); rect(492, 840 - 90 * (1 - ease(lt * 3)), 96, 86, '#f2efe6');
@@ -98,7 +98,7 @@ SC[1] = {
       if (k > 0.9) { g.fillStyle = 'rgba(255,255,255,0.18)'; g.beginPath(); g.ellipse(540, 1100, 50, 30, 0, 0, 7); g.fill(); }
     }, { cam: [1.0, 1.15], cy: 1050, sfx: [['tap', 1.6]] }),
     sh(11, (lt, T) => { storeInterior(T); fig({ x: 620, y: 1640, s: 2.3, ...HERO('#2f5b3a'), pose: 'hide', face: 'scared', look: [-1, 0] }); fig({ x: 330, y: 1680, s: 2.3, kind: 'kid', pose: () => ({ armL: [1.9, 1.8], armR: [-0.1, 0.0], legL: [1.75, 1.65], legR: [1.4, 1.5] }), dress: '#7aa7d8', face: 'neutral', look: [1, 0], hair: (x, y, r) => { circle(x - r * 0.9, y - r * 0.2, r * 0.35, '#3a2a1a'); circle(x + r * 0.9, y - r * 0.2, r * 0.35, '#3a2a1a'); } }); }, { cam: [1.1, 1.2], cy: 1350 }),
-    sh(12, (lt, T) => { storeInterior(T, { lamp: true, reflect: true }); fig({ x: 300, y: 1680, s: 2.3, kind: 'kid', pose: 'point', dress: '#7aa7d8', face: 'happy', hair: (x, y, r) => { circle(x - r * 0.9, y - r * 0.2, r * 0.35, '#3a2a1a'); circle(x + r * 0.9, y - r * 0.2, r * 0.35, '#3a2a1a'); } }); fig({ x: 700, y: 1640, s: 2.3, ...HERO('#2f5b3a'), pose: 'scared', face: 'shock', look: [-1, 0] }); }, { cam: [1.15, 1.05], cy: 1300, hit: true, sfx: [['click', 0.1]] }),
+    sh(12, (lt, T) => { storeInterior(T, { lamp: true, reflect: true }); fig({ x: 300, y: 1680, s: 2.3, kind: 'kid', pose: 'point', dress: '#7aa7d8', face: 'happy', hair: (x, y, r) => { circle(x - r * 0.9, y - r * 0.2, r * 0.35, '#3a2a1a'); circle(x + r * 0.9, y - r * 0.2, r * 0.35, '#3a2a1a'); } }); fig({ x: 700, y: 1640, s: 2.3, ...HERO('#2f5b3a'), pose: 'scared', face: 'terrified', look: [-1, 0] }); }, { cam: [1.15, 1.05], cy: 1300, hit: true, sfx: [['click', 0.1]] }),
     sh(13, (lt, T) => { // smile stops: now he sees in
       C.ground(0, '#2a2420', '#120e0c'); rect(0, 300, W, 1500, '#ffd98a');
       fig({ x: 540, y: 2080, s: 4.6, kind: 'zombie', pose: 'stand', face: 'zombie', look: [0, 0.3], eyeGlow: '#ff3b3b' });

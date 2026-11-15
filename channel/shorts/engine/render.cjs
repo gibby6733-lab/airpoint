@@ -103,22 +103,24 @@ const vid = OUT + `/short${String(n).padStart(2, '0')}_video.mp4`;
 const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', `${W}x${H}`, '-r', String(FPS), '-i', '-', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', DRAFT ? '28' : '19', '-preset', DRAFT ? 'veryfast' : 'medium', vid], { stdio: ['pipe', 'inherit', 'inherit'] });
 (async () => {
   for (let f = 0; f < NF; f++) {
-    const T = f / FPS;
+    const T = f / FPS; C.setTime(T);
     const sh = shots.find(s => T >= s.start && T < s.end) || shots[shots.length - 1];
     const lt = clamp((T - sh.start) / Math.max(0.01, sh.end - sh.start));
     g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
     g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
     g.save();
     // camera
-    const cam = sh.cam || [1, 1.08]; const z = cam[0] + (cam[1] - cam[0]) * ease(lt);
+    const cam = sh.cam || [1, 1.1]; const since0 = T - sh.start; const punch = 1 + 0.07 * Math.pow(Math.max(0, 1 - since0 / 0.28), 2);
+    const z = (cam[0] + (cam[1] - cam[0]) * ease(lt)) * punch * 1.03;
     const cx = sh.cx || W / 2, cy = sh.cy || H / 2;
     let shx = 0, shy = 0; if (sh.shake) { const k = typeof sh.shake === 'number' ? sh.shake : 10; shx = (Math.random() - 0.5) * k; shy = (Math.random() - 0.5) * k; }
-    g.translate(cx + shx, cy + shy); g.scale(z, z); g.translate(-cx, -cy);
+    const dx = Math.sin(T * 0.63) * 14 + Math.sin(T * 1.7) * 4, dy = Math.cos(T * 0.81) * 11 + Math.sin(T * 2.1) * 3, rot = Math.sin(T * 0.47) * 0.009;
+    g.translate(cx + shx + dx, cy + shy + dy); g.rotate(rot); g.scale(z, z); g.translate(-cx, -cy);
     sh.draw(lt, T, ctx, sh);
     g.restore(); g.setTransform(1, 0, 0, 1, 0, 0);
     if (sh.post) sh.post(lt, T, ctx);
     const since = T - sh.start; if (since < 0.07 && sh.hit) C.flash(0.35);
-    C.vignette(0.55); C.grain(0.03);
+    C.dust(T); C.vignette(0.55); C.grain(0.03);
     drawHook(T); drawFact(T); drawCaption(T); drawQuestion(T);
     const buf = Buffer.from(g.getImageData(0, 0, W, H).data.buffer);
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
@@ -128,6 +130,7 @@ const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_
   // ---------- audio: narration + bed + sfx ----------
   const SFX = require('./sfx.cjs');
   const events = [];
+  shots.forEach((s, i) => { if (i > 0) events.push({ name: 'swish', t: Math.max(0, s.start - 0.12), vol: 1 }); if (s.hit) events.push({ name: 'sub', t: s.start, vol: 1 }); });
   shots.forEach(s => (s.sfx || []).forEach(e => { const [name, off = 0, vol = 1] = Array.isArray(e) ? e : [e]; events.push({ name, t: s.start + off, vol }); }));
   (scene.sfx || []).forEach(([name, si, off = 0, vol = 1]) => events.push({ name, t: (si === 'end' ? TOTAL - 1.2 : SENT[si].start) + off, vol }));
   const mixed = OUT + `/short${String(n).padStart(2, '0')}_audio.wav`;

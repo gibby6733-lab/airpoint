@@ -28,6 +28,8 @@ const DEF = {
   click: ['-f', 'lavfi', '-i', "aevalsrc='0.8*(random(0)*2-1)*exp(-200*t)':d=0.05"],
   glassShake: ['-f', 'lavfi', '-i', "aevalsrc='0.5*sin(2*PI*2600*t)*exp(-30*mod(t,0.12))*exp(-1.5*t)':d=1.5"],
   phone: ['-f', 'lavfi', '-i', "aevalsrc='0.3*(sin(2*PI*440*t)+sin(2*PI*480*t))*lt(mod(t,2),1)':d=2"],
+  swish: ['-f', 'lavfi', '-i', 'anoisesrc=c=pink:d=0.45:a=0.5', '-af', 'bandpass=f=1400:w=1200,afade=t=in:d=0.2:curve=qsin,afade=t=out:st=0.22:d=0.23:curve=qsin'],
+  sub: ['-f', 'lavfi', '-i', "aevalsrc='0.8*sin(2*PI*(52-18*t)*t)*exp(-3.5*t)':d=1.2", '-af', 'lowpass=f=160'],
   electric: ['-f', 'lavfi', '-i', "aevalsrc='0.12*sin(2*PI*60*t)+0.08*sin(2*PI*120*t)+0.04*sin(2*PI*180*t)':d=3"],
 };
 const BEDS = {
@@ -37,30 +39,39 @@ const BEDS = {
   underwater: (d) => ['-f', 'lavfi', '-i', `anoisesrc=c=brown:d=${d}:a=0.6`, '-af', 'lowpass=f=250,tremolo=f=0.3:d=0.5'],
   hum: (d) => ['-f', 'lavfi', '-i', `aevalsrc='0.1*sin(2*PI*120*t)+0.05*sin(2*PI*240*t)+0.18*sin(2*PI*55*t)':d=${d}`],
 };
+const GAIN = { ding: 0.42, bell: 0.36, thump: 0.5, boom: 0.42, whoosh: 0.3, riser: 0.32, heartbeat: 0.55, tick: 0.35, tap: 0.45, static: 0.18, splash: 0.35, zap: 0.22, thunder: 0.38, alarm: 0.16, carAlarm: 0.16, crash: 0.26, hiss: 0.2, creak: 0.3, steps: 0.45, sting: 0.32, click: 0.35, glassShake: 0.3, phone: 0.22, electric: 0.3, swish: 0.22, sub: 0.5 };
+const TONE = { alarm: 'lowpass=f=1800,', carAlarm: 'lowpass=f=2200,', zap: 'lowpass=f=2800,', static: 'lowpass=f=3200,', crash: 'lowpass=f=4500,', hiss: 'lowpass=f=5000,', tap: 'lowpass=f=4500,', ding: 'lowpass=f=6000,', tick: 'lowpass=f=5000,' };
+function peakDb(f) { const e = require('child_process').spawnSync('ffmpeg', ['-hide_banner', '-i', f, '-af', 'volumedetect', '-f', 'null', '-']).stderr.toString(); const m = e.match(/max_volume: (-?[\d.]+) dB/); return m ? parseFloat(m[1]) : 0; }
+// every effect is peak-normalised to -6 dBFS so GAIN alone decides how loud it sits
 function lib(name) {
   const f = path.join(LIB, name + '.wav');
-  if (!fs.existsSync(f)) ff([...DEF[name], '-ar', '48000', '-ac', '1', f]);
+  if (!fs.existsSync(f)) { const raw = f + '.raw.wav'; ff([...DEF[name], '-ar', '48000', '-ac', '1', raw]); const g = -6 - peakDb(raw); ff(['-i', raw, '-af', `volume=${g.toFixed(2)}dB`, f]); fs.unlinkSync(raw); }
   return f;
 }
 // mix({narration, lead, total, bed, events:[{name,t,vol}], out})
 function mix(o) {
   const D = o.total.toFixed(2);
-  const bedFile = (name) => { const f = path.join(LIB, `bed_${name}_${D}.wav`); if (!fs.existsSync(f)) ff([...BEDS[name](D), '-ar', '48000', '-ac', '1', f]); return f; };
+  // background beds are levelled to a fixed, quiet loudness
+  const BED_LUFS = { drone: -30, wind: -31, rain: -32, underwater: -31, hum: -34 };
+  const bedFile = (name) => { const f = path.join(LIB, `bed_${name}_${D}.wav`); if (!fs.existsSync(f)) { const raw = f + '.raw.wav'; ff([...BEDS[name](D), '-ar', '48000', '-ac', '1', raw]); ff(['-i', raw, '-af', `loudnorm=I=${BED_LUFS[name]}:TP=-9:LRA=7`, '-ar', '48000', f]); fs.unlinkSync(raw); } return f; };
   const bedName = BEDS[o.bed] ? o.bed : 'drone';
   const args = ['-i', o.narration, '-i', bedFile(bedName), '-i', bedFile('drone')];
-  const bedAf = '';
   const evs = o.events.filter(e => DEF[e.name] && e.t >= 0 && e.t < o.total);
   evs.forEach(e => args.push('-i', lib(e.name)));
-  const L = Math.round(o.lead * 1000);
-  const fc = [`[0:a]aresample=48000,aformat=channel_layouts=mono,volume=1.0,adelay=${L}|${L},apad,asplit=2[vo][vosc]`,
-    `[1:a]${bedAf}aresample=48000,aformat=channel_layouts=mono,volume=${o.bed === 'drone' ? 0.0 : 0.22},afade=t=in:d=1.5,afade=t=out:st=${(o.total - 1.5).toFixed(2)}:d=1.5[bed]`,
-    `[2:a]aresample=48000,aformat=channel_layouts=mono,volume=0.38,afade=t=in:d=2,afade=t=out:st=${(o.total - 1.5).toFixed(2)}:d=1.5[drone]`];
-  evs.forEach((e, i) => { const d = Math.round(e.t * 1000); fc.push(`[${i + 3}:a]aresample=48000,aformat=channel_layouts=mono,volume=${(0.55 * e.vol).toFixed(2)},adelay=${d}|${d}[e${i}]`); });
-  const ins = ['[vo]', '[bed]', '[drone]', ...evs.map((_, i) => `[e${i}]`)];
-  // duck bed + sfx a little under the voice
-  fc.push(`${ins.slice(1).join('')}amix=inputs=${ins.length - 1}:normalize=0[fx]`);
-  fc.push(`[fx][vosc]sidechaincompress=threshold=0.05:ratio=4:attack=20:release=300[fxd]`);
-  fc.push(`[fxd][vo]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[out]`);
+  const L = Math.round(o.lead * 1000), END = (o.total - 1.5).toFixed(2);
+  // narration is levelled first (-16 LUFS) so everything else can sit relative to it
+  const fc = [`[0:a]aresample=48000,aformat=channel_layouts=mono,loudnorm=I=-16:TP=-2:LRA=9,aresample=48000,adelay=${L}|${L},apad,asplit=2[vo][vosc]`,
+    `[1:a]aresample=48000,aformat=channel_layouts=mono,volume=${o.bed === 'drone' ? 0 : 1},afade=t=in:d=1.5,afade=t=out:st=${END}:d=1.5[bed]`,
+    `[2:a]aresample=48000,aformat=channel_layouts=mono,afade=t=in:d=2,afade=t=out:st=${END}:d=1.5[drone]`];
+  evs.forEach((e, i) => { const d = Math.round(e.t * 1000); const gv = 1.35 * (GAIN[e.name] || 0.3) * Math.min(e.vol, 1.15); fc.push(`[${i + 3}:a]aresample=48000,aformat=channel_layouts=mono,${TONE[e.name] || ''}afade=t=in:d=0.006,volume=${gv.toFixed(3)},adelay=${d}|${d}[e${i}]`); });
+  const ins = ['[bed]', '[drone]', ...evs.map((_, i) => `[e${i}]`)];
+  // effects bus: light room echo, hard ceiling at -12 dBFS (well under the voice peaks), ducked under speech
+  fc.push(`${ins.join('')}amix=inputs=${ins.length}:normalize=0,aecho=0.8:0.5:45|90:0.18|0.1,alimiter=limit=0.25:attack=2:release=120:level=disabled[fx]`);
+  fc.push(`[fx][vosc]sidechaincompress=threshold=0.04:ratio=5:attack=8:release=300[fxd]`);
+  const st = process.env.STEMS;
+  fc.push(st === 'fx' ? `[vo]volume=0[vz];[fxd][vz]amix=inputs=2:normalize=0:duration=first[out]`
+    : st === 'vo' ? `[fxd]volume=0[fz];[fz][vo]amix=inputs=2:normalize=0:duration=first[out]`
+    : `[fxd][vo]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[out]`);
   ff([...args, '-filter_complex', fc.join(';'), '-map', '[out]', '-t', D, '-ar', '48000', '-ac', '2', o.out]);
 }
 module.exports = { mix, lib, NAMES: Object.keys(DEF) };

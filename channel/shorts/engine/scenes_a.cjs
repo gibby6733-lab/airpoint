@@ -127,7 +127,7 @@ SC[5] = {
     sh(2, (lt, T) => { tunnel(T); rect(160, 700, 760, 500, 'rgba(200,240,255,0.15)'); g.strokeStyle = '#fff'; g.lineWidth = 6; g.strokeRect(160, 700, 760, 500); C.textBox('ACRYLIC', 540, 950, 130, '#ffffff', '#000', 16, 'Anton'); }, { hit: true }),
     sh(4, (lt, T) => { tunnel(T); fig({ x: 540, y: 1750, s: 2.0, ...HERO('#2a7a8a'), pose: 'stand', face: 'determined' }); }),
     sh(5, (lt, T) => { tunnel(T); fig({ x: 540, y: 1720, s: 2.0, ...HERO('#2a7a8a'), pose: 'lie', face: 'neutral' }); C.tint('rgba(0,10,30,0.3)'); }, { cam: [1.0, 1.08] }),
-    sh(6, (lt, T) => { tunnel(T); fig({ x: 540, y: 1720, s: 2.0, ...HERO('#2a7a8a'), pose: 'lie', face: 'shock', look: [0, -1] }); }, { hit: true }),
+    sh(6, (lt, T) => { tunnel(T); fig({ x: 540, y: 1720, s: 2.0, ...HERO('#2a7a8a'), pose: 'lie', face: 'terrified', look: [0, -1] }); }, { hit: true }),
     sh(8, (lt, T) => { tunnel(T, { zombie: true, zk: lt }); }, { cam: [1.15, 1.25], cy: 600 }),
     sh(9, (lt, T) => { // gray hands on acrylic, seen from below
       g.fillStyle = vgrad(0, H, [[0, '#0d5e7a'], [1, '#03141e']]); g.fillRect(0, 0, W, H);
@@ -231,7 +231,7 @@ SC[8] = {
     sh(4, (lt, T) => { snowCave(T); C.textBox('NIGHT 1', 540, 700, 120, '#fff', '#000', 16, 'Anton'); }),
     sh(5, (lt, T) => { slope(T); fig({ x: lerp(300, 700, lt), y: lerp(900, 1300, lt), s: 1.0, kind: 'zombie', pose: 'stand', look: [1, 0], extra: (hd, s2, hip, arms, sc) => { line([[hip[0] - 60, hip[1] + 120], [hip[0] + 80, hip[1] + 140]], '#c33', 10); } }); C.textBox('NIGHT 2', 540, 600, 120, '#fff', '#000', 16, 'Anton'); }),
     sh(8, (lt, T) => { snowCave(T, { face: 'scared', look: [0, -1] }); fig({ x: 560, y: 640, s: 1.0, kind: 'zombie', pose: 'stand', look: [0, 1] }); }, { cam: [1.0, 1.1] }),
-    sh(9, (lt, T) => snowCave(T, { pole: ease(clamp(lt * 4)), face: 'shock', look: [0.5, -1] }), { hit: true, shake: 6, cam: [1.3, 1.4], cy: 1100 }),
+    sh(9, (lt, T) => snowCave(T, { pole: ease(clamp(lt * 4)), face: 'terrified', look: [0.5, -1] }), { hit: true, shake: 6, cam: [1.3, 1.4], cy: 1100 }),
     sh(10, (lt, T) => snowCave(T, { pole: 1 - ease(clamp(lt * 3)), face: 'scared', look: [0, -1] }), { cam: [1.3, 1.25], cy: 1100 }),
     sh(11, (lt, T) => snowCave(T, { dig: true, face: 'scared', look: [0, -1] }), { shake: 5, cam: [1.1, 1.2], cy: 1050 }),
     sh(12, (lt, T) => slope(T, { lodge: true, lift: true }), { cam: [1.1, 1.0], cy: 1000 }),
@@ -256,7 +256,7 @@ SC[9] = {
     sh(0, (lt, T) => bay(T, { mine: true }), { cam: [1.0, 1.08] }),
     sh(1, (lt, T) => { bay(T, { mine: true }); bigWord('EVERY 10 SEC', 1500, 120, '#fff', T, 0); }, { cam: [1.3, 1.35], cx: 220, cy: 800 }),
     sh(2, (lt, T) => { bay(T, { mine: true, boat: 0.1 }); }, { cam: [1.0, 1.05] }),
-    sh(3, (lt, T) => { C.nightSky(T); rect(0, 1100, W, 900, '#1a1a1a'); fig({ x: 540, y: 1750, s: 2.4, ...HERO('#2a4a7a'), pose: 'point', face: 'shock', look: [1, -0.5] }); C.textBox('NIGHT 20', 540, 600, 120, '#fff', '#000', 16, 'Anton'); }),
+    sh(3, (lt, T) => { C.nightSky(T); rect(0, 1100, W, 900, '#1a1a1a'); fig({ x: 540, y: 1750, s: 2.4, ...HERO('#2a4a7a'), pose: 'point', face: 'terrified', look: [1, -0.5] }); C.textBox('NIGHT 20', 540, 600, 120, '#fff', '#000', 16, 'Anton'); }),
     sh(4, (lt, T) => bay(T, { mine: false, other: true }), { cam: [1.6, 1.8], cx: 860, cy: 820, hit: true }),
     sh(7, (lt, T) => bay(T, { mine: true, other: true }), { cam: [1.0, 1.05] }),
     sh(8, (lt, T) => { bay(T, { other: true }); fig({ x: 860, y: 1050, s: 0.4, kind: 'zombie', pose: 'stand' }); }, { cam: [2.2, 2.6], cx: 860, cy: 900, shake: 2 }),

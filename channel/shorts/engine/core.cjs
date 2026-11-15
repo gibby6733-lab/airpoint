@@ -74,23 +74,29 @@ function runPose(T, dir = 1) {
   const m = a => dir > 0 ? a : P - a;
   return { legL: [m(P / 2 - 0.2 + s * 0.7), m(P / 2 + 0.3 + s * 0.4)], legR: [m(P / 2 - 0.2 - s * 0.7), m(P / 2 + 0.3 - s * 0.4)], armL: [m(P / 2 + s * 0.8), m(P / 2 + s * 0.8 - 1.2)], armR: [m(P / 2 - s * 0.8), m(P / 2 - s * 0.8 - 1.2)] };
 }
+let NOW = 0; function setTime(t) { NOW = t; }
 const LOOK = { HERO: { head: '#ffffff', body: '#111111', glove: '#ffffff' }, ZOMBIE: { head: '#93a08d', body: '#2a2f2a', glove: '#7d8a77' } };
 
 // fig({x,y,s, pose, kind:'hero'|'zombie'|'kid'|'adult', vest, hat, face, look, lean, flip, extra})
 function fig(o) {
   const s = o.s || 1, x = o.x, y = o.y, isZ = o.kind === 'zombie';
   const pz = typeof o.pose === 'function' ? o.pose : null;
-  const pose = { ...(pz ? pz() : (POSES[o.pose || 'stand'] || POSES.stand)(o.T || 0)), ...(o.poseOv || {}) };
+  const pose0 = { ...(pz ? pz() : (POSES[o.pose || 'stand'] || POSES.stand)(o.T || 0)), ...(o.poseOv || {}) };
+  const tl = NOW + x * 0.0137 + y * 0.0071; const still = o.still;
+  const wob = (a, k, f) => a ? [a[0] + (still ? 0 : Math.sin(tl * f) * k), a[1] + (still ? 0 : Math.sin(tl * f + 1.3) * k * 1.4)] : a;
+  const isZ0 = o.kind === 'zombie';
+  const pose = { ...pose0, armL: wob(pose0.armL, isZ0 ? 0.07 : 0.035, isZ0 ? 2.6 : 1.7), armR: wob(pose0.armR, isZ0 ? 0.07 : 0.035, isZ0 ? 2.3 : 1.9) };
   const look = isZ ? LOOK.ZOMBIE : LOOK.HERO;
   const head = o.headCol || look.head, body = o.bodyCol || look.body, glove = o.gloveCol || look.glove;
   const kid = o.kind === 'kid', sc = kid ? s * 0.68 : s;
   const L = 52 * sc, lw = (o.lw || 11) * sc;
   let hip, sh, hd;
-  const lean = (o.lean || 0) * sc;
+  const lean = ((o.lean || 0) + (still || pose.lie ? 0 : (isZ ? Math.sin(tl * 1.3) * 7 : Math.sin(tl * 0.9) * 2))) * sc;
+  const breath = still || pose.lie ? 0 : (1 + Math.sin(tl * 2.3)) * 2.6 * sc;
   if (pose.lie) { hip = [x, y - 20 * sc]; sh = [x - 120 * sc, y - 20 * sc]; hd = [x - 170 * sc, y - 28 * sc]; }
   else {
     const drop = pose.crouch ? 55 : pose.sit ? 48 : 0;
-    hip = [x, y - (104 - drop) * sc]; sh = [x + lean, y - (176 - drop) * sc]; hd = [x + lean * 1.25, y - (218 - drop) * sc];
+    hip = [x, y - (104 - drop) * sc]; sh = [x + lean, y - (176 - drop) * sc - breath]; hd = [x + lean * 1.25 + (still ? 0 : Math.sin(tl * 1.1) * 3 * sc), y - (218 - drop) * sc - breath * 1.3];
   }
   const limb = (from, a) => { const k = pol(from[0], from[1], L, a[0]); return [from, k, pol(k[0], k[1], L, a[1])]; };
   const legs = [limb(hip, pose.legL), limb(hip, pose.legR)];
@@ -114,35 +120,70 @@ function fig(o) {
   circle(hd[0], hd[1], hr, head, OUT, 5 * sc);
   if (isZ) { circle(hd[0] + 14 * sc, hd[1] + 14 * sc, 6 * sc, 'rgba(90,40,40,0.5)'); }
   if (o.headlamp) {
-    rect(hd[0] - hr, hd[1] - 22 * sc, hr * 2, 10 * sc, '#1b1b1b');
-    circle(hd[0] + (o.faceDir || 0) * 8 * sc, hd[1] - 20 * sc, 10 * sc, o.lampOn ? '#fff3a8' : '#5a5a5a', OUT, 3 * sc);
-    if (o.lampOn) glow(hd[0], hd[1] - 20 * sc, 90 * sc, 'rgba(255,240,170,A)', 0.55);
+    const bw = Math.sqrt(hr * hr - (31 * sc) * (31 * sc)); rect(hd[0] - bw - 2 * sc, hd[1] - 36 * sc, bw * 2 + 4 * sc, 9 * sc, '#1b1b1b');
+    circle(hd[0] + (o.faceDir || 0) * 8 * sc, hd[1] - 33 * sc, 9 * sc, o.lampOn ? '#fff3a8' : '#5a5a5a', OUT, 3 * sc);
+    if (o.lampOn) glow(hd[0], hd[1] - 33 * sc, 90 * sc, 'rgba(255,240,170,A)', 0.55);
   }
-  if (o.cap) { g.fillStyle = o.cap; g.beginPath(); g.arc(hd[0], hd[1] - 6 * sc, hr + 2 * sc, P, 0); g.fill(); rect(hd[0] + (o.faceDir || 1) * 10 * sc - 4 * sc, hd[1] - 12 * sc, (o.faceDir || 1) * 50 * sc, 9 * sc, o.cap); }
+  if (o.cap) { g.fillStyle = o.cap; g.beginPath(); g.arc(hd[0], hd[1] - 20 * sc, hr + 2 * sc, P + 0.12, -0.12); g.closePath(); g.fill(); rect(hd[0] + (o.faceDir || 1) * 10 * sc - 4 * sc, hd[1] - 27 * sc, (o.faceDir || 1) * 50 * sc, 8 * sc, o.cap); }
   face(hd[0], hd[1], sc, o);
   if (o.extra) o.extra(hd, sh, hip, arms, sc);
   return { hd, sh, hip, arms, legs };
 }
 function face(hx, hy, s, o) {
-  const f = o.face || (o.kind === 'zombie' ? 'zombie' : 'neutral'), lk = o.look || [0, 0];
-  const fx = hx + lk[0] * 7 * s, fy = hy + lk[1] * 6 * s;
-  g.fillStyle = '#0c0c0c'; g.strokeStyle = '#0c0c0c'; g.lineCap = 'round';
-  if (f === 'none') return;
-  if (f === 'zombie') {
-    ell(fx - 13 * s, fy - 2 * s, 8 * s, 10 * s, '#0c0c0c'); ell(fx + 13 * s, fy - 2 * s, 8 * s, 10 * s, '#0c0c0c');
-    circle(fx - 13 * s, fy - 4 * s, 2.2 * s, o.eyeGlow || '#cfd8c8'); circle(fx + 13 * s, fy - 4 * s, 2.2 * s, o.eyeGlow || '#cfd8c8');
-    ell(fx, fy + 20 * s, 9 * s, 5 * s, '#0c0c0c'); return;
+  const f0 = o.face || (o.kind === 'zombie' ? 'zombie' : 'neutral'), lk = o.look || [0, 0];
+  const t = NOW + Math.abs(hx) * 0.0031;
+  // fear makes the whole face tremble
+  const shake = (f0 === 'scared' || f0 === 'shock' || f0 === 'terrified') && !o.still ? 1 : 0;
+  const jx = shake * Math.sin(t * 47) * 1.6 * s, jy = shake * Math.cos(t * 53) * 1.2 * s;
+  // eyes dart around when scared; idle eyes drift occasionally
+  const dart = shake ? Math.sin(t * 3.1) * 0.7 + Math.sin(t * 7.3) * 0.3 : (Math.floor(t / 2.3) % 3 === 1 ? 0.5 : 0) * Math.sign(Math.sin(t));
+  const fx = hx + lk[0] * 7 * s + jx, fy = hy + lk[1] * 6 * s + jy;
+  const K = '#0c0c0c';
+  g.fillStyle = K; g.strokeStyle = K; g.lineCap = 'round'; g.lineJoin = 'round';
+  if (f0 === 'none') return;
+  const brow = (lIn, lOut, rIn, rOut, w = 4) => { g.lineWidth = w * s; g.beginPath(); g.moveTo(fx - 24 * s, fy + lOut * s); g.lineTo(fx - 6 * s, fy + lIn * s); g.moveTo(fx + 24 * s, fy + rOut * s); g.lineTo(fx + 6 * s, fy + rIn * s); g.stroke(); };
+  if (f0 === 'zombie' || f0 === 'smile_z') {
+    // sunken sockets, pulsing glowing pupils, jaw that slowly works open and shut
+    const pulse = 0.65 + 0.35 * Math.sin(t * 4.2);
+    const lid = 0.75 + 0.25 * Math.sin(t * 0.9);
+    ell(fx - 13 * s, fy - 2 * s, 8.5 * s, 10.5 * s * lid, K); ell(fx + 13 * s, fy - 2 * s, 8.5 * s, 10.5 * s * lid, K);
+    const gc = o.eyeGlow || '#cfd8c8';
+    g.globalAlpha = pulse; circle(fx - 13 * s + lk[0] * 2 * s, fy - 3 * s, 2.6 * s, gc); circle(fx + 13 * s + lk[0] * 2 * s, fy - 3 * s, 2.6 * s, gc); g.globalAlpha = 1;
+    if (o.eyeGlow) { glow(fx - 13 * s, fy - 3 * s, 16 * s, 'rgba(255,60,60,A)', 0.45 * pulse); glow(fx + 13 * s, fy - 3 * s, 16 * s, 'rgba(255,60,60,A)', 0.45 * pulse); }
+    if (f0 === 'smile_z') { g.lineWidth = 4 * s; g.beginPath(); g.arc(fx, fy + 10 * s, 16 * s, 0.25, P - 0.25); g.stroke(); for (let i = -2; i <= 2; i++) { g.lineWidth = 2 * s; g.beginPath(); g.moveTo(fx + i * 6 * s, fy + 22 * s); g.lineTo(fx + i * 6 * s, fy + 27 * s); g.stroke(); } return; }
+    const jaw = 0.35 + 0.65 * Math.max(0, Math.sin(t * 1.7));
+    ell(fx, fy + 21 * s, 9 * s, (3 + 7 * jaw) * s, K);
+    g.lineWidth = 1.5 * s; g.strokeStyle = '#cfd8c8'; g.beginPath(); g.moveTo(fx - 5 * s, fy + 17 * s); g.lineTo(fx - 5 * s, fy + 19 * s); g.moveTo(fx + 4 * s, fy + 17 * s); g.lineTo(fx + 4 * s, fy + 19 * s); g.stroke(); g.strokeStyle = K;
+    return;
   }
-  if (f === 'smile_z') { ell(fx - 13 * s, fy - 2 * s, 8 * s, 10 * s, '#0c0c0c'); ell(fx + 13 * s, fy - 2 * s, 8 * s, 10 * s, '#0c0c0c'); g.lineWidth = 4 * s; g.beginPath(); g.arc(fx, fy + 10 * s, 16 * s, 0.2, P - 0.2); g.stroke(); return; }
-  const big = f === 'scared' || f === 'shock';
-  ell(fx - 13 * s, fy, (big ? 7 : 5.5) * s, (big ? 10 : 8) * s, '#0c0c0c'); ell(fx + 13 * s, fy, (big ? 7 : 5.5) * s, (big ? 10 : 8) * s, '#0c0c0c');
-  g.lineWidth = 3.5 * s;
-  if (f === 'scared') { g.beginPath(); g.moveTo(fx - 22 * s, fy - 16 * s); g.lineTo(fx - 7 * s, fy - 12 * s); g.moveTo(fx + 22 * s, fy - 16 * s); g.lineTo(fx + 7 * s, fy - 12 * s); g.stroke(); ell(fx, fy + 22 * s, 6 * s, 5 * s, '#0c0c0c'); }
-  else if (f === 'shock') { ell(fx, fy + 23 * s, 9 * s, 11 * s, '#0c0c0c'); }
-  else if (f === 'determined') { g.beginPath(); g.moveTo(fx - 22 * s, fy - 18 * s); g.lineTo(fx - 6 * s, fy - 10 * s); g.moveTo(fx + 22 * s, fy - 18 * s); g.lineTo(fx + 6 * s, fy - 10 * s); g.stroke(); g.beginPath(); g.moveTo(fx - 8 * s, fy + 21 * s); g.lineTo(fx + 8 * s, fy + 21 * s); g.stroke(); }
-  else if (f === 'happy') { g.beginPath(); g.arc(fx, fy + 12 * s, 11 * s, 0.3, P - 0.3); g.stroke(); }
-  else if (f === 'sad') { g.beginPath(); g.arc(fx, fy + 28 * s, 10 * s, P + 0.4, -0.4); g.stroke(); }
-  else { g.beginPath(); g.moveTo(fx - 7 * s, fy + 21 * s); g.lineTo(fx + 7 * s, fy + 21 * s); g.stroke(); }
+  const f = f0;
+  const blink = !o.still && !shake && ((NOW + Math.abs(hx) * 0.0021) % 3.7) < 0.12;
+  const big = f === 'scared' || f === 'shock' || f === 'terrified';
+  if (blink) { g.lineWidth = 4 * s; g.beginPath(); g.moveTo(fx - 19 * s, fy); g.lineTo(fx - 7 * s, fy); g.moveTo(fx + 7 * s, fy); g.lineTo(fx + 19 * s, fy); g.stroke(); }
+  else if (big) {
+    // wide white eyes with small darting pupils
+    const ew = (f === 'terrified' ? 10 : 9) * s, eh = (f === 'terrified' ? 13 : 12) * s;
+    [-1, 1].forEach(sd => { g.fillStyle = '#ffffff'; g.beginPath(); g.ellipse(fx + sd * 13 * s, fy, ew, eh, 0, 0, 7); g.fill(); g.lineWidth = 2.6 * s; g.strokeStyle = K; g.stroke();
+      circle(fx + sd * 13 * s + (lk[0] * 3 + dart * 3.5) * s, fy + lk[1] * 3 * s, (f === 'terrified' ? 2.6 : 3.6) * s, K); });
+  } else if (f === 'happy' || f === 'relief') {
+    g.lineWidth = 4 * s; g.beginPath(); g.arc(fx - 13 * s, fy + 3 * s, 6 * s, P + 0.3, -0.3); g.arc(fx + 13 * s, fy + 3 * s, 6 * s, P + 0.3, -0.3); g.stroke();
+  } else {
+    const ox = dart * 2.5 * s;
+    ell(fx - 13 * s + ox, fy, 5.5 * s, 8 * s, K); ell(fx + 13 * s + ox, fy, 5.5 * s, 8 * s, K);
+    circle(fx - 11.5 * s + ox, fy - 3 * s, 1.6 * s, '#ffffff'); circle(fx + 14.5 * s + ox, fy - 3 * s, 1.6 * s, '#ffffff');
+  }
+  g.fillStyle = K; g.strokeStyle = K;
+  const breathe = Math.max(0, Math.sin(t * 6));
+  if (f === 'scared') { brow(-20, -14, -20, -14); g.lineWidth = 3 * s; g.beginPath(); for (let i = 0; i <= 6; i++) g.lineTo(fx - 9 * s + i * 3 * s, fy + 23 * s + (i % 2 ? -2 : 2) * s); g.stroke(); }
+  else if (f === 'shock') { brow(-18, -21, -18, -21); ell(fx, fy + 24 * s, 8 * s, (10 + 3 * breathe) * s, K); }
+  else if (f === 'terrified') { brow(-20, -15, -20, -15, 4.5); ell(fx, fy + 25 * s, 10 * s, (13 + 4 * breathe) * s, K); ell(fx, fy + 30 * s, 6 * s, 4 * s, '#c0392b'); }
+  else if (f === 'determined' || f === 'angry') { brow(-10, -18, -10, -18, f === 'angry' ? 5 : 4); g.lineWidth = 3.5 * s; g.beginPath(); if (f === 'angry') g.arc(fx, fy + 28 * s, 9 * s, P + 0.5, -0.5); else { g.moveTo(fx - 8 * s, fy + 21 * s); g.lineTo(fx + 8 * s, fy + 21 * s); } g.stroke(); }
+  else if (f === 'happy') { brow(-15, -13, -15, -13, 3); g.lineWidth = 3.5 * s; g.beginPath(); g.arc(fx, fy + 12 * s, 11 * s, 0.3, P - 0.3); g.stroke(); }
+  else if (f === 'relief') { brow(-13, -16, -13, -16, 3); g.lineWidth = 3.5 * s; g.beginPath(); g.arc(fx, fy + 14 * s, 8 * s, 0.4, P - 0.4); g.stroke(); }
+  else if (f === 'sad') { brow(-16, -10, -16, -10, 3.5); g.lineWidth = 3.5 * s; g.beginPath(); g.arc(fx, fy + 28 * s, 10 * s, P + 0.4, -0.4); g.stroke(); if (!o.still) { const k = (t * 0.6) % 1; ell(fx + 14 * s, fy + 10 * s + k * 26 * s, 3 * s, 4.5 * s, `rgba(120,190,255,${1 - k})`); } }
+  else { brow(-14, -14, -14, -14, 3); g.lineWidth = 3.5 * s; g.beginPath(); g.moveTo(fx - 7 * s, fy + 21 * s); g.lineTo(fx + 7 * s, fy + 21 * s); g.stroke(); }
+  // sweat drops slide down a frightened face
+  if (shake) { for (let i = 0; i < 2; i++) { const k = (t * 0.7 + i * 0.5) % 1; ell(hx + (i ? -30 : 31) * s, hy - 22 * s + k * 34 * s, 3.6 * s, 5.4 * s, `rgba(150,210,255,${0.9 * (1 - k)})`); } }
 }
 // crowd of zombies walking toward a vanishing point or across
 function crowd(T, opt = {}) {
@@ -167,6 +208,8 @@ function flashlight(x, y, ang, len = 900, spread = 0.35, a = 0.35) {
   g.fillStyle = gr; g.beginPath(); g.moveTo(x, y); g.arc(x, y, len, ang - spread, ang + spread); g.closePath(); g.fill(); g.restore();
 }
 
+function dust(T, a = 0.22, n = 46) { const r = rng(77); g.fillStyle = '#fff'; for (let i = 0; i < n; i++) { const sp = 18 + r() * 40, x = (r() * W + Math.sin(T * 0.4 + i) * 30) % W, y = H - ((r() * H + T * sp) % H); g.globalAlpha = a * (0.4 + 0.6 * Math.abs(Math.sin(T * 0.8 + i))); g.beginPath(); g.arc(x, y, 2 + r() * 3.5, 0, 7); g.fill(); } g.globalAlpha = 1; }
+
 // ---------- text ----------
 function textBox(txt, x, y, size, fill = '#fff', stroke = '#000', sw = 0, font = 'Archivo Black', align = 'center', maxW = 960) {
   g.font = `${size}px "${font}"`; g.textAlign = align; g.textBaseline = 'middle'; g.lineJoin = 'round';
@@ -180,4 +223,4 @@ function textBox(txt, x, y, size, fill = '#fff', stroke = '#000', sw = 0, font =
   return lines.length * lh;
 }
 
-module.exports = { W, H, canvas, g, clamp, ease, lerp, rng, line, rect, circle, ell, vgrad, rgrad, glow, pol, nightSky, moon, hills, ground, room, rain, snow, fog, water, P, POSES, walkPose, runPose, fig, face, crowd, vignette, grain, flash, tint, flashlight, textBox };
+module.exports = { setTime, dust, W, H, canvas, g, clamp, ease, lerp, rng, line, rect, circle, ell, vgrad, rgrad, glow, pol, nightSky, moon, hills, ground, room, rain, snow, fog, water, P, POSES, walkPose, runPose, fig, face, crowd, vignette, grain, flash, tint, flashlight, textBox };
