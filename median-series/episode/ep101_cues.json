@@ -1,0 +1,1976 @@
+{
+ "note": "Times are in the episode body (intro of 31.94s inserted at 26.5s is NOT included). Line times are placeholders from word count; replace with real voice durations and re-render.",
+ "intro_insert_at": 26.5,
+ "shots": [
+  {
+   "sc": 1,
+   "shot": "1.1",
+   "start": 0,
+   "end": 5.11,
+   "lines": [
+    {
+     "who": "PA VOICE (V.O.)",
+     "text": "Please take one bite of the Breakfast Lasagna BrunchBar.",
+     "start": 0.8,
+     "end": 4.69
+    }
+   ]
+  },
+  {
+   "sc": 1,
+   "shot": "1.2",
+   "start": 5.11,
+   "end": 15.36,
+   "lines": [
+    {
+     "who": "BIG KEVIN",
+     "text": "…Does it do that every time?",
+     "start": 5.11,
+     "end": 8.17
+    },
+    {
+     "who": "PA VOICE (V.O.)",
+     "text": "Please rate the scream from one to five.",
+     "start": 8.29,
+     "end": 11.82
+    },
+    {
+     "who": "TOWNSPERSON 1",
+     "text": "Three. It's a little needy.",
+     "start": 11.94,
+     "end": 14.64
+    }
+   ]
+  },
+  {
+   "sc": 1,
+   "shot": "1.3",
+   "start": 15.36,
+   "end": 17.36,
+   "lines": []
+  },
+  {
+   "sc": 1,
+   "shot": "1.4",
+   "start": 17.36,
+   "end": 19.56,
+   "lines": []
+  },
+  {
+   "sc": 2,
+   "shot": "2.1",
+   "start": 19.56,
+   "end": 26.5,
+   "lines": [
+    {
+     "who": "MAN",
+     "text": "Every time.",
+     "start": 24.16,
+     "end": 25.78
+    }
+   ]
+  },
+  {
+   "sc": 3,
+   "shot": "3.1",
+   "start": 26.5,
+   "end": 39.19,
+   "lines": [
+    {
+     "who": "MS. OKONKWO-HALE",
+     "text": "Okay. Civics. Before the state test, the district requires that you watch this. Again.",
+     "start": 26.5,
+     "end": 32.19
+    },
+    {
+     "who": "WREN",
+     "text": "Is it the one with the guy?",
+     "start": 32.31,
+     "end": 35.48
+    },
+    {
+     "who": "MS. OKONKWO-HALE",
+     "text": "It's always the one with the guy.",
+     "start": 35.6,
+     "end": 38.77
+    }
+   ]
+  },
+  {
+   "sc": 3,
+   "shot": "3.2",
+   "start": 39.19,
+   "end": 67.9,
+   "lines": [
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "Hi there, citizen! Ever wonder why Median is so darn special?",
+     "start": 39.99,
+     "end": 44.85
+    },
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "In 1871, surveyor Elias Thornbury got tired and sat down.",
+     "start": 44.97,
+     "end": 49.22
+    },
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "For eleven years, nobody joined him.",
+     "start": 49.34,
+     "end": 52.15
+    },
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "Then, in 1987, our friends at Aggregate Insights discovered that Median is exactly like America — just smaller, and with less to do!",
+     "start": 52.27,
+     "end": 61.2
+    },
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "And that means one super important thing:",
+     "start": 61.32,
+     "end": 64.49
+    },
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "What Median buys today… America buys tomorrow!",
+     "start": 64.61,
+     "end": 67.78
+    }
+   ]
+  },
+  {
+   "sc": 3,
+   "shot": "3.3",
+   "start": 67.9,
+   "end": 75.64,
+   "lines": [
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "So remember, kids: stay average, stay grateful, and never, ever—",
+     "start": 67.9,
+     "end": 72.15
+    },
+    {
+     "who": "FILMSTRIP NARRATOR (V.O.)",
+     "text": "—(tape warble)—go near the Cube.",
+     "start": 72.27,
+     "end": 74.72
+    }
+   ]
+  },
+  {
+   "sc": 3,
+   "shot": "3.4",
+   "start": 75.64,
+   "end": 90.54,
+   "lines": [
+    {
+     "who": "DEX",
+     "text": "Wait.",
+     "start": 76.54,
+     "end": 77.79
+    },
+    {
+     "who": "MS. OKONKWO-HALE",
+     "text": "Yes, Dex.",
+     "start": 77.91,
+     "end": 79.28
+    },
+    {
+     "who": "DEX",
+     "text": "If Median buys something… America buys it.",
+     "start": 79.4,
+     "end": 82.82
+    },
+    {
+     "who": "MS. OKONKWO-HALE",
+     "text": "That's… the filmstrip, yes.",
+     "start": 82.94,
+     "end": 85.03
+    },
+    {
+     "who": "DEX",
+     "text": "So if we make Median buy something—",
+     "start": 85.15,
+     "end": 88.32
+    },
+    {
+     "who": "MARCUS",
+     "text": "—America buys it.",
+     "start": 88.44,
+     "end": 90.42
+    }
+   ]
+  },
+  {
+   "sc": 3,
+   "shot": "3.5",
+   "start": 90.54,
+   "end": 135.32,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "That's not how that—",
+     "start": 90.54,
+     "end": 92.63
+    },
+    {
+     "who": "GORDY",
+     "text": "It's literally how that works. It's in the filmstrip. Point one: the filmstrip. Point two: also the filmstrip.",
+     "start": 92.75,
+     "end": 99.88
+    },
+    {
+     "who": "WREN",
+     "text": "The filmstrip also says the Cube is \"a friend.\"",
+     "start": 100,
+     "end": 103.89
+    },
+    {
+     "who": "GORDY",
+     "text": "And it said that in 1987, Wren. Before the tape warble.",
+     "start": 104.01,
+     "end": 108.87
+    },
+    {
+     "who": "KENZIE",
+     "text": "You guys, not me finding out I live in a literal focus group.",
+     "start": 108.99,
+     "end": 114.57
+    },
+    {
+     "who": "KENZIE",
+     "text": "Wait, we didn't know this?",
+     "start": 114.69,
+     "end": 117.39
+    },
+    {
+     "who": "WREN",
+     "text": "We watch it every year.",
+     "start": 117.51,
+     "end": 119.96
+    },
+    {
+     "who": "KENZIE",
+     "text": "I'm usually filming during it.",
+     "start": 120.08,
+     "end": 122.53
+    },
+    {
+     "who": "PA VOICE (V.O.)",
+     "text": "Attention, Median. Please return your Breakfast Lasagna BrunchBars to any ValuBarn location. Do not eat them. They are not screaming. That is a known texture.",
+     "start": 122.65,
+     "end": 131.9
+    },
+    {
+     "who": "TUNK",
+     "text": "Mine stopped screaming.",
+     "start": 132.02,
+     "end": 134
+    }
+   ]
+  },
+  {
+   "sc": 3,
+   "shot": "3.6",
+   "start": 135.32,
+   "end": 136.92,
+   "lines": []
+  },
+  {
+   "sc": 4,
+   "shot": "4.1",
+   "start": 136.92,
+   "end": 139.32,
+   "lines": []
+  },
+  {
+   "sc": 4,
+   "shot": "4.2",
+   "start": 139.32,
+   "end": 144.89,
+   "lines": [
+    {
+     "who": "DEX",
+     "text": "Welcome… to the first day… of the rest of America.",
+     "start": 139.32,
+     "end": 143.57
+    }
+   ]
+  },
+  {
+   "sc": 4,
+   "shot": "4.3",
+   "start": 144.89,
+   "end": 201.88,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "Why do you have a fire extinguisher, Tunk?",
+     "start": 144.89,
+     "end": 148.42
+    },
+    {
+     "who": "TUNK",
+     "text": "Grandpa says carry what you'll need.",
+     "start": 148.54,
+     "end": 151.35
+    },
+    {
+     "who": "WREN",
+     "text": "What do you need it for?",
+     "start": 151.47,
+     "end": 154.28
+    },
+    {
+     "who": "TUNK",
+     "text": "Don't know yet.",
+     "start": 154.4,
+     "end": 156.38
+    },
+    {
+     "who": "DEX",
+     "text": "Ideas. We need a product. Something revolutionary. Something—",
+     "start": 156.5,
+     "end": 160.03
+    },
+    {
+     "who": "DEX",
+     "text": "—disruptive.",
+     "start": 160.15,
+     "end": 161.65
+    },
+    {
+     "who": "KENZIE",
+     "text": "Ooh, what about water from a famous person's sink.",
+     "start": 161.77,
+     "end": 165.66
+    },
+    {
+     "who": "MARCUS",
+     "text": "Sourcing problem. We don't know a famous person.",
+     "start": 165.78,
+     "end": 169.31
+    },
+    {
+     "who": "KENZIE",
+     "text": "My mom's dentist did a commercial.",
+     "start": 169.43,
+     "end": 172.24
+    },
+    {
+     "who": "MARCUS",
+     "text": "Local famous. Margins collapse.",
+     "start": 172.36,
+     "end": 174.45
+    },
+    {
+     "who": "GORDY",
+     "text": "A hat. For your phone. So they can't see out of the camera.",
+     "start": 174.57,
+     "end": 179.9
+    },
+    {
+     "who": "WREN",
+     "text": "Who's \"they\"?",
+     "start": 180.02,
+     "end": 181.39
+    },
+    {
+     "who": "DEX",
+     "text": "Okay, these are all good, these are all good, but they're missing—",
+     "start": 181.51,
+     "end": 186.48
+    },
+    {
+     "who": "DEX",
+     "text": "—the thing.",
+     "start": 186.6,
+     "end": 188.22
+    },
+    {
+     "who": "MARCUS",
+     "text": "The thing is cost, Dex. Every idea costs money to make. Water costs money. Hats cost money. Cardboard costs money. The perfect product costs nothing to produce.",
+     "start": 188.34,
+     "end": 197.34
+    },
+    {
+     "who": "WREN",
+     "text": "So you want to sell nothing.",
+     "start": 197.46,
+     "end": 200.27
+    },
+    {
+     "who": "MARCUS",
+     "text": "Ideally? Yeah.",
+     "start": 200.39,
+     "end": 201.76
+    }
+   ]
+  },
+  {
+   "sc": 4,
+   "shot": "4.4",
+   "start": 201.88,
+   "end": 209.27,
+   "lines": [
+    {
+     "who": "GORDY",
+     "text": "When did you leave?",
+     "start": 203.48,
+     "end": 205.57
+    },
+    {
+     "who": "GORDY",
+     "text": "What's in the box?",
+     "start": 205.69,
+     "end": 207.78
+    },
+    {
+     "who": "TUNK",
+     "text": "Nothing.",
+     "start": 207.9,
+     "end": 209.15
+    }
+   ]
+  },
+  {
+   "sc": 4,
+   "shot": "4.5",
+   "start": 209.27,
+   "end": 231.35,
+   "lines": [
+    {
+     "who": "DEX",
+     "text": "Say that again.",
+     "start": 209.27,
+     "end": 211
+    },
+    {
+     "who": "TUNK",
+     "text": "Nothing.",
+     "start": 211.12,
+     "end": 212.62
+    },
+    {
+     "who": "DEX",
+     "text": "That's the product.",
+     "start": 212.74,
+     "end": 214.72
+    },
+    {
+     "who": "WREN",
+     "text": "No.",
+     "start": 214.84,
+     "end": 216.09
+    },
+    {
+     "who": "DEX",
+     "text": "Not an empty box, Wren. A box of potential. This is what I call the Pruitt Principle—",
+     "start": 216.21,
+     "end": 222.98
+    },
+    {
+     "who": "WREN",
+     "text": "What number?",
+     "start": 223.1,
+     "end": 224.47
+    },
+    {
+     "who": "DEX",
+     "text": "Forty.",
+     "start": 224.59,
+     "end": 226.09
+    },
+    {
+     "who": "WREN",
+     "text": "There were never one through thirty-nine.",
+     "start": 226.21,
+     "end": 229.02
+    },
+    {
+     "who": "DEX",
+     "text": "Not with that attitude.",
+     "start": 229.14,
+     "end": 231.23
+    }
+   ]
+  },
+  {
+   "sc": 4,
+   "shot": "4.6",
+   "start": 231.35,
+   "end": 272.32,
+   "lines": [
+    {
+     "who": "MARCUS",
+     "text": "Production cost: zero. Shipping weight: basically zero. Margin…",
+     "start": 231.35,
+     "end": 234.88
+    },
+    {
+     "who": "MARCUS",
+     "text": "Infinite. You guys, it's infinite margin. I've only ever read about this.",
+     "start": 235,
+     "end": 240.22
+    },
+    {
+     "who": "KENZIE",
+     "text": "What do we call it?",
+     "start": 240.34,
+     "end": 242.79
+    },
+    {
+     "who": "MARCUS",
+     "text": "VOID.",
+     "start": 242.91,
+     "end": 244.16
+    },
+    {
+     "who": "KENZIE",
+     "text": "VOID is literally such a good name.",
+     "start": 244.28,
+     "end": 247.7
+    },
+    {
+     "who": "DEX",
+     "text": "I named it.",
+     "start": 247.82,
+     "end": 249.55
+    },
+    {
+     "who": "MARCUS",
+     "text": "I just said it. Out loud. In front of everyone.",
+     "start": 249.67,
+     "end": 253.92
+    },
+    {
+     "who": "DEX",
+     "text": "I thought it first.",
+     "start": 254.04,
+     "end": 256.13
+    },
+    {
+     "who": "MARCUS",
+     "text": "You can't own a thought, Dex.",
+     "start": 256.25,
+     "end": 259.06
+    },
+    {
+     "who": "DEX",
+     "text": "And you can't own nothing! Which is why it's perfect.",
+     "start": 259.18,
+     "end": 263.68
+    },
+    {
+     "who": "GORDY",
+     "text": "Can I ask a question? If we're selling nothing… what happens when someone opens it?",
+     "start": 263.8,
+     "end": 270.1
+    },
+    {
+     "who": "KENZIE",
+     "text": "They film it.",
+     "start": 270.22,
+     "end": 272.2
+    }
+   ]
+  },
+  {
+   "sc": 4,
+   "shot": "4.7",
+   "start": 272.32,
+   "end": 284.94,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "I want it on the record that I said no.",
+     "start": 272.32,
+     "end": 276.57
+    },
+    {
+     "who": "DEX",
+     "text": "Noted.",
+     "start": 276.69,
+     "end": 277.94
+    },
+    {
+     "who": "DEX",
+     "text": "Marcus, we need eight hundred boxes.",
+     "start": 278.06,
+     "end": 281.12
+    },
+    {
+     "who": "MARCUS",
+     "text": "I'll need a loan.",
+     "start": 281.24,
+     "end": 283.33
+    },
+    {
+     "who": "DEX",
+     "text": "From who?",
+     "start": 283.45,
+     "end": 284.82
+    }
+   ]
+  },
+  {
+   "sc": 4,
+   "shot": "4.8",
+   "start": 284.94,
+   "end": 291.2,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "Tunk, where did you get—",
+     "start": 284.94,
+     "end": 287.39
+    },
+    {
+     "who": "TUNK",
+     "text": "The hill.",
+     "start": 287.51,
+     "end": 288.88
+    }
+   ]
+  },
+  {
+   "sc": 5,
+   "shot": "5.1",
+   "start": 291.2,
+   "end": 301.21,
+   "lines": [
+    {
+     "who": "KENZIE",
+     "text": "Okay, you guys. Okay. VOID. Okay. Unboxing it for the first time. Literally shaking.",
+     "start": 291.2,
+     "end": 297.14
+    },
+    {
+     "who": "KENZIE",
+     "text": "It's… literally nothing.",
+     "start": 297.26,
+     "end": 298.99
+    },
+    {
+     "who": "KENZIE",
+     "text": "It's giving… minimal?",
+     "start": 299.11,
+     "end": 301.09
+    }
+   ]
+  },
+  {
+   "sc": 5,
+   "shot": "5.2",
+   "start": 301.21,
+   "end": 303.21,
+   "lines": []
+  },
+  {
+   "sc": 5,
+   "shot": "5.3",
+   "start": 303.21,
+   "end": 315.78,
+   "lines": [
+    {
+     "who": "MARCUS",
+     "text": "Sold: zero. We've sold zero units of zero.",
+     "start": 303.21,
+     "end": 306.74
+    },
+    {
+     "who": "DEX",
+     "text": "It's a slow build. All great products are slow builds. The wheel—",
+     "start": 306.86,
+     "end": 311.83
+    },
+    {
+     "who": "WREN",
+     "text": "Don't.",
+     "start": 311.95,
+     "end": 313.45
+    },
+    {
+     "who": "DEX",
+     "text": "—was a slow build.",
+     "start": 313.57,
+     "end": 315.66
+    }
+   ]
+  },
+  {
+   "sc": 5,
+   "shot": "5.4",
+   "start": 315.78,
+   "end": 349.64,
+   "lines": [
+    {
+     "who": "GORDY",
+     "text": "Guys. Guys. What if this is… bad.",
+     "start": 315.78,
+     "end": 318.95
+    },
+    {
+     "who": "MARCUS",
+     "text": "It is bad. Commercially. That's the problem.",
+     "start": 319.07,
+     "end": 322.24
+    },
+    {
+     "who": "GORDY",
+     "text": "No — like, bad. Think about it. Point one: you can't see inside it before you buy it. Point two: there's nothing in it. Point three: who benefits when there's nothing?",
+     "start": 322.36,
+     "end": 331.36
+    },
+    {
+     "who": "DEX",
+     "text": "…Us?",
+     "start": 331.48,
+     "end": 332.73
+    },
+    {
+     "who": "GORDY",
+     "text": "I'm just saying. If VOID was nothing, why would they not want you to have it?",
+     "start": 332.85,
+     "end": 339.51
+    },
+    {
+     "who": "KENZIE",
+     "text": "Gordy, that's my live—",
+     "start": 339.63,
+     "end": 341.72
+    },
+    {
+     "who": "GORDY",
+     "text": "They don't want you to have it.",
+     "start": 341.84,
+     "end": 345.26
+    },
+    {
+     "who": "GORDY",
+     "text": "I'm not saying it's connected. I'm saying it's adjacent.",
+     "start": 345.38,
+     "end": 349.52
+    }
+   ]
+  },
+  {
+   "sc": 5,
+   "shot": "5.5",
+   "start": 349.64,
+   "end": 352.64,
+   "lines": []
+  },
+  {
+   "sc": 5,
+   "shot": "5.6",
+   "start": 352.64,
+   "end": 355.54,
+   "lines": [
+    {
+     "who": "KENZIE",
+     "text": "Oh my god.",
+     "start": 352.64,
+     "end": 354.62
+    }
+   ]
+  },
+  {
+   "sc": 6,
+   "shot": "6.1",
+   "start": 355.54,
+   "end": 357.54,
+   "lines": []
+  },
+  {
+   "sc": 6,
+   "shot": "6.2",
+   "start": 357.54,
+   "end": 361.11,
+   "lines": [
+    {
+     "who": "BIG KEVIN",
+     "text": "It's exactly what I needed.",
+     "start": 358.14,
+     "end": 360.59
+    }
+   ]
+  },
+  {
+   "sc": 6,
+   "shot": "6.3",
+   "start": 361.11,
+   "end": 370.14,
+   "lines": [
+    {
+     "who": "YOGA MOM",
+     "text": "I opened it, and for the first time in years… I didn't want anything.",
+     "start": 361.51,
+     "end": 367.2
+    },
+    {
+     "who": "YOGA MOM",
+     "text": "So I bought four more.",
+     "start": 367.32,
+     "end": 370.02
+    }
+   ]
+  },
+  {
+   "sc": 6,
+   "shot": "6.4",
+   "start": 370.14,
+   "end": 372.14,
+   "lines": []
+  },
+  {
+   "sc": 6,
+   "shot": "6.5",
+   "start": 372.14,
+   "end": 378.67,
+   "lines": [
+    {
+     "who": "MAYOR KRUPP",
+     "text": "Median is open for business! And also for whatever this is!",
+     "start": 372.74,
+     "end": 377.35
+    }
+   ]
+  },
+  {
+   "sc": 6,
+   "shot": "6.6",
+   "start": 378.67,
+   "end": 381.87,
+   "lines": []
+  },
+  {
+   "sc": 6,
+   "shot": "6.7",
+   "start": 381.87,
+   "end": 388.7,
+   "lines": [
+    {
+     "who": "TEEN REVIEWER",
+     "text": "Okay so the real ones are slightly heavier, because they're full of—",
+     "start": 381.87,
+     "end": 386.84
+    },
+    {
+     "who": "TEEN REVIEWER",
+     "text": "—more nothing.",
+     "start": 386.96,
+     "end": 388.58
+    }
+   ]
+  },
+  {
+   "sc": 6,
+   "shot": "6.8",
+   "start": 388.7,
+   "end": 391.3,
+   "lines": []
+  },
+  {
+   "sc": 6,
+   "shot": "6.9",
+   "start": 391.3,
+   "end": 393.7,
+   "lines": []
+  },
+  {
+   "sc": 7,
+   "shot": "7.1",
+   "start": 393.7,
+   "end": 406.1,
+   "lines": [
+    {
+     "who": "REGIONAL (V.O.)",
+     "text": "Hal. Talk to me.",
+     "start": 394.9,
+     "end": 397.24
+    },
+    {
+     "who": "FRINK",
+     "text": "Forty-one states. A national cardboard shortage by Thursday. The product is an empty box made by children.",
+     "start": 397.36,
+     "end": 404.13
+    },
+    {
+     "who": "REGIONAL (V.O.)",
+     "text": "Do we intervene?",
+     "start": 404.25,
+     "end": 405.98
+    }
+   ]
+  },
+  {
+   "sc": 7,
+   "shot": "7.2",
+   "start": 406.1,
+   "end": 410.11,
+   "lines": [
+    {
+     "who": "FRINK",
+     "text": "No. Let it run.",
+     "start": 407.3,
+     "end": 409.39
+    }
+   ]
+  },
+  {
+   "sc": 7,
+   "shot": "7.3",
+   "start": 410.11,
+   "end": 413.11,
+   "lines": []
+  },
+  {
+   "sc": 8,
+   "shot": "8.1",
+   "start": 413.11,
+   "end": 438.14,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "It's a box. With nothing in it. They are paying two hundred dollars for air.",
+     "start": 413.11,
+     "end": 419.16
+    },
+    {
+     "who": "BEV",
+     "text": "Not air, honey. Air's got stuff in it.",
+     "start": 419.28,
+     "end": 422.81
+    },
+    {
+     "who": "WREN",
+     "text": "I'm the only sane person in this town.",
+     "start": 422.93,
+     "end": 426.46
+    },
+    {
+     "who": "BEV",
+     "text": "Everybody who's ever sat on that stool said that exact thing.",
+     "start": 426.58,
+     "end": 431.19
+    },
+    {
+     "who": "WREN",
+     "text": "Were they right?",
+     "start": 431.31,
+     "end": 433.04
+    },
+    {
+     "who": "BEV",
+     "text": "One was. He moved to Omaha. Now he's insane in Omaha.",
+     "start": 433.16,
+     "end": 438.02
+    }
+   ]
+  },
+  {
+   "sc": 8,
+   "shot": "8.2",
+   "start": 438.14,
+   "end": 461.75,
+   "lines": [
+    {
+     "who": "BEV",
+     "text": "I've watched this town buy every dumb thing you can name. You know what none of 'em were buying?",
+     "start": 438.14,
+     "end": 445.63
+    },
+    {
+     "who": "WREN",
+     "text": "The thing.",
+     "start": 445.75,
+     "end": 447.12
+    },
+    {
+     "who": "BEV",
+     "text": "Bein' first. Bein' in on it. You can't put that in a box, so they put nothing in a box and said \"that's it.\" And it is.",
+     "start": 447.24,
+     "end": 456.24
+    },
+    {
+     "who": "WREN",
+     "text": "That's the stupidest thing I've ever heard.",
+     "start": 456.36,
+     "end": 459.53
+    },
+    {
+     "who": "BEV",
+     "text": "On the house.",
+     "start": 459.65,
+     "end": 461.63
+    }
+   ]
+  },
+  {
+   "sc": 8,
+   "shot": "8.3",
+   "start": 461.75,
+   "end": 467.65,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "…I'm not going to open it.",
+     "start": 463.35,
+     "end": 466.16
+    },
+    {
+     "who": "BEV",
+     "text": "Sure.",
+     "start": 466.28,
+     "end": 467.53
+    }
+   ]
+  },
+  {
+   "sc": 9,
+   "shot": "9.1",
+   "start": 467.65,
+   "end": 471.25,
+   "lines": []
+  },
+  {
+   "sc": 9,
+   "shot": "9.2",
+   "start": 471.25,
+   "end": 473.65,
+   "lines": []
+  },
+  {
+   "sc": 9,
+   "shot": "9.3",
+   "start": 473.65,
+   "end": 477.59,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "…Oh, no.",
+     "start": 475.05,
+     "end": 476.67
+    }
+   ]
+  },
+  {
+   "sc": 9,
+   "shot": "9.4",
+   "start": 477.59,
+   "end": 479.39,
+   "lines": []
+  },
+  {
+   "sc": 9,
+   "shot": "9.5",
+   "start": 479.39,
+   "end": 482.39,
+   "lines": []
+  },
+  {
+   "sc": 10,
+   "shot": "10.1",
+   "start": 482.39,
+   "end": 490.99,
+   "lines": [
+    {
+     "who": "DEX",
+     "text": "People ask me… \"Dex… what is VOID?\"",
+     "start": 482.39,
+     "end": 486.29
+    },
+    {
+     "who": "DEX",
+     "text": "And I tell them…",
+     "start": 486.41,
+     "end": 489.06
+    },
+    {
+     "who": "DEX",
+     "text": "…nothing.",
+     "start": 489.18,
+     "end": 490.87
+    }
+   ]
+  },
+  {
+   "sc": 10,
+   "shot": "10.2",
+   "start": 490.99,
+   "end": 493.99,
+   "lines": []
+  },
+  {
+   "sc": 10,
+   "shot": "10.3",
+   "start": 493.99,
+   "end": 518.59,
+   "lines": [
+    {
+     "who": "GORDY",
+     "text": "Kenzie. People think VOID is hiding something. There's a forum. They think the boxes are \"empty on purpose\" because the real thing is too dangerous to ship.",
+     "start": 493.99,
+     "end": 502.99
+    },
+    {
+     "who": "KENZIE",
+     "text": "I'm at nine hundred and ninety-one thousand. I'm nine thousand from a million. Gordy, I need you to say \"they don't want you to have it\" one more time on camera.",
+     "start": 503.11,
+     "end": 512.36
+    },
+    {
+     "who": "GORDY",
+     "text": "I don't think I believe it anymore.",
+     "start": 512.48,
+     "end": 515.65
+    },
+    {
+     "who": "KENZIE",
+     "text": "That's even better, say that.",
+     "start": 515.77,
+     "end": 518.47
+    }
+   ]
+  },
+  {
+   "sc": 10,
+   "shot": "10.4",
+   "start": 518.59,
+   "end": 536.01,
+   "lines": [
+    {
+     "who": "DEX",
+     "text": "Pruitt Principle number one: less is more.",
+     "start": 518.59,
+     "end": 521.76
+    },
+    {
+     "who": "DEX",
+     "text": "Pruitt Principle number two: nothing… is everything.",
+     "start": 521.88,
+     "end": 525.05
+    },
+    {
+     "who": "DEX",
+     "text": "And Pruitt Principle number forty—",
+     "start": 525.17,
+     "end": 527.62
+    },
+    {
+     "who": "WREN (O.S.)",
+     "text": "You can't skip to forty.",
+     "start": 527.74,
+     "end": 530.44
+    },
+    {
+     "who": "DEX",
+     "text": "—is that one day, every box in America will be a VOID box.",
+     "start": 530.56,
+     "end": 535.89
+    }
+   ]
+  },
+  {
+   "sc": 10,
+   "shot": "10.5",
+   "start": 536.01,
+   "end": 563.91,
+   "lines": [
+    {
+     "who": "MARCUS",
+     "text": "Quick correction, Dex.",
+     "start": 536.01,
+     "end": 537.74
+    },
+    {
+     "who": "MARCUS",
+     "text": "As of 8:14 this morning, VOID is a registered trademark of Feld Holdings, LLC. A Delaware company.",
+     "start": 537.86,
+     "end": 544.88
+    },
+    {
+     "who": "DEX",
+     "text": "You trademarked nothing?",
+     "start": 545,
+     "end": 546.98
+    },
+    {
+     "who": "MARCUS",
+     "text": "It's Delaware. You can trademark anything.",
+     "start": 547.1,
+     "end": 549.91
+    },
+    {
+     "who": "DEX",
+     "text": "We're co-founders!",
+     "start": 550.03,
+     "end": 551.4
+    },
+    {
+     "who": "MARCUS",
+     "text": "You're a founder. I'm the owner. It's different. Look it up.",
+     "start": 551.52,
+     "end": 556.13
+    },
+    {
+     "who": "DEX",
+     "text": "I was going to put you in my memoir!",
+     "start": 556.25,
+     "end": 560.14
+    },
+    {
+     "who": "MARCUS",
+     "text": "Chapter one is going to be really short.",
+     "start": 560.26,
+     "end": 563.79
+    }
+   ]
+  },
+  {
+   "sc": 10,
+   "shot": "10.6",
+   "start": 563.91,
+   "end": 575.13,
+   "lines": [
+    {
+     "who": "PRINCIPAL GAINES",
+     "text": "Okay! Okay. Here's my ruling. There will be two VOID drops. Team Pruitt. And Team Feld. Saturday, ValuBarn. And then this school never speaks of it again.",
+     "start": 563.91,
+     "end": 572.91
+    },
+    {
+     "who": "PRINCIPAL GAINES",
+     "text": "That's a ruling.",
+     "start": 573.03,
+     "end": 575.01
+    }
+   ]
+  },
+  {
+   "sc": 10,
+   "shot": "10.7",
+   "start": 575.13,
+   "end": 577.59,
+   "lines": [
+    {
+     "who": "KENZIE",
+     "text": "Come on… come on…",
+     "start": 575.13,
+     "end": 577.47
+    }
+   ]
+  },
+  {
+   "sc": 10,
+   "shot": "10.8",
+   "start": 577.59,
+   "end": 588.07,
+   "lines": [
+    {
+     "who": "YOUNGER KID",
+     "text": "Oh my gosh. Are you the VOID girl?",
+     "start": 577.59,
+     "end": 581.12
+    },
+    {
+     "who": "KENZIE",
+     "text": "I am the VOID girl.",
+     "start": 581.24,
+     "end": 583.94
+    },
+    {
+     "who": "YOUNGER KID",
+     "text": "Can you get me a picture with your sister?",
+     "start": 584.06,
+     "end": 587.95
+    }
+   ]
+  },
+  {
+   "sc": 10,
+   "shot": "10.9",
+   "start": 588.07,
+   "end": 590.47,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.1",
+   "start": 590.47,
+   "end": 593.47,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.2",
+   "start": 593.47,
+   "end": 602.04,
+   "lines": [
+    {
+     "who": "DEX",
+     "text": "Who should I make it out to?",
+     "start": 593.47,
+     "end": 596.89
+    },
+    {
+     "who": "CUSTOMER",
+     "text": "Just sign \"nothing.\"",
+     "start": 597.01,
+     "end": 598.74
+    },
+    {
+     "who": "DEX",
+     "text": "Love that. That's a Pruitt Principle.",
+     "start": 598.86,
+     "end": 601.92
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.3",
+   "start": 602.04,
+   "end": 612.99,
+   "lines": [
+    {
+     "who": "MARCUS",
+     "text": "VOID Prime is two-fifty. VOID Prime Plus is three-ten. Plus means you get the lid.",
+     "start": 602.04,
+     "end": 608.09
+    },
+    {
+     "who": "CUSTOMER 2",
+     "text": "The other one didn't have a lid?",
+     "start": 608.21,
+     "end": 611.38
+    },
+    {
+     "who": "MARCUS",
+     "text": "Not legally.",
+     "start": 611.5,
+     "end": 612.87
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.4",
+   "start": 612.99,
+   "end": 615.81,
+   "lines": [
+    {
+     "who": "SHAKING MAN",
+     "text": "There's something in this one.",
+     "start": 612.99,
+     "end": 615.69
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.5",
+   "start": 615.81,
+   "end": 624.44,
+   "lines": [
+    {
+     "who": "GORDY",
+     "text": "No. No, no, no, there isn't, I made that up, it's a theory—",
+     "start": 615.81,
+     "end": 621.14
+    },
+    {
+     "who": "SHAKING MAN",
+     "text": "THIS ONE HAS THE REAL THING!",
+     "start": 621.26,
+     "end": 624.32
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.6",
+   "start": 624.44,
+   "end": 626.84,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.7",
+   "start": 626.84,
+   "end": 628.64,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.8",
+   "start": 628.64,
+   "end": 631.04,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.9",
+   "start": 631.04,
+   "end": 639.74,
+   "lines": [
+    {
+     "who": "KENZIE",
+     "text": "You guys, this is literally the best day of my life—",
+     "start": 631.04,
+     "end": 635.9
+    },
+    {
+     "who": "KENZIE",
+     "text": "Ow.",
+     "start": 636.02,
+     "end": 637.52
+    },
+    {
+     "who": "KENZIE",
+     "text": "—and it's raw!",
+     "start": 637.64,
+     "end": 639.62
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.10",
+   "start": 639.74,
+   "end": 649.11,
+   "lines": [
+    {
+     "who": "OFFICER MALLORY",
+     "text": "We've got a fire at ValuBarn and a riot over empty boxes. Send everybody. And open the DMV, I'm gonna need the holding cell.",
+     "start": 639.74,
+     "end": 648.99
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.11",
+   "start": 649.11,
+   "end": 652.4,
+   "lines": [
+    {
+     "who": "MAYOR KRUPP",
+     "text": "I'd like to officially open this riot—",
+     "start": 649.11,
+     "end": 652.28
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.12",
+   "start": 652.4,
+   "end": 658.54,
+   "lines": [
+    {
+     "who": "TUNK",
+     "text": "Needed it.",
+     "start": 655.8,
+     "end": 657.42
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.13",
+   "start": 658.54,
+   "end": 668.05,
+   "lines": [
+    {
+     "who": "DEX",
+     "text": "This is your fault!",
+     "start": 658.54,
+     "end": 660.63
+    },
+    {
+     "who": "MARCUS",
+     "text": "My fault? You told a gym that nothing is everything!",
+     "start": 660.75,
+     "end": 665
+    },
+    {
+     "who": "DEX",
+     "text": "It is everything! Look at it!",
+     "start": 665.12,
+     "end": 667.93
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.14",
+   "start": 668.05,
+   "end": 670.65,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.15",
+   "start": 670.65,
+   "end": 684.39,
+   "lines": [
+    {
+     "who": "KENZIE",
+     "text": "Not Wren Okafor being a VOID-head.",
+     "start": 670.65,
+     "end": 673.71
+    },
+    {
+     "who": "WREN",
+     "text": "I can explain.",
+     "start": 673.83,
+     "end": 675.81
+    },
+    {
+     "who": "WREN",
+     "text": "I can't explain.",
+     "start": 675.93,
+     "end": 677.91
+    },
+    {
+     "who": "DEX",
+     "text": "You said no! It's on the record!",
+     "start": 678.03,
+     "end": 681.45
+    },
+    {
+     "who": "WREN",
+     "text": "I know what I said!",
+     "start": 681.57,
+     "end": 684.27
+    }
+   ]
+  },
+  {
+   "sc": 11,
+   "shot": "11.16",
+   "start": 684.39,
+   "end": 686.19,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.17",
+   "start": 686.19,
+   "end": 688.79,
+   "lines": []
+  },
+  {
+   "sc": 11,
+   "shot": "11.18",
+   "start": 688.79,
+   "end": 701.79,
+   "lines": [
+    {
+     "who": "FRINK",
+     "text": "Thank you, everyone. That will be all.",
+     "start": 689.79,
+     "end": 693.21
+    },
+    {
+     "who": "FRINK",
+     "text": "You six. Come with me.",
+     "start": 693.33,
+     "end": 696.03
+    },
+    {
+     "who": "GORDY",
+     "text": "I'm not saying it's connected.",
+     "start": 696.15,
+     "end": 698.85
+    },
+    {
+     "who": "WREN",
+     "text": "Gordy, it is so connected.",
+     "start": 698.97,
+     "end": 701.67
+    }
+   ]
+  },
+  {
+   "sc": 12,
+   "shot": "12.1",
+   "start": 701.79,
+   "end": 707.83,
+   "lines": [
+    {
+     "who": "FRINK",
+     "text": "Help yourselves.",
+     "start": 701.79,
+     "end": 703.16
+    },
+    {
+     "who": "MARCUS",
+     "text": "Are we getting the forty dollars?",
+     "start": 703.28,
+     "end": 706.09
+    },
+    {
+     "who": "FRINK",
+     "text": "No.",
+     "start": 706.21,
+     "end": 707.71
+    }
+   ]
+  },
+  {
+   "sc": 12,
+   "shot": "12.2",
+   "start": 707.83,
+   "end": 744.71,
+   "lines": [
+    {
+     "who": "FRINK",
+     "text": "In eleven days, you sold three hundred and eight thousand units of an empty box. You created a national cardboard shortage. You triggered a riot in a superstore over the rumor of contents. With ninety-four percent confidence, you have proven the single most valuable consumer finding in the history of my company.",
+     "start": 707.83,
+     "end": 716.83
+    },
+    {
+     "who": "DEX",
+     "text": "That nothing… is everything?",
+     "start": 716.95,
+     "end": 719.29
+    },
+    {
+     "who": "FRINK",
+     "text": "That Americans will buy nothing, if it's scarce, and someone tells them they can't have it.",
+     "start": 719.41,
+     "end": 725.82
+    },
+    {
+     "who": "GORDY",
+     "text": "I'm the someone.",
+     "start": 725.94,
+     "end": 727.92
+    },
+    {
+     "who": "FRINK",
+     "text": "You were very effective.",
+     "start": 728.04,
+     "end": 730.13
+    },
+    {
+     "who": "MARCUS",
+     "text": "Okay. Great. So let's talk licensing, because I own the VOID trademark—",
+     "start": 730.25,
+     "end": 735.22
+    },
+    {
+     "who": "FRINK",
+     "text": "You signed the Median Participation Agreement at birth. Section Forty, Subsection C. Any product invented within town limits is the property of the test.",
+     "start": 735.34,
+     "end": 744.59
+    }
+   ]
+  },
+  {
+   "sc": 12,
+   "shot": "12.3",
+   "start": 744.71,
+   "end": 753.75,
+   "lines": [
+    {
+     "who": "MARCUS",
+     "text": "This is… really good contract work.",
+     "start": 744.71,
+     "end": 747.77
+    },
+    {
+     "who": "FRINK",
+     "text": "Thank you. I wrote it in 1988.",
+     "start": 747.89,
+     "end": 751.06
+    },
+    {
+     "who": "KENZIE",
+     "text": "So what happens to VOID?",
+     "start": 751.18,
+     "end": 753.63
+    }
+   ]
+  },
+  {
+   "sc": 12,
+   "shot": "12.4",
+   "start": 753.75,
+   "end": 760.91,
+   "lines": [
+    {
+     "who": "AD ANNOUNCER (V.O.)",
+     "text": "Introducing VOID+. Nothing. Delivered monthly. Fourteen ninety-nine. Cancel anytime.",
+     "start": 754.55,
+     "end": 758.69
+    },
+    {
+     "who": "AD ANNOUNCER (V.O.)",
+     "text": "Cancellation not available.",
+     "start": 758.81,
+     "end": 760.79
+    }
+   ]
+  },
+  {
+   "sc": 12,
+   "shot": "12.5",
+   "start": 760.91,
+   "end": 763.51,
+   "lines": []
+  },
+  {
+   "sc": 12,
+   "shot": "12.6",
+   "start": 763.51,
+   "end": 782.98,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "So we invented a way for a corporation to charge people for nothing.",
+     "start": 764.71,
+     "end": 770.04
+    },
+    {
+     "who": "GORDY",
+     "text": "To be fair, they were already doing that. We just gave it a box.",
+     "start": 770.16,
+     "end": 775.85
+    },
+    {
+     "who": "DEX",
+     "text": "Can we… at least be in the commercial?",
+     "start": 775.97,
+     "end": 779.75
+    },
+    {
+     "who": "FRINK",
+     "text": "No.",
+     "start": 779.87,
+     "end": 781.12
+    },
+    {
+     "who": "DEX",
+     "text": "That's fair.",
+     "start": 781.24,
+     "end": 782.86
+    }
+   ]
+  },
+  {
+   "sc": 13,
+   "shot": "13.1",
+   "start": 782.98,
+   "end": 785.58,
+   "lines": []
+  },
+  {
+   "sc": 13,
+   "shot": "13.2",
+   "start": 785.58,
+   "end": 797.73,
+   "lines": [
+    {
+     "who": "KENZIE",
+     "text": "Cool. Cool cool cool.",
+     "start": 788.38,
+     "end": 790.72
+    },
+    {
+     "who": "DEX",
+     "text": "Maybe… the real product… was the friends we—",
+     "start": 790.84,
+     "end": 794.62
+    },
+    {
+     "who": "MARCUS, WREN, KENZIE, GORDY",
+     "text": "Don't.",
+     "start": 794.74,
+     "end": 796.24
+    },
+    {
+     "who": "DEX",
+     "text": "Okay.",
+     "start": 796.36,
+     "end": 797.61
+    }
+   ]
+  },
+  {
+   "sc": 13,
+   "shot": "13.3",
+   "start": 797.73,
+   "end": 813.02,
+   "lines": [
+    {
+     "who": "MARCUS",
+     "text": "Your loan. Plus twelve percent.",
+     "start": 797.73,
+     "end": 800.18
+    },
+    {
+     "who": "TUNK",
+     "text": "Hill'll be glad.",
+     "start": 800.3,
+     "end": 802.28
+    },
+    {
+     "who": "WREN",
+     "text": "You paid him back? With interest?",
+     "start": 802.4,
+     "end": 805.46
+    },
+    {
+     "who": "MARCUS",
+     "text": "He fronted us. You pay back people who front you.",
+     "start": 805.58,
+     "end": 810.08
+    },
+    {
+     "who": "MARCUS",
+     "text": "It's good for my credit.",
+     "start": 810.2,
+     "end": 812.9
+    }
+   ]
+  },
+  {
+   "sc": 13,
+   "shot": "13.4",
+   "start": 813.02,
+   "end": 820.21,
+   "lines": [
+    {
+     "who": "GORDY",
+     "text": "Why'd you buy thirty?",
+     "start": 813.02,
+     "end": 815.11
+    },
+    {
+     "who": "WREN",
+     "text": "It was nice. Opening it. Wanting nothing. For, like, a minute.",
+     "start": 815.23,
+     "end": 820.09
+    }
+   ]
+  },
+  {
+   "sc": 13,
+   "shot": "13.5",
+   "start": 820.21,
+   "end": 825.06,
+   "lines": [
+    {
+     "who": "TUNK",
+     "text": "That's not the box. That's just bein' tired.",
+     "start": 820.21,
+     "end": 823.74
+    }
+   ]
+  },
+  {
+   "sc": 13,
+   "shot": "13.6",
+   "start": 825.06,
+   "end": 827.51,
+   "lines": [
+    {
+     "who": "WREN",
+     "text": "…And he's back.",
+     "start": 825.06,
+     "end": 826.79
+    }
+   ]
+  },
+  {
+   "sc": 14,
+   "shot": "14.1",
+   "start": 827.51,
+   "end": 829.71,
+   "lines": []
+  },
+  {
+   "sc": 14,
+   "shot": "14.2",
+   "start": 829.71,
+   "end": 834.69,
+   "lines": [
+    {
+     "who": "TUNK",
+     "text": "Huh.",
+     "start": 831.11,
+     "end": 832.36
+    },
+    {
+     "who": "GORDY",
+     "text": "What? What is it?",
+     "start": 832.48,
+     "end": 834.57
+    }
+   ]
+  },
+  {
+   "sc": 14,
+   "shot": "14.3",
+   "start": 834.69,
+   "end": 838.86,
+   "lines": [
+    {
+     "who": "TUNK",
+     "text": "Nothing.",
+     "start": 835.09,
+     "end": 836.34
+    }
+   ]
+  },
+  {
+   "sc": 14,
+   "shot": "14.4",
+   "start": 838.86,
+   "end": 843,
+   "lines": [
+    {
+     "who": "GORDY",
+     "text": "That's not how he said \"nothing\" before!",
+     "start": 838.86,
+     "end": 842.28
+    }
+   ]
+  },
+  {
+   "sc": 14,
+   "shot": "14.5",
+   "start": 843,
+   "end": 845.2,
+   "lines": []
+  },
+  {
+   "sc": 14,
+   "shot": "14.6",
+   "start": 845.2,
+   "end": 850.2,
+   "lines": []
+  },
+  {
+   "sc": 14,
+   "shot": "14.7",
+   "start": 850.2,
+   "end": 861.33,
+   "lines": [
+    {
+     "who": "PA VOICE (V.O.)",
+     "text": "Attention, Median. Please return your VOID boxes to any ValuBarn location. VOID is now a subscription.",
+     "start": 851.2,
+     "end": 857.61
+    }
+   ]
+  }
+ ]
+}

@@ -4,3 +4,8 @@ node_modules/
 .env.local
 .env.*.local
 npm-debug.log*
+
+# MEDIAN render outputs (too large for git)
+median-series/episode/render/*.mp4
+median-series/episode/render/*.log
+median-series/episode/render/done.flag

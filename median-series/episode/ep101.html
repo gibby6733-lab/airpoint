@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MEDIAN S01E01</title>
+<style>
+ html,body{margin:0;background:#000}
+ #stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#E8DCC2;font-family:'DejaVu Sans',Arial,sans-serif}
+ #world{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+ #bg,#fg,#fx,#cast{position:absolute;inset:0}
+ #cast .ch{position:absolute;transform-origin:50% 100%}
+ #fg{z-index:5000}#fx{z-index:6000}
+ #ins,#cu{position:absolute;inset:0;display:none;z-index:8000}
+ #cu{display:none;overflow:hidden}
+ #cuimg{position:absolute;left:510px;top:60px;width:900px;transform-origin:50% 60%}
+ #cap{position:absolute;left:50%;bottom:38px;transform:translateX(-50%);max-width:1700px;background:rgba(43,33,24,.84);color:#F7EEDD;padding:12px 30px;border-radius:30px;font-size:34px;font-weight:700;text-align:center;z-index:9000;line-height:1.25}
+ #cap b{color:#FFD36E;font-weight:800;margin-right:12px;font-size:24px;letter-spacing:2px}
+ #cap i{font-weight:600}
+ #wipe{position:absolute;left:-2100px;top:0;width:2100px;height:1080px;z-index:9500;display:none;background:repeating-linear-gradient(115deg,#C9B48F 0 70px,#9B5CFF 70px 140px)}
+ svg{position:absolute;left:0;top:0}
+</style></head><body>
+<div id="stage">
+ <div id="world"><div id="bg"></div><div id="cast"></div><div id="fg"></div><div id="fx"></div></div>
+ <div id="cu"><img id="cuimg"></div>
+ <div id="ins"></div>
+ <div id="cap"></div>
+ <div id="wipe"></div>
+</div>
+<script src="engine.js"></script>
+<script src="sets.js"></script>
+<script src="ep101.js"></script>
+<script src="ep101_script.js"></script>
+<script>
+(()=>{const script=window.SCRIPT;
+  window.TL=buildTimeline(script,window.STAGING);
+  window.DUR=window.TL[window.TL.length-1].end;
+  // split point for inserting the main title sequence (after SC 02)
+  window.INTRO_AT=window.TL.filter(s=>s.sc<=2).slice(-1)[0].end;
+  preloadAll(); renderAt(0); window.READY=true;
+})();
+</script>
+</body></html>

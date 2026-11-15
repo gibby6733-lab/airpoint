@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -20 400 700" width="400" height="700">
+<!-- MEDIAN side character: teen -->
+<defs><filter id="st" x="-15%" y="-15%" width="130%" height="130%">
+<feMorphology in="SourceAlpha" operator="dilate" radius="6" result="g"/><feFlood flood-color="#FFF"/><feComposite in2="g" operator="in" result="r"/>
+<feMerge><feMergeNode in="r"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#st)"><rect fill="#2B2D33" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" x="-64" y="462" width="58" height="156" rx="10"/>
+<rect fill="#2B2D33" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" x="6" y="462" width="58" height="156" rx="10"/>
+<path fill="#FFFFFF" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d="M-82,658 Q-84,620 -54,618 h47 q10,0 10,14 v26z"/>
+<path fill="#FFFFFF" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d="M82,658 Q84,620 54,618 h-47 q-10,0 -10,14 v26z"/>
+<rect fill="#3C8A6A" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" x="-101" y="302" width="34" height="134" rx="16"/>
+<ellipse fill="#C9956B" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" cx="-84" cy="450" rx="18" ry="20"/>
+<rect fill="#3C8A6A" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" x="67" y="302" width="34" height="134" rx="16"/>
+<ellipse fill="#C9956B" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" cx="84" cy="450" rx="18" ry="20"/>
+<rect fill="#3C8A6A" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" x="-78" y="290" width="156" height="186" rx="26"/>
+<path fill="#317156" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d="M-80,294 Q0,254 80,294 Q0,320 -80,294Z"/>
+<rect fill="#317156" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" x="-50" y="386" width="100" height="50" rx="8"/>
+<g transform="translate(0,0) scale(1.0)"><ellipse fill="#C9956B" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" cx="-104" cy="196" rx="15" ry="20"/><ellipse fill="#C9956B" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" cx="104" cy="196" rx="15" ry="20"/>
+<rect fill="#C9956B" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" x="-100" y="66" width="200" height="218" rx="90"/>
+<path fill="#3C8A6A" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d="M-104,160 Q-112,50 0,46 Q112,50 104,160Z"/><rect fill="#317156" x="-106" y="136" width="212" height="28" rx="10" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse fill="#E8806E" opacity=".35" cx="-60" cy="226" rx="17" ry="10"/><ellipse fill="#E8806E" opacity=".35" cx="60" cy="226" rx="17" ry="10"/>
+<path fill="#A47A57" stroke="#2B2118" stroke-width="2" d="M-10,202 Q0,222 10,202 Q8,216 0,218 Q-8,216 -10,202Z"/>
+<ellipse fill="#FFF" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" cx="-40" cy="178" rx="26" ry="28"/><ellipse fill="#FFF" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" cx="40" cy="178" rx="26" ry="28"/>
+<circle fill="#2B2118" cx="-38" cy="182" r="8"/><circle fill="#2B2118" cx="38" cy="182" r="8"/>
+<path fill="#C9956B" d="M-68,148 h56 v30 Q-40,172 -68,178Z M68,148 h-56 v30 Q40,172 68,178Z"/><path fill="none" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d="M-68,176 Q-40,170 -12,176 M68,176 Q40,170 12,176"/>
+<path fill="#3A2A1E" d="M-70,140 Q-42,130 -14,140 L-14,150 Q-42,142 -70,150Z M70,140 Q42,130 14,140 L14,150 Q42,142 70,150Z"/>
+<path fill="#FFF" stroke="#2B2118" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d="M-40,238 Q0,256 40,238 Q34,270 0,272 Q-34,270 -40,238Z"/><path stroke="#2B2118" stroke-width="2" d="M-36,250 Q0,262 36,250"/></g>
+<g transform="translate(0,470)"><rect fill="#111114" stroke="#FF2E93" stroke-width="4" x="-50" y="-40" width="100" height="80" rx="6"/><text x="0" y="10" text-anchor="middle" font-family="DejaVu Sans" font-weight="800" font-size="26" fill="#FF2E93">VOID</text></g></g></svg>

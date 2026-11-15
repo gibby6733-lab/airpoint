@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="1060 458 205 205" width="410" height="410">
+  <!-- MEDIAN — GORDY BAKSHI — reference sheet v02 -->
+  <defs>
+    <filter id="sticker" x="-15%" y="-15%" width="130%" height="130%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="grown"/>
+      <feFlood flood-color="#FFFFFF"/><feComposite in2="grown" operator="in" result="rim"/>
+      <feGaussianBlur in="grown" stdDeviation="4" result="soft"/>
+      <feFlood flood-color="#C9B48F" flood-opacity="0.35"/><feComposite in2="soft" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="rim"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .ol{stroke:#2C1F16;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+      .skin{fill:#A8724A}.skinS{fill:#8C5C38}.blush{fill:#C9685A;opacity:.45}
+      .hair{fill:#1B1716}
+      .brow{fill:#1B1716}
+      .hat{fill:#C2B280}.hatS{fill:#A8986A}.lining{fill:#C8CDD2}
+      .shirt{fill:#E2B33C}.shirtS{fill:#C99A28}
+      .tee{fill:#2E3B5C}.planet{fill:#F0C24A}
+      .cargo{fill:#8C8460}.cargoS{fill:#736C4C}
+      .sock{fill:#FFFFFF}.shoe{fill:#9AA0A8}.velcro{fill:#4A4E56}.sole{fill:#E9E4DA}
+      .lanyard{stroke:#F2C230;stroke-width:6;fill:none}.key{fill:#B8BCC2}
+      .frame{fill:none;stroke:#1B1716;stroke-width:9}.lens{fill:#EAF4F8}
+      .ink{fill:#1B1716}.white{fill:#FFFFFF}
+      .label{font:700 26px 'Helvetica Neue',Arial,sans-serif;fill:#3A2A1E;letter-spacing:2px}
+      .small{font:600 16px 'Helvetica Neue',Arial,sans-serif;fill:#7A6A58;letter-spacing:1px}
+    </style>
+    <g id="gordyHead">
+      <ellipse class="skin ol" cx="-108" cy="200" rx="15" ry="20"/><ellipse class="skin ol" cx="108" cy="200" rx="15" ry="20"/>
+      <rect class="skin ol" x="-106" y="70" width="212" height="216" rx="100"/>
+      <!-- messy hair poking out under hat -->
+      <path class="hair ol" d="M-104,186 L-116,170 L-100,164 L-114,146 L-94,146 L-98,124 L-70,136 L-60,120 L-44,138 L44,138 L60,120 L70,136 L98,124 L94,146 L114,146 L100,164 L116,170 L104,186 Q96,150 60,148 L-60,148 Q-96,150 -104,186Z"/>
+      <!-- bucket hat -->
+      <path class="hat ol" d="M-92,124 Q-90,34 0,30 Q90,34 92,124Z"/>
+      <path class="hatS" d="M-80,112 Q-60,60 -20,46 Q-60,74 -66,112Z"/>
+      <path class="lining ol" d="M-134,138 Q0,104 134,138 Q138,150 126,152 Q0,124 -126,152 Q-138,150 -134,138Z"/>
+      <path class="hat ol" d="M-132,128 Q0,90 132,128 Q134,138 124,140 Q0,108 -124,140 Q-134,138 -132,128Z"/>
+      <path class="ol" fill="none" stroke-width="2" stroke-dasharray="6 6" d="M-90,112 Q0,92 90,112"/>
+      <ellipse class="blush" cx="-70" cy="236" rx="18" ry="10"/><ellipse class="blush" cx="70" cy="236" rx="18" ry="10"/>
+      <path class="skinS ol" stroke-width="2" d="M-12,214 Q0,236 12,214 Q9,228 0,230 Q-9,228 -12,214Z"/>
+    </g>
+    <g id="gordyGlasses">
+      <circle class="lens" cx="-48" cy="190" r="42"/><circle class="lens" cx="48" cy="190" r="42"/>
+    </g>
+    <g id="gordyFrames">
+      <circle class="frame" cx="-48" cy="190" r="42"/><circle class="frame" cx="48" cy="190" r="42"/>
+      <rect x="-12" y="180" width="24" height="16" rx="3" fill="#FFFFFF" stroke="#1B1716" stroke-width="2.5"/>
+      <path stroke="#1B1716" stroke-width="7" d="M-90,186 h-14 M90,186 h14"/>
+    </g>
+  </defs>
+
+  
+  <text class="label" x="40" y="54">GORDY BAKSHI — MODEL SHEET v02</text>
+  <text class="small" x="40" y="80">MEDIAN · locked design · height index 0.96 (roundest) · line-up position 2 of 6</text>
+
+  <!-- ===== FRONT ===== -->
+  <g id="GORDY-front" filter="url(#sticker)" transform="translate(330,120)">
+    <rect class="skin ol" x="-54" y="520" width="42" height="80" rx="10"/><rect class="skin ol" x="12" y="520" width="42" height="80" rx="10"/>
+    <rect class="sock ol" x="-56" y="556" width="46" height="66" rx="8"/><rect class="sock ol" x="10" y="556" width="46" height="66" rx="8"/>
+    <path class="shoe ol" d="M-82,654 Q-84,620 -56,618 h46 q10,0 10,14 v22z"/><path class="shoe ol" d="M82,654 Q84,620 56,618 h-46 q-10,0 -10,14 v22z"/>
+    <rect class="velcro ol" x="-66" y="626" width="54" height="12" rx="4" stroke-width="2"/><rect class="velcro ol" x="12" y="626" width="54" height="12" rx="4" stroke-width="2"/>
+    <rect class="sole ol" x="-86" y="648" width="86" height="12" rx="5"/><rect class="sole ol" x="0" y="648" width="86" height="12" rx="5"/>
+    <!-- cargo shorts with stuffed pockets -->
+    <path class="cargo ol" d="M-86,450 h172 v76 q0,10 -10,10 h-66 l-10,-28 l-10,28 h-66 q-10,0 -10,-10z"/>
+    <rect class="white ol" x="-92" y="470" width="18" height="24" rx="2" stroke-width="2"/>
+    <rect class="cargoS ol" x="-100" y="476" width="34" height="44" rx="8"/><rect class="cargoS ol" x="66" y="476" width="34" height="44" rx="8"/>
+    <rect fill="#D23A32" class="ol" x="76" y="466" width="10" height="20" rx="2" stroke-width="2"/>
+    <!-- round torso: tee + open mustard shirt -->
+    <rect class="tee ol" x="-86" y="290" width="172" height="176" rx="44"/>
+    <circle class="planet ol" cx="0" cy="372" r="18" stroke-width="2.5"/><ellipse fill="none" stroke="#F0C24A" stroke-width="4" cx="0" cy="372" rx="32" ry="9" transform="rotate(-15 0 372)"/>
+    <path class="shirt ol" d="M-112,330 Q-112,292 -70,290 L-28,296 L-40,466 h-34 q-38,0 -44,-40z"/>
+    <path class="shirt ol" d="M112,330 Q112,292 70,290 L28,296 L40,466 h34 q38,0 44,-40z"/>
+    <path class="shirtS ol" d="M-28,296 L-64,298 L-48,326z"/><path class="shirtS ol" d="M28,296 L64,298 L48,326z"/>
+    <circle class="white" cx="-46" cy="360" r="3"/><circle class="white" cx="-50" cy="400" r="3"/><circle class="white" cx="-52" cy="440" r="3"/>
+    <rect class="shirtS ol" x="44" y="340" width="34" height="28" rx="4" stroke-width="2.5"/>
+    <!-- lanyard + keys -->
+    <path class="lanyard" d="M-34,300 L0,408 L34,300"/>
+    <circle fill="none" stroke="#8A8E94" stroke-width="4" cx="0" cy="418" r="10"/>
+    <g class="key ol" stroke-width="2"><rect x="-22" y="424" width="9" height="22" rx="3" transform="rotate(20 -18 424)"/><rect x="-8" y="426" width="9" height="24" rx="3"/><rect x="6" y="424" width="9" height="20" rx="3" transform="rotate(-18 10 424)"/><rect x="16" y="420" width="9" height="18" rx="3" transform="rotate(-36 20 420)"/></g>
+    <!-- sleeves + arms -->
+    <path class="shirt ol" d="M-104,304 Q-138,312 -140,352 L-102,358z"/><path class="shirt ol" d="M104,304 Q138,312 140,352 L102,358z"/>
+    <!-- viewer-right arm down -->
+    <rect class="skin ol" x="104" y="348" width="30" height="104" rx="14"/><ellipse class="skin ol" cx="120" cy="466" rx="18" ry="20"/>
+    <!-- viewer-left arm raised, finger up -->
+    <path class="skin ol" d="M-120,350 l-38,-70 q-6,-14 6,-20 q12,-6 18,8 l36,66z"/>
+    <g transform="translate(-164,250) rotate(-20)">
+      <rect class="skin ol" x="-6" y="-56" width="14" height="44" rx="7"/>
+      <rect class="skin ol" x="-20" y="-20" width="44" height="40" rx="18"/>
+      <path class="ol" fill="none" stroke-width="2.5" d="M-14,-6 h30 M-14,6 h28"/>
+    </g>
+    <!-- head -->
+    <use xlink:href="#gordyHead"/><use xlink:href="#gordyGlasses"/>
+    <ellipse class="white ol" cx="-48" cy="190" rx="30" ry="32"/><ellipse class="white ol" cx="48" cy="190" rx="30" ry="32"/>
+    <circle class="ink" cx="-44" cy="186" r="12"/><circle class="ink" cx="44" cy="186" r="12"/>
+    <circle class="white" cx="-40" cy="182" r="4"/><circle class="white" cx="48" cy="182" r="4"/>
+    <use xlink:href="#gordyFrames"/>
+    <path class="brow ol" stroke-width="2" d="M-82,134 Q-50,124 -20,140 L-22,150 Q-50,136 -80,146Z"/>
+    <path class="brow ol" stroke-width="2" d="M82,134 Q50,124 20,140 L22,150 Q50,136 80,146Z"/>
+    <path class="ink" d="M-22,252 Q0,248 22,252 Q18,272 0,272 Q-18,272 -22,252Z"/>
+  </g>
+  <text class="small" x="300" y="830">FRONT</text>
+
+  <!-- ===== SIDE (facing left) ===== -->
+  <g id="GORDY-side" filter="url(#sticker)" transform="translate(760,120)">
+    <rect class="skinS ol" x="-16" y="520" width="40" height="80" rx="10"/><rect class="skin ol" x="-30" y="520" width="42" height="80" rx="10"/>
+    <rect class="sock ol" x="-32" y="556" width="46" height="66" rx="8"/>
+    <path class="shoe ol" d="M-86,654 Q-88,620 -60,618 h70 q10,0 10,14 v22z"/>
+    <rect class="velcro ol" x="-70" y="626" width="60" height="12" rx="4" stroke-width="2"/>
+    <rect class="sole ol" x="-92" y="648" width="122" height="12" rx="5"/>
+    <path class="cargo ol" d="M-64,450 h128 q8,0 8,10 v66 h-144 v-66 q0,-10 8,-10z"/>
+    <rect class="cargoS ol" x="-12" y="470" width="40" height="48" rx="8"/>
+    <!-- round belly -->
+    <path class="tee ol" d="M-56,292 h98 q26,0 28,28 l4,140 h-140 q-40,-10 -42,-70 q-2,-50 30,-70z"/>
+    <path class="shirt ol" d="M-30,292 h72 q26,0 28,28 l4,140 h-90 q-30,-4 -30,-30 l-6,-110z"/>
+    <path class="lanyard" d="M-40,300 Q-76,350 -70,410"/>
+    <g class="key ol" stroke-width="2"><rect x="-78" y="412" width="9" height="22" rx="3"/><rect x="-68" y="412" width="9" height="18" rx="3" transform="rotate(-20 -64 412)"/></g>
+    <path class="shirt ol" d="M-4,304 q34,0 36,30 l0,26 h-52 l0,-26 q0,-30 16,-30z"/>
+    <rect class="skin ol" x="-16" y="354" width="32" height="98" rx="14"/><ellipse class="skin ol" cx="0" cy="466" rx="18" ry="20"/>
+    <!-- head profile -->
+    <path class="skin ol" d="M-90,160 Q-100,80 -20,70 L52,70 Q108,74 108,160 L108,206 Q108,288 22,288 L-30,288 Q-72,288 -86,244 L-94,236 Q-110,226 -100,210 L-92,202 Z"/>
+    <path class="skin ol" d="M-92,200 Q-116,194 -108,176 Q-100,168 -90,174"/>
+    <ellipse class="skin ol" cx="28" cy="200" rx="15" ry="20"/>
+    <path class="hair ol" d="M0,150 L-6,134 L10,140 L14,124 L28,138 L44,126 L50,142 L70,136 L72,152 L96,150 Q100,180 104,190 Q90,160 60,156 Z"/>
+    <path class="hat ol" d="M-80,130 Q-76,40 14,36 Q96,40 100,130Z"/>
+    <path class="lining ol" d="M-122,144 Q10,112 136,144 Q140,156 128,158 Q10,130 -114,158 Q-126,156 -122,144Z"/>
+    <path class="hat ol" d="M-120,134 Q10,100 134,134 Q136,144 126,146 Q10,116 -112,146 Q-122,144 -120,134Z"/>
+    <!-- glasses side -->
+    <ellipse class="lens" cx="-66" cy="194" rx="24" ry="40"/>
+    <ellipse class="white ol" cx="-66" cy="194" rx="18" ry="30"/><circle class="ink" cx="-74" cy="192" r="11"/>
+    <ellipse fill="none" stroke="#1B1716" stroke-width="9" cx="-66" cy="194" rx="24" ry="40"/>
+    <path stroke="#1B1716" stroke-width="7" d="M-42,190 L22,190"/>
+    <path class="brow ol" stroke-width="2" d="M-92,140 Q-66,132 -42,144 L-44,152 Q-66,142 -90,150Z"/>
+    <ellipse class="blush" cx="-36" cy="240" rx="15" ry="9"/>
+    <path class="ink" d="M-90,252 Q-78,250 -66,254 Q-70,268 -84,268Z"/>
+  </g>
+  <text class="small" x="740" y="830">SIDE</text>
+
+  <!-- ===== EXPRESSIONS ===== -->
+  <text class="small" x="1060" y="130">EXPRESSIONS</text>
+  <g filter="url(#sticker)" transform="translate(1160,160) scale(0.62)">
+    <use xlink:href="#gordyHead"/><use xlink:href="#gordyGlasses"/>
+    <ellipse class="white ol" cx="-48" cy="190" rx="30" ry="30"/><ellipse class="white ol" cx="48" cy="190" rx="30" ry="30"/>
+    <circle class="ink" cx="-40" cy="192" r="10"/><circle class="ink" cx="40" cy="192" r="10"/>
+    <use xlink:href="#gordyFrames"/>
+    <path class="brow ol" stroke-width="2" d="M-82,140 Q-50,140 -20,156 L-22,164 Q-50,150 -80,150Z"/><path class="brow ol" stroke-width="2" d="M82,140 Q50,140 20,156 L22,164 Q50,150 80,150Z"/>
+    <path class="ol" fill="none" d="M-20,256 H20"/>
+  </g><text class="small" x="1128" y="370">INTENSE</text>
+  <g filter="url(#sticker)" transform="translate(1420,160) scale(0.62)">
+    <use xlink:href="#gordyHead"/><use xlink:href="#gordyGlasses"/>
+    <ellipse class="white ol" cx="-48" cy="190" rx="34" ry="36"/><ellipse class="white ol" cx="48" cy="190" rx="34" ry="36"/>
+    <circle class="ink" cx="-48" cy="190" r="5"/><circle class="ink" cx="48" cy="190" r="5"/>
+    <use xlink:href="#gordyFrames"/>
+    <path class="brow ol" stroke-width="2" d="M-82,124 Q-50,104 -20,118 L-22,128 Q-50,116 -80,136Z"/><path class="brow ol" stroke-width="2" d="M82,124 Q50,104 20,118 L22,128 Q50,116 80,136Z"/>
+    <path class="ol" fill="none" d="M-30,262 q10,-10 20,0 q10,10 20,0 q10,-10 20,0"/>
+    <path fill="#7FC4FF" d="M96,130 q8,14 0,20 q-8,-6 0,-20z"/>
+  </g><text class="small" x="1378" y="370">HORRIFIED</text>
+  <g filter="url(#sticker)" transform="translate(1160,470) scale(0.62)">
+    <use xlink:href="#gordyHead"/><use xlink:href="#gordyGlasses"/>
+    <ellipse class="white ol" cx="-48" cy="190" rx="32" ry="34"/><ellipse class="white ol" cx="48" cy="190" rx="32" ry="34"/>
+    <circle class="ink" cx="-48" cy="190" r="14"/><circle class="ink" cx="48" cy="190" r="14"/><circle class="white" cx="-42" cy="184" r="5"/><circle class="white" cx="54" cy="184" r="5"/>
+    <use xlink:href="#gordyFrames"/>
+    <path class="brow ol" stroke-width="2" d="M-82,122 Q-50,110 -20,124 L-22,134 Q-50,122 -80,132Z"/><path class="brow ol" stroke-width="2" d="M82,122 Q50,110 20,124 L22,134 Q50,122 80,132Z"/>
+    <path class="ink" d="M-34,246 h68 q0,32 -34,32 q-34,0 -34,-32z"/><path fill="#E07A7A" d="M-16,268 q16,-8 32,0 q-16,10 -32,0z"/>
+  </g><text class="small" x="1124" y="680">EXCITED</text>
+  <g filter="url(#sticker)" transform="translate(1420,470) scale(0.62)">
+    <use xlink:href="#gordyHead"/><use xlink:href="#gordyGlasses"/>
+    <ellipse class="white ol" cx="-48" cy="194" rx="30" ry="28"/><ellipse class="white ol" cx="48" cy="194" rx="30" ry="28"/>
+    <circle class="ink" cx="-48" cy="202" r="10"/><circle class="ink" cx="48" cy="202" r="10"/>
+    <path fill="#9FD0F0" d="M-60,222 q4,18 -4,24 q-8,-8 4,-24z"/>
+    <use xlink:href="#gordyFrames"/>
+    <path class="brow ol" stroke-width="2" d="M-82,152 Q-50,142 -20,134 L-20,144 Q-50,150 -80,162Z"/><path class="brow ol" stroke-width="2" d="M82,152 Q50,142 20,134 L20,144 Q50,150 80,162Z"/>
+    <path class="ol" fill="none" d="M-22,262 Q0,248 22,262"/>
+  </g><text class="small" x="1396" y="680">SAD</text>
+
+  
+</svg>
