@@ -63,3 +63,7 @@ Final intro length: **31.9s** (re-timed to the real vocals). Two cuts with diffe
 
 **Cost:** about 2,560 ElevenLabs credits (music 1,800, vocals about 760).
 **Timing:** `audio/cues.json` holds every line's start and end, and `intro.html` reads its scene timing from those cues, so changing a vocal only needs a re-render.
+
+## ✅ LOCKED: `MEDIAN_INTRO_FINAL.mp4`
+- **Music take A** (approved). Music sits about 5 dB lower under the vocals (volume 0.28, was 0.5), and the final mix is normalized to -14 LUFS.
+- Mix file: `audio/intro_mix_final.wav`. Take B is kept in `audio/music_B.mp3` as an alternate.
