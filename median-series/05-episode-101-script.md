@@ -2,7 +2,7 @@
 ### Production Script — Locked Draft v1.0
 **Target runtime:** 12:30 · **Scenes:** 14 · **Tunk's Object of the Week:** a red fire extinguisher · **Population sign:** 4,812
 
-> **Format key**
+> **Format key** (all timings in seconds; master format 1920×1080 at 60 fps)
 > `SHOT x.x` = camera/shot instruction · **SFX:** sound effect · **MUSIC:** music cue · **(beat)** = short pause · **(Median Stare)** = 12–24 frame hold of total stillness · `//` = overlapping dialogue · Timecodes are targets from the animatic.
 
 ---
@@ -129,7 +129,7 @@ TUNK holds a red **fire extinguisher** in his lap like a cat. Nobody mentions it
 > *(already calculating)*
 > —America buys it.
 
-`SHOT 3.5 — SNAP ZOOM (6 frames) on Marcus's eyes.` **SFX:** cash-register *ka-ching* (his signature laugh).
+`SHOT 3.5 — SNAP ZOOM (0.25s) on Marcus's eyes.` **SFX:** cash-register *ka-ching* (his signature laugh).
 
 > **WREN**
 > That's not how that—
@@ -543,7 +543,7 @@ FRINK stands very still. A speakerphone on the desk.
 > *(slides a black VOID box across the counter)*
 > On the house.
 
-`SHOT 8.3 — CLOSE on Wren,` staring at the box. (Median Stare — long one. 36 frames.)
+`SHOT 8.3 — CLOSE on Wren,` staring at the box. (Median Stare — long one. 1.5 seconds.)
 
 > **WREN**
 > …I'm not going to open it.
@@ -892,7 +892,7 @@ The crowd immediately and silently disperses, like they've done this before. A w
 
 `SHOT 12.5 — INSERT on screen:` an app store listing. **VOID+ — #1 TOP CHARTS.** Five stars. 2.4 million reviews.
 
-`SHOT 12.6 — SIX-SHOT, line-up order.` (Median Stare — all six. 24 frames.)
+`SHOT 12.6 — SIX-SHOT, line-up order.` (Median Stare — all six. 1 second.)
 
 > **WREN**
 > So we invented a way for a corporation to charge people for nothing.

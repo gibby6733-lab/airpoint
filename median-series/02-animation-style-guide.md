@@ -9,7 +9,7 @@
 
 | Element | Rule |
 |---|---|
-| **Format** | Clean, flat 2D, **16:9 at 1920×1080, 24 fps**. Dialogue scenes are animated on twos (12 drawings per second); fast action is on ones. Shorts are reframed to 9:16 (see section 9). |
+| **Format** | Clean, flat 2D, **16:9 at 1920×1080, 60 fps**. All motion is fully interpolated on every frame (no animating on twos, no stepped poses) so movement looks smooth. Puppet rigs and the render scripts work in seconds, not frames, so any frame rate renders cleanly. Shorts are reframed to 9:16 at 60 fps (see section 9). |
 | **Line** | Characters: a 4 px warm near-black outline (#2B2118), plus a 3 px **white sticker rim** around the outside of the silhouette. Backgrounds: thinner 2 px lines in a darker version of the local color, *never black*. That separates characters from backgrounds. |
 | **Shading** | Characters get **one flat shadow tone** (20% darker, multiplied) and no gradients. Backgrounds get a **subtle risograph-style grain texture plus soft halftone dots** in the shadows. |
 | **Shapes** | Soft rounded rectangles, no sharp corners, except for corporate products, which are sleek, perfectly geometric and glossy. (That's the visual joke: Median is soft; corporations are sharp.) |
@@ -64,7 +64,7 @@ These are locked in `01-show-bible.md`, section 4. Kenzie's pink puffer is the *
 ## 3. Character animation rules
 1. **On-model, always.** Proportions, colors and accessories never change mid-scene. Accessory checklist (check in every shot): Dex's headset, Wren's headphones, Marcus's fanny pack and earpiece, Gordy's hat, glasses and keys, Kenzie's phone and ring light, Tunk's loose overall strap and Object of the Week.
 2. **Limited, well-timed animation.** The comedy comes from timing, not motion volume. Hold poses. Let a character stand still while someone else panics.
-3. **The "Median Stare":** a full held beat (12–24 frames) of total stillness before or after a punchline. It's the show's comedic rhythm. Use it.
+3. **The "Median Stare":** a full held beat (0.5–1 second, 30–60 frames at 60 fps) of stillness before or after a punchline. Characters keep blinking and breathing slightly so the hold never looks frozen. It's the show's comedic rhythm. Use it.
 4. **Exaggerated takes are rare and huge.** A full squash-and-stretch freak-out happens at most two or three times an episode, which keeps them funny.
 5. **Walk cycles:** one locked walk cycle per character, reused everywhere.
    - Dex: chin up, big stride, arms swinging like a CEO.
@@ -85,7 +85,7 @@ These are locked in `01-show-bible.md`, section 4. Kenzie's pink puffer is the *
 | **Group two-shot or four-shot** | Default for gang conversations. Characters at the same eye level, framed by the line-up order. |
 | **Single medium close-up** | Punchlines and character reactions. |
 | **Slow push-in** | Someone realizes something terrible. |
-| **Snap zoom (6 frames)** | A sudden revelation, always with a sound sting. |
+| **Snap zoom (0.25s / 15 frames)** | A sudden revelation, always with a sound sting. |
 | **Low angle** | Dex's "visionary" moments, and corporate villains. |
 | **High overhead** | Crowd chaos, and the town seen as a "petri dish." |
 | **Through the mirror** | From Frink's side of the Mirror Room, slightly tinted violet. This is the show's signature "they're watching" shot. |
@@ -207,3 +207,11 @@ MEDIAN-STYLE: … , [LOC-PRUITT-GARAGE], [DEX] standing on a folding chair point
 - Compose key gag shots with a **centered "safe column"** (the middle 608 px of 1920) so they can be cropped to 9:16 without losing the joke.
 - Kenzie's phone-POV footage is natively vertical, so use it for Shorts.
 - Keep burned-in captions out of the master. Add them per Short.
+
+
+## 10. Frame rate and smoothness rules (60 fps)
+- Export every master and every Short at **60 fps** (`-r 60`), with H.264 High profile and yuv420p.
+- Every movement must use easing (ease-in/out), never linear or stepped, except deliberate snaps (snap zooms, pops, cuts).
+- Never use random per-frame values for flicker or jitter. Use time-based patterns so every render is identical and smooth.
+- AI-video inserts generated at 24/30 fps must be converted to 60 fps with motion interpolation (e.g. `ffmpeg -vf minterpolate=fps=60:mi_mode=mci`) or regenerated at 60, and checked for warping.
+- Idle life: characters never freeze completely. Use a slow breathing scale (about 1%) and blinks every 3–5 seconds.

@@ -229,7 +229,7 @@
 </div>
 
 <script>
-const DUR=31.94, FPS=24;
+const DUR=31.94, FPS=60;
 window.DUR=DUR;
 const LYR=[
  [2.7,5.320,"BAND","♪ Median! Median! Right in the middle! ♪"],
@@ -271,7 +271,7 @@ window.renderAt=function(t){
   if(L('s2')!==null){const k=ease(L('s2')/D('s2'));$('town').style.transform=`translateX(${-k*1280}px)`;$('neon').setAttribute('opacity',0.6+0.4*Math.abs(Math.sin(t*6)));}
   // S3: Dex bounces on the beat; Wren still (the joke)
   if(L('s3')!==null){const lt=L('s3');$('dex3').style.transform=`translateY(${-bounce(lt,2.2,22)}px) rotate(${Math.sin(lt*6)*2}deg)`;
-    $('wren3').style.transform=lt>1.6?'translateY(0)':`translateY(0)`;}
+    $('wren3').style.transform=`scale(${1+0.008*Math.sin(lt*2.4)},${1+0.012*Math.sin(lt*2.4)})`;}
   // S4: cube glow pulses, corn sways
   if(L('s4')!==null){const lt=L('s4');$('cubeglow').setAttribute('opacity',0.5+0.5*Math.sin(lt*4));
     document.querySelectorAll('#corn4 .stalk').forEach((s,i)=>{const tr=s.getAttribute('transform').replace(/ rotate\(.*\)/,'');s.setAttribute('transform',tr+` rotate(${Math.sin(lt*3+i*.3)*4})`);});}
@@ -288,14 +288,14 @@ window.renderAt=function(t){
   if(L('s7')!==null){const lt=L('s7')/D('s7');const n=Math.round(2304+Math.pow(lt,3)*997696);$('fol').textContent=n.toLocaleString('en-US');
     $('kenzie7').style.transform=`translateY(${-bounce(t,2.2,14)}px)`;}
   // S8: Tunk still; the hill opens an eye
-  if(L('s8')!==null){const lt=L('s8');const e=$('hilleye');const o=lt<D('s8')*0.55?0:ease((lt-D('s8')*0.55)/0.4);
+  if(L('s8')!==null){const lt=L('s8');$('tunk8').style.transform=`scale(${1+0.006*Math.sin(lt*1.8)},${1+0.010*Math.sin(lt*1.8)})`;const e=$('hilleye');const o=lt<D('s8')*0.55?0:ease((lt-D('s8')*0.55)/0.4);
     e.children[0].setAttribute('ry',34*o);e.children[1].setAttribute('r',14*o);
     document.querySelectorAll('#junk *').forEach((j,i)=>j.setAttribute('opacity',0.5+0.5*Math.abs(Math.sin(lt*3+i))));}
   // S9: cast pops in one by one, neon flickers, Frink appears in window
   if(L('s9')!==null){const lt=L('s9');const imgs=document.querySelectorAll('#s9 .ch');let x=70;
     imgs.forEach((im,i)=>{const h=Math.round(600*lineupH[i]/1.10);im.style.height=h+'px';im.style.left=(0+i*282)+'px';im.style.bottom='170px';
       const s=ease((lt-i*0.22)/0.35);im.style.transform=`translateY(${(1-s)*400}px) translateY(${-bounce(lt,2.2,8)}px)`;});
-    $('neon9').setAttribute('opacity',Math.random()<0.15?0.2:1);$('frinksil').setAttribute('opacity',lt>2?1:0);}
+    $('neon9').setAttribute('opacity',((lt%1.3)<0.07||(lt>1.62&&lt<1.7))?0.25:1);$('frinksil').setAttribute('opacity',lt>2?1:0);}
   // S10: logo slams in, stamp lands
   if(t>=SCN.s10[0]){const lt=t-SCN.s10[0];const s=ease(lt/0.35);$('logo').setAttribute('transform',`translate(960,470) scale(${0.6+0.4*s})`);$('logo').setAttribute('opacity',s);
     $('stripes').setAttribute('transform',`translate(${lt*60},0)`);

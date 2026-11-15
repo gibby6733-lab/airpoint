@@ -1,11 +1,11 @@
 # MEDIAN — Main Title Sequence ("Welcome to Median")
 
-**Length:** 30 seconds · **Format:** 1920×1080, 24 fps · **Used on:** every episode, after the cold open.
+**Length:** 30 seconds · **Format:** 1920×1080, **60 fps** · **Used on:** every episode, after the cold open.
 **Animatic:** `median_intro_animatic_v02.mp4` (silent, with lyric captions and timing locked).
 **Source:** `intro.html` (every shot is code, so it re-renders the same way every time). Rebuild with:
 ```
-node tools/render-intro.js <framesDir> 24
-ffmpeg -framerate 24 -i <framesDir>/%04d.png -c:v libx264 -pix_fmt yuv420p intro/median_intro_animatic_v02.mp4
+node tools/render-intro.js <framesDir> 60
+ffmpeg -framerate 60 -i <framesDir>/%04d.png -i intro/audio/intro_mix_final.wav -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 18 -r 60 -c:a aac -b:a 192k -shortest intro/MEDIAN_INTRO_FINAL.mp4
 ```
 
 ## What we took from the reference (structure only)
