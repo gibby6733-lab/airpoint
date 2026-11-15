@@ -1,6 +1,6 @@
-# MEDIAN — Voice Cast v1 (test casting, not locked)
+# MEDIAN — Voice Cast v1 (LOCKED — approved 2026-11-15)
 
-ElevenLabs library voices picked for the first test. They aren't locked until you approve them.
+ElevenLabs library voices, approved by the showrunner. Use these exact voice IDs for every episode.
 Model: `eleven_v4`, with inline direction tags (e.g. `[deadpan]`, `[voice cracks]`).
 Test flow: "MEDIAN — Cast Voice Tests v1" in ElevenLabs Flows (2 takes per character).
 
