@@ -129,7 +129,7 @@ no photorealism, no 3D render, no anime, no gradients, no paper cutout texture, 
 
 ### CHARACTER TOKENS
 ```
-[DEX] 12-year-old boy, tallest of the group, light peach skin, sandy blond hair in a tall swoop with one cowlick sticking straight up at the back, upward-tilted confident eyes, oversized charcoal blazer with pushed-up sleeves over a red hoodie with hood outside the collar, tan chinos, white sneakers with red laces, black headset microphone with loose dangling cable
+[DEX] 12-year-old boy, tallest of the group, light peach skin, sandy blond hair in a tall swoop with one cowlick sticking straight up at the back, upward-tilted confident eyes, oversized charcoal blazer with pushed-up sleeves over a red hoodie with hood outside the collar, pale-blond tufty quiff, rosy blush cheeks, tan chinos with rolled cuffs, white low sneakers with a red side stripe, dark charcoal over-ear headphones with a boom microphone curving to his mouth
 ```
 ```
 [WREN] 12-year-old girl, deep brown skin, black box braids in a big high bun with two loose front braids, half-lidded unimpressed eyes with one eyebrow raised, olive green army jacket with small crescent-moon pin on collar, grey t-shirt, black jeans, worn purple high-top sneakers, chunky white over-ear headphones around her neck

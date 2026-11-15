@@ -287,7 +287,8 @@ Six seventh graders grow up inside the experiment. The adults are paid to be ave
 - **Hair:** sandy blond (#E3B75C) in a tall swoop with **one cowlick sticking straight up** at the back. It never moves.
 - **Eyes:** ovals tilted slightly upward (the "visionary" look), with confident heavy-lidded brows.
 - **Outfit:** an **oversized charcoal blazer (#3C3F47)**, sleeves pushed up, over a **red hoodie (#D6453D)**, hood out over the collar. Tan chinos. White sneakers with red laces.
-- **Accessory:** a **black headset mic** with a little foam ball on one cheek and a loose cable dangling to nothing.
+- **Accessory:** **dark charcoal over-ear headphones (#2F3238) with a boom mic** curving to the corner of his mouth. They aren't plugged into anything. *(v02: updated to match the approved style test. Reference: `assets/characters/dex_sheet_v02.svg`.)*
+- **Details (v02):** pale-blond tufty quiff (#F2D27A), rosy blush, chinos with rolled cuffs, white low sneakers with a red side stripe.
 - **Silhouette identifier:** the cowlick, the wide blazer shoulders and the headset arm.
 - **Default pose:** chest out, one hand raised as if presenting a slide.
 
