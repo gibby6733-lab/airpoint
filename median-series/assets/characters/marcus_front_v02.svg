@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="50 90 560 700" width="560" height="700">
+  <!-- MEDIAN — MARCUS "MARGIN" FELD — reference sheet v02 -->
+  <defs>
+    <filter id="sticker" x="-15%" y="-15%" width="130%" height="130%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="grown"/>
+      <feFlood flood-color="#FFFFFF"/><feComposite in2="grown" operator="in" result="rim"/>
+      <feGaussianBlur in="grown" stdDeviation="4" result="soft"/>
+      <feFlood flood-color="#C9B48F" flood-opacity="0.35"/><feComposite in2="soft" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="rim"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .ol{stroke:#2E2018;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+      .skin{fill:#C9956B}.skinS{fill:#AE7A52}.blush{fill:#D9786A;opacity:.45}
+      .hair{fill:#3B2A20}.shine{stroke:#7A5E4A;stroke-width:4;fill:none;stroke-linecap:round}
+      .brow{fill:#2B1D15}
+      .polo{fill:#24375E}.poloS{fill:#1A2A4A}
+      .short{fill:#C9AE7C}.shortS{fill:#AE9364}
+      .belt{fill:#7A5230}.sock{fill:#FFFFFF}.loafer{fill:#5A3A22}.loaferL{fill:#7A5236}
+      .gold{fill:#D4A93A}.goldS{fill:#B48C26}.cash{fill:#7DBA6A}
+      .dev{fill:#2B2D33}.screen{fill:#9FD4C8}
+      .ink{fill:#2B1D15}.white{fill:#FFFFFF}
+      .label{font:700 26px 'Helvetica Neue',Arial,sans-serif;fill:#3A2A1E;letter-spacing:2px}
+      .small{font:600 16px 'Helvetica Neue',Arial,sans-serif;fill:#7A6A58;letter-spacing:1px}
+    </style>
+    <g id="marcusHead">
+      <ellipse class="skin ol" cx="-104" cy="196" rx="16" ry="22"/>
+      <ellipse class="skin ol" cx="104" cy="196" rx="16" ry="22"/>
+      <rect class="skin ol" x="-100" y="64" width="200" height="220" rx="90"/>
+      <!-- slicked-back hair -->
+      <path class="hair ol" d="M-100,170 Q-112,66 0,58 Q112,66 100,170 Q96,130 70,124 Q36,118 0,128 Q-36,118 -70,124 Q-96,130 -100,170Z"/>
+      <path class="shine" d="M-60,92 Q-20,74 30,80 M-70,112 Q-30,98 10,100 M20,98 Q50,94 76,108"/>
+      <!-- earpiece (his right ear = viewer left) -->
+      <rect class="dev ol" x="-118" y="186" width="16" height="26" rx="7" stroke-width="2.5"/>
+      <circle cx="-110" cy="194" r="3" fill="#5BC0FF"/>
+      <ellipse class="blush" cx="-60" cy="226" rx="16" ry="10"/><ellipse class="blush" cx="60" cy="226" rx="16" ry="10"/>
+      <path class="skinS ol" stroke-width="2" d="M-11,202 Q0,224 11,202 Q8,216 0,218 Q-8,216 -11,202Z"/>
+    </g>
+    <!-- narrow calculating eyes -->
+    <g id="marcusEyes">
+      <path class="white ol" d="M-72,180 Q-42,160 -12,180 Q-42,196 -72,180Z"/>
+      <path class="white ol" d="M72,180 Q42,160 12,180 Q42,196 72,180Z"/>
+    </g>
+  </defs>
+
+  
+  <text class="label" x="40" y="54">MARCUS "MARGIN" FELD — MODEL SHEET v02</text>
+  <text class="small" x="40" y="80">MEDIAN · locked design · height index 0.88 (shortest) · line-up position 1 of 6</text>
+
+  <!-- ===== FRONT ===== -->
+  <g id="MARCUS-front" filter="url(#sticker)" transform="translate(330,120)">
+    <!-- legs: shorts, bare legs, socks, loafers -->
+    <rect class="skin ol" x="-52" y="520" width="40" height="90" rx="10"/>
+    <rect class="skin ol" x="12" y="520" width="40" height="90" rx="10"/>
+    <rect class="sock ol" x="-54" y="580" width="44" height="40" rx="8"/>
+    <rect class="sock ol" x="10" y="580" width="44" height="40" rx="8"/>
+    <path class="loafer ol" d="M-78,656 Q-80,622 -52,618 h44 q10,0 10,14 v24z"/>
+    <path class="loafer ol" d="M78,656 Q80,622 52,618 h-44 q-10,0 -10,14 v24z"/>
+    <path class="loaferL" d="M-58,626 h30 v6 h-30z M28,626 h30 v6 h-30z"/>
+    <path class="short ol" d="M-74,462 h148 v62 q0,10 -10,10 h-56 l-8,-24 l-8,24 h-56 q-10,0 -10,-10z"/>
+    <path class="shortS" d="M-64,480 l20,0 l-6,30z M64,480 l-20,0 l6,30z"/>
+    <!-- polo -->
+    <rect class="polo ol" x="-76" y="290" width="152" height="182" rx="22"/>
+    <rect class="belt ol" x="-76" y="458" width="152" height="18" rx="4"/>
+    <path stroke="#5A3A20" stroke-width="2" d="M-70,462 l8,10 M-54,462 l8,10 M-38,462 l8,10 M30,462 l8,10 M46,462 l8,10 M62,462 l8,10"/>
+    <rect class="gold ol" x="-14" y="456" width="28" height="22" rx="4" stroke-width="2.5"/>
+    <!-- collar + placket -->
+    <path class="poloS ol" d="M-50,292 L0,300 L50,292 L40,320 L0,306 L-40,320Z"/>
+    <path class="ol" fill="none" d="M0,306 V350"/><circle cx="0" cy="322" r="3" fill="#FFFFFF"/><circle cx="0" cy="340" r="3" fill="#FFFFFF"/>
+    <!-- logo -->
+    <circle class="gold ol" cx="44" cy="338" r="10" stroke-width="2"/><text x="39" y="344" font-family="Arial" font-weight="700" font-size="14" fill="#24375E">$</text>
+    <!-- short sleeves + arms -->
+    <path class="polo ol" d="M-76,300 Q-112,302 -116,346 L-80,352z"/>
+    <path class="polo ol" d="M76,300 Q112,302 116,346 L80,352z"/>
+    <!-- left (viewer right) arm down, rubbing fingers -->
+    <rect class="skin ol" x="84" y="340" width="30" height="110" rx="14"/>
+    <ellipse class="skin ol" cx="100" cy="462" rx="18" ry="20"/>
+    <path class="ol" fill="none" stroke-width="2.5" d="M90,470 q10,6 20,0"/>
+    <!-- right (viewer left) arm bent up holding phone -->
+    <path class="skin ol" d="M-112,342 l-6,70 q0,16 16,14 l46,-6 q12,-2 10,-14 q-2,-12 -14,-10 l-32,4 l4,-58z"/>
+    <g transform="translate(-48,370) rotate(-8)">
+      <rect class="dev ol" x="-18" y="-46" width="40" height="70" rx="7"/>
+      <rect class="screen" x="-12" y="-38" width="28" height="12" rx="2"/>
+      <g fill="#E8E8E8"><rect x="-12" y="-22" width="7" height="7"/><rect x="-2" y="-22" width="7" height="7"/><rect x="8" y="-22" width="7" height="7"/><rect x="-12" y="-12" width="7" height="7"/><rect x="-2" y="-12" width="7" height="7"/><rect x="8" y="-12" width="7" height="7" fill="#D4A93A"/></g>
+      <ellipse class="skin ol" cx="-14" cy="6" rx="12" ry="16"/>
+    </g>
+    <!-- fanny pack across chest -->
+    <path fill="none" stroke="#2E2018" stroke-width="13" stroke-linecap="round" d="M-60,296 L70,430"/>
+    <path fill="none" stroke="#6A4A2A" stroke-width="8" stroke-linecap="round" d="M-60,296 L70,430"/>
+    <g transform="rotate(-24 0 380)">
+      <path class="cash ol" stroke-width="2.5" d="M-34,356 h30 v16 h-30z M-6,352 h30 v18 h-30z"/>
+      <rect class="gold ol" x="-48" y="362" width="96" height="44" rx="20"/>
+      <path class="goldS" d="M-40,372 h80 v6 h-80z"/>
+      <path class="ol" fill="none" stroke-width="2.5" d="M-40,372 H40"/>
+    </g>
+    <!-- head -->
+    <use xlink:href="#marcusHead"/><use xlink:href="#marcusEyes"/>
+    <circle class="ink" cx="-30" cy="180" r="8"/><circle class="ink" cx="54" cy="180" r="8"/>
+    <path class="brow ol" stroke-width="2" d="M-74,152 Q-44,152 -14,166 L-16,174 Q-44,162 -74,162Z"/>
+    <path class="brow ol" stroke-width="2" d="M74,148 Q44,146 14,160 L16,168 Q44,156 74,158Z"/>
+    <path class="ol" fill="none" d="M-26,246 Q8,256 36,236"/>
+  </g>
+  <text class="small" x="300" y="830">FRONT</text>
+
+  <!-- ===== SIDE (facing left) ===== -->
+  <g id="MARCUS-side" filter="url(#sticker)" transform="translate(760,120)">
+    <rect class="skinS ol" x="-16" y="520" width="38" height="90" rx="10"/>
+    <rect class="skin ol" x="-30" y="520" width="40" height="90" rx="10"/>
+    <rect class="sock ol" x="-32" y="580" width="44" height="40" rx="8"/>
+    <path class="loafer ol" d="M-84,656 Q-86,622 -56,618 h66 q10,0 10,14 v24z"/>
+    <path class="loaferL" d="M-60,626 h28 v6 h-28z"/>
+    <path class="short ol" d="M-44,462 h96 q8,0 8,10 v60 h-108 v-60 q0,-10 4,-10z"/>
+    <path class="polo ol" d="M-56,292 h96 q22,0 24,24 l4,150 h-130 l-6,-150 q0,-24 12,-24z"/>
+    <rect class="belt ol" x="-58" y="458" width="132" height="18" rx="4"/>
+    <path class="poloS ol" d="M-30,290 l40,0 l-6,24 l-30,-4z"/>
+    <!-- fanny pack bulge at front -->
+    <path class="cash ol" stroke-width="2.5" d="M-74,356 h22 v16 h-22z"/>
+    <rect class="gold ol" x="-84" y="364" width="50" height="46" rx="18"/>
+    <path fill="none" stroke="#6A4A2A" stroke-width="8" d="M-40,370 L10,300"/>
+    <!-- arm hanging -->
+    <path class="polo ol" d="M-6,300 q30,0 32,26 l2,28 h-50 l0,-28 q0,-26 16,-26z"/>
+    <rect class="skin ol" x="-18" y="350" width="34" height="100" rx="14"/>
+    <ellipse class="skin ol" cx="0" cy="464" rx="18" ry="20"/>
+    <!-- head profile -->
+    <path class="skin ol" d="M-86,154 Q-96,76 -20,64 L50,64 Q104,68 104,154 L104,202 Q104,284 20,284 L-30,284 Q-70,284 -82,240 L-90,232 Q-106,222 -96,206 L-88,198 Z"/>
+    <path class="skin ol" d="M-88,196 Q-112,190 -104,172 Q-96,164 -86,170"/>
+    <ellipse class="skin ol" cx="28" cy="194" rx="16" ry="22"/>
+    <rect class="dev ol" x="18" y="186" width="16" height="24" rx="7" stroke-width="2.5"/><circle cx="26" cy="194" r="3" fill="#5BC0FF"/>
+    <path class="hair ol" d="M-84,142 Q-90,62 10,56 Q100,56 108,150 Q110,190 100,214 Q90,150 50,134 Q-10,118 -84,142Z"/>
+    <path class="shine" d="M-50,90 Q10,70 70,92 M-40,112 Q20,96 80,118"/>
+    <path class="white ol" d="M-80,180 Q-60,164 -42,180 Q-60,192 -80,180Z"/>
+    <circle class="ink" cx="-68" cy="180" r="7"/>
+    <path class="brow ol" stroke-width="2" d="M-84,154 Q-62,154 -40,166 L-42,174 Q-62,164 -84,164Z"/>
+    <ellipse class="blush" cx="-40" cy="226" rx="15" ry="9"/>
+    <path class="ol" fill="none" d="M-84,246 Q-72,250 -60,240"/>
+  </g>
+  <text class="small" x="740" y="830">SIDE</text>
+
+  <!-- ===== EXPRESSIONS ===== -->
+  <text class="small" x="1060" y="130">EXPRESSIONS</text>
+  <g filter="url(#sticker)" transform="translate(1160,160) scale(0.62)">
+    <use xlink:href="#marcusHead"/><use xlink:href="#marcusEyes"/>
+    <circle class="ink" cx="-30" cy="180" r="8"/><circle class="ink" cx="54" cy="180" r="8"/>
+    <path class="brow ol" stroke-width="2" d="M-74,148 Q-44,152 -14,170 L-16,178 Q-44,162 -74,158Z"/><path class="brow ol" stroke-width="2" d="M74,148 Q44,152 14,170 L16,178 Q44,162 74,158Z"/>
+    <path class="white ol" d="M-40,236 Q4,256 44,228 Q38,262 2,264 Q-30,262 -40,236Z"/>
+  </g><text class="small" x="1122" y="370">SCHEMING</text>
+  <g filter="url(#sticker)" transform="translate(1420,160) scale(0.62)">
+    <use xlink:href="#marcusHead"/>
+    <path class="white ol" d="M-72,182 Q-42,170 -12,182 Q-42,190 -72,182Z"/><path class="white ol" d="M72,176 Q42,156 12,176 Q42,194 72,176Z"/>
+    <circle class="ink" cx="-42" cy="182" r="5"/><circle class="ink" cx="42" cy="176" r="8"/>
+    <path class="brow ol" stroke-width="2" d="M-74,164 Q-44,160 -14,170 L-16,178 Q-44,170 -74,174Z"/><path class="brow ol" stroke-width="2" d="M74,138 Q44,128 14,144 L16,152 Q44,138 74,148Z"/>
+    <path class="ol" fill="none" d="M-20,248 Q0,244 20,248"/>
+  </g><text class="small" x="1368" y="370">CALCULATING</text>
+  <g filter="url(#sticker)" transform="translate(1160,470) scale(0.62)">
+    <use xlink:href="#marcusHead"/>
+    <ellipse class="white ol" cx="-42" cy="176" rx="30" ry="32"/><ellipse class="white ol" cx="42" cy="176" rx="30" ry="32"/>
+    <circle class="ink" cx="-42" cy="176" r="6"/><circle class="ink" cx="42" cy="176" r="6"/>
+    <path class="brow ol" stroke-width="2" d="M-74,140 Q-44,118 -14,124 L-14,134 Q-44,130 -74,152Z"/><path class="brow ol" stroke-width="2" d="M74,140 Q44,118 14,124 L14,134 Q44,130 74,152Z"/>
+    <path class="ink" d="M-30,236 h60 q4,26 -30,28 q-34,-2 -30,-28z"/>
+    <path fill="#7FC4FF" d="M86,120 q8,14 0,20 q-8,-6 0,-20z"/>
+  </g><text class="small" x="1134" y="680">PANIC</text>
+  <g filter="url(#sticker)" transform="translate(1420,470) scale(0.62)">
+    <use xlink:href="#marcusHead"/><use xlink:href="#marcusEyes"/>
+    <path class="skin" d="M-72,166 h60 v14 Q-42,176 -72,180Z"/><path class="skin" d="M72,166 h-60 v14 Q42,176 72,180Z"/>
+    <circle class="ink" cx="-42" cy="184" r="7"/><circle class="ink" cx="42" cy="184" r="7"/>
+    <path class="brow ol" stroke-width="2" d="M-74,152 Q-44,146 -14,140 L-14,150 Q-44,156 -74,162Z"/><path class="brow ol" stroke-width="2" d="M74,152 Q44,146 14,140 L14,150 Q44,156 74,162Z"/>
+    <path class="ol" fill="none" d="M-26,250 Q0,240 30,244"/>
+  </g><text class="small" x="1358" y="680">IMPRESSED-DEFEAT</text>
+
+  
+</svg>
