@@ -51,10 +51,15 @@ A short, sung, upbeat theme: a lead singer trades lines with each kid, every kid
 - **Recall Hill (shot 8):** add each episode's failed product to the junk.
 - **Frink's window (shot 9):** one tiny change per episode, rewarding freeze-frame fans.
 
-## Audio plan (not produced yet)
-| Piece | Tool | Estimated cost |
+## Audio (v03, produced)
+Final intro length: **31.9s** (re-timed to the real vocals). Two cuts with different music takes: `median_intro_v03_musicA.mp4` and `median_intro_v03_musicB.mp4`.
+
+| Piece | Source | Notes |
 |---|---|---|
-| Music bed and band vocal, 30s, 2 takes | ElevenLabs Music v2.5 | **3,000 credits** (~$0.60) |
-| Kid lines, 7 lines × 2 takes, in the locked cast voices | ElevenLabs v4 | **~700 credits** (~$0.14) |
-| Pen click, siren chirp, kazoo stings | ElevenLabs sound effects, or a free SFX library | small / free |
-| **Total** | | **~3,700 credits (~$0.75)** |
+| Music bed (takes A and B) | ElevenLabs Music v2.5, 30s instrumental marching band | slowed 6% (pitch kept) to fit the vocals |
+| Band chant (4 lines + "MEDIAN!") | ElevenLabs v4, voice **Jay Johnson (Fun Commercial VO)** `8zu9JdWzG7LvGSTz3uf7` | this is now the show's locked "Median Band" voice |
+| Kid lines (6) | ElevenLabs v4, each in their locked cast voice (`voice-cast.md`) | sped up 10% (pitch kept), long pauses trimmed |
+| Mix | ffmpeg: vocals over music with a light slapback echo, loudness -14 LUFS | rebuild from `audio/` + `audio/cues.json` |
+
+**Cost:** about 2,560 ElevenLabs credits (music 1,800, vocals about 760).
+**Timing:** `audio/cues.json` holds every line's start and end, and `intro.html` reads its scene timing from those cues, so changing a vocal only needs a re-render.

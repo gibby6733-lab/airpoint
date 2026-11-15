@@ -229,23 +229,24 @@
 </div>
 
 <script>
-const DUR=30, FPS=24;
-// lyric timeline: [start, end, speaker, line]
+const DUR=31.94, FPS=24;
+window.DUR=DUR;
 const LYR=[
- [0.0,3.0,"",""],
- [3.0,6.0,"BAND","♪ Median! Median! Right in the middle! ♪"],
- [6.0,7.6,"DEX","♪ This is gonna change the world— ♪"],
- [7.6,9.0,"WREN","♪ —it's gonna change a little. ♪"],
- [9.0,12.0,"BAND","♪ Median! Median! Average and proud! ♪"],
- [12.0,13.5,"MARCUS","♪ Everything's on sale today— ♪"],
- [13.5,15.0,"GORDY","♪ —and someone's watching from the cloud! ♪"],
- [15.0,18.0,"BAND","♪ Median! Median! America tries it first! ♪"],
- [18.0,21.0,"KENZIE","♪ Like and subscribe or it's literally the worst! ♪"],
- [21.0,24.0,"TUNK","(calm, off-key) Grandpa says don't eat the hill… the hill eats first."],
- [24.0,27.5,"BAND","♪ Median! Median! Neither here nor there! ♪"],
- [27.5,30.0,"ALL","♪ MEDIAN! ♪"],
+ [2.7,5.320,"BAND","♪ Median! Median! Right in the middle! ♪"],
+ [5.32,7.452,"DEX","♪ This is gonna change the world— ♪"],
+ [7.452,8.866,"WREN","♪ —it's gonna change a little. ♪"],
+ [8.866,11.874,"BAND","♪ Median! Median! Average and proud! ♪"],
+ [11.874,13.509,"MARCUS","♪ Everything's on sale today— ♪"],
+ [13.509,15.475,"GORDY","♪ —and someone's watching from the cloud! ♪"],
+ [15.475,18.919,"BAND","♪ Median! Median! America tries it first! ♪"],
+ [18.919,21.953,"KENZIE","♪ Like and subscribe or it's literally the worst! ♪"],
+ [21.953,26.244,"TUNK","(calm, off-key) Grandpa says don't eat the hill… the hill eats first."],
+ [26.244,29.432,"BAND","♪ Median! Median! Neither here nor there! ♪"],
+ [29.562,30.761,"ALL","♪ MEDIAN! ♪"]
 ];
-const SC=[[0,3,'s1'],[3,6,'s2'],[6,9,'s3'],[9,12,'s4'],[12,15,'s5'],[15,18,'s6'],[18,21,'s7'],[21,24,'s8'],[24,27.5,'s9'],[27.5,30,'s10']];
+const SCN={"s1": [0, 2.7], "s2": [2.7, 5.32], "s3": [5.32, 8.866], "s4": [8.866, 11.874], "s5": [11.874, 15.475], "s6": [15.475, 18.919], "s7": [18.919, 21.953], "s8": [21.953, 26.244], "s9": [26.244, 29.362000000000002], "s10": [29.362000000000002, 31.94]};
+const GO=1.635;
+
 const $=id=>document.getElementById(id);
 const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
 const bounce=(t,f=2.2,a=10)=>Math.abs(Math.sin(t*Math.PI*f))*a; // beat bounce (~132bpm)
@@ -258,44 +259,45 @@ corn($('corn1'),620,3,0.8); corn($('corn4'),880,4,1.2);
 const lineupH=[0.88,0.96,1.00,1.04,1.06,1.10];
 
 window.renderAt=function(t){
-  for(const [a,b,id] of SC){$(id).style.display=(t>=a&&t<b)||(id==='s10'&&t>=27.5)?'block':'none';}
+  const L=id=>{const r=SCN[id];return (t>=r[0]&&t<r[1])?t-r[0]:null;}; const D=id=>SCN[id][1]-SCN[id][0];
+  for(const id in SCN){$(id).style.display=L(id)!==null||(id==='s10'&&t>=SCN.s10[0])?'block':'none';}
   // captions
-  const L=LYR.find(l=>t>=l[0]&&t<l[1]);const cap=$('cap');
-  if(L&&L[3]){cap.style.display='block';cap.innerHTML=(L[2]?`<b>${L[2]}</b>`:'')+L[3];}else cap.style.display='none';
+  const Y=LYR.find(l=>t>=l[0]&&t<l[1]);const cap=$('cap');
+  if(Y&&Y[3]){cap.style.display='block';cap.innerHTML=(Y[2]?`<b>${Y[2]}</b>`:'')+Y[3];}else cap.style.display='none';
   // S1: car drives past, pop sign flips 4,812 -> 4,813 -> 4,812
-  if(t<3){const k=t/3;$('car').setAttribute('transform',`translate(${-300+k*2400},${830+Math.sin(t*20)*3})`);
+  if(L('s1')!==null){const k=L('s1')/D('s1');$('car').setAttribute('transform',`translate(${-300+k*2400},${830+Math.sin(t*20)*3})`);
     $('pop').textContent = (t>1.2&&t<2.2)?'4,813':'4,812';}
   // S2: pan across downtown, neon pulses
-  if(t>=3&&t<6){const k=ease((t-3)/3);$('town').style.transform=`translateX(${-k*1280}px)`;$('neon').setAttribute('opacity',0.6+0.4*Math.abs(Math.sin(t*6)));}
+  if(L('s2')!==null){const k=ease(L('s2')/D('s2'));$('town').style.transform=`translateX(${-k*1280}px)`;$('neon').setAttribute('opacity',0.6+0.4*Math.abs(Math.sin(t*6)));}
   // S3: Dex bounces on the beat; Wren still (the joke)
-  if(t>=6&&t<9){const lt=t-6;$('dex3').style.transform=`translateY(${-bounce(lt,2.2,22)}px) rotate(${Math.sin(lt*6)*2}deg)`;
+  if(L('s3')!==null){const lt=L('s3');$('dex3').style.transform=`translateY(${-bounce(lt,2.2,22)}px) rotate(${Math.sin(lt*6)*2}deg)`;
     $('wren3').style.transform=lt>1.6?'translateY(0)':`translateY(0)`;}
   // S4: cube glow pulses, corn sways
-  if(t>=9&&t<12){const lt=t-9;$('cubeglow').setAttribute('opacity',0.5+0.5*Math.sin(lt*4));
+  if(L('s4')!==null){const lt=L('s4');$('cubeglow').setAttribute('opacity',0.5+0.5*Math.sin(lt*4));
     document.querySelectorAll('#corn4 .stalk').forEach((s,i)=>{const tr=s.getAttribute('transform').replace(/ rotate\(.*\)/,'');s.setAttribute('transform',tr+` rotate(${Math.sin(lt*3+i*.3)*4})`);});}
   // S5: eye in the mirror opens when Gordy sings, pupil darts
-  if(t>=12&&t<15){const lt=t-12;$('marcus5').style.transform=`translateY(${-bounce(lt,2.2,10)}px)`;
-    $('gordy5').style.transform=`translateY(${lt>1.5?-bounce(lt,2.2,16):0}px)`;
-    const open=lt<1.4?0:ease((lt-1.4)/0.3);$('eye5').setAttribute('opacity',open);
-    $('pupil5').setAttribute('cx',lt>2.2?-40:20);
-    $('lid5').setAttribute('height',(lt>2.6&&lt<2.75)?120:0);}
+  if(L('s5')!==null){const lt=L('s5');$('marcus5').style.transform=`translateY(${-bounce(lt,2.2,10)}px)`;
+    $('gordy5').style.transform=`translateY(${lt>GO-0.1?-bounce(lt,2.2,16):0}px)`;
+    const open=lt<GO-0.2?0:ease((lt-GO+0.2)/0.3);$('eye5').setAttribute('opacity',open);
+    $('pupil5').setAttribute('cx',lt>GO+0.6?-40:20);
+    $('lid5').setAttribute('height',(lt>GO+1.0&&lt<GO+1.15)?120:0);}
   // S6: products pop in on the beat
-  if(t>=15&&t<18){const lt=t-15;document.querySelectorAll('.prod').forEach((p,i)=>{const s=ease((lt*4-i*0.25));p.setAttribute('opacity',s);});
+  if(L('s6')!==null){const lt=L('s6');document.querySelectorAll('.prod').forEach((p,i)=>{const s=ease((lt*4-i*0.25));p.setAttribute('opacity',s);});
     $('endcap').setAttribute('transform',`translate(960,560) scale(${1+0.02*Math.sin(lt*14)})`);}
   // S7: follower counter climbs
-  if(t>=18&&t<21){const lt=(t-18)/3;const n=Math.round(2304+Math.pow(lt,3)*997696);$('fol').textContent=n.toLocaleString('en-US');
+  if(L('s7')!==null){const lt=L('s7')/D('s7');const n=Math.round(2304+Math.pow(lt,3)*997696);$('fol').textContent=n.toLocaleString('en-US');
     $('kenzie7').style.transform=`translateY(${-bounce(t,2.2,14)}px)`;}
   // S8: Tunk still; the hill opens an eye
-  if(t>=21&&t<24){const lt=t-21;const e=$('hilleye');const o=lt<1.6?0:ease((lt-1.6)/0.4);
+  if(L('s8')!==null){const lt=L('s8');const e=$('hilleye');const o=lt<D('s8')*0.55?0:ease((lt-D('s8')*0.55)/0.4);
     e.children[0].setAttribute('ry',34*o);e.children[1].setAttribute('r',14*o);
     document.querySelectorAll('#junk *').forEach((j,i)=>j.setAttribute('opacity',0.5+0.5*Math.abs(Math.sin(lt*3+i))));}
   // S9: cast pops in one by one, neon flickers, Frink appears in window
-  if(t>=24&&t<27.5){const lt=t-24;const imgs=document.querySelectorAll('#s9 .ch');let x=70;
+  if(L('s9')!==null){const lt=L('s9');const imgs=document.querySelectorAll('#s9 .ch');let x=70;
     imgs.forEach((im,i)=>{const h=Math.round(600*lineupH[i]/1.10);im.style.height=h+'px';im.style.left=(0+i*282)+'px';im.style.bottom='170px';
       const s=ease((lt-i*0.22)/0.35);im.style.transform=`translateY(${(1-s)*400}px) translateY(${-bounce(lt,2.2,8)}px)`;});
     $('neon9').setAttribute('opacity',Math.random()<0.15?0.2:1);$('frinksil').setAttribute('opacity',lt>2?1:0);}
   // S10: logo slams in, stamp lands
-  if(t>=27.5){const lt=t-27.5;const s=ease(lt/0.35);$('logo').setAttribute('transform',`translate(960,470) scale(${0.6+0.4*s})`);$('logo').setAttribute('opacity',s);
+  if(t>=SCN.s10[0]){const lt=t-SCN.s10[0];const s=ease(lt/0.35);$('logo').setAttribute('transform',`translate(960,470) scale(${0.6+0.4*s})`);$('logo').setAttribute('opacity',s);
     $('stripes').setAttribute('transform',`translate(${lt*60},0)`);
     const st=lt<1.6?0:ease((lt-1.6)/0.15);$('stamp').setAttribute('opacity',st);$('stamp').setAttribute('transform',`translate(1500,820) rotate(-12) scale(${1.6-0.6*st})`);}
 };
