@@ -1,29 +1,31 @@
 {
- "after_day": 5,
- "fund_dollars": 1634,
+ "after_day": 6,
+ "fund_dollars": 1543,
  "record": {
   "wins": 1,
-  "losses": 4
+  "losses": 5
  },
  "fans": 0,
- "next_opponent": "Iron Ridge Rams (never lost a game)",
+ "next_opponent": "Copper Canyon Coyotes (howl every snap)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
   "field: real grass (Day 4, $500)",
-  "goal posts: real yellow goal posts (Day 5, $100)"
+  "goal posts: real yellow goal posts (Day 5, $100)",
+  "stands: real metal bleachers (Day 6, $250)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
-  "stands": "wooden bleachers falling apart",
+  "stands": "real metal bleachers with a GO POSSUMS banner (the cow has the best seat)",
   "field": "real grass (one mud puddle left)",
   "goal_posts": "real yellow goal posts (Earl kept the ladder)",
   "scoreboard": "none",
   "locker_room": "a garden shed with three lockers"
  },
  "upgrade_prices": {
-  "stands": 250,
-  "scoreboard": 150
+  "scoreboard": 150,
+  "locker_room": 400,
+  "team_bus": 500
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -110,48 +112,71 @@
    "score": "17-14 W",
    "note": "FIRST WIN EVER. Lucas FG through the new goal posts on the last play; QB2 thepeoplechamptn finally went in and threw the tying TD to sponge2k26. Day 4 fans returned (no new position comments read: TikTok comments not reachable from the cloud).",
    "fan_signings": []
+  },
+  {
+   "day": 6,
+   "built": "2026-11-15",
+   "likes_in": 159,
+   "likes_tiktok": 95,
+   "likes_instagram": 64,
+   "winning_comment": "Stands (11)",
+   "comment_likes": 4,
+   "bought": "stands $250",
+   "opponent": "Iron Ridge Rams",
+   "score": "14-21 L",
+   "note": "Closest game vs the unbeaten Rams; first full stands. Elden pick, Ilovemyhg TD to Blaze, Vdogg12 TD; Jordanfr ran into Big Lou on the last drive.",
+   "fan_signings": [
+    "Ilovemyhg QB",
+    "Elden CB",
+    "Ž3KË RT",
+    "Blaze TE",
+    "Vdogg12 WR",
+    "Jordanfr RB",
+    "U.S.A NG",
+    "Jaxon offensive coordinator"
+   ]
   }
  ],
  "fan_roster": [
   {
-   "name": "𝕮𝖍𝖗𝖔𝖒𝖊 (drew21762)",
-   "role": "o-line",
-   "trait": "blocked a snail into its shell"
+   "name": "Ilovemyhg",
+   "role": "quarterback",
+   "trait": "threw a dart for a TD"
   },
   {
-   "name": "so.cxmp.13",
-   "role": "running back",
-   "trait": "scored before the defense turned around"
-  },
-  {
-   "name": "Rebel-049",
-   "role": "safety",
-   "trait": "got the pick without catching a teammate"
-  },
-  {
-   "name": "cxdename_c.j",
-   "role": "d-line",
-   "trait": "asked last video, got a sack"
-  },
-  {
-   "name": "sponge2k26",
-   "role": "wide receiver",
-   "trait": "caught the tying touchdown"
-  },
-  {
-   "name": "eastern",
+   "name": "Elden",
    "role": "cornerback",
-   "trait": "caught the safety instead of the ball"
+   "trait": "day 3 of asking, got a pick"
   },
   {
-   "name": "thepeoplechamptn",
-   "role": "backup quarterback",
-   "trait": "finally went in, threw the tying TD"
+   "name": "Ž3KË",
+   "role": "right tackle",
+   "trait": "hit a ram, the ram hit back"
   },
   {
-   "name": "Lucas",
-   "role": "kicker",
-   "trait": "game-winning FG through the new goal posts"
+   "name": "Blaze",
+   "role": "tight end",
+   "trait": "caught the first TD"
+  },
+  {
+   "name": "Vdogg12",
+   "role": "wide receiver",
+   "trait": "day 2 of asking, caught a TD"
+  },
+  {
+   "name": "Jordanfr",
+   "role": "running back",
+   "trait": "ran into Big Lou on the last drive"
+  },
+  {
+   "name": "U.S.A",
+   "role": "nose guard",
+   "trait": "day 4 of asking"
+  },
+  {
+   "name": "Jaxon",
+   "role": "offensive coordinator",
+   "trait": "draws plays on a napkin"
   }
  ],
  "accounts": {
