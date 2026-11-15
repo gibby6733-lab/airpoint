@@ -1,0 +1,304 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MEDIAN Intro</title>
+<style>
+  html,body{margin:0;background:#000}
+  #stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#E8DCC2;font-family:'DejaVu Sans',Arial,sans-serif}
+  .scene{position:absolute;inset:0;display:none}
+  .ch{position:absolute;bottom:0;transform-origin:50% 100%}
+  #cap{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);background:rgba(43,33,24,.82);color:#F7EEDD;padding:14px 34px;border-radius:40px;font-size:40px;font-weight:700;white-space:nowrap;letter-spacing:.5px}
+  #cap b{color:#FFD36E;font-weight:800;margin-right:14px;font-size:30px;letter-spacing:2px}
+  svg{position:absolute;left:0;top:0}
+</style></head>
+<body><div id="stage">
+
+<!-- S1: Route 9 welcome sign -->
+<div class="scene" id="s1">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#E8DCC2"/>
+  <rect y="540" width="1920" height="540" fill="#A7B08A"/>
+  <g fill="#C9B48F">${''}</g>
+  <path d="M0,560 H1920" stroke="#8C9670" stroke-width="6"/>
+  <g id="corn1"></g>
+  <path d="M760,1080 L900,560 L1020,560 L1260,1080Z" fill="#8C8781"/>
+  <path d="M960,600 L960,640 M955,700 L952,760 M948,830 L944,920" stroke="#E8DCC2" stroke-width="10"/>
+  <!-- sign -->
+  <g transform="translate(330,330)">
+    <rect x="70" y="200" width="26" height="240" fill="#7A5A3A" stroke="#2B2118" stroke-width="5"/>
+    <rect x="470" y="200" width="26" height="240" fill="#7A5A3A" stroke="#2B2118" stroke-width="5"/>
+    <rect x="0" y="0" width="570" height="250" rx="22" fill="#F4ECD8" stroke="#2B2118" stroke-width="7"/>
+    <rect x="18" y="18" width="534" height="214" rx="14" fill="none" stroke="#A9644E" stroke-width="4"/>
+    <text x="285" y="66" text-anchor="middle" font-size="32" font-family="DejaVu Serif" font-weight="700" fill="#A9644E">WELCOME TO</text>
+    <text x="285" y="140" text-anchor="middle" font-size="78" font-family="DejaVu Serif" font-weight="700" fill="#2B2118">MEDIAN</text>
+    <text x="285" y="182" text-anchor="middle" font-size="22" font-family="DejaVu Serif" font-style="italic" fill="#5E5248">Neither Here Nor There</text>
+    <text x="200" y="220" text-anchor="middle" font-size="22" font-family="DejaVu Sans" font-weight="700" fill="#5E5248">POP.</text>
+    <rect x="236" y="196" width="140" height="34" rx="4" fill="#2B2118"/>
+    <text id="pop" x="306" y="222" text-anchor="middle" font-size="26" font-family="DejaVu Sans Mono" font-weight="700" fill="#F4ECD8">4,812</text>
+  </g>
+  <!-- car -->
+  <g id="car">
+    <rect x="0" y="40" width="230" height="70" rx="26" fill="#C9B48F" stroke="#2B2118" stroke-width="6"/>
+    <path d="M40,46 Q60,0 110,0 h50 Q190,0 200,46Z" fill="#8FA5B5" stroke="#2B2118" stroke-width="6"/>
+    <circle cx="55" cy="112" r="24" fill="#2B2118"/><circle cx="175" cy="112" r="24" fill="#2B2118"/>
+    <circle cx="55" cy="112" r="9" fill="#C4C8CC"/><circle cx="175" cy="112" r="9" fill="#C4C8CC"/>
+  </g>
+</svg></div>
+
+<!-- S2: downtown pan -->
+<div class="scene" id="s2">
+<svg id="town" width="3200" height="1080" viewBox="0 0 3200 1080">
+  <rect width="3200" height="1080" fill="#E8DCC2"/>
+  <rect y="820" width="3200" height="260" fill="#8C8781"/>
+  <rect y="800" width="3200" height="30" fill="#C9B48F"/>
+  <!-- The Mean -->
+  <g transform="translate(120,300)">
+    <rect width="620" height="500" fill="#C9B48F" stroke="#2B2118" stroke-width="7"/>
+    <rect x="40" y="40" width="540" height="90" rx="10" fill="#A9644E" stroke="#2B2118" stroke-width="6"/>
+    <text x="310" y="104" text-anchor="middle" font-family="DejaVu Serif" font-weight="700" font-size="64" fill="#F4ECD8">THE MEAN</text>
+    <path d="M20,170 h580 l-20,70 h-540z" fill="#D6453D" stroke="#2B2118" stroke-width="6"/>
+    <path d="M70,170 l-10,70 M140,170 l-6,70 M210,170 l-2,70 M280,170 v70 M350,170 v70 M420,170 l2,70 M490,170 l6,70 M560,170 l10,70" stroke="#F4ECD8" stroke-width="14"/>
+    <rect x="60" y="270" width="300" height="180" fill="#8FA5B5" stroke="#2B2118" stroke-width="6"/>
+    <rect x="420" y="270" width="130" height="230" fill="#7A5A3A" stroke="#2B2118" stroke-width="6"/>
+    <rect x="80" y="290" width="200" height="40" fill="#2B2118"/><text x="180" y="318" text-anchor="middle" font-size="22" font-weight="700" fill="#FFD36E">TEST SPECIAL</text>
+  </g>
+  <!-- ValuBarn -->
+  <g transform="translate(860,200)">
+    <rect width="1040" height="600" fill="#D8C9A6" stroke="#2B2118" stroke-width="7"/>
+    <path d="M-30,0 L520,-110 L1070,0Z" fill="#A9644E" stroke="#2B2118" stroke-width="7"/>
+    <text x="520" y="110" text-anchor="middle" font-family="DejaVu Sans" font-weight="800" font-size="100" fill="#2B2118">VALUBARN</text>
+    <g id="neon">
+      <rect x="170" y="170" width="700" height="96" rx="48" fill="none" stroke="#FF2E93" stroke-width="12"/>
+      <text x="520" y="234" text-anchor="middle" font-family="DejaVu Sans" font-weight="800" font-size="44" fill="#FF2E93">COMING TO AMERICA SOON</text>
+    </g>
+    <rect x="380" y="340" width="280" height="260" fill="#8FA5B5" stroke="#2B2118" stroke-width="6"/>
+    <path d="M520,340 V600" stroke="#2B2118" stroke-width="6"/>
+  </g>
+  <!-- Town Hall -->
+  <g transform="translate(2040,240)">
+    <path d="M-30,120 L330,0 L690,120Z" fill="#F4ECD8" stroke="#2B2118" stroke-width="7"/>
+    <rect y="120" width="660" height="440" fill="#A9644E" stroke="#2B2118" stroke-width="7"/>
+    <g fill="#F4ECD8" stroke="#2B2118" stroke-width="5"><rect x="60" y="150" width="50" height="410"/><rect x="200" y="150" width="50" height="410"/><rect x="410" y="150" width="50" height="410"/><rect x="550" y="150" width="50" height="410"/></g>
+    <rect x="280" y="380" width="100" height="180" fill="#7A5A3A" stroke="#2B2118" stroke-width="6"/>
+    <text x="330" y="90" text-anchor="middle" font-family="DejaVu Serif" font-weight="700" font-size="40" fill="#2B2118">TOWN HALL</text>
+    <path d="M330,0 V-160" stroke="#2B2118" stroke-width="7"/><path d="M330,-160 h90 v56 h-90z" fill="#8FA5B5" stroke="#2B2118" stroke-width="5"/>
+  </g>
+  <!-- Statue of Thornbury, sitting -->
+  <g transform="translate(2880,520)">
+    <rect x="-90" y="200" width="180" height="80" fill="#B8BCC2" stroke="#2B2118" stroke-width="6"/>
+    <circle cx="0" cy="40" r="40" fill="#9AA0A8" stroke="#2B2118" stroke-width="6"/>
+    <rect x="-46" y="80" width="92" height="90" rx="20" fill="#9AA0A8" stroke="#2B2118" stroke-width="6"/>
+    <rect x="-46" y="150" width="120" height="40" rx="14" fill="#9AA0A8" stroke="#2B2118" stroke-width="6"/>
+  </g>
+</svg></div>
+
+<!-- S3: Dex & Wren at Pruitt Labs -->
+<div class="scene" id="s3">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#C9B48F"/>
+  <rect y="880" width="1920" height="200" fill="#8C8781"/>
+  <rect x="220" y="120" width="1480" height="760" fill="#D8C9A6" stroke="#2B2118" stroke-width="8"/>
+  <text x="960" y="250" text-anchor="middle" font-family="DejaVu Sans" font-weight="800" font-size="150" fill="#D6453D" transform="rotate(-3 960 300)">PRUITT LABS</text>
+  <text x="1300" y="320" text-anchor="middle" font-family="DejaVu Sans" font-style="italic" font-size="44" fill="#5E5248" transform="rotate(-3 1300 320)">(also a garage)</text>
+  <rect x="300" y="460" width="420" height="300" fill="#FFFFFF" stroke="#2B2118" stroke-width="6"/>
+  <path d="M340,520 l80,40 l-40,60 l100,-20 M520,500 l60,80 l80,-30 M360,700 h200 l-30,-20 M600,640 l60,60" stroke="#2B6CB0" stroke-width="7" fill="none"/>
+</svg>
+<img class="ch" id="dex3" src="../assets/characters/dex_front_v02.svg" style="left:380px;height:640px;bottom:140px">
+<img class="ch" id="wren3" src="../assets/characters/wren_front_v02.svg" style="left:1180px;height:580px;bottom:140px">
+</div>
+
+<!-- S4: the Cube in the corn -->
+<div class="scene" id="s4">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#BFC3C0"/>
+  <rect y="640" width="1920" height="440" fill="#A7B08A"/>
+  <g id="cubeglow"><rect x="660" y="230" width="600" height="600" fill="#9B5CFF" opacity=".35" filter="url(#blur)"/></g>
+  <defs><filter id="blur"><feGaussianBlur stdDeviation="40"/></filter></defs>
+  <path d="M700,300 L960,220 L1220,300 L1220,760 L960,840 L700,760Z" fill="#111114" stroke="#9B5CFF" stroke-width="6"/>
+  <path d="M960,220 V840 M700,300 L960,380 L1220,300" stroke="#26262E" stroke-width="5" fill="none"/>
+  <g id="corn4"></g>
+</svg></div>
+
+<!-- S5: Marcus & Gordy at the Mirror Room -->
+<div class="scene" id="s5">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#D4D6BE"/>
+  <rect y="880" width="1920" height="200" fill="#B8B49C"/>
+  <rect x="560" y="140" width="1300" height="640" fill="#1E2430" stroke="#2B2118" stroke-width="10"/>
+  <path d="M600,180 L800,180 L640,420Z" fill="#FFFFFF" opacity=".07"/>
+  <g id="eye5" transform="translate(1320,430)">
+    <ellipse rx="90" ry="54" fill="#F4ECD8"/><circle id="pupil5" r="26" fill="#2B2118"/>
+    <rect id="lid5" x="-100" y="-60" width="200" height="0" fill="#1E2430"/>
+  </g>
+  <rect x="40" y="30" width="460" height="70" rx="8" fill="#F4ECD8" stroke="#2B2118" stroke-width="4"/>
+  <text x="270" y="78" text-anchor="middle" font-size="30" font-weight="700" fill="#2B2118">FOCUS FRIDAY</text>
+</svg>
+<img class="ch" id="marcus5" src="../assets/characters/marcus_front_v02.svg" style="left:130px;height:640px">
+<img class="ch" id="gordy5" src="../assets/characters/gordy_front_v02.svg" style="left:640px;height:700px">
+</div>
+
+<!-- S6: ValuBarn endcap -->
+<div class="scene" id="s6">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#E6E0CF"/>
+  <rect y="860" width="1920" height="220" fill="#C9C2AE"/>
+  <g fill="#B8AE94" stroke="#2B2118" stroke-width="5"><rect x="0" y="260" width="460" height="600"/><rect x="1460" y="260" width="460" height="600"/></g>
+  <g id="endcap" transform="translate(960,560)">
+    <rect x="-380" y="-420" width="760" height="720" rx="20" fill="#2B2118" stroke="#FF2E93" stroke-width="14"/>
+    <text y="-320" text-anchor="middle" font-weight="800" font-size="56" fill="#FF2E93">NEW! TRY IT!</text>
+    <g id="prods"></g>
+  </g>
+</svg></div>
+
+<!-- S7: Kenzie phone POV -->
+<div class="scene" id="s7">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#F05A9A"/>
+  <g opacity=".18" fill="#FFFFFF"><circle cx="300" cy="200" r="120"/><circle cx="1600" cy="820" r="180"/><circle cx="1700" cy="200" r="60"/></g>
+  <rect x="640" y="20" width="640" height="1040" rx="60" fill="#2B2D33"/>
+  <rect x="664" y="44" width="592" height="992" rx="44" fill="#E8DCC2"/>
+  <rect x="664" y="760" width="592" height="276" fill="#A7B08A"/>
+  <rect x="1000" y="80" width="230" height="64" rx="32" fill="#F05A9A"/>
+  <text id="fol" x="1115" y="124" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF">2,304</text>
+  <circle cx="712" cy="112" r="14" fill="#E53E3E"/><text x="736" y="124" font-size="30" font-weight="800" fill="#E53E3E">LIVE</text>
+</svg>
+<img class="ch" id="kenzie7" src="../assets/characters/kenzie_front_v02.svg" style="left:700px;height:860px">
+</div>
+
+<!-- S8: Tunk at Recall Hill, dusk -->
+<div class="scene" id="s8">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#2F3550"/>
+  <g fill="#F4ECD8"><circle cx="200" cy="120" r="3"/><circle cx="520" cy="80" r="2"/><circle cx="1500" cy="140" r="3"/><circle cx="1800" cy="60" r="2"/><circle cx="1100" cy="100" r="2"/></g>
+  <path d="M500,900 Q900,260 1500,280 Q1880,300 1920,900Z" fill="#3E4A36" stroke="#1C1F18" stroke-width="8"/>
+  <g id="junk">
+    <rect x="1000" y="500" width="40" height="70" rx="8" fill="#FF2E93" transform="rotate(20 1020 535)"/>
+    <circle cx="1320" cy="420" r="26" fill="#22E5FF"/>
+    <rect x="1560" y="520" width="80" height="40" rx="8" fill="#B6FF3B" transform="rotate(-15 1600 540)"/>
+    <rect x="1180" y="620" width="60" height="60" rx="6" fill="#111114" stroke="#FF2E93" stroke-width="5"/>
+    <circle cx="1720" cy="420" r="18" fill="#FF2E93"/>
+  </g>
+  <g id="hilleye" transform="translate(1440,560)"><ellipse rx="60" ry="0" fill="#9B5CFF"/><circle r="0" fill="#F4ECD8"/></g>
+  <path d="M0,820 Q700,760 1920,860 V1080 H0Z" fill="#4A5038"/>
+  <path d="M0,840 L1920,860" stroke="#8C8781" stroke-width="10" stroke-dasharray="40 30"/>
+</svg>
+<img class="ch" id="tunk8" src="../assets/characters/tunk_front_v02.svg" style="left:220px;height:860px">
+</div>
+
+<!-- S9: line-up on main street -->
+<div class="scene" id="s9">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#E8DCC2"/>
+  <g stroke="#2B2118" stroke-width="6">
+    <rect x="0" y="240" width="420" height="600" fill="#C9B48F"/><rect x="420" y="160" width="520" height="680" fill="#D8C9A6"/>
+    <rect x="940" y="300" width="420" height="540" fill="#A9644E"/><rect x="1360" y="200" width="560" height="640" fill="#C9B48F"/>
+  </g>
+  <rect x="520" y="200" width="320" height="70" rx="35" fill="none" stroke="#FF2E93" stroke-width="8" id="neon9"/>
+  <g id="frinkwin" transform="translate(1560,330)"><rect width="200" height="200" fill="#8FA5B5" stroke="#2B2118" stroke-width="6"/>
+    <g id="frinksil"><circle cx="100" cy="110" r="40" fill="#2B2118"/><rect x="50" y="150" width="100" height="50" rx="20" fill="#2B2118"/></g></g>
+  <rect y="840" width="1920" height="240" fill="#8C8781"/>
+  <rect y="830" width="1920" height="24" fill="#C9B48F"/>
+</svg>
+<img class="ch" data-i="0" src="../assets/characters/marcus_front_v02.svg">
+<img class="ch" data-i="1" src="../assets/characters/gordy_front_v02.svg">
+<img class="ch" data-i="2" src="../assets/characters/wren_front_v02.svg">
+<img class="ch" data-i="3" src="../assets/characters/kenzie_front_v02.svg">
+<img class="ch" data-i="4" src="../assets/characters/tunk_front_v02.svg">
+<img class="ch" data-i="5" src="../assets/characters/dex_front_v02.svg">
+</div>
+
+<!-- S10: logo -->
+<div class="scene" id="s10">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#E8DCC2"/>
+  <g id="stripes" opacity=".25"></g>
+  <g id="logo" transform="translate(960,470)">
+    <text text-anchor="middle" font-family="DejaVu Serif" font-weight="700" font-size="260" fill="#F4ECD8" stroke="#2B2118" stroke-width="12" paint-order="stroke" letter-spacing="14">MED  AN</text>
+    <!-- bell-curve "I" -->
+    <g transform="translate(118,-90)">
+      <rect x="-34" y="-110" width="68" height="200" rx="10" fill="#F4ECD8" stroke="#2B2118" stroke-width="12"/>
+      <path d="M-30,60 C-14,60 -12,-90 0,-90 C12,-90 14,60 30,60" fill="none" stroke="#9B5CFF" stroke-width="10" stroke-linecap="round"/>
+    </g>
+    <text y="120" text-anchor="middle" font-family="DejaVu Serif" font-style="italic" font-size="52" fill="#5E5248">America tries it here first.</text>
+  </g>
+  <g id="stamp" transform="translate(1500,820) rotate(-12)" opacity="0">
+    <rect x="-210" y="-60" width="420" height="120" rx="12" fill="none" stroke="#D6453D" stroke-width="10"/>
+    <text y="22" text-anchor="middle" font-weight="800" font-size="62" fill="#D6453D" letter-spacing="6">PROMISING.</text>
+  </g>
+</svg></div>
+
+<div id="cap"></div>
+</div>
+
+<script>
+const DUR=30, FPS=24;
+// lyric timeline: [start, end, speaker, line]
+const LYR=[
+ [0.0,3.0,'',''],
+ [3.0,6.0,'BAND','♪ Come on down to Median, it\'s right there in the middle! ♪'],
+ [6.0,7.6,'DEX','♪ Every day\'s a brand-new launch— ♪'],
+ [7.6,9.0,'WREN','♪ —and every launch is little. ♪'],
+ [9.0,12.0,'BAND','♪ Come on down to Median, where the corn is kinda tall! ♪'],
+ [12.0,13.5,'MARCUS','♪ Everything is half off— ♪'],
+ [13.5,15.0,'GORDY','♪ —\'cause they\'re watching through the wall! ♪'],
+ [15.0,18.0,'BAND','♪ Come on down to Median, try somethin\' new today! ♪'],
+ [18.0,21.0,'KENZIE','♪ Smash that like, \'cause I\'m literally okay! ♪'],
+ [21.0,24.0,'TUNK','(calm, off-key) Grandpa buried somethin\' on the hill… and it\'s awake.'],
+ [24.0,27.5,'BAND','♪ So come on down to Median… and buy whatever they make! ♪'],
+ [27.5,30.0,'ALL','♪ MEDIAN! ♪'],
+];
+const SC=[[0,3,'s1'],[3,6,'s2'],[6,9,'s3'],[9,12,'s4'],[12,15,'s5'],[15,18,'s6'],[18,21,'s7'],[21,24,'s8'],[24,27.5,'s9'],[27.5,30,'s10']];
+const $=id=>document.getElementById(id);
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const bounce=(t,f=2.2,a=10)=>Math.abs(Math.sin(t*Math.PI*f))*a; // beat bounce (~132bpm)
+// build corn rows
+function corn(g,y0,n,scale){let s='';for(let r=0;r<n;r++){for(let i=0;i<26;i++){const x=i*80+(r%2)*40-20, y=y0+r*60;s+=`<g class="stalk" transform="translate(${x},${y}) scale(${scale})"><path d="M0,0 V-90" stroke="#6E7A4C" stroke-width="8"/><path d="M0,-40 q-30,-10 -40,-40 M0,-60 q30,-10 40,-40" stroke="#8C9670" stroke-width="10" fill="none" stroke-linecap="round"/><ellipse cx="6" cy="-70" rx="9" ry="20" fill="#E3B75C"/></g>`;}}g.innerHTML=s;}
+corn($('corn1'),620,3,0.8); corn($('corn4'),880,4,1.2);
+// products on endcap
+(function(){let s='';const c=['#FF2E93','#22E5FF','#B6FF3B','#9B5CFF'];for(let r=0;r<3;r++)for(let i=0;i<4;i++){s+=`<rect class="prod" x="${-300+i*155}" y="${-220+r*170}" width="110" height="130" rx="14" fill="${c[(i+r)%4]}" stroke="#2B2118" stroke-width="5"/>`;}$('prods').innerHTML=s;})();
+(function(){let s='';for(let i=0;i<24;i++)s+=`<rect x="${i*90-40}" y="0" width="45" height="1080" fill="${i%2?'#9B5CFF':'#C9B48F'}" transform="skewX(-20)"/>`;$('stripes').innerHTML=s;})();
+const lineupH=[0.88,0.96,1.00,1.04,1.06,1.10];
+
+window.renderAt=function(t){
+  for(const [a,b,id] of SC){$(id).style.display=(t>=a&&t<b)||(id==='s10'&&t>=27.5)?'block':'none';}
+  // captions
+  const L=LYR.find(l=>t>=l[0]&&t<l[1]);const cap=$('cap');
+  if(L&&L[3]){cap.style.display='block';cap.innerHTML=(L[2]?`<b>${L[2]}</b>`:'')+L[3];}else cap.style.display='none';
+  // S1: car drives past, pop sign flips 4,812 -> 4,813 -> 4,812
+  if(t<3){const k=t/3;$('car').setAttribute('transform',`translate(${-300+k*2400},${830+Math.sin(t*20)*3})`);
+    $('pop').textContent = (t>1.2&&t<2.2)?'4,813':'4,812';}
+  // S2: pan across downtown, neon pulses
+  if(t>=3&&t<6){const k=ease((t-3)/3);$('town').style.transform=`translateX(${-k*1280}px)`;$('neon').setAttribute('opacity',0.6+0.4*Math.abs(Math.sin(t*6)));}
+  // S3: Dex bounces on the beat; Wren still (the joke)
+  if(t>=6&&t<9){const lt=t-6;$('dex3').style.transform=`translateY(${-bounce(lt,2.2,22)}px) rotate(${Math.sin(lt*6)*2}deg)`;
+    $('wren3').style.transform=lt>1.6?'translateY(0)':`translateY(0)`;}
+  // S4: cube glow pulses, corn sways
+  if(t>=9&&t<12){const lt=t-9;$('cubeglow').setAttribute('opacity',0.5+0.5*Math.sin(lt*4));
+    document.querySelectorAll('#corn4 .stalk').forEach((s,i)=>{const tr=s.getAttribute('transform').replace(/ rotate\(.*\)/,'');s.setAttribute('transform',tr+` rotate(${Math.sin(lt*3+i*.3)*4})`);});}
+  // S5: eye in the mirror opens when Gordy sings, pupil darts
+  if(t>=12&&t<15){const lt=t-12;$('marcus5').style.transform=`translateY(${-bounce(lt,2.2,10)}px)`;
+    $('gordy5').style.transform=`translateY(${lt>1.5?-bounce(lt,2.2,16):0}px)`;
+    const open=lt<1.4?0:ease((lt-1.4)/0.3);$('eye5').setAttribute('opacity',open);
+    $('pupil5').setAttribute('cx',lt>2.2?-40:20);
+    $('lid5').setAttribute('height',(lt>2.6&&lt<2.75)?120:0);}
+  // S6: products pop in on the beat
+  if(t>=15&&t<18){const lt=t-15;document.querySelectorAll('.prod').forEach((p,i)=>{const s=ease((lt*4-i*0.25));p.setAttribute('opacity',s);});
+    $('endcap').setAttribute('transform',`translate(960,560) scale(${1+0.02*Math.sin(lt*14)})`);}
+  // S7: follower counter climbs
+  if(t>=18&&t<21){const lt=(t-18)/3;const n=Math.round(2304+Math.pow(lt,3)*997696);$('fol').textContent=n.toLocaleString('en-US');
+    $('kenzie7').style.transform=`translateY(${-bounce(t,2.2,14)}px)`;}
+  // S8: Tunk still; the hill opens an eye
+  if(t>=21&&t<24){const lt=t-21;const e=$('hilleye');const o=lt<1.6?0:ease((lt-1.6)/0.4);
+    e.children[0].setAttribute('ry',34*o);e.children[1].setAttribute('r',14*o);
+    document.querySelectorAll('#junk *').forEach((j,i)=>j.setAttribute('opacity',0.5+0.5*Math.abs(Math.sin(lt*3+i))));}
+  // S9: cast pops in one by one, neon flickers, Frink appears in window
+  if(t>=24&&t<27.5){const lt=t-24;const imgs=document.querySelectorAll('#s9 .ch');let x=70;
+    imgs.forEach((im,i)=>{const h=Math.round(600*lineupH[i]/1.10);im.style.height=h+'px';im.style.left=(0+i*282)+'px';im.style.bottom='170px';
+      const s=ease((lt-i*0.22)/0.35);im.style.transform=`translateY(${(1-s)*400}px) translateY(${-bounce(lt,2.2,8)}px)`;});
+    $('neon9').setAttribute('opacity',Math.random()<0.15?0.2:1);$('frinksil').setAttribute('opacity',lt>2?1:0);}
+  // S10: logo slams in, stamp lands
+  if(t>=27.5){const lt=t-27.5;const s=ease(lt/0.35);$('logo').setAttribute('transform',`translate(960,470) scale(${0.6+0.4*s})`);$('logo').setAttribute('opacity',s);
+    $('stripes').setAttribute('transform',`translate(${lt*60},0)`);
+    const st=lt<1.6?0:ease((lt-1.6)/0.15);$('stamp').setAttribute('opacity',st);$('stamp').setAttribute('transform',`translate(1500,820) rotate(-12) scale(${1.6-0.6*st})`);}
+};
+window.renderAt(0);
+</script>
+</body></html>
