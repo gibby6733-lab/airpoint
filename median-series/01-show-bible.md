@@ -369,6 +369,11 @@ Test: each character reacts to **"The school is replacing lunch with a free AI-g
 4. **No one explains the theme.** If a character says the moral out loud, it has to be undercut within three seconds.
 5. **Catchphrases at most once per episode per character.** Catchphrases are seasoning, not the meal.
 6. **Adults are worse than kids.** The kids are dumb in a childish way; the adults are dumb with power.
+7. **Cursing is allowed.** Characters can swear, including strong profanity. It's an adult comedy, and kids this age swear when adults aren't around. Use it like a punchline, not like punctuation:
+   - **Each character swears differently.** Dex swears in business-speak ("this is a f***ing paradigm shift"). Wren swears rarely, flatly and with precision, so when she does it lands hardest. Marcus swears about money. Gordy invents half-swears and then commits to a real one at the worst moment. Kenzie censors herself on camera and swears freely off camera (the camera voice/real voice switch). Tunk almost never swears, but when he does it's calm and terrifying.
+   - **Adults swear more and worse** (Bev, Mayor Krupp off-mic). Frink never swears, which is creepier.
+   - **Running gag:** the town is so "average" that the school's AI filter bleeps random harmless words and lets the real swears through.
+   - **Placement:** no strong profanity in the first 7 seconds of any video or Short, and no swearing in titles, thumbnails or descriptions (see the YouTube note in `04-production-workflow.md`).
 
 ---
 

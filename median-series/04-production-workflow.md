@@ -138,6 +138,7 @@ Read the script aloud and check each item:
 | **Audio** | Dialogue clear over music; levels about -14 LUFS integrated; no clipping; room tone under every scene. |
 | **Legal** | No real logos, celebrities, real-person voice clones or copyrighted music. |
 | **YouTube policy** | Content is adult satire, but avoid gratuitous gore and sexual content; mark the video "not made for kids" (it's an adult cartoon). |
+| **Profanity** | Cursing is allowed in episodes. To protect ad revenue: no strong profanity in the first ~7 seconds; keep titles, thumbnails, descriptions and the opening hook clean; avoid stacking swears back to back; and bleep or cut swears in Shorts when an ad-friendly version is wanted. Check YouTube's current advertiser-friendly guidelines before each upload, since the profanity rules change. Keep an uncensored master plus a bleeped version, so each upload can use the right one. |
 
 **Rule:** if the episode feels generic, it doesn't ship. Rewrite the weakest scene before anything else.
 
