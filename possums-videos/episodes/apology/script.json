@@ -1,0 +1,93 @@
+{
+ "episode": 0,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "a_sorry",
+   "text": "Okay. The Mudville Possums owe you an apology.",
+   "sfx": [
+    [
+     "sad",
+     "@apology"
+    ]
+   ]
+  },
+  {
+   "scene": "a_cal",
+   "text": "We missed a few days of videos.",
+   "sfx": [
+    [
+     "stamp",
+     "@missed"
+    ],
+    [
+     "sad",
+     "@days"
+    ]
+   ]
+  },
+  {
+   "scene": "a_excuse",
+   "text": "Big Lou got stuck in his helmet. Earl got lost driving to practice. And the cow ate the playbook.",
+   "sfx": [
+    [
+     "boing",
+     "@stuck"
+    ],
+    [
+     "honk",
+     "@lost"
+    ],
+    [
+     "squawk",
+     "@ate"
+    ]
+   ]
+  },
+  {
+   "scene": "a_back",
+   "text": "But we're back, and we're catching up!",
+   "sfx": [
+    [
+     "horn",
+     "@back"
+    ],
+    [
+     "crowd",
+     "@catching"
+    ]
+   ]
+  },
+  {
+   "scene": "a_cta",
+   "text": "New days are coming fast. And every like is still a dollar for the team.",
+   "sfx": [
+    [
+     "whoosh",
+     "@fast"
+    ],
+    [
+     "cash",
+     "@dollar"
+    ]
+   ]
+  },
+  {
+   "scene": "a_bye",
+   "text": "Sorry. Love, the Possums.",
+   "sfx": [
+    [
+     "ding",
+     "@love"
+    ],
+    [
+     "crowd",
+     "@possums"
+    ]
+   ]
+  }
+ ]
+}

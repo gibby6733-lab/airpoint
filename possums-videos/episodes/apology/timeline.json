@@ -1,0 +1,415 @@
+{
+ "duration": 20.073,
+ "lines": [
+  {
+   "scene": "a_sorry",
+   "text": "Okay. The Mudville Possums owe you an apology.",
+   "sfx": [
+    [
+     "sad",
+     "@apology"
+    ]
+   ],
+   "start": 0.35,
+   "end": 2.968,
+   "words": [
+    {
+     "w": "Okay.",
+     "s": 0.35
+    },
+    {
+     "w": "The",
+     "s": 0.749
+    },
+    {
+     "w": "Mudville",
+     "s": 0.971
+    },
+    {
+     "w": "Possums",
+     "s": 1.415
+    },
+    {
+     "w": "owe",
+     "s": 1.814
+    },
+    {
+     "w": "you",
+     "s": 2.036
+    },
+    {
+     "w": "an",
+     "s": 2.258
+    },
+    {
+     "w": "apology.",
+     "s": 2.435
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     2.435
+    ]
+   ]
+  },
+  {
+   "scene": "a_cal",
+   "text": "We missed a few days of videos.",
+   "sfx": [
+    [
+     "stamp",
+     "@missed"
+    ],
+    [
+     "sad",
+     "@days"
+    ]
+   ],
+   "start": 3.188,
+   "end": 4.864,
+   "words": [
+    {
+     "w": "We",
+     "s": 3.188
+    },
+    {
+     "w": "missed",
+     "s": 3.351
+    },
+    {
+     "w": "a",
+     "s": 3.678
+    },
+    {
+     "w": "few",
+     "s": 3.801
+    },
+    {
+     "w": "days",
+     "s": 4.005
+    },
+    {
+     "w": "of",
+     "s": 4.251
+    },
+    {
+     "w": "videos.",
+     "s": 4.414
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     3.351
+    ],
+    [
+     "sad",
+     4.005
+    ]
+   ]
+  },
+  {
+   "scene": "a_excuse",
+   "text": "Big Lou got stuck in his helmet. Earl got lost driving to practice. And the cow ate the playbook.",
+   "sfx": [
+    [
+     "boing",
+     "@stuck"
+    ],
+    [
+     "honk",
+     "@lost"
+    ],
+    [
+     "squawk",
+     "@ate"
+    ]
+   ],
+   "start": 5.084,
+   "end": 10.844,
+   "words": [
+    {
+     "w": "Big",
+     "s": 5.084
+    },
+    {
+     "w": "Lou",
+     "s": 5.318
+    },
+    {
+     "w": "got",
+     "s": 5.552
+    },
+    {
+     "w": "stuck",
+     "s": 5.786
+    },
+    {
+     "w": "in",
+     "s": 6.114
+    },
+    {
+     "w": "his",
+     "s": 6.301
+    },
+    {
+     "w": "helmet.",
+     "s": 6.535
+    },
+    {
+     "w": "Earl",
+     "s": 7.05
+    },
+    {
+     "w": "got",
+     "s": 7.331
+    },
+    {
+     "w": "lost",
+     "s": 7.566
+    },
+    {
+     "w": "driving",
+     "s": 7.847
+    },
+    {
+     "w": "to",
+     "s": 8.268
+    },
+    {
+     "w": "practice.",
+     "s": 8.455
+    },
+    {
+     "w": "And",
+     "s": 9.064
+    },
+    {
+     "w": "the",
+     "s": 9.298
+    },
+    {
+     "w": "cow",
+     "s": 9.532
+    },
+    {
+     "w": "ate",
+     "s": 9.767
+    },
+    {
+     "w": "the",
+     "s": 10.001
+    },
+    {
+     "w": "playbook.",
+     "s": 10.235
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     5.786
+    ],
+    [
+     "honk",
+     7.566
+    ],
+    [
+     "squawk",
+     9.767
+    ]
+   ]
+  },
+  {
+   "scene": "a_back",
+   "text": "But we're back, and we're catching up!",
+   "sfx": [
+    [
+     "horn",
+     "@back"
+    ],
+    [
+     "crowd",
+     "@catching"
+    ]
+   ],
+   "start": 11.064,
+   "end": 12.703,
+   "words": [
+    {
+     "w": "But",
+     "s": 11.064
+    },
+    {
+     "w": "we're",
+     "s": 11.234
+    },
+    {
+     "w": "back,",
+     "s": 11.439
+    },
+    {
+     "w": "and",
+     "s": 11.747
+    },
+    {
+     "w": "we're",
+     "s": 11.917
+    },
+    {
+     "w": "catching",
+     "s": 12.122
+    },
+    {
+     "w": "up!",
+     "s": 12.464
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     11.439
+    ],
+    [
+     "crowd",
+     12.122
+    ]
+   ]
+  },
+  {
+   "scene": "a_cta",
+   "text": "New days are coming fast. And every like is still a dollar for the team.",
+   "sfx": [
+    [
+     "whoosh",
+     "@fast"
+    ],
+    [
+     "cash",
+     "@dollar"
+    ]
+   ],
+   "start": 12.923,
+   "end": 16.853,
+   "words": [
+    {
+     "w": "New",
+     "s": 12.923
+    },
+    {
+     "w": "days",
+     "s": 13.136
+    },
+    {
+     "w": "are",
+     "s": 13.393
+    },
+    {
+     "w": "coming",
+     "s": 13.606
+    },
+    {
+     "w": "fast.",
+     "s": 13.948
+    },
+    {
+     "w": "And",
+     "s": 14.333
+    },
+    {
+     "w": "every",
+     "s": 14.546
+    },
+    {
+     "w": "like",
+     "s": 14.845
+    },
+    {
+     "w": "is",
+     "s": 15.101
+    },
+    {
+     "w": "still",
+     "s": 15.272
+    },
+    {
+     "w": "a",
+     "s": 15.571
+    },
+    {
+     "w": "dollar",
+     "s": 15.699
+    },
+    {
+     "w": "for",
+     "s": 16.041
+    },
+    {
+     "w": "the",
+     "s": 16.255
+    },
+    {
+     "w": "team.",
+     "s": 16.468
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     13.948
+    ],
+    [
+     "cash",
+     15.699
+    ]
+   ]
+  },
+  {
+   "scene": "a_bye",
+   "text": "Sorry. Love, the Possums.",
+   "sfx": [
+    [
+     "ding",
+     "@love"
+    ],
+    [
+     "crowd",
+     "@possums"
+    ]
+   ],
+   "start": 17.073,
+   "end": 18.573,
+   "words": [
+    {
+     "w": "Sorry.",
+     "s": 17.073
+    },
+    {
+     "w": "Love,",
+     "s": 17.49
+    },
+    {
+     "w": "the",
+     "s": 17.865
+    },
+    {
+     "w": "Possums.",
+     "s": 18.073
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     17.49
+    ],
+    [
+     "crowd",
+     18.073
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}
