@@ -76,8 +76,26 @@
    ]
   },
   {
+   "scene": "a_thanks",
+   "text": "And thank you. Every like, every comment, every position request. You've given this team two thousand, seven hundred ninety dollars. You built this team!",
+   "sfx": [
+    [
+     "ding",
+     "@thank"
+    ],
+    [
+     "cash",
+     "@two"
+    ],
+    [
+     "crowd",
+     "@built"
+    ]
+   ]
+  },
+  {
    "scene": "a_bye",
-   "text": "Sorry. Love, the Possums.",
+   "text": "We love you. Sorry. The Possums.",
    "sfx": [
     [
      "ding",

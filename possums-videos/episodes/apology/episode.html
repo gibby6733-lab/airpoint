@@ -1503,7 +1503,18 @@ Object.assign(SCENES, {
     withT(W / 2, 600, eBack(seg(p, aw('a_cta', 'new') - .02, aw('a_cta', 'new') + .1)), -.04, () => { ctx.fillStyle = C.teal; rr(-420, -80, 840, 160, 30); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('NEW DAYS COMING FAST', 0, 4, 64, '#fff', { stroke: 8, maxW: 800 }); });
     withT(W / 2, 1150, eBack(seg(p, aw('a_cta', 'every') - .02, aw('a_cta', 'every') + .1)), .03, () => { ctx.fillStyle = '#1f9d55'; rr(-420, -90, 840, 180, 30); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke(); txt('1 LIKE = +$1', 0, -22, 80, '#fff', { stroke: 8 }); txt('STILL COUNTS', 0, 54, 44, C.yellow, { stroke: 6 }); }); },
   a_bye(t, u, p) { drawStadium(t); drawCoach(400, 1460, 1.0, t); cow(760, 1480, 1.2, t); heart(800, 1000, 90 + Math.sin(t * 6) * 10);
-    stamp('SORRY ❤️', W / 2, 600, 130, seg(p, .05, .2), C.yellow, -.06); stamp('— THE POSSUMS', W / 2, 760, 80, kw('a_bye', 'love', p), '#fff', .03); },
+    stamp('WE ❤️ YOU', W / 2, 600, 130, seg(p, .05, .2), C.yellow, -.06); stamp('— THE POSSUMS', W / 2, 760, 80, seg(p, .4, .5), '#fff', .03); },
+});
+</script>
+<script>
+Object.assign(SCENES, {
+  a_thanks(t, u, p) { drawStadium(t, { excite: .8, stands: true, full: true }); dim(.35); const r = rng(21);
+    for (let i = 0; i < 24; i++) { const x = 80 + r() * 920, sp = 160 + r() * 160, ph = r(); const y = 1700 - ((u * sp + ph * 1100) % 1100); ctx.save(); ctx.globalAlpha = .85; heart(x, y, 24 + r() * 26); ctx.restore(); }
+    stamp('THANK YOU 🙏', W / 2, 560, 120, seg(p, aw('a_thanks', 'thank') - .02, aw('a_thanks', 'thank') + .08), C.yellow, -.05);
+    ['EVERY LIKE ❤️', 'EVERY COMMENT 💬', 'EVERY POSITION ✍️'].forEach((s, i) => { const k = aw('a_thanks', ['like', 'comment', 'position'][i]); stamp(s, W / 2, 740 + i * 110, 64, seg(p, k - .02, k + .06), '#fff', (i - 1) * .03); });
+    const tw = aw('a_thanks', 'two'); withT(W / 2, 1180, eBack(seg(p, tw - .02, tw + .1)), -.03, () => { ctx.fillStyle = '#1f9d55'; rr(-430, -100, 860, 200, 30); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 8; ctx.stroke();
+      txt('$' + Math.round(2790 * eOut(seg(p, tw, tw + .25))).toLocaleString('en-US'), 0, -20, 100, '#fff', { stroke: 10 }); txt('RAISED BY YOU', 0, 62, 44, C.yellow, { stroke: 6 }); });
+    stamp('YOU BUILT THIS TEAM', W / 2, 1420, 58, kw('a_thanks', 'built', p), C.yellow, .04); },
 });
 </script>
 </body></html>

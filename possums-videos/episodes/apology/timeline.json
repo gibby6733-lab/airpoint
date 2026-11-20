@@ -1,5 +1,5 @@
 {
- "duration": 20.073,
+ "duration": 29.426,
  "lines": [
   {
    "scene": "a_sorry",
@@ -366,8 +366,140 @@
    ]
   },
   {
+   "scene": "a_thanks",
+   "text": "And thank you. Every like, every comment, every position request. You've given this team two thousand, seven hundred ninety dollars. You built this team!",
+   "sfx": [
+    [
+     "ding",
+     "@thank"
+    ],
+    [
+     "cash",
+     "@two"
+    ],
+    [
+     "crowd",
+     "@built"
+    ]
+   ],
+   "start": 17.073,
+   "end": 26.0,
+   "words": [
+    {
+     "w": "And",
+     "s": 17.073
+    },
+    {
+     "w": "thank",
+     "s": 17.307
+    },
+    {
+     "w": "you.",
+     "s": 17.634
+    },
+    {
+     "w": "Every",
+     "s": 18.008
+    },
+    {
+     "w": "like,",
+     "s": 18.335
+    },
+    {
+     "w": "every",
+     "s": 18.756
+    },
+    {
+     "w": "comment,",
+     "s": 19.083
+    },
+    {
+     "w": "every",
+     "s": 19.644
+    },
+    {
+     "w": "position",
+     "s": 19.971
+    },
+    {
+     "w": "request.",
+     "s": 20.438
+    },
+    {
+     "w": "You've",
+     "s": 20.999
+    },
+    {
+     "w": "given",
+     "s": 21.326
+    },
+    {
+     "w": "this",
+     "s": 21.653
+    },
+    {
+     "w": "team",
+     "s": 21.934
+    },
+    {
+     "w": "two",
+     "s": 22.214
+    },
+    {
+     "w": "thousand,",
+     "s": 22.448
+    },
+    {
+     "w": "seven",
+     "s": 23.056
+    },
+    {
+     "w": "hundred",
+     "s": 23.383
+    },
+    {
+     "w": "ninety",
+     "s": 23.804
+    },
+    {
+     "w": "dollars.",
+     "s": 24.177
+    },
+    {
+     "w": "You",
+     "s": 24.738
+    },
+    {
+     "w": "built",
+     "s": 24.972
+    },
+    {
+     "w": "this",
+     "s": 25.299
+    },
+    {
+     "w": "team!",
+     "s": 25.58
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     17.307
+    ],
+    [
+     "cash",
+     22.214
+    ],
+    [
+     "crowd",
+     24.972
+    ]
+   ]
+  },
+  {
    "scene": "a_bye",
-   "text": "Sorry. Love, the Possums.",
+   "text": "We love you. Sorry. The Possums.",
    "sfx": [
     [
      "ding",
@@ -378,34 +510,42 @@
      "@possums"
     ]
    ],
-   "start": 17.073,
-   "end": 18.573,
+   "start": 26.22,
+   "end": 27.926,
    "words": [
     {
+     "w": "We",
+     "s": 26.22
+    },
+    {
+     "w": "love",
+     "s": 26.372
+    },
+    {
+     "w": "you.",
+     "s": 26.599
+    },
+    {
      "w": "Sorry.",
-     "s": 17.073
+     "s": 26.903
     },
     {
-     "w": "Love,",
-     "s": 17.49
-    },
-    {
-     "w": "the",
-     "s": 17.865
+     "w": "The",
+     "s": 27.281
     },
     {
      "w": "Possums.",
-     "s": 18.073
+     "s": 27.471
     }
    ],
    "sfx_times": [
     [
      "ding",
-     17.49
+     26.372
     ],
     [
      "crowd",
-     18.073
+     27.471
     ]
    ]
   }
