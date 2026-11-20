@@ -1,18 +1,19 @@
 {
- "after_day": 6,
- "fund_dollars": 1543,
+ "after_day": 7,
+ "fund_dollars": 1290,
  "record": {
-  "wins": 1,
+  "wins": 2,
   "losses": 5
  },
  "fans": 0,
- "next_opponent": "Copper Canyon Coyotes (howl every snap)",
+ "next_opponent": "Glacier Bay Penguins (slide everywhere)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
   "field: real grass (Day 4, $500)",
   "goal posts: real yellow goal posts (Day 5, $100)",
-  "stands: real metal bleachers (Day 6, $250)"
+  "stands: real metal bleachers (Day 6, $250)",
+  "locker room: real brick locker room with showers (Day 7, $400)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
@@ -20,11 +21,11 @@
   "field": "real grass (one mud puddle left)",
   "goal_posts": "real yellow goal posts (Earl kept the ladder)",
   "scoreboard": "none",
-  "locker_room": "a garden shed with three lockers"
+  "locker_room": "real brick locker room with actual showers"
  },
  "upgrade_prices": {
   "scoreboard": 150,
-  "locker_room": 400,
+  "stadium_lights": 300,
   "team_bus": 500
  },
  "roster": {
@@ -135,48 +136,71 @@
     "U.S.A NG",
     "Jaxon offensive coordinator"
    ]
+  },
+  {
+   "day": 7,
+   "built": "2026-11-20",
+   "likes_in": 147,
+   "likes_tiktok": 133,
+   "likes_instagram": 14,
+   "winning_comment": "Lucas: trick play for the kicker + upgrade that locker room",
+   "comment_likes": 6,
+   "bought": "locker room $400",
+   "opponent": "Copper Canyon Coyotes",
+   "score": "24-21 W",
+   "note": "Second win. Lucas's trick play: kicker throws the game-winning TD to kaleljuju.prod. Jaxon's pregame speech made everyone cry. so.cxmp.13 back at RB with a TD; cj pick; Dominic Harrison 40-yd FG; Ayden Curtis TD to ThatBoyMasyn.",
+   "fan_signings": [
+    "cj S",
+    "Dominic Harrison K",
+    "Ayden Curtis QB",
+    "kaleljuju.prod WR",
+    "ThatBoyMasyn TE",
+    "Wesley slaughter RT",
+    "carlin DL",
+    "CJ water boy"
+   ]
   }
  ],
  "fan_roster": [
   {
-   "name": "Ilovemyhg",
+   "name": "cj",
+   "role": "safety",
+   "trait": "day 6 of asking, got a pick"
+  },
+  {
+   "name": "Dominic Harrison",
+   "role": "kicker",
+   "trait": "#14, 40-yard FG"
+  },
+  {
+   "name": "Ayden Curtis",
    "role": "quarterback",
-   "trait": "threw a dart for a TD"
+   "trait": "TD to ThatBoyMasyn"
   },
   {
-   "name": "Elden",
-   "role": "cornerback",
-   "trait": "day 3 of asking, got a pick"
-  },
-  {
-   "name": "Ž3KË",
-   "role": "right tackle",
-   "trait": "hit a ram, the ram hit back"
-  },
-  {
-   "name": "Blaze",
-   "role": "tight end",
-   "trait": "caught the first TD"
-  },
-  {
-   "name": "Vdogg12",
+   "name": "kaleljuju.prod",
    "role": "wide receiver",
-   "trait": "day 2 of asking, caught a TD"
+   "trait": "caught the trick-play winner"
   },
   {
-   "name": "Jordanfr",
-   "role": "running back",
-   "trait": "ran into Big Lou on the last drive"
+   "name": "ThatBoyMasyn",
+   "role": "tight end",
+   "trait": "caught a TD"
   },
   {
-   "name": "U.S.A",
-   "role": "nose guard",
-   "trait": "day 4 of asking"
+   "name": "Wesley slaughter",
+   "role": "right tackle",
+   "trait": "howled louder than the Coyotes"
   },
   {
-   "name": "Jaxon",
-   "role": "offensive coordinator",
-   "trait": "draws plays on a napkin"
+   "name": "carlin",
+   "role": "d-line",
+   "trait": "got run over 3 times"
+  },
+  {
+   "name": "CJ",
+   "role": "water boy",
+   "trait": "day 5 of asking"
   }
  ],
  "accounts": {
