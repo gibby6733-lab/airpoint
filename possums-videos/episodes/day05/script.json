@@ -1,0 +1,263 @@
+{
+ "episode": 5,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day five. Two hundred and forty four likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund5",
+   "text": "Two hundred forty four dollars! The bank has seventeen hundred and thirty four.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@seventeen"
+    ]
+   ]
+  },
+  {
+   "scene": "comment5",
+   "text": "The top comment said, goal posts. Goodbye, ladder!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@goal"
+    ],
+    [
+     "sad",
+     "@goodbye"
+    ]
+   ]
+  },
+  {
+   "scene": "posts5",
+   "text": "One hundred dollars bought real goal posts. Earl keeps the ladder.",
+   "sfx": [
+    [
+     "spend",
+     "@hundred"
+    ],
+    [
+     "ding",
+     "@real"
+    ],
+    [
+     "honk",
+     "@earl"
+    ]
+   ]
+  },
+  {
+   "scene": "squad5",
+   "text": "And last video's fans are back!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@back"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard5",
+   "text": "Game five. The Salt Flats Snails. The slowest team in the league.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@salt"
+    ]
+   ]
+  },
+  {
+   "scene": "g_snap",
+   "text": "Their snap takes forty seconds. Tiny falls asleep.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "boing",
+     "@asleep"
+    ]
+   ]
+  },
+  {
+   "scene": "g_run5",
+   "text": "Our running back scores before their defense even turns around. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@scores"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_block5",
+   "text": "Our lineman blocks a snail. It hides in its shell.",
+   "sfx": [
+    [
+     "bonk",
+     "@blocks"
+    ],
+    [
+     "slide",
+     "@hides"
+    ]
+   ]
+  },
+  {
+   "scene": "g_pick5",
+   "text": "Our safety gets the pick. And this time he didn't catch his own teammate.",
+   "sfx": [
+    [
+     "ding",
+     "@pick"
+    ],
+    [
+     "boing",
+     "@teammate"
+    ]
+   ]
+  },
+  {
+   "scene": "g_snailtd",
+   "text": "Then the Snails scored two touchdowns. Very, very slowly.",
+   "sfx": [
+    [
+     "sad",
+     "@two"
+    ],
+    [
+     "boo",
+     "@slowly"
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb2_5",
+   "text": "Our backup quarterback finally goes in! He throws to our receiver. Touchdown!",
+   "sfx": [
+    [
+     "whistle",
+     "@finally"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_kick5",
+   "text": "Last play. Tied up. Our kicker, real goal posts. It's good!",
+   "sfx": [
+    [
+     "kick",
+     "@kicker"
+    ],
+    [
+     "crowd",
+     "@good"
+    ]
+   ]
+  },
+  {
+   "scene": "g_win5",
+   "text": "We win! Our first win ever!",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "crowd",
+     0.2
+    ]
+   ]
+  },
+  {
+   "scene": "standings5",
+   "text": "Final, seventeen to fourteen. One win, four losses!",
+   "sfx": [
+    [
+     "stamp",
+     "@seventeen"
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame5",
+   "text": "Tomorrow, the Iron Ridge Rams. They've never lost a game.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@never"
+    ]
+   ]
+  },
+  {
+   "scene": "cta5",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Stands, or a scoreboard. Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

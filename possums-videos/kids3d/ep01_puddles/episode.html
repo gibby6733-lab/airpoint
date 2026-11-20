@@ -1,0 +1,238 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>@font-face{font-family:Fredoka;src:url(../vendor/Fredoka.ttf)}html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><script type="module">
+import { THREE, W, H, clamp, lerp, seg, eOut, eIn, eInOut, eBack, eElastic, rng, setup, skyDome, bakeEnv, mat, mesh, group, SPH, CAP, canvasTex,
+  otter, frog, duck, pose, blinkAt, tree, bush, flowers, grass, cloud, fence, house, signpost, puddleGeo, starTex, wordT, sfxT, envAt, txt, captions, vignette } from '../lib.js';
+
+const { r, scene, cam, octx } = setup(); let TL = null;
+const COLORS = ['#ff6b6b', '#ff9f43', '#ffd43b', '#69db7c', '#38d9a9', '#4dabf7', '#748ffc', '#da77f2', '#f783ac', '#ff922b'];
+// ---------------------------------------------------------------- world layout
+const X = n => 6 + (n - 1) * 6, Z = n => [0, .5, -.4, .6, -.3, .4, -.5, .3, 0, .2][n - 1], RAD = n => n === 10 ? 3.4 : 1.05 + .07 * (n - 1);
+const inPuddle = (x, z, pad = .4) => { for (let n = 1; n <= 10; n++) { const dx = x - X(n), dz = (z - Z(n)) / .72; if (Math.hypot(dx, dz) < RAD(n) + pad) return true; } return false; };
+const skyRain = skyDome('#8fa6c4', '#d5dde8'), skySun = skyDome('#5ec2ff', '#d9f3ff', '#fff6d0'); skySun.material.transparent = true; skySun.scale.setScalar(.99); scene.add(skyRain, skySun); skyRain.renderOrder = -11; skySun.renderOrder = -10;
+const envRain = bakeEnv(r, '#9fb2cc', '#c9d4c0'), envSun = bakeEnv(r, '#7fd0ff', '#d8f0c8', '#fff3c0');
+scene.fog = new THREE.Fog('#c9d6e6', 30, 120);
+const hemi = new THREE.HemisphereLight('#ffffff', '#6fae55', 1.0); scene.add(hemi);
+const sun = new THREE.DirectionalLight('#ffffff', 2.0); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -.0004; sun.shadow.normalBias = .02; sun.shadow.radius = 5;
+Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 80 }); scene.add(sun, sun.target);
+// ground with soft color variation
+const gg = new THREE.PlaneGeometry(260, 260, 160, 160); gg.rotateX(-Math.PI / 2); { const p = gg.attributes.position, col = [], R = rng(4), a = new THREE.Color('#6cc04a'), b = new THREE.Color('#8fd45e'), c = new THREE.Color('#5aae3e');
+  for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i), n = .5 + .25 * Math.sin(x * .21 + z * .13) + .25 * Math.sin(x * .07 - z * .29); const k = a.clone().lerp(b, n).lerp(c, R() * .25); col.push(k.r, k.g, k.b); if (z < -16 || z > 22 || x < -20 || x > 76) p.setY(i, Math.max(0, Math.sin(x * .05) * 2 + Math.cos(z * .04) * 2 + (z < -16 ? (-16 - z) * .08 : 0))); }
+  gg.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); gg.computeVertexNormals(); }
+mesh(gg, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .95 }), 0, 0, 0, scene, { cast: false });
+// distant hills
+for (const [x, z, s, c] of [[-30, -70, 30, '#7cc95a'], [20, -80, 38, '#6dbd4f'], [70, -72, 34, '#84cf62'], [110, -85, 40, '#74c457'], [40, -55, 18, '#8fd468']]) mesh(SPH(1, 32, 16), mat(c, { rough: 1 }), x, -s * .55, z, scene, { s: [s * 1.6, s, s], cast: false });
+// house, fence, trees, bushes
+const HOUSE = house(scene, -6, -7);
+fence(scene, -16, 72, -10.5);
+for (let x = -14; x <= 72; x += 9) tree(scene, x + ((x * 7) % 3), -13.5 - ((x * 3) % 4), .9 + ((x * 13) % 5) * .06);
+for (let x = 2; x <= 70; x += 11) tree(scene, x + 3, -24, 1.3, false);
+const bushes = [[-10, -6], [-1, -8.5], [10, -8], [22, -8.6], [31, -8.2], [44, -8.4], [55, -8], [66, -8.5], [X(5) + 3, -2.2], [X(7) + 5.6, -3.4], [-12, 2]];
+bushes.forEach(([x, z], i) => bush(scene, x, z, .9 + (i % 3) * .15, ['#4caf50', '#43a047', '#5cbf55'][i % 3], ['#ff8ab8', '#ffd43b', '#ffffff', '#da77f2'][i % 4]));
+flowers(scene, 260, [-14, 72, -9.5, 9, (x, z) => inPuddle(x, z, .9) || (Math.abs(z) < 1.6 && x > -1 && x < 64) || (x < -1 && x > -11 && z < -3)], 11);
+grass(scene, 9000, [-16, 74, -10, 12, (x, z) => inPuddle(x, z, .15)], 5);
+// mushrooms + stepping stones + mailbox
+const R0 = rng(21); for (let i = 0; i < 14; i++) { const x = -2 + R0() * 64, z = 2 + R0() * 4; if (inPuddle(x, z, .5)) continue; const g = group(scene, x, 0, z); g.scale.setScalar(.6 + R0() * .5); mesh(new THREE.CylinderGeometry(.12, .16, .4, 12), mat('#fff3e0'), 0, .2, 0, g); mesh(SPH(.32, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2), mat('#ff4a4a', { kind: 'gloss' }), 0, .38, 0, g); for (let k = 0; k < 4; k++) mesh(SPH(.05, 8, 6), mat('#ffffff'), Math.cos(k * 1.6) * .2, .55, Math.sin(k * 1.6) * .2, g, { cast: false }); }
+for (let n = 0; n < 10; n++) { const x0 = n ? X(n) + RAD(n) : -1, x1 = X(n + 1) - RAD(n + 1); for (let k = 1; k <= 2; k++) { const x = lerp(x0, x1, k / 3); mesh(SPH(.42, 20, 10), mat('#d9cbb2', { rough: .9 }), x, .02, lerp(Z(Math.max(1, n)), Z(n + 1), k / 3) + (k % 2 ? .25 : -.25), scene, { s: [1, .18, .75] }); } }
+{ const g = group(scene, -2.2, 0, -3.2); mesh(new THREE.CylinderGeometry(.07, .07, 1.3, 8), mat('#8a5a33'), 0, .65, 0, g); mesh(new THREE.BoxGeometry(.5, .45, .8), mat('#4dabf7', { kind: 'gloss' }), 0, 1.45, 0, g); mesh(new THREE.BoxGeometry(.04, .3, .1), mat('#ff4a4a'), .27, 1.65, .2, g); }
+// puddles (+ wet darker rim) and number signs
+const puddles = []; for (let n = 1; n <= 10; n++) { const rim = mesh(puddleGeo(RAD(n) * 1.12, n * 3), mat('#4f8a36', { rough: 1 }), X(n), .012, Z(n), scene, { cast: false });
+  const w = mesh(puddleGeo(RAD(n), n * 3), mat('#5fb3f0', { kind: 'water' }), X(n), .03, Z(n), scene, { cast: false }); puddles.push(w);
+  signpost(scene, X(n) - RAD(n) * .5, Z(n) - RAD(n) * .72 - 1.1, String(n), COLORS[n - 1]); }
+// clouds
+const clouds = [[-8, 16, -34, 1.4], [8, 18, -40, 1.8], [24, 15, -32, 1.3], [38, 19, -44, 2], [52, 16, -36, 1.5], [66, 18, -40, 1.7], [80, 15, -34, 1.4]].map(([x, y, z, s]) => cloud(scene, x, y, z, s));
+// characters
+const PIP = otter(), BO = frog(), DOT = duck(); scene.add(PIP.root, BO.root, DOT.root);
+// rain
+const RN = 1700, rain = new THREE.InstancedMesh(new THREE.CylinderGeometry(.012, .012, .45, 4), new THREE.MeshBasicMaterial({ color: '#eaf6ff', transparent: true, opacity: .55, depthWrite: false }), RN); rain.frustumCulled = false; scene.add(rain);
+const RR = rng(77), RD = Array.from({ length: RN }, () => [RR() * 30 - 15, RR() * 16, RR() * 26 - 16, 9 + RR() * 5]);
+// ripples on puddles from rain
+const RIP = 60, ripples = new THREE.InstancedMesh(new THREE.TorusGeometry(1, .03, 6, 32), new THREE.MeshBasicMaterial({ color: '#ffffff', transparent: true, opacity: .55, depthWrite: false }), RIP); ripples.frustumCulled = false; scene.add(ripples);
+// splash pools
+const DROPS = 2200, drops = new THREE.InstancedMesh(SPH(.07, 10, 8), mat('#a9dcff', { kind: 'water', opacity: .95 }), DROPS); drops.frustumCulled = false; drops.castShadow = false; scene.add(drops);
+const WAVES = 40, waves = new THREE.InstancedMesh(new THREE.TorusGeometry(1, .05, 6, 40), new THREE.MeshBasicMaterial({ color: '#ffffff', transparent: true, opacity: .7, depthWrite: false }), WAVES); waves.frustumCulled = false; scene.add(waves);
+const CROWNS = 16, crownGeo = new THREE.CylinderGeometry(1, .8, 1, 40, 1, true), crowns = Array.from({ length: CROWNS }, () => { const m = mesh(crownGeo, new THREE.MeshPhysicalMaterial({ color: '#bfe6ff', transparent: true, opacity: .6, roughness: .05, side: THREE.DoubleSide, depthWrite: false }), 0, -10, 0, scene, { cast: false }); return m; });
+// sparkles
+const STAR = starTex(), SPARK = 90, sparks = Array.from({ length: SPARK }, () => { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: STAR, transparent: true, depthWrite: false, color: '#fff7c0' })); s.visible = false; scene.add(s); return s; });
+// rainbow + sun + butterflies + chimney smoke
+const RB = group(scene, 40, -1, -48); const rbCols = ['#ff5a5a', '#ff9f43', '#ffd43b', '#69db7c', '#4dabf7', '#748ffc', '#b57cff'];
+const rbArcs = rbCols.map((c, i) => mesh(new THREE.TorusGeometry(30 - i * 1.25, .65, 12, 96, Math.PI), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0, fog: false, depthWrite: false, toneMapped: false }), 0, 0, 0, RB, { cast: false }));
+rbArcs.forEach(a => a.renderOrder = 5);
+const SUN = mesh(SPH(4, 32, 16), new THREE.MeshBasicMaterial({ color: '#fff3b0', fog: false }), 60, 36, -90, scene, { cast: false });
+const sunGlow = new THREE.Sprite(new THREE.SpriteMaterial({ map: STAR, color: '#fff2a8', transparent: true, depthWrite: false, fog: false })); sunGlow.position.copy(SUN.position); sunGlow.scale.setScalar(26); scene.add(sunGlow);
+const flies = [0, 1, 2].map(i => { const g = group(scene); const c = ['#ffb02e', '#da77f2', '#4dabf7'][i]; const wl = mesh(SPH(.22, 12, 8), mat(c, { side: THREE.DoubleSide }), -.2, 0, 0, g, { s: [1, .12, .8], cast: false }), wr = mesh(SPH(.22, 12, 8), mat(c, { side: THREE.DoubleSide }), .2, 0, 0, g, { s: [1, .12, .8], cast: false }); mesh(CAP(.03, .25, 4), mat('#2b1d1d'), 0, 0, 0, g, { r: [Math.PI / 2, 0, 0], cast: false }); g.userData = { wl, wr }; return g; });
+const smoke = Array.from({ length: 6 }, () => mesh(SPH(.4, 12, 8), mat('#eeeeee', { transparent: true, opacity: .7, rough: 1 }), 0, 0, 0, scene, { cast: false, recv: false }));
+
+// ---------------------------------------------------------------- timeline-derived events (computed once)
+let EV = null;
+function lineBy(f) { return TL.lines.find(f); }
+function build() {
+  const jumps = { pip: [], bo: [], dot: [] }, splashes = [], sparkEv = [];
+  const door = lineBy(l => l.beat === 'door'), dress = lineBy(l => l.beat === 'dress');
+  const outT = door.start + .35, landT = wordT(door, 'puddle');
+  jumps.pip.push({ t0: outT, t1: landT, a: [-6, -4.4], b: [-3.6, -1.6], h: 1.2, yaw: .8 });
+  jumps.pip.push({ t0: landT + .35, t1: dress.start - .05, a: [-3.6, -1.6], b: [0, 0], h: .5, walk: true, yaw: .6 });
+  let pip = [0, 0], bo = null, dot = null;
+  for (const L of TL.lines) {
+    if (L.beat !== 'jump') continue; const n = L.n, land = sfxT(L, 'splash') ?? sfxT(L, 'bigsplash'); let take = sfxT(L, 'boing') ?? land - .7; if (land - take < .45) take = land - .55;
+    const sup = !!L.super, h = sup ? 5.2 : (n === 4 ? 2.6 : 1.9), spin = !!L.spin, off = sup ? 2.0 : 1.35;
+    jumps.pip.push({ t0: take, t1: land, a: pip, b: [X(n), Z(n)], h, spin, yaw: .9, crouch: sup ? .6 : .25 }); pip = [X(n), Z(n)];
+    splashes.push({ t: land, x: X(n), z: Z(n), s: sup ? 3.2 : 1 });
+    if (L.friend === 'bo') { bo = [X(n) + 3, Z(n) - 2.2]; const h1 = sfxT(L, 'boing'); jumps.bo.push({ t0: h1 - .05, t1: h1 + (land - h1) * .5, a: bo, b: [X(n) + 2.2, Z(n) - .5], h: .9, yaw: -.6 }); bo = [X(n) + 2.2, Z(n) - .5]; jumps.bo.push({ t0: h1 + (land - h1) * .5 + .04, t1: land + .05, a: bo, b: [X(n) + off, Z(n) + .75], h: .9, yaw: -.6 }); bo = [X(n) + off, Z(n) + .75]; splashes.push({ t: land + .05, x: bo[0], z: bo[1], s: .55 }); }
+    else if (bo) { jumps.bo.push({ t0: take + .1, t1: land + .1, a: bo, b: [X(n) + off, Z(n) + .75], h: h * .8, spin, yaw: .9 }); bo = [X(n) + off, Z(n) + .75]; splashes.push({ t: land + .1, x: bo[0], z: bo[1], s: sup ? 1.4 : .55 }); }
+    if (L.friend === 'dot') { dot = [X(n) + 6, Z(n) - 3]; const d1 = sfxT(L, 'boing'); jumps.dot.push({ t0: L.start + .2, t1: d1 - .05, a: dot, b: [X(n) - 2.6, Z(n) + 1.4], h: 0, walk: true, yaw: -1.2, waddle: true }); dot = [X(n) - 2.6, Z(n) + 1.4]; jumps.dot.push({ t0: land - .45, t1: land + .08, a: dot, b: [X(n) - off, Z(n) + .8], h: 1.0, yaw: .9 }); dot = [X(n) - off, Z(n) + .8]; splashes.push({ t: land + .08, x: dot[0], z: dot[1], s: .6 }); }
+    else if (dot) { jumps.dot.push({ t0: take + .18, t1: land + .16, a: dot, b: [X(n) - off, Z(n) + .8], h: h * .75, spin, yaw: .9 }); dot = [X(n) - off, Z(n) + .8]; splashes.push({ t: land + .16, x: dot[0], z: dot[1], s: sup ? 1.4 : .6 }); }
+    sparkEv.push({ t: land, p: [X(n), 2.2, Z(n)], n: sup ? 16 : 6, spread: sup ? 4 : 1.6 });
+  }
+  const p1 = sfxT(dress, 'pop', 0), p2 = sfxT(dress, 'pop', 1); sparkEv.push({ t: p1, p: [0, 1.6, .3], n: 10, spread: 1.4 }, { t: p2, p: [0, .3, .5], n: 8, spread: 1.2 });
+  const rb = lineBy(l => l.beat === 'rainbow'); sparkEv.push({ t: wordT(rb, 'rainbow'), p: [X(10), 4, Z(10)], n: 14, spread: 5 });
+  const rc = lineBy(l => l.beat === 'recap'); const nums = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+  const recapT = nums.map(w => wordT(rc, w)); recapT.forEach((t, i) => sparkEv.push({ t, p: [X(i + 1), 1.2, Z(i + 1)], n: 5, spread: 1.2 }));
+  const bye = lineBy(l => l.beat === 'bye'); sparkEv.push({ t: wordT(bye, 'rainy'), p: [X(10), 3, Z(10) + 1], n: 12, spread: 3 });
+  const rainEnd = wordT(rb, 'look') - .3;
+  EV = { jumps, splashes, sparkEv, recapT, rainEnd, p1, p2, door, dress, rb };
+}
+// position of a character at time t from its jump list
+function track(list, t, start) {
+  let pos = start, st = { y: 0, squash: 0, spin: 0, air: false, yaw: .25, walk: false, landedAt: -9, u: 0 };
+  for (const j of list) {
+    if (t < j.t0 - (j.crouch ?? .2)) break;
+    if (t < j.t0) { const k = seg(t, j.t0 - (j.crouch ?? .2), j.t0); pos = j.a; st.squash = j.walk ? 0 : Math.sin(k * Math.PI / 2) * (j.crouch ?? .25) * .7; st.yaw = lerp(st.yaw, j.yaw, k); break; }
+    if (t < j.t1) { const u = (t - j.t0) / (j.t1 - j.t0); const e = j.walk ? u : u; pos = [lerp(j.a[0], j.b[0], e), lerp(j.a[1], j.b[1], e)]; st.y = 4 * j.h * u * (1 - u); st.air = !j.walk; st.walk = !!j.walk; st.u = u;
+      st.squash = j.walk ? 0 : (u < .15 ? -.12 * (1 - u / .15) : u > .85 ? .06 : -.08); st.spin = j.spin ? u * Math.PI * 2 : 0; st.yaw = j.yaw; st.waddle = j.waddle; break; }
+    pos = j.b; st.landedAt = j.t1; st.yaw = .25;
+  }
+  const dl = t - st.landedAt; if (!st.air && dl >= 0 && dl < .5) st.squash = Math.sin(dl / .5 * Math.PI) * .22 * Math.exp(-dl * 3);
+  return { pos, ...st };
+}
+
+// ---------------------------------------------------------------- camera
+function curLine(t) { let i = 0; for (let j = 0; j < TL.lines.length; j++) if (t >= TL.lines[j].start - .2) i = j; return i; }
+function camFor(i, t, P) {
+  const L = TL.lines[i], u = clamp((t - L.start) / (L.end - L.start + .4)), b = L.beat, px = P.pos[0], pz = P.pos[1];
+  let pos, tgt;
+  if (b === 'intro') { pos = [lerp(10, 2, eInOut(u)), lerp(9, 4.2, eInOut(u)), lerp(24, 11, eInOut(u))]; tgt = [-4, 2.4, -5]; }
+  else if (b === 'door') { pos = [lerp(1, 2.5, u), 2.6, lerp(6, 5, u)]; tgt = [lerp(-5.5, -2, eInOut(u)), 1.7, lerp(-4.5, -1.5, u)]; }
+  else if (b === 'dress') { const a = lerp(-.25, .3, u); pos = [Math.sin(a) * 8.6, 2.6, Math.cos(a) * 8.6]; tgt = [0, 1.85, 0]; }
+  else if (b === 'path') { pos = [lerp(4, 22, eInOut(u)), lerp(10, 14, u), lerp(18, 26, u)]; tgt = [lerp(12, 30, eInOut(u)), 0, 0]; }
+  else if (b === 'chorus') { pos = [px + 1.2, 3.0, pz + 11]; tgt = [px + .3, 2.0, pz]; }
+  else if (b === 'friend_talk') { const F = L.who === 'bo' ? P.bo : P.dot; pos = [F.pos[0] + .6, 2.0, F.pos[1] + 6.4]; tgt = [F.pos[0] - .3, 1.3, F.pos[1]]; }
+  else if (b === 'big') { const k = eInOut(seg(u, 0, .55)), uh = seg(t, wordT(L, 'uh') - .1, wordT(L, 'uh') + .3); pos = [lerp(px + 2, X(10) - 1, k), lerp(2.6, 9, k), lerp(pz + 8, 17, k)]; tgt = [lerp(px, X(10), k), lerp(1.4, 0, k), 0];
+    if (uh > 0) { const c = eOut(uh); pos = [lerp(pos[0], px + .6, c), lerp(pos[1], 2.9, c), lerp(pos[2], pz + 5.2, c)]; tgt = [lerp(tgt[0], px, c), lerp(tgt[1], 2.2, c), lerp(tgt[2], pz, c)]; } }
+  else if (b === 'jump' && L.super) { const k = clamp(P.u || 0); pos = [X(10) - 6, lerp(1.3, 3.5, k), 10]; tgt = [lerp(px, X(10), .5), 1.5 + P.y * .6, 0]; if (t > EV.splashes.find(s => s.s > 3).t) { const w = eOut(seg(t, EV.splashes.find(s => s.s > 3).t, L.end + .4)); pos = [lerp(X(10) - 6, X(10) + 1, w), lerp(3.5, 4.5, w), lerp(10, 14, w)]; tgt = [X(10), 1.2, 0]; } }
+  else if (b === 'jump') { pos = [px + 2.4, 3.4, 13]; tgt = [px + .9, 2.3 + P.y * .4, pz * .5]; }
+  else if (b === 'wet' || b === 'shake') { pos = [X(10) + .3, 2.8, 9.6]; tgt = [X(10), 1.8, Z(10)]; }
+  else if (b === 'rainbow') { const k = eInOut(u); pos = [lerp(X(10), X(10) - 4, k), lerp(2.2, 1.6, k), lerp(7, 12, k)]; tgt = [lerp(X(10), 34, k), lerp(1.8, 16, k), lerp(0, -40, k)]; pos[1] = lerp(2.4, 3.2, k); }
+  else if (b === 'recap') { const k = eInOut(u); const cx = lerp(X(1) - 2, X(10) + 2, k); pos = [cx, 6.5, 13]; tgt = [cx + 2, .4, -1]; }
+  else { pos = [X(10) + .4, 3.0, 11.2]; tgt = [X(10), 2.0, Z(10)]; }
+  return [pos, tgt];
+}
+function camAt(t, P) {
+  const i = curLine(t); let [p, g] = camFor(i, t, P);
+  const L = TL.lines[i]; if (i > 0) { const k = eInOut(clamp((t - (L.start - .2)) / .8)); if (k < 1) { const [p0, g0] = camFor(i - 1, t, P); p = p.map((v, j) => lerp(p0[j], v, k)); g = g.map((v, j) => lerp(g0[j], v, k)); } }
+  // landing shake
+  let sh = 0; for (const s of EV.splashes) { const d = t - s.t; if (d > 0 && d < .5) sh += .06 * s.s * Math.exp(-d * 9); }
+  cam.position.set(p[0] + Math.sin(t * 1.1) * .05 + Math.sin(t * 47) * sh, p[1] + Math.sin(t * .9) * .04 + Math.cos(t * 43) * sh, p[2]); cam.lookAt(g[0], g[1], g[2]);
+  return g;
+}
+
+// ---------------------------------------------------------------- frame
+const M4 = new THREE.Matrix4(), Q = new THREE.Quaternion(), V = new THREE.Vector3(), S3 = new THREE.Vector3(), E = new THREE.Euler();
+const cRain = new THREE.Color('#c9d6e6'), cSun = new THREE.Color('#d8eefc'), cl1 = new THREE.Color('#b9c2cf'), cl2 = new THREE.Color('#ffffff'), sunC1 = new THREE.Color('#e3ebff'), sunC2 = new THREE.Color('#fff0d4');
+window.setTimeline = tl => { TL = tl; build(); };
+window.ready = (async () => { await document.fonts.load('700 80px Fredoka'); })();
+window.renderFrame = function (t) {
+  const rf = 1 - eInOut(seg(t, EV.rainEnd, EV.rainEnd + 1.4)), sunny = 1 - rf;
+  // characters
+  const P = track(EV.jumps.pip, t, [-6, -5.6]); const B = track(EV.jumps.bo, t, [X(5) + 3, Z(5) - 2.2]); const D = track(EV.jumps.dot, t, [X(7) + 6, Z(7) - 3]);
+  P.bo = B; P.dot = D;
+  const Li = TL.lines[curLine(t)], beat = Li.beat;
+  const pipVisible = t > EV.door.start + .3, boVis = t > wordT(lineBy(l => l.friend === 'bo'), 'bo') - .1, dotVis = t > lineBy(l => l.friend === 'dot').start + .15;
+  // door
+  HOUSE.door.rotation.y = -1.9 * eOut(seg(t, EV.door.start, EV.door.start + .45)) * (1 - seg(t, EV.door.end + .5, EV.door.end + 1.2));
+  const wetK = seg(t, EV.splashes.find(s => s.s > 3).t - .05, EV.splashes.find(s => s.s > 3).t + .1);
+  const groupBeat = ['wet', 'shake', 'rainbow', 'recap', 'chorus', 'bye'].includes(beat) && t > EV.splashes.find(s => s.s > 3).t;
+  const recapHop = (() => { if (beat !== 'recap') return 0; let h = 0; for (const rt of EV.recapT) { const d = t - rt; if (d > 0 && d < .35) h = Math.sin(d / .35 * Math.PI) * .45; } return h; })();
+  const dance = (beat === 'chorus' || beat === 'bye') ? Math.abs(Math.sin(t * Math.PI * TL.bpm / 60)) * .3 : 0;
+  function drive(R, S, sp, ph, extra = {}) {
+    R.root.position.set(S.pos[0], 0, S.pos[1]);
+    const toCam = Math.atan2(cam.position.x - S.pos[0], cam.position.z - S.pos[1]); const yaw = S.air || S.walk ? S.yaw : lerp(toCam, S.yaw, .25);
+    R.root.rotation.y = yaw; const landed = t - S.landedAt;
+    const talk = envAt(TL, sp, t), shout = landed > 0 && landed < .6 ? Math.sin(landed / .6 * Math.PI) * .7 : 0;
+    const look = [0, 0]; let arms = S.air ? 'up' : (shout > .1 ? 'cheer' : null);
+    if (groupBeat && beat === 'wet') arms = 'cheer'; if (beat === 'chorus' || beat === 'bye') arms = beat === 'chorus' ? 'cheer' : null; if (beat === 'rainbow') { look[1] = .9; }
+    pose(R, { t, ph, hop: S.y + (S.air ? 0 : recapHop + dance), squash: S.squash, spin: S.spin, talk: Math.max(talk, shout, beat === 'rainbow' && t > wordT(Li, 'rainbow') ? .45 : 0), arms, look,
+      brow: beat === 'big' ? -.8 : (beat === 'rainbow' ? .8 : .2), wide: beat === 'big' && t > wordT(Li, 'uh') ? 1.15 : 1, wave: beat === 'bye', shake: beat === 'shake' ? clamp((t - Li.start) / .2) * (1 - seg(t, Li.end - .2, Li.end)) : 0,
+      walk: S.walk, flap: S.air || (sp === 'dot' && beat === 'friend_talk'), tilt: beat === 'dress' ? Math.sin(t * 2) * .08 : 0, ...extra });
+  }
+  PIP.root.visible = pipVisible; if (pipVisible) drive(PIP, P, 'pip', 0, { headYaw: beat === 'path' ? .9 : 0 });
+  // dress-up pops
+  const ck = eElastic(seg(t, EV.p1 - .02, EV.p1 + .6)), bk = eElastic(seg(t, EV.p2 - .02, EV.p2 + .6));
+  PIP.coat.scale.setScalar(Math.max(.001, ck)); PIP.belly.visible = ck < .6; PIP.sleeves.forEach(s => s.visible = ck > .5); PIP.boots.forEach(b => b.scale.setScalar(Math.max(.001, bk)));
+  BO.root.visible = boVis; if (boVis) { const pk = eBack(seg(t, wordT(lineBy(l => l.friend === 'bo'), 'bo') - .1, wordT(lineBy(l => l.friend === 'bo'), 'bo') + .35)); BO.root.scale.setScalar(Math.max(.001, pk)); drive(BO, B, 'bo', 1.3); }
+  DOT.root.visible = dotVis; if (dotVis) { drive(DOT, D, 'dot', 2.1, { flap: D.air || D.waddle }); if (D.waddle) DOT.body.rotation.z = Math.sin(t * 14) * .15; DOT.umb.rotation.y = beat === 'chorus' || beat === 'bye' ? t * 3 : 0; }
+  // wet look after the super splash
+  for (const R of [PIP, BO, DOT]) R.root.traverse(o => { if (o.material && o.material.sheen !== undefined) o.material.roughness = lerp(.85, .45, wetK * (1 - seg(t, EV.rb.start, EV.rb.end))); });
+  // lights / sky / weather
+  const tgt = camAt(t, P);
+  hemi.intensity = lerp(.95, 1.25, sunny); sun.intensity = lerp(1.3, 3.0, sunny); sun.color.copy(sunC1).lerp(sunC2, sunny);
+  sun.position.set(tgt[0] + 8, 16, tgt[2] + 10); sun.target.position.set(tgt[0], 0, tgt[2]); sun.target.updateMatrixWorld();
+  skySun.material.opacity = sunny; scene.environment = sunny > .5 ? envSun : envRain; scene.environmentIntensity = lerp(.8, 1.0, sunny); scene.fog.color.copy(cRain).lerp(cSun, sunny); r.toneMappingExposure = lerp(1.0, 1.1, sunny);
+  clouds.forEach((c, i) => { c.position.x = [-8, 8, 24, 38, 52, 66, 80][i] + t * .25 + (i % 2 ? 1 : -1) * sunny * 10; c.userData.m.color.copy(cl1).lerp(cl2, sunny); });
+  rain.material.opacity = .55 * rf; rain.visible = rf > .01;
+  if (rain.visible) for (let i = 0; i < RN; i++) { const d = RD[i], y = 16 - ((t * d[3] + d[1]) % 16); M4.compose(V.set(tgt[0] + d[0] + y * .05, y, tgt[2] + d[2]), Q.setFromEuler(E.set(0, 0, .05)), S3.set(1, 1, 1)); rain.setMatrixAt(i, M4); } rain.instanceMatrix.needsUpdate = true;
+  // rain ripples on nearby puddles
+  for (let i = 0; i < RIP; i++) { const n = 1 + (i % 10), cyc = Math.floor(t * 1.4 + i * .37), ph = (t * 1.4 + i * .37) % 1, rr = rng(i * 131 + cyc * 7), a = rr() * 6.28, rd = Math.sqrt(rr()) * RAD(n) * .75;
+    const sc = rf > .05 ? (.05 + ph * .45) : 0; M4.compose(V.set(X(n) + Math.cos(a) * rd, .05, Z(n) + Math.sin(a) * rd * .72), Q.setFromEuler(E.set(Math.PI / 2, 0, 0)), S3.set(sc, sc, sc * (1 - ph) + .001)); ripples.setMatrixAt(i, M4); } ripples.instanceMatrix.needsUpdate = true;
+  // splashes: droplets, crowns, waves
+  let di = 0, wi = 0, ci = 0;
+  for (const [ei, s] of EV.splashes.entries()) { const dt = t - s.t, nd = s.s > 3 ? 420 : Math.round(60 * Math.max(.6, s.s)); const rr = rng(ei * 977 + 5);
+    for (let k = 0; k < nd && di < DROPS; k++, di++) { const a = rr() * 6.28, v = (1.6 + rr() * 2.6) * Math.sqrt(s.s), vy = (3 + rr() * 4.5) * Math.sqrt(s.s), sz = .6 + rr() * 1.1, del = rr() * .08;
+      const d = dt - del; let y = .1 + vy * d - 9.8 * d * d * .5; if (d < 0 || y < -.05 || d > 2.2) { M4.makeScale(0, 0, 0); drops.setMatrixAt(di, M4); continue; }
+      M4.compose(V.set(s.x + Math.cos(a) * v * d, Math.max(.02, y), s.z + Math.sin(a) * v * d * .75), Q.identity(), S3.setScalar(sz * (s.s > 3 ? 1.4 : 1) * (1 - d / 2.4))); drops.setMatrixAt(di, M4); }
+    for (let k = 0; k < 2 && wi < WAVES; k++, wi++) { const d = dt - k * .18, sc = d > 0 && d < 1.6 ? (.4 + d * 1.6) * Math.sqrt(s.s) : 0; M4.compose(V.set(s.x, .06, s.z), Q.setFromEuler(E.set(Math.PI / 2, 0, 0)), S3.set(sc, sc * .72, sc ? 1 - d / 1.6 : 0)); waves.setMatrixAt(wi, M4); }
+    if (ci < CROWNS) { const c = crowns[ci++], d = dt; if (d > 0 && d < .7) { const k = d / .7; c.position.set(s.x, .5 * Math.sqrt(s.s) * Math.sin(k * Math.PI) * .6, s.z); c.scale.set((.45 + k * .9) * Math.sqrt(s.s), (.2 + Math.sin(k * Math.PI) * 1.1) * Math.sqrt(s.s), (.45 + k * .9) * Math.sqrt(s.s) * .75); c.material.opacity = .55 * (1 - k); c.visible = true; } else c.visible = false; } }
+  // drips + shake spray from the soaked friends
+  const wetLine = ['wet', 'shake'].includes(beat) && t > EV.splashes.find(s => s.s > 3).t;
+  if (wetLine) for (const [ri, R] of [PIP, BO, DOT].entries()) { if (!R.root.visible) continue; const shakeOn = beat === 'shake';
+    for (let k = 0; k < 40 && di < DROPS; k++, di++) { const rr = rng(ri * 50 + k), ph = (t * (shakeOn ? 1.6 : .9) + rr()) % 1, a = rr() * 6.28 + (shakeOn ? t * 6 : 0), hh = (ri ? 1.0 : 2.2) * rr() + .4;
+      const p = shakeOn ? [R.root.position.x + Math.cos(a) * (.5 + ph * 2.2), hh + .6 * ph - 2 * ph * ph, R.root.position.z + Math.sin(a) * (.5 + ph * 2.2)] : [R.root.position.x + Math.cos(a) * .6, hh - ph * hh, R.root.position.z + Math.sin(a) * .5];
+      M4.compose(V.set(...p), Q.identity(), S3.setScalar(.7 * (1 - ph * .5))); drops.setMatrixAt(di, M4); } }
+  for (; di < DROPS; di++) { M4.makeScale(0, 0, 0); drops.setMatrixAt(di, M4); } drops.instanceMatrix.needsUpdate = true;
+  for (; wi < WAVES; wi++) { M4.makeScale(0, 0, 0); waves.setMatrixAt(wi, M4); } waves.instanceMatrix.needsUpdate = true;
+  // puddle shimmer: the big puddle wobbles after the super splash
+  puddles.forEach((p, i) => { let w = 0; for (const s of EV.splashes) { const d = t - s.t; if (d > 0 && d < 1.5 && Math.abs(s.x - X(i + 1)) < 2) w = Math.max(w, Math.sin(d * 14) * .05 * Math.exp(-d * 3) * s.s); } p.scale.set(1 + w, 1, 1 - w); });
+  // sparkles
+  let si = 0; for (const [ei, e] of EV.sparkEv.entries()) { const dt = t - e.t; if (dt < 0 || dt > 1.1) continue; const rr = rng(ei * 31 + 3);
+    for (let k = 0; k < e.n && si < SPARK; k++, si++) { const s = sparks[si], a = rr() * 6.28, el = rr() * 1.4, d = eOut(clamp(dt / .8)) * e.spread * (.4 + rr() * .6); s.visible = true;
+      s.position.set(e.p[0] + Math.cos(a) * Math.cos(el) * d, e.p[1] + Math.sin(el) * d * .8 - dt * .3, e.p[2] + Math.sin(a) * Math.cos(el) * d * .6); const sc = Math.sin(clamp(dt / 1.1) * Math.PI) * (.35 + rr() * .35) * (1 + .3 * Math.sin(t * 30 + k)); s.scale.setScalar(sc); s.material.rotation = t * 3 + k; } }
+  for (; si < SPARK; si++) sparks[si].visible = false;
+  // rainbow + sun + butterflies
+  const rk = eOut(seg(t, wordT(EV.rb, 'rainbow') - .6, wordT(EV.rb, 'rainbow') + 1.4)); rbArcs.forEach((a, i) => { a.material.opacity = rk * .95; a.scale.setScalar(.6 + .4 * rk); }); RB.visible = rk > 0;
+  SUN.visible = sunGlow.visible = sunny > .02; SUN.material.opacity = sunny; sunGlow.material.opacity = sunny * .9; sunGlow.scale.setScalar(24 + Math.sin(t * 2) * 1.5);
+  flies.forEach((f, i) => { f.visible = sunny > .3; const a = t * .7 + i * 2.1; f.position.set(X(10) + Math.cos(a) * (3 + i), 2.4 + Math.sin(a * 2) * .5 + i * .3, Z(10) + Math.sin(a) * 2); f.rotation.y = -a; const fl = Math.sin(t * 28 + i) * .9; f.userData.wl.rotation.z = fl; f.userData.wr.rotation.z = -fl; });
+  smoke.forEach((s, i) => { const ph = (t * .35 + i / 6) % 1; s.position.set(-6 + 1.8 + Math.sin(ph * 6 + i) * .3 + ph * 1.2, 6.8 + ph * 4, -7.5); s.scale.setScalar(.4 + ph * 1.1); s.material.opacity = .65 * (1 - ph); });
+  // render 3D, then overlay
+  r.render(scene, cam); const c = octx; c.drawImage(r.domElement, 0, 0); overlay(c, t, beat, Li);
+};
+// ---------------------------------------------------------------- 2D overlay
+function dropShape(c, x, y, s, col) { c.save(); c.translate(x, y); c.scale(s, s); c.beginPath(); c.moveTo(0, -120); c.bezierCurveTo(60, -40, 95, 10, 95, 45); c.bezierCurveTo(95, 105, 50, 140, 0, 140); c.bezierCurveTo(-50, 140, -95, 105, -95, 45); c.bezierCurveTo(-95, 10, -60, -40, 0, -120); c.closePath();
+  c.fillStyle = col; c.fill(); c.lineWidth = 14; c.strokeStyle = '#ffffff'; c.stroke(); c.fillStyle = 'rgba(255,255,255,.35)'; c.beginPath(); c.ellipse(-40, 10, 16, 34, -.4, 0, 7); c.fill(); c.restore(); }
+function overlay(c, t, beat, L) {
+  vignette(c, .22);
+  // title card
+  const tk = 1 - seg(t, 3.6, 4.2); if (tk > 0) { c.save(); c.globalAlpha = tk; const words = ["PIP'S", 'PUDDLE', 'JUMP!'], cols = ['#ffd43b', '#4dabf7', '#ff6b6b'];
+    words.forEach((w, i) => { const k = eBack(seg(t, .15 + i * .3, .55 + i * .3)), y = 360 + i * 150 + Math.sin(t * 4 + i) * 8; c.save(); c.translate(W / 2, y); c.rotate((i - 1) * .04); c.scale(k, k); txt(c, w, 0, 10, 150, 'rgba(0,0,0,.25)', { stroke: 30, sc: 'rgba(0,0,0,.25)' }); txt(c, w, 0, 0, 150, cols[i], { stroke: 26, sc: '#ffffff' }); c.restore(); });
+    const pk = eBack(seg(t, 1.2, 1.6)); c.save(); c.translate(W / 2, 830); c.scale(pk, pk); c.fillStyle = '#ffffff'; c.beginPath(); c.roundRect(-230, -50, 460, 100, 50); c.fill(); txt(c, 'COUNT TO 10!', 0, 3, 60, '#ff9f43'); c.restore(); c.restore(); }
+  // counting badge
+  if (L.n && (beat === 'jump' || beat === 'big') && !L.super) { const n = L.n, k = eBack(seg(t, L.start, L.start + .35)), bob = Math.sin(t * 5) * 6;
+    c.save(); c.translate(W / 2, 330 + bob); c.scale(k * .95, k * .95); dropShape(c, 0, 0, 1, COLORS[n - 1]); txt(c, String(n), 0, 38, 150, '#ffffff', { stroke: 18, sc: 'rgba(0,0,0,.22)' }); c.restore();
+    for (let i = 1; i <= 10; i++) { const x = W / 2 + (i - 5.5) * 64, done = i <= n; c.beginPath(); c.arc(x, 520, done ? 22 : 16, 0, 7); c.fillStyle = done ? COLORS[i - 1] : 'rgba(255,255,255,.55)'; c.fill(); c.lineWidth = 5; c.strokeStyle = '#ffffff'; c.stroke(); } }
+  // recap numbers
+  if (beat === 'recap') EV.recapT.forEach((rt, i) => { const d = t - rt; if (d < 0 || d > .9) return; const k = eBack(clamp(d / .25)) * (1 - seg(d, .6, .9)); c.save(); c.translate(W / 2, 600); c.scale(k * 1.4, k * 1.4); c.rotate((i % 2 ? 1 : -1) * .06); txt(c, String(i + 1), 0, 0, 220, COLORS[i], { stroke: 30, sc: '#ffffff' }); c.restore(); });
+  if (L.super) { const ws = ['one', 'two', 'three']; ws.forEach((w, i) => { const d = t - wordT(L, w); if (d < 0 || d > .55) return; const k = eBack(clamp(d / .2)) * (1 - seg(d, .4, .55)); c.save(); c.translate(W / 2, 520); c.scale(k * 1.5, k * 1.5); txt(c, String(i + 1), 0, 0, 200, COLORS[i * 3], { stroke: 30, sc: '#ffffff' }); c.restore(); });
+    const sp = EV.splashes.find(s => s.s > 3).t, d = t - sp; if (d > 0 && d < 1.6) { const k = eBack(clamp(d / .3)) * (1 - seg(d, 1.2, 1.6)); c.save(); c.translate(W / 2, 470); c.rotate(-.06); c.scale(k, k); txt(c, 'SUPER', 0, -70, 150, '#ffd43b', { stroke: 28, sc: '#2b1d4a' }); txt(c, 'SPLASH!', 0, 80, 170, '#4dabf7', { stroke: 30, sc: '#ffffff' }); c.restore(); } }
+  captions(c, TL, t, ['#ffd43b', '#4dabf7', '#ff8ab8', '#69db7c', '#ff9f43']);
+  const f = 1 - clamp(t / .35); if (f > 0) { c.fillStyle = `rgba(255,255,255,${f})`; c.fillRect(0, 0, W, H); }
+}
+</script></body></html>

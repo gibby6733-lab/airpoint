@@ -1,0 +1,1831 @@
+{
+"width": 1080,
+"height": 1920,
+"vertical": true,
+"day": null,
+"duration": 69.717,
+"series": "Would You Survive?",
+"episode": 1,
+"title": "The Titanic",
+"beats": [
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.4,
+"focus": null,
+"scene": "hook",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "Would you survive the Titanic? Three choices. Let's see.",
+"start": 1.45,
+"end": 4.677,
+"words": [
+{
+"w": "Would",
+"s": 1.45
+},
+{
+"w": "you",
+"s": 1.768
+},
+{
+"w": "survive",
+"s": 1.995
+},
+{
+"w": "the",
+"s": 2.404
+},
+{
+"w": "Titanic?",
+"s": 2.632
+},
+{
+"w": "Three",
+"s": 3.177
+},
+{
+"w": "choices.",
+"s": 3.495
+},
+{
+"w": "Let's",
+"s": 4.041
+},
+{
+"w": "see.",
+"s": 4.313
+}
+],
+"sfx": [
+[
+"sting",
+0.05
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.6,
+"focus": null,
+"scene": "impact",
+"clock": "11:40 PM",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "Eleven forty PM. The ship just hit an iceberg.",
+"start": 4.977,
+"end": 8.377,
+"words": [
+{
+"w": "Eleven",
+"s": 4.977
+},
+{
+"w": "forty",
+"s": 5.43
+},
+{
+"w": "PM.",
+"s": 5.827
+},
+{
+"w": "The",
+"s": 6.223
+},
+{
+"w": "ship",
+"s": 6.507
+},
+{
+"w": "just",
+"s": 6.847
+},
+{
+"w": "hit",
+"s": 7.187
+},
+{
+"w": "an",
+"s": 7.47
+},
+{
+"w": "iceberg.",
+"s": 7.697
+}
+],
+"sfx": [
+[
+"crash",
+0.55
+],
+[
+"scrape",
+0.6
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.5,
+"focus": null,
+"scene": "stat",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "There are lifeboat seats for only half the people on board.",
+"start": 8.677,
+"end": 11.947,
+"words": [
+{
+"w": "There",
+"s": 8.677
+},
+{
+"w": "are",
+"s": 8.99
+},
+{
+"w": "lifeboat",
+"s": 9.214
+},
+{
+"w": "seats",
+"s": 9.662
+},
+{
+"w": "for",
+"s": 9.976
+},
+{
+"w": "only",
+"s": 10.2
+},
+{
+"w": "half",
+"s": 10.469
+},
+{
+"w": "the",
+"s": 10.737
+},
+{
+"w": "people",
+"s": 10.961
+},
+{
+"w": "on",
+"s": 11.32
+},
+{
+"w": "board.",
+"s": 11.499
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.55,
+"focus": null,
+"scene": "choice",
+"n": 1,
+"q": "The crew starts loading lifeboats",
+"a": "Get in the first lifeboat",
+"bb": "Stay on the warm ship",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "Choice one. Get in the first lifeboat? Or stay on the warm ship?",
+"start": 12.247,
+"end": 15.985,
+"words": [
+{
+"w": "Choice",
+"s": 12.247
+},
+{
+"w": "one.",
+"s": 12.603
+},
+{
+"w": "Get",
+"s": 12.959
+},
+{
+"w": "in",
+"s": 13.182
+},
+{
+"w": "the",
+"s": 13.36
+},
+{
+"w": "first",
+"s": 13.582
+},
+{
+"w": "lifeboat?",
+"s": 13.894
+},
+{
+"w": "Or",
+"s": 14.472
+},
+{
+"w": "stay",
+"s": 14.65
+},
+{
+"w": "on",
+"s": 14.917
+},
+{
+"w": "the",
+"s": 15.095
+},
+{
+"w": "warm",
+"s": 15.318
+},
+{
+"w": "ship?",
+"s": 15.585
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.55,
+"focus": null,
+"scene": "choice",
+"n": 1,
+"q": "The crew starts loading lifeboats",
+"a": "Get in the first lifeboat",
+"bb": "Stay on the warm ship",
+"countdown": true,
+"sp": "",
+"text": "",
+"start": 16.185,
+"end": 18.785,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.45,
+"focus": null,
+"scene": "lifeboat",
+"clock": "12:45 AM",
+"win": "A",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "The first lifeboat left with just twenty eight people. It had room for sixty five. If you got in, you live.",
+"start": 19.435,
+"end": 26.166,
+"words": [
+{
+"w": "The",
+"s": 19.435
+},
+{
+"w": "first",
+"s": 19.681
+},
+{
+"w": "lifeboat",
+"s": 20.025
+},
+{
+"w": "left",
+"s": 20.516
+},
+{
+"w": "with",
+"s": 20.811
+},
+{
+"w": "just",
+"s": 21.106
+},
+{
+"w": "twenty",
+"s": 21.4
+},
+{
+"w": "eight",
+"s": 21.794
+},
+{
+"w": "people.",
+"s": 22.137
+},
+{
+"w": "It",
+"s": 22.678
+},
+{
+"w": "had",
+"s": 22.874
+},
+{
+"w": "room",
+"s": 23.12
+},
+{
+"w": "for",
+"s": 23.415
+},
+{
+"w": "sixty",
+"s": 23.661
+},
+{
+"w": "five.",
+"s": 24.004
+},
+{
+"w": "If",
+"s": 24.447
+},
+{
+"w": "you",
+"s": 24.643
+},
+{
+"w": "got",
+"s": 24.889
+},
+{
+"w": "in,",
+"s": 25.135
+},
+{
+"w": "you",
+"s": 25.478
+},
+{
+"w": "live.",
+"s": 25.724
+}
+],
+"sfx": [
+[
+"ding",
+0.9
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "choice",
+"n": 2,
+"q": "2 AM. The ship is tilting",
+"a": "Jump into the ocean now",
+"bb": "Climb to the back of the ship",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "Choice two. Two AM. The ship is tilting. Jump now? Or climb to the back?",
+"start": 26.466,
+"end": 30.54,
+"words": [
+{
+"w": "Choice",
+"s": 26.466
+},
+{
+"w": "two.",
+"s": 26.799
+},
+{
+"w": "Two",
+"s": 27.131
+},
+{
+"w": "AM.",
+"s": 27.339
+},
+{
+"w": "The",
+"s": 27.63
+},
+{
+"w": "ship",
+"s": 27.838
+},
+{
+"w": "is",
+"s": 28.087
+},
+{
+"w": "tilting.",
+"s": 28.254
+},
+{
+"w": "Jump",
+"s": 28.752
+},
+{
+"w": "now?",
+"s": 29.002
+},
+{
+"w": "Or",
+"s": 29.334
+},
+{
+"w": "climb",
+"s": 29.501
+},
+{
+"w": "to",
+"s": 29.792
+},
+{
+"w": "the",
+"s": 29.958
+},
+{
+"w": "back?",
+"s": 30.166
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.7,
+"focus": null,
+"scene": "choice",
+"n": 2,
+"q": "2 AM. The ship is tilting",
+"a": "Jump into the ocean now",
+"bb": "Climb to the back of the ship",
+"countdown": true,
+"sp": "",
+"text": "",
+"start": 30.74,
+"end": 33.34,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.75,
+"focus": null,
+"scene": "cold",
+"clock": "2:00 AM",
+"win": "B",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "The water is minus two degrees. Jump early, and you last minutes. Climbing buys you time.",
+"start": 33.99,
+"end": 39.794,
+"words": [
+{
+"w": "The",
+"s": 33.99
+},
+{
+"w": "water",
+"s": 34.244
+},
+{
+"w": "is",
+"s": 34.601
+},
+{
+"w": "minus",
+"s": 34.804
+},
+{
+"w": "two",
+"s": 35.161
+},
+{
+"w": "degrees.",
+"s": 35.415
+},
+{
+"w": "Jump",
+"s": 36.026
+},
+{
+"w": "early,",
+"s": 36.332
+},
+{
+"w": "and",
+"s": 36.841
+},
+{
+"w": "you",
+"s": 37.096
+},
+{
+"w": "last",
+"s": 37.35
+},
+{
+"w": "minutes.",
+"s": 37.656
+},
+{
+"w": "Climbing",
+"s": 38.267
+},
+{
+"w": "buys",
+"s": 38.776
+},
+{
+"w": "you",
+"s": 39.081
+},
+{
+"w": "time.",
+"s": 39.336
+}
+],
+"sfx": [
+[
+"ding",
+0.9
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.9,
+"focus": null,
+"scene": "sink",
+"clock": "2:20 AM",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "At two twenty, the Titanic sinks.",
+"start": 40.094,
+"end": 42.076,
+"words": [
+{
+"w": "At",
+"s": 40.094
+},
+{
+"w": "two",
+"s": 40.274
+},
+{
+"w": "twenty,",
+"s": 40.499
+},
+{
+"w": "the",
+"s": 40.995
+},
+{
+"w": "Titanic",
+"s": 41.22
+},
+{
+"w": "sinks.",
+"s": 41.625
+}
+],
+"sfx": [
+[
+"crash",
+0.3
+],
+[
+"thunder",
+0.4
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.8,
+"focus": null,
+"scene": "choice",
+"n": 3,
+"q": "You're in the freezing water",
+"a": "Swim to a flipped lifeboat",
+"bb": "Float and wait for rescue",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "Choice three. You're in freezing water. Swim to a flipped lifeboat? Or float and wait?",
+"start": 42.376,
+"end": 47.353,
+"words": [
+{
+"w": "Choice",
+"s": 42.376
+},
+{
+"w": "three.",
+"s": 42.741
+},
+{
+"w": "You're",
+"s": 43.198
+},
+{
+"w": "in",
+"s": 43.517
+},
+{
+"w": "freezing",
+"s": 43.7
+},
+{
+"w": "water.",
+"s": 44.157
+},
+{
+"w": "Swim",
+"s": 44.613
+},
+{
+"w": "to",
+"s": 44.887
+},
+{
+"w": "a",
+"s": 45.07
+},
+{
+"w": "flipped",
+"s": 45.207
+},
+{
+"w": "lifeboat?",
+"s": 45.618
+},
+{
+"w": "Or",
+"s": 46.212
+},
+{
+"w": "float",
+"s": 46.394
+},
+{
+"w": "and",
+"s": 46.714
+},
+{
+"w": "wait?",
+"s": 46.942
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.8,
+"focus": null,
+"scene": "choice",
+"n": 3,
+"q": "You're in the freezing water",
+"a": "Swim to a flipped lifeboat",
+"bb": "Float and wait for rescue",
+"countdown": true,
+"sp": "",
+"text": "",
+"start": 47.553,
+"end": 50.153,
+"words": [],
+"sfx": [
+[
+"tick",
+0
+],
+[
+"tick",
+0.33
+],
+[
+"tick",
+0.66
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.5,
+"focus": null,
+"scene": "collapsible",
+"clock": "4:00 AM",
+"win": "A",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "Rescue doesn't come until four AM. But about thirty men survived standing on a flipped lifeboat. Swim.",
+"start": 50.803,
+"end": 57.597,
+"words": [
+{
+"w": "Rescue",
+"s": 50.803
+},
+{
+"w": "doesn't",
+"s": 51.238
+},
+{
+"w": "come",
+"s": 51.673
+},
+{
+"w": "until",
+"s": 51.999
+},
+{
+"w": "four",
+"s": 52.38
+},
+{
+"w": "AM.",
+"s": 52.706
+},
+{
+"w": "But",
+"s": 53.086
+},
+{
+"w": "about",
+"s": 53.358
+},
+{
+"w": "thirty",
+"s": 53.738
+},
+{
+"w": "men",
+"s": 54.173
+},
+{
+"w": "survived",
+"s": 54.445
+},
+{
+"w": "standing",
+"s": 54.988
+},
+{
+"w": "on",
+"s": 55.532
+},
+{
+"w": "a",
+"s": 55.749
+},
+{
+"w": "flipped",
+"s": 55.912
+},
+{
+"w": "lifeboat.",
+"s": 56.402
+},
+{
+"w": "Swim.",
+"s": 57.108
+}
+],
+"sfx": [
+[
+"ding",
+0.95
+]
+]
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.35,
+"focus": null,
+"scene": "result",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "About fifteen hundred people died that night. Around seven hundred survived.",
+"start": 57.897,
+"end": 62.499,
+"words": [
+{
+"w": "About",
+"s": 57.897
+},
+{
+"w": "fifteen",
+"s": 58.248
+},
+{
+"w": "hundred",
+"s": 58.698
+},
+{
+"w": "people",
+"s": 59.148
+},
+{
+"w": "died",
+"s": 59.548
+},
+{
+"w": "that",
+"s": 59.848
+},
+{
+"w": "night.",
+"s": 60.148
+},
+{
+"w": "Around",
+"s": 60.648
+},
+{
+"w": "seven",
+"s": 61.048
+},
+{
+"w": "hundred",
+"s": 61.398
+},
+{
+"w": "survived.",
+"s": 61.849
+}
+],
+"sfx": []
+},
+{
+"loc": "black",
+"tod": "night",
+"wx": null,
+"cast": [],
+"z": null,
+"props": [],
+"fx": [],
+"card": null,
+"cam": 1.0,
+"camx": 0.5,
+"hud": null,
+"act": "",
+"intensity": 0.3,
+"focus": null,
+"scene": "cta",
+"sp": "narr",
+"name": "NARRATOR",
+"text": "Would you have made it? Comment your answers. And what disaster should we survive next?",
+"start": 62.799,
+"end": 67.717,
+"words": [
+{
+"w": "Would",
+"s": 62.799
+},
+{
+"w": "you",
+"s": 63.115
+},
+{
+"w": "have",
+"s": 63.34
+},
+{
+"w": "made",
+"s": 63.611
+},
+{
+"w": "it?",
+"s": 63.882
+},
+{
+"w": "Comment",
+"s": 64.198
+},
+{
+"w": "your",
+"s": 64.604
+},
+{
+"w": "answers.",
+"s": 64.874
+},
+{
+"w": "And",
+"s": 65.416
+},
+{
+"w": "what",
+"s": 65.641
+},
+{
+"w": "disaster",
+"s": 65.912
+},
+{
+"w": "should",
+"s": 66.363
+},
+{
+"w": "we",
+"s": 66.724
+},
+{
+"w": "survive",
+"s": 66.905
+},
+{
+"w": "next?",
+"s": 67.311
+}
+],
+"sfx": []
+}
+],
+"lines": [
+{
+"start": 1.45,
+"end": 4.677,
+"words": [
+{
+"w": "Would",
+"s": 1.45
+},
+{
+"w": "you",
+"s": 1.768
+},
+{
+"w": "survive",
+"s": 1.995
+},
+{
+"w": "the",
+"s": 2.404
+},
+{
+"w": "Titanic?",
+"s": 2.632
+},
+{
+"w": "Three",
+"s": 3.177
+},
+{
+"w": "choices.",
+"s": 3.495
+},
+{
+"w": "Let's",
+"s": 4.041
+},
+{
+"w": "see.",
+"s": 4.313
+}
+]
+},
+{
+"start": 4.977,
+"end": 8.377,
+"words": [
+{
+"w": "Eleven",
+"s": 4.977
+},
+{
+"w": "forty",
+"s": 5.43
+},
+{
+"w": "PM.",
+"s": 5.827
+},
+{
+"w": "The",
+"s": 6.223
+},
+{
+"w": "ship",
+"s": 6.507
+},
+{
+"w": "just",
+"s": 6.847
+},
+{
+"w": "hit",
+"s": 7.187
+},
+{
+"w": "an",
+"s": 7.47
+},
+{
+"w": "iceberg.",
+"s": 7.697
+}
+]
+},
+{
+"start": 8.677,
+"end": 11.947,
+"words": [
+{
+"w": "There",
+"s": 8.677
+},
+{
+"w": "are",
+"s": 8.99
+},
+{
+"w": "lifeboat",
+"s": 9.214
+},
+{
+"w": "seats",
+"s": 9.662
+},
+{
+"w": "for",
+"s": 9.976
+},
+{
+"w": "only",
+"s": 10.2
+},
+{
+"w": "half",
+"s": 10.469
+},
+{
+"w": "the",
+"s": 10.737
+},
+{
+"w": "people",
+"s": 10.961
+},
+{
+"w": "on",
+"s": 11.32
+},
+{
+"w": "board.",
+"s": 11.499
+}
+]
+},
+{
+"start": 12.247,
+"end": 15.985,
+"words": [
+{
+"w": "Choice",
+"s": 12.247
+},
+{
+"w": "one.",
+"s": 12.603
+},
+{
+"w": "Get",
+"s": 12.959
+},
+{
+"w": "in",
+"s": 13.182
+},
+{
+"w": "the",
+"s": 13.36
+},
+{
+"w": "first",
+"s": 13.582
+},
+{
+"w": "lifeboat?",
+"s": 13.894
+},
+{
+"w": "Or",
+"s": 14.472
+},
+{
+"w": "stay",
+"s": 14.65
+},
+{
+"w": "on",
+"s": 14.917
+},
+{
+"w": "the",
+"s": 15.095
+},
+{
+"w": "warm",
+"s": 15.318
+},
+{
+"w": "ship?",
+"s": 15.585
+}
+]
+},
+{
+"start": 19.435,
+"end": 26.166,
+"words": [
+{
+"w": "The",
+"s": 19.435
+},
+{
+"w": "first",
+"s": 19.681
+},
+{
+"w": "lifeboat",
+"s": 20.025
+},
+{
+"w": "left",
+"s": 20.516
+},
+{
+"w": "with",
+"s": 20.811
+},
+{
+"w": "just",
+"s": 21.106
+},
+{
+"w": "twenty",
+"s": 21.4
+},
+{
+"w": "eight",
+"s": 21.794
+},
+{
+"w": "people.",
+"s": 22.137
+},
+{
+"w": "It",
+"s": 22.678
+},
+{
+"w": "had",
+"s": 22.874
+},
+{
+"w": "room",
+"s": 23.12
+},
+{
+"w": "for",
+"s": 23.415
+},
+{
+"w": "sixty",
+"s": 23.661
+},
+{
+"w": "five.",
+"s": 24.004
+},
+{
+"w": "If",
+"s": 24.447
+},
+{
+"w": "you",
+"s": 24.643
+},
+{
+"w": "got",
+"s": 24.889
+},
+{
+"w": "in,",
+"s": 25.135
+},
+{
+"w": "you",
+"s": 25.478
+},
+{
+"w": "live.",
+"s": 25.724
+}
+]
+},
+{
+"start": 26.466,
+"end": 30.54,
+"words": [
+{
+"w": "Choice",
+"s": 26.466
+},
+{
+"w": "two.",
+"s": 26.799
+},
+{
+"w": "Two",
+"s": 27.131
+},
+{
+"w": "AM.",
+"s": 27.339
+},
+{
+"w": "The",
+"s": 27.63
+},
+{
+"w": "ship",
+"s": 27.838
+},
+{
+"w": "is",
+"s": 28.087
+},
+{
+"w": "tilting.",
+"s": 28.254
+},
+{
+"w": "Jump",
+"s": 28.752
+},
+{
+"w": "now?",
+"s": 29.002
+},
+{
+"w": "Or",
+"s": 29.334
+},
+{
+"w": "climb",
+"s": 29.501
+},
+{
+"w": "to",
+"s": 29.792
+},
+{
+"w": "the",
+"s": 29.958
+},
+{
+"w": "back?",
+"s": 30.166
+}
+]
+},
+{
+"start": 33.99,
+"end": 39.794,
+"words": [
+{
+"w": "The",
+"s": 33.99
+},
+{
+"w": "water",
+"s": 34.244
+},
+{
+"w": "is",
+"s": 34.601
+},
+{
+"w": "minus",
+"s": 34.804
+},
+{
+"w": "two",
+"s": 35.161
+},
+{
+"w": "degrees.",
+"s": 35.415
+},
+{
+"w": "Jump",
+"s": 36.026
+},
+{
+"w": "early,",
+"s": 36.332
+},
+{
+"w": "and",
+"s": 36.841
+},
+{
+"w": "you",
+"s": 37.096
+},
+{
+"w": "last",
+"s": 37.35
+},
+{
+"w": "minutes.",
+"s": 37.656
+},
+{
+"w": "Climbing",
+"s": 38.267
+},
+{
+"w": "buys",
+"s": 38.776
+},
+{
+"w": "you",
+"s": 39.081
+},
+{
+"w": "time.",
+"s": 39.336
+}
+]
+},
+{
+"start": 40.094,
+"end": 42.076,
+"words": [
+{
+"w": "At",
+"s": 40.094
+},
+{
+"w": "two",
+"s": 40.274
+},
+{
+"w": "twenty,",
+"s": 40.499
+},
+{
+"w": "the",
+"s": 40.995
+},
+{
+"w": "Titanic",
+"s": 41.22
+},
+{
+"w": "sinks.",
+"s": 41.625
+}
+]
+},
+{
+"start": 42.376,
+"end": 47.353,
+"words": [
+{
+"w": "Choice",
+"s": 42.376
+},
+{
+"w": "three.",
+"s": 42.741
+},
+{
+"w": "You're",
+"s": 43.198
+},
+{
+"w": "in",
+"s": 43.517
+},
+{
+"w": "freezing",
+"s": 43.7
+},
+{
+"w": "water.",
+"s": 44.157
+},
+{
+"w": "Swim",
+"s": 44.613
+},
+{
+"w": "to",
+"s": 44.887
+},
+{
+"w": "a",
+"s": 45.07
+},
+{
+"w": "flipped",
+"s": 45.207
+},
+{
+"w": "lifeboat?",
+"s": 45.618
+},
+{
+"w": "Or",
+"s": 46.212
+},
+{
+"w": "float",
+"s": 46.394
+},
+{
+"w": "and",
+"s": 46.714
+},
+{
+"w": "wait?",
+"s": 46.942
+}
+]
+},
+{
+"start": 50.803,
+"end": 57.597,
+"words": [
+{
+"w": "Rescue",
+"s": 50.803
+},
+{
+"w": "doesn't",
+"s": 51.238
+},
+{
+"w": "come",
+"s": 51.673
+},
+{
+"w": "until",
+"s": 51.999
+},
+{
+"w": "four",
+"s": 52.38
+},
+{
+"w": "AM.",
+"s": 52.706
+},
+{
+"w": "But",
+"s": 53.086
+},
+{
+"w": "about",
+"s": 53.358
+},
+{
+"w": "thirty",
+"s": 53.738
+},
+{
+"w": "men",
+"s": 54.173
+},
+{
+"w": "survived",
+"s": 54.445
+},
+{
+"w": "standing",
+"s": 54.988
+},
+{
+"w": "on",
+"s": 55.532
+},
+{
+"w": "a",
+"s": 55.749
+},
+{
+"w": "flipped",
+"s": 55.912
+},
+{
+"w": "lifeboat.",
+"s": 56.402
+},
+{
+"w": "Swim.",
+"s": 57.108
+}
+]
+},
+{
+"start": 57.897,
+"end": 62.499,
+"words": [
+{
+"w": "About",
+"s": 57.897
+},
+{
+"w": "fifteen",
+"s": 58.248
+},
+{
+"w": "hundred",
+"s": 58.698
+},
+{
+"w": "people",
+"s": 59.148
+},
+{
+"w": "died",
+"s": 59.548
+},
+{
+"w": "that",
+"s": 59.848
+},
+{
+"w": "night.",
+"s": 60.148
+},
+{
+"w": "Around",
+"s": 60.648
+},
+{
+"w": "seven",
+"s": 61.048
+},
+{
+"w": "hundred",
+"s": 61.398
+},
+{
+"w": "survived.",
+"s": 61.849
+}
+]
+},
+{
+"start": 62.799,
+"end": 67.717,
+"words": [
+{
+"w": "Would",
+"s": 62.799
+},
+{
+"w": "you",
+"s": 63.115
+},
+{
+"w": "have",
+"s": 63.34
+},
+{
+"w": "made",
+"s": 63.611
+},
+{
+"w": "it?",
+"s": 63.882
+},
+{
+"w": "Comment",
+"s": 64.198
+},
+{
+"w": "your",
+"s": 64.604
+},
+{
+"w": "answers.",
+"s": 64.874
+},
+{
+"w": "And",
+"s": 65.416
+},
+{
+"w": "what",
+"s": 65.641
+},
+{
+"w": "disaster",
+"s": 65.912
+},
+{
+"w": "should",
+"s": 66.363
+},
+{
+"w": "we",
+"s": 66.724
+},
+{
+"w": "survive",
+"s": 66.905
+},
+{
+"w": "next?",
+"s": 67.311
+}
+]
+}
+]
+}

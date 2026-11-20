@@ -1,0 +1,10 @@
+{
+ "after_day": 1,
+ "supplies": 0,
+ "survivors": ["Cole (narrator)", "Mags (mechanic)", "Dooley (old soldier)", "Pip (12, the brains) + Biscuit (dog)", "Tank (huge, scared of everything)"],
+ "base": {"walls": "vending machine + duct tape", "power": "none", "lookout": "none", "food": "9 cans of beans"},
+ "shop": [["WALLS", 100], ["GENERATOR", 150], ["WATCHTOWER", 200], ["FOOD RUN", 50]],
+ "fan_survivors": [],
+ "history": [{"day": 1, "event": "first night attack, Pip threw the radio into the cornfield and the horde followed it", "likes": null, "winning_comment": null}],
+ "hashtags": "#zombieapocalypse #zombies #animation #survival #mile41"
+}

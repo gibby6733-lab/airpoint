@@ -1,0 +1,1263 @@
+{
+ "duration": 65.12,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day six. One hundred and fifty nine likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 0.35,
+   "end": 3.102,
+   "words": [
+    {
+     "w": "Day",
+     "s": 0.35
+    },
+    {
+     "w": "six.",
+     "s": 0.6
+    },
+    {
+     "w": "One",
+     "s": 1.0
+    },
+    {
+     "w": "hundred",
+     "s": 1.251
+    },
+    {
+     "w": "and",
+     "s": 1.701
+    },
+    {
+     "w": "fifty",
+     "s": 1.951
+    },
+    {
+     "w": "nine",
+     "s": 2.301
+    },
+    {
+     "w": "likes.",
+     "s": 2.601
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     0.35
+    ],
+    [
+     "stamp",
+     0.488
+    ]
+   ]
+  },
+  {
+   "scene": "fund6",
+   "text": "That's a hundred and fifty nine dollars! The bank has seventeen ninety three.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@seventeen"
+    ]
+   ],
+   "start": 3.322,
+   "end": 7.457,
+   "words": [
+    {
+     "w": "That's",
+     "s": 3.322
+    },
+    {
+     "w": "a",
+     "s": 3.63
+    },
+    {
+     "w": "hundred",
+     "s": 3.762
+    },
+    {
+     "w": "and",
+     "s": 4.158
+    },
+    {
+     "w": "fifty",
+     "s": 4.378
+    },
+    {
+     "w": "nine",
+     "s": 4.686
+    },
+    {
+     "w": "dollars!",
+     "s": 4.95
+    },
+    {
+     "w": "The",
+     "s": 5.477
+    },
+    {
+     "w": "bank",
+     "s": 5.697
+    },
+    {
+     "w": "has",
+     "s": 5.961
+    },
+    {
+     "w": "seventeen",
+     "s": 6.181
+    },
+    {
+     "w": "ninety",
+     "s": 6.665
+    },
+    {
+     "w": "three.",
+     "s": 7.017
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     3.942
+    ],
+    [
+     "ding",
+     6.181
+    ]
+   ]
+  },
+  {
+   "scene": "comment6",
+   "text": "The top comment said, stands. No more broken fence!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@stands"
+    ],
+    [
+     "sad",
+     "@broken"
+    ]
+   ],
+   "start": 7.677,
+   "end": 10.769,
+   "words": [
+    {
+     "w": "The",
+     "s": 7.677
+    },
+    {
+     "w": "top",
+     "s": 7.908
+    },
+    {
+     "w": "comment",
+     "s": 8.139
+    },
+    {
+     "w": "said,",
+     "s": 8.554
+    },
+    {
+     "w": "stands.",
+     "s": 8.969
+    },
+    {
+     "w": "No",
+     "s": 9.477
+    },
+    {
+     "w": "more",
+     "s": 9.661
+    },
+    {
+     "w": "broken",
+     "s": 9.938
+    },
+    {
+     "w": "fence!",
+     "s": 10.307
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     7.677
+    ],
+    [
+     "ding",
+     8.969
+    ],
+    [
+     "sad",
+     9.938
+    ]
+   ]
+  },
+  {
+   "scene": "stands6",
+   "text": "Two hundred fifty dollars bought real bleachers. The cow got the best seat.",
+   "sfx": [
+    [
+     "spend",
+     "@two"
+    ],
+    [
+     "ding",
+     "@real"
+    ],
+    [
+     "honk",
+     "@cow"
+    ]
+   ],
+   "start": 10.989,
+   "end": 15.31,
+   "words": [
+    {
+     "w": "Two",
+     "s": 10.989
+    },
+    {
+     "w": "hundred",
+     "s": 11.221
+    },
+    {
+     "w": "fifty",
+     "s": 11.639
+    },
+    {
+     "w": "dollars",
+     "s": 11.964
+    },
+    {
+     "w": "bought",
+     "s": 12.383
+    },
+    {
+     "w": "real",
+     "s": 12.754
+    },
+    {
+     "w": "bleachers.",
+     "s": 13.033
+    },
+    {
+     "w": "The",
+     "s": 13.684
+    },
+    {
+     "w": "cow",
+     "s": 13.916
+    },
+    {
+     "w": "got",
+     "s": 14.148
+    },
+    {
+     "w": "the",
+     "s": 14.381
+    },
+    {
+     "w": "best",
+     "s": 14.613
+    },
+    {
+     "w": "seat.",
+     "s": 14.892
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     10.989
+    ],
+    [
+     "ding",
+     12.754
+    ],
+    [
+     "honk",
+     13.916
+    ]
+   ]
+  },
+  {
+   "scene": "signings6",
+   "text": "And eight of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ],
+   "start": 15.53,
+   "end": 16.908,
+   "words": [
+    {
+     "w": "And",
+     "s": 15.53
+    },
+    {
+     "w": "eight",
+     "s": 15.69
+    },
+    {
+     "w": "of",
+     "s": 15.915
+    },
+    {
+     "w": "you",
+     "s": 16.043
+    },
+    {
+     "w": "joined",
+     "s": 16.203
+    },
+    {
+     "w": "the",
+     "s": 16.46
+    },
+    {
+     "w": "team!",
+     "s": 16.62
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     15.943
+    ],
+    [
+     "crowd",
+     16.62
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard6",
+   "text": "Game six. The Iron Ridge Rams. Never lost a game.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@never"
+    ]
+   ],
+   "start": 17.128,
+   "end": 20.085,
+   "words": [
+    {
+     "w": "Game",
+     "s": 17.128
+    },
+    {
+     "w": "six.",
+     "s": 17.397
+    },
+    {
+     "w": "The",
+     "s": 17.756
+    },
+    {
+     "w": "Iron",
+     "s": 17.98
+    },
+    {
+     "w": "Ridge",
+     "s": 18.248
+    },
+    {
+     "w": "Rams.",
+     "s": 18.562
+    },
+    {
+     "w": "Never",
+     "s": 18.965
+    },
+    {
+     "w": "lost",
+     "s": 19.279
+    },
+    {
+     "w": "a",
+     "s": 19.548
+    },
+    {
+     "w": "game.",
+     "s": 19.682
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     17.128
+    ],
+    [
+     "stamp",
+     18.965
+    ]
+   ]
+  },
+  {
+   "scene": "g_oc",
+   "text": "Our new offensive coordinator draws up a play. On a napkin.",
+   "sfx": [
+    [
+     "pop",
+     "@draws"
+    ],
+    [
+     "boing",
+     "@napkin"
+    ]
+   ],
+   "start": 20.305,
+   "end": 23.706,
+   "words": [
+    {
+     "w": "Our",
+     "s": 20.305
+    },
+    {
+     "w": "new",
+     "s": 20.532
+    },
+    {
+     "w": "offensive",
+     "s": 20.759
+    },
+    {
+     "w": "coordinator",
+     "s": 21.258
+    },
+    {
+     "w": "draws",
+     "s": 21.847
+    },
+    {
+     "w": "up",
+     "s": 22.164
+    },
+    {
+     "w": "a",
+     "s": 22.346
+    },
+    {
+     "w": "play.",
+     "s": 22.482
+    },
+    {
+     "w": "On",
+     "s": 22.89
+    },
+    {
+     "w": "a",
+     "s": 23.071
+    },
+    {
+     "w": "napkin.",
+     "s": 23.207
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     21.847
+    ],
+    [
+     "boing",
+     23.207
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb6",
+   "text": "Our new quarterback throws a dart to our tight end. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@dart"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 23.926,
+   "end": 27.375,
+   "words": [
+    {
+     "w": "Our",
+     "s": 23.926
+    },
+    {
+     "w": "new",
+     "s": 24.147
+    },
+    {
+     "w": "quarterback",
+     "s": 24.368
+    },
+    {
+     "w": "throws",
+     "s": 24.943
+    },
+    {
+     "w": "a",
+     "s": 25.297
+    },
+    {
+     "w": "dart",
+     "s": 25.43
+    },
+    {
+     "w": "to",
+     "s": 25.695
+    },
+    {
+     "w": "our",
+     "s": 25.872
+    },
+    {
+     "w": "tight",
+     "s": 26.093
+    },
+    {
+     "w": "end.",
+     "s": 26.402
+    },
+    {
+     "w": "Touchdown!",
+     "s": 26.756
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     25.43
+    ],
+    [
+     "crowd",
+     26.756
+    ]
+   ]
+  },
+  {
+   "scene": "g_hit",
+   "text": "Our tackle and our nose guard both hit a ram. It hits back.",
+   "sfx": [
+    [
+     "bonk",
+     "@hit"
+    ],
+    [
+     "boing",
+     "@back"
+    ]
+   ],
+   "start": 27.595,
+   "end": 31.156,
+   "words": [
+    {
+     "w": "Our",
+     "s": 27.595
+    },
+    {
+     "w": "tackle",
+     "s": 27.827
+    },
+    {
+     "w": "and",
+     "s": 28.196
+    },
+    {
+     "w": "our",
+     "s": 28.428
+    },
+    {
+     "w": "nose",
+     "s": 28.659
+    },
+    {
+     "w": "guard",
+     "s": 28.936
+    },
+    {
+     "w": "both",
+     "s": 29.26
+    },
+    {
+     "w": "hit",
+     "s": 29.538
+    },
+    {
+     "w": "a",
+     "s": 29.769
+    },
+    {
+     "w": "ram.",
+     "s": 29.908
+    },
+    {
+     "w": "It",
+     "s": 30.278
+    },
+    {
+     "w": "hits",
+     "s": 30.462
+    },
+    {
+     "w": "back.",
+     "s": 30.74
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     29.538
+    ],
+    [
+     "boing",
+     30.74
+    ]
+   ]
+  },
+  {
+   "scene": "g_cb6",
+   "text": "Our corner, day three of asking, finally gets a pick!",
+   "sfx": [
+    [
+     "ding",
+     "@pick"
+    ],
+    [
+     "crowd",
+     "@pick"
+    ]
+   ],
+   "start": 31.376,
+   "end": 34.41,
+   "words": [
+    {
+     "w": "Our",
+     "s": 31.376
+    },
+    {
+     "w": "corner,",
+     "s": 31.593
+    },
+    {
+     "w": "day",
+     "s": 32.07
+    },
+    {
+     "w": "three",
+     "s": 32.286
+    },
+    {
+     "w": "of",
+     "s": 32.59
+    },
+    {
+     "w": "asking,",
+     "s": 32.763
+    },
+    {
+     "w": "finally",
+     "s": 33.24
+    },
+    {
+     "w": "gets",
+     "s": 33.63
+    },
+    {
+     "w": "a",
+     "s": 33.89
+    },
+    {
+     "w": "pick!",
+     "s": 34.02
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     34.02
+    ],
+    [
+     "crowd",
+     34.02
+    ]
+   ]
+  },
+  {
+   "scene": "g_rams",
+   "text": "The Rams remembered they've never lost. Three touchdowns.",
+   "sfx": [
+    [
+     "sad",
+     "@three"
+    ],
+    [
+     "boo",
+     "@touchdowns"
+    ]
+   ],
+   "start": 34.63,
+   "end": 37.827,
+   "words": [
+    {
+     "w": "The",
+     "s": 34.63
+    },
+    {
+     "w": "Rams",
+     "s": 34.862
+    },
+    {
+     "w": "remembered",
+     "s": 35.14
+    },
+    {
+     "w": "they've",
+     "s": 35.696
+    },
+    {
+     "w": "never",
+     "s": 36.066
+    },
+    {
+     "w": "lost.",
+     "s": 36.391
+    },
+    {
+     "w": "Three",
+     "s": 36.808
+    },
+    {
+     "w": "touchdowns.",
+     "s": 37.132
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     36.808
+    ],
+    [
+     "boo",
+     37.132
+    ]
+   ]
+  },
+  {
+   "scene": "g_wr6",
+   "text": "Our receiver, day two of asking, catches one. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@catches"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 38.047,
+   "end": 41.255,
+   "words": [
+    {
+     "w": "Our",
+     "s": 38.047
+    },
+    {
+     "w": "receiver,",
+     "s": 38.264
+    },
+    {
+     "w": "day",
+     "s": 38.828
+    },
+    {
+     "w": "two",
+     "s": 39.044
+    },
+    {
+     "w": "of",
+     "s": 39.261
+    },
+    {
+     "w": "asking,",
+     "s": 39.434
+    },
+    {
+     "w": "catches",
+     "s": 39.911
+    },
+    {
+     "w": "one.",
+     "s": 40.302
+    },
+    {
+     "w": "Touchdown!",
+     "s": 40.648
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     39.911
+    ],
+    [
+     "crowd",
+     40.648
+    ]
+   ]
+  },
+  {
+   "scene": "g_rb6",
+   "text": "Last drive. Our running back runs straight into Big Lou.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "bonk",
+     "@lou"
+    ]
+   ],
+   "start": 41.475,
+   "end": 44.63,
+   "words": [
+    {
+     "w": "Last",
+     "s": 41.475
+    },
+    {
+     "w": "drive.",
+     "s": 41.742
+    },
+    {
+     "w": "Our",
+     "s": 42.186
+    },
+    {
+     "w": "running",
+     "s": 42.408
+    },
+    {
+     "w": "back",
+     "s": 42.808
+    },
+    {
+     "w": "runs",
+     "s": 43.075
+    },
+    {
+     "w": "straight",
+     "s": 43.341
+    },
+    {
+     "w": "into",
+     "s": 43.786
+    },
+    {
+     "w": "Big",
+     "s": 44.052
+    },
+    {
+     "w": "Lou.",
+     "s": 44.274
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     41.475
+    ],
+    [
+     "bonk",
+     44.274
+    ]
+   ]
+  },
+  {
+   "scene": "g_crowd6",
+   "text": "We lost. But for the first time, the stands were full.",
+   "sfx": [
+    [
+     "sad",
+     "@lost"
+    ],
+    [
+     "crowd",
+     "@full"
+    ]
+   ],
+   "start": 44.85,
+   "end": 47.654,
+   "words": [
+    {
+     "w": "We",
+     "s": 44.85
+    },
+    {
+     "w": "lost.",
+     "s": 45.006
+    },
+    {
+     "w": "But",
+     "s": 45.356
+    },
+    {
+     "w": "for",
+     "s": 45.551
+    },
+    {
+     "w": "the",
+     "s": 45.746
+    },
+    {
+     "w": "first",
+     "s": 45.94
+    },
+    {
+     "w": "time,",
+     "s": 46.213
+    },
+    {
+     "w": "the",
+     "s": 46.563
+    },
+    {
+     "w": "stands",
+     "s": 46.758
+    },
+    {
+     "w": "were",
+     "s": 47.069
+    },
+    {
+     "w": "full.",
+     "s": 47.303
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     45.006
+    ],
+    [
+     "crowd",
+     47.303
+    ]
+   ]
+  },
+  {
+   "scene": "standings6",
+   "text": "Final, twenty one to fourteen. One win, five losses.",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "sad",
+     "@five"
+    ]
+   ],
+   "start": 47.874,
+   "end": 51.263,
+   "words": [
+    {
+     "w": "Final,",
+     "s": 47.874
+    },
+    {
+     "w": "twenty",
+     "s": 48.358
+    },
+    {
+     "w": "one",
+     "s": 48.745
+    },
+    {
+     "w": "to",
+     "s": 48.987
+    },
+    {
+     "w": "fourteen.",
+     "s": 49.181
+    },
+    {
+     "w": "One",
+     "s": 49.81
+    },
+    {
+     "w": "win,",
+     "s": 50.052
+    },
+    {
+     "w": "five",
+     "s": 50.44
+    },
+    {
+     "w": "losses.",
+     "s": 50.73
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     48.358
+    ],
+    [
+     "sad",
+     50.44
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame6",
+   "text": "Tomorrow, the Copper Canyon Coyotes. They howl during every snap.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@howl"
+    ]
+   ],
+   "start": 51.483,
+   "end": 55.382,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 51.483
+    },
+    {
+     "w": "the",
+     "s": 52.101
+    },
+    {
+     "w": "Copper",
+     "s": 52.339
+    },
+    {
+     "w": "Canyon",
+     "s": 52.719
+    },
+    {
+     "w": "Coyotes.",
+     "s": 53.1
+    },
+    {
+     "w": "They",
+     "s": 53.67
+    },
+    {
+     "w": "howl",
+     "s": 53.956
+    },
+    {
+     "w": "during",
+     "s": 54.241
+    },
+    {
+     "w": "every",
+     "s": 54.621
+    },
+    {
+     "w": "snap.",
+     "s": 54.954
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     51.483
+    ],
+    [
+     "stamp",
+     53.956
+    ]
+   ]
+  },
+  {
+   "scene": "cta6",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Scoreboard, locker room, or team bus? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "pop",
+     "@locker"
+    ],
+    [
+     "pop",
+     "@bus"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 55.602,
+   "end": 63.62,
+   "words": [
+    {
+     "w": "Every",
+     "s": 55.602
+    },
+    {
+     "w": "like",
+     "s": 55.931
+    },
+    {
+     "w": "is",
+     "s": 56.212
+    },
+    {
+     "w": "a",
+     "s": 56.399
+    },
+    {
+     "w": "dollar.",
+     "s": 56.54
+    },
+    {
+     "w": "The",
+     "s": 57.056
+    },
+    {
+     "w": "top",
+     "s": 57.29
+    },
+    {
+     "w": "comment",
+     "s": 57.525
+    },
+    {
+     "w": "picks",
+     "s": 57.947
+    },
+    {
+     "w": "the",
+     "s": 58.275
+    },
+    {
+     "w": "upgrade.",
+     "s": 58.509
+    },
+    {
+     "w": "Scoreboard,",
+     "s": 59.072
+    },
+    {
+     "w": "locker",
+     "s": 59.775
+    },
+    {
+     "w": "room,",
+     "s": 60.15
+    },
+    {
+     "w": "or",
+     "s": 60.572
+    },
+    {
+     "w": "team",
+     "s": 60.76
+    },
+    {
+     "w": "bus?",
+     "s": 61.041
+    },
+    {
+     "w": "Want",
+     "s": 61.416
+    },
+    {
+     "w": "to",
+     "s": 61.697
+    },
+    {
+     "w": "play?",
+     "s": 61.885
+    },
+    {
+     "w": "Comment",
+     "s": 62.307
+    },
+    {
+     "w": "your",
+     "s": 62.729
+    },
+    {
+     "w": "position.",
+     "s": 63.01
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     56.54
+    ],
+    [
+     "pop",
+     59.072
+    ],
+    [
+     "pop",
+     59.775
+    ],
+    [
+     "pop",
+     61.041
+    ],
+    [
+     "ding",
+     57.525
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

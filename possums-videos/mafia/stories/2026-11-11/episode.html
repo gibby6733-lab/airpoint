@@ -1,0 +1,154 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Mafia story renderer: Ken Burns on the user's images, paper-cut transitions, noir grade, captions.
+const W = 1080, H = 1920, cv = document.getElementById('c'), ctx = cv.getContext('2d');
+let TL = null; const IMG = {};
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k, seg = (u, a, b) => clamp((u - a) / (b - a));
+const eInOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2, eOut = k => 1 - Math.pow(1 - k, 3);
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+
+window.setTimeline = tl => { TL = tl; };
+function loadImg(f) { return new Promise((res, rej) => { const im = new Image(); im.onload = () => { IMG[f] = im; res(); }; im.onerror = rej; im.src = 'images/' + f; }); }
+function filesFor(s) { return [s.full || s.img, s.plate, ...(s.elements || []).map(e => e.file)].filter(Boolean); }
+// keep only the images of shots on screen around time t (current, previous, next) in memory
+window.prepare = async t => {
+  const need = new Set(); TL.shots.forEach(s => { if (t >= s.start - 1.5 && t <= s.end + 1.5) filesFor(s).forEach(f => need.add(f)); });
+  for (const f of Object.keys(IMG)) if (!need.has(f)) delete IMG[f];
+  await Promise.all([...need].filter(f => !IMG[f]).map(loadImg));
+};
+window.whenReady = () => window.prepare(0);
+
+// ---- one shot: image covering the frame, slow push/pan (direction varies per shot)
+// ---- 'assemble' style: locked camera; plate first, elements land one by one, exact image by 70%, then ambient life
+function coverXf(im) { const sc = Math.max(W / im.width, H / im.height); return { sc, ox: (W - im.width * sc) / 2, oy: (H - im.height * sc) / 2 }; }
+function ambient(t, s) {
+  const D = s.end - s.start, k = seg(t, s.start + D * .7, s.start + D * .78); if (k <= 0) return;
+  ctx.save(); ctx.globalAlpha = k;
+  ctx.fillStyle = `rgba(255,236,205,${.025 + .02 * Math.sin(t * 1.7)})`; ctx.fillRect(0, 0, W, H);      // breathing warm light
+  const r = rng(Math.round(s.start * 10));
+  for (let q = 0; q < 26; q++) { const x0 = r() * W, y0 = r() * H, sp = 6 + r() * 10;                     // floating dust
+    const x = x0 + Math.sin(t * .4 + q) * 14, y = (y0 - (t - s.start) * sp + H) % H; ctx.fillStyle = `rgba(255,248,230,${.12 + r() * .18})`;
+    ctx.beginPath(); ctx.arc(x, y, 1.2 + r() * 1.8, 0, 7); ctx.fill(); }
+  ctx.restore();
+}
+function drawAssembled(i, t) {
+  const s = TL.shots[i], orig = IMG[s.full || s.img]; if (!orig) return;
+  const { sc, ox, oy } = coverXf(orig);
+  const lastLand = s.mode === 'assemble' ? s.elements[s.elements.length - 1].land : s.build[1];
+  if (t >= lastLand + .35) { ctx.drawImage(orig, ox, oy, orig.width * sc, orig.height * sc); ambient(t, s); return; }  // exact final frame
+  if (s.mode === 'assemble') {
+    const plate = IMG[s.plate]; ctx.drawImage(plate, ox, oy, plate.width * sc, plate.height * sc);
+    for (const e of s.elements) {
+      const T0 = e.land - .5; if (t < T0) continue; const im = IMG[e.file]; if (!im) continue;
+      const k = clamp((t - T0) / .5), after = t - e.land;
+      const scale = k < 1 ? lerp(1.07, 1, eOut(k)) : 1 - .012 * Math.sin(after * 22) * Math.exp(-after * 11);   // small handcrafted settle
+      const cx = ox + (e.x + e.w / 2) * sc, cy = oy + (e.y + e.h / 2) * sc - 70 * (1 - eOut(k));
+      ctx.save(); ctx.globalAlpha = clamp(k * 3);
+      if (k < 1) { ctx.shadowColor = `rgba(0,0,0,${.5 * (1 - k)})`; ctx.shadowBlur = 34 * (1 - k) + 6; ctx.shadowOffsetY = 34 * (1 - k); }
+      ctx.translate(cx, cy); ctx.rotate((((e.x * 7 + e.y) % 5) - 2) * .006 * (1 - eOut(k))); ctx.scale(scale, scale);
+      ctx.drawImage(im, -e.w * sc / 2, -e.h * sc / 2, e.w * sc, e.h * sc); ctx.restore();
+    }
+  } else { // scraps: torn paper pieces of the image land one by one on a blank paper plate
+    ctx.fillStyle = '#e6dcc6'; ctx.fillRect(0, 0, W, H);
+    const cols = 3, rows = 5, r = rng(i * 13 + 5), n = cols * rows;
+    for (let q = 0; q < n; q++) {
+      const land = s.build[0] + (s.build[1] - s.build[0]) * (q + 1) / n, T0 = land - .45; if (t < T0) continue;
+      const k = clamp((t - T0) / .45), cx = (q % cols + .5) * W / cols, cy = (Math.floor(q / cols) + .5) * H / rows;
+      ctx.save(); ctx.globalAlpha = clamp(k * 3);
+      if (k < 1) { ctx.shadowColor = `rgba(0,0,0,${.5 * (1 - k)})`; ctx.shadowBlur = 30; ctx.shadowOffsetY = 26 * (1 - k); }
+      ctx.translate(0, -60 * (1 - eOut(k))); ctx.beginPath();
+      const x0 = cx - W / cols / 2 - 14, y0 = cy - H / rows / 2 - 14, w = W / cols + 28, h = H / rows + 28;
+      ctx.moveTo(x0, y0); for (let z = 0; z <= 8; z++) ctx.lineTo(x0 + w * z / 8, y0 + (r() - .5) * 18); for (let z = 0; z <= 8; z++) ctx.lineTo(x0 + w + (r() - .5) * 18, y0 + h * z / 8);
+      for (let z = 8; z >= 0; z--) ctx.lineTo(x0 + w * z / 8, y0 + h + (r() - .5) * 18); for (let z = 8; z >= 0; z--) ctx.lineTo(x0 + (r() - .5) * 18, y0 + h * z / 8);
+      ctx.closePath(); ctx.fillStyle = '#efe6d2'; ctx.fill(); ctx.shadowColor = 'transparent'; ctx.clip();
+      ctx.drawImage(orig, ox, oy, orig.width * sc, orig.height * sc); ctx.restore();
+    }
+  }
+}
+function drawShot(i, t) {
+  if (TL.style === 'assemble') return drawAssembled(i, t);
+  const s = TL.shots[i], im = IMG[s.img]; if (!im) return;
+  const k = clamp((t - s.start) / Math.max(.1, s.end - s.start));
+  const r = rng(i * 7 + 3), dir = i % 4, z0 = 1.06, z1 = 1.2;
+  const zoom = dir === 3 ? lerp(z1, z0, eInOut(k)) : lerp(z0, z1, eInOut(k));   // every 4th shot pulls out
+  const wide = im.width / im.height > .8;  // landscape/square: show the whole picture over a blurred fill
+  const base = (wide ? (W / im.width) * 1.03 : Math.max(W / im.width, H / im.height)) * zoom;
+  const w = im.width * base, h = im.height * base;
+  const px = [[-.5, .5], [.5, -.5], [0, 0], [-.3, .3]][dir], py = [[.3, -.3], [-.2, .2], [.5, -.5], [0, 0]][dir];
+  const x = (W - w) / 2 + lerp(px[0], px[1], eInOut(k)) * (w - W) / 2, y = (H - h) / 2 + (h > H ? lerp(py[0], py[1], eInOut(k)) * (h - H) / 2 : lerp(-30, 30, eInOut(k)) * (dir % 2 ? 1 : -1));
+  // blurred fill behind (for images narrower than 9:16 after zoom)
+  ctx.save(); ctx.filter = 'blur(30px) brightness(.5)'; const b2 = Math.max(W / im.width, H / im.height) * 1.3;
+  ctx.drawImage(im, (W - im.width * b2) / 2, (H - im.height * b2) / 2, im.width * b2, im.height * b2); ctx.restore();
+  ctx.save(); if (h < H) { ctx.shadowColor = 'rgba(0,0,0,.8)'; ctx.shadowBlur = 50; } ctx.filter = 'contrast(1.12) saturate(.78) sepia(.18)'; ctx.drawImage(im, x, y, w, h); ctx.restore();
+}
+// ---- jagged torn edge along a line; returns polygon points for the revealed side
+function tornPoly(kind, p, seed) {
+  const r = rng(seed), pts = [], n = 46, jag = 26;
+  if (kind === 'tear_h') { const x = lerp(-80, W + 80, p); for (let i = 0; i <= n; i++) { const y = i / n * H; pts.push([x + (r() - .5) * jag + Math.sin(i * 1.7) * 10, y]); } return { edge: pts, fill: [[-10, H], [-10, 0]] }; }
+  if (kind === 'tear_v') { const y = lerp(-80, H + 80, p); for (let i = 0; i <= n; i++) { const x = i / n * W; pts.push([x, y + (r() - .5) * jag + Math.sin(i * 1.3) * 12]); } return { edge: pts, fill: [[W, -10], [0, -10]] }; }
+  // diagonal
+  const o = lerp(-H * .6, W + H * .6, p);
+  for (let i = 0; i <= n; i++) { const y = i / n * (H + 200) - 100, x = o - y * .45; pts.push([x + (r() - .5) * jag, y]); }
+  return { edge: pts, fill: [[-W, H + 100], [-W, -100]] };
+}
+function paperEdge(pts, t) {
+  ctx.save(); ctx.lineJoin = 'round';
+  ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 24; ctx.strokeStyle = '#efe6d2'; ctx.lineWidth = 22;
+  ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke();
+  ctx.shadowColor = 'transparent'; ctx.strokeStyle = '#d8ccb2'; ctx.lineWidth = 6; ctx.stroke();
+  ctx.restore();
+}
+function drawTransition(tr, a, b, t) {
+  const p = eInOut(clamp((t - (tr.t - tr.dur / 2)) / tr.dur));
+  drawShot(a, t);
+  if (tr.kind === 'cutout') { // incoming image as a paper cut-out card that slaps down and grows to full frame
+    const s = lerp(.55, 1, eOut(p)), rot = lerp(-.12, 0, eOut(p)), r = rng(Math.round(tr.t * 100));
+    ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(rot); ctx.scale(s, s);
+    ctx.beginPath(); const n = 60; for (let i = 0; i < n; i++) { const ang = i / n * 6.283; const rx = W / 2 + 10, ry = H / 2 + 10;
+      const cx = Math.cos(ang), cy = Math.sin(ang), m = 1 / Math.max(Math.abs(cx) / rx, Math.abs(cy) / ry); const j = (r() - .5) * 18;
+      ctx.lineTo(cx * (m + j), cy * (m + j)); } ctx.closePath();
+    ctx.shadowColor = 'rgba(0,0,0,.7)'; ctx.shadowBlur = 40; ctx.fillStyle = '#efe6d2'; ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.clip(); ctx.translate(-W / 2, -H / 2); drawShot(b, t); ctx.restore();
+    return;
+  }
+  const { edge, fill } = tornPoly(tr.kind, p, Math.round(tr.t * 100));
+  ctx.save(); ctx.beginPath(); edge.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); fill.forEach(([x, y]) => ctx.lineTo(x, y)); ctx.closePath(); ctx.clip();
+  drawShot(b, t); ctx.restore();
+  if (p > 0 && p < 1) paperEdge(edge, t);
+}
+function grade(t) {
+  const g = ctx.createRadialGradient(W / 2, H / 2, H * .25, W / 2, H / 2, H * .75); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.7)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const r = rng(Math.floor(t * 24)); ctx.fillStyle = 'rgba(255,255,255,.035)';
+  for (let i = 0; i < 260; i++) ctx.fillRect(r() * W, r() * H, 2, 2);                       // film grain
+  if (r() > .93) { ctx.fillStyle = 'rgba(255,255,255,.05)'; ctx.fillRect(r() * W, 0, 2, H); } // occasional scratch
+}
+function captions(t) {
+  const B = TL.beats.find(b => t >= b.start - .05 && t <= b.end + .3); if (!B || !B.words.length) return;
+  const ws = B.words; let ci = ws.findIndex((w, i) => t >= w.s && (i === ws.length - 1 || t < ws[i + 1].s)); if (ci < 0) ci = 0;
+  const CH = 4, c0 = Math.floor(ci / CH) * CH, chunk = ws.slice(c0, c0 + CH);
+  ctx.save(); ctx.font = `700 70px 'DejaVu Serif', serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const line = chunk.map(w => w.w).join(' ').toUpperCase(); const wd = ctx.measureText(line).width; const fit = Math.min(1, 960 / wd);
+  ctx.translate(W / 2, 1560); ctx.scale(fit, fit);
+  ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(-wd / 2 - 30, -60, wd + 60, 120);
+  let x = -wd / 2;
+  chunk.forEach((w, i) => { const s = w.w.toUpperCase() + (i < chunk.length - 1 ? ' ' : ''); const sw = ctx.measureText(s).width;
+    const on = t >= w.s; ctx.fillStyle = c0 + i === ci ? '#e8c46a' : (on ? '#f4efe4' : 'rgba(244,239,228,.25)'); ctx.textAlign = 'left'; ctx.fillText(s, x, 4); x += sw; });
+  ctx.restore();
+}
+function title(t) {
+  if (!TL.title) return; const k = seg(t, .2, .9) * (1 - seg(t, 2.6, 3.2)); if (k <= 0) return;
+  ctx.save(); ctx.globalAlpha = k; ctx.font = `700 92px 'DejaVu Serif', serif`; ctx.textAlign = 'center'; ctx.fillStyle = '#f4efe4';
+  ctx.shadowColor = 'rgba(0,0,0,.8)'; ctx.shadowBlur = 20; ctx.fillText(TL.title.toUpperCase(), W / 2, 420); ctx.fillStyle = '#b3261e'; ctx.fillRect(W / 2 - 160, 470, 320, 8); ctx.restore();
+}
+window.renderFrame = function (t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  let i = 0; for (let j = 0; j < TL.shots.length; j++) if (t >= TL.shots[j].start) i = j;
+  const tr = TL.transitions.find(x => t >= x.t - x.dur / 2 && t < x.t + x.dur / 2);
+  if (tr) { const b = TL.shots.findIndex(s => Math.abs(s.start - tr.t) < 1e-3); drawTransition(tr, b - 1, b, t); } else drawShot(i, t);
+  if (TL.style !== 'assemble') grade(t); title(t); if (TL.captions !== false) captions(t);
+  const fi = seg(t, 0, .8), fo = 1 - seg(t, TL.duration - 1.2, TL.duration); if (fi < 1 || fo < 1) { ctx.fillStyle = `rgba(0,0,0,${1 - Math.min(fi, fo)})`; ctx.fillRect(0, 0, W, H); }
+};
+</script></body></html>

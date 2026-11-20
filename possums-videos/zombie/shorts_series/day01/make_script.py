@@ -1,0 +1,25 @@
+"""MILE 41 Shorts series — Day 1 (TikTok / YouTube Shorts, 9:16, 60-70 s). Same shot language as the long-form
+engine; `focus` = where the vertical frame is centred (0..1 across the 1920-wide scene). hud: supplies|vote|shop|join"""
+import json, os
+B = []
+def b(sp, text="", **kw): B.append({"sp": sp, "text": text, **kw})
+b("cole", "Day one of surviving the zombie apocalypse. In an abandoned gas station.", intensity=.5, loc="station_ext", tod="night", wx="rain", cast=[], z={"n": 8, "x0": 1.0, "x1": .62, "depth": "far"}, props=["sign", "pumps", "lantern"], fx=["lightning"], focus=.55, sfx=[["thunder", .1], ["groan", .7]])
+b("cole", "Five survivors. One gas station. Zero gas.", tod="day", wx=None, z=None, fx=[], cast=["mags:.44:idle", "tank:.58:idle"], focus=.51, intensity=.2)
+b("cole", "Mags can fix anything with a wrench and a bad attitude.", loc="station_int", props=["shelves", "radio", "cooler"], cast=["mags:.5:idle"], focus=.5, card={"kind": "name", "title": "MAGS", "sub": "Mechanic"})
+b("cole", "Dooley is seventy, and he still sleeps with his boots on.", cast=["dooley:.5:idle"], card={"kind": "name", "title": "DOOLEY", "sub": "Old soldier"})
+b("cole", "Pip is twelve. The smartest one here. That's Biscuit.", cast=["pip:.46:cheer"], card={"kind": "name", "title": "PIP + BISCUIT", "sub": "The brains + the dog"}, sfx=[["bark", .85]])
+b("cole", "And Tank is huge, and scared of literally everything.", cast=["tank:.5:scared"], fx=["shake"], card={"kind": "name", "title": "TANK", "sub": "Scared of everything"})
+b("cole", "Here's the deal. Every like on this video is one supply point.", cast=[], fx=[], card=None, loc="station_ext", props=["sign", "pumps"], hud="supplies", focus=.62)
+b("cole", "And the most liked comment decides what we build next.", hud="vote")
+b("cole", "Right now, our only wall is a vending machine and some duct tape.", hud=None, loc="station_int", tod="night", props=["shelves", "barricade", "lantern"], cast=[], focus=.5, intensity=.5)
+b("cole", "And on the first night, they came.", props=["shelves", "barricade", "lantern", "hands"], fx=["shake"], intensity=.85, sfx=[["bang", .3], ["bang", .55], ["bang", .8], ["groan", .5]])
+b("tank", "It's moving! Why is the vending machine moving?", props=["shelves", "barricade:slide", "lantern", "hands"], cast=["tank:.52:scared"], focus=.52, sfx=[["bang", .2], ["scrape", .4], ["bang", .7]])
+b("cole", "So Pip threw our radio into the cornfield. Full volume.", loc="roof", props=["radio:throw", "corn"], cast=["pip:.42:cheer"], fx=[], focus=.5, sfx=[["static", .3], ["whoosh", .7]])
+b("cole", "And the whole horde turned around and followed the noise.", props=["corn", "radio:field"], cast=[], z={"n": 10, "x0": .3, "x1": .62, "depth": "far", "turn": True}, focus=.47, intensity=.5, sfx=[["static", 0], ["groan", .5]])
+b("pip", "You're welcome.", loc="station_int", props=["shelves", "barricade", "lantern"], z=None, cast=["pip:.46:cheer"], focus=.5)
+b("cole", "We survived night one. Barely.", cast=["mags:.43:sit", "tank:.58:sit"], focus=.5, intensity=.25)
+b("cole", "But tomorrow, they're coming back. And there's more of them.", loc="station_ext", tod="night", props=["sign", "pumps", "lantern"], cast=[], z={"n": 14, "x0": 1.05, "x1": .55, "depth": "mid"}, focus=.55, intensity=.8, sfx=[["groan", .3], ["sting", .6]])
+b("cole", "Every like is a supply. The most liked comment picks walls, a generator, a watchtower, or a food run.", tod="day", z=None, cast=[], focus=.62, hud="shop", intensity=.35)
+b("cole", "Want to join us? Comment your name and your skill.", hud="join")
+json.dump({"series": "MILE 41", "episode": 1, "day": 1, "title": "Day 1", "vertical": True, "beats": B}, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "script.json"), "w"), indent=1)
+print(len(B), "beats,", sum(len(x["text"].split()) for x in B), "words")

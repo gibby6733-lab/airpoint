@@ -1,0 +1,267 @@
+{
+ "episode": 6,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day six. One hundred and fifty nine likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund6",
+   "text": "That's a hundred and fifty nine dollars! The bank has seventeen ninety three.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@seventeen"
+    ]
+   ]
+  },
+  {
+   "scene": "comment6",
+   "text": "The top comment said, stands. No more broken fence!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@stands"
+    ],
+    [
+     "sad",
+     "@broken"
+    ]
+   ]
+  },
+  {
+   "scene": "stands6",
+   "text": "Two hundred fifty dollars bought real bleachers. The cow got the best seat.",
+   "sfx": [
+    [
+     "spend",
+     "@two"
+    ],
+    [
+     "ding",
+     "@real"
+    ],
+    [
+     "honk",
+     "@cow"
+    ]
+   ]
+  },
+  {
+   "scene": "signings6",
+   "text": "And eight of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard6",
+   "text": "Game six. The Iron Ridge Rams. Never lost a game.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@never"
+    ]
+   ]
+  },
+  {
+   "scene": "g_oc",
+   "text": "Our new offensive coordinator draws up a play. On a napkin.",
+   "sfx": [
+    [
+     "pop",
+     "@draws"
+    ],
+    [
+     "boing",
+     "@napkin"
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb6",
+   "text": "Our new quarterback throws a dart to our tight end. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@dart"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_hit",
+   "text": "Our tackle and our nose guard both hit a ram. It hits back.",
+   "sfx": [
+    [
+     "bonk",
+     "@hit"
+    ],
+    [
+     "boing",
+     "@back"
+    ]
+   ]
+  },
+  {
+   "scene": "g_cb6",
+   "text": "Our corner, day three of asking, finally gets a pick!",
+   "sfx": [
+    [
+     "ding",
+     "@pick"
+    ],
+    [
+     "crowd",
+     "@pick"
+    ]
+   ]
+  },
+  {
+   "scene": "g_rams",
+   "text": "The Rams remembered they've never lost. Three touchdowns.",
+   "sfx": [
+    [
+     "sad",
+     "@three"
+    ],
+    [
+     "boo",
+     "@touchdowns"
+    ]
+   ]
+  },
+  {
+   "scene": "g_wr6",
+   "text": "Our receiver, day two of asking, catches one. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@catches"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_rb6",
+   "text": "Last drive. Our running back runs straight into Big Lou.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "bonk",
+     "@lou"
+    ]
+   ]
+  },
+  {
+   "scene": "g_crowd6",
+   "text": "We lost. But for the first time, the stands were full.",
+   "sfx": [
+    [
+     "sad",
+     "@lost"
+    ],
+    [
+     "crowd",
+     "@full"
+    ]
+   ]
+  },
+  {
+   "scene": "standings6",
+   "text": "Final, twenty one to fourteen. One win, five losses.",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "sad",
+     "@five"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame6",
+   "text": "Tomorrow, the Copper Canyon Coyotes. They howl during every snap.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@howl"
+    ]
+   ]
+  },
+  {
+   "scene": "cta6",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Scoreboard, locker room, or team bus? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "pop",
+     "@locker"
+    ],
+    [
+     "pop",
+     "@bus"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

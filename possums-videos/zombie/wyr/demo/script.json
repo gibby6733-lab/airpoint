@@ -1,0 +1,231 @@
+{
+ "series": "Would You Rather: Zombie Apocalypse",
+ "episode": 1,
+ "title": "Demo",
+ "vertical": true,
+ "mix": {
+  "music": 0.08,
+  "ambience": 0.04
+ },
+ "width": 1080,
+ "height": 1920,
+ "beats": [
+  {
+   "sp": "cole",
+   "text": "Would you rather. Zombie apocalypse edition. Pick fast.",
+   "scene": "hook",
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ],
+    [
+     "groan",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Would you rather have fast zombies that are dumb? Or slow zombies that are smart?",
+   "intensity": 0.58,
+   "scene": "q",
+   "n": 1,
+   "of": 5,
+   "a": "Have fast zombies that are dumb",
+   "ae": "🏃",
+   "b2": "Slow zombies that are smart",
+   "be": "🧠"
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ],
+   "scene": "q",
+   "n": 1,
+   "of": 5,
+   "a": "Have fast zombies that are dumb",
+   "ae": "🏃",
+   "b2": "Slow zombies that are smart",
+   "be": "🧠"
+  },
+  {
+   "sp": "cole",
+   "text": "Would you rather hide out in a shopping mall? Or hide out in a prison?",
+   "intensity": 0.66,
+   "scene": "q",
+   "n": 2,
+   "of": 5,
+   "a": "Hide out in a shopping mall",
+   "ae": "🏬",
+   "b2": "Hide out in a prison",
+   "be": "🔒"
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ],
+   "scene": "q",
+   "n": 2,
+   "of": 5,
+   "a": "Hide out in a shopping mall",
+   "ae": "🏬",
+   "b2": "Hide out in a prison",
+   "be": "🔒"
+  },
+  {
+   "sp": "cole",
+   "text": "Would you rather have unlimited food but no weapons? Or unlimited weapons but no food?",
+   "intensity": 0.74,
+   "scene": "q",
+   "n": 3,
+   "of": 5,
+   "a": "Have unlimited food but no weapons",
+   "ae": "🥫",
+   "b2": "Unlimited weapons but no food",
+   "be": "🪓"
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ],
+   "scene": "q",
+   "n": 3,
+   "of": 5,
+   "a": "Have unlimited food but no weapons",
+   "ae": "🥫",
+   "b2": "Unlimited weapons but no food",
+   "be": "🪓"
+  },
+  {
+   "sp": "cole",
+   "text": "Would you rather survive totally alone? Or survive with your most annoying relative?",
+   "intensity": 0.8200000000000001,
+   "scene": "q",
+   "n": 4,
+   "of": 5,
+   "a": "Survive totally alone",
+   "ae": "🧍",
+   "b2": "Survive with your most annoying relative",
+   "be": "🗣️"
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ],
+   "scene": "q",
+   "n": 4,
+   "of": 5,
+   "a": "Survive totally alone",
+   "ae": "🧍",
+   "b2": "Survive with your most annoying relative",
+   "be": "🗣️"
+  },
+  {
+   "sp": "cole",
+   "text": "Would you rather get bitten with 24 hours left? Or be the last human on Earth?",
+   "intensity": 0.9,
+   "scene": "q",
+   "n": 5,
+   "of": 5,
+   "a": "Get bitten with 24 hours left",
+   "ae": "⏳",
+   "b2": "Be the last human on Earth",
+   "be": "🌍"
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ],
+   "scene": "q",
+   "n": 5,
+   "of": 5,
+   "a": "Get bitten with 24 hours left",
+   "ae": "⏳",
+   "b2": "Be the last human on Earth",
+   "be": "🌍"
+  },
+  {
+   "sp": "cole",
+   "text": "Vote in the poll in the comments. And tell us why.",
+   "scene": "cta",
+   "intensity": 0.35
+  }
+ ]
+}

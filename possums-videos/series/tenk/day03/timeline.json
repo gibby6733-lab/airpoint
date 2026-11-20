@@ -1,0 +1,1450 @@
+{
+ "duration": 62.543,
+ "lines": [
+  {
+   "scene": "burst",
+   "money": 101,
+   "rewind": true,
+   "text": "Day three, and Benny just blew a vacuum full of dust all over the parking lot!",
+   "sfx": [
+    [
+     "boing",
+     "@blew"
+    ],
+    [
+     "whoosh",
+     0.9
+    ]
+   ],
+   "punch": [
+    "dust"
+   ],
+   "start": 0.35,
+   "end": 3.735,
+   "words": [
+    {
+     "w": "Day",
+     "s": 0.35
+    },
+    {
+     "w": "three,",
+     "s": 0.521
+    },
+    {
+     "w": "and",
+     "s": 0.863
+    },
+    {
+     "w": "Benny",
+     "s": 1.034
+    },
+    {
+     "w": "just",
+     "s": 1.273
+    },
+    {
+     "w": "blew",
+     "s": 1.478
+    },
+    {
+     "w": "a",
+     "s": 1.683
+    },
+    {
+     "w": "vacuum",
+     "s": 1.786
+    },
+    {
+     "w": "full",
+     "s": 2.059
+    },
+    {
+     "w": "of",
+     "s": 2.265
+    },
+    {
+     "w": "dust",
+     "s": 2.401
+    },
+    {
+     "w": "all",
+     "s": 2.606
+    },
+    {
+     "w": "over",
+     "s": 2.777
+    },
+    {
+     "w": "the",
+     "s": 2.983
+    },
+    {
+     "w": "parking",
+     "s": 3.153
+    },
+    {
+     "w": "lot!",
+     "s": 3.461
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     1.478
+    ],
+    [
+     "whoosh",
+     3.397
+    ]
+   ]
+  },
+  {
+   "scene": "votes3",
+   "money": 31,
+   "text": "Let's back up. You voted. Vacuum, thirteen. Umbrella, seven!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@thirteen"
+    ],
+    [
+     "pop",
+     "@seven"
+    ]
+   ],
+   "punch": [
+    "thirteen"
+   ],
+   "start": 3.955,
+   "end": 6.747,
+   "words": [
+    {
+     "w": "Let's",
+     "s": 3.955
+    },
+    {
+     "w": "back",
+     "s": 4.162
+    },
+    {
+     "w": "up.",
+     "s": 4.368
+    },
+    {
+     "w": "You",
+     "s": 4.61
+    },
+    {
+     "w": "voted.",
+     "s": 4.782
+    },
+    {
+     "w": "Vacuum,",
+     "s": 5.127
+    },
+    {
+     "w": "thirteen.",
+     "s": 5.506
+    },
+    {
+     "w": "Umbrella,",
+     "s": 5.954
+    },
+    {
+     "w": "seven!",
+     "s": 6.403
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     3.955
+    ],
+    [
+     "stamp",
+     5.506
+    ],
+    [
+     "pop",
+     6.403
+    ]
+   ]
+  },
+  {
+   "scene": "crew3",
+   "money": 31,
+   "text": "Bob voted vaccine. Close enough. And Pseudo, pseudo... we'll just call you Pseudo.",
+   "sfx": [
+    [
+     "pop",
+     "@bob"
+    ],
+    [
+     "boing",
+     "@close"
+    ],
+    [
+     "pop",
+     "@pseudo"
+    ],
+    [
+     "boing",
+     "@call"
+    ]
+   ],
+   "punch": [
+    "close"
+   ],
+   "start": 6.967,
+   "end": 10.487,
+   "words": [
+    {
+     "w": "Bob",
+     "s": 6.967
+    },
+    {
+     "w": "voted",
+     "s": 7.138
+    },
+    {
+     "w": "vaccine.",
+     "s": 7.377
+    },
+    {
+     "w": "Close",
+     "s": 7.787
+    },
+    {
+     "w": "enough.",
+     "s": 8.027
+    },
+    {
+     "w": "And",
+     "s": 8.402
+    },
+    {
+     "w": "Pseudo,",
+     "s": 8.573
+    },
+    {
+     "w": "pseudo...",
+     "s": 8.949
+    },
+    {
+     "w": "we'll",
+     "s": 9.325
+    },
+    {
+     "w": "just",
+     "s": 9.53
+    },
+    {
+     "w": "call",
+     "s": 9.735
+    },
+    {
+     "w": "you",
+     "s": 9.94
+    },
+    {
+     "w": "Pseudo.",
+     "s": 10.111
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     6.967
+    ],
+    [
+     "boing",
+     7.787
+    ],
+    [
+     "pop",
+     8.573
+    ],
+    [
+     "boing",
+     9.735
+    ]
+   ]
+  },
+  {
+   "scene": "plan3",
+   "money": 31,
+   "text": "Angelina had an evil plan. Clean the cars, then dump the dust on other cars. Benny says, no way.",
+   "sfx": [
+    [
+     "pop",
+     "@angelina"
+    ],
+    [
+     "ding",
+     "@evil"
+    ],
+    [
+     "swipe",
+     "@no"
+    ]
+   ],
+   "punch": [
+    "evil"
+   ],
+   "start": 10.707,
+   "end": 15.495,
+   "words": [
+    {
+     "w": "Angelina",
+     "s": 10.707
+    },
+    {
+     "w": "had",
+     "s": 11.087
+    },
+    {
+     "w": "an",
+     "s": 11.277
+    },
+    {
+     "w": "evil",
+     "s": 11.429
+    },
+    {
+     "w": "plan.",
+     "s": 11.657
+    },
+    {
+     "w": "Clean",
+     "s": 11.999
+    },
+    {
+     "w": "the",
+     "s": 12.265
+    },
+    {
+     "w": "cars,",
+     "s": 12.455
+    },
+    {
+     "w": "then",
+     "s": 12.797
+    },
+    {
+     "w": "dump",
+     "s": 13.025
+    },
+    {
+     "w": "the",
+     "s": 13.253
+    },
+    {
+     "w": "dust",
+     "s": 13.443
+    },
+    {
+     "w": "on",
+     "s": 13.671
+    },
+    {
+     "w": "other",
+     "s": 13.823
+    },
+    {
+     "w": "cars.",
+     "s": 14.089
+    },
+    {
+     "w": "Benny",
+     "s": 14.431
+    },
+    {
+     "w": "says,",
+     "s": 14.697
+    },
+    {
+     "w": "no",
+     "s": 15.039
+    },
+    {
+     "w": "way.",
+     "s": 15.191
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.707
+    ],
+    [
+     "ding",
+     11.429
+    ],
+    [
+     "swipe",
+     15.039
+    ]
+   ]
+  },
+  {
+   "scene": "rent",
+   "money": 11,
+   "spend": true,
+   "text": "He rents a vacuum for twenty dollars. That leaves eleven.",
+   "sfx": [
+    [
+     "spend",
+     "@twenty"
+    ],
+    [
+     "sad",
+     "@eleven"
+    ]
+   ],
+   "punch": [
+    "twenty"
+   ],
+   "start": 15.715,
+   "end": 18.498,
+   "words": [
+    {
+     "w": "He",
+     "s": 15.715
+    },
+    {
+     "w": "rents",
+     "s": 15.87
+    },
+    {
+     "w": "a",
+     "s": 16.14
+    },
+    {
+     "w": "vacuum",
+     "s": 16.256
+    },
+    {
+     "w": "for",
+     "s": 16.565
+    },
+    {
+     "w": "twenty",
+     "s": 16.758
+    },
+    {
+     "w": "dollars.",
+     "s": 17.068
+    },
+    {
+     "w": "That",
+     "s": 17.531
+    },
+    {
+     "w": "leaves",
+     "s": 17.763
+    },
+    {
+     "w": "eleven.",
+     "s": 18.072
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     16.758
+    ],
+    [
+     "sad",
+     18.072
+    ]
+   ]
+  },
+  {
+   "scene": "sign3",
+   "money": 11,
+   "text": "His new sign? Car insides, ten dollars. Still a pizza box.",
+   "sfx": [
+    [
+     "stamp",
+     "@insides"
+    ],
+    [
+     "ding",
+     "@ten"
+    ]
+   ],
+   "punch": [
+    "pizza"
+   ],
+   "start": 18.718,
+   "end": 21.723,
+   "words": [
+    {
+     "w": "His",
+     "s": 18.718
+    },
+    {
+     "w": "new",
+     "s": 18.91
+    },
+    {
+     "w": "sign?",
+     "s": 19.103
+    },
+    {
+     "w": "Car",
+     "s": 19.45
+    },
+    {
+     "w": "insides,",
+     "s": 19.642
+    },
+    {
+     "w": "ten",
+     "s": 20.105
+    },
+    {
+     "w": "dollars.",
+     "s": 20.297
+    },
+    {
+     "w": "Still",
+     "s": 20.76
+    },
+    {
+     "w": "a",
+     "s": 21.03
+    },
+    {
+     "w": "pizza",
+     "s": 21.145
+    },
+    {
+     "w": "box.",
+     "s": 21.415
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     19.642
+    ],
+    [
+     "ding",
+     20.105
+    ]
+   ]
+  },
+  {
+   "scene": "plates3",
+   "money": 11,
+   "text": "The line is back. Every voter's name is on a plate. Even team umbrella!",
+   "sfx": [
+    [
+     "honk",
+     "@line"
+    ],
+    [
+     "pop",
+     "@plate"
+    ],
+    [
+     "crowd",
+     "@umbrella"
+    ]
+   ],
+   "punch": [
+    "umbrella"
+   ],
+   "start": 21.943,
+   "end": 25.329,
+   "words": [
+    {
+     "w": "The",
+     "s": 21.943
+    },
+    {
+     "w": "line",
+     "s": 22.129
+    },
+    {
+     "w": "is",
+     "s": 22.352
+    },
+    {
+     "w": "back.",
+     "s": 22.501
+    },
+    {
+     "w": "Every",
+     "s": 22.836
+    },
+    {
+     "w": "voter's",
+     "s": 23.096
+    },
+    {
+     "w": "name",
+     "s": 23.394
+    },
+    {
+     "w": "is",
+     "s": 23.617
+    },
+    {
+     "w": "on",
+     "s": 23.766
+    },
+    {
+     "w": "a",
+     "s": 23.915
+    },
+    {
+     "w": "plate.",
+     "s": 24.027
+    },
+    {
+     "w": "Even",
+     "s": 24.399
+    },
+    {
+     "w": "team",
+     "s": 24.622
+    },
+    {
+     "w": "umbrella!",
+     "s": 24.845
+    }
+   ],
+   "sfx_times": [
+    [
+     "honk",
+     22.129
+    ],
+    [
+     "pop",
+     24.027
+    ],
+    [
+     "crowd",
+     24.845
+    ]
+   ]
+  },
+  {
+   "scene": "fancars3",
+   "money": 11,
+   "text": "Yuji's car is covered in stickers. Fermin drives the tiniest car ever. And Prism's car glows in the dark!",
+   "sfx": [
+    [
+     "pop",
+     "@yuji"
+    ],
+    [
+     "boing",
+     "@tiniest"
+    ],
+    [
+     "ding",
+     "@glows"
+    ]
+   ],
+   "punch": [
+    "glows"
+   ],
+   "start": 25.549,
+   "end": 31.024,
+   "words": [
+    {
+     "w": "Yuji's",
+     "s": 25.549
+    },
+    {
+     "w": "car",
+     "s": 25.846
+    },
+    {
+     "w": "is",
+     "s": 26.058
+    },
+    {
+     "w": "covered",
+     "s": 26.228
+    },
+    {
+     "w": "in",
+     "s": 26.61
+    },
+    {
+     "w": "stickers.",
+     "s": 26.78
+    },
+    {
+     "w": "Fermin",
+     "s": 27.331
+    },
+    {
+     "w": "drives",
+     "s": 27.671
+    },
+    {
+     "w": "the",
+     "s": 28.01
+    },
+    {
+     "w": "tiniest",
+     "s": 28.223
+    },
+    {
+     "w": "car",
+     "s": 28.605
+    },
+    {
+     "w": "ever.",
+     "s": 28.817
+    },
+    {
+     "w": "And",
+     "s": 29.199
+    },
+    {
+     "w": "Prism's",
+     "s": 29.411
+    },
+    {
+     "w": "car",
+     "s": 29.75
+    },
+    {
+     "w": "glows",
+     "s": 29.963
+    },
+    {
+     "w": "in",
+     "s": 30.26
+    },
+    {
+     "w": "the",
+     "s": 30.43
+    },
+    {
+     "w": "dark!",
+     "s": 30.642
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     25.549
+    ],
+    [
+     "boing",
+     28.223
+    ],
+    [
+     "ding",
+     29.963
+    ]
+   ]
+  },
+  {
+   "scene": "inside",
+   "money": 11,
+   "text": "Inside these cars, he finds fries, a sock, and a very angry hamster.",
+   "sfx": [
+    [
+     "pop",
+     "@fries"
+    ],
+    [
+     "pop",
+     "@sock"
+    ],
+    [
+     "squawk",
+     "@hamster"
+    ]
+   ],
+   "punch": [
+    "hamster"
+   ],
+   "start": 31.244,
+   "end": 34.612,
+   "words": [
+    {
+     "w": "Inside",
+     "s": 31.244
+    },
+    {
+     "w": "these",
+     "s": 31.543
+    },
+    {
+     "w": "cars,",
+     "s": 31.805
+    },
+    {
+     "w": "he",
+     "s": 32.142
+    },
+    {
+     "w": "finds",
+     "s": 32.292
+    },
+    {
+     "w": "fries,",
+     "s": 32.554
+    },
+    {
+     "w": "a",
+     "s": 32.928
+    },
+    {
+     "w": "sock,",
+     "s": 33.04
+    },
+    {
+     "w": "and",
+     "s": 33.377
+    },
+    {
+     "w": "a",
+     "s": 33.564
+    },
+    {
+     "w": "very",
+     "s": 33.676
+    },
+    {
+     "w": "angry",
+     "s": 33.901
+    },
+    {
+     "w": "hamster.",
+     "s": 34.163
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     32.554
+    ],
+    [
+     "pop",
+     33.04
+    ],
+    [
+     "squawk",
+     34.163
+    ]
+   ]
+  },
+  {
+   "scene": "cash3",
+   "money": 101,
+   "text": "Nine cars, ten dollars each. Ninety dollars!",
+   "sfx": [
+    [
+     "pop",
+     "@nine"
+    ],
+    [
+     "cash",
+     "@ninety"
+    ]
+   ],
+   "punch": [
+    "ninety"
+   ],
+   "start": 34.832,
+   "end": 37.381,
+   "words": [
+    {
+     "w": "Nine",
+     "s": 34.832
+    },
+    {
+     "w": "cars,",
+     "s": 35.096
+    },
+    {
+     "w": "ten",
+     "s": 35.491
+    },
+    {
+     "w": "dollars",
+     "s": 35.711
+    },
+    {
+     "w": "each.",
+     "s": 36.107
+    },
+    {
+     "w": "Ninety",
+     "s": 36.502
+    },
+    {
+     "w": "dollars!",
+     "s": 36.854
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     34.832
+    ],
+    [
+     "cash",
+     36.502
+    ]
+   ]
+  },
+  {
+   "scene": "rival3",
+   "money": 101,
+   "text": "Then the lemonade girl walks by. With a bigger vacuum. Benny pretends not to see her.",
+   "sfx": [
+    [
+     "stamp",
+     "@lemonade"
+    ],
+    [
+     "boing",
+     "@bigger"
+    ],
+    [
+     "swipe",
+     "@pretends"
+    ]
+   ],
+   "punch": [
+    "bigger"
+   ],
+   "start": 37.601,
+   "end": 41.568,
+   "words": [
+    {
+     "w": "Then",
+     "s": 37.601
+    },
+    {
+     "w": "the",
+     "s": 37.822
+    },
+    {
+     "w": "lemonade",
+     "s": 38.005
+    },
+    {
+     "w": "girl",
+     "s": 38.373
+    },
+    {
+     "w": "walks",
+     "s": 38.593
+    },
+    {
+     "w": "by.",
+     "s": 38.85
+    },
+    {
+     "w": "With",
+     "s": 39.107
+    },
+    {
+     "w": "a",
+     "s": 39.327
+    },
+    {
+     "w": "bigger",
+     "s": 39.438
+    },
+    {
+     "w": "vacuum.",
+     "s": 39.731
+    },
+    {
+     "w": "Benny",
+     "s": 40.135
+    },
+    {
+     "w": "pretends",
+     "s": 40.392
+    },
+    {
+     "w": "not",
+     "s": 40.76
+    },
+    {
+     "w": "to",
+     "s": 40.943
+    },
+    {
+     "w": "see",
+     "s": 41.09
+    },
+    {
+     "w": "her.",
+     "s": 41.274
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     38.005
+    ],
+    [
+     "boing",
+     39.438
+    ],
+    [
+     "swipe",
+     40.392
+    ]
+   ]
+  },
+  {
+   "scene": "burst",
+   "money": 101,
+   "text": "Then the vacuum bag explodes.",
+   "sfx": [
+    [
+     "boing",
+     "@explodes"
+    ]
+   ],
+   "punch": [
+    "explodes"
+   ],
+   "start": 41.788,
+   "end": 43.344,
+   "words": [
+    {
+     "w": "Then",
+     "s": 41.788
+    },
+    {
+     "w": "the",
+     "s": 42.04
+    },
+    {
+     "w": "vacuum",
+     "s": 42.25
+    },
+    {
+     "w": "bag",
+     "s": 42.587
+    },
+    {
+     "w": "explodes.",
+     "s": 42.797
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     42.797
+    ]
+   ]
+  },
+  {
+   "scene": "dusty",
+   "money": 136,
+   "text": "Every car in the lot is covered in dust. So Benny washes them all again. Thirty five more dollars!",
+   "sfx": [
+    [
+     "sad",
+     "@dust"
+    ],
+    [
+     "swipe",
+     "@washes"
+    ],
+    [
+     "cash",
+     "@thirty"
+    ]
+   ],
+   "punch": [
+    "thirty"
+   ],
+   "start": 43.564,
+   "end": 48.318,
+   "words": [
+    {
+     "w": "Every",
+     "s": 43.564
+    },
+    {
+     "w": "car",
+     "s": 43.832
+    },
+    {
+     "w": "in",
+     "s": 44.024
+    },
+    {
+     "w": "the",
+     "s": 44.177
+    },
+    {
+     "w": "lot",
+     "s": 44.369
+    },
+    {
+     "w": "is",
+     "s": 44.561
+    },
+    {
+     "w": "covered",
+     "s": 44.714
+    },
+    {
+     "w": "in",
+     "s": 45.059
+    },
+    {
+     "w": "dust.",
+     "s": 45.212
+    },
+    {
+     "w": "So",
+     "s": 45.557
+    },
+    {
+     "w": "Benny",
+     "s": 45.711
+    },
+    {
+     "w": "washes",
+     "s": 45.979
+    },
+    {
+     "w": "them",
+     "s": 46.286
+    },
+    {
+     "w": "all",
+     "s": 46.516
+    },
+    {
+     "w": "again.",
+     "s": 46.707
+    },
+    {
+     "w": "Thirty",
+     "s": 47.091
+    },
+    {
+     "w": "five",
+     "s": 47.398
+    },
+    {
+     "w": "more",
+     "s": 47.628
+    },
+    {
+     "w": "dollars!",
+     "s": 47.858
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     45.212
+    ],
+    [
+     "swipe",
+     45.979
+    ],
+    [
+     "cash",
+     47.091
+    ]
+   ]
+  },
+  {
+   "scene": "plan3b",
+   "money": 136,
+   "text": "Angelina's evil plan worked. By accident.",
+   "sfx": [
+    [
+     "ding",
+     "@worked"
+    ],
+    [
+     "boing",
+     "@accident"
+    ]
+   ],
+   "punch": [
+    "accident"
+   ],
+   "start": 48.538,
+   "end": 50.928,
+   "words": [
+    {
+     "w": "Angelina's",
+     "s": 48.538
+    },
+    {
+     "w": "evil",
+     "s": 49.053
+    },
+    {
+     "w": "plan",
+     "s": 49.334
+    },
+    {
+     "w": "worked.",
+     "s": 49.616
+    },
+    {
+     "w": "By",
+     "s": 50.131
+    },
+    {
+     "w": "accident.",
+     "s": 50.319
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     49.616
+    ],
+    [
+     "boing",
+     50.319
+    ]
+   ]
+  },
+  {
+   "scene": "counter3",
+   "money": 136,
+   "text": "Day three. A hundred thirty six dollars. Nine thousand, eight hundred sixty four to go.",
+   "sfx": [
+    [
+     "ding",
+     "@hundred"
+    ],
+    [
+     "sad",
+     "@go"
+    ]
+   ],
+   "punch": [
+    "hundred"
+   ],
+   "start": 51.148,
+   "end": 55.022,
+   "words": [
+    {
+     "w": "Day",
+     "s": 51.148
+    },
+    {
+     "w": "three.",
+     "s": 51.323
+    },
+    {
+     "w": "A",
+     "s": 51.672
+    },
+    {
+     "w": "hundred",
+     "s": 51.776
+    },
+    {
+     "w": "thirty",
+     "s": 52.09
+    },
+    {
+     "w": "six",
+     "s": 52.37
+    },
+    {
+     "w": "dollars.",
+     "s": 52.544
+    },
+    {
+     "w": "Nine",
+     "s": 52.963
+    },
+    {
+     "w": "thousand,",
+     "s": 53.172
+    },
+    {
+     "w": "eight",
+     "s": 53.626
+    },
+    {
+     "w": "hundred",
+     "s": 53.87
+    },
+    {
+     "w": "sixty",
+     "s": 54.184
+    },
+    {
+     "w": "four",
+     "s": 54.429
+    },
+    {
+     "w": "to",
+     "s": 54.638
+    },
+    {
+     "w": "go.",
+     "s": 54.778
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     51.776
+    ],
+    [
+     "sad",
+     54.778
+    ]
+   ]
+  },
+  {
+   "scene": "vote3",
+   "money": 136,
+   "text": "Tomorrow, flip stuff from garage sales? Or start walking dogs? Comment one word. Every voter shows up in the next video!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@flip"
+    ],
+    [
+     "pop",
+     "@dogs"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 55.242,
+   "end": 61.043,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 55.242
+    },
+    {
+     "w": "flip",
+     "s": 55.738
+    },
+    {
+     "w": "stuff",
+     "s": 55.967
+    },
+    {
+     "w": "from",
+     "s": 56.234
+    },
+    {
+     "w": "garage",
+     "s": 56.463
+    },
+    {
+     "w": "sales?",
+     "s": 56.769
+    },
+    {
+     "w": "Or",
+     "s": 57.15
+    },
+    {
+     "w": "start",
+     "s": 57.303
+    },
+    {
+     "w": "walking",
+     "s": 57.57
+    },
+    {
+     "w": "dogs?",
+     "s": 57.914
+    },
+    {
+     "w": "Comment",
+     "s": 58.257
+    },
+    {
+     "w": "one",
+     "s": 58.601
+    },
+    {
+     "w": "word.",
+     "s": 58.791
+    },
+    {
+     "w": "Every",
+     "s": 59.135
+    },
+    {
+     "w": "voter",
+     "s": 59.402
+    },
+    {
+     "w": "shows",
+     "s": 59.669
+    },
+    {
+     "w": "up",
+     "s": 59.936
+    },
+    {
+     "w": "in",
+     "s": 60.089
+    },
+    {
+     "w": "the",
+     "s": 60.242
+    },
+    {
+     "w": "next",
+     "s": 60.433
+    },
+    {
+     "w": "video!",
+     "s": 60.662
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     55.242
+    ],
+    [
+     "pop",
+     55.738
+    ],
+    [
+     "pop",
+     57.914
+    ],
+    [
+     "ding",
+     58.257
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

@@ -1,0 +1,212 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script src="../../core.js"></script>
+<script>
+// ======================= Bramblewood Pigeons (soccer) — Day 1 =======================
+function pigeonLogo(x, y, r) {
+  ctx.save(); ctx.translate(x, y); const k = r / 100;
+  ctx.fillStyle = '#d62839'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.fillStyle = '#8d99ae'; ctx.beginPath(); ctx.ellipse(0, 6 * k, 58 * k, 62 * k, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#5e8c7a'; ctx.beginPath(); ctx.ellipse(0, 52 * k, 44 * k, 16 * k, 0, 0, 7); ctx.fill(); // neck sheen
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-22 * k, -8 * k, 15 * k, 0, 7); ctx.arc(22 * k, -8 * k, 15 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = '#ff7b00'; ctx.beginPath(); ctx.arc(-22 * k, -8 * k, 9 * k, 0, 7); ctx.arc(22 * k, -8 * k, 9 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(-22 * k, -8 * k, 4 * k, 0, 7); ctx.arc(22 * k, -8 * k, 4 * k, 0, 7); ctx.fill();
+  ctx.fillStyle = '#3d3d3d'; ctx.beginPath(); ctx.moveTo(-10 * k, 10 * k); ctx.lineTo(10 * k, 10 * k); ctx.lineTo(0, 34 * k); ctx.fill();
+  ctx.fillStyle = '#eee'; ctx.beginPath(); ctx.ellipse(0, 10 * k, 12 * k, 6 * k, 0, 0, 7); ctx.fill();
+  ctx.restore();
+}
+function otterLogo(x, y, r) {
+  ctx.save(); ctx.translate(x, y); const k = r / 100;
+  ctx.fillStyle = '#2a9d8f'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = '#e9c46a'; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.fillStyle = '#8a5a3b'; ctx.beginPath(); ctx.arc(-52 * k, -44 * k, 16 * k, 0, 7); ctx.arc(52 * k, -44 * k, 16 * k, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(0, 0, 66 * k, 58 * k, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#d9b48f'; ctx.beginPath(); ctx.ellipse(0, 24 * k, 38 * k, 26 * k, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(-24 * k, -12 * k, 8 * k, 0, 7); ctx.arc(24 * k, -12 * k, 8 * k, 0, 7); ctx.ellipse(0, 12 * k, 12 * k, 8 * k, 0, 0, 7); ctx.fill();
+  ctx.restore();
+}
+function hornetLogo(x, y, r) {
+  ctx.save(); ctx.translate(x, y); const k = r / 100;
+  ctx.fillStyle = '#111'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = '#ffbe0b'; ctx.lineWidth = r * .1; ctx.stroke();
+  ctx.fillStyle = '#ffbe0b'; ctx.beginPath(); ctx.ellipse(0, 6 * k, 60 * k, 56 * k, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#111'; ctx.fillRect(-60 * k, 14 * k, 120 * k, 14 * k); ctx.fillRect(-56 * k, 38 * k, 112 * k, 12 * k);
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-24 * k, -14 * k, 15 * k, 10 * k, -.3, 0, 7); ctx.ellipse(24 * k, -14 * k, 15 * k, 10 * k, .3, 0, 7); ctx.fill();
+  ctx.fillStyle = '#111'; ctx.fillRect(-40 * k, -30 * k, 30 * k, 8 * k); ctx.fillRect(10 * k, -30 * k, 30 * k, 8 * k);
+  ctx.beginPath(); ctx.arc(-22 * k, -12 * k, 5 * k, 0, 7); ctx.arc(22 * k, -12 * k, 5 * k, 0, 7); ctx.fill();
+  ctx.restore();
+}
+const TEAM = {
+  day: 1, sport: 'soccer', town: 'Bramblewood', name: 'Pigeons', full: 'Bramblewood Pigeons', handle: '@bramblewood.pigeons', abbr: 'BWP',
+  c1: '#d62839', c2: '#1d3557', cardGround: '#5b5f66', logo: pigeonLogo,
+  fund: { start: 9, profileScene: 'profile', spendScene: 'purchase', spendAt: .3 },
+  opp: { town: 'Rivertown', name: 'Otters', abbr: 'RVO', c1: '#2a9d8f', c2: '#e9c46a', logo: otterLogo },
+  next: { town: 'Hillcrest', name: 'Hornets', c1: '#3a3a3a', c2: '#ffbe0b', logo: hornetLogo, brag: 'NEVER LOST AT HOME' },
+  record: '0 - 1',
+  table: [['Rivertown Otters', '1-0'], ['Hillcrest Hornets', '1-0'], ['Elm Park Eagles', '1-0'], ['Lakeview Lynx', '1-0'], ['Stonegate Squirrels', '0-1'], ['Westbrook Walruses', '0-1'], ['Maple Ridge Mice', '0-1'], ['BRAMBLEWOOD PIGEONS', '0-1']],
+  finalText: 'FINAL: PIGEONS 1, OTTERS 2',
+  shop: [['REAL BALL', 'ours is flat', '$40', 'ball'], ['GOALS', 'not shopping carts', '$120', 'goals'], ['GRASS', "it's a parking lot", '$500', 'grass'], ['SEATS', 'not lawn chairs', '$250', 'seats'], ['KITS', 'matching shirts', '$80', null]],
+};
+const P = { // players
+  marge: { num: 1, pads: false, jersey: '#ffd166', trim: '#1d3557', shorts: '#1d3557', socks: '#ffd166', gloves: '#fff', skin: '#ffdbac', glasses: true,
+    extra: (hy) => { ctx.fillStyle = '#c9c9c9'; ctx.beginPath(); ctx.arc(0, hy - 18, 60, Math.PI * 1.02, Math.PI * 1.98); ctx.fill(); ctx.beginPath(); ctx.arc(0, hy - 82, 26, 0, 7); ctx.fill(); } },
+  dash: { num: 9, pads: false, shorts: '#fff', socks: '#d62839', skin: '#8d5524',
+    extra: (hy) => { ctx.fillStyle = '#2b1a10'; ctx.beginPath(); ctx.arc(0, hy - 14, 60, Math.PI * 1.05, Math.PI * 1.95); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillRect(-60, hy - 40, 120, 14); } },
+  pete: { num: 4, pads: false, shorts: '#fff', socks: '#d62839', skin: '#f1c27d', hair: '#e0b04a',
+    extra: (hy) => { ctx.fillStyle = '#ff6b6b'; ctx.beginPath(); ctx.arc(4, hy + 6, 13, 0, 7); ctx.fill(); } },
+  otter: (n, skin) => ({ num: n, pads: false, jersey: '#2a9d8f', trim: '#e9c46a', shorts: '#e9c46a', socks: '#2a9d8f', skin, hair: '#3b2a1a' }),
+};
+function soccerBall(x, y, s = 1, rot = 0, flat = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s * (1 + flat * .5), s * (1 - flat * .62));
+  ctx.fillStyle = '#fff'; ctx.strokeStyle = C.ink; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(0, 0, 30, 0, 7); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = C.ink; ctx.beginPath(); for (let i = 0; i < 5; i++) { const a = i / 5 * 6.28 - 1.57; ctx.lineTo(Math.cos(a) * 11, Math.sin(a) * 11); } ctx.fill();
+  for (let i = 0; i < 5; i++) { const a = i / 5 * 6.28 - 1.57; ctx.beginPath(); ctx.arc(Math.cos(a) * 26, Math.sin(a) * 26, 6, 0, 7); ctx.fill(); }
+  ctx.restore();
+}
+function cart(x, y, s = 1, flip = false) { // shopping-cart goal; (x,y) = wheels base
+  ctx.save(); ctx.translate(x, y); ctx.scale(flip ? -s : s, s);
+  ctx.strokeStyle = '#b8bcc4'; ctx.lineWidth = 7;
+  ctx.beginPath(); ctx.moveTo(-90, -40); ctx.lineTo(-110, -190); ctx.lineTo(110, -190); ctx.lineTo(90, -40); ctx.closePath(); ctx.stroke();
+  ctx.lineWidth = 3; for (let i = -100; i <= 100; i += 22) { ctx.beginPath(); ctx.moveTo(i * .9, -40); ctx.lineTo(i, -190); ctx.stroke(); }
+  for (let j = -160; j < -40; j += 30) { ctx.beginPath(); ctx.moveTo(-105 + (j + 190) * .1, j); ctx.lineTo(105 - (j + 190) * .1, j); ctx.stroke(); }
+  ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(110, -190); ctx.lineTo(150, -230); ctx.moveTo(-90, -40); ctx.lineTo(-90, -10); ctx.moveTo(90, -40); ctx.lineTo(90, -10); ctx.stroke();
+  ctx.strokeStyle = '#d62839'; ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(140, -230); ctx.lineTo(165, -205); ctx.stroke();
+  ctx.fillStyle = '#333'; ctx.beginPath(); ctx.arc(-90, -4, 13, 0, 7); ctx.arc(90, -4, 13, 0, 7); ctx.fill();
+  ctx.restore();
+}
+function car(x, y, s, t, alarm = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  ctx.fillStyle = '#8a8f99'; rr(-200, -120, 400, 90, 30); ctx.fill(); rr(-120, -190, 230, 90, 30); ctx.fill();
+  ctx.fillStyle = '#9fd8ff'; rr(-100, -175, 90, 60, 10); ctx.fill(); rr(5, -175, 90, 60, 10); ctx.fill();
+  ctx.fillStyle = '#6d7480'; ctx.fillRect(-200, -70, 400, 10); // rust line
+  ctx.fillStyle = '#b5651d'; ctx.beginPath(); ctx.ellipse(120, -60, 30, 14, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#222'; ctx.beginPath(); ctx.arc(-120, -28, 34, 0, 7); ctx.arc(120, -28, 34, 0, 7); ctx.fill();
+  const on = alarm > 0 && Math.sin(t * 30) > 0;
+  ctx.fillStyle = on ? '#ffea00' : '#e0d6a0'; ctx.beginPath(); ctx.arc(190, -95, 14, 0, 7); ctx.fill();
+  ctx.fillStyle = on ? '#ff3b3b' : '#a33'; ctx.beginPath(); ctx.arc(-192, -95, 12, 0, 7); ctx.fill();
+  ctx.restore();
+}
+const LOT = (() => { const r = rng(33), a = { cracks: [], stains: [], holes: [], weeds: [] };
+  for (let i = 0; i < 10; i++) a.cracks.push([r() * W, 820 + r() * 1080, r() * 6.28]);
+  for (let i = 0; i < 8; i++) a.stains.push([r() * W, 830 + r() * 1050, 40 + r() * 70]);
+  for (let i = 0; i < 4; i++) a.holes.push([r() * W, 900 + r() * 950, 50 + r() * 40]);
+  for (let i = 0; i < 14; i++) a.weeds.push([r() * W, 800 + r() * 1100]);
+  return a; })();
+const FANS = [{ x: 150, c: '#ff922b', skin: '#ffdbac' }, { x: 300, c: '#4dabf7', skin: '#8d5524' }, { x: 560, c: '#69db7c', skin: '#e0ac69' }];
+function drawStadium(t, o = {}) {
+  const g = ctx.createLinearGradient(0, 0, 0, 760); g.addColorStop(0, '#a7b6c2'); g.addColorStop(1, '#e3e8ea');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, 760);
+  ctx.fillStyle = 'rgba(150,158,168,.9)';
+  for (let i = 0; i < 4; i++) { const x = ((i * 330 + t * 12) % (W + 400)) - 200, y = 90 + (i % 2) * 90; ctx.beginPath(); ctx.arc(x, y, 46, 0, 7); ctx.arc(x + 50, y - 20, 56, 0, 7); ctx.arc(x + 110, y, 44, 0, 7); ctx.fill(); }
+  // strip mall
+  ctx.fillStyle = '#d8c7a5'; ctx.fillRect(0, 400, W, 340); ctx.fillStyle = '#b9a47e'; ctx.fillRect(0, 400, W, 26);
+  const shops = [['LAUNDR MAT', '#3a86ff'], ['PAWN', '#8338ec'], ['PIZ A', '#e63946']];
+  shops.forEach(([s, c], i) => { const x = 30 + i * 350; ctx.fillStyle = c; rr(x, 450, 300, 70, 8); ctx.fill(); txt(s, x + 150, 486, 44, '#fff');
+    ctx.fillStyle = '#7d8590'; ctx.fillRect(x + 20, 560, 260, 180); ctx.strokeStyle = '#6a717b'; ctx.lineWidth = 4; for (let yy = 575; yy < 740; yy += 18) { ctx.beginPath(); ctx.moveTo(x + 20, yy); ctx.lineTo(x + 280, yy); ctx.stroke(); } });
+  // leaning streetlight with flickering bulb
+  ctx.save(); ctx.translate(1010, 780); ctx.rotate(-.1); ctx.fillStyle = '#555'; ctx.fillRect(-8, -520, 16, 520); ctx.fillRect(-90, -520, 98, 14);
+  ctx.fillStyle = Math.sin(t * 19) > -.3 ? '#fff3a0' : '#666'; ctx.beginPath(); ctx.arc(-84, -500, 16, 0, 7); ctx.fill(); ctx.restore();
+  // curb + lawn chairs + fans
+  ctx.fillStyle = '#c9c9c9'; ctx.fillRect(0, 740, W, 40);
+  const excite = o.excite || 0;
+  FANS.forEach((f, i) => { const bob = Math.sin(t * 9 + i) * 8 * excite;
+    ctx.strokeStyle = '#2a9d8f'; ctx.lineWidth = 6; ctx.strokeRect(f.x - 34, 700, 68, 40); ctx.beginPath(); ctx.moveTo(f.x - 34, 740); ctx.lineTo(f.x - 44, 772); ctx.moveTo(f.x + 34, 740); ctx.lineTo(f.x + 44, 772); ctx.stroke();
+    ctx.fillStyle = f.c; rr(f.x - 18, 680 + bob, 36, 44, 10); ctx.fill(); ctx.fillStyle = f.skin; ctx.beginPath(); ctx.arc(f.x, 664 + bob, 17, 0, 7); ctx.fill();
+    if (excite > .3) { ctx.strokeStyle = f.skin; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(f.x - 16, 690 + bob); ctx.lineTo(f.x - 26, 650 + bob); ctx.moveTo(f.x + 16, 690 + bob); ctx.lineTo(f.x + 26, 650 + bob); ctx.stroke(); } });
+  // dumpster
+  ctx.fillStyle = '#2f6b3a'; rr(760, 640, 200, 120, 8); ctx.fill(); ctx.fillStyle = '#245530'; ctx.fillRect(750, 628, 220, 20);
+  // asphalt lot
+  ctx.fillStyle = '#5b5f66'; ctx.fillRect(0, 780, W, H - 780);
+  for (const [x, y, r] of LOT.stains) { ctx.fillStyle = 'rgba(20,20,25,.35)'; ctx.beginPath(); ctx.ellipse(x, y, r, r * .45, 0, 0, 7); ctx.fill(); }
+  ctx.strokeStyle = 'rgba(240,200,60,.55)'; ctx.lineWidth = 10;
+  for (let i = -1; i < 9; i++) { const x = i * 150 + 40; ctx.beginPath(); ctx.moveTo(x, 800); ctx.lineTo(x + 70, 1000); ctx.stroke(); }
+  ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 8; ctx.setLineDash([40, 26]);
+  ctx.beginPath(); ctx.ellipse(540, 1300, 230, 120, 0, 0, 7); ctx.stroke(); ctx.beginPath(); ctx.moveTo(540, 1060); ctx.lineTo(560, H); ctx.stroke(); ctx.setLineDash([]);
+  for (const [x, y, a] of LOT.cracks) { ctx.strokeStyle = '#3d4046'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.cos(a) * 40, y + Math.sin(a) * 20); ctx.lineTo(x + Math.cos(a + .6) * 80, y + Math.sin(a + .6) * 30); ctx.stroke(); }
+  for (const [x, y, r] of LOT.holes) { ctx.fillStyle = '#3a3d43'; ctx.beginPath(); ctx.ellipse(x, y, r, r * .4, 0, 0, 7); ctx.fill(); ctx.fillStyle = '#7f98a8'; ctx.beginPath(); ctx.ellipse(x, y + 3, r * .75, r * .28, 0, 0, 7); ctx.fill(); }
+  for (const [x, y] of LOT.weeds) { ctx.strokeStyle = '#6f8f3a'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 9, y - 22); ctx.moveTo(x, y); ctx.lineTo(x + 8, y - 24); ctx.stroke(); }
+  // traffic cone
+  ctx.fillStyle = '#ff7b00'; ctx.beginPath(); ctx.moveTo(60, 1880); ctx.lineTo(90, 1790); ctx.lineTo(120, 1880); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillRect(74, 1830, 32, 12);
+}
+
+Object.assign(SCENES, {
+  purchase(t, u, p) {
+    drawStadium(t);
+    const fl = seg(p, wordP('purchase', 'flat') - .02, wordP('purchase', 'flat') + .12);
+    const bounce = fl > 0 ? 0 : Math.abs(Math.sin(t * 6)) * 160;
+    withT(W / 2, 1320 - bounce, 4, 0, () => soccerBall(0, 0, 1, t * (1 - fl), fl));
+    stamp('ONE (1) BALL', W / 2, 560, 100, seg(p, .1, .2), '#fff', -.05);
+    if (fl > 0 && fl < 1) stamp('PSSSHHH', W / 2, 980, 110, fl, C.red, .08);
+    if (p < .3) txt('$9', 760, 1060, 90, C.yellow, { stroke: 12 });
+  },
+  stadium_tour(t, u, p) {
+    drawStadium(t);
+    cart(150, 1420, 1.1); cart(930, 1420, 1.1, true);
+    stamp('HOME PITCH', W / 2, 1520, 96, seg(p, 0, .1), C.yellow, -.04);
+    callout('A PARKING LOT', 560, 1120, 380, 1260, seg(p, wordP('stadium_tour', 'parking') - .02, wordP('stadium_tour', 'parking') + .08));
+    callout('SHOPPING CARTS', 700, 1000, 920, 1240, seg(p, wordP('stadium_tour', 'shopping') - .02, wordP('stadium_tour', 'shopping') + .08), '#3a86ff');
+    callout('LAWN CHAIRS', 420, 380, 300, 700, seg(p, wordP('stadium_tour', 'lawn') - .02, wordP('stadium_tour', 'lawn') + .08), '#2a9d8f');
+  },
+  roster_marge(t, u, p) { roster(t, u, p, { name: 'MARGE', pos: 'GOALKEEPER', stat: 'AGE', val: '74', num: 1, o: { ...P.marge } }); },
+  roster_dash(t, u, p) { roster(t, u, p, { name: 'DASH', pos: 'STRIKER', stat: 'RUNS', val: 'BACKWARDS', num: 9, o: { ...P.dash, run: t * 12, flip: true },
+    prop: (t) => { for (let i = 0; i < 3; i++) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(-200 - i * 30 + (t * 200 % 60), -300 + i * 70); ctx.lineTo(-120 - i * 30 + (t * 200 % 60), -300 + i * 70); ctx.stroke(); } } }); },
+  roster_pete(t, u, p) { roster(t, u, p, { name: 'PETE', pos: 'DEFENDER', stat: 'ALLERGIC TO', val: 'GRASS', num: 4, o: { ...P.pete, face: p > .6 ? 'sneeze' : 'happy' },
+    prop: () => { ctx.fillStyle = '#7ec8e3'; rr(170, -60, 120, 80, 8); ctx.fill(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(210, -60); ctx.quadraticCurveTo(230, -110, 250, -60); ctx.fill(); } }); },
+  play1(t, u, p) {
+    drawStadium(t, { excite: .1 });
+    cart(130, 1440, 1.05); cart(950, 1440, 1.05, true);
+    const pb = wordP('play1', 'backwards'); const run = eInOut(seg(p, pb - .05, 1));
+    drawPlayer(260, 1440, .8, { ...P.marge, face: 'happy', armL: -1.2 });
+    [760, 860].forEach((x, i) => drawPlayer(x, 1440, .8, { ...P.otter([7, 10][i], ['#c68642', '#ffdbac'][i]), flip: true }));
+    const dx = lerp(560, 230, run);
+    drawPlayer(dx, 1440, .85, { ...P.dash, run: run > 0 && run < 1 ? t * 22 : 0, face: run > .3 ? 'happy' : 'happy' });
+    soccerBall(dx - 70, 1420 + (run >= 1 ? -40 : 0), 1, t * 8 * (run > 0 && run < 1));
+    if (run > 0 && run < 1) stamp('<<< BACKWARDS', 560, 1000, 70, 1, '#fff', 0);
+    scorebug(0, 0, '1ST', "0'", '');
+  },
+  play1_goal(t, u, p) {
+    drawStadium(t, { excite: .2 });
+    cart(130, 1440, 1.05); cart(950, 1440, 1.05, true);
+    soccerBall(120, 1330, 1, 0);
+    drawPlayer(260, 1440, .8, { ...P.marge, face: 'sad' });
+    drawPlayer(330, 1440, .85, { ...P.dash, armsUp: true, face: 'happy' });
+    [700, 820].forEach((x, i) => drawPlayer(x, 1440, .8, { ...P.otter([7, 10][i], ['#c68642', '#ffdbac'][i]), armsUp: true, run: t * 6 }));
+    stamp('OWN GOAL', W / 2, 980, 140, seg(p, 0, .15), C.red, -.06);
+    scorebug(0, p > .5 ? 1 : 0, '1ST', "3'", '');
+  },
+  play2(t, u, p) {
+    const alarm = wordP('play2', 'car');
+    drawStadium(t, { excite: .1 });
+    car(860, 900, .75, t, p > alarm ? 1 : 0);
+    cart(130, 1440, 1.05);
+    const chase = eIn(seg(p, wordP('play2', 'marge'), 1));
+    drawPlayer(lerp(260, 900, chase), lerp(1440, 1060, chase), lerp(.8, .55, chase), { ...P.marge, run: chase > 0 ? t * 26 : 0, armsUp: chase > 0, face: chase > 0 ? 'scared' : 'happy' });
+    if (p > alarm) { const b = Math.sin(t * 30) > 0; if (b) { stamp('BEEP', 780, 740, 70, 1, C.yellow, -.1); stamp('BEEP', 960, 700, 70, 1, C.yellow, .1); } }
+    scorebug(0, 1, '2ND', "58'", '');
+  },
+  play2_goal(t, u, p) {
+    drawStadium(t, { excite: .3 });
+    car(860, 900, .75, t, 1);
+    drawPlayer(900, 1060, .55, { ...P.marge, armsUp: true, face: 'happy' });
+    cart(130, 1440, 1.05);
+    const k = seg(p, .1, .5); const ox = lerp(520, 260, k);
+    drawPlayer(ox, 1440, .82, { ...P.otter(10, '#ffdbac'), flip: true, run: k < 1 ? t * 20 : 0 });
+    soccerBall(lerp(ox - 80, 130, seg(p, .45, .6)), lerp(1420, 1330, seg(p, .45, .6)), 1, t * 6);
+    stamp('EMPTY CART', W / 2, 980, 110, seg(p, .55, .68), C.red, -.05);
+    scorebug(0, p > .6 ? 2 : 1, '2ND', "60'", '');
+  },
+  play3(t, u, p) {
+    drawStadium(t, { excite: p > .7 ? 1 : .2 });
+    cart(950, 1440, 1.05, true);
+    const sn = wordP('play3', 'sneezes'), gl = wordP('play3', 'goal');
+    const fly = seg(p, sn + .04, gl - .02);
+    drawPlayer(640, 1440, .85, { ...P.pete, face: p > sn - .02 && p < sn + .15 ? 'sneeze' : 'happy', armsUp: p > gl, rot: p > sn && p < sn + .1 ? -.15 : 0 });
+    drawPlayer(840, 1440, .8, { ...P.otter(3, '#8d5524'), flip: true, face: p > gl ? 'sad' : 'happy' });
+    const bx = fly <= 0 ? lerp(300, 600, seg(p, 0, sn)) : lerp(640, 960, fly), by = fly <= 0 ? 1180 - Math.sin(seg(p, 0, sn) * Math.PI) * 200 : lerp(1180, 1330, fly) - Math.sin(fly * Math.PI) * 120;
+    soccerBall(bx, by, 1, t * 10);
+    bubble(520, 1000, .8, 'ACHOO!', seg(p, sn - .02, sn + .06));
+    stamp('GOAL!', W / 2, 640, 180, seg(p, gl - .02, gl + .08), C.yellow, -.06);
+    if (p > gl) confetti(sceneLine('play3').start + gl * (sceneLine('play3').end - sceneLine('play3').start), t);
+    scorebug(p > gl ? 1 : 0, 2, '2ND', "90'", '+3');
+  },
+});
+</script></body></html>

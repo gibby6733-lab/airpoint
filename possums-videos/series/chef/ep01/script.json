@@ -1,0 +1,531 @@
+{
+ "series": "13 DAYS TO THANKSGIVING",
+ "episode": 1,
+ "voice": "am_liam",
+ "speed": 1.25,
+ "fps": 60,
+ "crf": 16,
+ "speakers": {
+  "gran": {
+   "voice": "af_sarah",
+   "speed": 1.0
+  },
+  "marcus": {
+   "voice": "am_puck",
+   "speed": 1.1
+  }
+ },
+ "lines": [
+  {
+   "scene": "think",
+   "meter": 100,
+   "text": "His whole family thinks he's a five star chef.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@chef"
+    ]
+   ],
+   "punch": [
+    "five"
+   ]
+  },
+  {
+   "scene": "getting",
+   "meter": 3,
+   "text": "They're getting this.",
+   "sfx": [
+    [
+     "stamp",
+     0.05
+    ],
+    [
+     "sad",
+     0.4
+    ]
+   ],
+   "punch": [
+    "this"
+   ]
+  },
+  {
+   "scene": "getting",
+   "meter": 3,
+   "text": "For two years, Marcus has been posting other people's food online.",
+   "sfx": [
+    [
+     "swipe",
+     "@posting"
+    ],
+    [
+     "pop",
+     "@food"
+    ]
+   ],
+   "cam": [
+    [
+     0,
+     540,
+     1000,
+     1.08
+    ],
+    [
+     1,
+     700,
+     820,
+     1.3
+    ]
+   ]
+  },
+  {
+   "scene": "cal",
+   "meter": 3,
+   "text": "Thanksgiving is in thirteen days. And he's cooking.",
+   "sfx": [
+    [
+     "stamp",
+     "@thirteen"
+    ],
+    [
+     "boing",
+     "@cooking"
+    ]
+   ],
+   "punch": [
+    "thirteen"
+   ]
+  },
+  {
+   "scene": "intro",
+   "meter": 3,
+   "text": "This is Marcus. Twenty four. Gas station night shift.",
+   "sfx": [
+    [
+     "pop",
+     "@marcus"
+    ],
+    [
+     "pop",
+     "@twenty"
+    ],
+    [
+     "pop",
+     "@gas"
+    ]
+   ]
+  },
+  {
+   "scene": "intro",
+   "meter": 3,
+   "pose": "proud",
+   "text": "His signature dish? Hot pockets. Ninety seconds. Still frozen in the middle.",
+   "sfx": [
+    [
+     "ding",
+     "@pockets"
+    ],
+    [
+     "boing",
+     "@frozen"
+    ]
+   ],
+   "cam": [
+    [
+     0,
+     540,
+     1000,
+     1.08
+    ],
+    [
+     1,
+     560,
+     1100,
+     1.25
+    ]
+   ]
+  },
+  {
+   "scene": "chef",
+   "meter": 3,
+   "text": "And this is Chef Marcus.",
+   "sfx": [
+    [
+     "ding",
+     0.1
+    ],
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "chef",
+   "meter": 3,
+   "text": "Chef Marcus doesn't follow recipes. Recipes follow Chef Marcus.",
+   "sfx": [
+    [
+     "ding",
+     "@recipes"
+    ]
+   ],
+   "punch": [
+    "follow"
+   ]
+  },
+  {
+   "scene": "chat",
+   "meter": 3,
+   "text": "Last night, the family group chat went crazy.",
+   "sfx": [
+    [
+     "ding",
+     "@family"
+    ],
+    [
+     "ding",
+     "@crazy"
+    ]
+   ]
+  },
+  {
+   "scene": "chat",
+   "meter": 3,
+   "step": 1,
+   "text": "Aunt Denise invited twenty two people.",
+   "sfx": [
+    [
+     "ding",
+     0.05
+    ],
+    [
+     "stamp",
+     "@twenty"
+    ]
+   ],
+   "punch": [
+    "twenty"
+   ]
+  },
+  {
+   "scene": "chat",
+   "meter": 3,
+   "step": 2,
+   "sp": "gran",
+   "text": "I'm not cooking this year, baby. It's all you!",
+   "sfx": [
+    [
+     "ding",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "fridge",
+   "meter": 3,
+   "text": "Marcus checked the fridge. One egg. Hot sauce. And a lemon from August.",
+   "sfx": [
+    [
+     "slide",
+     "@fridge"
+    ],
+    [
+     "pop",
+     "@egg"
+    ],
+    [
+     "pop",
+     "@sauce"
+    ],
+    [
+     "boing",
+     "@lemon"
+    ]
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 0,
+   "score": [
+    0,
+    0
+   ],
+   "text": "Let's compare.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.3
+    ]
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 1,
+   "score": [
+    1,
+    0
+   ],
+   "text": "Round one. Knife skills. Chef Marcus dices an onion in four seconds. Marcus cried for four hours.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "swipe",
+     "@dices"
+    ],
+    [
+     "sad",
+     "@cried"
+    ]
+   ],
+   "punch": [
+    "cried"
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 2,
+   "score": [
+    2,
+    0
+   ],
+   "text": "Round two. The stove. Chef Marcus cooks with fire. Marcus uses the smoke alarm as a timer.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@fire"
+    ],
+    [
+     "boing",
+     "@alarm"
+    ]
+   ],
+   "punch": [
+    "timer"
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 3,
+   "score": [
+    3,
+    0
+   ],
+   "text": "Round three. The turkey. Chef Marcus brines it for two days. Marcus thought they came cooked.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "ding",
+     "@brines"
+    ],
+    [
+     "boing",
+     "@cooked"
+    ]
+   ],
+   "punch": [
+    "cooked"
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 4,
+   "score": [
+    4,
+    0
+   ],
+   "text": "Round four. Gravy. Chef Marcus makes silk. Marcus makes brown water.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "ding",
+     "@silk"
+    ],
+    [
+     "sad",
+     "@brown"
+    ]
+   ],
+   "punch": [
+    "water"
+   ]
+  },
+  {
+   "scene": "crash",
+   "meter": 0,
+   "text": "The chef meter? It caught on fire.",
+   "sfx": [
+    [
+     "spend",
+     "@meter"
+    ],
+    [
+     "scream",
+     "@fire"
+    ]
+   ],
+   "punch": [
+    "fire"
+   ]
+  },
+  {
+   "scene": "ring",
+   "meter": 0,
+   "text": "Then his phone rang. Grandma. Video call. Right now.",
+   "sfx": [
+    [
+     "ding",
+     "@rang"
+    ],
+    [
+     "ding",
+     "@grandma"
+    ],
+    [
+     "stamp",
+     "@now"
+    ]
+   ],
+   "punch": [
+    "now"
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 0,
+   "sp": "gran",
+   "text": "Baby! Show me your kitchen!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 1,
+   "text": "Marcus pointed the camera at a cooking show on TV.",
+   "sfx": [
+    [
+     "whoosh",
+     "@pointed"
+    ],
+    [
+     "crowd",
+     "@show"
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 2,
+   "sp": "gran",
+   "text": "Why does your kitchen have a laugh track?",
+   "sfx": [
+    [
+     "crowd",
+     "@laugh"
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 3,
+   "sp": "marcus",
+   "text": "Open concept, Grandma.",
+   "sfx": [
+    [
+     "boing",
+     "@concept"
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 4,
+   "text": "She bought it. For now.",
+   "sfx": [
+    [
+     "ding",
+     "@bought"
+    ],
+    [
+     "sad",
+     "@now"
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "meter": 0,
+   "text": "Thirteen days. Twenty two guests. Zero skills.",
+   "sfx": [
+    [
+     "stamp",
+     "@thirteen"
+    ],
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "stamp",
+     "@zero"
+    ]
+   ],
+   "punch": [
+    "zero"
+   ]
+  },
+  {
+   "scene": "vote",
+   "meter": 0,
+   "text": "So where do we start? Turkey, or pie? Comment one word. Day one starts tomorrow!",
+   "sfx": [
+    [
+     "pop",
+     "@turkey"
+    ],
+    [
+     "pop",
+     "@pie"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

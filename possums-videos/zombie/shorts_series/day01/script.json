@@ -1,0 +1,337 @@
+{
+ "series": "MILE 41",
+ "episode": 1,
+ "day": 1,
+ "title": "Day 1",
+ "vertical": true,
+ "beats": [
+  {
+   "sp": "cole",
+   "text": "Day one of surviving the zombie apocalypse. In an abandoned gas station.",
+   "intensity": 0.5,
+   "loc": "station_ext",
+   "tod": "night",
+   "wx": "rain",
+   "cast": [],
+   "z": {
+    "n": 8,
+    "x0": 1.0,
+    "x1": 0.62,
+    "depth": "far"
+   },
+   "props": [
+    "sign",
+    "pumps",
+    "lantern"
+   ],
+   "fx": [
+    "lightning"
+   ],
+   "focus": 0.55,
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ],
+    [
+     "groan",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Five survivors. One gas station. Zero gas.",
+   "tod": "day",
+   "wx": null,
+   "z": null,
+   "fx": [],
+   "cast": [
+    "mags:.44:idle",
+    "tank:.58:idle"
+   ],
+   "focus": 0.51,
+   "intensity": 0.2
+  },
+  {
+   "sp": "cole",
+   "text": "Mags can fix anything with a wrench and a bad attitude.",
+   "loc": "station_int",
+   "props": [
+    "shelves",
+    "radio",
+    "cooler"
+   ],
+   "cast": [
+    "mags:.5:idle"
+   ],
+   "focus": 0.5,
+   "card": {
+    "kind": "name",
+    "title": "MAGS",
+    "sub": "Mechanic"
+   }
+  },
+  {
+   "sp": "cole",
+   "text": "Dooley is seventy, and he still sleeps with his boots on.",
+   "cast": [
+    "dooley:.5:idle"
+   ],
+   "card": {
+    "kind": "name",
+    "title": "DOOLEY",
+    "sub": "Old soldier"
+   }
+  },
+  {
+   "sp": "cole",
+   "text": "Pip is twelve. The smartest one here. That's Biscuit.",
+   "cast": [
+    "pip:.46:cheer"
+   ],
+   "card": {
+    "kind": "name",
+    "title": "PIP + BISCUIT",
+    "sub": "The brains + the dog"
+   },
+   "sfx": [
+    [
+     "bark",
+     0.85
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "And Tank is huge, and scared of literally everything.",
+   "cast": [
+    "tank:.5:scared"
+   ],
+   "fx": [
+    "shake"
+   ],
+   "card": {
+    "kind": "name",
+    "title": "TANK",
+    "sub": "Scared of everything"
+   }
+  },
+  {
+   "sp": "cole",
+   "text": "Here's the deal. Every like on this video is one supply point.",
+   "cast": [],
+   "fx": [],
+   "card": null,
+   "loc": "station_ext",
+   "props": [
+    "sign",
+    "pumps"
+   ],
+   "hud": "supplies",
+   "focus": 0.62
+  },
+  {
+   "sp": "cole",
+   "text": "And the most liked comment decides what we build next.",
+   "hud": "vote"
+  },
+  {
+   "sp": "cole",
+   "text": "Right now, our only wall is a vending machine and some duct tape.",
+   "hud": null,
+   "loc": "station_int",
+   "tod": "night",
+   "props": [
+    "shelves",
+    "barricade",
+    "lantern"
+   ],
+   "cast": [],
+   "focus": 0.5,
+   "intensity": 0.5
+  },
+  {
+   "sp": "cole",
+   "text": "And on the first night, they came.",
+   "props": [
+    "shelves",
+    "barricade",
+    "lantern",
+    "hands"
+   ],
+   "fx": [
+    "shake"
+   ],
+   "intensity": 0.85,
+   "sfx": [
+    [
+     "bang",
+     0.3
+    ],
+    [
+     "bang",
+     0.55
+    ],
+    [
+     "bang",
+     0.8
+    ],
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "tank",
+   "text": "It's moving! Why is the vending machine moving?",
+   "props": [
+    "shelves",
+    "barricade:slide",
+    "lantern",
+    "hands"
+   ],
+   "cast": [
+    "tank:.52:scared"
+   ],
+   "focus": 0.52,
+   "sfx": [
+    [
+     "bang",
+     0.2
+    ],
+    [
+     "scrape",
+     0.4
+    ],
+    [
+     "bang",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "So Pip threw our radio into the cornfield. Full volume.",
+   "loc": "roof",
+   "props": [
+    "radio:throw",
+    "corn"
+   ],
+   "cast": [
+    "pip:.42:cheer"
+   ],
+   "fx": [],
+   "focus": 0.5,
+   "sfx": [
+    [
+     "static",
+     0.3
+    ],
+    [
+     "whoosh",
+     0.7
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "And the whole horde turned around and followed the noise.",
+   "props": [
+    "corn",
+    "radio:field"
+   ],
+   "cast": [],
+   "z": {
+    "n": 10,
+    "x0": 0.3,
+    "x1": 0.62,
+    "depth": "far",
+    "turn": true
+   },
+   "focus": 0.47,
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "static",
+     0
+    ],
+    [
+     "groan",
+     0.5
+    ]
+   ]
+  },
+  {
+   "sp": "pip",
+   "text": "You're welcome.",
+   "loc": "station_int",
+   "props": [
+    "shelves",
+    "barricade",
+    "lantern"
+   ],
+   "z": null,
+   "cast": [
+    "pip:.46:cheer"
+   ],
+   "focus": 0.5
+  },
+  {
+   "sp": "cole",
+   "text": "We survived night one. Barely.",
+   "cast": [
+    "mags:.43:sit",
+    "tank:.58:sit"
+   ],
+   "focus": 0.5,
+   "intensity": 0.25
+  },
+  {
+   "sp": "cole",
+   "text": "But tomorrow, they're coming back. And there's more of them.",
+   "loc": "station_ext",
+   "tod": "night",
+   "props": [
+    "sign",
+    "pumps",
+    "lantern"
+   ],
+   "cast": [],
+   "z": {
+    "n": 14,
+    "x0": 1.05,
+    "x1": 0.55,
+    "depth": "mid"
+   },
+   "focus": 0.55,
+   "intensity": 0.8,
+   "sfx": [
+    [
+     "groan",
+     0.3
+    ],
+    [
+     "sting",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "cole",
+   "text": "Every like is a supply. The most liked comment picks walls, a generator, a watchtower, or a food run.",
+   "tod": "day",
+   "z": null,
+   "cast": [],
+   "focus": 0.62,
+   "hud": "shop",
+   "intensity": 0.35
+  },
+  {
+   "sp": "cole",
+   "text": "Want to join us? Comment your name and your skill.",
+   "hud": "join"
+  }
+ ]
+}

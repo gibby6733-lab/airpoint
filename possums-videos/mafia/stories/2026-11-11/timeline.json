@@ -1,0 +1,5584 @@
+{
+ "duration": 140.82,
+ "title": "",
+ "captions": false,
+ "style": "assemble",
+ "images": [
+  "layers/01_full.jpg",
+  "layers/02_full.jpg",
+  "layers/03_full.jpg",
+  "layers/04_full.jpg",
+  "layers/05_full.jpg",
+  "layers/06_full.jpg",
+  "layers/07_full.jpg",
+  "layers/08_full.jpg",
+  "layers/09_full.jpg",
+  "layers/10_full.jpg",
+  "layers/11_full.jpg",
+  "layers/12_full.jpg",
+  "layers/13_full.jpg",
+  "layers/14_full.jpg",
+  "layers/15_full.jpg",
+  "layers/16_full.jpg",
+  "layers/17_full.jpg",
+  "layers/18_full.jpg",
+  "layers/19_full.jpg",
+  "layers/20_full.jpg",
+  "layers/21_full.jpg",
+  "layers/22_full.jpg",
+  "layers/23_full.jpg",
+  "layers/24_full.jpg",
+  "layers/25_full.jpg",
+  "layers/26_full.jpg",
+  "layers/27_full.jpg",
+  "layers/28_full.jpg",
+  "layers/29_full.jpg",
+  "layers/30_full.jpg",
+  "layers/31_full.jpg",
+  "layers/32_full.jpg",
+  "layers/33_full.jpg",
+  "layers/34_full.jpg",
+  "layers/35_full.jpg",
+  "layers/36_full.jpg",
+  "layers/37_full.jpg",
+  "layers/38_full.jpg",
+  "layers/39_full.jpg",
+  "layers/01_e0.png",
+  "layers/01_e3.png",
+  "layers/01_e1.png",
+  "layers/01_e2.png",
+  "layers/02_e0.png",
+  "layers/02_e1.png",
+  "layers/03_e0.png",
+  "layers/03_e2.png",
+  "layers/03_e1.png",
+  "layers/04_e0.png",
+  "layers/05_e0.png",
+  "layers/05_e1.png",
+  "layers/05_e3.png",
+  "layers/05_e2.png",
+  "layers/06_e0.png",
+  "layers/06_e1.png",
+  "layers/07_e0.png",
+  "layers/07_e1.png",
+  "layers/07_e2.png",
+  "layers/08_e0.png",
+  "layers/08_e3.png",
+  "layers/08_e2.png",
+  "layers/08_e4.png",
+  "layers/08_e1.png",
+  "layers/09_e0.png",
+  "layers/09_e1.png",
+  "layers/10_e0.png",
+  "layers/11_e0.png",
+  "layers/12_e0.png",
+  "layers/12_e1.png",
+  "layers/13_e0.png",
+  "layers/13_e1.png",
+  "layers/14_e0.png",
+  "layers/14_e4.png",
+  "layers/14_e2.png",
+  "layers/14_e3.png",
+  "layers/14_e1.png",
+  "layers/15_e0.png",
+  "layers/15_e3.png",
+  "layers/15_e2.png",
+  "layers/15_e1.png",
+  "layers/16_e0.png",
+  "layers/16_e1.png",
+  "layers/16_e2.png",
+  "layers/17_e0.png",
+  "layers/17_e1.png",
+  "layers/18_e0.png",
+  "layers/18_e1.png",
+  "layers/19_e0.png",
+  "layers/19_e2.png",
+  "layers/19_e1.png",
+  "layers/20_e0.png",
+  "layers/21_e0.png",
+  "layers/21_e1.png",
+  "layers/22_e0.png",
+  "layers/23_e0.png",
+  "layers/24_e0.png",
+  "layers/24_e2.png",
+  "layers/24_e1.png",
+  "layers/25_e0.png",
+  "layers/25_e1.png",
+  "layers/26_e0.png",
+  "layers/27_e0.png",
+  "layers/27_e2.png",
+  "layers/27_e1.png",
+  "layers/28_e0.png",
+  "layers/28_e3.png",
+  "layers/28_e2.png",
+  "layers/28_e1.png",
+  "layers/28_e4.png",
+  "layers/29_e0.png",
+  "layers/29_e6.png",
+  "layers/29_e5.png",
+  "layers/29_e3.png",
+  "layers/29_e7.png",
+  "layers/29_e1.png",
+  "layers/29_e8.png",
+  "layers/29_e4.png",
+  "layers/29_e2.png",
+  "layers/30_e0.png",
+  "layers/30_e2.png",
+  "layers/30_e1.png",
+  "layers/30_e4.png",
+  "layers/30_e3.png",
+  "layers/30_e5.png",
+  "layers/30_e8.png",
+  "layers/30_e6.png",
+  "layers/30_e7.png",
+  "layers/33_e0.png",
+  "layers/33_e2.png",
+  "layers/33_e5.png",
+  "layers/33_e7.png",
+  "layers/33_e6.png",
+  "layers/33_e3.png",
+  "layers/33_e4.png",
+  "layers/33_e1.png",
+  "layers/34_e0.png",
+  "layers/34_e2.png",
+  "layers/34_e1.png",
+  "layers/35_e0.png",
+  "layers/35_e2.png",
+  "layers/35_e3.png",
+  "layers/35_e1.png",
+  "layers/36_e0.png",
+  "layers/36_e1.png",
+  "layers/36_e2.png",
+  "layers/37_e0.png",
+  "layers/37_e1.png",
+  "layers/37_e2.png",
+  "layers/37_e4.png",
+  "layers/37_e3.png",
+  "layers/38_e0.png",
+  "layers/38_e1.png",
+  "layers/38_e2.png",
+  "layers/39_e0.png",
+  "layers/01_plate.jpg",
+  "layers/02_plate.jpg",
+  "layers/03_plate.jpg",
+  "layers/04_plate.jpg",
+  "layers/05_plate.jpg",
+  "layers/06_plate.jpg",
+  "layers/07_plate.jpg",
+  "layers/08_plate.jpg",
+  "layers/09_plate.jpg",
+  "layers/10_plate.jpg",
+  "layers/11_plate.jpg",
+  "layers/12_plate.jpg",
+  "layers/13_plate.jpg",
+  "layers/14_plate.jpg",
+  "layers/15_plate.jpg",
+  "layers/16_plate.jpg",
+  "layers/17_plate.jpg",
+  "layers/18_plate.jpg",
+  "layers/19_plate.jpg",
+  "layers/20_plate.jpg",
+  "layers/21_plate.jpg",
+  "layers/22_plate.jpg",
+  "layers/23_plate.jpg",
+  "layers/24_plate.jpg",
+  "layers/25_plate.jpg",
+  "layers/26_plate.jpg",
+  "layers/27_plate.jpg",
+  "layers/28_plate.jpg",
+  "layers/29_plate.jpg",
+  "layers/30_plate.jpg",
+  "layers/33_plate.jpg",
+  "layers/34_plate.jpg",
+  "layers/35_plate.jpg",
+  "layers/36_plate.jpg",
+  "layers/37_plate.jpg",
+  "layers/38_plate.jpg",
+  "layers/39_plate.jpg"
+ ],
+ "beats": [
+  {
+   "text": "V okt\u00f3bri 2015 ozn\u00e1mili slovensk\u00ed coln\u00edci,",
+   "img": null,
+   "start": 1.2,
+   "end": 3.1,
+   "words": [
+    {
+     "w": "V",
+     "s": 1.2
+    },
+    {
+     "w": "okt\u00f3bri",
+     "s": 1.312
+    },
+    {
+     "w": "2015",
+     "s": 1.647
+    },
+    {
+     "w": "ozn\u00e1mili",
+     "s": 1.871
+    },
+    {
+     "w": "slovensk\u00ed",
+     "s": 2.243
+    },
+    {
+     "w": "coln\u00edci,",
+     "s": 2.653
+    }
+   ]
+  },
+  {
+   "text": "\u017ee odhalili podvod s naftou.",
+   "img": null,
+   "start": 3.2,
+   "end": 6.1,
+   "words": [
+    {
+     "w": "\u017ee",
+     "s": 3.2
+    },
+    {
+     "w": "odhalili",
+     "s": 3.522
+    },
+    {
+     "w": "podvod",
+     "s": 4.328
+    },
+    {
+     "w": "s",
+     "s": 4.972
+    },
+    {
+     "w": "naftou.",
+     "s": 5.214
+    }
+   ]
+  },
+  {
+   "text": "Dovozcovia priviezli desa\u0165tis\u00edce litrov miner\u00e1lneho oleja.",
+   "img": null,
+   "start": 6.2,
+   "end": 9.1,
+   "words": [
+    {
+     "w": "Dovozcovia",
+     "s": 6.2
+    },
+    {
+     "w": "priviezli",
+     "s": 6.719
+    },
+    {
+     "w": "desa\u0165tis\u00edce",
+     "s": 7.196
+    },
+    {
+     "w": "litrov",
+     "s": 7.758
+    },
+    {
+     "w": "miner\u00e1lneho",
+     "s": 8.104
+    },
+    {
+     "w": "oleja.",
+     "s": 8.667
+    }
+   ]
+  },
+  {
+   "text": "Slovensko malo by\u0165 len tranzitnou krajinou,",
+   "img": null,
+   "start": 9.2,
+   "end": 11.1,
+   "words": [
+    {
+     "w": "Slovensko",
+     "s": 9.2
+    },
+    {
+     "w": "malo",
+     "s": 9.602
+    },
+    {
+     "w": "by\u0165",
+     "s": 9.821
+    },
+    {
+     "w": "len",
+     "s": 10.004
+    },
+    {
+     "w": "tranzitnou",
+     "s": 10.187
+    },
+    {
+     "w": "krajinou,",
+     "s": 10.625
+    }
+   ]
+  },
+  {
+   "text": "palivo mierilo do Ma\u010farska, Chorv\u00e1tska, Bulharska alebo na Cyprus.",
+   "img": null,
+   "start": 11.2,
+   "end": 16.1,
+   "words": [
+    {
+     "w": "palivo",
+     "s": 11.2
+    },
+    {
+     "w": "mierilo",
+     "s": 11.678
+    },
+    {
+     "w": "do",
+     "s": 12.216
+    },
+    {
+     "w": "Ma\u010farska,",
+     "s": 12.455
+    },
+    {
+     "w": "Chorv\u00e1tska,",
+     "s": 13.232
+    },
+    {
+     "w": "Bulharska",
+     "s": 14.128
+    },
+    {
+     "w": "alebo",
+     "s": 14.785
+    },
+    {
+     "w": "na",
+     "s": 15.204
+    },
+    {
+     "w": "Cyprus.",
+     "s": 15.443
+    }
+   ]
+  },
+  {
+   "text": "Skon\u010dilo v\u0161ak na \u010derpac\u00edch staniciach a pred\u00e1valo sa ako nafta.",
+   "img": null,
+   "start": 16.2,
+   "end": 20.1,
+   "words": [
+    {
+     "w": "Skon\u010dilo",
+     "s": 16.2
+    },
+    {
+     "w": "v\u0161ak",
+     "s": 16.713
+    },
+    {
+     "w": "na",
+     "s": 17.021
+    },
+    {
+     "w": "\u010derpac\u00edch",
+     "s": 17.226
+    },
+    {
+     "w": "staniciach",
+     "s": 17.791
+    },
+    {
+     "w": "a",
+     "s": 18.407
+    },
+    {
+     "w": "pred\u00e1valo",
+     "s": 18.561
+    },
+    {
+     "w": "sa",
+     "s": 19.125
+    },
+    {
+     "w": "ako",
+     "s": 19.33
+    },
+    {
+     "w": "nafta.",
+     "s": 19.587
+    }
+   ]
+  },
+  {
+   "text": "\u0160t\u00e1t pri\u0161iel o takmer dva mili\u00f3ny eur.",
+   "img": null,
+   "start": 20.2,
+   "end": 24.1,
+   "words": [
+    {
+     "w": "\u0160t\u00e1t",
+     "s": 20.2
+    },
+    {
+     "w": "pri\u0161iel",
+     "s": 20.688
+    },
+    {
+     "w": "o",
+     "s": 21.419
+    },
+    {
+     "w": "takmer",
+     "s": 21.662
+    },
+    {
+     "w": "dva",
+     "s": 22.312
+    },
+    {
+     "w": "mili\u00f3ny",
+     "s": 22.719
+    },
+    {
+     "w": "eur.",
+     "s": 23.45
+    }
+   ]
+  },
+  {
+   "text": "Bola to len mal\u00e1 k\u00f3pia ove\u013ea star\u0161ieho podvodu.",
+   "img": null,
+   "start": 24.2,
+   "end": 28.1,
+   "words": [
+    {
+     "w": "Bola",
+     "s": 24.2
+    },
+    {
+     "w": "to",
+     "s": 24.603
+    },
+    {
+     "w": "len",
+     "s": 24.872
+    },
+    {
+     "w": "mal\u00e1",
+     "s": 25.209
+    },
+    {
+     "w": "k\u00f3pia",
+     "s": 25.612
+    },
+    {
+     "w": "ove\u013ea",
+     "s": 26.083
+    },
+    {
+     "w": "star\u0161ieho",
+     "s": 26.553
+    },
+    {
+     "w": "podvodu.",
+     "s": 27.293
+    }
+   ]
+  },
+  {
+   "text": "Ten sa za\u010dal na za\u010diatku dev\u00e4\u0165desiatych rokov.",
+   "img": null,
+   "start": 28.2,
+   "end": 31.1,
+   "words": [
+    {
+     "w": "Ten",
+     "s": 28.2
+    },
+    {
+     "w": "sa",
+     "s": 28.459
+    },
+    {
+     "w": "za\u010dal",
+     "s": 28.666
+    },
+    {
+     "w": "na",
+     "s": 29.029
+    },
+    {
+     "w": "za\u010diatku",
+     "s": 29.236
+    },
+    {
+     "w": "dev\u00e4\u0165desiatych",
+     "s": 29.754
+    },
+    {
+     "w": "rokov.",
+     "s": 30.582
+    }
+   ]
+  },
+  {
+   "text": "St\u00e1l na jedinom rozdiele.",
+   "img": null,
+   "start": 31.2,
+   "end": 33.1,
+   "words": [
+    {
+     "w": "St\u00e1l",
+     "s": 31.2
+    },
+    {
+     "w": "na",
+     "s": 31.556
+    },
+    {
+     "w": "jedinom",
+     "s": 31.794
+    },
+    {
+     "w": "rozdiele.",
+     "s": 32.328
+    }
+   ]
+  },
+  {
+   "text": "Vykurovac\u00ed olej mal ni\u017e\u0161iu da\u0148, nafta vy\u0161\u0161iu.",
+   "img": null,
+   "start": 33.2,
+   "end": 36.1,
+   "words": [
+    {
+     "w": "Vykurovac\u00ed",
+     "s": 33.2
+    },
+    {
+     "w": "olej",
+     "s": 33.811
+    },
+    {
+     "w": "mal",
+     "s": 34.116
+    },
+    {
+     "w": "ni\u017e\u0161iu",
+     "s": 34.37
+    },
+    {
+     "w": "da\u0148,",
+     "s": 34.777
+    },
+    {
+     "w": "nafta",
+     "s": 35.184
+    },
+    {
+     "w": "vy\u0161\u0161iu.",
+     "s": 35.54
+    }
+   ]
+  },
+  {
+   "text": "Spotrebn\u00e1 da\u0148 z nafty patrila na Slovensku",
+   "img": null,
+   "start": 36.2,
+   "end": 39.1,
+   "words": [
+    {
+     "w": "Spotrebn\u00e1",
+     "s": 36.2
+    },
+    {
+     "w": "da\u0148",
+     "s": 36.838
+    },
+    {
+     "w": "z",
+     "s": 37.128
+    },
+    {
+     "w": "nafty",
+     "s": 37.302
+    },
+    {
+     "w": "patrila",
+     "s": 37.708
+    },
+    {
+     "w": "na",
+     "s": 38.23
+    },
+    {
+     "w": "Slovensku",
+     "s": 38.462
+    }
+   ]
+  },
+  {
+   "text": "medzi najvy\u0161\u0161ie v regi\u00f3ne.",
+   "img": null,
+   "start": 39.2,
+   "end": 41.1,
+   "words": [
+    {
+     "w": "medzi",
+     "s": 39.2
+    },
+    {
+     "w": "najvy\u0161\u0161ie",
+     "s": 39.603
+    },
+    {
+     "w": "v",
+     "s": 40.236
+    },
+    {
+     "w": "regi\u00f3ne.",
+     "s": 40.409
+    }
+   ]
+  },
+  {
+   "text": "Kto predal lacnej\u0161\u00ed olej ako naftu,",
+   "img": null,
+   "start": 41.2,
+   "end": 44.1,
+   "words": [
+    {
+     "w": "Kto",
+     "s": 41.2
+    },
+    {
+     "w": "predal",
+     "s": 41.53
+    },
+    {
+     "w": "lacnej\u0161\u00ed",
+     "s": 42.057
+    },
+    {
+     "w": "olej",
+     "s": 42.716
+    },
+    {
+     "w": "ako",
+     "s": 43.111
+    },
+    {
+     "w": "naftu,",
+     "s": 43.441
+    }
+   ]
+  },
+  {
+   "text": "nechal si rozdiel v daniach.",
+   "img": null,
+   "start": 44.2,
+   "end": 46.1,
+   "words": [
+    {
+     "w": "nechal",
+     "s": 44.2
+    },
+    {
+     "w": "si",
+     "s": 44.622
+    },
+    {
+     "w": "rozdiel",
+     "s": 44.833
+    },
+    {
+     "w": "v",
+     "s": 45.308
+    },
+    {
+     "w": "daniach.",
+     "s": 45.467
+    }
+   ]
+  },
+  {
+   "text": "Olej sa preto upravil tak, aby sa podobal na naftu.",
+   "img": null,
+   "start": 46.2,
+   "end": 51.1,
+   "words": [
+    {
+     "w": "Olej",
+     "s": 46.2
+    },
+    {
+     "w": "sa",
+     "s": 46.645
+    },
+    {
+     "w": "preto",
+     "s": 46.942
+    },
+    {
+     "w": "upravil",
+     "s": 47.462
+    },
+    {
+     "w": "tak,",
+     "s": 48.13
+    },
+    {
+     "w": "aby",
+     "s": 48.724
+    },
+    {
+     "w": "sa",
+     "s": 49.095
+    },
+    {
+     "w": "podobal",
+     "s": 49.392
+    },
+    {
+     "w": "na",
+     "s": 50.061
+    },
+    {
+     "w": "naftu.",
+     "s": 50.358
+    }
+   ]
+  },
+  {
+   "text": "Do krajiny pri\u0161iel ako olej",
+   "img": null,
+   "start": 51.2,
+   "end": 54.1,
+   "words": [
+    {
+     "w": "Do",
+     "s": 51.2
+    },
+    {
+     "w": "krajiny",
+     "s": 51.552
+    },
+    {
+     "w": "pri\u0161iel",
+     "s": 52.342
+    },
+    {
+     "w": "ako",
+     "s": 53.133
+    },
+    {
+     "w": "olej",
+     "s": 53.573
+    }
+   ]
+  },
+  {
+   "text": "a prech\u00e1dzal sie\u0165ou firiem na papieri.",
+   "img": null,
+   "start": 54.2,
+   "end": 56.1,
+   "words": [
+    {
+     "w": "a",
+     "s": 54.2
+    },
+    {
+     "w": "prech\u00e1dzal",
+     "s": 54.321
+    },
+    {
+     "w": "sie\u0165ou",
+     "s": 54.806
+    },
+    {
+     "w": "firiem",
+     "s": 55.13
+    },
+    {
+     "w": "na",
+     "s": 55.453
+    },
+    {
+     "w": "papieri.",
+     "s": 55.615
+    }
+   ]
+  },
+  {
+   "text": "Potom sa objavil na pumpe ako palivo do \u00e1ut.",
+   "img": null,
+   "start": 56.2,
+   "end": 61.1,
+   "words": [
+    {
+     "w": "Potom",
+     "s": 56.2
+    },
+    {
+     "w": "sa",
+     "s": 56.812
+    },
+    {
+     "w": "objavil",
+     "s": 57.163
+    },
+    {
+     "w": "na",
+     "s": 57.95
+    },
+    {
+     "w": "pumpe",
+     "s": 58.3
+    },
+    {
+     "w": "ako",
+     "s": 58.913
+    },
+    {
+     "w": "palivo",
+     "s": 59.35
+    },
+    {
+     "w": "do",
+     "s": 60.05
+    },
+    {
+     "w": "\u00e1ut.",
+     "s": 60.4
+    }
+   ]
+  },
+  {
+   "text": "Niektor\u00e9 slovensk\u00e9 firmy vyr\u00e1bali n\u00e1hradn\u00fa naftu",
+   "img": null,
+   "start": 61.2,
+   "end": 64.1,
+   "words": [
+    {
+     "w": "Niektor\u00e9",
+     "s": 61.2
+    },
+    {
+     "w": "slovensk\u00e9",
+     "s": 61.727
+    },
+    {
+     "w": "firmy",
+     "s": 62.307
+    },
+    {
+     "w": "vyr\u00e1bali",
+     "s": 62.676
+    },
+    {
+     "w": "n\u00e1hradn\u00fa",
+     "s": 63.204
+    },
+    {
+     "w": "naftu",
+     "s": 63.731
+    }
+   ]
+  },
+  {
+   "text": "zmie\u0161an\u00edm lacn\u00fdch ropn\u00fdch produktov s chemik\u00e1liami.",
+   "img": null,
+   "start": 64.2,
+   "end": 66.1,
+   "words": [
+    {
+     "w": "zmie\u0161an\u00edm",
+     "s": 64.2
+    },
+    {
+     "w": "lacn\u00fdch",
+     "s": 64.548
+    },
+    {
+     "w": "ropn\u00fdch",
+     "s": 64.833
+    },
+    {
+     "w": "produktov",
+     "s": 65.118
+    },
+    {
+     "w": "s",
+     "s": 65.467
+    },
+    {
+     "w": "chemik\u00e1liami.",
+     "s": 65.562
+    }
+   ]
+  },
+  {
+   "text": "Novin\u00e1ri p\u00edsali, \u017ee sch\u00e9mu na Slovensko priniesol",
+   "img": null,
+   "start": 66.2,
+   "end": 70.1,
+   "words": [
+    {
+     "w": "Novin\u00e1ri",
+     "s": 66.2
+    },
+    {
+     "w": "p\u00edsali,",
+     "s": 66.861
+    },
+    {
+     "w": "\u017ee",
+     "s": 67.588
+    },
+    {
+     "w": "sch\u00e9mu",
+     "s": 67.853
+    },
+    {
+     "w": "na",
+     "s": 68.381
+    },
+    {
+     "w": "Slovensko",
+     "s": 68.646
+    },
+    {
+     "w": "priniesol",
+     "s": 69.373
+    }
+   ]
+  },
+  {
+   "text": "Tom\u00e1\u0161 V\u00edda z Dunajskej Stredy.",
+   "img": null,
+   "start": 70.2,
+   "end": 72.1,
+   "words": [
+    {
+     "w": "Tom\u00e1\u0161",
+     "s": 70.2
+    },
+    {
+     "w": "V\u00edda",
+     "s": 70.55
+    },
+    {
+     "w": "z",
+     "s": 70.85
+    },
+    {
+     "w": "Dunajskej",
+     "s": 71.0
+    },
+    {
+     "w": "Stredy.",
+     "s": 71.55
+    }
+   ]
+  },
+  {
+   "text": "Pol\u00edcia dospela k z\u00e1veru, \u017ee ju viedla rusk\u00e1 mafia.",
+   "img": null,
+   "start": 72.2,
+   "end": 76.1,
+   "words": [
+    {
+     "w": "Pol\u00edcia",
+     "s": 72.2
+    },
+    {
+     "w": "dospela",
+     "s": 72.74
+    },
+    {
+     "w": "k",
+     "s": 73.28
+    },
+    {
+     "w": "z\u00e1veru,",
+     "s": 73.46
+    },
+    {
+     "w": "\u017ee",
+     "s": 74.12
+    },
+    {
+     "w": "ju",
+     "s": 74.36
+    },
+    {
+     "w": "viedla",
+     "s": 74.6
+    },
+    {
+     "w": "rusk\u00e1",
+     "s": 75.08
+    },
+    {
+     "w": "mafia.",
+     "s": 75.5
+    }
+   ]
+  },
+  {
+   "text": "Podobn\u00e9 podvody sa objavili aj v \u010cesku, Po\u013esku a Ma\u010farsku.",
+   "img": null,
+   "start": 76.2,
+   "end": 81.1,
+   "words": [
+    {
+     "w": "Podobn\u00e9",
+     "s": 76.2
+    },
+    {
+     "w": "podvody",
+     "s": 76.804
+    },
+    {
+     "w": "sa",
+     "s": 77.408
+    },
+    {
+     "w": "objavili",
+     "s": 77.677
+    },
+    {
+     "w": "aj",
+     "s": 78.348
+    },
+    {
+     "w": "v",
+     "s": 78.616
+    },
+    {
+     "w": "\u010cesku,",
+     "s": 78.818
+    },
+    {
+     "w": "Po\u013esku",
+     "s": 79.489
+    },
+    {
+     "w": "a",
+     "s": 80.026
+    },
+    {
+     "w": "Ma\u010farsku.",
+     "s": 80.227
+    }
+   ]
+  },
+  {
+   "text": "Zisky pod\u013ea novin\u00e1rov dosahovali stovky mili\u00e1rd kor\u00fan.",
+   "img": null,
+   "start": 81.2,
+   "end": 84.1,
+   "words": [
+    {
+     "w": "Zisky",
+     "s": 81.2
+    },
+    {
+     "w": "pod\u013ea",
+     "s": 81.517
+    },
+    {
+     "w": "novin\u00e1rov",
+     "s": 81.834
+    },
+    {
+     "w": "dosahovali",
+     "s": 82.333
+    },
+    {
+     "w": "stovky",
+     "s": 82.877
+    },
+    {
+     "w": "mili\u00e1rd",
+     "s": 83.239
+    },
+    {
+     "w": "kor\u00fan.",
+     "s": 83.647
+    }
+   ]
+  },
+  {
+   "text": "Pol\u00edcia ho ozna\u010dila za najv\u00e4\u010d\u0161\u00ed pr\u00edpad organizovan\u00e9ho zlo\u010dinu.",
+   "img": null,
+   "start": 84.2,
+   "end": 88.1,
+   "words": [
+    {
+     "w": "Pol\u00edcia",
+     "s": 84.2
+    },
+    {
+     "w": "ho",
+     "s": 84.681
+    },
+    {
+     "w": "ozna\u010dila",
+     "s": 84.895
+    },
+    {
+     "w": "za",
+     "s": 85.429
+    },
+    {
+     "w": "najv\u00e4\u010d\u0161\u00ed",
+     "s": 85.642
+    },
+    {
+     "w": "pr\u00edpad",
+     "s": 86.177
+    },
+    {
+     "w": "organizovan\u00e9ho",
+     "s": 86.604
+    },
+    {
+     "w": "zlo\u010dinu.",
+     "s": 87.459
+    }
+   ]
+  },
+  {
+   "text": "Pod\u013ea policajn\u00fdch zdrojov sa do podvodu zapojil",
+   "img": null,
+   "start": 88.2,
+   "end": 92.1,
+   "words": [
+    {
+     "w": "Pod\u013ea",
+     "s": 88.2
+    },
+    {
+     "w": "policajn\u00fdch",
+     "s": 88.696
+    },
+    {
+     "w": "zdrojov",
+     "s": 89.618
+    },
+    {
+     "w": "sa",
+     "s": 90.256
+    },
+    {
+     "w": "do",
+     "s": 90.54
+    },
+    {
+     "w": "podvodu",
+     "s": 90.824
+    },
+    {
+     "w": "zapojil",
+     "s": 91.462
+    }
+   ]
+  },
+  {
+   "text": "ako jeden z prv\u00fdch aj bratislavsk\u00fd boss Miroslav S\u00fdkora.",
+   "img": null,
+   "start": 92.2,
+   "end": 96.1,
+   "words": [
+    {
+     "w": "ako",
+     "s": 92.2
+    },
+    {
+     "w": "jeden",
+     "s": 92.487
+    },
+    {
+     "w": "z",
+     "s": 92.888
+    },
+    {
+     "w": "prv\u00fdch",
+     "s": 93.06
+    },
+    {
+     "w": "aj",
+     "s": 93.519
+    },
+    {
+     "w": "bratislavsk\u00fd",
+     "s": 93.749
+    },
+    {
+     "w": "boss",
+     "s": 94.551
+    },
+    {
+     "w": "Miroslav",
+     "s": 94.896
+    },
+    {
+     "w": "S\u00fdkora.",
+     "s": 95.469
+    }
+   ]
+  },
+  {
+   "text": "Dunajskostredsk\u00fd gang bol v\u010faka ropn\u00e9mu podvodu v\u017edy finan\u010dne zabezpe\u010den\u00fd.",
+   "img": null,
+   "start": 96.2,
+   "end": 100.1,
+   "words": [
+    {
+     "w": "Dunajskostredsk\u00fd",
+     "s": 96.2
+    },
+    {
+     "w": "gang",
+     "s": 97.016
+    },
+    {
+     "w": "bol",
+     "s": 97.288
+    },
+    {
+     "w": "v\u010faka",
+     "s": 97.515
+    },
+    {
+     "w": "ropn\u00e9mu",
+     "s": 97.833
+    },
+    {
+     "w": "podvodu",
+     "s": 98.241
+    },
+    {
+     "w": "v\u017edy",
+     "s": 98.649
+    },
+    {
+     "w": "finan\u010dne",
+     "s": 98.921
+    },
+    {
+     "w": "zabezpe\u010den\u00fd.",
+     "s": 99.374
+    }
+   ]
+  },
+  {
+   "text": "Podvod sa menil, ale nezanikol.",
+   "img": null,
+   "start": 100.2,
+   "end": 102.1,
+   "words": [
+    {
+     "w": "Podvod",
+     "s": 100.2
+    },
+    {
+     "w": "sa",
+     "s": 100.571
+    },
+    {
+     "w": "menil,",
+     "s": 100.756
+    },
+    {
+     "w": "ale",
+     "s": 101.22
+    },
+    {
+     "w": "nezanikol.",
+     "s": 101.451
+    }
+   ]
+  },
+  {
+   "text": "Met\u00f3dy sa menili, princ\u00edp zostal rovnak\u00fd.",
+   "img": null,
+   "start": 102.2,
+   "end": 105.1,
+   "words": [
+    {
+     "w": "Met\u00f3dy",
+     "s": 102.2
+    },
+    {
+     "w": "sa",
+     "s": 102.646
+    },
+    {
+     "w": "menili,",
+     "s": 102.869
+    },
+    {
+     "w": "princ\u00edp",
+     "s": 103.483
+    },
+    {
+     "w": "zostal",
+     "s": 103.985
+    },
+    {
+     "w": "rovnak\u00fd.",
+     "s": 104.431
+    }
+   ]
+  },
+  {
+   "text": "Vy\u0161etrovatelia sa k nemu vracali cel\u00e9 roky.",
+   "img": null,
+   "start": 105.2,
+   "end": 109.1,
+   "words": [
+    {
+     "w": "Vy\u0161etrovatelia",
+     "s": 105.2
+    },
+    {
+     "w": "sa",
+     "s": 106.377
+    },
+    {
+     "w": "k",
+     "s": 106.672
+    },
+    {
+     "w": "nemu",
+     "s": 106.892
+    },
+    {
+     "w": "vracali",
+     "s": 107.334
+    },
+    {
+     "w": "cel\u00e9",
+     "s": 107.996
+    },
+    {
+     "w": "roky.",
+     "s": 108.438
+    }
+   ]
+  },
+  {
+   "text": "V roku 2014 vy\u0161etrovatelia op\u00edsali sch\u00e9mu",
+   "img": null,
+   "start": 109.2,
+   "end": 111.1,
+   "words": [
+    {
+     "w": "V",
+     "s": 109.2
+    },
+    {
+     "w": "roku",
+     "s": 109.319
+    },
+    {
+     "w": "2014",
+     "s": 109.556
+    },
+    {
+     "w": "vy\u0161etrovatelia",
+     "s": 109.794
+    },
+    {
+     "w": "op\u00edsali",
+     "s": 110.427
+    },
+    {
+     "w": "sch\u00e9mu",
+     "s": 110.783
+    }
+   ]
+  },
+  {
+   "text": "s mazac\u00edm olejom z Po\u013eska,",
+   "img": null,
+   "start": 111.2,
+   "end": 114.1,
+   "words": [
+    {
+     "w": "s",
+     "s": 111.2
+    },
+    {
+     "w": "mazac\u00edm",
+     "s": 111.456
+    },
+    {
+     "w": "olejom",
+     "s": 112.224
+    },
+    {
+     "w": "z",
+     "s": 112.906
+    },
+    {
+     "w": "Po\u013eska,",
+     "s": 113.162
+    }
+   ]
+  },
+  {
+   "text": "kde sa na\u0148 nevz\u0165ahovala spotrebn\u00e1 da\u0148.",
+   "img": null,
+   "start": 114.2,
+   "end": 117.1,
+   "words": [
+    {
+     "w": "kde",
+     "s": 114.2
+    },
+    {
+     "w": "sa",
+     "s": 114.509
+    },
+    {
+     "w": "na\u0148",
+     "s": 114.755
+    },
+    {
+     "w": "nevz\u0165ahovala",
+     "s": 115.064
+    },
+    {
+     "w": "spotrebn\u00e1",
+     "s": 115.928
+    },
+    {
+     "w": "da\u0148.",
+     "s": 116.606
+    }
+   ]
+  },
+  {
+   "text": "Cisterny \u0161li \u010falej do Ma\u010farska pr\u00e1zdne.",
+   "img": null,
+   "start": 117.2,
+   "end": 119.1,
+   "words": [
+    {
+     "w": "Cisterny",
+     "s": 117.2
+    },
+    {
+     "w": "\u0161li",
+     "s": 117.596
+    },
+    {
+     "w": "\u010falej",
+     "s": 117.794
+    },
+    {
+     "w": "do",
+     "s": 118.071
+    },
+    {
+     "w": "Ma\u010farska",
+     "s": 118.229
+    },
+    {
+     "w": "pr\u00e1zdne.",
+     "s": 118.625
+    }
+   ]
+  },
+  {
+   "text": "Olej zostal na Slovensku a pred\u00e1val sa ako nafta.",
+   "img": null,
+   "start": 119.2,
+   "end": 124.1,
+   "words": [
+    {
+     "w": "Olej",
+     "s": 119.2
+    },
+    {
+     "w": "zostal",
+     "s": 119.682
+    },
+    {
+     "w": "na",
+     "s": 120.325
+    },
+    {
+     "w": "Slovensku",
+     "s": 120.646
+    },
+    {
+     "w": "a",
+     "s": 121.53
+    },
+    {
+     "w": "pred\u00e1val",
+     "s": 121.77
+    },
+    {
+     "w": "sa",
+     "s": 122.574
+    },
+    {
+     "w": "ako",
+     "s": 122.895
+    },
+    {
+     "w": "nafta.",
+     "s": 123.297
+    }
+   ]
+  },
+  {
+   "text": "\u0160t\u00e1t pri\u0161iel o tri a pol mili\u00f3na eur",
+   "img": null,
+   "start": 124.2,
+   "end": 128.1,
+   "words": [
+    {
+     "w": "\u0160t\u00e1t",
+     "s": 124.2
+    },
+    {
+     "w": "pri\u0161iel",
+     "s": 124.72
+    },
+    {
+     "w": "o",
+     "s": 125.5
+    },
+    {
+     "w": "tri",
+     "s": 125.76
+    },
+    {
+     "w": "a",
+     "s": 126.193
+    },
+    {
+     "w": "pol",
+     "s": 126.453
+    },
+    {
+     "w": "mili\u00f3na",
+     "s": 126.887
+    },
+    {
+     "w": "eur",
+     "s": 127.667
+    }
+   ]
+  },
+  {
+   "text": "na spotrebnej dani a o \u010fal\u0161\u00edch \u0161es\u0165 mili\u00f3nov na DPH.",
+   "img": null,
+   "start": 128.2,
+   "end": 132.1,
+   "words": [
+    {
+     "w": "na",
+     "s": 128.2
+    },
+    {
+     "w": "spotrebnej",
+     "s": 128.44
+    },
+    {
+     "w": "dani",
+     "s": 129.16
+    },
+    {
+     "w": "a",
+     "s": 129.52
+    },
+    {
+     "w": "o",
+     "s": 129.7
+    },
+    {
+     "w": "\u010fal\u0161\u00edch",
+     "s": 129.88
+    },
+    {
+     "w": "\u0161es\u0165",
+     "s": 130.42
+    },
+    {
+     "w": "mili\u00f3nov",
+     "s": 130.78
+    },
+    {
+     "w": "na",
+     "s": 131.38
+    },
+    {
+     "w": "DPH.",
+     "s": 131.62
+    }
+   ]
+  },
+  {
+   "text": "\u017diadny s\u00fad nikdy neuzavrel cel\u00fd pr\u00edbeh.",
+   "img": null,
+   "start": 132.2,
+   "end": 135.1,
+   "words": [
+    {
+     "w": "\u017diadny",
+     "s": 132.2
+    },
+    {
+     "w": "s\u00fad",
+     "s": 132.683
+    },
+    {
+     "w": "nikdy",
+     "s": 132.985
+    },
+    {
+     "w": "neuzavrel",
+     "s": 133.408
+    },
+    {
+     "w": "cel\u00fd",
+     "s": 134.073
+    },
+    {
+     "w": "pr\u00edbeh.",
+     "s": 134.435
+    }
+   ]
+  },
+  {
+   "text": "Odhadovan\u00e1 cena: sto mili\u00e1rd kor\u00fan.",
+   "img": null,
+   "start": 135.2,
+   "end": 138.32,
+   "words": [
+    {
+     "w": "Odhadovan\u00e1",
+     "s": 135.2
+    },
+    {
+     "w": "cena:",
+     "s": 136.091
+    },
+    {
+     "w": "sto",
+     "s": 136.537
+    },
+    {
+     "w": "mili\u00e1rd",
+     "s": 136.909
+    },
+    {
+     "w": "kor\u00fan.",
+     "s": 137.577
+    }
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "img": "01.jpg",
+   "beats": [
+    0,
+    0
+   ],
+   "start": 0.0,
+   "end": 3.15,
+   "mode": "assemble",
+   "full": "layers/01_full.jpg",
+   "plate": "layers/01_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/01_e0.png",
+     "x": 69,
+     "y": 209,
+     "w": 970,
+     "h": 1501,
+     "area": 824746.875,
+     "land": 0.74
+    },
+    {
+     "file": "layers/01_e3.png",
+     "x": 537,
+     "y": 1568,
+     "w": 226,
+     "h": 65,
+     "area": 11585.12890625,
+     "land": 1.228
+    },
+    {
+     "file": "layers/01_e1.png",
+     "x": 45,
+     "y": 1479,
+     "w": 414,
+     "h": 199,
+     "area": 39838.0234375,
+     "land": 1.717
+    },
+    {
+     "file": "layers/01_e2.png",
+     "x": 69,
+     "y": 1672,
+     "w": 418,
+     "h": 118,
+     "area": 27883.751953125,
+     "land": 2.205
+    }
+   ]
+  },
+  {
+   "img": "02.jpg",
+   "beats": [
+    1,
+    1
+   ],
+   "start": 3.15,
+   "end": 6.15,
+   "mode": "assemble",
+   "full": "layers/02_full.jpg",
+   "plate": "layers/02_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/02_e0.png",
+     "x": 53,
+     "y": 165,
+     "w": 906,
+     "h": 1308,
+     "area": 612528.125,
+     "land": 4.495
+    },
+    {
+     "file": "layers/02_e1.png",
+     "x": 669,
+     "y": 1311,
+     "w": 298,
+     "h": 359,
+     "area": 52320.6640625,
+     "land": 5.25
+    }
+   ]
+  },
+  {
+   "img": "03.jpg",
+   "beats": [
+    2,
+    2
+   ],
+   "start": 6.15,
+   "end": 9.15,
+   "mode": "assemble",
+   "full": "layers/03_full.jpg",
+   "plate": "layers/03_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/03_e0.png",
+     "x": 77,
+     "y": 522,
+     "w": 974,
+     "h": 1039,
+     "area": 542662.75,
+     "land": 7.243
+    },
+    {
+     "file": "layers/03_e2.png",
+     "x": 605,
+     "y": 550,
+     "w": 110,
+     "h": 162,
+     "area": 9614.84765625,
+     "land": 7.747
+    },
+    {
+     "file": "layers/03_e1.png",
+     "x": 721,
+     "y": 1295,
+     "w": 274,
+     "h": 266,
+     "area": 23011.486328125,
+     "land": 8.25
+    }
+   ]
+  },
+  {
+   "img": "04.jpg",
+   "beats": [
+    3,
+    3
+   ],
+   "start": 9.15,
+   "end": 11.15,
+   "mode": "assemble",
+   "full": "layers/04_full.jpg",
+   "plate": "layers/04_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/04_e0.png",
+     "x": 145,
+     "y": 574,
+     "w": 786,
+     "h": 707,
+     "area": 313955.5625,
+     "land": 10.55
+    }
+   ]
+  },
+  {
+   "img": "05.jpg",
+   "beats": [
+    4,
+    4
+   ],
+   "start": 11.15,
+   "end": 16.15,
+   "mode": "assemble",
+   "full": "layers/05_full.jpg",
+   "plate": "layers/05_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/05_e0.png",
+     "x": 197,
+     "y": 546,
+     "w": 666,
+     "h": 699,
+     "area": 180741.90625,
+     "land": 12.588
+    },
+    {
+     "file": "layers/05_e1.png",
+     "x": 701,
+     "y": 494,
+     "w": 326,
+     "h": 214,
+     "area": 44275.625,
+     "land": 13.275
+    },
+    {
+     "file": "layers/05_e3.png",
+     "x": 857,
+     "y": 1135,
+     "w": 170,
+     "h": 82,
+     "area": 9566.1611328125,
+     "land": 13.962
+    },
+    {
+     "file": "layers/05_e2.png",
+     "x": 877,
+     "y": 1239,
+     "w": 158,
+     "h": 242,
+     "area": 21281.0390625,
+     "land": 14.65
+    }
+   ]
+  },
+  {
+   "img": "06.jpg",
+   "beats": [
+    5,
+    5
+   ],
+   "start": 16.15,
+   "end": 20.15,
+   "mode": "assemble",
+   "full": "layers/06_full.jpg",
+   "plate": "layers/06_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/06_e0.png",
+     "x": 201,
+     "y": 394,
+     "w": 702,
+     "h": 1055,
+     "area": 354129.25,
+     "land": 17.885
+    },
+    {
+     "file": "layers/06_e1.png",
+     "x": 741,
+     "y": 1211,
+     "w": 322,
+     "h": 495,
+     "area": 102366.734375,
+     "land": 18.95
+    }
+   ]
+  },
+  {
+   "img": "07.jpg",
+   "beats": [
+    6,
+    6
+   ],
+   "start": 20.15,
+   "end": 24.15,
+   "mode": "assemble",
+   "full": "layers/07_full.jpg",
+   "plate": "layers/07_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/07_e0.png",
+     "x": 93,
+     "y": 478,
+     "w": 882,
+     "h": 679,
+     "area": 413327.1875,
+     "land": 21.53
+    },
+    {
+     "file": "layers/07_e1.png",
+     "x": 489,
+     "y": 1123,
+     "w": 591,
+     "h": 426,
+     "area": 149653.625,
+     "land": 22.24
+    },
+    {
+     "file": "layers/07_e2.png",
+     "x": 749,
+     "y": 1535,
+     "w": 302,
+     "h": 151,
+     "area": 26424.310546875,
+     "land": 22.95
+    }
+   ]
+  },
+  {
+   "img": "08.jpg",
+   "beats": [
+    7,
+    7
+   ],
+   "start": 24.15,
+   "end": 28.15,
+   "mode": "assemble",
+   "full": "layers/08_full.jpg",
+   "plate": "layers/08_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/08_e0.png",
+     "x": 169,
+     "y": 578,
+     "w": 750,
+     "h": 607,
+     "area": 200018.78125,
+     "land": 25.246
+    },
+    {
+     "file": "layers/08_e3.png",
+     "x": 409,
+     "y": 526,
+     "w": 198,
+     "h": 82,
+     "area": 11442.0791015625,
+     "land": 25.672
+    },
+    {
+     "file": "layers/08_e2.png",
+     "x": 669,
+     "y": 1159,
+     "w": 166,
+     "h": 174,
+     "area": 11456.77734375,
+     "land": 26.098
+    },
+    {
+     "file": "layers/08_e4.png",
+     "x": 577,
+     "y": 1327,
+     "w": 130,
+     "h": 110,
+     "area": 8653.3017578125,
+     "land": 26.524
+    },
+    {
+     "file": "layers/08_e1.png",
+     "x": 545,
+     "y": 1283,
+     "w": 535,
+     "h": 330,
+     "area": 88985.0625,
+     "land": 26.95
+    }
+   ]
+  },
+  {
+   "img": "09.jpg",
+   "beats": [
+    8,
+    8
+   ],
+   "start": 28.15,
+   "end": 31.15,
+   "mode": "assemble",
+   "full": "layers/09_full.jpg",
+   "plate": "layers/09_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/09_e0.png",
+     "x": 161,
+     "y": 522,
+     "w": 919,
+     "h": 855,
+     "area": 459461.90625,
+     "land": 29.495
+    },
+    {
+     "file": "layers/09_e1.png",
+     "x": 685,
+     "y": 1283,
+     "w": 395,
+     "h": 346,
+     "area": 90074.875,
+     "land": 30.25
+    }
+   ]
+  },
+  {
+   "img": "10.jpg",
+   "beats": [
+    9,
+    9
+   ],
+   "start": 31.15,
+   "end": 33.15,
+   "mode": "assemble",
+   "full": "layers/10_full.jpg",
+   "plate": "layers/10_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/10_e0.png",
+     "x": 49,
+     "y": 554,
+     "w": 1031,
+     "h": 1027,
+     "area": 639372.5,
+     "land": 32.55
+    }
+   ]
+  },
+  {
+   "img": "11.jpg",
+   "beats": [
+    10,
+    10
+   ],
+   "start": 33.15,
+   "end": 36.15,
+   "mode": "assemble",
+   "full": "layers/11_full.jpg",
+   "plate": "layers/11_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/11_e0.png",
+     "x": 229,
+     "y": 542,
+     "w": 818,
+     "h": 1079,
+     "area": 415008.1875,
+     "land": 35.25
+    }
+   ]
+  },
+  {
+   "img": "12.jpg",
+   "beats": [
+    11,
+    11
+   ],
+   "start": 36.15,
+   "end": 39.15,
+   "mode": "assemble",
+   "full": "layers/12_full.jpg",
+   "plate": "layers/12_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/12_e0.png",
+     "x": 93,
+     "y": 442,
+     "w": 987,
+     "h": 819,
+     "area": 517631.75,
+     "land": 37.495
+    },
+    {
+     "file": "layers/12_e1.png",
+     "x": 513,
+     "y": 1203,
+     "w": 458,
+     "h": 414,
+     "area": 84929.5546875,
+     "land": 38.25
+    }
+   ]
+  },
+  {
+   "img": "13.jpg",
+   "beats": [
+    12,
+    13
+   ],
+   "start": 39.15,
+   "end": 44.15,
+   "mode": "assemble",
+   "full": "layers/13_full.jpg",
+   "plate": "layers/13_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/13_e0.png",
+     "x": 217,
+     "y": 454,
+     "w": 650,
+     "h": 735,
+     "area": 347768.46875,
+     "land": 41.275
+    },
+    {
+     "file": "layers/13_e1.png",
+     "x": 513,
+     "y": 1175,
+     "w": 526,
+     "h": 422,
+     "area": 91355.0859375,
+     "land": 42.65
+    }
+   ]
+  },
+  {
+   "img": "14.jpg",
+   "beats": [
+    14,
+    14
+   ],
+   "start": 44.15,
+   "end": 46.15,
+   "mode": "assemble",
+   "full": "layers/14_full.jpg",
+   "plate": "layers/14_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/14_e0.png",
+     "x": 213,
+     "y": 602,
+     "w": 626,
+     "h": 583,
+     "area": 226123.453125,
+     "land": 44.838
+    },
+    {
+     "file": "layers/14_e4.png",
+     "x": 341,
+     "y": 414,
+     "w": 182,
+     "h": 118,
+     "area": 14325.9765625,
+     "land": 45.016
+    },
+    {
+     "file": "layers/14_e2.png",
+     "x": 645,
+     "y": 1179,
+     "w": 254,
+     "h": 110,
+     "area": 17788.599609375,
+     "land": 45.194
+    },
+    {
+     "file": "layers/14_e3.png",
+     "x": 925,
+     "y": 1259,
+     "w": 114,
+     "h": 186,
+     "area": 14357.416015625,
+     "land": 45.372
+    },
+    {
+     "file": "layers/14_e1.png",
+     "x": 513,
+     "y": 1327,
+     "w": 438,
+     "h": 298,
+     "area": 71886.8046875,
+     "land": 45.55
+    }
+   ]
+  },
+  {
+   "img": "15.jpg",
+   "beats": [
+    15,
+    15
+   ],
+   "start": 46.15,
+   "end": 51.15,
+   "mode": "assemble",
+   "full": "layers/15_full.jpg",
+   "plate": "layers/15_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/15_e0.png",
+     "x": 417,
+     "y": 1127,
+     "w": 642,
+     "h": 506,
+     "area": 201141.703125,
+     "land": 47.587
+    },
+    {
+     "file": "layers/15_e3.png",
+     "x": 337,
+     "y": 414,
+     "w": 186,
+     "h": 122,
+     "area": 14373.771484375,
+     "land": 48.275
+    },
+    {
+     "file": "layers/15_e2.png",
+     "x": 213,
+     "y": 834,
+     "w": 310,
+     "h": 335,
+     "area": 59098.8984375,
+     "land": 48.962
+    },
+    {
+     "file": "layers/15_e1.png",
+     "x": 453,
+     "y": 602,
+     "w": 627,
+     "h": 571,
+     "area": 163804.828125,
+     "land": 49.65
+    }
+   ]
+  },
+  {
+   "img": "16.jpg",
+   "beats": [
+    16,
+    16
+   ],
+   "start": 51.15,
+   "end": 54.15,
+   "mode": "assemble",
+   "full": "layers/16_full.jpg",
+   "plate": "layers/16_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/16_e0.png",
+     "x": 97,
+     "y": 418,
+     "w": 950,
+     "h": 1059,
+     "area": 451862.03125,
+     "land": 52.243
+    },
+    {
+     "file": "layers/16_e1.png",
+     "x": 745,
+     "y": 1127,
+     "w": 218,
+     "h": 214,
+     "area": 29901.25390625,
+     "land": 52.747
+    },
+    {
+     "file": "layers/16_e2.png",
+     "x": 237,
+     "y": 1503,
+     "w": 398,
+     "h": 146,
+     "area": 28844.90625,
+     "land": 53.25
+    }
+   ]
+  },
+  {
+   "img": "17.jpg",
+   "beats": [
+    17,
+    17
+   ],
+   "start": 54.15,
+   "end": 56.15,
+   "mode": "assemble",
+   "full": "layers/17_full.jpg",
+   "plate": "layers/17_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/17_e0.png",
+     "x": 97,
+     "y": 434,
+     "w": 954,
+     "h": 1043,
+     "area": 555415.5625,
+     "land": 55.105
+    },
+    {
+     "file": "layers/17_e1.png",
+     "x": 237,
+     "y": 1499,
+     "w": 398,
+     "h": 150,
+     "area": 29373.203125,
+     "land": 55.55
+    }
+   ]
+  },
+  {
+   "img": "18.jpg",
+   "beats": [
+    18,
+    18
+   ],
+   "start": 56.15,
+   "end": 61.15,
+   "mode": "assemble",
+   "full": "layers/18_full.jpg",
+   "plate": "layers/18_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/18_e0.png",
+     "x": 85,
+     "y": 362,
+     "w": 914,
+     "h": 1127,
+     "area": 576730.75,
+     "land": 58.275
+    },
+    {
+     "file": "layers/18_e1.png",
+     "x": 301,
+     "y": 1539,
+     "w": 346,
+     "h": 191,
+     "area": 32802.78125,
+     "land": 59.65
+    }
+   ]
+  },
+  {
+   "img": "19.jpg",
+   "beats": [
+    19,
+    19
+   ],
+   "start": 61.15,
+   "end": 64.15,
+   "mode": "assemble",
+   "full": "layers/19_full.jpg",
+   "plate": "layers/19_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/19_e0.png",
+     "x": 85,
+     "y": 290,
+     "w": 966,
+     "h": 1251,
+     "area": 712379.125,
+     "land": 62.243
+    },
+    {
+     "file": "layers/19_e2.png",
+     "x": 449,
+     "y": 1243,
+     "w": 166,
+     "h": 114,
+     "area": 11119.5634765625,
+     "land": 62.747
+    },
+    {
+     "file": "layers/19_e1.png",
+     "x": 301,
+     "y": 1539,
+     "w": 346,
+     "h": 191,
+     "area": 34068.5703125,
+     "land": 63.25
+    }
+   ]
+  },
+  {
+   "img": "20.jpg",
+   "beats": [
+    20,
+    20
+   ],
+   "start": 64.15,
+   "end": 66.15,
+   "mode": "assemble",
+   "full": "layers/20_full.jpg",
+   "plate": "layers/20_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/20_e0.png",
+     "x": 41,
+     "y": 366,
+     "w": 990,
+     "h": 1348,
+     "area": 833910.625,
+     "land": 65.55
+    }
+   ]
+  },
+  {
+   "img": "21.jpg",
+   "beats": [
+    21,
+    21
+   ],
+   "start": 66.15,
+   "end": 70.15,
+   "mode": "assemble",
+   "full": "layers/21_full.jpg",
+   "plate": "layers/21_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/21_e0.png",
+     "x": 45,
+     "y": 278,
+     "w": 1035,
+     "h": 1420,
+     "area": 924324.5,
+     "land": 67.885
+    },
+    {
+     "file": "layers/21_e1.png",
+     "x": 829,
+     "y": 462,
+     "w": 174,
+     "h": 246,
+     "area": 26984.876953125,
+     "land": 68.95
+    }
+   ]
+  },
+  {
+   "img": "22.jpg",
+   "beats": [
+    22,
+    22
+   ],
+   "start": 70.15,
+   "end": 72.15,
+   "mode": "assemble",
+   "full": "layers/22_full.jpg",
+   "plate": "layers/22_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/22_e0.png",
+     "x": 73,
+     "y": 422,
+     "w": 958,
+     "h": 1055,
+     "area": 670538.625,
+     "land": 71.55
+    }
+   ]
+  },
+  {
+   "img": "23.jpg",
+   "beats": [
+    23,
+    23
+   ],
+   "start": 72.15,
+   "end": 76.15,
+   "mode": "assemble",
+   "full": "layers/23_full.jpg",
+   "plate": "layers/23_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/23_e0.png",
+     "x": 49,
+     "y": 442,
+     "w": 986,
+     "h": 1071,
+     "area": 619498.9375,
+     "land": 74.95
+    }
+   ]
+  },
+  {
+   "img": "24.jpg",
+   "beats": [
+    24,
+    24
+   ],
+   "start": 76.15,
+   "end": 81.15,
+   "mode": "assemble",
+   "full": "layers/24_full.jpg",
+   "plate": "layers/24_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/24_e0.png",
+     "x": 165,
+     "y": 314,
+     "w": 870,
+     "h": 1015,
+     "area": 637081.375,
+     "land": 77.817
+    },
+    {
+     "file": "layers/24_e2.png",
+     "x": 29,
+     "y": 842,
+     "w": 138,
+     "h": 223,
+     "area": 18171.359375,
+     "land": 78.733
+    },
+    {
+     "file": "layers/24_e1.png",
+     "x": 633,
+     "y": 1359,
+     "w": 370,
+     "h": 250,
+     "area": 62802.3515625,
+     "land": 79.65
+    }
+   ]
+  },
+  {
+   "img": "25.jpg",
+   "beats": [
+    25,
+    25
+   ],
+   "start": 81.15,
+   "end": 84.15,
+   "mode": "assemble",
+   "full": "layers/25_full.jpg",
+   "plate": "layers/25_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/25_e0.png",
+     "x": 41,
+     "y": 334,
+     "w": 1039,
+     "h": 1271,
+     "area": 721499.6875,
+     "land": 82.495
+    },
+    {
+     "file": "layers/25_e1.png",
+     "x": 157,
+     "y": 1291,
+     "w": 170,
+     "h": 138,
+     "area": 15335.310546875,
+     "land": 83.25
+    }
+   ]
+  },
+  {
+   "img": "26.jpg",
+   "beats": [
+    26,
+    27
+   ],
+   "start": 84.15,
+   "end": 92.15,
+   "mode": "assemble",
+   "full": "layers/26_full.jpg",
+   "plate": "layers/26_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/26_e0.png",
+     "x": 61,
+     "y": 298,
+     "w": 966,
+     "h": 1448,
+     "area": 870107.4375,
+     "land": 89.75
+    }
+   ]
+  },
+  {
+   "img": "27.jpg",
+   "beats": [
+    28,
+    28
+   ],
+   "start": 92.15,
+   "end": 96.15,
+   "mode": "assemble",
+   "full": "layers/27_full.jpg",
+   "plate": "layers/27_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/27_e0.png",
+     "x": 57,
+     "y": 201,
+     "w": 978,
+     "h": 1505,
+     "area": 812916.5,
+     "land": 93.53
+    },
+    {
+     "file": "layers/27_e2.png",
+     "x": 201,
+     "y": 882,
+     "w": 126,
+     "h": 135,
+     "area": 9454.20703125,
+     "land": 94.24
+    },
+    {
+     "file": "layers/27_e1.png",
+     "x": 629,
+     "y": 1191,
+     "w": 186,
+     "h": 210,
+     "area": 22898.541015625,
+     "land": 94.95
+    }
+   ]
+  },
+  {
+   "img": "28.jpg",
+   "beats": [
+    29,
+    29
+   ],
+   "start": 96.15,
+   "end": 100.15,
+   "mode": "assemble",
+   "full": "layers/28_full.jpg",
+   "plate": "layers/28_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/28_e0.png",
+     "x": 101,
+     "y": 278,
+     "w": 918,
+     "h": 1263,
+     "area": 500014.8125,
+     "land": 97.246
+    },
+    {
+     "file": "layers/28_e3.png",
+     "x": 0,
+     "y": 273,
+     "w": 43,
+     "h": 455,
+     "area": 14133.35546875,
+     "land": 97.672
+    },
+    {
+     "file": "layers/28_e2.png",
+     "x": 893,
+     "y": 858,
+     "w": 166,
+     "h": 203,
+     "area": 17610.859375,
+     "land": 98.098
+    },
+    {
+     "file": "layers/28_e1.png",
+     "x": 77,
+     "y": 1227,
+     "w": 530,
+     "h": 447,
+     "area": 102204.0703125,
+     "land": 98.524
+    },
+    {
+     "file": "layers/28_e4.png",
+     "x": 0,
+     "y": 1588,
+     "w": 87,
+     "h": 222,
+     "area": 11361.03125,
+     "land": 98.95
+    }
+   ]
+  },
+  {
+   "img": "29.jpg",
+   "beats": [
+    30,
+    30
+   ],
+   "start": 100.15,
+   "end": 102.15,
+   "mode": "assemble",
+   "full": "layers/29_full.jpg",
+   "plate": "layers/29_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/29_e0.png",
+     "x": 221,
+     "y": 117,
+     "w": 859,
+     "h": 1056,
+     "area": 246054.90625,
+     "land": 100.759
+    },
+    {
+     "file": "layers/29_e6.png",
+     "x": 0,
+     "y": 346,
+     "w": 207,
+     "h": 242,
+     "area": 29917.8828125,
+     "land": 100.858
+    },
+    {
+     "file": "layers/29_e5.png",
+     "x": 557,
+     "y": 418,
+     "w": 302,
+     "h": 254,
+     "area": 51582.13671875,
+     "land": 100.957
+    },
+    {
+     "file": "layers/29_e3.png",
+     "x": 589,
+     "y": 682,
+     "w": 350,
+     "h": 535,
+     "area": 100701.21875,
+     "land": 101.056
+    },
+    {
+     "file": "layers/29_e7.png",
+     "x": 21,
+     "y": 1063,
+     "w": 62,
+     "h": 178,
+     "area": 8925.3134765625,
+     "land": 101.154
+    },
+    {
+     "file": "layers/29_e1.png",
+     "x": 37,
+     "y": 422,
+     "w": 578,
+     "h": 979,
+     "area": 222164.4375,
+     "land": 101.253
+    },
+    {
+     "file": "layers/29_e8.png",
+     "x": 933,
+     "y": 1467,
+     "w": 147,
+     "h": 118,
+     "area": 8862.1875,
+     "land": 101.352
+    },
+    {
+     "file": "layers/29_e4.png",
+     "x": 613,
+     "y": 1251,
+     "w": 306,
+     "h": 511,
+     "area": 91163.734375,
+     "land": 101.451
+    },
+    {
+     "file": "layers/29_e2.png",
+     "x": 0,
+     "y": 1263,
+     "w": 595,
+     "h": 672,
+     "area": 196547.40625,
+     "land": 101.55
+    }
+   ]
+  },
+  {
+   "img": "30.jpg",
+   "beats": [
+    31,
+    31
+   ],
+   "start": 102.15,
+   "end": 105.15,
+   "mode": "assemble",
+   "full": "layers/30_full.jpg",
+   "plate": "layers/30_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/30_e0.png",
+     "x": 477,
+     "y": 1203,
+     "w": 514,
+     "h": 523,
+     "area": 148021.125,
+     "land": 102.908
+    },
+    {
+     "file": "layers/30_e2.png",
+     "x": 0,
+     "y": 229,
+     "w": 335,
+     "h": 323,
+     "area": 40510.484375,
+     "land": 103.076
+    },
+    {
+     "file": "layers/30_e1.png",
+     "x": 593,
+     "y": 418,
+     "w": 330,
+     "h": 350,
+     "area": 59578.9140625,
+     "land": 103.243
+    },
+    {
+     "file": "layers/30_e4.png",
+     "x": 781,
+     "y": 814,
+     "w": 158,
+     "h": 255,
+     "area": 28812.2734375,
+     "land": 103.411
+    },
+    {
+     "file": "layers/30_e3.png",
+     "x": 0,
+     "y": 578,
+     "w": 131,
+     "h": 527,
+     "area": 37480.0390625,
+     "land": 103.579
+    },
+    {
+     "file": "layers/30_e5.png",
+     "x": 181,
+     "y": 923,
+     "w": 226,
+     "h": 210,
+     "area": 22177.33984375,
+     "land": 103.747
+    },
+    {
+     "file": "layers/30_e8.png",
+     "x": 153,
+     "y": 0,
+     "w": 846,
+     "h": 1261,
+     "area": 73601.5625,
+     "land": 103.914
+    },
+    {
+     "file": "layers/30_e6.png",
+     "x": 0,
+     "y": 1475,
+     "w": 163,
+     "h": 191,
+     "area": 17947.74609375,
+     "land": 104.082
+    },
+    {
+     "file": "layers/30_e7.png",
+     "x": 257,
+     "y": 1539,
+     "w": 194,
+     "h": 147,
+     "area": 16664.685546875,
+     "land": 104.25
+    }
+   ]
+  },
+  {
+   "img": "31.jpg",
+   "beats": [
+    32,
+    32
+   ],
+   "start": 105.15,
+   "end": 109.15,
+   "mode": "scraps",
+   "full": "layers/31_full.jpg",
+   "build": [
+    105.82,
+    107.95
+   ]
+  },
+  {
+   "img": "32.jpg",
+   "beats": [
+    33,
+    33
+   ],
+   "start": 109.15,
+   "end": 111.15,
+   "mode": "scraps",
+   "full": "layers/32_full.jpg",
+   "build": [
+    109.66,
+    110.55
+   ]
+  },
+  {
+   "img": "33.jpg",
+   "beats": [
+    34,
+    34
+   ],
+   "start": 111.15,
+   "end": 114.15,
+   "mode": "assemble",
+   "full": "layers/33_full.jpg",
+   "plate": "layers/33_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/33_e0.png",
+     "x": 0,
+     "y": 434,
+     "w": 1039,
+     "h": 979,
+     "area": 582178.1875,
+     "land": 111.929
+    },
+    {
+     "file": "layers/33_e2.png",
+     "x": 705,
+     "y": 185,
+     "w": 270,
+     "h": 122,
+     "area": 20656.02734375,
+     "land": 112.117
+    },
+    {
+     "file": "layers/33_e5.png",
+     "x": 409,
+     "y": 245,
+     "w": 126,
+     "h": 102,
+     "area": 9165.451171875,
+     "land": 112.306
+    },
+    {
+     "file": "layers/33_e7.png",
+     "x": 825,
+     "y": 314,
+     "w": 146,
+     "h": 90,
+     "area": 8477.0869140625,
+     "land": 112.495
+    },
+    {
+     "file": "layers/33_e6.png",
+     "x": 893,
+     "y": 550,
+     "w": 142,
+     "h": 134,
+     "area": 8669.3212890625,
+     "land": 112.684
+    },
+    {
+     "file": "layers/33_e3.png",
+     "x": 257,
+     "y": 1395,
+     "w": 162,
+     "h": 198,
+     "area": 18059.673828125,
+     "land": 112.873
+    },
+    {
+     "file": "layers/33_e4.png",
+     "x": 101,
+     "y": 1471,
+     "w": 146,
+     "h": 150,
+     "area": 14501.875,
+     "land": 113.061
+    },
+    {
+     "file": "layers/33_e1.png",
+     "x": 665,
+     "y": 1283,
+     "w": 330,
+     "h": 515,
+     "area": 130535.9375,
+     "land": 113.25
+    }
+   ]
+  },
+  {
+   "img": "34.jpg",
+   "beats": [
+    35,
+    35
+   ],
+   "start": 114.15,
+   "end": 117.15,
+   "mode": "assemble",
+   "full": "layers/34_full.jpg",
+   "plate": "layers/34_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/34_e0.png",
+     "x": 25,
+     "y": 290,
+     "w": 1014,
+     "h": 1412,
+     "area": 782599.375,
+     "land": 115.243
+    },
+    {
+     "file": "layers/34_e2.png",
+     "x": 177,
+     "y": 217,
+     "w": 262,
+     "h": 126,
+     "area": 21921.779296875,
+     "land": 115.747
+    },
+    {
+     "file": "layers/34_e1.png",
+     "x": 101,
+     "y": 1503,
+     "w": 482,
+     "h": 167,
+     "area": 46407.10546875,
+     "land": 116.25
+    }
+   ]
+  },
+  {
+   "img": "35.jpg",
+   "beats": [
+    36,
+    36
+   ],
+   "start": 117.15,
+   "end": 119.15,
+   "mode": "assemble",
+   "full": "layers/35_full.jpg",
+   "plate": "layers/35_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/35_e0.png",
+     "x": 77,
+     "y": 261,
+     "w": 1003,
+     "h": 1449,
+     "area": 675198.125,
+     "land": 117.882
+    },
+    {
+     "file": "layers/35_e2.png",
+     "x": 457,
+     "y": 257,
+     "w": 226,
+     "h": 82,
+     "area": 13844.79296875,
+     "land": 118.105
+    },
+    {
+     "file": "layers/35_e3.png",
+     "x": 549,
+     "y": 346,
+     "w": 142,
+     "h": 166,
+     "area": 12964.2392578125,
+     "land": 118.328
+    },
+    {
+     "file": "layers/35_e1.png",
+     "x": 0,
+     "y": 1223,
+     "w": 247,
+     "h": 214,
+     "area": 28924.734375,
+     "land": 118.55
+    }
+   ]
+  },
+  {
+   "img": "36.jpg",
+   "beats": [
+    37,
+    37
+   ],
+   "start": 119.15,
+   "end": 124.15,
+   "mode": "assemble",
+   "full": "layers/36_full.jpg",
+   "plate": "layers/36_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/36_e0.png",
+     "x": 0,
+     "y": 346,
+     "w": 1043,
+     "h": 1376,
+     "area": 870335.0,
+     "land": 120.817
+    },
+    {
+     "file": "layers/36_e1.png",
+     "x": 73,
+     "y": 221,
+     "w": 290,
+     "h": 163,
+     "area": 26040.154296875,
+     "land": 121.733
+    },
+    {
+     "file": "layers/36_e2.png",
+     "x": 93,
+     "y": 1503,
+     "w": 310,
+     "h": 134,
+     "area": 21841.94921875,
+     "land": 122.65
+    }
+   ]
+  },
+  {
+   "img": "37.jpg",
+   "beats": [
+    38,
+    38
+   ],
+   "start": 124.15,
+   "end": 128.15,
+   "mode": "assemble",
+   "full": "layers/37_full.jpg",
+   "plate": "layers/37_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/37_e0.png",
+     "x": 61,
+     "y": 382,
+     "w": 982,
+     "h": 1324,
+     "area": 762249.75,
+     "land": 125.246
+    },
+    {
+     "file": "layers/37_e1.png",
+     "x": 465,
+     "y": 0,
+     "w": 554,
+     "h": 195,
+     "area": 51758.6484375,
+     "land": 125.672
+    },
+    {
+     "file": "layers/37_e2.png",
+     "x": 113,
+     "y": 682,
+     "w": 138,
+     "h": 162,
+     "area": 14453.693359375,
+     "land": 126.098
+    },
+    {
+     "file": "layers/37_e4.png",
+     "x": 0,
+     "y": 1055,
+     "w": 47,
+     "h": 206,
+     "area": 8492.96875,
+     "land": 126.524
+    },
+    {
+     "file": "layers/37_e3.png",
+     "x": 261,
+     "y": 1772,
+     "w": 182,
+     "h": 163,
+     "area": 12370.498046875,
+     "land": 126.95
+    }
+   ]
+  },
+  {
+   "img": "38.jpg",
+   "beats": [
+    39,
+    39
+   ],
+   "start": 128.15,
+   "end": 132.15,
+   "mode": "assemble",
+   "full": "layers/38_full.jpg",
+   "plate": "layers/38_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/38_e0.png",
+     "x": 61,
+     "y": 265,
+     "w": 974,
+     "h": 1397,
+     "area": 1020841.625,
+     "land": 129.53
+    },
+    {
+     "file": "layers/38_e1.png",
+     "x": 105,
+     "y": 278,
+     "w": 314,
+     "h": 118,
+     "area": 23811.1875,
+     "land": 130.24
+    },
+    {
+     "file": "layers/38_e2.png",
+     "x": 989,
+     "y": 983,
+     "w": 91,
+     "h": 330,
+     "area": 9582.3056640625,
+     "land": 130.95
+    }
+   ]
+  },
+  {
+   "img": "39.jpg",
+   "beats": [
+    40,
+    41
+   ],
+   "start": 132.15,
+   "end": 140.82,
+   "mode": "assemble",
+   "full": "layers/39_full.jpg",
+   "plate": "layers/39_plate.jpg",
+   "elements": [
+    {
+     "file": "layers/39_e0.png",
+     "x": 69,
+     "y": 265,
+     "w": 962,
+     "h": 1493,
+     "area": 971738.875,
+     "land": 138.219
+    }
+   ]
+  }
+ ],
+ "transitions": [
+  {
+   "t": 3.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 6.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 9.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  },
+  {
+   "t": 11.15,
+   "kind": "tear_diag",
+   "dur": 0.7
+  },
+  {
+   "t": 16.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 20.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 24.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 28.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  },
+  {
+   "t": 31.15,
+   "kind": "tear_diag",
+   "dur": 0.7
+  },
+  {
+   "t": 33.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 36.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 39.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 44.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  },
+  {
+   "t": 46.15,
+   "kind": "tear_diag",
+   "dur": 0.7
+  },
+  {
+   "t": 51.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 54.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 56.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 61.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  },
+  {
+   "t": 64.15,
+   "kind": "tear_diag",
+   "dur": 0.7
+  },
+  {
+   "t": 66.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 70.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 72.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 76.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  },
+  {
+   "t": 81.15,
+   "kind": "tear_diag",
+   "dur": 0.7
+  },
+  {
+   "t": 84.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 92.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 96.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 100.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  },
+  {
+   "t": 102.15,
+   "kind": "tear_diag",
+   "dur": 0.7
+  },
+  {
+   "t": 105.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 109.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 111.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 114.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  },
+  {
+   "t": 117.15,
+   "kind": "tear_diag",
+   "dur": 0.7
+  },
+  {
+   "t": 119.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 124.15,
+   "kind": "tear_h",
+   "dur": 0.7
+  },
+  {
+   "t": 128.15,
+   "kind": "cutout",
+   "dur": 0.7
+  },
+  {
+   "t": 132.15,
+   "kind": "tear_v",
+   "dur": 0.7
+  }
+ ],
+ "sfx": [
+  [
+   "rip",
+   3.15
+  ],
+  [
+   "rip",
+   6.15
+  ],
+  [
+   "rip",
+   9.15
+  ],
+  [
+   "rip",
+   11.15
+  ],
+  [
+   "rip",
+   16.15
+  ],
+  [
+   "rip",
+   20.15
+  ],
+  [
+   "rip",
+   24.15
+  ],
+  [
+   "rip",
+   28.15
+  ],
+  [
+   "rip",
+   31.15
+  ],
+  [
+   "rip",
+   33.15
+  ],
+  [
+   "rip",
+   36.15
+  ],
+  [
+   "rip",
+   39.15
+  ],
+  [
+   "rip",
+   44.15
+  ],
+  [
+   "rip",
+   46.15
+  ],
+  [
+   "rip",
+   51.15
+  ],
+  [
+   "rip",
+   54.15
+  ],
+  [
+   "rip",
+   56.15
+  ],
+  [
+   "rip",
+   61.15
+  ],
+  [
+   "rip",
+   64.15
+  ],
+  [
+   "rip",
+   66.15
+  ],
+  [
+   "rip",
+   70.15
+  ],
+  [
+   "rip",
+   72.15
+  ],
+  [
+   "rip",
+   76.15
+  ],
+  [
+   "rip",
+   81.15
+  ],
+  [
+   "rip",
+   84.15
+  ],
+  [
+   "rip",
+   92.15
+  ],
+  [
+   "rip",
+   96.15
+  ],
+  [
+   "rip",
+   100.15
+  ],
+  [
+   "rip",
+   102.15
+  ],
+  [
+   "rip",
+   105.15
+  ],
+  [
+   "rip",
+   109.15
+  ],
+  [
+   "rip",
+   111.15
+  ],
+  [
+   "rip",
+   114.15
+  ],
+  [
+   "rip",
+   117.15
+  ],
+  [
+   "rip",
+   119.15
+  ],
+  [
+   "rip",
+   124.15
+  ],
+  [
+   "rip",
+   128.15
+  ],
+  [
+   "rip",
+   132.15
+  ],
+  [
+   "rustle",
+   0.74
+  ],
+  [
+   "rustle",
+   1.228
+  ],
+  [
+   "rustle",
+   1.717
+  ],
+  [
+   "rustle",
+   2.205
+  ],
+  [
+   "rustle",
+   4.495
+  ],
+  [
+   "rustle",
+   5.25
+  ],
+  [
+   "rustle",
+   7.243
+  ],
+  [
+   "rustle",
+   7.747
+  ],
+  [
+   "rustle",
+   8.25
+  ],
+  [
+   "rustle",
+   10.55
+  ],
+  [
+   "rustle",
+   12.588
+  ],
+  [
+   "rustle",
+   13.275
+  ],
+  [
+   "rustle",
+   13.962
+  ],
+  [
+   "rustle",
+   14.65
+  ],
+  [
+   "rustle",
+   17.885
+  ],
+  [
+   "rustle",
+   18.95
+  ],
+  [
+   "rustle",
+   21.53
+  ],
+  [
+   "rustle",
+   22.24
+  ],
+  [
+   "rustle",
+   22.95
+  ],
+  [
+   "rustle",
+   25.246
+  ],
+  [
+   "rustle",
+   25.672
+  ],
+  [
+   "rustle",
+   26.098
+  ],
+  [
+   "rustle",
+   26.524
+  ],
+  [
+   "rustle",
+   26.95
+  ],
+  [
+   "rustle",
+   29.495
+  ],
+  [
+   "rustle",
+   30.25
+  ],
+  [
+   "rustle",
+   32.55
+  ],
+  [
+   "rustle",
+   35.25
+  ],
+  [
+   "rustle",
+   37.495
+  ],
+  [
+   "rustle",
+   38.25
+  ],
+  [
+   "rustle",
+   41.275
+  ],
+  [
+   "rustle",
+   42.65
+  ],
+  [
+   "rustle",
+   44.838
+  ],
+  [
+   "rustle",
+   45.016
+  ],
+  [
+   "rustle",
+   45.194
+  ],
+  [
+   "rustle",
+   45.372
+  ],
+  [
+   "rustle",
+   45.55
+  ],
+  [
+   "rustle",
+   47.587
+  ],
+  [
+   "rustle",
+   48.275
+  ],
+  [
+   "rustle",
+   48.962
+  ],
+  [
+   "rustle",
+   49.65
+  ],
+  [
+   "rustle",
+   52.243
+  ],
+  [
+   "rustle",
+   52.747
+  ],
+  [
+   "rustle",
+   53.25
+  ],
+  [
+   "rustle",
+   55.105
+  ],
+  [
+   "rustle",
+   55.55
+  ],
+  [
+   "rustle",
+   58.275
+  ],
+  [
+   "rustle",
+   59.65
+  ],
+  [
+   "rustle",
+   62.243
+  ],
+  [
+   "rustle",
+   62.747
+  ],
+  [
+   "rustle",
+   63.25
+  ],
+  [
+   "rustle",
+   65.55
+  ],
+  [
+   "rustle",
+   67.885
+  ],
+  [
+   "rustle",
+   68.95
+  ],
+  [
+   "rustle",
+   71.55
+  ],
+  [
+   "rustle",
+   74.95
+  ],
+  [
+   "rustle",
+   77.817
+  ],
+  [
+   "rustle",
+   78.733
+  ],
+  [
+   "rustle",
+   79.65
+  ],
+  [
+   "rustle",
+   82.495
+  ],
+  [
+   "rustle",
+   83.25
+  ],
+  [
+   "rustle",
+   89.75
+  ],
+  [
+   "rustle",
+   93.53
+  ],
+  [
+   "rustle",
+   94.24
+  ],
+  [
+   "rustle",
+   94.95
+  ],
+  [
+   "rustle",
+   97.246
+  ],
+  [
+   "rustle",
+   97.672
+  ],
+  [
+   "rustle",
+   98.098
+  ],
+  [
+   "rustle",
+   98.524
+  ],
+  [
+   "rustle",
+   98.95
+  ],
+  [
+   "rustle",
+   100.759
+  ],
+  [
+   "rustle",
+   100.858
+  ],
+  [
+   "rustle",
+   100.957
+  ],
+  [
+   "rustle",
+   101.056
+  ],
+  [
+   "rustle",
+   101.154
+  ],
+  [
+   "rustle",
+   101.253
+  ],
+  [
+   "rustle",
+   101.352
+  ],
+  [
+   "rustle",
+   101.451
+  ],
+  [
+   "rustle",
+   101.55
+  ],
+  [
+   "rustle",
+   102.908
+  ],
+  [
+   "rustle",
+   103.076
+  ],
+  [
+   "rustle",
+   103.243
+  ],
+  [
+   "rustle",
+   103.411
+  ],
+  [
+   "rustle",
+   103.579
+  ],
+  [
+   "rustle",
+   103.747
+  ],
+  [
+   "rustle",
+   103.914
+  ],
+  [
+   "rustle",
+   104.082
+  ],
+  [
+   "rustle",
+   104.25
+  ],
+  [
+   "rustle",
+   106.175
+  ],
+  [
+   "rustle",
+   106.53
+  ],
+  [
+   "rustle",
+   106.885
+  ],
+  [
+   "rustle",
+   107.24
+  ],
+  [
+   "rustle",
+   107.595
+  ],
+  [
+   "rustle",
+   107.95
+  ],
+  [
+   "rustle",
+   109.808
+  ],
+  [
+   "rustle",
+   109.957
+  ],
+  [
+   "rustle",
+   110.105
+  ],
+  [
+   "rustle",
+   110.253
+  ],
+  [
+   "rustle",
+   110.402
+  ],
+  [
+   "rustle",
+   110.55
+  ],
+  [
+   "rustle",
+   111.929
+  ],
+  [
+   "rustle",
+   112.117
+  ],
+  [
+   "rustle",
+   112.306
+  ],
+  [
+   "rustle",
+   112.495
+  ],
+  [
+   "rustle",
+   112.684
+  ],
+  [
+   "rustle",
+   112.873
+  ],
+  [
+   "rustle",
+   113.061
+  ],
+  [
+   "rustle",
+   113.25
+  ],
+  [
+   "rustle",
+   115.243
+  ],
+  [
+   "rustle",
+   115.747
+  ],
+  [
+   "rustle",
+   116.25
+  ],
+  [
+   "rustle",
+   117.882
+  ],
+  [
+   "rustle",
+   118.105
+  ],
+  [
+   "rustle",
+   118.328
+  ],
+  [
+   "rustle",
+   118.55
+  ],
+  [
+   "rustle",
+   120.817
+  ],
+  [
+   "rustle",
+   121.733
+  ],
+  [
+   "rustle",
+   122.65
+  ],
+  [
+   "rustle",
+   125.246
+  ],
+  [
+   "rustle",
+   125.672
+  ],
+  [
+   "rustle",
+   126.098
+  ],
+  [
+   "rustle",
+   126.524
+  ],
+  [
+   "rustle",
+   126.95
+  ],
+  [
+   "rustle",
+   129.53
+  ],
+  [
+   "rustle",
+   130.24
+  ],
+  [
+   "rustle",
+   130.95
+  ],
+  [
+   "rustle",
+   138.219
+  ]
+ ],
+ "lines": [
+  {
+   "scene": "story",
+   "start": 1.2,
+   "end": 3.1,
+   "words": [
+    {
+     "w": "V",
+     "s": 1.2
+    },
+    {
+     "w": "okt\u00f3bri",
+     "s": 1.312
+    },
+    {
+     "w": "2015",
+     "s": 1.647
+    },
+    {
+     "w": "ozn\u00e1mili",
+     "s": 1.871
+    },
+    {
+     "w": "slovensk\u00ed",
+     "s": 2.243
+    },
+    {
+     "w": "coln\u00edci,",
+     "s": 2.653
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 3.2,
+   "end": 6.1,
+   "words": [
+    {
+     "w": "\u017ee",
+     "s": 3.2
+    },
+    {
+     "w": "odhalili",
+     "s": 3.522
+    },
+    {
+     "w": "podvod",
+     "s": 4.328
+    },
+    {
+     "w": "s",
+     "s": 4.972
+    },
+    {
+     "w": "naftou.",
+     "s": 5.214
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 6.2,
+   "end": 9.1,
+   "words": [
+    {
+     "w": "Dovozcovia",
+     "s": 6.2
+    },
+    {
+     "w": "priviezli",
+     "s": 6.719
+    },
+    {
+     "w": "desa\u0165tis\u00edce",
+     "s": 7.196
+    },
+    {
+     "w": "litrov",
+     "s": 7.758
+    },
+    {
+     "w": "miner\u00e1lneho",
+     "s": 8.104
+    },
+    {
+     "w": "oleja.",
+     "s": 8.667
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 9.2,
+   "end": 11.1,
+   "words": [
+    {
+     "w": "Slovensko",
+     "s": 9.2
+    },
+    {
+     "w": "malo",
+     "s": 9.602
+    },
+    {
+     "w": "by\u0165",
+     "s": 9.821
+    },
+    {
+     "w": "len",
+     "s": 10.004
+    },
+    {
+     "w": "tranzitnou",
+     "s": 10.187
+    },
+    {
+     "w": "krajinou,",
+     "s": 10.625
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 11.2,
+   "end": 16.1,
+   "words": [
+    {
+     "w": "palivo",
+     "s": 11.2
+    },
+    {
+     "w": "mierilo",
+     "s": 11.678
+    },
+    {
+     "w": "do",
+     "s": 12.216
+    },
+    {
+     "w": "Ma\u010farska,",
+     "s": 12.455
+    },
+    {
+     "w": "Chorv\u00e1tska,",
+     "s": 13.232
+    },
+    {
+     "w": "Bulharska",
+     "s": 14.128
+    },
+    {
+     "w": "alebo",
+     "s": 14.785
+    },
+    {
+     "w": "na",
+     "s": 15.204
+    },
+    {
+     "w": "Cyprus.",
+     "s": 15.443
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 16.2,
+   "end": 20.1,
+   "words": [
+    {
+     "w": "Skon\u010dilo",
+     "s": 16.2
+    },
+    {
+     "w": "v\u0161ak",
+     "s": 16.713
+    },
+    {
+     "w": "na",
+     "s": 17.021
+    },
+    {
+     "w": "\u010derpac\u00edch",
+     "s": 17.226
+    },
+    {
+     "w": "staniciach",
+     "s": 17.791
+    },
+    {
+     "w": "a",
+     "s": 18.407
+    },
+    {
+     "w": "pred\u00e1valo",
+     "s": 18.561
+    },
+    {
+     "w": "sa",
+     "s": 19.125
+    },
+    {
+     "w": "ako",
+     "s": 19.33
+    },
+    {
+     "w": "nafta.",
+     "s": 19.587
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 20.2,
+   "end": 24.1,
+   "words": [
+    {
+     "w": "\u0160t\u00e1t",
+     "s": 20.2
+    },
+    {
+     "w": "pri\u0161iel",
+     "s": 20.688
+    },
+    {
+     "w": "o",
+     "s": 21.419
+    },
+    {
+     "w": "takmer",
+     "s": 21.662
+    },
+    {
+     "w": "dva",
+     "s": 22.312
+    },
+    {
+     "w": "mili\u00f3ny",
+     "s": 22.719
+    },
+    {
+     "w": "eur.",
+     "s": 23.45
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 24.2,
+   "end": 28.1,
+   "words": [
+    {
+     "w": "Bola",
+     "s": 24.2
+    },
+    {
+     "w": "to",
+     "s": 24.603
+    },
+    {
+     "w": "len",
+     "s": 24.872
+    },
+    {
+     "w": "mal\u00e1",
+     "s": 25.209
+    },
+    {
+     "w": "k\u00f3pia",
+     "s": 25.612
+    },
+    {
+     "w": "ove\u013ea",
+     "s": 26.083
+    },
+    {
+     "w": "star\u0161ieho",
+     "s": 26.553
+    },
+    {
+     "w": "podvodu.",
+     "s": 27.293
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 28.2,
+   "end": 31.1,
+   "words": [
+    {
+     "w": "Ten",
+     "s": 28.2
+    },
+    {
+     "w": "sa",
+     "s": 28.459
+    },
+    {
+     "w": "za\u010dal",
+     "s": 28.666
+    },
+    {
+     "w": "na",
+     "s": 29.029
+    },
+    {
+     "w": "za\u010diatku",
+     "s": 29.236
+    },
+    {
+     "w": "dev\u00e4\u0165desiatych",
+     "s": 29.754
+    },
+    {
+     "w": "rokov.",
+     "s": 30.582
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 31.2,
+   "end": 33.1,
+   "words": [
+    {
+     "w": "St\u00e1l",
+     "s": 31.2
+    },
+    {
+     "w": "na",
+     "s": 31.556
+    },
+    {
+     "w": "jedinom",
+     "s": 31.794
+    },
+    {
+     "w": "rozdiele.",
+     "s": 32.328
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 33.2,
+   "end": 36.1,
+   "words": [
+    {
+     "w": "Vykurovac\u00ed",
+     "s": 33.2
+    },
+    {
+     "w": "olej",
+     "s": 33.811
+    },
+    {
+     "w": "mal",
+     "s": 34.116
+    },
+    {
+     "w": "ni\u017e\u0161iu",
+     "s": 34.37
+    },
+    {
+     "w": "da\u0148,",
+     "s": 34.777
+    },
+    {
+     "w": "nafta",
+     "s": 35.184
+    },
+    {
+     "w": "vy\u0161\u0161iu.",
+     "s": 35.54
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 36.2,
+   "end": 39.1,
+   "words": [
+    {
+     "w": "Spotrebn\u00e1",
+     "s": 36.2
+    },
+    {
+     "w": "da\u0148",
+     "s": 36.838
+    },
+    {
+     "w": "z",
+     "s": 37.128
+    },
+    {
+     "w": "nafty",
+     "s": 37.302
+    },
+    {
+     "w": "patrila",
+     "s": 37.708
+    },
+    {
+     "w": "na",
+     "s": 38.23
+    },
+    {
+     "w": "Slovensku",
+     "s": 38.462
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 39.2,
+   "end": 41.1,
+   "words": [
+    {
+     "w": "medzi",
+     "s": 39.2
+    },
+    {
+     "w": "najvy\u0161\u0161ie",
+     "s": 39.603
+    },
+    {
+     "w": "v",
+     "s": 40.236
+    },
+    {
+     "w": "regi\u00f3ne.",
+     "s": 40.409
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 41.2,
+   "end": 44.1,
+   "words": [
+    {
+     "w": "Kto",
+     "s": 41.2
+    },
+    {
+     "w": "predal",
+     "s": 41.53
+    },
+    {
+     "w": "lacnej\u0161\u00ed",
+     "s": 42.057
+    },
+    {
+     "w": "olej",
+     "s": 42.716
+    },
+    {
+     "w": "ako",
+     "s": 43.111
+    },
+    {
+     "w": "naftu,",
+     "s": 43.441
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 44.2,
+   "end": 46.1,
+   "words": [
+    {
+     "w": "nechal",
+     "s": 44.2
+    },
+    {
+     "w": "si",
+     "s": 44.622
+    },
+    {
+     "w": "rozdiel",
+     "s": 44.833
+    },
+    {
+     "w": "v",
+     "s": 45.308
+    },
+    {
+     "w": "daniach.",
+     "s": 45.467
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 46.2,
+   "end": 51.1,
+   "words": [
+    {
+     "w": "Olej",
+     "s": 46.2
+    },
+    {
+     "w": "sa",
+     "s": 46.645
+    },
+    {
+     "w": "preto",
+     "s": 46.942
+    },
+    {
+     "w": "upravil",
+     "s": 47.462
+    },
+    {
+     "w": "tak,",
+     "s": 48.13
+    },
+    {
+     "w": "aby",
+     "s": 48.724
+    },
+    {
+     "w": "sa",
+     "s": 49.095
+    },
+    {
+     "w": "podobal",
+     "s": 49.392
+    },
+    {
+     "w": "na",
+     "s": 50.061
+    },
+    {
+     "w": "naftu.",
+     "s": 50.358
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 51.2,
+   "end": 54.1,
+   "words": [
+    {
+     "w": "Do",
+     "s": 51.2
+    },
+    {
+     "w": "krajiny",
+     "s": 51.552
+    },
+    {
+     "w": "pri\u0161iel",
+     "s": 52.342
+    },
+    {
+     "w": "ako",
+     "s": 53.133
+    },
+    {
+     "w": "olej",
+     "s": 53.573
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 54.2,
+   "end": 56.1,
+   "words": [
+    {
+     "w": "a",
+     "s": 54.2
+    },
+    {
+     "w": "prech\u00e1dzal",
+     "s": 54.321
+    },
+    {
+     "w": "sie\u0165ou",
+     "s": 54.806
+    },
+    {
+     "w": "firiem",
+     "s": 55.13
+    },
+    {
+     "w": "na",
+     "s": 55.453
+    },
+    {
+     "w": "papieri.",
+     "s": 55.615
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 56.2,
+   "end": 61.1,
+   "words": [
+    {
+     "w": "Potom",
+     "s": 56.2
+    },
+    {
+     "w": "sa",
+     "s": 56.812
+    },
+    {
+     "w": "objavil",
+     "s": 57.163
+    },
+    {
+     "w": "na",
+     "s": 57.95
+    },
+    {
+     "w": "pumpe",
+     "s": 58.3
+    },
+    {
+     "w": "ako",
+     "s": 58.913
+    },
+    {
+     "w": "palivo",
+     "s": 59.35
+    },
+    {
+     "w": "do",
+     "s": 60.05
+    },
+    {
+     "w": "\u00e1ut.",
+     "s": 60.4
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 61.2,
+   "end": 64.1,
+   "words": [
+    {
+     "w": "Niektor\u00e9",
+     "s": 61.2
+    },
+    {
+     "w": "slovensk\u00e9",
+     "s": 61.727
+    },
+    {
+     "w": "firmy",
+     "s": 62.307
+    },
+    {
+     "w": "vyr\u00e1bali",
+     "s": 62.676
+    },
+    {
+     "w": "n\u00e1hradn\u00fa",
+     "s": 63.204
+    },
+    {
+     "w": "naftu",
+     "s": 63.731
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 64.2,
+   "end": 66.1,
+   "words": [
+    {
+     "w": "zmie\u0161an\u00edm",
+     "s": 64.2
+    },
+    {
+     "w": "lacn\u00fdch",
+     "s": 64.548
+    },
+    {
+     "w": "ropn\u00fdch",
+     "s": 64.833
+    },
+    {
+     "w": "produktov",
+     "s": 65.118
+    },
+    {
+     "w": "s",
+     "s": 65.467
+    },
+    {
+     "w": "chemik\u00e1liami.",
+     "s": 65.562
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 66.2,
+   "end": 70.1,
+   "words": [
+    {
+     "w": "Novin\u00e1ri",
+     "s": 66.2
+    },
+    {
+     "w": "p\u00edsali,",
+     "s": 66.861
+    },
+    {
+     "w": "\u017ee",
+     "s": 67.588
+    },
+    {
+     "w": "sch\u00e9mu",
+     "s": 67.853
+    },
+    {
+     "w": "na",
+     "s": 68.381
+    },
+    {
+     "w": "Slovensko",
+     "s": 68.646
+    },
+    {
+     "w": "priniesol",
+     "s": 69.373
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 70.2,
+   "end": 72.1,
+   "words": [
+    {
+     "w": "Tom\u00e1\u0161",
+     "s": 70.2
+    },
+    {
+     "w": "V\u00edda",
+     "s": 70.55
+    },
+    {
+     "w": "z",
+     "s": 70.85
+    },
+    {
+     "w": "Dunajskej",
+     "s": 71.0
+    },
+    {
+     "w": "Stredy.",
+     "s": 71.55
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 72.2,
+   "end": 76.1,
+   "words": [
+    {
+     "w": "Pol\u00edcia",
+     "s": 72.2
+    },
+    {
+     "w": "dospela",
+     "s": 72.74
+    },
+    {
+     "w": "k",
+     "s": 73.28
+    },
+    {
+     "w": "z\u00e1veru,",
+     "s": 73.46
+    },
+    {
+     "w": "\u017ee",
+     "s": 74.12
+    },
+    {
+     "w": "ju",
+     "s": 74.36
+    },
+    {
+     "w": "viedla",
+     "s": 74.6
+    },
+    {
+     "w": "rusk\u00e1",
+     "s": 75.08
+    },
+    {
+     "w": "mafia.",
+     "s": 75.5
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 76.2,
+   "end": 81.1,
+   "words": [
+    {
+     "w": "Podobn\u00e9",
+     "s": 76.2
+    },
+    {
+     "w": "podvody",
+     "s": 76.804
+    },
+    {
+     "w": "sa",
+     "s": 77.408
+    },
+    {
+     "w": "objavili",
+     "s": 77.677
+    },
+    {
+     "w": "aj",
+     "s": 78.348
+    },
+    {
+     "w": "v",
+     "s": 78.616
+    },
+    {
+     "w": "\u010cesku,",
+     "s": 78.818
+    },
+    {
+     "w": "Po\u013esku",
+     "s": 79.489
+    },
+    {
+     "w": "a",
+     "s": 80.026
+    },
+    {
+     "w": "Ma\u010farsku.",
+     "s": 80.227
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 81.2,
+   "end": 84.1,
+   "words": [
+    {
+     "w": "Zisky",
+     "s": 81.2
+    },
+    {
+     "w": "pod\u013ea",
+     "s": 81.517
+    },
+    {
+     "w": "novin\u00e1rov",
+     "s": 81.834
+    },
+    {
+     "w": "dosahovali",
+     "s": 82.333
+    },
+    {
+     "w": "stovky",
+     "s": 82.877
+    },
+    {
+     "w": "mili\u00e1rd",
+     "s": 83.239
+    },
+    {
+     "w": "kor\u00fan.",
+     "s": 83.647
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 84.2,
+   "end": 88.1,
+   "words": [
+    {
+     "w": "Pol\u00edcia",
+     "s": 84.2
+    },
+    {
+     "w": "ho",
+     "s": 84.681
+    },
+    {
+     "w": "ozna\u010dila",
+     "s": 84.895
+    },
+    {
+     "w": "za",
+     "s": 85.429
+    },
+    {
+     "w": "najv\u00e4\u010d\u0161\u00ed",
+     "s": 85.642
+    },
+    {
+     "w": "pr\u00edpad",
+     "s": 86.177
+    },
+    {
+     "w": "organizovan\u00e9ho",
+     "s": 86.604
+    },
+    {
+     "w": "zlo\u010dinu.",
+     "s": 87.459
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 88.2,
+   "end": 92.1,
+   "words": [
+    {
+     "w": "Pod\u013ea",
+     "s": 88.2
+    },
+    {
+     "w": "policajn\u00fdch",
+     "s": 88.696
+    },
+    {
+     "w": "zdrojov",
+     "s": 89.618
+    },
+    {
+     "w": "sa",
+     "s": 90.256
+    },
+    {
+     "w": "do",
+     "s": 90.54
+    },
+    {
+     "w": "podvodu",
+     "s": 90.824
+    },
+    {
+     "w": "zapojil",
+     "s": 91.462
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 92.2,
+   "end": 96.1,
+   "words": [
+    {
+     "w": "ako",
+     "s": 92.2
+    },
+    {
+     "w": "jeden",
+     "s": 92.487
+    },
+    {
+     "w": "z",
+     "s": 92.888
+    },
+    {
+     "w": "prv\u00fdch",
+     "s": 93.06
+    },
+    {
+     "w": "aj",
+     "s": 93.519
+    },
+    {
+     "w": "bratislavsk\u00fd",
+     "s": 93.749
+    },
+    {
+     "w": "boss",
+     "s": 94.551
+    },
+    {
+     "w": "Miroslav",
+     "s": 94.896
+    },
+    {
+     "w": "S\u00fdkora.",
+     "s": 95.469
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 96.2,
+   "end": 100.1,
+   "words": [
+    {
+     "w": "Dunajskostredsk\u00fd",
+     "s": 96.2
+    },
+    {
+     "w": "gang",
+     "s": 97.016
+    },
+    {
+     "w": "bol",
+     "s": 97.288
+    },
+    {
+     "w": "v\u010faka",
+     "s": 97.515
+    },
+    {
+     "w": "ropn\u00e9mu",
+     "s": 97.833
+    },
+    {
+     "w": "podvodu",
+     "s": 98.241
+    },
+    {
+     "w": "v\u017edy",
+     "s": 98.649
+    },
+    {
+     "w": "finan\u010dne",
+     "s": 98.921
+    },
+    {
+     "w": "zabezpe\u010den\u00fd.",
+     "s": 99.374
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 100.2,
+   "end": 102.1,
+   "words": [
+    {
+     "w": "Podvod",
+     "s": 100.2
+    },
+    {
+     "w": "sa",
+     "s": 100.571
+    },
+    {
+     "w": "menil,",
+     "s": 100.756
+    },
+    {
+     "w": "ale",
+     "s": 101.22
+    },
+    {
+     "w": "nezanikol.",
+     "s": 101.451
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 102.2,
+   "end": 105.1,
+   "words": [
+    {
+     "w": "Met\u00f3dy",
+     "s": 102.2
+    },
+    {
+     "w": "sa",
+     "s": 102.646
+    },
+    {
+     "w": "menili,",
+     "s": 102.869
+    },
+    {
+     "w": "princ\u00edp",
+     "s": 103.483
+    },
+    {
+     "w": "zostal",
+     "s": 103.985
+    },
+    {
+     "w": "rovnak\u00fd.",
+     "s": 104.431
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 105.2,
+   "end": 109.1,
+   "words": [
+    {
+     "w": "Vy\u0161etrovatelia",
+     "s": 105.2
+    },
+    {
+     "w": "sa",
+     "s": 106.377
+    },
+    {
+     "w": "k",
+     "s": 106.672
+    },
+    {
+     "w": "nemu",
+     "s": 106.892
+    },
+    {
+     "w": "vracali",
+     "s": 107.334
+    },
+    {
+     "w": "cel\u00e9",
+     "s": 107.996
+    },
+    {
+     "w": "roky.",
+     "s": 108.438
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 109.2,
+   "end": 111.1,
+   "words": [
+    {
+     "w": "V",
+     "s": 109.2
+    },
+    {
+     "w": "roku",
+     "s": 109.319
+    },
+    {
+     "w": "2014",
+     "s": 109.556
+    },
+    {
+     "w": "vy\u0161etrovatelia",
+     "s": 109.794
+    },
+    {
+     "w": "op\u00edsali",
+     "s": 110.427
+    },
+    {
+     "w": "sch\u00e9mu",
+     "s": 110.783
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 111.2,
+   "end": 114.1,
+   "words": [
+    {
+     "w": "s",
+     "s": 111.2
+    },
+    {
+     "w": "mazac\u00edm",
+     "s": 111.456
+    },
+    {
+     "w": "olejom",
+     "s": 112.224
+    },
+    {
+     "w": "z",
+     "s": 112.906
+    },
+    {
+     "w": "Po\u013eska,",
+     "s": 113.162
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 114.2,
+   "end": 117.1,
+   "words": [
+    {
+     "w": "kde",
+     "s": 114.2
+    },
+    {
+     "w": "sa",
+     "s": 114.509
+    },
+    {
+     "w": "na\u0148",
+     "s": 114.755
+    },
+    {
+     "w": "nevz\u0165ahovala",
+     "s": 115.064
+    },
+    {
+     "w": "spotrebn\u00e1",
+     "s": 115.928
+    },
+    {
+     "w": "da\u0148.",
+     "s": 116.606
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 117.2,
+   "end": 119.1,
+   "words": [
+    {
+     "w": "Cisterny",
+     "s": 117.2
+    },
+    {
+     "w": "\u0161li",
+     "s": 117.596
+    },
+    {
+     "w": "\u010falej",
+     "s": 117.794
+    },
+    {
+     "w": "do",
+     "s": 118.071
+    },
+    {
+     "w": "Ma\u010farska",
+     "s": 118.229
+    },
+    {
+     "w": "pr\u00e1zdne.",
+     "s": 118.625
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 119.2,
+   "end": 124.1,
+   "words": [
+    {
+     "w": "Olej",
+     "s": 119.2
+    },
+    {
+     "w": "zostal",
+     "s": 119.682
+    },
+    {
+     "w": "na",
+     "s": 120.325
+    },
+    {
+     "w": "Slovensku",
+     "s": 120.646
+    },
+    {
+     "w": "a",
+     "s": 121.53
+    },
+    {
+     "w": "pred\u00e1val",
+     "s": 121.77
+    },
+    {
+     "w": "sa",
+     "s": 122.574
+    },
+    {
+     "w": "ako",
+     "s": 122.895
+    },
+    {
+     "w": "nafta.",
+     "s": 123.297
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 124.2,
+   "end": 128.1,
+   "words": [
+    {
+     "w": "\u0160t\u00e1t",
+     "s": 124.2
+    },
+    {
+     "w": "pri\u0161iel",
+     "s": 124.72
+    },
+    {
+     "w": "o",
+     "s": 125.5
+    },
+    {
+     "w": "tri",
+     "s": 125.76
+    },
+    {
+     "w": "a",
+     "s": 126.193
+    },
+    {
+     "w": "pol",
+     "s": 126.453
+    },
+    {
+     "w": "mili\u00f3na",
+     "s": 126.887
+    },
+    {
+     "w": "eur",
+     "s": 127.667
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 128.2,
+   "end": 132.1,
+   "words": [
+    {
+     "w": "na",
+     "s": 128.2
+    },
+    {
+     "w": "spotrebnej",
+     "s": 128.44
+    },
+    {
+     "w": "dani",
+     "s": 129.16
+    },
+    {
+     "w": "a",
+     "s": 129.52
+    },
+    {
+     "w": "o",
+     "s": 129.7
+    },
+    {
+     "w": "\u010fal\u0161\u00edch",
+     "s": 129.88
+    },
+    {
+     "w": "\u0161es\u0165",
+     "s": 130.42
+    },
+    {
+     "w": "mili\u00f3nov",
+     "s": 130.78
+    },
+    {
+     "w": "na",
+     "s": 131.38
+    },
+    {
+     "w": "DPH.",
+     "s": 131.62
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 132.2,
+   "end": 135.1,
+   "words": [
+    {
+     "w": "\u017diadny",
+     "s": 132.2
+    },
+    {
+     "w": "s\u00fad",
+     "s": 132.683
+    },
+    {
+     "w": "nikdy",
+     "s": 132.985
+    },
+    {
+     "w": "neuzavrel",
+     "s": 133.408
+    },
+    {
+     "w": "cel\u00fd",
+     "s": 134.073
+    },
+    {
+     "w": "pr\u00edbeh.",
+     "s": 134.435
+    }
+   ]
+  },
+  {
+   "scene": "story",
+   "start": 135.2,
+   "end": 138.32,
+   "words": [
+    {
+     "w": "Odhadovan\u00e1",
+     "s": 135.2
+    },
+    {
+     "w": "cena:",
+     "s": 136.091
+    },
+    {
+     "w": "sto",
+     "s": 136.537
+    },
+    {
+     "w": "mili\u00e1rd",
+     "s": 136.909
+    },
+    {
+     "w": "kor\u00fan.",
+     "s": 137.577
+    }
+   ]
+  }
+ ]
+}

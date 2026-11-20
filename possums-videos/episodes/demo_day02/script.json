@@ -1,0 +1,267 @@
+{
+ "episode": 2,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day two. Yesterday, you gave us eighty nine likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund",
+   "text": "That's eighty nine dollars in the team fund.",
+   "sfx": [
+    [
+     "cash",
+     0.3
+    ],
+    [
+     "ding",
+     "@dollars"
+    ]
+   ]
+  },
+  {
+   "scene": "comment",
+   "text": "The top comment said gear. So we went shopping.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@gear"
+    ]
+   ]
+  },
+  {
+   "scene": "purchase",
+   "text": "Fifty bucks bought helmets for everyone. Big Lou's is two sizes too small.",
+   "sfx": [
+    [
+     "spend",
+     "@fifty"
+    ],
+    [
+     "boing",
+     "@helmets"
+    ],
+    [
+     "boing",
+     "@everyone"
+    ],
+    [
+     "sad",
+     "@small"
+    ]
+   ]
+  },
+  {
+   "scene": "tour2",
+   "text": "Everything else is still terrible. The bleachers, the mud, and the ladder.",
+   "sfx": [
+    [
+     "pop",
+     "@bleachers"
+    ],
+    [
+     "pop",
+     "@mud"
+    ],
+    [
+     "pop",
+     "@ladder"
+    ]
+   ]
+  },
+  {
+   "scene": "hotdog",
+   "text": "We also hired a hot dog guy. He sells them out of Earl's bus.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "honk",
+     "@bus"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game two, the Pine Hollow Badgers. Unbeaten in four years.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ]
+  },
+  {
+   "scene": "b_play1",
+   "text": "First snap. Lou isn't scared anymore. He snaps it straight to a Badger.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@snaps"
+    ]
+   ]
+  },
+  {
+   "scene": "b_play1_td",
+   "text": "Pick six. Seven, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.2
+    ]
+   ]
+  },
+  {
+   "scene": "b_timeout",
+   "text": "Tiny calls a timeout to fix his helmet. We have no timeouts left.",
+   "sfx": [
+    [
+     "whistle",
+     "@timeout"
+    ],
+    [
+     "sad",
+     "@no"
+    ]
+   ]
+  },
+  {
+   "scene": "b_montage",
+   "text": "By halftime, it's twenty eight, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.25
+    ],
+    [
+     "horn",
+     0.5
+    ],
+    [
+     "horn",
+     0.75
+    ],
+    [
+     "whistle",
+     0.92
+    ]
+   ]
+  },
+  {
+   "scene": "b_fg",
+   "text": "Then Earl kicks a sixty yard field goal. Right through the ladder!",
+   "sfx": [
+    [
+     "kick",
+     "@kicks"
+    ],
+    [
+     "crowd",
+     "@right"
+    ],
+    [
+     "horn",
+     "@right"
+    ]
+   ]
+  },
+  {
+   "scene": "b_tiny",
+   "text": "Last play. Tiny gets hit so hard, his new helmet spins backwards.",
+   "sfx": [
+    [
+     "bonk",
+     "@hit"
+    ],
+    [
+     "boing",
+     "@spins"
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final score, twenty eight to three. Still dead last. But we scored!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.4
+    ],
+    [
+     "ding",
+     "@but"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Red Rock Rattlers. They haven't allowed a single point.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@haven"
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Every like on this video is a dollar. We have thirty nine. The most liked comment picks our upgrade. Stands, the field, goal posts, or a scoreboard.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@field"
+    ],
+    [
+     "pop",
+     "@goal"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,275 @@
+{
+ "episode": 7,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day seven. One hundred and forty seven likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund7",
+   "text": "That's a hundred forty seven dollars! The bank has sixteen ninety.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@sixteen"
+    ]
+   ]
+  },
+  {
+   "scene": "comment7",
+   "text": "Lucas said, put in a trick play, and upgrade that locker room. Six likes!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@locker"
+    ],
+    [
+     "stamp",
+     "@six"
+    ]
+   ]
+  },
+  {
+   "scene": "locker7",
+   "text": "Four hundred dollars bought a real locker room. With actual showers.",
+   "sfx": [
+    [
+     "spend",
+     "@four"
+    ],
+    [
+     "ding",
+     "@real"
+    ],
+    [
+     "boing",
+     "@showers"
+    ]
+   ]
+  },
+  {
+   "scene": "speech7",
+   "text": "Jaxon gave the pregame speech. Nobody understood it. Everybody cried.",
+   "sfx": [
+    [
+     "pop",
+     "@jaxon"
+    ],
+    [
+     "sad",
+     "@cried"
+    ]
+   ]
+  },
+  {
+   "scene": "signings7",
+   "text": "And eight more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard7",
+   "text": "Game seven. The Copper Canyon Coyotes. They howl every snap.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@howl"
+    ]
+   ]
+  },
+  {
+   "scene": "g_howl",
+   "text": "They howl. Our new right tackle howls louder.",
+   "sfx": [
+    [
+     "scream",
+     "@howl"
+    ],
+    [
+     "scream",
+     "@louder"
+    ]
+   ]
+  },
+  {
+   "scene": "g_back",
+   "text": "Our running back is back. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@back"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_safety7",
+   "text": "Our new safety, day six of asking, picks it off!",
+   "sfx": [
+    [
+     "ding",
+     "@picks"
+    ],
+    [
+     "crowd",
+     "@off"
+    ]
+   ]
+  },
+  {
+   "scene": "g_coy",
+   "text": "The Coyotes score three times anyway.",
+   "sfx": [
+    [
+     "sad",
+     "@three"
+    ],
+    [
+     "boo",
+     "@anyway"
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb7",
+   "text": "Our new quarterback finds our tight end. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@finds"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_fg7",
+   "text": "Our new kicker, number fourteen, from forty yards. Good!",
+   "sfx": [
+    [
+     "kick",
+     "@forty"
+    ],
+    [
+     "crowd",
+     "@good"
+    ]
+   ]
+  },
+  {
+   "scene": "g_trick",
+   "text": "Last play. Lucas's trick play. The kicker throws it! Touchdown! We win!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@throws"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ],
+    [
+     "horn",
+     "@win"
+    ]
+   ]
+  },
+  {
+   "scene": "standings7",
+   "text": "Final, twenty four to twenty one. Two wins, five losses!",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "ding",
+     "@two"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame7",
+   "text": "Tomorrow, the Glacier Bay Penguins. They slide everywhere.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "slide",
+     "@slide"
+    ]
+   ]
+  },
+  {
+   "scene": "cta7",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Scoreboard, stadium lights, or a team bus? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@scoreboard"
+    ],
+    [
+     "pop",
+     "@lights"
+    ],
+    [
+     "pop",
+     "@bus"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

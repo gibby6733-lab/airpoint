@@ -1,0 +1,1838 @@
+{
+ "duration": 73.076,
+ "lines": [
+  {
+   "scene": "think",
+   "meter": 100,
+   "text": "His whole family thinks he's a five star chef.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@chef"
+    ]
+   ],
+   "punch": [
+    "five"
+   ],
+   "start": 0.35,
+   "end": 2.496,
+   "words": [
+    {
+     "w": "His",
+     "s": 0.35
+    },
+    {
+     "w": "whole",
+     "s": 0.538
+    },
+    {
+     "w": "family",
+     "s": 0.802
+    },
+    {
+     "w": "thinks",
+     "s": 1.103
+    },
+    {
+     "w": "he's",
+     "s": 1.404
+    },
+    {
+     "w": "a",
+     "s": 1.593
+    },
+    {
+     "w": "five",
+     "s": 1.706
+    },
+    {
+     "w": "star",
+     "s": 1.932
+    },
+    {
+     "w": "chef.",
+     "s": 2.158
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     0.35
+    ],
+    [
+     "ding",
+     2.158
+    ]
+   ]
+  },
+  {
+   "scene": "getting",
+   "meter": 3,
+   "text": "They're getting this.",
+   "sfx": [
+    [
+     "stamp",
+     0.05
+    ],
+    [
+     "sad",
+     0.4
+    ]
+   ],
+   "punch": [
+    "this"
+   ],
+   "start": 2.716,
+   "end": 3.664,
+   "words": [
+    {
+     "w": "They're",
+     "s": 2.716
+    },
+    {
+     "w": "getting",
+     "s": 3.008
+    },
+    {
+     "w": "this.",
+     "s": 3.336
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     2.763
+    ],
+    [
+     "sad",
+     3.095
+    ]
+   ]
+  },
+  {
+   "scene": "getting",
+   "meter": 3,
+   "text": "For two years, Marcus has been posting other people's food online.",
+   "sfx": [
+    [
+     "swipe",
+     "@posting"
+    ],
+    [
+     "pop",
+     "@food"
+    ]
+   ],
+   "cam": [
+    [
+     0,
+     540,
+     1000,
+     1.08
+    ],
+    [
+     1,
+     700,
+     820,
+     1.3
+    ]
+   ],
+   "start": 3.884,
+   "end": 6.898,
+   "words": [
+    {
+     "w": "For",
+     "s": 3.884
+    },
+    {
+     "w": "two",
+     "s": 4.07
+    },
+    {
+     "w": "years,",
+     "s": 4.256
+    },
+    {
+     "w": "Marcus",
+     "s": 4.629
+    },
+    {
+     "w": "has",
+     "s": 4.926
+    },
+    {
+     "w": "been",
+     "s": 5.112
+    },
+    {
+     "w": "posting",
+     "s": 5.336
+    },
+    {
+     "w": "other",
+     "s": 5.67
+    },
+    {
+     "w": "people's",
+     "s": 5.931
+    },
+    {
+     "w": "food",
+     "s": 6.266
+    },
+    {
+     "w": "online.",
+     "s": 6.489
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     5.336
+    ],
+    [
+     "pop",
+     6.266
+    ]
+   ]
+  },
+  {
+   "scene": "cal",
+   "meter": 3,
+   "text": "Thanksgiving is in thirteen days. And he's cooking.",
+   "sfx": [
+    [
+     "stamp",
+     "@thirteen"
+    ],
+    [
+     "boing",
+     "@cooking"
+    ]
+   ],
+   "punch": [
+    "thirteen"
+   ],
+   "start": 7.118,
+   "end": 9.481,
+   "words": [
+    {
+     "w": "Thanksgiving",
+     "s": 7.118
+    },
+    {
+     "w": "is",
+     "s": 7.643
+    },
+    {
+     "w": "in",
+     "s": 7.793
+    },
+    {
+     "w": "thirteen",
+     "s": 7.943
+    },
+    {
+     "w": "days.",
+     "s": 8.318
+    },
+    {
+     "w": "And",
+     "s": 8.656
+    },
+    {
+     "w": "he's",
+     "s": 8.843
+    },
+    {
+     "w": "cooking.",
+     "s": 9.031
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     7.943
+    ],
+    [
+     "boing",
+     9.031
+    ]
+   ]
+  },
+  {
+   "scene": "intro",
+   "meter": 3,
+   "text": "This is Marcus. Twenty four. Gas station night shift.",
+   "sfx": [
+    [
+     "pop",
+     "@marcus"
+    ],
+    [
+     "pop",
+     "@twenty"
+    ],
+    [
+     "pop",
+     "@gas"
+    ]
+   ],
+   "start": 9.701,
+   "end": 12.297,
+   "words": [
+    {
+     "w": "This",
+     "s": 9.701
+    },
+    {
+     "w": "is",
+     "s": 9.927
+    },
+    {
+     "w": "Marcus.",
+     "s": 10.077
+    },
+    {
+     "w": "Twenty",
+     "s": 10.491
+    },
+    {
+     "w": "four.",
+     "s": 10.792
+    },
+    {
+     "w": "Gas",
+     "s": 11.131
+    },
+    {
+     "w": "station",
+     "s": 11.319
+    },
+    {
+     "w": "night",
+     "s": 11.657
+    },
+    {
+     "w": "shift.",
+     "s": 11.921
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.077
+    ],
+    [
+     "pop",
+     10.491
+    ],
+    [
+     "pop",
+     11.131
+    ]
+   ]
+  },
+  {
+   "scene": "intro",
+   "meter": 3,
+   "pose": "proud",
+   "text": "His signature dish? Hot pockets. Ninety seconds. Still frozen in the middle.",
+   "sfx": [
+    [
+     "ding",
+     "@pockets"
+    ],
+    [
+     "boing",
+     "@frozen"
+    ]
+   ],
+   "cam": [
+    [
+     0,
+     540,
+     1000,
+     1.08
+    ],
+    [
+     1,
+     560,
+     1100,
+     1.25
+    ]
+   ],
+   "start": 12.517,
+   "end": 15.968,
+   "words": [
+    {
+     "w": "His",
+     "s": 12.517
+    },
+    {
+     "w": "signature",
+     "s": 12.695
+    },
+    {
+     "w": "dish?",
+     "s": 13.086
+    },
+    {
+     "w": "Hot",
+     "s": 13.406
+    },
+    {
+     "w": "pockets.",
+     "s": 13.584
+    },
+    {
+     "w": "Ninety",
+     "s": 14.011
+    },
+    {
+     "w": "seconds.",
+     "s": 14.296
+    },
+    {
+     "w": "Still",
+     "s": 14.723
+    },
+    {
+     "w": "frozen",
+     "s": 14.972
+    },
+    {
+     "w": "in",
+     "s": 15.256
+    },
+    {
+     "w": "the",
+     "s": 15.399
+    },
+    {
+     "w": "middle.",
+     "s": 15.577
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     13.584
+    ],
+    [
+     "boing",
+     14.972
+    ]
+   ]
+  },
+  {
+   "scene": "chef",
+   "meter": 3,
+   "text": "And this is Chef Marcus.",
+   "sfx": [
+    [
+     "ding",
+     0.1
+    ],
+    [
+     "whoosh",
+     0.0
+    ]
+   ],
+   "start": 16.188,
+   "end": 17.478,
+   "words": [
+    {
+     "w": "And",
+     "s": 16.188
+    },
+    {
+     "w": "this",
+     "s": 16.39
+    },
+    {
+     "w": "is",
+     "s": 16.631
+    },
+    {
+     "w": "Chef",
+     "s": 16.793
+    },
+    {
+     "w": "Marcus.",
+     "s": 17.034
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     16.317
+    ],
+    [
+     "whoosh",
+     16.188
+    ]
+   ]
+  },
+  {
+   "scene": "chef",
+   "meter": 3,
+   "text": "Chef Marcus doesn't follow recipes. Recipes follow Chef Marcus.",
+   "sfx": [
+    [
+     "ding",
+     "@recipes"
+    ]
+   ],
+   "punch": [
+    "follow"
+   ],
+   "start": 17.698,
+   "end": 21.354,
+   "words": [
+    {
+     "w": "Chef",
+     "s": 17.698
+    },
+    {
+     "w": "Marcus",
+     "s": 17.986
+    },
+    {
+     "w": "doesn't",
+     "s": 18.371
+    },
+    {
+     "w": "follow",
+     "s": 18.756
+    },
+    {
+     "w": "recipes.",
+     "s": 19.141
+    },
+    {
+     "w": "Recipes",
+     "s": 19.718
+    },
+    {
+     "w": "follow",
+     "s": 20.151
+    },
+    {
+     "w": "Chef",
+     "s": 20.536
+    },
+    {
+     "w": "Marcus.",
+     "s": 20.825
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     19.141
+    ]
+   ]
+  },
+  {
+   "scene": "chat",
+   "meter": 3,
+   "text": "Last night, the family group chat went crazy.",
+   "sfx": [
+    [
+     "ding",
+     "@family"
+    ],
+    [
+     "ding",
+     "@crazy"
+    ]
+   ],
+   "start": 21.574,
+   "end": 23.671,
+   "words": [
+    {
+     "w": "Last",
+     "s": 21.574
+    },
+    {
+     "w": "night,",
+     "s": 21.791
+    },
+    {
+     "w": "the",
+     "s": 22.153
+    },
+    {
+     "w": "family",
+     "s": 22.333
+    },
+    {
+     "w": "group",
+     "s": 22.622
+    },
+    {
+     "w": "chat",
+     "s": 22.876
+    },
+    {
+     "w": "went",
+     "s": 23.092
+    },
+    {
+     "w": "crazy.",
+     "s": 23.309
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     22.333
+    ],
+    [
+     "ding",
+     23.309
+    ]
+   ]
+  },
+  {
+   "scene": "chat",
+   "meter": 3,
+   "step": 1,
+   "text": "Aunt Denise invited twenty two people.",
+   "sfx": [
+    [
+     "ding",
+     0.05
+    ],
+    [
+     "stamp",
+     "@twenty"
+    ]
+   ],
+   "punch": [
+    "twenty"
+   ],
+   "start": 23.891,
+   "end": 25.866,
+   "words": [
+    {
+     "w": "Aunt",
+     "s": 23.891
+    },
+    {
+     "w": "Denise",
+     "s": 24.143
+    },
+    {
+     "w": "invited",
+     "s": 24.479
+    },
+    {
+     "w": "twenty",
+     "s": 24.857
+    },
+    {
+     "w": "two",
+     "s": 25.193
+    },
+    {
+     "w": "people.",
+     "s": 25.404
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     23.99
+    ],
+    [
+     "stamp",
+     24.857
+    ]
+   ]
+  },
+  {
+   "scene": "chat",
+   "meter": 3,
+   "step": 2,
+   "sp": "gran",
+   "text": "I'm not cooking this year, baby. It's all you!",
+   "sfx": [
+    [
+     "ding",
+     0.0
+    ]
+   ],
+   "start": 26.086,
+   "end": 28.376,
+   "words": [
+    {
+     "w": "I'm",
+     "s": 26.086
+    },
+    {
+     "w": "not",
+     "s": 26.239
+    },
+    {
+     "w": "cooking",
+     "s": 26.429
+    },
+    {
+     "w": "this",
+     "s": 26.773
+    },
+    {
+     "w": "year,",
+     "s": 27.002
+    },
+    {
+     "w": "baby.",
+     "s": 27.346
+    },
+    {
+     "w": "It's",
+     "s": 27.689
+    },
+    {
+     "w": "all",
+     "s": 27.88
+    },
+    {
+     "w": "you!",
+     "s": 28.071
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     26.086
+    ]
+   ]
+  },
+  {
+   "scene": "fridge",
+   "meter": 3,
+   "text": "Marcus checked the fridge. One egg. Hot sauce. And a lemon from August.",
+   "sfx": [
+    [
+     "slide",
+     "@fridge"
+    ],
+    [
+     "pop",
+     "@egg"
+    ],
+    [
+     "pop",
+     "@sauce"
+    ],
+    [
+     "boing",
+     "@lemon"
+    ]
+   ],
+   "start": 28.596,
+   "end": 31.928,
+   "words": [
+    {
+     "w": "Marcus",
+     "s": 28.596
+    },
+    {
+     "w": "checked",
+     "s": 28.883
+    },
+    {
+     "w": "the",
+     "s": 29.205
+    },
+    {
+     "w": "fridge.",
+     "s": 29.384
+    },
+    {
+     "w": "One",
+     "s": 29.778
+    },
+    {
+     "w": "egg.",
+     "s": 29.958
+    },
+    {
+     "w": "Hot",
+     "s": 30.244
+    },
+    {
+     "w": "sauce.",
+     "s": 30.423
+    },
+    {
+     "w": "And",
+     "s": 30.781
+    },
+    {
+     "w": "a",
+     "s": 30.961
+    },
+    {
+     "w": "lemon",
+     "s": 31.068
+    },
+    {
+     "w": "from",
+     "s": 31.319
+    },
+    {
+     "w": "August.",
+     "s": 31.534
+    }
+   ],
+   "sfx_times": [
+    [
+     "slide",
+     29.384
+    ],
+    [
+     "pop",
+     29.958
+    ],
+    [
+     "pop",
+     30.423
+    ],
+    [
+     "boing",
+     31.068
+    ]
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 0,
+   "score": [
+    0,
+    0
+   ],
+   "text": "Let's compare.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.3
+    ]
+   ],
+   "start": 32.148,
+   "end": 33.055,
+   "words": [
+    {
+     "w": "Let's",
+     "s": 32.148
+    },
+    {
+     "w": "compare.",
+     "s": 32.45
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     32.148
+    ],
+    [
+     "stamp",
+     32.42
+    ]
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 1,
+   "score": [
+    1,
+    0
+   ],
+   "text": "Round one. Knife skills. Chef Marcus dices an onion in four seconds. Marcus cried for four hours.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "swipe",
+     "@dices"
+    ],
+    [
+     "sad",
+     "@cried"
+    ]
+   ],
+   "punch": [
+    "cried"
+   ],
+   "start": 33.275,
+   "end": 38.231,
+   "words": [
+    {
+     "w": "Round",
+     "s": 33.275
+    },
+    {
+     "w": "one.",
+     "s": 33.557
+    },
+    {
+     "w": "Knife",
+     "s": 33.879
+    },
+    {
+     "w": "skills.",
+     "s": 34.161
+    },
+    {
+     "w": "Chef",
+     "s": 34.605
+    },
+    {
+     "w": "Marcus",
+     "s": 34.846
+    },
+    {
+     "w": "dices",
+     "s": 35.169
+    },
+    {
+     "w": "an",
+     "s": 35.451
+    },
+    {
+     "w": "onion",
+     "s": 35.612
+    },
+    {
+     "w": "in",
+     "s": 35.894
+    },
+    {
+     "w": "four",
+     "s": 36.055
+    },
+    {
+     "w": "seconds.",
+     "s": 36.297
+    },
+    {
+     "w": "Marcus",
+     "s": 36.78
+    },
+    {
+     "w": "cried",
+     "s": 37.103
+    },
+    {
+     "w": "for",
+     "s": 37.385
+    },
+    {
+     "w": "four",
+     "s": 37.586
+    },
+    {
+     "w": "hours.",
+     "s": 37.828
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     33.275
+    ],
+    [
+     "swipe",
+     35.169
+    ],
+    [
+     "sad",
+     37.103
+    ]
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 2,
+   "score": [
+    2,
+    0
+   ],
+   "text": "Round two. The stove. Chef Marcus cooks with fire. Marcus uses the smoke alarm as a timer.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@fire"
+    ],
+    [
+     "boing",
+     "@alarm"
+    ]
+   ],
+   "punch": [
+    "timer"
+   ],
+   "start": 38.451,
+   "end": 43.108,
+   "words": [
+    {
+     "w": "Round",
+     "s": 38.451
+    },
+    {
+     "w": "two.",
+     "s": 38.732
+    },
+    {
+     "w": "The",
+     "s": 39.053
+    },
+    {
+     "w": "stove.",
+     "s": 39.254
+    },
+    {
+     "w": "Chef",
+     "s": 39.655
+    },
+    {
+     "w": "Marcus",
+     "s": 39.896
+    },
+    {
+     "w": "cooks",
+     "s": 40.217
+    },
+    {
+     "w": "with",
+     "s": 40.498
+    },
+    {
+     "w": "fire.",
+     "s": 40.739
+    },
+    {
+     "w": "Marcus",
+     "s": 41.1
+    },
+    {
+     "w": "uses",
+     "s": 41.421
+    },
+    {
+     "w": "the",
+     "s": 41.662
+    },
+    {
+     "w": "smoke",
+     "s": 41.863
+    },
+    {
+     "w": "alarm",
+     "s": 42.144
+    },
+    {
+     "w": "as",
+     "s": 42.425
+    },
+    {
+     "w": "a",
+     "s": 42.586
+    },
+    {
+     "w": "timer.",
+     "s": 42.706
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     38.451
+    ],
+    [
+     "whoosh",
+     40.739
+    ],
+    [
+     "boing",
+     42.144
+    ]
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 3,
+   "score": [
+    3,
+    0
+   ],
+   "text": "Round three. The turkey. Chef Marcus brines it for two days. Marcus thought they came cooked.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "ding",
+     "@brines"
+    ],
+    [
+     "boing",
+     "@cooked"
+    ]
+   ],
+   "punch": [
+    "cooked"
+   ],
+   "start": 43.328,
+   "end": 47.493,
+   "words": [
+    {
+     "w": "Round",
+     "s": 43.328
+    },
+    {
+     "w": "three.",
+     "s": 43.575
+    },
+    {
+     "w": "The",
+     "s": 43.928
+    },
+    {
+     "w": "turkey.",
+     "s": 44.104
+    },
+    {
+     "w": "Chef",
+     "s": 44.493
+    },
+    {
+     "w": "Marcus",
+     "s": 44.704
+    },
+    {
+     "w": "brines",
+     "s": 44.987
+    },
+    {
+     "w": "it",
+     "s": 45.269
+    },
+    {
+     "w": "for",
+     "s": 45.41
+    },
+    {
+     "w": "two",
+     "s": 45.587
+    },
+    {
+     "w": "days.",
+     "s": 45.763
+    },
+    {
+     "w": "Marcus",
+     "s": 46.081
+    },
+    {
+     "w": "thought",
+     "s": 46.363
+    },
+    {
+     "w": "they",
+     "s": 46.681
+    },
+    {
+     "w": "came",
+     "s": 46.893
+    },
+    {
+     "w": "cooked.",
+     "s": 47.105
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     43.328
+    ],
+    [
+     "ding",
+     44.987
+    ],
+    [
+     "boing",
+     47.105
+    ]
+   ]
+  },
+  {
+   "scene": "vs",
+   "meter": 3,
+   "rnd": 4,
+   "score": [
+    4,
+    0
+   ],
+   "text": "Round four. Gravy. Chef Marcus makes silk. Marcus makes brown water.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "ding",
+     "@silk"
+    ],
+    [
+     "sad",
+     "@brown"
+    ]
+   ],
+   "punch": [
+    "water"
+   ],
+   "start": 47.713,
+   "end": 51.151,
+   "words": [
+    {
+     "w": "Round",
+     "s": 47.713
+    },
+    {
+     "w": "four.",
+     "s": 47.986
+    },
+    {
+     "w": "Gravy.",
+     "s": 48.338
+    },
+    {
+     "w": "Chef",
+     "s": 48.729
+    },
+    {
+     "w": "Marcus",
+     "s": 48.963
+    },
+    {
+     "w": "makes",
+     "s": 49.276
+    },
+    {
+     "w": "silk.",
+     "s": 49.549
+    },
+    {
+     "w": "Marcus",
+     "s": 49.901
+    },
+    {
+     "w": "makes",
+     "s": 50.213
+    },
+    {
+     "w": "brown",
+     "s": 50.487
+    },
+    {
+     "w": "water.",
+     "s": 50.76
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     47.713
+    ],
+    [
+     "ding",
+     49.549
+    ],
+    [
+     "sad",
+     50.487
+    ]
+   ]
+  },
+  {
+   "scene": "crash",
+   "meter": 0,
+   "text": "The chef meter? It caught on fire.",
+   "sfx": [
+    [
+     "spend",
+     "@meter"
+    ],
+    [
+     "scream",
+     "@fire"
+    ]
+   ],
+   "punch": [
+    "fire"
+   ],
+   "start": 51.371,
+   "end": 53.013,
+   "words": [
+    {
+     "w": "The",
+     "s": 51.371
+    },
+    {
+     "w": "chef",
+     "s": 51.55
+    },
+    {
+     "w": "meter?",
+     "s": 51.764
+    },
+    {
+     "w": "It",
+     "s": 52.121
+    },
+    {
+     "w": "caught",
+     "s": 52.263
+    },
+    {
+     "w": "on",
+     "s": 52.549
+    },
+    {
+     "w": "fire.",
+     "s": 52.692
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     51.764
+    ],
+    [
+     "scream",
+     52.692
+    ]
+   ]
+  },
+  {
+   "scene": "ring",
+   "meter": 0,
+   "text": "Then his phone rang. Grandma. Video call. Right now.",
+   "sfx": [
+    [
+     "ding",
+     "@rang"
+    ],
+    [
+     "ding",
+     "@grandma"
+    ],
+    [
+     "stamp",
+     "@now"
+    ]
+   ],
+   "punch": [
+    "now"
+   ],
+   "start": 53.233,
+   "end": 55.692,
+   "words": [
+    {
+     "w": "Then",
+     "s": 53.233
+    },
+    {
+     "w": "his",
+     "s": 53.444
+    },
+    {
+     "w": "phone",
+     "s": 53.619
+    },
+    {
+     "w": "rang.",
+     "s": 53.865
+    },
+    {
+     "w": "Grandma.",
+     "s": 54.182
+    },
+    {
+     "w": "Video",
+     "s": 54.603
+    },
+    {
+     "w": "call.",
+     "s": 54.849
+    },
+    {
+     "w": "Right",
+     "s": 55.165
+    },
+    {
+     "w": "now.",
+     "s": 55.411
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     53.865
+    ],
+    [
+     "ding",
+     54.182
+    ],
+    [
+     "stamp",
+     55.411
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 0,
+   "sp": "gran",
+   "text": "Baby! Show me your kitchen!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ]
+   ],
+   "start": 55.912,
+   "end": 57.409,
+   "words": [
+    {
+     "w": "Baby!",
+     "s": 55.912
+    },
+    {
+     "w": "Show",
+     "s": 56.276
+    },
+    {
+     "w": "me",
+     "s": 56.519
+    },
+    {
+     "w": "your",
+     "s": 56.681
+    },
+    {
+     "w": "kitchen!",
+     "s": 56.924
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     55.912
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 1,
+   "text": "Marcus pointed the camera at a cooking show on TV.",
+   "sfx": [
+    [
+     "whoosh",
+     "@pointed"
+    ],
+    [
+     "crowd",
+     "@show"
+    ]
+   ],
+   "start": 57.629,
+   "end": 60.201,
+   "words": [
+    {
+     "w": "Marcus",
+     "s": 57.629
+    },
+    {
+     "w": "pointed",
+     "s": 57.956
+    },
+    {
+     "w": "the",
+     "s": 58.323
+    },
+    {
+     "w": "camera",
+     "s": 58.527
+    },
+    {
+     "w": "at",
+     "s": 58.854
+    },
+    {
+     "w": "a",
+     "s": 59.017
+    },
+    {
+     "w": "cooking",
+     "s": 59.139
+    },
+    {
+     "w": "show",
+     "s": 59.507
+    },
+    {
+     "w": "on",
+     "s": 59.752
+    },
+    {
+     "w": "TV.",
+     "s": 59.915
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     57.956
+    ],
+    [
+     "crowd",
+     59.507
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 2,
+   "sp": "gran",
+   "text": "Why does your kitchen have a laugh track?",
+   "sfx": [
+    [
+     "crowd",
+     "@laugh"
+    ]
+   ],
+   "start": 60.421,
+   "end": 62.237,
+   "words": [
+    {
+     "w": "Why",
+     "s": 60.421
+    },
+    {
+     "w": "does",
+     "s": 60.595
+    },
+    {
+     "w": "your",
+     "s": 60.805
+    },
+    {
+     "w": "kitchen",
+     "s": 61.014
+    },
+    {
+     "w": "have",
+     "s": 61.329
+    },
+    {
+     "w": "a",
+     "s": 61.538
+    },
+    {
+     "w": "laugh",
+     "s": 61.643
+    },
+    {
+     "w": "track?",
+     "s": 61.887
+    }
+   ],
+   "sfx_times": [
+    [
+     "crowd",
+     61.643
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 3,
+   "sp": "marcus",
+   "text": "Open concept, Grandma.",
+   "sfx": [
+    [
+     "boing",
+     "@concept"
+    ]
+   ],
+   "start": 62.457,
+   "end": 63.733,
+   "words": [
+    {
+     "w": "Open",
+     "s": 62.457
+    },
+    {
+     "w": "concept,",
+     "s": 62.712
+    },
+    {
+     "w": "Grandma.",
+     "s": 63.222
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     62.712
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "meter": 0,
+   "step": 4,
+   "text": "She bought it. For now.",
+   "sfx": [
+    [
+     "ding",
+     "@bought"
+    ],
+    [
+     "sad",
+     "@now"
+    ]
+   ],
+   "start": 63.953,
+   "end": 65.092,
+   "words": [
+    {
+     "w": "She",
+     "s": 63.953
+    },
+    {
+     "w": "bought",
+     "s": 64.126
+    },
+    {
+     "w": "it.",
+     "s": 64.402
+    },
+    {
+     "w": "For",
+     "s": 64.643
+    },
+    {
+     "w": "now.",
+     "s": 64.816
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     64.126
+    ],
+    [
+     "sad",
+     64.816
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "meter": 0,
+   "text": "Thirteen days. Twenty two guests. Zero skills.",
+   "sfx": [
+    [
+     "stamp",
+     "@thirteen"
+    ],
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "stamp",
+     "@zero"
+    ]
+   ],
+   "punch": [
+    "zero"
+   ],
+   "start": 65.312,
+   "end": 67.615,
+   "words": [
+    {
+     "w": "Thirteen",
+     "s": 65.312
+    },
+    {
+     "w": "days.",
+     "s": 65.696
+    },
+    {
+     "w": "Twenty",
+     "s": 66.042
+    },
+    {
+     "w": "two",
+     "s": 66.349
+    },
+    {
+     "w": "guests.",
+     "s": 66.54
+    },
+    {
+     "w": "Zero",
+     "s": 66.963
+    },
+    {
+     "w": "skills.",
+     "s": 67.193
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     65.312
+    ],
+    [
+     "stamp",
+     66.042
+    ],
+    [
+     "stamp",
+     66.963
+    ]
+   ]
+  },
+  {
+   "scene": "vote",
+   "meter": 0,
+   "text": "So where do we start? Turkey, or pie? Comment one word. Day one starts tomorrow!",
+   "sfx": [
+    [
+     "pop",
+     "@turkey"
+    ],
+    [
+     "pop",
+     "@pie"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 67.835,
+   "end": 71.576,
+   "words": [
+    {
+     "w": "So",
+     "s": 67.835
+    },
+    {
+     "w": "where",
+     "s": 67.976
+    },
+    {
+     "w": "do",
+     "s": 68.223
+    },
+    {
+     "w": "we",
+     "s": 68.364
+    },
+    {
+     "w": "start?",
+     "s": 68.506
+    },
+    {
+     "w": "Turkey,",
+     "s": 68.858
+    },
+    {
+     "w": "or",
+     "s": 69.247
+    },
+    {
+     "w": "pie?",
+     "s": 69.388
+    },
+    {
+     "w": "Comment",
+     "s": 69.67
+    },
+    {
+     "w": "one",
+     "s": 69.988
+    },
+    {
+     "w": "word.",
+     "s": 70.164
+    },
+    {
+     "w": "Day",
+     "s": 70.482
+    },
+    {
+     "w": "one",
+     "s": 70.659
+    },
+    {
+     "w": "starts",
+     "s": 70.835
+    },
+    {
+     "w": "tomorrow!",
+     "s": 71.117
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     68.858
+    ],
+    [
+     "pop",
+     69.388
+    ],
+    [
+     "ding",
+     69.67
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

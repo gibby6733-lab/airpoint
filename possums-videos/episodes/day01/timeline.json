@@ -1,0 +1,1317 @@
+{
+ "duration": 67.24,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day one. I just started the worst football team in America.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 0.35,
+   "end": 3.826,
+   "words": [
+    {
+     "w": "Day",
+     "s": 0.35
+    },
+    {
+     "w": "one.",
+     "s": 0.582
+    },
+    {
+     "w": "I",
+     "s": 0.953
+    },
+    {
+     "w": "just",
+     "s": 1.092
+    },
+    {
+     "w": "started",
+     "s": 1.37
+    },
+    {
+     "w": "the",
+     "s": 1.787
+    },
+    {
+     "w": "worst",
+     "s": 2.019
+    },
+    {
+     "w": "football",
+     "s": 2.343
+    },
+    {
+     "w": "team",
+     "s": 2.807
+    },
+    {
+     "w": "in",
+     "s": 3.085
+    },
+    {
+     "w": "America.",
+     "s": 3.27
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     0.35
+    ],
+    [
+     "stamp",
+     0.524
+    ]
+   ]
+  },
+  {
+   "scene": "profile",
+   "text": "We're the Mudville Possums. Zero fans, zero wins, and twelve dollars.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "cash",
+     "@twelve"
+    ]
+   ],
+   "start": 4.046,
+   "end": 8.299,
+   "words": [
+    {
+     "w": "We're",
+     "s": 4.046
+    },
+    {
+     "w": "the",
+     "s": 4.336
+    },
+    {
+     "w": "Mudville",
+     "s": 4.578
+    },
+    {
+     "w": "Possums.",
+     "s": 5.061
+    },
+    {
+     "w": "Zero",
+     "s": 5.641
+    },
+    {
+     "w": "fans,",
+     "s": 5.931
+    },
+    {
+     "w": "zero",
+     "s": 6.366
+    },
+    {
+     "w": "wins,",
+     "s": 6.656
+    },
+    {
+     "w": "and",
+     "s": 7.091
+    },
+    {
+     "w": "twelve",
+     "s": 7.332
+    },
+    {
+     "w": "dollars.",
+     "s": 7.719
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     4.046
+    ],
+    [
+     "cash",
+     7.332
+    ]
+   ]
+  },
+  {
+   "scene": "likes",
+   "text": "Every like on this video adds one dollar to the fund.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ],
+   "start": 8.519,
+   "end": 11.557,
+   "words": [
+    {
+     "w": "Every",
+     "s": 8.519
+    },
+    {
+     "w": "like",
+     "s": 8.836
+    },
+    {
+     "w": "on",
+     "s": 9.108
+    },
+    {
+     "w": "this",
+     "s": 9.29
+    },
+    {
+     "w": "video",
+     "s": 9.562
+    },
+    {
+     "w": "adds",
+     "s": 9.879
+    },
+    {
+     "w": "one",
+     "s": 10.151
+    },
+    {
+     "w": "dollar",
+     "s": 10.378
+    },
+    {
+     "w": "to",
+     "s": 10.741
+    },
+    {
+     "w": "the",
+     "s": 10.922
+    },
+    {
+     "w": "fund.",
+     "s": 11.149
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     8.519
+    ],
+    [
+     "ding",
+     10.151
+    ]
+   ]
+  },
+  {
+   "scene": "helmet",
+   "text": "Twelve bucks bought us one helmet. So we share it.",
+   "sfx": [
+    [
+     "spend",
+     0.25
+    ],
+    [
+     "boing",
+     0.75
+    ],
+    [
+     "boing",
+     0.88
+    ]
+   ],
+   "start": 11.777,
+   "end": 14.431,
+   "words": [
+    {
+     "w": "Twelve",
+     "s": 11.777
+    },
+    {
+     "w": "bucks",
+     "s": 12.104
+    },
+    {
+     "w": "bought",
+     "s": 12.39
+    },
+    {
+     "w": "us",
+     "s": 12.716
+    },
+    {
+     "w": "one",
+     "s": 12.88
+    },
+    {
+     "w": "helmet.",
+     "s": 13.084
+    },
+    {
+     "w": "So",
+     "s": 13.533
+    },
+    {
+     "w": "we",
+     "s": 13.696
+    },
+    {
+     "w": "share",
+     "s": 13.86
+    },
+    {
+     "w": "it.",
+     "s": 14.146
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     12.441
+    ],
+    [
+     "boing",
+     13.767
+    ],
+    [
+     "boing",
+     14.113
+    ]
+   ]
+  },
+  {
+   "scene": "stadium_tour",
+   "text": "Our stadium. Bleachers falling apart, a mud field, and a ladder for goal posts.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@Bleachers"
+    ],
+    [
+     "pop",
+     "@field"
+    ],
+    [
+     "pop",
+     "@ladder"
+    ]
+   ],
+   "start": 14.651,
+   "end": 19.632,
+   "words": [
+    {
+     "w": "Our",
+     "s": 14.651
+    },
+    {
+     "w": "stadium.",
+     "s": 14.895
+    },
+    {
+     "w": "Bleachers",
+     "s": 15.481
+    },
+    {
+     "w": "falling",
+     "s": 16.019
+    },
+    {
+     "w": "apart,",
+     "s": 16.458
+    },
+    {
+     "w": "a",
+     "s": 16.946
+    },
+    {
+     "w": "mud",
+     "s": 17.093
+    },
+    {
+     "w": "field,",
+     "s": 17.337
+    },
+    {
+     "w": "and",
+     "s": 17.825
+    },
+    {
+     "w": "a",
+     "s": 18.07
+    },
+    {
+     "w": "ladder",
+     "s": 18.216
+    },
+    {
+     "w": "for",
+     "s": 18.607
+    },
+    {
+     "w": "goal",
+     "s": 18.851
+    },
+    {
+     "w": "posts.",
+     "s": 19.144
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     14.651
+    ],
+    [
+     "pop",
+     15.481
+    ],
+    [
+     "pop",
+     17.337
+    ],
+    [
+     "pop",
+     18.216
+    ]
+   ]
+  },
+  {
+   "scene": "roster_lou",
+   "text": "Big Lou plays center. He's scared of the ball.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ],
+   "start": 19.852,
+   "end": 22.314,
+   "words": [
+    {
+     "w": "Big",
+     "s": 19.852
+    },
+    {
+     "w": "Lou",
+     "s": 20.061
+    },
+    {
+     "w": "plays",
+     "s": 20.269
+    },
+    {
+     "w": "center.",
+     "s": 20.562
+    },
+    {
+     "w": "He's",
+     "s": 21.02
+    },
+    {
+     "w": "scared",
+     "s": 21.229
+    },
+    {
+     "w": "of",
+     "s": 21.563
+    },
+    {
+     "w": "the",
+     "s": 21.73
+    },
+    {
+     "w": "ball.",
+     "s": 21.938
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     19.852
+    ]
+   ]
+  },
+  {
+   "scene": "roster_tiny",
+   "text": "Tiny is our quarterback. He's five foot one.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ],
+   "start": 22.534,
+   "end": 25.114,
+   "words": [
+    {
+     "w": "Tiny",
+     "s": 22.534
+    },
+    {
+     "w": "is",
+     "s": 22.81
+    },
+    {
+     "w": "our",
+     "s": 22.995
+    },
+    {
+     "w": "quarterback.",
+     "s": 23.225
+    },
+    {
+     "w": "He's",
+     "s": 23.962
+    },
+    {
+     "w": "five",
+     "s": 24.193
+    },
+    {
+     "w": "foot",
+     "s": 24.469
+    },
+    {
+     "w": "one.",
+     "s": 24.746
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     22.534
+    ]
+   ]
+  },
+  {
+   "scene": "roster_earl",
+   "text": "Earl is our kicker. He's also the bus driver.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ],
+    [
+     "honk",
+     0.75
+    ]
+   ],
+   "start": 25.334,
+   "end": 27.857,
+   "words": [
+    {
+     "w": "Earl",
+     "s": 25.334
+    },
+    {
+     "w": "is",
+     "s": 25.595
+    },
+    {
+     "w": "our",
+     "s": 25.769
+    },
+    {
+     "w": "kicker.",
+     "s": 25.987
+    },
+    {
+     "w": "He's",
+     "s": 26.465
+    },
+    {
+     "w": "also",
+     "s": 26.682
+    },
+    {
+     "w": "the",
+     "s": 26.943
+    },
+    {
+     "w": "bus",
+     "s": 27.161
+    },
+    {
+     "w": "driver.",
+     "s": 27.378
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     25.334
+    ],
+    [
+     "honk",
+     27.226
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game one, the Dry Gulch Gophers.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ],
+   "start": 28.077,
+   "end": 30.009,
+   "words": [
+    {
+     "w": "Game",
+     "s": 28.077
+    },
+    {
+     "w": "one,",
+     "s": 28.346
+    },
+    {
+     "w": "the",
+     "s": 28.706
+    },
+    {
+     "w": "Dry",
+     "s": 28.931
+    },
+    {
+     "w": "Gulch",
+     "s": 29.155
+    },
+    {
+     "w": "Gophers.",
+     "s": 29.47
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     28.077
+    ],
+    [
+     "crowd",
+     28.657
+    ]
+   ]
+  },
+  {
+   "scene": "play1",
+   "text": "First snap. Lou screams and runs into the stands.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "scream",
+     "@screams"
+    ],
+    [
+     "slide",
+     "@runs"
+    ]
+   ],
+   "start": 30.229,
+   "end": 33.222,
+   "words": [
+    {
+     "w": "First",
+     "s": 30.229
+    },
+    {
+     "w": "snap.",
+     "s": 30.562
+    },
+    {
+     "w": "Lou",
+     "s": 30.989
+    },
+    {
+     "w": "screams",
+     "s": 31.227
+    },
+    {
+     "w": "and",
+     "s": 31.654
+    },
+    {
+     "w": "runs",
+     "s": 31.892
+    },
+    {
+     "w": "into",
+     "s": 32.177
+    },
+    {
+     "w": "the",
+     "s": 32.462
+    },
+    {
+     "w": "stands.",
+     "s": 32.699
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     30.229
+    ],
+    [
+     "scream",
+     31.227
+    ],
+    [
+     "slide",
+     31.892
+    ]
+   ]
+  },
+  {
+   "scene": "play1_td",
+   "text": "Gophers score. Seven, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.1
+    ]
+   ],
+   "start": 33.442,
+   "end": 35.229,
+   "words": [
+    {
+     "w": "Gophers",
+     "s": 33.442
+    },
+    {
+     "w": "score.",
+     "s": 33.834
+    },
+    {
+     "w": "Seven,",
+     "s": 34.27
+    },
+    {
+     "w": "nothing.",
+     "s": 34.706
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     33.621
+    ]
+   ]
+  },
+  {
+   "scene": "sack",
+   "text": "Second quarter. Tiny gets flattened by three Gophers.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "bonk",
+     0.7
+    ],
+    [
+     "stamp",
+     0.72
+    ]
+   ],
+   "start": 35.449,
+   "end": 38.632,
+   "words": [
+    {
+     "w": "Second",
+     "s": 35.449
+    },
+    {
+     "w": "quarter.",
+     "s": 35.835
+    },
+    {
+     "w": "Tiny",
+     "s": 36.414
+    },
+    {
+     "w": "gets",
+     "s": 36.703
+    },
+    {
+     "w": "flattened",
+     "s": 36.992
+    },
+    {
+     "w": "by",
+     "s": 37.523
+    },
+    {
+     "w": "three",
+     "s": 37.716
+    },
+    {
+     "w": "Gophers.",
+     "s": 38.053
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     35.449
+    ],
+    [
+     "bonk",
+     37.677
+    ],
+    [
+     "stamp",
+     37.741
+    ]
+   ]
+  },
+  {
+   "scene": "sack_td",
+   "text": "Fumble. Fourteen, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.6
+    ]
+   ],
+   "start": 38.852,
+   "end": 40.217,
+   "words": [
+    {
+     "w": "Fumble.",
+     "s": 38.852
+    },
+    {
+     "w": "Fourteen,",
+     "s": 39.269
+    },
+    {
+     "w": "nothing.",
+     "s": 39.762
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     39.671
+    ]
+   ]
+  },
+  {
+   "scene": "play2",
+   "text": "Fourth quarter, down twenty one. Tiny throws a Hail Mary.",
+   "sfx": [
+    [
+     "whoosh",
+     0.75
+    ]
+   ],
+   "start": 40.437,
+   "end": 43.808,
+   "words": [
+    {
+     "w": "Fourth",
+     "s": 40.437
+    },
+    {
+     "w": "quarter,",
+     "s": 40.801
+    },
+    {
+     "w": "down",
+     "s": 41.348
+    },
+    {
+     "w": "twenty",
+     "s": 41.621
+    },
+    {
+     "w": "one.",
+     "s": 41.986
+    },
+    {
+     "w": "Tiny",
+     "s": 42.35
+    },
+    {
+     "w": "throws",
+     "s": 42.623
+    },
+    {
+     "w": "a",
+     "s": 42.988
+    },
+    {
+     "w": "Hail",
+     "s": 43.124
+    },
+    {
+     "w": "Mary.",
+     "s": 43.398
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     42.965
+    ]
+   ]
+  },
+  {
+   "scene": "play2_b",
+   "text": "It hits a seagull, bonks off Earl's helmet, and lands in the end zone. Touchdown!",
+   "sfx": [
+    [
+     "squawk",
+     0.1
+    ],
+    [
+     "bonk",
+     0.35
+    ],
+    [
+     "crowd",
+     0.8
+    ],
+    [
+     "horn",
+     0.85
+    ]
+   ],
+   "start": 44.028,
+   "end": 48.706,
+   "words": [
+    {
+     "w": "It",
+     "s": 44.028
+    },
+    {
+     "w": "hits",
+     "s": 44.207
+    },
+    {
+     "w": "a",
+     "s": 44.477
+    },
+    {
+     "w": "seagull,",
+     "s": 44.612
+    },
+    {
+     "w": "bonks",
+     "s": 45.152
+    },
+    {
+     "w": "off",
+     "s": 45.467
+    },
+    {
+     "w": "Earl's",
+     "s": 45.692
+    },
+    {
+     "w": "helmet,",
+     "s": 46.007
+    },
+    {
+     "w": "and",
+     "s": 46.502
+    },
+    {
+     "w": "lands",
+     "s": 46.727
+    },
+    {
+     "w": "in",
+     "s": 47.041
+    },
+    {
+     "w": "the",
+     "s": 47.221
+    },
+    {
+     "w": "end",
+     "s": 47.446
+    },
+    {
+     "w": "zone.",
+     "s": 47.671
+    },
+    {
+     "w": "Touchdown!",
+     "s": 48.076
+    }
+   ],
+   "sfx_times": [
+    [
+     "squawk",
+     44.496
+    ],
+    [
+     "bonk",
+     45.665
+    ],
+    [
+     "crowd",
+     47.77
+    ],
+    [
+     "horn",
+     48.004
+    ]
+   ]
+  },
+  {
+   "scene": "kick",
+   "text": "Earl misses the extra point. Into the bus window.",
+   "sfx": [
+    [
+     "kick",
+     0.15
+    ],
+    [
+     "glass",
+     0.7
+    ]
+   ],
+   "start": 48.926,
+   "end": 51.757,
+   "words": [
+    {
+     "w": "Earl",
+     "s": 48.926
+    },
+    {
+     "w": "misses",
+     "s": 49.195
+    },
+    {
+     "w": "the",
+     "s": 49.555
+    },
+    {
+     "w": "extra",
+     "s": 49.78
+    },
+    {
+     "w": "point.",
+     "s": 50.094
+    },
+    {
+     "w": "Into",
+     "s": 50.543
+    },
+    {
+     "w": "the",
+     "s": 50.813
+    },
+    {
+     "w": "bus",
+     "s": 51.038
+    },
+    {
+     "w": "window.",
+     "s": 51.262
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     49.351
+    ],
+    [
+     "glass",
+     50.908
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final, twenty one to six. Dead last.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.6
+    ]
+   ],
+   "start": 51.977,
+   "end": 54.356,
+   "words": [
+    {
+     "w": "Final,",
+     "s": 51.977
+    },
+    {
+     "w": "twenty",
+     "s": 52.452
+    },
+    {
+     "w": "one",
+     "s": 52.833
+    },
+    {
+     "w": "to",
+     "s": 53.071
+    },
+    {
+     "w": "six.",
+     "s": 53.261
+    },
+    {
+     "w": "Dead",
+     "s": 53.642
+    },
+    {
+     "w": "last.",
+     "s": 53.928
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     51.977
+    ],
+    [
+     "sad",
+     53.404
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Pine Hollow Badgers. Unbeaten in four years.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@Unbeaten"
+    ]
+   ],
+   "start": 54.576,
+   "end": 58.213,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 54.576
+    },
+    {
+     "w": "the",
+     "s": 55.215
+    },
+    {
+     "w": "Pine",
+     "s": 55.461
+    },
+    {
+     "w": "Hollow",
+     "s": 55.756
+    },
+    {
+     "w": "Badgers.",
+     "s": 56.149
+    },
+    {
+     "w": "Unbeaten",
+     "s": 56.738
+    },
+    {
+     "w": "in",
+     "s": 57.23
+    },
+    {
+     "w": "four",
+     "s": 57.427
+    },
+    {
+     "w": "years.",
+     "s": 57.721
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     54.576
+    ],
+    [
+     "stamp",
+     56.738
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Every like on this video is a dollar. The most liked comment picks our upgrade. Gear, stands, the field, or goal posts.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@Gear"
+    ],
+    [
+     "pop",
+     "@stands"
+    ],
+    [
+     "pop",
+     "@field"
+    ],
+    [
+     "pop",
+     "@goal"
+    ]
+   ],
+   "start": 58.433,
+   "end": 65.74,
+   "words": [
+    {
+     "w": "Every",
+     "s": 58.433
+    },
+    {
+     "w": "like",
+     "s": 58.765
+    },
+    {
+     "w": "on",
+     "s": 59.05
+    },
+    {
+     "w": "this",
+     "s": 59.24
+    },
+    {
+     "w": "video",
+     "s": 59.524
+    },
+    {
+     "w": "is",
+     "s": 59.856
+    },
+    {
+     "w": "a",
+     "s": 60.046
+    },
+    {
+     "w": "dollar.",
+     "s": 60.189
+    },
+    {
+     "w": "The",
+     "s": 60.711
+    },
+    {
+     "w": "most",
+     "s": 60.948
+    },
+    {
+     "w": "liked",
+     "s": 61.232
+    },
+    {
+     "w": "comment",
+     "s": 61.565
+    },
+    {
+     "w": "picks",
+     "s": 61.992
+    },
+    {
+     "w": "our",
+     "s": 62.324
+    },
+    {
+     "w": "upgrade.",
+     "s": 62.561
+    },
+    {
+     "w": "Gear,",
+     "s": 63.13
+    },
+    {
+     "w": "stands,",
+     "s": 63.557
+    },
+    {
+     "w": "the",
+     "s": 64.079
+    },
+    {
+     "w": "field,",
+     "s": 64.317
+    },
+    {
+     "w": "or",
+     "s": 64.791
+    },
+    {
+     "w": "goal",
+     "s": 64.981
+    },
+    {
+     "w": "posts.",
+     "s": 65.266
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     59.164
+    ],
+    [
+     "pop",
+     63.13
+    ],
+    [
+     "pop",
+     63.557
+    ],
+    [
+     "pop",
+     64.317
+    ],
+    [
+     "pop",
+     64.981
+    ]
+   ]
+  }
+ ]
+}

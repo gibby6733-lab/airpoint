@@ -1,0 +1,1209 @@
+{
+ "duration": 62.4,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day one. I just started the worst soccer team in America.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 0.35,
+   "end": 3.614,
+   "words": [
+    {
+     "w": "Day",
+     "s": 0.35
+    },
+    {
+     "w": "one.",
+     "s": 0.574
+    },
+    {
+     "w": "I",
+     "s": 0.931
+    },
+    {
+     "w": "just",
+     "s": 1.065
+    },
+    {
+     "w": "started",
+     "s": 1.334
+    },
+    {
+     "w": "the",
+     "s": 1.736
+    },
+    {
+     "w": "worst",
+     "s": 1.96
+    },
+    {
+     "w": "soccer",
+     "s": 2.273
+    },
+    {
+     "w": "team",
+     "s": 2.63
+    },
+    {
+     "w": "in",
+     "s": 2.899
+    },
+    {
+     "w": "America.",
+     "s": 3.077
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     0.35
+    ],
+    [
+     "stamp",
+     0.513
+    ]
+   ]
+  },
+  {
+   "scene": "profile",
+   "text": "We're the Bramblewood Pigeons. Zero fans, zero wins, and nine dollars.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "cash",
+     "@nine"
+    ]
+   ],
+   "start": 3.834,
+   "end": 8.329,
+   "words": [
+    {
+     "w": "We're",
+     "s": 3.834
+    },
+    {
+     "w": "the",
+     "s": 4.137
+    },
+    {
+     "w": "Bramblewood",
+     "s": 4.389
+    },
+    {
+     "w": "Pigeons.",
+     "s": 5.046
+    },
+    {
+     "w": "Zero",
+     "s": 5.652
+    },
+    {
+     "w": "fans,",
+     "s": 5.955
+    },
+    {
+     "w": "zero",
+     "s": 6.41
+    },
+    {
+     "w": "wins,",
+     "s": 6.713
+    },
+    {
+     "w": "and",
+     "s": 7.167
+    },
+    {
+     "w": "nine",
+     "s": 7.42
+    },
+    {
+     "w": "dollars.",
+     "s": 7.723
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     3.834
+    ],
+    [
+     "cash",
+     7.42
+    ]
+   ]
+  },
+  {
+   "scene": "likes",
+   "text": "Every like on this video adds one dollar to the fund.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ],
+   "start": 8.549,
+   "end": 11.588,
+   "words": [
+    {
+     "w": "Every",
+     "s": 8.549
+    },
+    {
+     "w": "like",
+     "s": 8.866
+    },
+    {
+     "w": "on",
+     "s": 9.139
+    },
+    {
+     "w": "this",
+     "s": 9.32
+    },
+    {
+     "w": "video",
+     "s": 9.592
+    },
+    {
+     "w": "adds",
+     "s": 9.91
+    },
+    {
+     "w": "one",
+     "s": 10.182
+    },
+    {
+     "w": "dollar",
+     "s": 10.408
+    },
+    {
+     "w": "to",
+     "s": 10.771
+    },
+    {
+     "w": "the",
+     "s": 10.953
+    },
+    {
+     "w": "fund.",
+     "s": 11.179
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     8.549
+    ],
+    [
+     "ding",
+     10.182
+    ]
+   ]
+  },
+  {
+   "scene": "purchase",
+   "text": "Nine bucks bought us one ball. It's already flat.",
+   "sfx": [
+    [
+     "spend",
+     0.3
+    ],
+    [
+     "boing",
+     0.45
+    ],
+    [
+     "slide",
+     "@flat"
+    ]
+   ],
+   "start": 11.808,
+   "end": 14.511,
+   "words": [
+    {
+     "w": "Nine",
+     "s": 11.808
+    },
+    {
+     "w": "bucks",
+     "s": 12.069
+    },
+    {
+     "w": "bought",
+     "s": 12.374
+    },
+    {
+     "w": "us",
+     "s": 12.723
+    },
+    {
+     "w": "one",
+     "s": 12.898
+    },
+    {
+     "w": "ball.",
+     "s": 13.116
+    },
+    {
+     "w": "It's",
+     "s": 13.508
+    },
+    {
+     "w": "already",
+     "s": 13.726
+    },
+    {
+     "w": "flat.",
+     "s": 14.118
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     12.619
+    ],
+    [
+     "boing",
+     13.024
+    ],
+    [
+     "slide",
+     14.118
+    ]
+   ]
+  },
+  {
+   "scene": "stadium_tour",
+   "text": "Our home pitch is a parking lot. Shopping carts for goals, and lawn chairs for stands.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "pop",
+     "@parking"
+    ],
+    [
+     "pop",
+     "@shopping"
+    ],
+    [
+     "pop",
+     "@lawn"
+    ]
+   ],
+   "start": 14.731,
+   "end": 19.703,
+   "words": [
+    {
+     "w": "Our",
+     "s": 14.731
+    },
+    {
+     "w": "home",
+     "s": 14.959
+    },
+    {
+     "w": "pitch",
+     "s": 15.232
+    },
+    {
+     "w": "is",
+     "s": 15.552
+    },
+    {
+     "w": "a",
+     "s": 15.734
+    },
+    {
+     "w": "parking",
+     "s": 15.871
+    },
+    {
+     "w": "lot.",
+     "s": 16.282
+    },
+    {
+     "w": "Shopping",
+     "s": 16.647
+    },
+    {
+     "w": "carts",
+     "s": 17.103
+    },
+    {
+     "w": "for",
+     "s": 17.422
+    },
+    {
+     "w": "goals,",
+     "s": 17.65
+    },
+    {
+     "w": "and",
+     "s": 18.106
+    },
+    {
+     "w": "lawn",
+     "s": 18.334
+    },
+    {
+     "w": "chairs",
+     "s": 18.608
+    },
+    {
+     "w": "for",
+     "s": 18.973
+    },
+    {
+     "w": "stands.",
+     "s": 19.201
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     14.731
+    ],
+    [
+     "pop",
+     15.871
+    ],
+    [
+     "pop",
+     16.647
+    ],
+    [
+     "pop",
+     18.334
+    ]
+   ]
+  },
+  {
+   "scene": "roster_marge",
+   "text": "Marge is our goalkeeper. She's seventy four.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ],
+   "start": 19.923,
+   "end": 22.391,
+   "words": [
+    {
+     "w": "Marge",
+     "s": 19.923
+    },
+    {
+     "w": "is",
+     "s": 20.237
+    },
+    {
+     "w": "our",
+     "s": 20.417
+    },
+    {
+     "w": "goalkeeper.",
+     "s": 20.641
+    },
+    {
+     "w": "She's",
+     "s": 21.314
+    },
+    {
+     "w": "seventy",
+     "s": 21.583
+    },
+    {
+     "w": "four.",
+     "s": 21.987
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     19.923
+    ]
+   ]
+  },
+  {
+   "scene": "roster_dash",
+   "text": "Dash is our striker. He only runs backwards.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ],
+   "start": 22.611,
+   "end": 25.248,
+   "words": [
+    {
+     "w": "Dash",
+     "s": 22.611
+    },
+    {
+     "w": "is",
+     "s": 22.889
+    },
+    {
+     "w": "our",
+     "s": 23.074
+    },
+    {
+     "w": "striker.",
+     "s": 23.305
+    },
+    {
+     "w": "He",
+     "s": 23.86
+    },
+    {
+     "w": "only",
+     "s": 24.045
+    },
+    {
+     "w": "runs",
+     "s": 24.323
+    },
+    {
+     "w": "backwards.",
+     "s": 24.6
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     22.611
+    ]
+   ]
+  },
+  {
+   "scene": "roster_pete",
+   "text": "And Pete plays defense. He's allergic to grass, so this works out.",
+   "sfx": [
+    [
+     "swipe",
+     0.0
+    ]
+   ],
+   "start": 25.468,
+   "end": 29.241,
+   "words": [
+    {
+     "w": "And",
+     "s": 25.468
+    },
+    {
+     "w": "Pete",
+     "s": 25.693
+    },
+    {
+     "w": "plays",
+     "s": 25.962
+    },
+    {
+     "w": "defense.",
+     "s": 26.277
+    },
+    {
+     "w": "He's",
+     "s": 26.815
+    },
+    {
+     "w": "allergic",
+     "s": 27.04
+    },
+    {
+     "w": "to",
+     "s": 27.489
+    },
+    {
+     "w": "grass,",
+     "s": 27.669
+    },
+    {
+     "w": "so",
+     "s": 28.118
+    },
+    {
+     "w": "this",
+     "s": 28.298
+    },
+    {
+     "w": "works",
+     "s": 28.567
+    },
+    {
+     "w": "out.",
+     "s": 28.882
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     25.468
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard",
+   "text": "Game one, the Rivertown Otters.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "crowd",
+     0.3
+    ]
+   ],
+   "start": 29.461,
+   "end": 31.253,
+   "words": [
+    {
+     "w": "Game",
+     "s": 29.461
+    },
+    {
+     "w": "one,",
+     "s": 29.723
+    },
+    {
+     "w": "the",
+     "s": 30.073
+    },
+    {
+     "w": "Rivertown",
+     "s": 30.291
+    },
+    {
+     "w": "Otters.",
+     "s": 30.772
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     29.461
+    ],
+    [
+     "crowd",
+     29.999
+    ]
+   ]
+  },
+  {
+   "scene": "play1",
+   "text": "Kickoff. Dash dribbles backwards, straight into our own goal.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "slide",
+     "@backwards"
+    ]
+   ],
+   "start": 31.473,
+   "end": 34.819,
+   "words": [
+    {
+     "w": "Kickoff.",
+     "s": 31.473
+    },
+    {
+     "w": "Dash",
+     "s": 31.994
+    },
+    {
+     "w": "dribbles",
+     "s": 32.255
+    },
+    {
+     "w": "backwards,",
+     "s": 32.69
+    },
+    {
+     "w": "straight",
+     "s": 33.298
+    },
+    {
+     "w": "into",
+     "s": 33.733
+    },
+    {
+     "w": "our",
+     "s": 33.993
+    },
+    {
+     "w": "own",
+     "s": 34.211
+    },
+    {
+     "w": "goal.",
+     "s": 34.428
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     31.473
+    ],
+    [
+     "slide",
+     32.69
+    ]
+   ]
+  },
+  {
+   "scene": "play1_goal",
+   "text": "Own goal. One, nothing.",
+   "sfx": [
+    [
+     "sad",
+     0.3
+    ]
+   ],
+   "start": 35.039,
+   "end": 36.324,
+   "words": [
+    {
+     "w": "Own",
+     "s": 35.039
+    },
+    {
+     "w": "goal.",
+     "s": 35.228
+    },
+    {
+     "w": "One,",
+     "s": 35.568
+    },
+    {
+     "w": "nothing.",
+     "s": 35.87
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     35.425
+    ]
+   ]
+  },
+  {
+   "scene": "play2",
+   "text": "Second half. A car alarm goes off, and Marge chases it.",
+   "sfx": [
+    [
+     "honk",
+     "@car"
+    ],
+    [
+     "honk",
+     "@goes"
+    ],
+    [
+     "honk",
+     "@marge"
+    ]
+   ],
+   "start": 36.544,
+   "end": 40.068,
+   "words": [
+    {
+     "w": "Second",
+     "s": 36.544
+    },
+    {
+     "w": "half.",
+     "s": 36.93
+    },
+    {
+     "w": "A",
+     "s": 37.365
+    },
+    {
+     "w": "car",
+     "s": 37.509
+    },
+    {
+     "w": "alarm",
+     "s": 37.751
+    },
+    {
+     "w": "goes",
+     "s": 38.089
+    },
+    {
+     "w": "off,",
+     "s": 38.378
+    },
+    {
+     "w": "and",
+     "s": 38.765
+    },
+    {
+     "w": "Marge",
+     "s": 39.006
+    },
+    {
+     "w": "chases",
+     "s": 39.344
+    },
+    {
+     "w": "it.",
+     "s": 39.73
+    }
+   ],
+   "sfx_times": [
+    [
+     "honk",
+     37.509
+    ],
+    [
+     "honk",
+     38.089
+    ],
+    [
+     "honk",
+     39.006
+    ]
+   ]
+  },
+  {
+   "scene": "play2_goal",
+   "text": "They roll it into an empty cart. Two, nothing.",
+   "sfx": [
+    [
+     "horn",
+     0.6
+    ]
+   ],
+   "start": 40.288,
+   "end": 42.814,
+   "words": [
+    {
+     "w": "They",
+     "s": 40.288
+    },
+    {
+     "w": "roll",
+     "s": 40.532
+    },
+    {
+     "w": "it",
+     "s": 40.777
+    },
+    {
+     "w": "into",
+     "s": 40.94
+    },
+    {
+     "w": "an",
+     "s": 41.184
+    },
+    {
+     "w": "empty",
+     "s": 41.347
+    },
+    {
+     "w": "cart.",
+     "s": 41.632
+    },
+    {
+     "w": "Two,",
+     "s": 41.999
+    },
+    {
+     "w": "nothing.",
+     "s": 42.325
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     41.804
+    ]
+   ]
+  },
+  {
+   "scene": "play3",
+   "text": "Last minute. Pete sneezes, and the ball flies into their cart. Goal!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "bonk",
+     "@sneezes"
+    ],
+    [
+     "crowd",
+     "@goal"
+    ],
+    [
+     "horn",
+     "@goal"
+    ]
+   ],
+   "start": 43.034,
+   "end": 47.057,
+   "words": [
+    {
+     "w": "Last",
+     "s": 43.034
+    },
+    {
+     "w": "minute.",
+     "s": 43.305
+    },
+    {
+     "w": "Pete",
+     "s": 43.802
+    },
+    {
+     "w": "sneezes,",
+     "s": 44.073
+    },
+    {
+     "w": "and",
+     "s": 44.616
+    },
+    {
+     "w": "the",
+     "s": 44.842
+    },
+    {
+     "w": "ball",
+     "s": 45.068
+    },
+    {
+     "w": "flies",
+     "s": 45.339
+    },
+    {
+     "w": "into",
+     "s": 45.656
+    },
+    {
+     "w": "their",
+     "s": 45.927
+    },
+    {
+     "w": "cart.",
+     "s": 46.244
+    },
+    {
+     "w": "Goal!",
+     "s": 46.65
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     43.034
+    ],
+    [
+     "bonk",
+     44.073
+    ],
+    [
+     "crowd",
+     46.65
+    ],
+    [
+     "horn",
+     46.65
+    ]
+   ]
+  },
+  {
+   "scene": "standings",
+   "text": "Final score, two to one. Dead last.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     0.6
+    ]
+   ],
+   "start": 47.277,
+   "end": 49.535,
+   "words": [
+    {
+     "w": "Final",
+     "s": 47.277
+    },
+    {
+     "w": "score,",
+     "s": 47.6
+    },
+    {
+     "w": "two",
+     "s": 48.061
+    },
+    {
+     "w": "to",
+     "s": 48.291
+    },
+    {
+     "w": "one.",
+     "s": 48.475
+    },
+    {
+     "w": "Dead",
+     "s": 48.844
+    },
+    {
+     "w": "last.",
+     "s": 49.12
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     47.277
+    ],
+    [
+     "sad",
+     48.632
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame",
+   "text": "Tomorrow, the Hillcrest Hornets. They've never lost at home.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@never"
+    ]
+   ],
+   "start": 49.755,
+   "end": 53.035,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 49.755
+    },
+    {
+     "w": "the",
+     "s": 50.323
+    },
+    {
+     "w": "Hillcrest",
+     "s": 50.542
+    },
+    {
+     "w": "Hornets.",
+     "s": 51.023
+    },
+    {
+     "w": "They've",
+     "s": 51.548
+    },
+    {
+     "w": "never",
+     "s": 51.898
+    },
+    {
+     "w": "lost",
+     "s": 52.204
+    },
+    {
+     "w": "at",
+     "s": 52.467
+    },
+    {
+     "w": "home.",
+     "s": 52.642
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     49.755
+    ],
+    [
+     "stamp",
+     51.898
+    ]
+   ]
+  },
+  {
+   "scene": "cta",
+   "text": "Every like on this video is a dollar. The most liked comment picks our upgrade. A real ball, real goals, grass, or seats.",
+   "sfx": [
+    [
+     "cash",
+     0.1
+    ],
+    [
+     "pop",
+     "@ball"
+    ],
+    [
+     "pop",
+     "@goals"
+    ],
+    [
+     "pop",
+     "@grass"
+    ],
+    [
+     "pop",
+     "@seats"
+    ]
+   ],
+   "start": 53.255,
+   "end": 60.9,
+   "words": [
+    {
+     "w": "Every",
+     "s": 53.255
+    },
+    {
+     "w": "like",
+     "s": 53.596
+    },
+    {
+     "w": "on",
+     "s": 53.888
+    },
+    {
+     "w": "this",
+     "s": 54.083
+    },
+    {
+     "w": "video",
+     "s": 54.375
+    },
+    {
+     "w": "is",
+     "s": 54.716
+    },
+    {
+     "w": "a",
+     "s": 54.911
+    },
+    {
+     "w": "dollar.",
+     "s": 55.057
+    },
+    {
+     "w": "The",
+     "s": 55.593
+    },
+    {
+     "w": "most",
+     "s": 55.836
+    },
+    {
+     "w": "liked",
+     "s": 56.128
+    },
+    {
+     "w": "comment",
+     "s": 56.469
+    },
+    {
+     "w": "picks",
+     "s": 56.907
+    },
+    {
+     "w": "our",
+     "s": 57.248
+    },
+    {
+     "w": "upgrade.",
+     "s": 57.492
+    },
+    {
+     "w": "A",
+     "s": 58.076
+    },
+    {
+     "w": "real",
+     "s": 58.222
+    },
+    {
+     "w": "ball,",
+     "s": 58.514
+    },
+    {
+     "w": "real",
+     "s": 58.952
+    },
+    {
+     "w": "goals,",
+     "s": 59.245
+    },
+    {
+     "w": "grass,",
+     "s": 59.732
+    },
+    {
+     "w": "or",
+     "s": 60.219
+    },
+    {
+     "w": "seats.",
+     "s": 60.413
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     54.02
+    ],
+    [
+     "pop",
+     58.514
+    ],
+    [
+     "pop",
+     59.245
+    ],
+    [
+     "pop",
+     59.732
+    ],
+    [
+     "pop",
+     60.413
+    ]
+   ]
+  }
+ ]
+}

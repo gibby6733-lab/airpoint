@@ -1,0 +1,225 @@
+{
+ "series": "Would You Survive?",
+ "episode": 1,
+ "title": "The Titanic",
+ "vertical": true,
+ "mix": {
+  "music": 0.075,
+  "ambience": 0.035
+ },
+ "width": 1080,
+ "height": 1920,
+ "beats": [
+  {
+   "sp": "narr",
+   "text": "Would you survive the Titanic? Three choices. Let's see.",
+   "scene": "hook",
+   "intensity": 0.4,
+   "sfx": [
+    [
+     "sting",
+     0.05
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Eleven forty PM. The ship just hit an iceberg.",
+   "scene": "impact",
+   "clock": "11:40 PM",
+   "intensity": 0.6,
+   "sfx": [
+    [
+     "crash",
+     0.55
+    ],
+    [
+     "scrape",
+     0.6
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "There are lifeboat seats for only half the people on board.",
+   "scene": "stat",
+   "intensity": 0.5
+  },
+  {
+   "sp": "narr",
+   "text": "Choice one. Get in the first lifeboat? Or stay on the warm ship?",
+   "scene": "choice",
+   "n": 1,
+   "q": "The crew starts loading lifeboats",
+   "a": "Get in the first lifeboat",
+   "bb": "Stay on the warm ship",
+   "intensity": 0.55
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "scene": "choice",
+   "n": 1,
+   "q": "The crew starts loading lifeboats",
+   "a": "Get in the first lifeboat",
+   "bb": "Stay on the warm ship",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "The first lifeboat left with just twenty eight people. It had room for sixty five. If you got in, you live.",
+   "scene": "lifeboat",
+   "clock": "12:45 AM",
+   "win": "A",
+   "intensity": 0.45,
+   "sfx": [
+    [
+     "ding",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Choice two. Two AM. The ship is tilting. Jump now? Or climb to the back?",
+   "scene": "choice",
+   "n": 2,
+   "q": "2 AM. The ship is tilting",
+   "a": "Jump into the ocean now",
+   "bb": "Climb to the back of the ship",
+   "intensity": 0.7
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "scene": "choice",
+   "n": 2,
+   "q": "2 AM. The ship is tilting",
+   "a": "Jump into the ocean now",
+   "bb": "Climb to the back of the ship",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "The water is minus two degrees. Jump early, and you last minutes. Climbing buys you time.",
+   "scene": "cold",
+   "clock": "2:00 AM",
+   "win": "B",
+   "intensity": 0.75,
+   "sfx": [
+    [
+     "ding",
+     0.9
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "At two twenty, the Titanic sinks.",
+   "scene": "sink",
+   "clock": "2:20 AM",
+   "intensity": 0.9,
+   "sfx": [
+    [
+     "crash",
+     0.3
+    ],
+    [
+     "thunder",
+     0.4
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Choice three. You're in freezing water. Swim to a flipped lifeboat? Or float and wait?",
+   "scene": "choice",
+   "n": 3,
+   "q": "You're in the freezing water",
+   "a": "Swim to a flipped lifeboat",
+   "bb": "Float and wait for rescue",
+   "intensity": 0.8
+  },
+  {
+   "sp": "",
+   "text": "",
+   "hold": 2.6,
+   "scene": "choice",
+   "n": 3,
+   "q": "You're in the freezing water",
+   "a": "Swim to a flipped lifeboat",
+   "bb": "Float and wait for rescue",
+   "countdown": true,
+   "sfx": [
+    [
+     "tick",
+     0
+    ],
+    [
+     "tick",
+     0.33
+    ],
+    [
+     "tick",
+     0.66
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "Rescue doesn't come until four AM. But about thirty men survived standing on a flipped lifeboat. Swim.",
+   "scene": "collapsible",
+   "clock": "4:00 AM",
+   "win": "A",
+   "intensity": 0.5,
+   "sfx": [
+    [
+     "ding",
+     0.95
+    ]
+   ]
+  },
+  {
+   "sp": "narr",
+   "text": "About fifteen hundred people died that night. Around seven hundred survived.",
+   "scene": "result",
+   "intensity": 0.35
+  },
+  {
+   "sp": "narr",
+   "text": "Would you have made it? Comment your answers. And what disaster should we survive next?",
+   "scene": "cta",
+   "intensity": 0.3
+  }
+ ]
+}

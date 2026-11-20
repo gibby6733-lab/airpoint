@@ -1,0 +1,11 @@
+Transform the provided images into a short premium animations matching the render medium and pacing described in the Source Material. Preserve the final composition of the provided image exactly, do not redesign, reposition, resize, or replace any element. The provided image is the finished frame the animation builds toward.
+
+Camera, strict: the camera stays completely locked for the entire clip. No zoom, no pan, no tilt, no rotation, no orbit, no dolly, no handheld shake, no cuts, no transitions, no morphing, no object replacement. One continuous static shot.
+
+First 70 percent of the clip, build-on assembly: the frame opens on the empty background plate only, then elements enter one by one, back to front, in narrative order, hero element first, each landing with a small handcrafted settle and a real shadow. No element moves again once it lands. By the 70 percent mark the frame exactly matches the provided image.
+
+Final 30 percent, living poster: everything holds position. Only subtle ambient life remains, nothing changes location, nothing enters or exits.
+
+Add paper cut type transitions between each animation.
+
+Audio: Add tense music, add only the narration I sent you, no voices. Only close-up ambient texture appropriate to the render medium, all subtle.

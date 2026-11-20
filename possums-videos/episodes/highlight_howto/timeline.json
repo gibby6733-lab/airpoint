@@ -1,0 +1,815 @@
+{
+ "duration": 41.135,
+ "lines": [
+  {
+   "scene": "h_hook",
+   "text": "This football team is broke, terrible, and run by you.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@broke"
+    ],
+    [
+     "stamp",
+     "@terrible"
+    ],
+    [
+     "horn",
+     "@you"
+    ]
+   ],
+   "start": 0.35,
+   "end": 3.184,
+   "words": [
+    {
+     "w": "This",
+     "s": 0.35
+    },
+    {
+     "w": "football",
+     "s": 0.589
+    },
+    {
+     "w": "team",
+     "s": 0.989
+    },
+    {
+     "w": "is",
+     "s": 1.228
+    },
+    {
+     "w": "broke,",
+     "s": 1.388
+    },
+    {
+     "w": "terrible,",
+     "s": 1.787
+    },
+    {
+     "w": "and",
+     "s": 2.306
+    },
+    {
+     "w": "run",
+     "s": 2.505
+    },
+    {
+     "w": "by",
+     "s": 2.705
+    },
+    {
+     "w": "you.",
+     "s": 2.864
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     0.35
+    ],
+    [
+     "stamp",
+     1.388
+    ],
+    [
+     "stamp",
+     1.787
+    ],
+    [
+     "horn",
+     2.864
+    ]
+   ]
+  },
+  {
+   "scene": "h_likes",
+   "text": "Here's how it works. Rule one. Every like on a video adds one dollar to the team fund.",
+   "sfx": [
+    [
+     "pop",
+     "@rule"
+    ],
+    [
+     "ding",
+     "@like"
+    ],
+    [
+     "cash",
+     "@dollar"
+    ]
+   ],
+   "start": 3.404,
+   "end": 8.471,
+   "words": [
+    {
+     "w": "Here's",
+     "s": 3.404
+    },
+    {
+     "w": "how",
+     "s": 3.726
+    },
+    {
+     "w": "it",
+     "s": 3.956
+    },
+    {
+     "w": "works.",
+     "s": 4.141
+    },
+    {
+     "w": "Rule",
+     "s": 4.601
+    },
+    {
+     "w": "one.",
+     "s": 4.878
+    },
+    {
+     "w": "Every",
+     "s": 5.246
+    },
+    {
+     "w": "like",
+     "s": 5.569
+    },
+    {
+     "w": "on",
+     "s": 5.845
+    },
+    {
+     "w": "a",
+     "s": 6.029
+    },
+    {
+     "w": "video",
+     "s": 6.167
+    },
+    {
+     "w": "adds",
+     "s": 6.49
+    },
+    {
+     "w": "one",
+     "s": 6.766
+    },
+    {
+     "w": "dollar",
+     "s": 6.997
+    },
+    {
+     "w": "to",
+     "s": 7.365
+    },
+    {
+     "w": "the",
+     "s": 7.549
+    },
+    {
+     "w": "team",
+     "s": 7.78
+    },
+    {
+     "w": "fund.",
+     "s": 8.056
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     4.601
+    ],
+    [
+     "ding",
+     5.569
+    ],
+    [
+     "cash",
+     6.997
+    ]
+   ]
+  },
+  {
+   "scene": "h_comment",
+   "text": "Rule two. The most liked comment picks what we buy with it.",
+   "sfx": [
+    [
+     "pop",
+     "@rule"
+    ],
+    [
+     "pop",
+     "@most"
+    ],
+    [
+     "stamp",
+     "@picks"
+    ]
+   ],
+   "start": 8.691,
+   "end": 11.919,
+   "words": [
+    {
+     "w": "Rule",
+     "s": 8.691
+    },
+    {
+     "w": "two.",
+     "s": 8.946
+    },
+    {
+     "w": "The",
+     "s": 9.285
+    },
+    {
+     "w": "most",
+     "s": 9.498
+    },
+    {
+     "w": "liked",
+     "s": 9.753
+    },
+    {
+     "w": "comment",
+     "s": 10.05
+    },
+    {
+     "w": "picks",
+     "s": 10.432
+    },
+    {
+     "w": "what",
+     "s": 10.73
+    },
+    {
+     "w": "we",
+     "s": 10.985
+    },
+    {
+     "w": "buy",
+     "s": 11.155
+    },
+    {
+     "w": "with",
+     "s": 11.367
+    },
+    {
+     "w": "it.",
+     "s": 11.622
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     8.691
+    ],
+    [
+     "pop",
+     9.498
+    ],
+    [
+     "stamp",
+     10.432
+    ]
+   ]
+  },
+  {
+   "scene": "h_build",
+   "text": "Then we build it. The stadium only gets better when you pay for it.",
+   "sfx": [
+    [
+     "spend",
+     "@build"
+    ],
+    [
+     "boing",
+     "@better"
+    ]
+   ],
+   "start": 12.139,
+   "end": 15.65,
+   "words": [
+    {
+     "w": "Then",
+     "s": 12.139
+    },
+    {
+     "w": "we",
+     "s": 12.384
+    },
+    {
+     "w": "build",
+     "s": 12.548
+    },
+    {
+     "w": "it.",
+     "s": 12.833
+    },
+    {
+     "w": "The",
+     "s": 13.119
+    },
+    {
+     "w": "stadium",
+     "s": 13.323
+    },
+    {
+     "w": "only",
+     "s": 13.691
+    },
+    {
+     "w": "gets",
+     "s": 13.936
+    },
+    {
+     "w": "better",
+     "s": 14.18
+    },
+    {
+     "w": "when",
+     "s": 14.507
+    },
+    {
+     "w": "you",
+     "s": 14.752
+    },
+    {
+     "w": "pay",
+     "s": 14.956
+    },
+    {
+     "w": "for",
+     "s": 15.16
+    },
+    {
+     "w": "it.",
+     "s": 15.364
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     12.548
+    ],
+    [
+     "boing",
+     14.18
+    ]
+   ]
+  },
+  {
+   "scene": "h_join",
+   "text": "Rule three. Want to be in the video? Comment the position you want. Quarterback, kicker, even the hot dog guy.",
+   "sfx": [
+    [
+     "pop",
+     "@rule"
+    ],
+    [
+     "pop",
+     "@quarterback"
+    ],
+    [
+     "pop",
+     "@kicker"
+    ],
+    [
+     "pop",
+     "@hot"
+    ]
+   ],
+   "start": 15.87,
+   "end": 22.372,
+   "words": [
+    {
+     "w": "Rule",
+     "s": 15.87
+    },
+    {
+     "w": "three.",
+     "s": 16.143
+    },
+    {
+     "w": "Want",
+     "s": 16.598
+    },
+    {
+     "w": "to",
+     "s": 16.87
+    },
+    {
+     "w": "be",
+     "s": 17.052
+    },
+    {
+     "w": "in",
+     "s": 17.234
+    },
+    {
+     "w": "the",
+     "s": 17.416
+    },
+    {
+     "w": "video?",
+     "s": 17.643
+    },
+    {
+     "w": "Comment",
+     "s": 18.098
+    },
+    {
+     "w": "the",
+     "s": 18.507
+    },
+    {
+     "w": "position",
+     "s": 18.735
+    },
+    {
+     "w": "you",
+     "s": 19.189
+    },
+    {
+     "w": "want.",
+     "s": 19.417
+    },
+    {
+     "w": "Quarterback,",
+     "s": 19.826
+    },
+    {
+     "w": "kicker,",
+     "s": 20.553
+    },
+    {
+     "w": "even",
+     "s": 21.053
+    },
+    {
+     "w": "the",
+     "s": 21.326
+    },
+    {
+     "w": "hot",
+     "s": 21.554
+    },
+    {
+     "w": "dog",
+     "s": 21.781
+    },
+    {
+     "w": "guy.",
+     "s": 22.008
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     15.87
+    ],
+    [
+     "pop",
+     19.826
+    ],
+    [
+     "pop",
+     20.553
+    ],
+    [
+     "pop",
+     21.554
+    ]
+   ]
+  },
+  {
+   "scene": "h_sign",
+   "text": "Every day, we pick new players from the comments. Your name goes on the roster, and you show up in the game.",
+   "sfx": [
+    [
+     "whistle",
+     "@pick"
+    ],
+    [
+     "stamp",
+     "@roster"
+    ],
+    [
+     "crowd",
+     "@game"
+    ]
+   ],
+   "start": 22.592,
+   "end": 28.51,
+   "words": [
+    {
+     "w": "Every",
+     "s": 22.592
+    },
+    {
+     "w": "day,",
+     "s": 22.89
+    },
+    {
+     "w": "we",
+     "s": 23.231
+    },
+    {
+     "w": "pick",
+     "s": 23.401
+    },
+    {
+     "w": "new",
+     "s": 23.657
+    },
+    {
+     "w": "players",
+     "s": 23.869
+    },
+    {
+     "w": "from",
+     "s": 24.253
+    },
+    {
+     "w": "the",
+     "s": 24.508
+    },
+    {
+     "w": "comments.",
+     "s": 24.721
+    },
+    {
+     "w": "Your",
+     "s": 25.274
+    },
+    {
+     "w": "name",
+     "s": 25.53
+    },
+    {
+     "w": "goes",
+     "s": 25.785
+    },
+    {
+     "w": "on",
+     "s": 26.041
+    },
+    {
+     "w": "the",
+     "s": 26.211
+    },
+    {
+     "w": "roster,",
+     "s": 26.424
+    },
+    {
+     "w": "and",
+     "s": 26.892
+    },
+    {
+     "w": "you",
+     "s": 27.105
+    },
+    {
+     "w": "show",
+     "s": 27.318
+    },
+    {
+     "w": "up",
+     "s": 27.574
+    },
+    {
+     "w": "in",
+     "s": 27.744
+    },
+    {
+     "w": "the",
+     "s": 27.914
+    },
+    {
+     "w": "game.",
+     "s": 28.127
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     23.401
+    ],
+    [
+     "stamp",
+     26.424
+    ],
+    [
+     "crowd",
+     28.127
+    ]
+   ]
+  },
+  {
+   "scene": "h_proof",
+   "text": "Every day, new fans join the team. Quarterbacks, receivers, even cheerleaders.",
+   "sfx": [
+    [
+     "pop",
+     "@quarterbacks"
+    ],
+    [
+     "pop",
+     "@receivers"
+    ],
+    [
+     "honk",
+     "@cheerleaders"
+    ]
+   ],
+   "start": 28.73,
+   "end": 33.386,
+   "words": [
+    {
+     "w": "Every",
+     "s": 28.73
+    },
+    {
+     "w": "day,",
+     "s": 29.056
+    },
+    {
+     "w": "new",
+     "s": 29.429
+    },
+    {
+     "w": "fans",
+     "s": 29.661
+    },
+    {
+     "w": "join",
+     "s": 29.941
+    },
+    {
+     "w": "the",
+     "s": 30.22
+    },
+    {
+     "w": "team.",
+     "s": 30.453
+    },
+    {
+     "w": "Quarterbacks,",
+     "s": 30.872
+    },
+    {
+     "w": "receivers,",
+     "s": 31.663
+    },
+    {
+     "w": "even",
+     "s": 32.315
+    },
+    {
+     "w": "cheerleaders.",
+     "s": 32.594
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     30.872
+    ],
+    [
+     "pop",
+     31.663
+    ],
+    [
+     "honk",
+     32.594
+    ]
+   ]
+  },
+  {
+   "scene": "h_cta",
+   "text": "So like the video, comment your position, and follow. A new day drops every day. Maybe tomorrow, it's you.",
+   "sfx": [
+    [
+     "ding",
+     "@like"
+    ],
+    [
+     "ding",
+     "@comment"
+    ],
+    [
+     "ding",
+     "@follow"
+    ],
+    [
+     "horn",
+     "@you"
+    ]
+   ],
+   "start": 33.606,
+   "end": 39.635,
+   "words": [
+    {
+     "w": "So",
+     "s": 33.606
+    },
+    {
+     "w": "like",
+     "s": 33.782
+    },
+    {
+     "w": "the",
+     "s": 34.046
+    },
+    {
+     "w": "video,",
+     "s": 34.266
+    },
+    {
+     "w": "comment",
+     "s": 34.706
+    },
+    {
+     "w": "your",
+     "s": 35.102
+    },
+    {
+     "w": "position,",
+     "s": 35.366
+    },
+    {
+     "w": "and",
+     "s": 35.938
+    },
+    {
+     "w": "follow.",
+     "s": 36.158
+    },
+    {
+     "w": "A",
+     "s": 36.642
+    },
+    {
+     "w": "new",
+     "s": 36.774
+    },
+    {
+     "w": "day",
+     "s": 36.994
+    },
+    {
+     "w": "drops",
+     "s": 37.215
+    },
+    {
+     "w": "every",
+     "s": 37.523
+    },
+    {
+     "w": "day.",
+     "s": 37.831
+    },
+    {
+     "w": "Maybe",
+     "s": 38.183
+    },
+    {
+     "w": "tomorrow,",
+     "s": 38.491
+    },
+    {
+     "w": "it's",
+     "s": 39.063
+    },
+    {
+     "w": "you.",
+     "s": 39.283
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     33.782
+    ],
+    [
+     "ding",
+     34.706
+    ],
+    [
+     "ding",
+     36.158
+    ],
+    [
+     "horn",
+     35.102
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

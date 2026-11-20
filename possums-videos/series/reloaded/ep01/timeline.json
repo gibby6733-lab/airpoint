@@ -1,0 +1,1561 @@
+{
+ "duration": 66.354,
+ "lines": [
+  {
+   "scene": "fall",
+   "sp": "j",
+   "text": "Bro. Why am I falling?!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "scream",
+     0.3
+    ]
+   ],
+   "start": 0.35,
+   "end": 1.389,
+   "words": [
+    {
+     "w": "Bro.",
+     "s": 0.35
+    },
+    {
+     "w": "Why",
+     "s": 0.61
+    },
+    {
+     "w": "am",
+     "s": 0.772
+    },
+    {
+     "w": "I",
+     "s": 0.902
+    },
+    {
+     "w": "falling?!",
+     "s": 0.999
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     0.35
+    ],
+    [
+     "scream",
+     0.662
+    ]
+   ]
+  },
+  {
+   "scene": "bedroom",
+   "sp": "j",
+   "text": "Okay. Ten minutes ago, I was just gaming at three in the morning.",
+   "clock": "3:07",
+   "sfx": [
+    [
+     "pop",
+     "@gaming"
+    ]
+   ],
+   "start": 1.609,
+   "end": 4.532,
+   "words": [
+    {
+     "w": "Okay.",
+     "s": 1.609
+    },
+    {
+     "w": "Ten",
+     "s": 1.919
+    },
+    {
+     "w": "minutes",
+     "s": 2.09
+    },
+    {
+     "w": "ago,",
+     "s": 2.4
+    },
+    {
+     "w": "I",
+     "s": 2.675
+    },
+    {
+     "w": "was",
+     "s": 2.778
+    },
+    {
+     "w": "just",
+     "s": 2.95
+    },
+    {
+     "w": "gaming",
+     "s": 3.157
+    },
+    {
+     "w": "at",
+     "s": 3.432
+    },
+    {
+     "w": "three",
+     "s": 3.569
+    },
+    {
+     "w": "in",
+     "s": 3.81
+    },
+    {
+     "w": "the",
+     "s": 3.948
+    },
+    {
+     "w": "morning.",
+     "s": 4.12
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     3.157
+    ]
+   ]
+  },
+  {
+   "scene": "bedroom",
+   "sp": "j",
+   "text": "I closed my eyes for one second.",
+   "face": "sleep",
+   "pose": "idle",
+   "sfx": [
+    [
+     "ding",
+     "@one"
+    ]
+   ],
+   "start": 4.752,
+   "end": 6.341,
+   "words": [
+    {
+     "w": "I",
+     "s": 4.752
+    },
+    {
+     "w": "closed",
+     "s": 4.866
+    },
+    {
+     "w": "my",
+     "s": 5.168
+    },
+    {
+     "w": "eyes",
+     "s": 5.32
+    },
+    {
+     "w": "for",
+     "s": 5.547
+    },
+    {
+     "w": "one",
+     "s": 5.736
+    },
+    {
+     "w": "second.",
+     "s": 5.925
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     5.736
+    ]
+   ]
+  },
+  {
+   "scene": "bedroom",
+   "sp": "system",
+   "text": "Player detected. Loading.",
+   "face": "sleep",
+   "pose": "idle",
+   "glitch": true,
+   "pull": true,
+   "sfx": [
+    [
+     "glass",
+     0.1
+    ],
+    [
+     "whoosh",
+     0.6
+    ]
+   ],
+   "start": 6.561,
+   "end": 8.554,
+   "words": [
+    {
+     "w": "Player",
+     "s": 6.561
+    },
+    {
+     "w": "detected.",
+     "s": 7.044
+    },
+    {
+     "w": "Loading.",
+     "s": 7.829
+    }
+   ],
+   "sfx_times": [
+    [
+     "glass",
+     6.76
+    ],
+    [
+     "whoosh",
+     7.757
+    ]
+   ]
+  },
+  {
+   "scene": "lobby",
+   "sp": "j",
+   "text": "And now I'm here? Where even is here?",
+   "emote": "?",
+   "look": 0,
+   "sfx": [
+    [
+     "boing",
+     "@here"
+    ]
+   ],
+   "start": 8.774,
+   "end": 10.165,
+   "words": [
+    {
+     "w": "And",
+     "s": 8.774
+    },
+    {
+     "w": "now",
+     "s": 8.916
+    },
+    {
+     "w": "I'm",
+     "s": 9.058
+    },
+    {
+     "w": "here?",
+     "s": 9.172
+    },
+    {
+     "w": "Where",
+     "s": 9.427
+    },
+    {
+     "w": "even",
+     "s": 9.626
+    },
+    {
+     "w": "is",
+     "s": 9.796
+    },
+    {
+     "w": "here?",
+     "s": 9.91
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     9.172
+    ]
+   ]
+  },
+  {
+   "scene": "sys",
+   "sp": "system",
+   "text": "Welcome, Player zero zero one. You have been selected for the Reality Reloaded program.",
+   "panelTitle": "WELCOME, PLAYER 001",
+   "panel": [
+    "SELECTED FOR:",
+    "REALITY RELOADED"
+   ],
+   "panelKeys": [
+    "selected",
+    "reality"
+   ],
+   "sfx": [
+    [
+     "ding",
+     0.05
+    ]
+   ],
+   "start": 10.385,
+   "end": 16.174,
+   "words": [
+    {
+     "w": "Welcome,",
+     "s": 10.385
+    },
+    {
+     "w": "Player",
+     "s": 11.028
+    },
+    {
+     "w": "zero",
+     "s": 11.457
+    },
+    {
+     "w": "zero",
+     "s": 11.779
+    },
+    {
+     "w": "one.",
+     "s": 12.1
+    },
+    {
+     "w": "You",
+     "s": 12.529
+    },
+    {
+     "w": "have",
+     "s": 12.797
+    },
+    {
+     "w": "been",
+     "s": 13.119
+    },
+    {
+     "w": "selected",
+     "s": 13.441
+    },
+    {
+     "w": "for",
+     "s": 13.977
+    },
+    {
+     "w": "the",
+     "s": 14.245
+    },
+    {
+     "w": "Reality",
+     "s": 14.513
+    },
+    {
+     "w": "Reloaded",
+     "s": 14.995
+    },
+    {
+     "w": "program.",
+     "s": 15.531
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     10.674
+    ]
+   ]
+  },
+  {
+   "scene": "lobby",
+   "sp": "j",
+   "text": "Selected? I didn't sign up for anything!",
+   "system": true,
+   "pose": "point",
+   "jx": 360,
+   "sfx": [
+    [
+     "boing",
+     "@anything"
+    ]
+   ],
+   "start": 16.394,
+   "end": 18.085,
+   "words": [
+    {
+     "w": "Selected?",
+     "s": 16.394
+    },
+    {
+     "w": "I",
+     "s": 16.825
+    },
+    {
+     "w": "didn't",
+     "s": 16.925
+    },
+    {
+     "w": "sign",
+     "s": 17.157
+    },
+    {
+     "w": "up",
+     "s": 17.356
+    },
+    {
+     "w": "for",
+     "s": 17.488
+    },
+    {
+     "w": "anything!",
+     "s": 17.654
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     17.654
+    ]
+   ]
+  },
+  {
+   "scene": "sys",
+   "sp": "system",
+   "text": "Rule one. Every portal is a game. Rule two. You cannot leave a game until you finish its side quest.",
+   "panelTitle": "THE RULES",
+   "panel": [
+    "1. EVERY PORTAL = A GAME",
+    "2. FINISH THE SIDE QUEST",
+    "   OR YOU CAN'T LEAVE"
+   ],
+   "panelKeys": [
+    "every",
+    "cannot",
+    "side"
+   ],
+   "sfx": [
+    [
+     "pop",
+     "@one"
+    ],
+    [
+     "pop",
+     "@two"
+    ]
+   ],
+   "start": 18.305,
+   "end": 24.69,
+   "words": [
+    {
+     "w": "Rule",
+     "s": 18.305
+    },
+    {
+     "w": "one.",
+     "s": 18.602
+    },
+    {
+     "w": "Every",
+     "s": 18.998
+    },
+    {
+     "w": "portal",
+     "s": 19.344
+    },
+    {
+     "w": "is",
+     "s": 19.74
+    },
+    {
+     "w": "a",
+     "s": 19.938
+    },
+    {
+     "w": "game.",
+     "s": 20.087
+    },
+    {
+     "w": "Rule",
+     "s": 20.532
+    },
+    {
+     "w": "two.",
+     "s": 20.829
+    },
+    {
+     "w": "You",
+     "s": 21.225
+    },
+    {
+     "w": "cannot",
+     "s": 21.473
+    },
+    {
+     "w": "leave",
+     "s": 21.869
+    },
+    {
+     "w": "a",
+     "s": 22.215
+    },
+    {
+     "w": "game",
+     "s": 22.364
+    },
+    {
+     "w": "until",
+     "s": 22.661
+    },
+    {
+     "w": "you",
+     "s": 23.007
+    },
+    {
+     "w": "finish",
+     "s": 23.255
+    },
+    {
+     "w": "its",
+     "s": 23.651
+    },
+    {
+     "w": "side",
+     "s": 23.898
+    },
+    {
+     "w": "quest.",
+     "s": 24.195
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     18.602
+    ],
+    [
+     "pop",
+     20.829
+    ]
+   ]
+  },
+  {
+   "scene": "portalgo",
+   "sp": "system",
+   "text": "First game. Fortnite.",
+   "world": "FORTNITE",
+   "col": "#ff8a3d",
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "horn",
+     "@fortnite"
+    ]
+   ],
+   "start": 24.91,
+   "end": 26.508,
+   "words": [
+    {
+     "w": "First",
+     "s": 24.91
+    },
+    {
+     "w": "game.",
+     "s": 25.296
+    },
+    {
+     "w": "Fortnite.",
+     "s": 25.792
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     25.07
+    ],
+    [
+     "horn",
+     25.792
+    ]
+   ]
+  },
+  {
+   "scene": "portalgo",
+   "sp": "j",
+   "text": "Wait, wait, I'm not ready!",
+   "world": "FORTNITE",
+   "col": "#ff8a3d",
+   "enter": true,
+   "sfx": [
+    [
+     "whoosh",
+     0.4
+    ],
+    [
+     "scream",
+     0.6
+    ]
+   ],
+   "start": 26.728,
+   "end": 27.814,
+   "words": [
+    {
+     "w": "Wait,",
+     "s": 26.728
+    },
+    {
+     "w": "wait,",
+     "s": 26.992
+    },
+    {
+     "w": "I'm",
+     "s": 27.256
+    },
+    {
+     "w": "not",
+     "s": 27.374
+    },
+    {
+     "w": "ready!",
+     "s": 27.52
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     27.162
+    ],
+    [
+     "scream",
+     27.38
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "system",
+   "text": "Side quest. Reach the final circle without picking up a single weapon.",
+   "world": "FORTNITE",
+   "quest": "FINAL CIRCLE \u2022 NO WEAPONS",
+   "drop": true,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     "@weapon"
+    ]
+   ],
+   "stamps": [
+    [
+     "NO WEAPONS",
+     "weapon",
+     540,
+     720,
+     110,
+     "#ff4a4a",
+     -0.05
+    ]
+   ],
+   "rule": "RULE #1: NO WEAPONS",
+   "day": "DAY 1",
+   "time": "3:07 AM",
+   "start": 28.034,
+   "end": 32.72,
+   "words": [
+    {
+     "w": "Side",
+     "s": 28.034
+    },
+    {
+     "w": "quest.",
+     "s": 28.357
+    },
+    {
+     "w": "Reach",
+     "s": 28.896
+    },
+    {
+     "w": "the",
+     "s": 29.273
+    },
+    {
+     "w": "final",
+     "s": 29.542
+    },
+    {
+     "w": "circle",
+     "s": 29.919
+    },
+    {
+     "w": "without",
+     "s": 30.35
+    },
+    {
+     "w": "picking",
+     "s": 30.835
+    },
+    {
+     "w": "up",
+     "s": 31.32
+    },
+    {
+     "w": "a",
+     "s": 31.535
+    },
+    {
+     "w": "single",
+     "s": 31.697
+    },
+    {
+     "w": "weapon.",
+     "s": 32.128
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     28.034
+    ],
+    [
+     "stamp",
+     32.128
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "No weapons? In a battle royale? Are you serious?",
+   "jx": [
+    300,
+    420
+   ],
+   "pose": "talk",
+   "look": 0,
+   "emote": "anger",
+   "bots": [
+    [
+     1250,
+     820,
+     "#ff4fd8"
+    ],
+    [
+     -200,
+     160,
+     "#7cff6b"
+    ]
+   ],
+   "sfx": [
+    [
+     "boing",
+     "@serious"
+    ]
+   ],
+   "start": 32.94,
+   "end": 35.008,
+   "words": [
+    {
+     "w": "No",
+     "s": 32.94
+    },
+    {
+     "w": "weapons?",
+     "s": 33.07
+    },
+    {
+     "w": "In",
+     "s": 33.457
+    },
+    {
+     "w": "a",
+     "s": 33.586
+    },
+    {
+     "w": "battle",
+     "s": 33.683
+    },
+    {
+     "w": "royale?",
+     "s": 33.942
+    },
+    {
+     "w": "Are",
+     "s": 34.297
+    },
+    {
+     "w": "you",
+     "s": 34.459
+    },
+    {
+     "w": "serious?",
+     "s": 34.62
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     34.62
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Ninety nine players. One storm. And me with zero guns.",
+   "jx": [
+    380,
+    700
+   ],
+   "pose": "run",
+   "storm": [
+    -300,
+    120
+   ],
+   "hp": 100,
+   "bots": [
+    [
+     1300,
+     900,
+     "#9b7bff"
+    ],
+    [
+     1400,
+     1000,
+     "#ffe14a"
+    ]
+   ],
+   "stamps": [
+    [
+     "99 PLAYERS",
+     "ninety",
+     540,
+     720,
+     100,
+     "#ffe14a",
+     -0.04
+    ],
+    [
+     "0 GUNS",
+     "zero",
+     540,
+     860,
+     110,
+     "#ff4a4a",
+     0.05
+    ]
+   ],
+   "sfx": [
+    [
+     "crowd",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@storm"
+    ]
+   ],
+   "start": 35.228,
+   "end": 37.924,
+   "words": [
+    {
+     "w": "Ninety",
+     "s": 35.228
+    },
+    {
+     "w": "nine",
+     "s": 35.532
+    },
+    {
+     "w": "players.",
+     "s": 35.76
+    },
+    {
+     "w": "One",
+     "s": 36.215
+    },
+    {
+     "w": "storm.",
+     "s": 36.405
+    },
+    {
+     "w": "And",
+     "s": 36.785
+    },
+    {
+     "w": "me",
+     "s": 36.975
+    },
+    {
+     "w": "with",
+     "s": 37.126
+    },
+    {
+     "w": "zero",
+     "s": 37.354
+    },
+    {
+     "w": "guns.",
+     "s": 37.582
+    }
+   ],
+   "sfx_times": [
+    [
+     "crowd",
+     35.228
+    ],
+    [
+     "whoosh",
+     36.405
+    ]
+   ]
+  },
+  {
+   "scene": "pov",
+   "sp": "j",
+   "text": "A gold rifle. Right there. Rule one. Don't touch it. Don't touch it!",
+   "obj": "rifle",
+   "reach": true,
+   "sfx": [
+    [
+     "ding",
+     "@gold"
+    ],
+    [
+     "boing",
+     "@touch"
+    ]
+   ],
+   "start": 38.144,
+   "end": 41.066,
+   "words": [
+    {
+     "w": "A",
+     "s": 38.144
+    },
+    {
+     "w": "gold",
+     "s": 38.241
+    },
+    {
+     "w": "rifle.",
+     "s": 38.436
+    },
+    {
+     "w": "Right",
+     "s": 38.761
+    },
+    {
+     "w": "there.",
+     "s": 38.988
+    },
+    {
+     "w": "Rule",
+     "s": 39.313
+    },
+    {
+     "w": "one.",
+     "s": 39.508
+    },
+    {
+     "w": "Don't",
+     "s": 39.767
+    },
+    {
+     "w": "touch",
+     "s": 39.962
+    },
+    {
+     "w": "it.",
+     "s": 40.19
+    },
+    {
+     "w": "Don't",
+     "s": 40.417
+    },
+    {
+     "w": "touch",
+     "s": 40.612
+    },
+    {
+     "w": "it!",
+     "s": 40.839
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     38.241
+    ],
+    [
+     "boing",
+     39.962
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Hold up. Who is that?",
+   "jx": 260,
+   "pose": "point",
+   "look": 1,
+   "p2": 760,
+   "emote": "?",
+   "sfx": [
+    [
+     "glass",
+     0.2
+    ]
+   ],
+   "start": 41.286,
+   "end": 42.27,
+   "words": [
+    {
+     "w": "Hold",
+     "s": 41.286
+    },
+    {
+     "w": "up.",
+     "s": 41.477
+    },
+    {
+     "w": "Who",
+     "s": 41.699
+    },
+    {
+     "w": "is",
+     "s": 41.858
+    },
+    {
+     "w": "that?",
+     "s": 41.985
+    }
+   ],
+   "sfx_times": [
+    [
+     "glass",
+     41.483
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "system",
+   "text": "That player does not exist.",
+   "jx": 260,
+   "pose": "shock",
+   "p2": 760,
+   "emote": "!",
+   "stamps": [
+    [
+     "PLAYER 002?",
+     "exist",
+     540,
+     720,
+     100,
+     "#ff2a2a",
+     -0.05
+    ]
+   ],
+   "sfx": [
+    [
+     "sad",
+     "@exist"
+    ]
+   ],
+   "start": 42.49,
+   "end": 44.307,
+   "words": [
+    {
+     "w": "That",
+     "s": 42.49
+    },
+    {
+     "w": "player",
+     "s": 42.802
+    },
+    {
+     "w": "does",
+     "s": 43.217
+    },
+    {
+     "w": "not",
+     "s": 43.529
+    },
+    {
+     "w": "exist.",
+     "s": 43.788
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     43.788
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Then why is he waving at me?!",
+   "jx": 260,
+   "pose": "shock",
+   "p2": 760,
+   "emote": "!",
+   "sfx": [
+    [
+     "boing",
+     "@waving"
+    ]
+   ],
+   "start": 44.527,
+   "end": 45.684,
+   "words": [
+    {
+     "w": "Then",
+     "s": 44.527
+    },
+    {
+     "w": "why",
+     "s": 44.71
+    },
+    {
+     "w": "is",
+     "s": 44.862
+    },
+    {
+     "w": "he",
+     "s": 44.984
+    },
+    {
+     "w": "waving",
+     "s": 45.106
+    },
+    {
+     "w": "at",
+     "s": 45.349
+    },
+    {
+     "w": "me?!",
+     "s": 45.471
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     45.106
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Final circle. I made it. And that is not a player.",
+   "jx": [
+    240,
+    260
+   ],
+   "pose": "shock",
+   "hp": 60,
+   "boss": [
+    800,
+    0.62
+   ],
+   "storm": [
+    -200,
+    40
+   ],
+   "sfx": [
+    [
+     "horn",
+     "@final"
+    ],
+    [
+     "bonk",
+     "@not"
+    ]
+   ],
+   "stamps": [
+    [
+     "FINAL CIRCLE",
+     "final",
+     540,
+     720,
+     96,
+     "#ffe14a",
+     -0.04
+    ]
+   ],
+   "start": 45.904,
+   "end": 48.262,
+   "words": [
+    {
+     "w": "Final",
+     "s": 45.904
+    },
+    {
+     "w": "circle.",
+     "s": 46.147
+    },
+    {
+     "w": "I",
+     "s": 46.529
+    },
+    {
+     "w": "made",
+     "s": 46.633
+    },
+    {
+     "w": "it.",
+     "s": 46.841
+    },
+    {
+     "w": "And",
+     "s": 47.084
+    },
+    {
+     "w": "that",
+     "s": 47.257
+    },
+    {
+     "w": "is",
+     "s": 47.465
+    },
+    {
+     "w": "not",
+     "s": 47.604
+    },
+    {
+     "w": "a",
+     "s": 47.777
+    },
+    {
+     "w": "player.",
+     "s": 47.881
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     45.904
+    ],
+    [
+     "bonk",
+     47.604
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "system",
+   "text": "Boss detected. The Warden. The escape blimp leaves in sixty seconds.",
+   "jx": 240,
+   "pose": "shock",
+   "boss": [
+    800,
+    0.62
+   ],
+   "blimp": [
+    700,
+    0,
+    420
+   ],
+   "sfx": [
+    [
+     "stamp",
+     "@warden"
+    ],
+    [
+     "horn",
+     "@blimp"
+    ]
+   ],
+   "stamps": [
+    [
+     "THE WARDEN",
+     "warden",
+     540,
+     720,
+     104,
+     "#ff4fd8",
+     -0.05
+    ],
+    [
+     "BLIMP: 60 SEC",
+     "sixty",
+     540,
+     860,
+     80,
+     "#5ff2ff",
+     0.04
+    ]
+   ],
+   "timer": 60,
+   "start": 48.483,
+   "end": 53.293,
+   "words": [
+    {
+     "w": "Boss",
+     "s": 48.483
+    },
+    {
+     "w": "detected.",
+     "s": 48.818
+    },
+    {
+     "w": "The",
+     "s": 49.545
+    },
+    {
+     "w": "Warden.",
+     "s": 49.825
+    },
+    {
+     "w": "The",
+     "s": 50.44
+    },
+    {
+     "w": "escape",
+     "s": 50.72
+    },
+    {
+     "w": "blimp",
+     "s": 51.167
+    },
+    {
+     "w": "leaves",
+     "s": 51.559
+    },
+    {
+     "w": "in",
+     "s": 52.006
+    },
+    {
+     "w": "sixty",
+     "s": 52.23
+    },
+    {
+     "w": "seconds.",
+     "s": 52.622
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     49.825
+    ],
+    [
+     "horn",
+     51.167
+    ]
+   ]
+  },
+  {
+   "scene": "island",
+   "sp": "j",
+   "text": "Wait. Are people watching this? Hi! Okay, you guys decide. Fight it, or run for the blimp?",
+   "jx": 300,
+   "pose": "talk",
+   "look": 0,
+   "boss": [
+    820,
+    0.62
+   ],
+   "blimp": [
+    720,
+    0,
+    420
+   ],
+   "sfx": [
+    [
+     "pop",
+     "@watching"
+    ],
+    [
+     "ding",
+     "@decide"
+    ]
+   ],
+   "start": 53.513,
+   "end": 57.944,
+   "words": [
+    {
+     "w": "Wait.",
+     "s": 53.513
+    },
+    {
+     "w": "Are",
+     "s": 53.84
+    },
+    {
+     "w": "people",
+     "s": 54.021
+    },
+    {
+     "w": "watching",
+     "s": 54.312
+    },
+    {
+     "w": "this?",
+     "s": 54.675
+    },
+    {
+     "w": "Hi!",
+     "s": 55.002
+    },
+    {
+     "w": "Okay,",
+     "s": 55.256
+    },
+    {
+     "w": "you",
+     "s": 55.583
+    },
+    {
+     "w": "guys",
+     "s": 55.765
+    },
+    {
+     "w": "decide.",
+     "s": 55.982
+    },
+    {
+     "w": "Fight",
+     "s": 56.382
+    },
+    {
+     "w": "it,",
+     "s": 56.636
+    },
+    {
+     "w": "or",
+     "s": 56.89
+    },
+    {
+     "w": "run",
+     "s": 57.036
+    },
+    {
+     "w": "for",
+     "s": 57.217
+    },
+    {
+     "w": "the",
+     "s": 57.399
+    },
+    {
+     "w": "blimp?",
+     "s": 57.581
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     54.312
+    ],
+    [
+     "ding",
+     55.982
+    ]
+   ]
+  },
+  {
+   "scene": "vote",
+   "sp": "system",
+   "text": "The Players decide. Comment A or B. You have twenty four hours. Episode two drops tomorrow.",
+   "a": "FIGHT THE WARDEN BARE-HANDED",
+   "b": "RUN FOR THE ESCAPE BLIMP",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "timer": null,
+   "start": 58.164,
+   "end": 64.854,
+   "words": [
+    {
+     "w": "The",
+     "s": 58.164
+    },
+    {
+     "w": "Players",
+     "s": 58.452
+    },
+    {
+     "w": "decide.",
+     "s": 58.971
+    },
+    {
+     "w": "Comment",
+     "s": 59.606
+    },
+    {
+     "w": "A",
+     "s": 60.125
+    },
+    {
+     "w": "or",
+     "s": 60.298
+    },
+    {
+     "w": "B.",
+     "s": 60.528
+    },
+    {
+     "w": "You",
+     "s": 60.875
+    },
+    {
+     "w": "have",
+     "s": 61.163
+    },
+    {
+     "w": "twenty",
+     "s": 61.509
+    },
+    {
+     "w": "four",
+     "s": 61.97
+    },
+    {
+     "w": "hours.",
+     "s": 62.316
+    },
+    {
+     "w": "Episode",
+     "s": 62.893
+    },
+    {
+     "w": "two",
+     "s": 63.412
+    },
+    {
+     "w": "drops",
+     "s": 63.701
+    },
+    {
+     "w": "tomorrow.",
+     "s": 64.104
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     58.164
+    ],
+    [
+     "ding",
+     59.606
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

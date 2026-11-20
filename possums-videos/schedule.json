@@ -1,0 +1,14 @@
+{
+ "post_time": "11:45 AM",
+ "series": [
+  {"key": "possums", "name": "MUDVILLE POSSUMS", "emoji": "🏈", "label": "POSSUMS D{n}", "color": [255, 159, 67], "from": "2026-11-14", "first_day": 5},
+  {"key": "tenk", "name": "$1 TO $10K", "emoji": "💵", "label": "$10K D{n}", "color": [143, 209, 138], "from": "2026-11-14", "first_day": 2, "last_day": 30},
+  {"key": "yourmove", "name": "YOUR MOVE (10 MIN)", "emoji": "🎬", "label": "YOUR MOVE", "color": [255, 225, 74], "from": "2026-11-14"}
+ ],
+ "history": {
+  "2026-11-10": [["possums", "POSSUMS D1"]],
+  "2026-11-11": [["possums", "POSSUMS D2"]],
+  "2026-11-12": [["possums", "POSSUMS D3"], ["tenk", "$10K D1"]],
+  "2026-11-13": [["possums", "POSSUMS D4"]]
+ }
+}

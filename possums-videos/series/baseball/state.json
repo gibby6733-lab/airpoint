@@ -1,0 +1,42 @@
+{
+ "after_day": 1,
+ "fund_dollars": 0,
+ "record": {
+  "wins": 0,
+  "losses": 1
+ },
+ "next_opponent": "Granite Falls Goats (won 9 straight)",
+ "upgrades_owned": [
+  "1 glove with a hole"
+ ],
+ "stadium": {
+  "gloves": "one, with a hole",
+  "bases": "pizza boxes",
+  "backstop": "a mattress",
+  "seats": "one picnic table",
+  "outfield": "cornfield",
+  "extras": "leaning water tower, barn"
+ },
+ "upgrade_prices": {
+  "gloves": 60,
+  "bases": 80,
+  "backstop": 150,
+  "seats": 250,
+  "outfield": 500
+ },
+ "roster": {
+  "Noodle": "pitcher, tall, never thrown a strike (#0)",
+  "Big Moe": "catcher, colander helmet (#22)",
+  "Grandpa Gus": "center field, plays from a lawn chair (#77)",
+  "Coach": "narrator/owner"
+ },
+ "history": [
+  {
+   "day": 1,
+   "opponent": "Bay City Barnacles",
+   "score": "1-6 L",
+   "likes": null,
+   "winning_comment": null
+  }
+ ]
+}
