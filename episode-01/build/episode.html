@@ -566,6 +566,40 @@ function sceneEnd(t){
   return s;
 }
 
+function badge(x,y,r,inner,label,col,rot=0){
+  return g(`translate(${x} ${y}) rotate(${rot})`,`<clipPath id="bc${Math.round(x)}${Math.round(y)}"><circle r="${r}"/></clipPath><circle r="${r}" fill="url(#wallG)"/><g clip-path="url(#bc${Math.round(x)}${Math.round(y)})">${inner}</g><circle r="${r}" fill="none" stroke="${INK}" stroke-width="14"/><circle r="${r-12}" fill="none" stroke="#fff" stroke-width="5" opacity=".5"/>
+   <g transform="translate(0 ${r-6}) rotate(-4)"><rect x="${-label.length*20-28}" y="-36" width="${label.length*40+56}" height="72" rx="22" fill="${col}" stroke="${INK}" stroke-width="10"/>${txt(0,20,label,48,INK,{font:'Fred',sw:0})}</g>`);
+}
+function sceneCover(){
+  const t=1.3;
+  let s=`<rect width="${W}" height="${H}" fill="url(#purpG)"/>`;
+  // radial burst
+  s+=`<g transform="translate(540 1080)" opacity=".18">${[...Array(18)].map((_,i)=>`<path d="M0 0 L${Math.cos(i*Math.PI/9)*1400} ${Math.sin(i*Math.PI/9)*1400} L${Math.cos(i*Math.PI/9+.17)*1400} ${Math.sin(i*Math.PI/9+.17)*1400} Z" fill="#fff"/>`).join('')}</g>`;
+  // title
+  s+=g('rotate(-3 540 380)',txt(540,330,"WHAT'S INSIDE",118,'#fff',{sw:20})+txt(540,480,'YOUR BRAIN?',150,LIME,{sw:22}));
+  // you
+  s+=g('translate(540 1150) scale(1.02)',youHead({eyes:'huge',look:[0,6],mouth:'grit',sweat:true}));
+  // worker badges
+  s+=badge(185,800,150,g('translate(0 70) scale(.95)',worker({shirt:'#5ac94a',eyes:'droopy',look:[3,6],mouth:'flat',hair:'tuft',headset:true,lh:[-30,10],rh:[35,4]}))+phone(45,95,-6,t,true),'FOCUS','#b7f23a',-6);
+  s+=badge(895,800,150,g('translate(-20 70) scale(.95)',worker({shirt:'#ff5d6c',eyes:'frantic',look:[4,0],mouth:'scream',hair:'spike',sweat:true,lh:[-90,-30],rh:[120,-200]})),'PANIC','#ff5d6c',6);
+  s+=badge(170,1460,140,g('translate(0 75) scale(.9)',worker({shirt:'#ff9b3d',wide:true,eyes:'happy',mouth:'smile',hat:'chef',lh:[-110,40],rh:[80,-60]}))+food(60,40,'burger',.5,-10),'SNACKS','#ff9b3d',-4);
+  s+=badge(910,1460,140,g('translate(-10 75) scale(.9)',worker({shirt:'#7d7d92',eyes:'creepy',mouth:'grin',hair:'bald',glasses:true,glint:true,lh:[-80,60],rh:[100,-120]}))+vhs(75,-60,['2014'],'#ff8fd0',.35,-12),'CRINGE','#ff8fd0',4);
+  // arrows into head
+  const arr=(x1,y1,x2,y2)=>`<path d="M${x1} ${y1} Q${(x1+x2)/2} ${Math.min(y1,y2)-60} ${x2} ${y2}" fill="none" stroke="${INK}" stroke-width="22" stroke-linecap="round"/><path d="M${x1} ${y1} Q${(x1+x2)/2} ${Math.min(y1,y2)-60} ${x2} ${y2}" fill="none" stroke="#ffe23a" stroke-width="10" stroke-linecap="round" stroke-dasharray="1 22"/>`;
+  s+=arr(300,900,400,960)+arr(780,900,680,960);
+  // episode tag
+  s+=g('translate(540 1700) rotate(-2)',`<rect x="-250" y="-70" width="500" height="120" rx="60" fill="#ff2e5c" stroke="${INK}" stroke-width="12"/>${txt(0,22,'EPISODE 1',76,'#fff',{sw:12})}`);
+  return s;
+}
+window.renderCover=function(){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${DEFS}
+   <g filter="url(#boil)">${sceneCover()}</g>
+   <rect width="${W}" height="${H}" fill="#fff" filter="url(#paper)" opacity=".10"/>
+   <rect width="${W}" height="${H}" fill="#000" filter="url(#grain)" opacity=".26"/>
+   <rect width="${W}" height="${H}" fill="url(#vig2)"/></svg>`;
+  document.getElementById('stage').innerHTML=svg;return true;
+};
+
 const SCENES=[
   [0,S(1),sceneHook],
   [S(1),S(3)-.02,sceneRoom],
