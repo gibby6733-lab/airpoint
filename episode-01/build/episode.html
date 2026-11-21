@@ -1,0 +1,611 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Lucky;src:url(lucky.woff2) format('woff2');}
+@font-face{font-family:Fred;src:url(fredoka.woff2) format('woff2');font-weight:700;}
+html,body{margin:0;padding:0;background:#000;overflow:hidden}
+#stage{width:1080px;height:1920px;position:relative}
+svg{display:block}
+</style></head>
+<body><div id="stage"></div>
+<script>
+// ================= helpers =================
+const W=1080,H=1920,INK='#16111f',SKIN='#f6e6cc',LIME='#b7f23a',PURP='#7b2cf0',CREAM='#fffdf6';
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const p=(t,a,b)=>clamp((t-a)/(b-a));
+const eOut=x=>1-Math.pow(1-x,3);
+const eIn=x=>x*x*x;
+const eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const pop=(t,t0,d=.35)=>t<t0?0:eBack(p(t,t0,t0+d));
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function shake(t,t0,dur=.35,amp=22){if(t<t0||t>t0+dur)return[0,0];const k=1-(t-t0)/dur;return[Math.sin(t*90)*amp*k,Math.cos(t*77)*amp*k]}
+const g=(tr,inner,extra='')=>`<g transform="${tr}" ${extra}>${inner}</g>`;
+function txt(x,y,s,size,fill,o={}){const font=o.font||'Lucky';const sw=o.sw??size*0.16;const anchor=o.anchor||'middle';const rot=o.rot?` transform="rotate(${o.rot} ${x} ${y})"`:'';
+  return `<text x="${x}" y="${y}" font-family="${font}" font-weight="700" font-size="${size}" text-anchor="${anchor}" fill="${fill}" stroke="${o.stroke||INK}" stroke-width="${sw}" paint-order="stroke" stroke-linejoin="round" letter-spacing="${o.ls||0}"${rot} ${o.extra||''}>${esc(s)}</text>`}
+
+// ================= timing (voice segments) =================
+const SPLICE=56.38, GAP=0.8, LEAD=0.4;
+const T=v=>v+LEAD+(v>=SPLICE?GAP:0);
+const SEG=[ // [start,end,text,keywords]
+[0.00,2.62,"What if you could see inside your brain's control room?",["BRAIN'S"]],
+[3.24,5.66,"Turns out... it's run by four guys.",["FOUR"]],
+[6.03,7.43,"And none of them are qualified.",["QUALIFIED."]],
+[8.00,8.94,"This is Gary.",["GARY."]],
+[9.37,11.03,"Gary is in charge of focus.",["FOCUS."]],
+[11.61,14.03,"Gary has been on his phone since 2019.",["2019."]],
+[14.50,15.75,"This is Panic Pete.",["PANIC","PETE."]],
+[16.13,18.31,"His only job is pressing the big red button.",["RED","BUTTON."]],
+[18.76,21.27,"He presses it when the teacher says \"we need to talk.\"",["\"WE","NEED","TO","TALK.\""]],
+[21.73,24.22,"He presses it when someone says your name in another room.",["NAME"]],
+[24.84,25.82,"He presses it for fun.",["FUN."]],
+[26.36,28.06,"Over here is the Snack Department.",["SNACK"]],
+[28.50,28.79,"Budget?",[]],
+[29.13,29.77,"Unlimited.",["UNLIMITED."]],
+[30.11,31.92,"Today they've approved three dinners.",["THREE","DINNERS."]],
+[32.44,33.62,"It is 11 AM.",["11","AM."]],
+[34.11,34.75,"And this...",[]],
+[35.09,36.71,"is the Cringe Archive.",["CRINGE","ARCHIVE."]],
+[37.12,39.27,"Every embarrassing thing you've ever done.",["EMBARRASSING"]],
+[39.62,40.07,"Saved.",["SAVED."]],
+[40.42,40.95,"Backed up.",["BACKED","UP."]],
+[41.29,42.18,"In 4K.",["4K."]],
+[42.68,43.85,"Now it's 3 AM.",["3","AM."]],
+[44.30,45.48,"Your body is asleep.",["ASLEEP."]],
+[45.90,47.74,"Everyone in the control room is asleep.",["ASLEEP."]],
+[48.20,49.11,"Except one guy.",["ONE","GUY."]],
+[49.56,50.79,"He's been waiting all day.",["ALL","DAY."]],
+[51.27,52.38,"2014.",["2014."]],
+[52.79,54.05,"You waved back at someone...",["WAVED"]],
+[54.32,56.14,"who was waving at the person behind you.",["BEHIND","YOU."]],
+[56.62,58.37,"And that's why you can't sleep.",["CAN'T","SLEEP."]],
+[58.76,60.29,"Comment what I should do next.",[]],
+];
+const S=i=>T(SEG[i][0]);
+const END_CARD=S(31)-0.15;
+const TOTAL=T(60.29)+4.0;
+
+// caption chunks
+const CHUNKS=[];
+SEG.forEach(([a,b,text,kw],si)=>{
+  const words=text.toUpperCase().split(/\s+/);
+  const groups=[];let cur=[];
+  words.forEach(w=>{const len=(cur.join(' ')+' '+w).trim().length;if(cur.length>=3||(cur.length&&len>15)){groups.push(cur);cur=[]}cur.push(w)});
+  if(cur.length)groups.push(cur);
+  const total=groups.reduce((s,gp)=>s+gp.join(' ').length+2,0);
+  let acc=0;const ta=T(a),tb=T(b);
+  groups.forEach(gp=>{const l=gp.join(' ').length+2;const s0=ta+(tb-ta)*acc/total;acc+=l;const s1=ta+(tb-ta)*acc/total;
+    CHUNKS.push({t0:s0,t1:s1,words:gp,kw:kw.map(k=>k.toUpperCase()),si})});
+});
+// extend each chunk to the next start (no blank flicker) but max 0.6s past its end
+for(let i=0;i<CHUNKS.length;i++){const n=CHUNKS[i+1];CHUNKS[i].show1=n?Math.min(n.t0,CHUNKS[i].t1+0.6):CHUNKS[i].t1+0.6}
+
+function captions(t){
+  if(t>=END_CARD)return '';
+  const c=CHUNKS.find(c=>t>=c.t0&&t<c.show1);if(!c)return '';
+  const k=pop(t,c.t0,.18);const s=lerp(.7,1,k);
+  const str=c.words.join(' ');const size=Math.min(112,940/(str.length*0.56));
+  // build tspans with keyword color
+  let tsp=c.words.map((w,i)=>`<tspan fill="${c.kw.includes(w)?'#ffe23a':'#ffffff'}">${esc(w)}${i<c.words.length-1?' ':''}</tspan>`).join('');
+  return `<g transform="translate(540 1500) scale(${s}) rotate(${(c.si%2?1:-1)*1.2})"><text x="0" y="0" font-family="Lucky" font-size="${size}" text-anchor="middle" stroke="${INK}" stroke-width="${size*0.2}" paint-order="stroke" stroke-linejoin="round" letter-spacing="2">${tsp}</text></g>`;
+}
+
+// ================= characters =================
+function youHead(o={}){
+  const eyes=o.eyes||'open', lx=o.look?o.look[0]:0, ly=o.look?o.look[1]:0;
+  let eyeSvg='';
+  if(eyes==='closed'){eyeSvg=`<path d="M-160 -10 C-130 20 -75 20 -45 -10" fill="none" stroke-width="15"/><path d="M45 -10 C75 20 130 20 160 -10" fill="none" stroke-width="15"/>`}
+  else{const rx=eyes==='huge'?92:72, ry=eyes==='huge'?104:84, pr=eyes==='huge'?13:20;
+    eyeSvg=`<ellipse cx="-102" cy="-20" rx="${rx}" ry="${ry}" fill="${CREAM}" stroke-width="15"/><ellipse cx="102" cy="-20" rx="${rx}" ry="${ry}" fill="${CREAM}" stroke-width="15"/>
+    <circle cx="${-94+lx}" cy="${-8+ly}" r="${pr}" fill="${INK}" stroke="none"/><circle cx="${94+lx}" cy="${-8+ly}" r="${pr}" fill="${INK}" stroke="none"/>
+    <circle cx="${-87+lx}" cy="${-16+ly}" r="6" fill="${CREAM}" stroke="none"/><circle cx="${101+lx}" cy="${-16+ly}" r="6" fill="${CREAM}" stroke="none"/>`}
+  const mouth=o.mouth==='smile'?`<path d="M-45 130 C-20 165 20 165 45 130" fill="none" stroke-width="13"/>`:
+              o.mouth==='o'?`<ellipse cx="0" cy="145" rx="22" ry="28" fill="#5a1a2a" stroke-width="12"/>`:
+              o.mouth==='grit'?`<rect x="-50" y="125" width="100" height="36" rx="12" fill="${CREAM}" stroke-width="11"/><path d="M-17 125 V161 M17 125 V161" stroke-width="7"/>`:
+              `<path d="M-20 140 C-8 128 8 128 20 140" fill="none" stroke-width="13"/>`;
+  const brows=o.brows==='angry'?`<path d="M-152 -128 L-60 -100" stroke-width="15"/><path d="M60 -100 L152 -128" stroke-width="15"/>`:
+     `<path d="M-152 -108 C-122 -128 -87 -132 -60 -120" fill="none" stroke-width="15"/><path d="M60 -120 C88 -132 123 -128 152 -108" fill="none" stroke-width="15"/>`;
+  const blush=o.blush?`<ellipse cx="-170" cy="95" rx="58" ry="26" fill="#ff5d7a" opacity=".75" stroke="none"/><ellipse cx="170" cy="95" rx="58" ry="26" fill="#ff5d7a" opacity=".75" stroke="none"/>`:
+     `<ellipse cx="-177" cy="100" rx="34" ry="16" fill="#ff8fa3" opacity=".6" stroke="none"/><ellipse cx="177" cy="100" rx="34" ry="16" fill="#ff8fa3" opacity=".6" stroke="none"/>`;
+  const sweat=o.sweat===false?'':`<g transform="translate(194 -170)"><path d="M0 0 C24 40 36 62 36 80 C36 102 20 116 0 116 C-20 116 -36 102 -36 80 C-36 62 -24 40 0 0 Z" fill="#7fd6ff" stroke-width="12"/><path d="M-14 70 C-16 85 -10 96 -2 100" fill="none" stroke="#fff" stroke-width="8"/></g>`;
+  return `<g stroke="${INK}" stroke-linecap="round" stroke-linejoin="round">
+    ${o.noShoulders?'':`<path d="M-312 560 C-302 360 -182 290 0 290 C182 290 302 360 312 560 Z" fill="${LIME}" stroke-width="16"/><path d="M-82 300 C-62 360 62 360 82 300" fill="none" stroke-width="12"/>`}
+    <path d="M-50 220 L-50 300 C-22 318 22 318 50 300 L50 220 Z" fill="#f3dcc0" stroke-width="14"/>
+    <ellipse cx="-250" cy="20" rx="34" ry="52" fill="${SKIN}" stroke-width="14"/><ellipse cx="250" cy="20" rx="34" ry="52" fill="${SKIN}" stroke-width="14"/>
+    <ellipse cx="0" cy="0" rx="255" ry="265" fill="${SKIN}" stroke-width="18"/>
+    <path d="M-42 -250 C-32 -295 8 -300 0 -260 C28 -300 73 -285 48 -245" fill="none" stroke-width="14"/>
+    ${brows}${eyeSvg}${blush}${mouth}${sweat}
+  </g>`;
+}
+// full body You (for the 2014 film). origin = head center
+function youBody(o={}){
+  const wave=o.wave??null; // angle in deg for right arm
+  let arm='';
+  if(wave!==null){const a=wave*Math.PI/180;const sx=170,sy=330;const hx=sx+Math.cos(a)*260,hy=sy-Math.sin(a)*260;
+    arm=`<path d="M${sx} ${sy} L${hx} ${hy}" stroke="${INK}" stroke-width="74" stroke-linecap="round"/><path d="M${sx} ${sy} L${hx} ${hy}" stroke="${LIME}" stroke-width="50" stroke-linecap="round"/><circle cx="${hx}" cy="${hy}" r="46" fill="${SKIN}" stroke="${INK}" stroke-width="14"/>`}
+  else arm=`<path d="M170 330 L230 620" stroke="${INK}" stroke-width="74" stroke-linecap="round"/><path d="M170 330 L230 620" stroke="${LIME}" stroke-width="50" stroke-linecap="round"/><circle cx="232" cy="630" r="46" fill="${SKIN}" stroke="${INK}" stroke-width="14"/>`;
+  return `<g stroke-linejoin="round">
+   <rect x="-120" y="640" width="90" height="230" rx="30" fill="#3a2c5e" stroke="${INK}" stroke-width="14"/><rect x="30" y="640" width="90" height="230" rx="30" fill="#3a2c5e" stroke="${INK}" stroke-width="14"/>
+   <ellipse cx="-80" cy="880" rx="80" ry="38" fill="${CREAM}" stroke="${INK}" stroke-width="14"/><ellipse cx="80" cy="880" rx="80" ry="38" fill="${CREAM}" stroke="${INK}" stroke-width="14"/>
+   <path d="M-170 330 L-230 620" stroke="${INK}" stroke-width="74" stroke-linecap="round"/><path d="M-170 330 L-230 620" stroke="${LIME}" stroke-width="50" stroke-linecap="round"/><circle cx="-232" cy="630" r="46" fill="${SKIN}" stroke="${INK}" stroke-width="14"/>
+   <rect x="-200" y="270" width="400" height="420" rx="130" fill="${LIME}" stroke="${INK}" stroke-width="16"/>
+   ${arm}
+   ${youHead(Object.assign({noShoulders:true},o))}
+  </g>`;
+}
+// little control-room worker. origin = body center
+function worker(o={}){
+  const shirt=o.shirt||'#ff6b6b', skin=o.skin||'#f6e6cc', w=o.wide?95:72;
+  const lh=o.lh||[-95,55], rh=o.rh||[95,55];
+  const look=o.look||[0,0];
+  const arm=(sx,sy,h)=>`<path d="M${sx} ${sy} L${h[0]} ${h[1]}" stroke="${INK}" stroke-width="34" stroke-linecap="round"/><path d="M${sx} ${sy} L${h[0]} ${h[1]}" stroke="${shirt}" stroke-width="20" stroke-linecap="round"/><circle cx="${h[0]}" cy="${h[1]}" r="17" fill="${skin}" stroke="${INK}" stroke-width="8"/>`;
+  let eyes='';const ex=26,ey=-132;
+  switch(o.eyes||'normal'){
+    case 'droopy': eyes=`<circle cx="${-ex}" cy="${ey}" r="18" fill="${CREAM}" stroke="${INK}" stroke-width="7"/><circle cx="${ex}" cy="${ey}" r="18" fill="${CREAM}" stroke="${INK}" stroke-width="7"/><circle cx="${-ex+look[0]}" cy="${ey+7+look[1]}" r="7" fill="${INK}"/><circle cx="${ex+look[0]}" cy="${ey+7+look[1]}" r="7" fill="${INK}"/><path d="M${-ex-20} ${ey-2} H${-ex+20} M${ex-20} ${ey-2} H${ex+20}" stroke="${INK}" stroke-width="8"/><path d="M${-ex-18} ${ey-3} A18 18 0 0 1 ${-ex+18} ${ey-3} Z M${ex-18} ${ey-3} A18 18 0 0 1 ${ex+18} ${ey-3} Z" fill="${skin}"/>`;break;
+    case 'frantic': eyes=`<circle cx="${-ex-2}" cy="${ey}" r="25" fill="${CREAM}" stroke="${INK}" stroke-width="7"/><circle cx="${ex+2}" cy="${ey}" r="25" fill="${CREAM}" stroke="${INK}" stroke-width="7"/><circle cx="${-ex-2+look[0]}" cy="${ey+look[1]}" r="5" fill="${INK}"/><circle cx="${ex+2+look[0]}" cy="${ey+look[1]}" r="5" fill="${INK}"/>`;break;
+    case 'happy': eyes=`<path d="M${-ex-15} ${ey+5} Q${-ex} ${ey-15} ${-ex+15} ${ey+5} M${ex-15} ${ey+5} Q${ex} ${ey-15} ${ex+15} ${ey+5}" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>`;break;
+    case 'closed': eyes=`<path d="M${-ex-15} ${ey} Q${-ex} ${ey+14} ${-ex+15} ${ey} M${ex-15} ${ey} Q${ex} ${ey+14} ${ex+15} ${ey}" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>`;break;
+    case 'creepy': eyes=`<path d="M${-ex-16} ${ey+4} Q${-ex} ${ey-8} ${-ex+16} ${ey+4} Z M${ex-16} ${ey+4} Q${ex} ${ey-8} ${ex+16} ${ey+4} Z" fill="${CREAM}" stroke="${INK}" stroke-width="6"/><circle cx="${-ex+look[0]}" cy="${ey+1}" r="5" fill="${INK}"/><circle cx="${ex+look[0]}" cy="${ey+1}" r="5" fill="${INK}"/>`;break;
+    default: eyes=`<circle cx="${-ex}" cy="${ey}" r="17" fill="${CREAM}" stroke="${INK}" stroke-width="7"/><circle cx="${ex}" cy="${ey}" r="17" fill="${CREAM}" stroke="${INK}" stroke-width="7"/><circle cx="${-ex+look[0]}" cy="${ey+3+look[1]}" r="7" fill="${INK}"/><circle cx="${ex+look[0]}" cy="${ey+3+look[1]}" r="7" fill="${INK}"/>`;
+  }
+  const my=-88;
+  const mouths={flat:`<path d="M-14 ${my} H14" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>`,
+    smile:`<path d="M-20 ${my-4} Q0 ${my+16} 20 ${my-4}" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>`,
+    grin:`<path d="M-34 ${my-8} Q0 ${my+30} 34 ${my-8} Z" fill="${CREAM}" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/><path d="M-20 ${my-6} V${my+8} M0 ${my-6} V${my+12} M20 ${my-6} V${my+8}" stroke="${INK}" stroke-width="4"/>`,
+    o:`<ellipse cx="0" cy="${my}" rx="12" ry="15" fill="#5a1a2a" stroke="${INK}" stroke-width="7"/>`,
+    scream:`<ellipse cx="0" cy="${my+2}" rx="20" ry="24" fill="#5a1a2a" stroke="${INK}" stroke-width="7"/>`,
+    drool:`<path d="M-14 ${my} H14" stroke="${INK}" stroke-width="8" stroke-linecap="round"/><path d="M10 ${my} q4 22 0 28 q-6 -4 -2 -28" fill="#9fe3ff" stroke="${INK}" stroke-width="4"/>`};
+  const hat=o.hat==='chef'?`<path d="M-55 -195 C-95 -205 -90 -265 -45 -255 C-40 -300 40 -300 45 -255 C90 -265 95 -205 55 -195 Z" fill="#fff" stroke="${INK}" stroke-width="8"/><rect x="-55" y="-205" width="110" height="28" rx="8" fill="#fff" stroke="${INK}" stroke-width="8"/>`:'';
+  const hair=o.hair==='spike'?`<path d="M-40 -192 L-30 -225 L-10 -196 L5 -232 L20 -196 L40 -222 L42 -190" fill="${o.hairCol||INK}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>`:
+             o.hair==='bald'?`<path d="M-30 -190 Q0 -205 30 -190" fill="none" stroke="${INK}" stroke-width="6"/>`:
+             o.hair==='tuft'?`<path d="M-8 -192 C-4 -215 12 -218 8 -198 C20 -214 34 -206 22 -190" fill="none" stroke="${INK}" stroke-width="7" stroke-linecap="round"/>`:'';
+  const glasses=o.glasses?`<g fill="${o.glint?'#e8f4ff':'none'}" fill-opacity=".85" stroke="${INK}" stroke-width="7"><circle cx="${-ex}" cy="${ey}" r="24"/><circle cx="${ex}" cy="${ey}" r="24"/><path d="M-2 ${ey} H2"/></g>`:'';
+  const headset=o.headset?`<path d="M-72 -130 C-72 -215 72 -215 72 -130" fill="none" stroke="#2b2240" stroke-width="12"/><rect x="-84" y="-150" width="22" height="44" rx="9" fill="#2b2240"/><rect x="62" y="-150" width="22" height="44" rx="9" fill="#2b2240"/><path d="M-72 -110 Q-60 -78 -25 -80" fill="none" stroke="#2b2240" stroke-width="6"/>`:'';
+  return `<g>
+    <rect x="-48" y="70" width="34" height="58" rx="14" fill="#2b2240" stroke="${INK}" stroke-width="8"/><rect x="14" y="70" width="34" height="58" rx="14" fill="#2b2240" stroke="${INK}" stroke-width="8"/>
+    ${o.armsBehind?'':''}
+    <rect x="${-w}" y="-62" width="${w*2}" height="150" rx="${o.wide?70:52}" fill="${shirt}" stroke="${INK}" stroke-width="10"/>
+    ${o.tie?`<path d="M0 -58 L-12 -40 L0 20 L12 -40 Z" fill="${o.tie}" stroke="${INK}" stroke-width="6"/>`:''}
+    ${o.badge?`<rect x="${-w+20}" y="-20" width="62" height="34" rx="6" fill="#fff" stroke="${INK}" stroke-width="6"/><text x="${-w+51}" y="6" font-family="Fred" font-weight="700" font-size="20" text-anchor="middle" fill="${INK}">${esc(o.badge)}</text>`:''}
+    <circle cx="0" cy="-128" r="74" fill="${skin}" stroke="${INK}" stroke-width="10"/>
+    ${hair}${hat}${headset}
+    <ellipse cx="-50" cy="-100" rx="14" ry="8" fill="#ff8fa3" opacity=".55"/><ellipse cx="50" cy="-100" rx="14" ry="8" fill="#ff8fa3" opacity=".55"/>
+    ${eyes}${glasses}${mouths[o.mouth||'flat']}
+    ${o.sweat?`<path d="M58 -190 c10 16 15 25 15 32 a15 15 0 0 1 -30 0 c0 -7 5 -16 15 -32z" fill="#7fd6ff" stroke="${INK}" stroke-width="6"/>`:''}
+    ${o.noArms?'':arm(-w+12,-20,lh)+arm(w-12,-20,rh)}
+    ${o.front||''}
+  </g>`;
+}
+
+// ================= environment =================
+const R0=rng(42);
+const FOLDS=Array.from({length:46},()=>{const x=R0()*1200-60,y=R0()*1300-80;let d=`M${x.toFixed(0)} ${y.toFixed(0)}`;let cx=x,cy=y;for(let k=0;k<4;k++){const dx=40+R0()*90,dy=(R0()-.5)*120;d+=` q${(dx/2).toFixed(0)} ${(dy*1.6).toFixed(0)} ${dx.toFixed(0)} ${dy.toFixed(0)}`;cx+=dx;cy+=dy}return d});
+function wall(dark=0){
+  return `<rect width="${W}" height="${H}" fill="url(#wallG)"/>
+  <g fill="none" stroke="#ff9ad5" stroke-width="10" stroke-linecap="round" opacity="${.16-dark*.08}">${FOLDS.map(d=>`<path d="${d}"/>`).join('')}</g>
+  <rect y="1260" width="${W}" height="${H-1260}" fill="#2a1450"/>
+  <path d="M0 1260 H${W}" stroke="${INK}" stroke-width="12"/>
+  <g stroke="#3d2070" stroke-width="6">${[...Array(9)].map((_,i)=>`<path d="M${540+(i-4)*60} 1260 L${540+(i-4)*260} ${H}"/>`).join('')}</g>`;
+}
+function eyeWindow(content,label='LIVE FEED',rec=true,t=0){
+  return `<g><rect x="170" y="170" width="740" height="430" rx="40" fill="#1b0f33" stroke="${INK}" stroke-width="14"/>
+  <clipPath id="wclip"><rect x="190" y="190" width="700" height="390" rx="28"/></clipPath>
+  <g clip-path="url(#wclip)">${content}</g>
+  <rect x="190" y="190" width="700" height="390" rx="28" fill="none" stroke="#8b6cff" stroke-width="6"/>
+  ${rec?`<circle cx="232" cy="232" r="13" fill="#ff3b4f" opacity="${Math.sin(t*6)>0?1:.25}"/>`:''}
+  ${txt(258,244,label,32,'#fff',{anchor:'start',font:'Fred',sw:6})}
+  <rect x="500" y="600" width="80" height="80" fill="#2b2240" stroke="${INK}" stroke-width="10"/></g>`;
+}
+function hallwayView(t){
+  // school hallway with lockers, slight sway
+  const sway=Math.sin(t*1.3)*8;
+  let lock='';for(let i=0;i<10;i++){const x=150+i*95+sway;lock+=`<rect x="${x}" y="300" width="88" height="250" fill="#3f8cff" stroke="${INK}" stroke-width="6"/><path d="M${x+20} 330 h48 M${x+20} 345 h48 M${x+20} 360 h48" stroke="${INK}" stroke-width="4"/><circle cx="${x+72}" cy="430" r="6" fill="${INK}"/>`}
+  return `<rect x="150" y="150" width="800" height="470" fill="#f4ecd8"/><rect x="150" y="540" width="800" height="80" fill="#c9b99a"/>${lock}`;
+}
+function desk(x,y,w=330,col='#5b3fa8'){return `<g><rect x="${x-w/2}" y="${y}" width="${w}" height="150" rx="16" fill="${col}" stroke="${INK}" stroke-width="10"/><rect x="${x-w/2-14}" y="${y-18}" width="${w+28}" height="34" rx="12" fill="#8a6cf0" stroke="${INK}" stroke-width="10"/></g>`}
+function sign(x,y,label,col='#ffe23a',size=54,rot=0){
+  const w=label.length*size*0.62+70;
+  return `<g transform="translate(${x} ${y}) rotate(${rot})"><path d="M${-w/3} -70 L0 -130 L${w/3} -70" fill="none" stroke="${INK}" stroke-width="6"/><circle cx="0" cy="-130" r="10" fill="${INK}"/>
+  <rect x="${-w/2}" y="-70" width="${w}" height="${size*1.6}" rx="18" fill="${col}" stroke="${INK}" stroke-width="10"/>${txt(0,-70+size*1.14,label,size,INK,{font:'Fred',sw:0})}</g>`}
+function stamp(x,y,label,col,k,rot=-12,size=88){
+  if(k<=0)return '';const s=lerp(2.6,1,clamp(k)),op=clamp(k*3);
+  const w=label.length*size*0.66+60;
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})" opacity="${op}"><rect x="${-w/2}" y="${-size*0.85}" width="${w}" height="${size*1.5}" rx="14" fill="none" stroke="${col}" stroke-width="14"/>${txt(0,size*0.35,label,size,col,{sw:0,ls:3})}</g>`;
+}
+function bubble(x,y,w,h,lines,k,size=46,tail=[0,1]){
+  if(k<=0)return '';const s=clamp(k,0,1.3);
+  const tl=`M${-40+tail[0]*0} ${h/2-4} L${tail[0]*120-30} ${h/2+70} L40 ${h/2-4}`;
+  return `<g transform="translate(${x} ${y}) scale(${s})"><path d="${tl}" fill="#fff" stroke="${INK}" stroke-width="10" stroke-linejoin="round"/><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="44" fill="#fff" stroke="${INK}" stroke-width="10"/><path d="M-36 ${h/2-5} L36 ${h/2-5}" stroke="#fff" stroke-width="14"/>
+  ${lines.map((l,i)=>txt(0,-h/2+size*1.15+i*size*1.12+ (h-lines.length*size*1.12-size*0.3)/2 - 8,l,size,INK,{font:'Fred',sw:0})).join('')}</g>`;
+}
+function zz(x,y,t,ph=0){let s='';for(let i=0;i<3;i++){const q=((t*0.6+ph+i/3)%1);s+=txt(x+q*60+i*10,y-q*160,'Z',40+q*30,'#cfe8ff',{sw:7,extra:`opacity="${(1-q).toFixed(2)}"`})}return s}
+function phone(x,y,rot,t,glow=true){return `<g transform="translate(${x} ${y}) rotate(${rot})">${glow?`<ellipse cx="0" cy="-40" rx="130" ry="110" fill="#6fd0ff" opacity="${.22+.05*Math.sin(t*8)}"/>`:''}<rect x="-34" y="-62" width="68" height="124" rx="14" fill="#1e1e2e" stroke="${INK}" stroke-width="8"/><rect x="-26" y="-52" width="52" height="100" rx="6" fill="#7fd6ff"/>${[0,1,2,3].map(i=>{const yy=-44+(((i*26-t*90)%104)+104)%104;return `<rect x="-20" y="${yy}" width="40" height="14" rx="4" fill="#fff" opacity=".9"/>`}).join('')}</g>`}
+function bigButton(x,y,press,lit){
+  const dy=press*28;
+  return `<g transform="translate(${x} ${y})"><rect x="-150" y="40" width="300" height="300" rx="20" fill="#3a3550" stroke="${INK}" stroke-width="12"/><rect x="-120" y="70" width="240" height="60" rx="10" fill="#ffe23a" stroke="${INK}" stroke-width="8"/>${txt(0,118,'PANIC',46,INK,{font:'Fred',sw:0})}
+  <ellipse cx="0" cy="40" rx="170" ry="50" fill="#555070" stroke="${INK}" stroke-width="12"/>
+  <path d="M-130 ${30+dy} C-130 ${-90+dy} 130 ${-90+dy} 130 ${30+dy} Z" fill="${lit?'#ff4d5e':'#e0243a'}" stroke="${INK}" stroke-width="12"/>
+  <ellipse cx="-50" cy="${-30+dy}" rx="40" ry="18" fill="#fff" opacity=".45"/></g>`}
+function alarm(t,t0,dur){if(t<t0||t>t0+dur)return '';const ph=Math.sin((t-t0)*22)>0;const fade=1-p(t,t0+dur-.25,t0+dur);
+  return `<rect width="${W}" height="${H}" fill="#ff1f3d" opacity="${(ph?.38:.1)*fade}"/>
+  <g transform="translate(540 120)"><circle r="70" fill="#ff3b4f" stroke="${INK}" stroke-width="10"/><g transform="rotate(${(t-t0)*720})"><path d="M0 0 L900 -180 L900 180 Z" fill="#ff6b7a" opacity="${.25*fade}"/><path d="M0 0 L-900 -180 L-900 180 Z" fill="#ff6b7a" opacity="${.25*fade}"/></g></g>`}
+function food(x,y,kind,s=1,rot=0){
+  const tr=`translate(${x} ${y}) rotate(${rot}) scale(${s})`;
+  if(kind==='burger')return g(tr,`<path d="M-80 -10 C-80 -80 80 -80 80 -10 Z" fill="#f2a03d" stroke="${INK}" stroke-width="8"/><rect x="-86" y="-12" width="172" height="20" rx="8" fill="#5ac94a" stroke="${INK}" stroke-width="7"/><rect x="-84" y="6" width="168" height="26" rx="10" fill="#7a3b1d" stroke="${INK}" stroke-width="7"/><rect x="-80" y="30" width="160" height="28" rx="12" fill="#f2a03d" stroke="${INK}" stroke-width="8"/><circle cx="-30" cy="-50" r="4" fill="#fff"/><circle cx="10" cy="-58" r="4" fill="#fff"/><circle cx="40" cy="-44" r="4" fill="#fff"/>`);
+  if(kind==='pizza')return g(tr,`<path d="M0 70 L-70 -60 Q0 -95 70 -60 Z" fill="#ffd36b" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/><path d="M-70 -60 Q0 -95 70 -60" fill="none" stroke="#d9822b" stroke-width="18"/><circle cx="-15" cy="-25" r="12" fill="#e0453a"/><circle cx="20" cy="0" r="11" fill="#e0453a"/><circle cx="0" cy="30" r="9" fill="#e0453a"/>`);
+  if(kind==='fries')return g(tr,`${[-40,-20,0,20,40].map((f,i)=>`<rect x="${f-8}" y="${-90+(i%2)*14}" width="16" height="90" rx="5" fill="#ffd84d" stroke="${INK}" stroke-width="5"/>`).join('')}<path d="M-60 -20 L60 -20 L45 70 L-45 70 Z" fill="#e0243a" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/>`);
+  if(kind==='donut')return g(tr,`<circle r="60" fill="#e6a55c" stroke="${INK}" stroke-width="8"/><circle r="52" fill="#ff8fd0"/><circle r="20" fill="#2a1450" stroke="${INK}" stroke-width="8"/><path d="M-30 -20 l10 4 M20 -35 l8 8 M30 15 l10 -4 M-25 30 l6 8" stroke="#fff" stroke-width="6" stroke-linecap="round"/>`);
+  return '';
+}
+function vhs(x,y,label,col,s=1,rot=0){
+  return g(`translate(${x} ${y}) rotate(${rot}) scale(${s})`,`<rect x="-170" y="-95" width="340" height="190" rx="14" fill="#1e1a2a" stroke="${INK}" stroke-width="10"/><rect x="-150" y="-78" width="300" height="78" rx="8" fill="${col}" stroke="${INK}" stroke-width="6"/>
+   <circle cx="-70" cy="45" r="26" fill="#2e2a40" stroke="#555" stroke-width="5"/><circle cx="70" cy="45" r="26" fill="#2e2a40" stroke="#555" stroke-width="5"/><rect x="-36" y="30" width="72" height="30" rx="6" fill="#0d0b14"/>
+   ${label.map((l,i)=>txt(0,-46+i*34+(label.length===1?16:0),l,label.length===1?44:28,INK,{font:'Fred',sw:0})).join('')}`)}
+function shelves(x,y,w,rows,seed,lit=1){
+  const r=rng(seed);let s=`<rect x="${x}" y="${y}" width="${w}" height="${rows*150+30}" fill="#2b1d42" stroke="${INK}" stroke-width="10"/>`;
+  const cols=['#ff8fd0','#7fd6ff','#ffe23a','#b7f23a','#ff9b5e','#c9a6ff'];
+  for(let rI=0;rI<rows;rI++){const yy=y+20+rI*150;let xx=x+16;
+    while(xx<x+w-40){const tw=26+r()*16;s+=`<rect x="${xx}" y="${yy+10+r()*12}" width="${tw}" height="${118}" rx="4" fill="#1a1426" stroke="${INK}" stroke-width="5"/><rect x="${xx+4}" y="${yy+40}" width="${tw-8}" height="40" fill="${cols[Math.floor(r()*cols.length)]}" opacity="${.85*lit}"/>`;xx+=tw+4}
+    s+=`<rect x="${x}" y="${yy+130}" width="${w}" height="20" fill="#4a3470" stroke="${INK}" stroke-width="6"/>`}
+  return s;
+}
+
+// ================= scenes =================
+function cam(z,fx,fy,inner,dx=0,dy=0){return `<g transform="translate(${540+dx} ${960+dy}) scale(${z}) translate(${-fx} ${-fy})">${inner}</g>`}
+
+function sceneHook(t){
+  const t1=S(1);
+  const inK=eOut(p(t,0,.45));
+  const look=[Math.sin(t*2.2)*14,Math.cos(t*1.7)*6];
+  const zoomK=eIn(p(t,t1-1.05,t1));
+  const z=lerp(1,14,zoomK)*lerp(.85,1,inK);
+  const bob=Math.sin(t*3)*8;
+  let s=`<rect width="${W}" height="${H}" fill="url(#purpG)"/>`;
+  s+=cam(z,540,630,g(`translate(540 ${880+bob}) scale(1.3)`,youHead({look,eyes:t>2.0&&t<2.15?'closed':'open'})));
+  // question marks
+  if(zoomK<.2){for(let i=0;i<3;i++){const ph=(t*.5+i/3)%1;s+=txt(220+i*320,520-ph*260,'?',90+i*10,LIME,{sw:12,extra:`opacity="${(Math.sin(ph*Math.PI)).toFixed(2)}" transform="rotate(${-15+i*15} ${220+i*320} ${520-ph*260})"`})}}
+  // white flash at the end
+  const fl=p(t,t1-.25,t1);
+  if(fl>0)s+=`<rect width="${W}" height="${H}" fill="#fff" opacity="${fl}"/>`;
+  return s;
+}
+
+function roomCast(t,mode){
+  // mode: 'day' or 'night'
+  const night=mode==='night';
+  let s='';
+  // stations
+  s+=desk(170,1150,250,'#3f7d3a');
+  s+=desk(430,1150,250,'#8a2433');
+  s+=desk(690,1150,250,'#b5661c');
+  // gary
+  const gBob=Math.sin(t*2)*3;
+  if(!night){s+=g(`translate(170 ${1060+gBob}) scale(.72)`,worker({shirt:'#5ac94a',eyes:'droopy',look:[4,6],mouth:'flat',hair:'tuft',headset:true,lh:[-40,20],rh:[30,10]}));s+=phone(190,1060,-8,t,true)}
+  else{s+=g(`translate(170 1075) scale(.72) rotate(-8)`,worker({shirt:'#5ac94a',eyes:'closed',mouth:'drool',hair:'tuft',headset:true}));s+=phone(165,985,-20,t,false);s+=zz(210,960,t,0)}
+  // pete
+  const pj=night?0:Math.sin(t*40)*3;
+  if(!night)s+=g(`translate(${430+pj} 1060) scale(.72)`,worker({shirt:'#ff5d6c',eyes:'frantic',look:[Math.sin(t*9)*8,0],mouth:'o',hair:'spike',sweat:true,lh:[-90,-20],rh:[95,-40]}));
+  else s+=g(`translate(430 1075) scale(.72)`,worker({shirt:'#ff5d6c',eyes:'closed',mouth:'o',hair:'spike',lh:[-60,40],rh:[60,40]}))+zz(470,960,t,.4);
+  s+=`<g transform="translate(430 1010) scale(.35)"><ellipse cx="0" cy="40" rx="150" ry="40" fill="#555070" stroke="${INK}" stroke-width="16"/><path d="M-110 30 C-110 -70 110 -70 110 30 Z" fill="#e0243a" stroke="${INK}" stroke-width="16"/></g>`;
+  // snack guy
+  if(!night)s+=g(`translate(690 1050) scale(.72)`,worker({shirt:'#ff9b3d',wide:true,eyes:'happy',mouth:'smile',hat:'chef',lh:[-110,40],rh:[80,-60]}))+food(750,980,'burger',.45,-10);
+  else s+=g(`translate(690 1080) scale(.72) rotate(10)`,worker({shirt:'#ff9b3d',wide:true,eyes:'closed',mouth:'smile',hat:'chef'}))+food(695,1150,'pizza',.6,90)+zz(740,960,t,.7);
+  return s;
+}
+function archiveDoor(t,showGuy,eyesGlow=0){
+  let s=`<rect x="850" y="640" width="220" height="380" rx="20" fill="#120a24" stroke="${INK}" stroke-width="12"/>${txt(960,700,'KEEP OUT',30,'#ff5d7a',{font:'Fred',sw:5})}`;
+  if(showGuy)s+=g(`translate(960 900) scale(.55)`,worker({shirt:'#7d7d92',eyes:'creepy',mouth:'grin',hair:'bald',glasses:true,lh:[-70,60],rh:[70,60]}),`opacity=".9"`);
+  if(eyesGlow>0)s+=`<g opacity="${eyesGlow}"><ellipse cx="935" cy="830" rx="16" ry="${eyesGlow>.5?9:2}" fill="#fff35a"/><ellipse cx="985" cy="830" rx="16" ry="${eyesGlow>.5?9:2}" fill="#fff35a"/><ellipse cx="960" cy="830" rx="90" ry="40" fill="#fff35a" opacity=".12"/></g>`;
+  return s;
+}
+
+function sceneRoom(t){
+  const t0=S(1),tq=S(2);
+  const z=lerp(1.02,1.08,p(t,t0,S(3)));
+  const [sx,sy]=shake(t,tq+.1,.4,26);
+  let s=wall();
+  s+=eyeWindow(hallwayView(t),'LIVE FEED: EYES',true,t);
+  s+=archiveDoor(t,true);
+  s+=roomCast(t,'day');
+  const labs=[[170,840,'FOCUS',S(1)+.35],[430,840,'PANIC',S(1)+.6],[690,830,'SNACKS',S(1)+.85],[960,600,'???',S(1)+1.1]];
+  labs.forEach(([x,y,l,tt])=>{const k=pop(t,tt,.3);if(k>0)s+=g(`translate(${x} ${y}) scale(${k})`,`<rect x="${-l.length*19-26}" y="-46" width="${l.length*38+52}" height="72" rx="20" fill="#fff" stroke="${INK}" stroke-width="8"/>${txt(0,8,l,44,INK,{font:'Fred',sw:0})}`)});
+  // "4 guys" counter
+  const k4=pop(t,S(1)+1.3,.3);if(k4>0&&t<tq)s+=g(`translate(560 730) scale(${k4})`,txt(0,0,'x4',120,LIME,{sw:18}));
+  const ks=p(t,tq+.0,tq+.18);
+  s+=stamp(560,900,'NOT QUALIFIED','#ff2e4d',ks?eOut(ks):0,-14,92);
+  return cam(z,575,920,s,sx,sy);
+}
+
+function sceneGary(t){
+  const t0=S(3);
+  const z=lerp(1.0,1.08,p(t,t0,S(6)));
+  let s=wall();
+  s+=sign(540,330,'FOCUS DEPT.','#b7f23a',58,-2);
+  // monitor
+  const blink=Math.sin(t*10)>0;
+  s+=`<g transform="translate(250 820)"><rect x="-170" y="-150" width="340" height="250" rx="18" fill="#2b2240" stroke="${INK}" stroke-width="12"/><rect x="-150" y="-130" width="300" height="210" rx="8" fill="#f4f4ff"/>
+   ${txt(-130,-90,'HOMEWORK.docx',30,INK,{anchor:'start',font:'Fred',sw:0})}<rect x="-130" y="-70" width="${blink?4:0}" height="34" fill="${INK}"/>
+   ${txt(0,50,'DUE IN 2 MIN',34,blink?'#ff2e4d':'#ffb0b8',{font:'Fred',sw:0})}<rect x="-30" y="100" width="60" height="70" fill="#2b2240" stroke="${INK}" stroke-width="10"/></g>`;
+  s+=desk(560,1170,760,'#3f7d3a');
+  // gary big
+  const scroll=Math.sin(t*14)*4;
+  const look=[2,8];
+  s+=g(`translate(600 1000) scale(1.9)`,worker({shirt:'#5ac94a',eyes:'droopy',look,mouth:t>S(5)?'smile':'flat',hair:'tuft',headset:true,lh:[-30,10],rh:[35,4+scroll],badge:'GARY'}));
+  s+=phone(660,1000,-6,t,true);
+  // calendar
+  const kc=pop(t,S(5)+1.05,.35);
+  if(kc>0)s+=g(`translate(860 560) scale(${kc}) rotate(6)`,`<rect x="-120" y="-120" width="240" height="250" rx="12" fill="#fff" stroke="${INK}" stroke-width="10"/><rect x="-120" y="-120" width="240" height="70" rx="12" fill="#ff2e4d" stroke="${INK}" stroke-width="10"/>${txt(0,-70,'SINCE',36,'#fff',{font:'Fred',sw:0})}${txt(0,60,'2019',84,INK,{sw:0})}`);
+  // cobwebs
+  const kw=p(t,S(5)+1.4,S(5)+2.0);
+  if(kw>0)s+=`<g opacity="${kw}" stroke="#ffffff" stroke-width="4" fill="none"><path d="M440 690 L520 760 M440 690 L470 790 M440 690 L560 720"/><path d="M465 715 Q480 735 500 735 M455 740 Q478 760 505 748 M470 770 Q490 775 515 760"/><path d="M780 1040 L700 1120 M780 1040 L760 1150 M780 1040 L680 1060"/><path d="M745 1075 Q735 1095 720 1100 M760 1100 Q745 1125 725 1125"/></g>`;
+  // dust "GARY" name pop on intro
+  const kn=pop(t,t0+.1,.3);
+  if(t<S(4)+.5&&kn>0)s+=g(`translate(320 520) scale(${kn}) rotate(-8)`,`<path d="M-150 -60 H150 V40 H40 L0 90 L-20 40 H-150 Z" fill="#ffe23a" stroke="${INK}" stroke-width="10" stroke-linejoin="round"/>${txt(0,12,'GARY',70,INK,{sw:0})}`);
+  return cam(z,540,960,s);
+}
+
+function scenePete(t){
+  const t0=S(6);
+  const slams=[S(8)+1.25,S(9)+1.35];
+  const casual=S(10)+.45;
+  let press=0,lit=false,raised=false,hand=[110,-20];
+  slams.forEach(sl=>{if(t>sl-.45&&t<sl){raised=true}if(t>=sl&&t<sl+.25){press=1;lit=true}if(t>=sl&&t<sl+1.4)lit=true});
+  if(t>=casual&&t<casual+.3){press=.6;lit=true}
+  const [sx,sy]=[0,0];
+  let shk=[0,0];slams.forEach(sl=>{const a=shake(t,sl,.5,34);shk[0]+=a[0];shk[1]+=a[1]});
+  const zIn=lerp(1,1.12,eIO(p(t,S(7),S(7)+.8)));
+  const z=t<S(8)?zIn:1.04;
+  let s=wall();
+  s+=sign(300,330,'PANIC DEPT.','#ff5d6c',54,3);
+  const relaxed=t>=S(10);
+  // pete
+  const jit=relaxed?0:Math.sin(t*45)*4;
+  let rh=[150,-60];
+  if(raised)rh=[120,-260];
+  else if(press>0)rh=[250,-40];
+  if(relaxed)rh=t>=casual&&t<casual+.5?[255,-55]:[170,-10];
+  const lh=relaxed?[-60,-60]:[-120,-40];
+  s+=g(`translate(${360+jit} 1050) scale(1.75)`,worker({shirt:'#ff5d6c',eyes:relaxed?'happy':'frantic',look:[Math.sin(t*11)*9,Math.cos(t*7)*5],mouth:relaxed?'smile':(raised||press?'scream':'o'),hair:'spike',sweat:!relaxed,lh,rh,badge:'PETE'}));
+  if(relaxed)s+=g(`translate(255 945) rotate(-10)`,`<rect x="-28" y="-45" width="56" height="80" rx="8" fill="#7fd6ff" stroke="${INK}" stroke-width="7"/><path d="M10 -45 L22 -85" stroke="${INK}" stroke-width="6"/>${txt(0,8,'JUICE',16,INK,{font:'Fred',sw:0})}`);
+  s+=bigButton(780,1000,press,lit);
+  // "only job" arrow
+  const ka=pop(t,S(7)+.6,.3);
+  if(ka>0&&t<S(8))s+=g(`translate(780 700) scale(${ka})`,`${txt(0,0,'ONLY JOB',64,'#ffe23a',{sw:12})}<path d="M0 30 L0 120 M-30 90 L0 125 L30 90" stroke="#ffe23a" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M0 30 L0 120 M-30 90 L0 125 L30 90" stroke="${INK}" stroke-width="5" fill="none" stroke-linecap="round"/>`);
+  // bubbles
+  const b1=p(t,S(8)+.05,S(8)+.35),b1o=t<S(9)-.1;
+  if(b1>0&&b1o)s+=bubble(560,480,820,230,['TEACHER:','"WE NEED TO TALK"'],eBack(b1),62);
+  const b2=p(t,S(9)+.05,S(9)+.35),b2o=t<S(10)-.05;
+  if(b2>0&&b2o)s+=bubble(560,480,860,260,['*SOMEONE SAYS YOUR','NAME IN ANOTHER ROOM*'],eBack(b2),52);
+  const b3=p(t,S(10)+.05,S(10)+.35);
+  if(b3>0)s+=bubble(560,480,700,190,['*NOTHING HAPPENED*'],eBack(b3),54);
+  let out=cam(z,540,960,s,shk[0],shk[1]);
+  slams.forEach(sl=>{out+=alarm(t,sl,1.4)});
+  if(t>=casual&&t<casual+.6)out+=`<rect width="${W}" height="${H}" fill="#ff1f3d" opacity="${.25*(1-p(t,casual,casual+.6))}"/>`;
+  return out;
+}
+
+function sceneSnack(t){
+  const t0=S(11);
+  const z=lerp(1,1.06,p(t,t0,S(15)));
+  let s=wall();
+  s+=sign(540,330,'SNACK DEPT.','#ff9b3d',56,-2);
+  s+=desk(560,1170,820,'#b5661c');
+  // food mountain
+  const items=[['burger',700,1080,.9,-8],['pizza',850,1060,1,20],['fries',620,1050,.9,0],['donut',780,980,.8,0],['burger',900,960,.7,12],['pizza',690,950,.85,-30],['donut',960,1100,.7,0]];
+  items.forEach(([k,x,y,sc,r],i)=>{s+=food(x,y+Math.sin(t*2+i)*3,k,sc,r)});
+  // snack guy
+  const stampHits=[S(14)+.1,S(14)+.6,S(14)+1.1];
+  let rh=[110,20];stampHits.forEach(h=>{if(t>h-.2&&t<h)rh=[60,-160];if(t>=h&&t<h+.12)rh=[40,-120]});
+  s+=g(`translate(300 1110) scale(1.6)`,worker({shirt:'#ff9b3d',wide:true,eyes:'happy',mouth:t>S(15)?'o':'smile',hat:'chef',lh:[-120,30],rh,badge:'SNACKS'}));
+  // budget board
+  const kb=pop(t,S(12),.3);
+  if(kb>0&&t<S(14)+.05)s+=g(`translate(560 470) scale(${kb*.85})`,`<rect x="-360" y="-110" width="720" height="240" rx="26" fill="#1d3b2a" stroke="${INK}" stroke-width="12"/>${txt(0,-20,'BUDGET:',72,'#fff',{sw:0})}`+
+     (t>=S(13)?g(`scale(${pop(t,S(13),.3)})`,txt(0,90,'UNLIMITED',96,LIME,{sw:14})):''));
+  // dinner forms
+  if(t>=S(14)){
+    [0,1,2].forEach(i=>{const kf=pop(t,S(14)+i*.08-.15,.3);const x=250+i*290;
+      s+=g(`translate(${x} 500) rotate(${(i-1)*4}) scale(${kf*.82})`,`<rect x="-120" y="-150" width="240" height="300" rx="10" fill="#fff" stroke="${INK}" stroke-width="9"/>${txt(0,-90,'DINNER',38,INK,{font:'Fred',sw:0})}${txt(0,-40,'#'+(i+1),46,INK,{font:'Fred',sw:0})}<path d="M-90 10 H90 M-90 40 H90 M-90 70 H60" stroke="#bbb" stroke-width="8"/>`+stamp(0,40,'APPROVED','#20a84a',p(t,stampHits[i],stampHits[i]+.15),-18,40))});
+  }
+  let out=cam(z,540,960,s,...shake(t,stampHits[2],.25,14));
+  // 11 AM clock smash
+  const kc=p(t,S(15)-.05,S(15)+.25);
+  if(kc>0){out+=`<rect width="${W}" height="${H}" fill="#0c0618" opacity="${.65*clamp(kc*2)}"/>`;
+    const sc=eBack(kc);out+=g(`translate(540 820) scale(${sc}) rotate(${-4})`,`<circle r="260" fill="#fff" stroke="${INK}" stroke-width="18"/>${[...Array(12)].map((_,i)=>`<path d="M0 -225 V-195" stroke="${INK}" stroke-width="12" transform="rotate(${i*30})"/>`).join('')}<path d="M0 0 L0 -170" stroke="${INK}" stroke-width="18" stroke-linecap="round"/><path d="M0 0 L-60 -105" stroke="${INK}" stroke-width="22" stroke-linecap="round" /><circle r="18" fill="${INK}"/>`)+txt(540,1180,'11:00 AM',120,'#ffe23a',{sw:18});}
+  return out;
+}
+
+function sceneArchive(t){
+  const t0=S(16);
+  const z=lerp(1.0,1.12,eIO(p(t,t0,S(22)-.2)));
+  const on=t>=S(17)?(t<S(17)+.35?(Math.sin(t*70)>0?1:0.2):1):0;
+  let s=`<rect width="${W}" height="${H}" fill="#0b0618"/>`;
+  s+=`<g opacity="${.25+.75*on}">`+shelves(40,380,300,6,7,on)+shelves(740,380,300,6,9,on)+`</g>`;
+  s+=`<rect y="1300" width="${W}" height="620" fill="#140b26"/>`;
+  // spotlight
+  s+=`<path d="M540 300 L180 1500 L900 1500 Z" fill="#c9a6ff" opacity="${.08+.06*on}"/>`;
+  // neon sign
+  const fl=on*(t>S(17)+.35?(.85+.15*Math.sin(t*30)*(Math.sin(t*3)>.9?1:0)):1);
+  s+=`<g opacity="${.15+.85*fl}"><rect x="200" y="150" width="680" height="170" rx="30" fill="#1a0a2a" stroke="#ff4fd8" stroke-width="10"/>${txt(540,270,'CRINGE ARCHIVE',84,'#ffd6f6',{stroke:'#ff4fd8',sw:10})}</g>`;
+  if(fl>.5)s+=`<rect x="200" y="150" width="680" height="170" rx="30" fill="#ff4fd8" opacity=".12" filter="url(#glow)"/>`;
+  // tapes fan in
+  const tapes=[[['SAID "YOU TOO"','TO THE WAITER'],'#ff8fd0',-8],[['TRIPPED IN FRONT','OF CRUSH'],'#7fd6ff',5],[['CALLED TEACHER','"MOM"'],'#ffe23a',-3]];
+  tapes.forEach(([l,c,r],i)=>{const k=pop(t,S(18)+i*.55,.35);if(k>0){const y=640+i*240;s+=vhs(540+(1-k)*900*(i%2?1:-1),y,l,c,1.25*Math.min(k,1.1),r)}});
+  // saved / backed / 4k
+  s+=stamp(540,880,'SAVED','#20d36a',p(t,S(19),S(19)+.15),-10,110);
+  const kbu=pop(t,S(20),.3);
+  if(kbu>0)s+=g(`translate(540 1130) scale(${kbu})`,`<path d="M-180 60 C-260 60 -260 -40 -180 -40 C-180 -130 -40 -140 -20 -60 C20 -130 150 -110 140 -30 C230 -30 230 60 150 60 Z" fill="#7fd6ff" stroke="${INK}" stroke-width="12"/>${txt(-20,30,'BACKED UP',58,'#fff',{sw:10})}`);
+  if(t>=S(21)){const k=pop(t,S(21),.35);const sh=((t-S(21))*1.5)%1;
+    s+=`<rect width="${W}" height="${H}" fill="#000" opacity=".5"/>`;
+    s+=g(`translate(540 900) scale(${k}) rotate(-6)`,`<rect x="-300" y="-170" width="600" height="300" rx="40" fill="#ffcf3a" stroke="${INK}" stroke-width="16"/>${txt(0,90,'IN 4K',200,'#fff',{sw:22})}<clipPath id="kclip"><rect x="-300" y="-170" width="600" height="300" rx="40"/></clipPath><g clip-path="url(#kclip)"><rect x="${-400+sh*900}" y="-200" width="70" height="400" fill="#fff" opacity=".5" transform="skewX(-20)"/></g>`);
+    for(let i=0;i<6;i++){const a=i*1.05+t*2;s+=g(`translate(${540+Math.cos(a)*380} ${900+Math.sin(a)*260}) scale(${.6+.4*Math.sin(t*8+i)})`,`<path d="M0 -40 L10 -10 L40 0 L10 10 L0 40 L-10 10 L-40 0 L-10 -10 Z" fill="#fff6a8" stroke="${INK}" stroke-width="5"/>`)}}
+  return cam(z,540,960,s);
+}
+
+function sceneNight(t){
+  const t0=S(22);
+  const toDoor=eIO(p(t,S(25),S(25)+.7));
+  const z=lerp(1.02,2.4,toDoor), fx=lerp(575,960,toDoor), fy=lerp(920,860,toDoor);
+  let s=wall(1);
+  // window: eyelids closed
+  const winC=`<rect x="150" y="150" width="800" height="470" fill="#05030c"/>${t>=S(23)?txt(540,410,'BODY: ASLEEP',64,'#5d4a8a',{font:'Fred',sw:0})+zz(760,450,t,.2):txt(540,410,'EYES: CLOSED',64,'#5d4a8a',{font:'Fred',sw:0})}`;
+  s+=eyeWindow(winC,'LIVE FEED: EYES',false,t);
+  const eyes=t>=S(25)+.55?Math.min(1,(t-S(25)-.55)*4)*(Math.sin(t*1.3)>-.95?1:.1):0;
+  s+=archiveDoor(t,false,eyes);
+  s+=roomCast(t,'night');
+  // dark overlay
+  s+=`<rect width="${W}" height="${H}" fill="#07051a" opacity=".55"/>`;
+  // re-draw eyes on top of darkness
+  if(eyes>0)s+=archiveDoor(t,false,eyes).replace(/^[\s\S]*?(<g opacity)/,'$1');
+  let out=cam(z,fx,fy,s);
+  // 3 AM clock top
+  const kc=pop(t,t0+.05,.3);
+  if(toDoor<.3&&kc>0)out+=g(`translate(540 760) scale(${kc})`,`<rect x="-230" y="-90" width="460" height="170" rx="24" fill="#0a0a0a" stroke="${INK}" stroke-width="12"/>${txt(0,45,'3:00 AM',110,'#ff2e4d',{stroke:'#5a0010',sw:6,font:'Lucky'})}`);
+  // light switch flash at start
+  if(t<t0+.12)out+=`<rect width="${W}" height="${H}" fill="#000" opacity=".8"/>`;
+  return out;
+}
+
+function sceneArchivist(t){
+  const t0=S(26)-.05;
+  const z=lerp(1,1.18,eIO(p(t,t0,S(27))));
+  let s=`<rect width="${W}" height="${H}" fill="#07040f"/>`;
+  s+=`<g opacity=".55">`+shelves(20,300,330,7,7,.5)+shelves(730,300,330,7,9,.5)+`</g>`;
+  // lamp glow from below
+  s+=`<radialGradient id="lampG" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="#ffd36b" stop-opacity=".55"/><stop offset="100%" stop-color="#ffd36b" stop-opacity="0"/></radialGradient><rect width="${W}" height="${H}" fill="url(#lampG)"/>`;
+  const lift=eIO(p(t,t0+.2,S(27)-.1));
+  const hand=[110+lift*30,60-lift*230];
+  s+=g(`translate(520 1060) scale(2.3)`,worker({shirt:'#7d7d92',eyes:'creepy',look:[4,0],mouth:'grin',hair:'bald',glasses:true,glint:true,lh:[-80,60],rh:hand,badge:'ARCHIVE'}));
+  s+=vhs(520+hand[0]*2.3+40,1060+hand[1]*2.3-40,['2014'],'#ff8fd0',.75,-12+lift*10);
+  s+=`<rect x="300" y="1350" width="440" height="40" rx="10" fill="#3a2c5e" stroke="${INK}" stroke-width="10"/>`;
+  return cam(z,540,960,s);
+}
+
+function sceneFilm(t){
+  const t0=S(27);
+  let s=`<rect width="${W}" height="${H}" fill="#060309"/>`;
+  // projector beam
+  const fl=.75+.25*Math.sin(t*60)*Math.sin(t*23);
+  s+=`<path d="M920 1560 L80 300 L1000 300 Z" fill="#fff4c2" opacity="${.08*fl}"/>`;
+  // screen
+  const sx=80,sy=300,sw=920,sh=1000;
+  let film='';
+  const sepia='#e9d3a6';
+  if(t<S(28)){
+    const cnt=Math.floor((t-t0)*3);
+    film=`<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" fill="${sepia}"/><circle cx="540" cy="800" r="300" fill="none" stroke="#6b5532" stroke-width="10"/><path d="M540 800 L540 500" stroke="#6b5532" stroke-width="10" transform="rotate(${(t-t0)*360} 540 800)"/>${txt(540,880,'2014',230,'#3b2a14',{sw:0})}`;
+  } else {
+    const rev=t>=S(29)+.6; // reveal person behind
+    const freeze=t>=S(29)+1.15;
+    film=`<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" fill="${sepia}"/><rect x="${sx}" y="${sy+640}" width="${sw}" height="${sh-640}" fill="#cbb48a"/>`;
+    for(let i=0;i<8;i++)film+=`<rect x="${sx+20+i*115}" y="${sy+260}" width="105" height="380" fill="#b9a079" stroke="#5a4526" stroke-width="6"/><path d="M${sx+40+i*115} ${sy+300} h65 M${sx+40+i*115} ${sy+320} h65" stroke="#5a4526" stroke-width="5"/>`;
+    // person behind (far left) appears on reveal
+    const kb=pop(t,S(29)+.6,.35);
+    if(kb>0)film+=g(`translate(${lerp(-60,190,Math.min(kb,1))} 960) scale(.62)`,worker({shirt:'#4f7cff',eyes:'happy',mouth:'smile',hair:'spike',lh:[-90,50],rh:[140,-150+Math.sin(t*14)*25]}));
+    // waver on right
+    const wv=Math.sin(t*12)*25;
+    film+=g(`translate(840 960) scale(.62)`,worker({shirt:'#ff9b3d',eyes:'happy',mouth:'smile',hair:'tuft',lh:[-140,-150+wv],rh:[90,50]}));
+    // YOU in middle
+    const yWave=freeze?120:120+Math.sin(t*12)*25;
+    film+=g(`translate(500 870) scale(.36)`,youBody({wave:rev?(freeze?115:yWave):yWave,eyes:rev?'huge':'open',mouth:rev?'grit':'smile',sweat:rev,blush:rev,look:rev?[-25,0]:[20,0]}));
+    if(freeze){film+=`<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" fill="#000" opacity=".15"/>`;
+      const kc=pop(t,S(29)+1.15,.3);
+      film+=g(`translate(190 860) scale(${kc})`,`<ellipse rx="150" ry="190" fill="none" stroke="#ff2e4d" stroke-width="14"/>`)+(kc>0?txt(260,560,'HIM.',96,'#ff2e4d',{sw:14,rot:-8}):'');
+      film+=(kc>0?`<path d="M240 590 Q220 640 200 680" stroke="#ff2e4d" stroke-width="12" fill="none" stroke-linecap="round"/>`:'');
+    }
+  }
+  // film grain/scratches
+  const r=rng(Math.floor(t*24));
+  let scr='';for(let i=0;i<3;i++){const x=sx+r()*sw;scr+=`<path d="M${x} ${sy} L${x+r()*10} ${sy+sh}" stroke="#2d2010" stroke-width="${1+r()*3}" opacity="${.3+r()*.3}"/>`}
+  for(let i=0;i<6;i++){scr+=`<circle cx="${sx+r()*sw}" cy="${sy+r()*sh}" r="${1+r()*5}" fill="#2d2010" opacity=".4"/>`}
+  s+=`<clipPath id="fclip"><rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" rx="8"/></clipPath><g clip-path="url(#fclip)" opacity="${fl}">${film}${scr}<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" fill="url(#vigG)"/></g>`;
+  s+=`<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" rx="8" fill="none" stroke="#2a2035" stroke-width="16"/>`;
+  // projector
+  s+=`<g transform="translate(900 1580)"><rect x="-130" y="-70" width="260" height="140" rx="20" fill="#3a3550" stroke="${INK}" stroke-width="12"/><circle cx="-130" cy="0" r="46" fill="#fff4c2" stroke="${INK}" stroke-width="10"/><circle cx="-30" cy="-110" r="60" fill="#2b2240" stroke="${INK}" stroke-width="10" transform="rotate(${t*300} -30 -110)"/><circle cx="70" cy="-110" r="60" fill="#2b2240" stroke="${INK}" stroke-width="10"/><path d="M-30 -160 V-60 M-80 -110 H20" stroke="#555" stroke-width="8" transform="rotate(${t*300} -30 -110)"/></g>`;
+  const z=lerp(1,1.08,p(t,t0,S(30)));
+  return cam(z,540,900,s);
+}
+
+function sceneBed(t){
+  const t0=T(SPLICE-0.001)+0.0001; // starts at splice
+  const snap=t0+0.62;
+  const z=lerp(1.0,1.25,eIO(p(t,snap,S(31))));
+  let s=`<rect width="${W}" height="${H}" fill="#0d1030"/>`;
+  // window w/ moon
+  s+=`<rect x="680" y="160" width="300" height="300" rx="20" fill="#18225a" stroke="${INK}" stroke-width="12"/><circle cx="860" cy="260" r="60" fill="#fff6c8"/><circle cx="835" cy="245" r="60" fill="#18225a"/><path d="M830 160 V460 M680 310 H980" stroke="${INK}" stroke-width="10"/>`;
+  // bed (top-down)
+  s+=`<rect x="140" y="420" width="800" height="1160" rx="50" fill="#5b3fa8" stroke="${INK}" stroke-width="14"/>`;
+  s+=`<rect x="250" y="470" width="580" height="300" rx="80" fill="#e9e4ff" stroke="${INK}" stroke-width="12"/>`;
+  const awake=t>=snap;
+  const [kx,ky]=shake(t,snap,.45,30);
+  s+=g(`translate(${540+kx*.4} ${720+ky*.4}) scale(.85)`,youHead({eyes:awake?'huge':'closed',look:[0,-6],mouth:awake?'grit':'flat',sweat:awake,noShoulders:true}));
+  s+=`<path d="M160 1000 C300 950 780 950 920 1000 L920 1560 Q920 1580 900 1580 L180 1580 Q160 1580 160 1560 Z" fill="${LIME}" stroke="${INK}" stroke-width="14"/><path d="M160 1000 C300 950 780 950 920 1000 L920 1060 C780 1010 300 1010 160 1060 Z" fill="#d7ff7a" stroke="${INK}" stroke-width="10"/>`;
+  // dark overlay
+  s+=`<rect width="${W}" height="${H}" fill="#050620" opacity="${awake?.25:.45}"/>`;
+  // clock
+  s+=`<g transform="translate(220 320)"><rect x="-140" y="-70" width="280" height="130" rx="20" fill="#0a0a0a" stroke="${INK}" stroke-width="10"/>${txt(0,30,'3:00 AM',70,'#ff2e4d',{stroke:'#5a0010',sw:4})}</g>`;
+  if(!awake)s+=zz(700,620,t,0);
+  let out=cam(z,540,760,s,kx,ky);
+  if(t>=snap&&t<snap+.12)out+=`<rect width="${W}" height="${H}" fill="#fff" opacity=".8"/>`;
+  return out;
+}
+
+function sceneEnd(t){
+  const t0=END_CARD;
+  let s=`<rect width="${W}" height="${H}" fill="url(#purpG)"/>`;
+  const k=pop(t,t0,.4);
+  s+=g(`translate(540 860) scale(${.95*k})`,youHead({look:[0,24+Math.sin(t*4)*4],mouth:'smile',sweat:true}));
+  s+=g(`translate(540 260) scale(${pop(t,t0+.2,.35)}) rotate(-3)`,txt(0,0,'WHAT SHOULD',112,'#fff',{sw:18})+txt(0,130,'I DO NEXT?',112,LIME,{sw:18}));
+  const ka=pop(t,t0+.6,.35);const bob=Math.sin(t*7)*20;
+  if(ka>0)s+=g(`translate(540 ${1420+bob}) scale(${ka})`,`<rect x="-320" y="-80" width="640" height="150" rx="40" fill="#ffe23a" stroke="${INK}" stroke-width="14"/>${txt(0,30,'COMMENT IT',96,INK,{sw:0})}<path d="M0 90 L0 200 M-55 150 L0 205 L55 150" stroke="#fff" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 90 L0 200 M-55 150 L0 205 L55 150" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
+  const kh=pop(t,t0+1.0,.35);
+  if(kh>0)s+=g(`translate(540 1700) scale(${kh})`,txt(0,0,'@whatif.youu',64,'#fff',{font:'Fred',sw:12})+txt(0,70,'FOLLOW FOR PART 2',44,LIME,{font:'Fred',sw:10}));
+  return s;
+}
+
+const SCENES=[
+  [0,S(1),sceneHook],
+  [S(1),S(3)-.02,sceneRoom],
+  [S(3)-.02,S(6)-.05,sceneGary],
+  [S(6)-.05,S(11)-.1,scenePete],
+  [S(11)-.1,S(16)-.08,sceneSnack],
+  [S(16)-.08,S(22)-.02,sceneArchive],
+  [S(22)-.02,S(26)-.05,sceneNight],
+  [S(26)-.05,S(27)-.05,sceneArchivist],
+  [S(27)-.05,T(SPLICE),sceneFilm],
+  [T(SPLICE),END_CARD,sceneBed],
+  [END_CARD,999,sceneEnd],
+];
+
+const DEFS=`<defs>
+<linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a1f86"/><stop offset=".65" stop-color="#7a2a8f"/><stop offset="1" stop-color="#3a1466"/></linearGradient>
+<radialGradient id="purpG" cx="50%" cy="42%" r="70%"><stop offset="0%" stop-color="#9b4dff"/><stop offset="100%" stop-color="#4f10b8"/></radialGradient>
+<radialGradient id="vigG" cx="50%" cy="50%" r="70%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#2a1a05" stop-opacity=".75"/></radialGradient>
+<radialGradient id="vig2" cx="50%" cy="48%" r="75%"><stop offset="60%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity=".45"/></radialGradient>
+<filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+<filter id="boil" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence id="boilT" type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="1" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence id="grainT" type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"/><feComposite operator="in" in2="SourceGraphic"/></filter>
+<filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence id="paperT" type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="5"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 .95  0 0 0 0 .85  0 0 0 0.9 -0.35"/><feComposite operator="in" in2="SourceGraphic"/></filter>
+</defs>`;
+
+window.render=function(t){
+  let body='';
+  for(const [a,b,fn] of SCENES){if(t>=a&&t<b){body=fn(t);break}}
+  const boilSeed=Math.floor(t*8)%7+1;
+  const grainSeed=Math.floor(t*24)%11+1;
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${DEFS}
+   <g filter="url(#boil)">${body}</g>
+   <rect width="${W}" height="${H}" fill="#fff" filter="url(#paper)" opacity=".10"/>
+   <rect width="${W}" height="${H}" fill="#000" filter="url(#grain)" opacity=".30"/>
+   <rect width="${W}" height="${H}" fill="url(#vig2)"/>
+   <g filter="url(#boil)">${captions(t)}</g>
+  </svg>`;
+  const st=document.getElementById('stage');st.innerHTML=svg;
+  st.querySelector('#boilT').setAttribute('seed',boilSeed);
+  st.querySelector('#grainT').setAttribute('seed',grainSeed);
+  return true;
+};
+window.META={TOTAL,END_CARD,cues:SEG.map((s,i)=>S(i)),SPLICE_T:T(SPLICE)};
+window.render(0);
+</script></body></html>
