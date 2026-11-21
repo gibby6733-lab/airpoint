@@ -6,7 +6,7 @@
 what if you could see inside your brain 💀🧠 which worker runs YOUR brain? 👇
 
 ## Hashtags
-#whatif #animation #brainrot #relatable #funny #fyp #2danimation #cartoon
+#whatif #animation #relatable #brainrot #overthinking #whatifbro
 
 ## On-screen hook (already in video)
 "What if you could see inside your brain's control room?"
