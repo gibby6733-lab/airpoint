@@ -1,0 +1,1273 @@
+{
+ "duration": 66.391,
+ "lines": [
+  {
+   "scene": "g_end",
+   "text": "Last play. Hail Mary. The ball hits our new scoreboard.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "kick",
+     "@hail"
+    ],
+    [
+     "glass",
+     "@scoreboard"
+    ]
+   ],
+   "start": 0.4059999999999988,
+   "end": 3.737000000000002,
+   "words": [
+    {
+     "w": "Last",
+     "s": 0.406
+    },
+    {
+     "w": "play.",
+     "s": 0.684
+    },
+    {
+     "w": "Hail",
+     "s": 1.1
+    },
+    {
+     "w": "Mary.",
+     "s": 1.378
+    },
+    {
+     "w": "The",
+     "s": 1.794
+    },
+    {
+     "w": "ball",
+     "s": 2.026
+    },
+    {
+     "w": "hits",
+     "s": 2.303
+    },
+    {
+     "w": "our",
+     "s": 2.581
+    },
+    {
+     "w": "new",
+     "s": 2.812
+    },
+    {
+     "w": "scoreboard.",
+     "s": 3.043
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     0.406
+    ],
+    [
+     "kick",
+     1.1
+    ],
+    [
+     "glass",
+     3.043
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day eight. Thirty nine likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 4.887,
+   "end": 6.475,
+   "words": [
+    {
+     "w": "Day",
+     "s": 4.887
+    },
+    {
+     "w": "eight.",
+     "s": 5.091
+    },
+    {
+     "w": "Thirty",
+     "s": 5.498
+    },
+    {
+     "w": "nine",
+     "s": 5.824
+    },
+    {
+     "w": "likes.",
+     "s": 6.068
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     4.887
+    ],
+    [
+     "stamp",
+     4.966
+    ]
+   ]
+  },
+  {
+   "scene": "fund8",
+   "text": "That's thirty nine dollars. The bank has thirteen twenty nine.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@thirteen"
+    ]
+   ],
+   "start": 6.695,
+   "end": 10.095,
+   "words": [
+    {
+     "w": "That's",
+     "s": 6.695
+    },
+    {
+     "w": "thirty",
+     "s": 7.008
+    },
+    {
+     "w": "nine",
+     "s": 7.366
+    },
+    {
+     "w": "dollars.",
+     "s": 7.635
+    },
+    {
+     "w": "The",
+     "s": 8.171
+    },
+    {
+     "w": "bank",
+     "s": 8.395
+    },
+    {
+     "w": "has",
+     "s": 8.663
+    },
+    {
+     "w": "thirteen",
+     "s": 8.887
+    },
+    {
+     "w": "twenty",
+     "s": 9.334
+    },
+    {
+     "w": "nine.",
+     "s": 9.692
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     7.205
+    ],
+    [
+     "ding",
+     8.887
+    ]
+   ]
+  },
+  {
+   "scene": "comment8",
+   "text": "Rayray said, get a scoreboard so we stop counting on our fingers. Three likes!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@scoreboard"
+    ],
+    [
+     "stamp",
+     "@three"
+    ]
+   ],
+   "start": 10.315,
+   "end": 14.968,
+   "words": [
+    {
+     "w": "Rayray",
+     "s": 10.315
+    },
+    {
+     "w": "said,",
+     "s": 10.691
+    },
+    {
+     "w": "get",
+     "s": 11.114
+    },
+    {
+     "w": "a",
+     "s": 11.349
+    },
+    {
+     "w": "scoreboard",
+     "s": 11.49
+    },
+    {
+     "w": "so",
+     "s": 12.054
+    },
+    {
+     "w": "we",
+     "s": 12.242
+    },
+    {
+     "w": "stop",
+     "s": 12.43
+    },
+    {
+     "w": "counting",
+     "s": 12.712
+    },
+    {
+     "w": "on",
+     "s": 13.182
+    },
+    {
+     "w": "our",
+     "s": 13.37
+    },
+    {
+     "w": "fingers.",
+     "s": 13.605
+    },
+    {
+     "w": "Three",
+     "s": 14.169
+    },
+    {
+     "w": "likes!",
+     "s": 14.498
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.315
+    ],
+    [
+     "ding",
+     11.49
+    ],
+    [
+     "stamp",
+     14.169
+    ]
+   ]
+  },
+  {
+   "scene": "board8",
+   "text": "A hundred fifty dollars bought a real scoreboard. Coach's fingers are finally free.",
+   "sfx": [
+    [
+     "spend",
+     "@hundred"
+    ],
+    [
+     "ding",
+     "@real"
+    ],
+    [
+     "boing",
+     "@fingers"
+    ]
+   ],
+   "start": 15.188,
+   "end": 20.061,
+   "words": [
+    {
+     "w": "A",
+     "s": 15.188
+    },
+    {
+     "w": "hundred",
+     "s": 15.334
+    },
+    {
+     "w": "fifty",
+     "s": 15.773
+    },
+    {
+     "w": "dollars",
+     "s": 16.114
+    },
+    {
+     "w": "bought",
+     "s": 16.553
+    },
+    {
+     "w": "a",
+     "s": 16.942
+    },
+    {
+     "w": "real",
+     "s": 17.089
+    },
+    {
+     "w": "scoreboard.",
+     "s": 17.381
+    },
+    {
+     "w": "Coach's",
+     "s": 18.112
+    },
+    {
+     "w": "fingers",
+     "s": 18.502
+    },
+    {
+     "w": "are",
+     "s": 18.94
+    },
+    {
+     "w": "finally",
+     "s": 19.184
+    },
+    {
+     "w": "free.",
+     "s": 19.622
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     15.334
+    ],
+    [
+     "ding",
+     17.089
+    ],
+    [
+     "boing",
+     18.502
+    ]
+   ]
+  },
+  {
+   "scene": "signings8",
+   "text": "And eight more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ],
+   "start": 20.281,
+   "end": 21.914,
+   "words": [
+    {
+     "w": "And",
+     "s": 20.281
+    },
+    {
+     "w": "eight",
+     "s": 20.448
+    },
+    {
+     "w": "more",
+     "s": 20.681
+    },
+    {
+     "w": "of",
+     "s": 20.881
+    },
+    {
+     "w": "you",
+     "s": 21.014
+    },
+    {
+     "w": "joined",
+     "s": 21.181
+    },
+    {
+     "w": "the",
+     "s": 21.447
+    },
+    {
+     "w": "team!",
+     "s": 21.614
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     20.771
+    ],
+    [
+     "crowd",
+     21.614
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard8",
+   "text": "Game eight. The Glacier Bay Penguins. They slide everywhere.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "slide",
+     "@slide"
+    ]
+   ],
+   "start": 22.134,
+   "end": 25.218,
+   "words": [
+    {
+     "w": "Game",
+     "s": 22.134
+    },
+    {
+     "w": "eight.",
+     "s": 22.377
+    },
+    {
+     "w": "The",
+     "s": 22.783
+    },
+    {
+     "w": "Glacier",
+     "s": 22.986
+    },
+    {
+     "w": "Bay",
+     "s": 23.351
+    },
+    {
+     "w": "Penguins.",
+     "s": 23.554
+    },
+    {
+     "w": "They",
+     "s": 24.081
+    },
+    {
+     "w": "slide",
+     "s": 24.325
+    },
+    {
+     "w": "everywhere.",
+     "s": 24.609
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     22.134
+    ],
+    [
+     "slide",
+     24.325
+    ]
+   ]
+  },
+  {
+   "scene": "g_slide",
+   "text": "Their whole offense slides on its belly. Our defense can't stop laughing.",
+   "sfx": [
+    [
+     "slide",
+     "@slides"
+    ],
+    [
+     "boing",
+     "@laughing"
+    ]
+   ],
+   "start": 25.438,
+   "end": 29.345,
+   "words": [
+    {
+     "w": "Their",
+     "s": 25.438
+    },
+    {
+     "w": "whole",
+     "s": 25.745
+    },
+    {
+     "w": "offense",
+     "s": 26.052
+    },
+    {
+     "w": "slides",
+     "s": 26.447
+    },
+    {
+     "w": "on",
+     "s": 26.799
+    },
+    {
+     "w": "its",
+     "s": 26.974
+    },
+    {
+     "w": "belly.",
+     "s": 27.194
+    },
+    {
+     "w": "Our",
+     "s": 27.633
+    },
+    {
+     "w": "defense",
+     "s": 27.852
+    },
+    {
+     "w": "can't",
+     "s": 28.247
+    },
+    {
+     "w": "stop",
+     "s": 28.51
+    },
+    {
+     "w": "laughing.",
+     "s": 28.774
+    }
+   ],
+   "sfx_times": [
+    [
+     "slide",
+     26.447
+    ],
+    [
+     "boing",
+     28.774
+    ]
+   ]
+  },
+  {
+   "scene": "g_trick8",
+   "text": "Ayden runs the trick play he asked for. Hand off, touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@hand"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 29.564,
+   "end": 32.923,
+   "words": [
+    {
+     "w": "Ayden",
+     "s": 29.564
+    },
+    {
+     "w": "runs",
+     "s": 29.866
+    },
+    {
+     "w": "the",
+     "s": 30.124
+    },
+    {
+     "w": "trick",
+     "s": 30.339
+    },
+    {
+     "w": "play",
+     "s": 30.641
+    },
+    {
+     "w": "he",
+     "s": 30.899
+    },
+    {
+     "w": "asked",
+     "s": 31.071
+    },
+    {
+     "w": "for.",
+     "s": 31.373
+    },
+    {
+     "w": "Hand",
+     "s": 31.717
+    },
+    {
+     "w": "off,",
+     "s": 31.976
+    },
+    {
+     "w": "touchdown!",
+     "s": 32.32
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     31.717
+    ],
+    [
+     "crowd",
+     32.32
+    ]
+   ]
+  },
+  {
+   "scene": "g_rr",
+   "text": "Our new linebacker, Rayray. One arm, all heart. Big sack!",
+   "sfx": [
+    [
+     "bonk",
+     "@big"
+    ],
+    [
+     "crowd",
+     "@sack"
+    ]
+   ],
+   "start": 33.143,
+   "end": 36.629,
+   "words": [
+    {
+     "w": "Our",
+     "s": 33.143
+    },
+    {
+     "w": "new",
+     "s": 33.366
+    },
+    {
+     "w": "linebacker,",
+     "s": 33.59
+    },
+    {
+     "w": "Rayray.",
+     "s": 34.26
+    },
+    {
+     "w": "One",
+     "s": 34.752
+    },
+    {
+     "w": "arm,",
+     "s": 34.976
+    },
+    {
+     "w": "all",
+     "s": 35.333
+    },
+    {
+     "w": "heart.",
+     "s": 35.557
+    },
+    {
+     "w": "Big",
+     "s": 36.004
+    },
+    {
+     "w": "sack!",
+     "s": 36.227
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     36.004
+    ],
+    [
+     "crowd",
+     36.227
+    ]
+   ]
+  },
+  {
+   "scene": "g_fb",
+   "text": "Our fullback plows through three penguins. Touchdown!",
+   "sfx": [
+    [
+     "bonk",
+     "@plows"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 36.849,
+   "end": 39.751,
+   "words": [
+    {
+     "w": "Our",
+     "s": 36.849
+    },
+    {
+     "w": "fullback",
+     "s": 37.073
+    },
+    {
+     "w": "plows",
+     "s": 37.519
+    },
+    {
+     "w": "through",
+     "s": 37.831
+    },
+    {
+     "w": "three",
+     "s": 38.233
+    },
+    {
+     "w": "penguins.",
+     "s": 38.546
+    },
+    {
+     "w": "Touchdown!",
+     "s": 39.126
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     37.519
+    ],
+    [
+     "crowd",
+     39.126
+    ]
+   ]
+  },
+  {
+   "scene": "g_peng",
+   "text": "Then the penguins slid in for four touchdowns.",
+   "sfx": [
+    [
+     "slide",
+     "@slid"
+    ],
+    [
+     "sad",
+     "@four"
+    ]
+   ],
+   "start": 39.971,
+   "end": 42.258,
+   "words": [
+    {
+     "w": "Then",
+     "s": 39.971
+    },
+    {
+     "w": "the",
+     "s": 40.212
+    },
+    {
+     "w": "penguins",
+     "s": 40.412
+    },
+    {
+     "w": "slid",
+     "s": 40.813
+    },
+    {
+     "w": "in",
+     "s": 41.054
+    },
+    {
+     "w": "for",
+     "s": 41.215
+    },
+    {
+     "w": "four",
+     "s": 41.415
+    },
+    {
+     "w": "touchdowns.",
+     "s": 41.656
+    }
+   ],
+   "sfx_times": [
+    [
+     "slide",
+     40.813
+    ],
+    [
+     "sad",
+     41.415
+    ]
+   ]
+  },
+  {
+   "scene": "g_kr",
+   "text": "Our kick returner takes it all the way back!",
+   "sfx": [
+    [
+     "whoosh",
+     "@takes"
+    ],
+    [
+     "crowd",
+     "@back"
+    ]
+   ],
+   "start": 42.478,
+   "end": 44.665,
+   "words": [
+    {
+     "w": "Our",
+     "s": 42.478
+    },
+    {
+     "w": "kick",
+     "s": 42.673
+    },
+    {
+     "w": "returner",
+     "s": 42.908
+    },
+    {
+     "w": "takes",
+     "s": 43.298
+    },
+    {
+     "w": "it",
+     "s": 43.572
+    },
+    {
+     "w": "all",
+     "s": 43.728
+    },
+    {
+     "w": "the",
+     "s": 43.923
+    },
+    {
+     "w": "way",
+     "s": 44.119
+    },
+    {
+     "w": "back!",
+     "s": 44.314
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     43.298
+    ],
+    [
+     "crowd",
+     44.314
+    ]
+   ]
+  },
+  {
+   "scene": "g_end",
+   "text": "Last play. Hail Mary. The ball hits our new scoreboard.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "kick",
+     "@hail"
+    ],
+    [
+     "glass",
+     "@scoreboard"
+    ]
+   ],
+   "start": 44.885,
+   "end": 48.216,
+   "words": [
+    {
+     "w": "Last",
+     "s": 44.885
+    },
+    {
+     "w": "play.",
+     "s": 45.163
+    },
+    {
+     "w": "Hail",
+     "s": 45.579
+    },
+    {
+     "w": "Mary.",
+     "s": 45.857
+    },
+    {
+     "w": "The",
+     "s": 46.273
+    },
+    {
+     "w": "ball",
+     "s": 46.505
+    },
+    {
+     "w": "hits",
+     "s": 46.782
+    },
+    {
+     "w": "our",
+     "s": 47.06
+    },
+    {
+     "w": "new",
+     "s": 47.291
+    },
+    {
+     "w": "scoreboard.",
+     "s": 47.522
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     44.885
+    ],
+    [
+     "kick",
+     45.579
+    ],
+    [
+     "glass",
+     47.522
+    ]
+   ]
+  },
+  {
+   "scene": "standings8",
+   "text": "Final, twenty eight to twenty one. Two wins, six losses.",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "sad",
+     "@six"
+    ]
+   ],
+   "start": 48.436,
+   "end": 51.889,
+   "words": [
+    {
+     "w": "Final,",
+     "s": 48.436
+    },
+    {
+     "w": "twenty",
+     "s": 48.897
+    },
+    {
+     "w": "eight",
+     "s": 49.265
+    },
+    {
+     "w": "to",
+     "s": 49.587
+    },
+    {
+     "w": "twenty",
+     "s": 49.771
+    },
+    {
+     "w": "one.",
+     "s": 50.14
+    },
+    {
+     "w": "Two",
+     "s": 50.508
+    },
+    {
+     "w": "wins,",
+     "s": 50.738
+    },
+    {
+     "w": "six",
+     "s": 51.153
+    },
+    {
+     "w": "losses.",
+     "s": 51.383
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     48.897
+    ],
+    [
+     "sad",
+     51.153
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame8",
+   "text": "Tomorrow, the Thunder Hill Turkeys. Just in time for Thanksgiving.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@thanksgiving"
+    ]
+   ],
+   "start": 52.109,
+   "end": 55.82,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 52.109
+    },
+    {
+     "w": "the",
+     "s": 52.69
+    },
+    {
+     "w": "Thunder",
+     "s": 52.914
+    },
+    {
+     "w": "Hill",
+     "s": 53.316
+    },
+    {
+     "w": "Turkeys.",
+     "s": 53.585
+    },
+    {
+     "w": "Just",
+     "s": 54.121
+    },
+    {
+     "w": "in",
+     "s": 54.389
+    },
+    {
+     "w": "time",
+     "s": 54.568
+    },
+    {
+     "w": "for",
+     "s": 54.837
+    },
+    {
+     "w": "Thanksgiving.",
+     "s": 55.06
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     52.109
+    ],
+    [
+     "stamp",
+     55.06
+    ]
+   ]
+  },
+  {
+   "scene": "cta8",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Stadium lights, a hot dog stand, or a team bus? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@lights"
+    ],
+    [
+     "pop",
+     "@hot"
+    ],
+    [
+     "pop",
+     "@bus"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 56.04,
+   "end": 64.891,
+   "words": [
+    {
+     "w": "Every",
+     "s": 56.04
+    },
+    {
+     "w": "like",
+     "s": 56.375
+    },
+    {
+     "w": "is",
+     "s": 56.662
+    },
+    {
+     "w": "a",
+     "s": 56.853
+    },
+    {
+     "w": "dollar.",
+     "s": 56.997
+    },
+    {
+     "w": "The",
+     "s": 57.523
+    },
+    {
+     "w": "top",
+     "s": 57.763
+    },
+    {
+     "w": "comment",
+     "s": 58.002
+    },
+    {
+     "w": "picks",
+     "s": 58.432
+    },
+    {
+     "w": "the",
+     "s": 58.767
+    },
+    {
+     "w": "upgrade.",
+     "s": 59.007
+    },
+    {
+     "w": "Stadium",
+     "s": 59.581
+    },
+    {
+     "w": "lights,",
+     "s": 60.011
+    },
+    {
+     "w": "a",
+     "s": 60.538
+    },
+    {
+     "w": "hot",
+     "s": 60.681
+    },
+    {
+     "w": "dog",
+     "s": 60.92
+    },
+    {
+     "w": "stand,",
+     "s": 61.16
+    },
+    {
+     "w": "or",
+     "s": 61.638
+    },
+    {
+     "w": "a",
+     "s": 61.829
+    },
+    {
+     "w": "team",
+     "s": 61.973
+    },
+    {
+     "w": "bus?",
+     "s": 62.26
+    },
+    {
+     "w": "Want",
+     "s": 62.643
+    },
+    {
+     "w": "to",
+     "s": 62.93
+    },
+    {
+     "w": "play?",
+     "s": 63.121
+    },
+    {
+     "w": "Comment",
+     "s": 63.552
+    },
+    {
+     "w": "your",
+     "s": 63.982
+    },
+    {
+     "w": "position.",
+     "s": 64.269
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     56.997
+    ],
+    [
+     "pop",
+     60.011
+    ],
+    [
+     "pop",
+     60.681
+    ],
+    [
+     "pop",
+     62.26
+    ],
+    [
+     "ding",
+     58.002
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

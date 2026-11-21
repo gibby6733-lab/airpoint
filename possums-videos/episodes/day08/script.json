@@ -1,0 +1,257 @@
+{
+ "episode": 8,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day eight. Thirty nine likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund8",
+   "text": "That's thirty nine dollars. The bank has thirteen twenty nine.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@thirteen"
+    ]
+   ]
+  },
+  {
+   "scene": "comment8",
+   "text": "Rayray said, get a scoreboard so we stop counting on our fingers. Three likes!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@scoreboard"
+    ],
+    [
+     "stamp",
+     "@three"
+    ]
+   ]
+  },
+  {
+   "scene": "board8",
+   "text": "A hundred fifty dollars bought a real scoreboard. Coach's fingers are finally free.",
+   "sfx": [
+    [
+     "spend",
+     "@hundred"
+    ],
+    [
+     "ding",
+     "@real"
+    ],
+    [
+     "boing",
+     "@fingers"
+    ]
+   ]
+  },
+  {
+   "scene": "signings8",
+   "text": "And eight more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard8",
+   "text": "Game eight. The Glacier Bay Penguins. They slide everywhere.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "slide",
+     "@slide"
+    ]
+   ]
+  },
+  {
+   "scene": "g_slide",
+   "text": "Their whole offense slides on its belly. Our defense can't stop laughing.",
+   "sfx": [
+    [
+     "slide",
+     "@slides"
+    ],
+    [
+     "boing",
+     "@laughing"
+    ]
+   ]
+  },
+  {
+   "scene": "g_trick8",
+   "text": "Ayden runs the trick play he asked for. Hand off, touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@hand"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_rr",
+   "text": "Our new linebacker, Rayray. One arm, all heart. Big sack!",
+   "sfx": [
+    [
+     "bonk",
+     "@big"
+    ],
+    [
+     "crowd",
+     "@sack"
+    ]
+   ]
+  },
+  {
+   "scene": "g_fb",
+   "text": "Our fullback plows through three penguins. Touchdown!",
+   "sfx": [
+    [
+     "bonk",
+     "@plows"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_peng",
+   "text": "Then the penguins slid in for four touchdowns.",
+   "sfx": [
+    [
+     "slide",
+     "@slid"
+    ],
+    [
+     "sad",
+     "@four"
+    ]
+   ]
+  },
+  {
+   "scene": "g_kr",
+   "text": "Our kick returner takes it all the way back!",
+   "sfx": [
+    [
+     "whoosh",
+     "@takes"
+    ],
+    [
+     "crowd",
+     "@back"
+    ]
+   ]
+  },
+  {
+   "scene": "g_end",
+   "text": "Last play. Hail Mary. The ball hits our new scoreboard.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "kick",
+     "@hail"
+    ],
+    [
+     "glass",
+     "@scoreboard"
+    ]
+   ]
+  },
+  {
+   "scene": "standings8",
+   "text": "Final, twenty eight to twenty one. Two wins, six losses.",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "sad",
+     "@six"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame8",
+   "text": "Tomorrow, the Thunder Hill Turkeys. Just in time for Thanksgiving.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@thanksgiving"
+    ]
+   ]
+  },
+  {
+   "scene": "cta8",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Stadium lights, a hot dog stand, or a team bus? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@lights"
+    ],
+    [
+     "pop",
+     "@hot"
+    ],
+    [
+     "pop",
+     "@bus"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,31 +1,32 @@
 {
- "after_day": 7,
- "fund_dollars": 1290,
+ "after_day": 8,
+ "fund_dollars": 1179,
  "record": {
   "wins": 2,
-  "losses": 5
+  "losses": 6
  },
  "fans": 0,
- "next_opponent": "Glacier Bay Penguins (slide everywhere)",
+ "next_opponent": "Thunder Hill Turkeys (Thanksgiving game)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
   "field: real grass (Day 4, $500)",
   "goal posts: real yellow goal posts (Day 5, $100)",
   "stands: real metal bleachers (Day 6, $250)",
-  "locker room: real brick locker room with showers (Day 7, $400)"
+  "locker room: real brick locker room with showers (Day 7, $400)",
+  "scoreboard (Day 8, $150)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
   "stands": "real metal bleachers with a GO POSSUMS banner (the cow has the best seat)",
   "field": "real grass (one mud puddle left)",
   "goal_posts": "real yellow goal posts (Earl kept the ladder)",
-  "scoreboard": "none",
+  "scoreboard": "real scoreboard (got hit by a Hail Mary)",
   "locker_room": "real brick locker room with actual showers"
  },
  "upgrade_prices": {
-  "scoreboard": 150,
   "stadium_lights": 300,
+  "hot_dog_stand": 200,
   "team_bus": 500
  },
  "roster": {
@@ -159,48 +160,72 @@
     "carlin DL",
     "CJ water boy"
    ]
+  },
+  {
+   "day": 8,
+   "built": "2026-11-21",
+   "likes_in": 39,
+   "likes_tiktok": 39,
+   "likes_instagram": null,
+   "note_platforms": "TikTok only",
+   "winning_comment": "[Rayray-On-Rollhr]: ...and scoreboard so we can focus on the game and not count on our fingers",
+   "comment_likes": 3,
+   "bought": "scoreboard $150",
+   "opponent": "Glacier Bay Penguins",
+   "score": "21-28 L",
+   "note": "Ayden Curtis trick play TD; Rayray sack; Iwannabepure plowed 3 penguins; FishKing03 kick return TD; Hail Mary hit the new scoreboard.",
+   "fan_signings": [
+    "[Rayray-On-Rollhr] LB",
+    "Hurts.WX DT",
+    "GIBBY TE",
+    "Iwannabepure FB",
+    "RV3 CB",
+    "Carter#9 S",
+    "Landyn DE",
+    "FishKing03 KR"
+   ]
   }
  ],
  "fan_roster": [
   {
-   "name": "cj",
-   "role": "safety",
-   "trait": "day 6 of asking, got a pick"
+   "name": "[Rayray-On-Rollhr]",
+   "role": "linebacker",
+   "trait": "one arm, all heart, big sack"
   },
   {
-   "name": "Dominic Harrison",
-   "role": "kicker",
-   "trait": "#14, 40-yard FG"
+   "name": "Hurts.WX",
+   "role": "d-tackle",
+   "trait": "couldn't stop laughing at belly slides"
   },
   {
-   "name": "Ayden Curtis",
-   "role": "quarterback",
-   "trait": "TD to ThatBoyMasyn"
-  },
-  {
-   "name": "kaleljuju.prod",
-   "role": "wide receiver",
-   "trait": "caught the trick-play winner"
-  },
-  {
-   "name": "ThatBoyMasyn",
+   "name": "GIBBY",
    "role": "tight end",
-   "trait": "caught a TD"
+   "trait": "new"
   },
   {
-   "name": "Wesley slaughter",
-   "role": "right tackle",
-   "trait": "howled louder than the Coyotes"
+   "name": "Iwannabepure",
+   "role": "fullback",
+   "trait": "plowed 3 penguins for a TD"
   },
   {
-   "name": "carlin",
-   "role": "d-line",
-   "trait": "got run over 3 times"
+   "name": "RV3",
+   "role": "cornerback",
+   "trait": "day 7 of asking"
   },
   {
-   "name": "CJ",
-   "role": "water boy",
-   "trait": "day 5 of asking"
+   "name": "Carter#9",
+   "role": "safety",
+   "trait": "day 4 of asking"
+  },
+  {
+   "name": "Landyn",
+   "role": "defensive end",
+   "trait": "first comment"
+  },
+  {
+   "name": "FishKing03",
+   "role": "kick returner",
+   "trait": "took it all the way back"
   }
  ],
  "accounts": {
