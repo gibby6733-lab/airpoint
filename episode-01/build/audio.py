@@ -114,14 +114,13 @@ def put(x, at, g=1.0):
     if s < N: mix[s:e] += x[:e - s] * g
 
 # voice with splice
-vo = decode('audio/vo.mp3')
-sp = int(56.38 * SR)
-vo = np.concatenate([vo[:sp], np.zeros(int(0.8 * SR)), vo[sp:]])
-voice = np.zeros(N); s = int(0.4 * SR); voice[s:s+len(vo)] = vo[:N - s]
+vo = decode('tts/voice.wav')  # free Kokoro voice, already timed (lead included)
+vo = vo / (np.max(np.abs(vo)) + 1e-9) * 0.9
+voice = np.zeros(N); voice[:min(N, len(vo))] = vo[:N]
 
 # music sections
-m1 = music(43.4)
-fade = np.ones(len(m1)); fade[int(34.2*SR):int(34.7*SR)] = np.linspace(1, 0.0, int(34.7*SR)-int(34.2*SR)); fade[int(34.7*SR):] = 0
+m1 = music(C[16] + 1.0)
+fade = np.ones(len(m1)); f0, f1 = int((C[16]-.3)*SR), int((C[16]+.2)*SR); fade[f0:f1] = np.linspace(1, 0.0, f1-f0); fade[f1:] = 0
 mus = np.zeros(N); mus[:len(m1)] += m1 * fade
 m2 = music(TOTAL - END + 0.5); e2 = env(len(m2), 0.05, 0.8)
 put_at = int(END * SR); mus[put_at:put_at+len(m2)] += (m2 * e2)[:N - put_at]
@@ -148,14 +147,14 @@ put(pop(), C[12], .6); put(sparkle(.8), C[13], 1.0); put(ding(), C[13], .5)
 for h in [C[14] + .1, C[14] + .6, C[14] + 1.1]: put(thud(200, .22), h, .9)
 put(scratch(), C[15] - .1, 1.0)
 put(whoosh(.8), C[16] - .25, .7)
-put(drone(8.8), C[16] - .1, 1.0)
+put(drone(C[22] - C[16] + .2), C[16] - .1, 1.0)
 put(click(), C[17], .8); put(click(), C[17] + .12, .5); put(click(), C[17] + .25, .6)
 for i in range(3): put(whoosh(.3), C[18] + i * .55, .5)
 put(thud(180, .25), C[19], .9); put(pop(), C[20], .6); put(sparkle(1.0), C[21], 1.2); put(ding(), C[21], .6)
-put(click(), C[22], 1.0); put(crickets(9.0), C[22] + .2, 1.0); put(tick_clock(8.5), C[22] + .3, .8)
+put(click(), C[22], 1.0); put(crickets(C[27] - C[22]), C[22] + .2, 1.0); put(tick_clock(C[27] - C[22] - .5), C[22] + .3, .8)
 put(boom(), C[25] + .55, .35)
 put(click(), C[26] - .05, .9)
-put(projector(5.9), C[27] - .05, 1.0); put(click(), C[27] - .05, .9)
+put(projector(SPL - C[27] + .1), C[27] - .05, 1.0); put(click(), C[27] - .05, .9)
 put(scratch(), C[29] + .55, .7); put(boom(), C[29] + 1.15, .9)
 put(stab(), SPL + .62, 1.0); put(boom(), SPL + .62, .7)
 put(pop(), END, .7); put(pop(), END + .6, .6); put(pop(), END + 1.0, .6)

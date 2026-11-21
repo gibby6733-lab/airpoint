@@ -1,9 +1,9 @@
 # Episode 1 — What if you could see your brain's control room?
 
-**File:** `episode-01-brain-control-room.mp4` (1080×1920, 30fps, ~65s)
+**File:** `episode-01-brain-control-room.mp4` (1080×1920, 30fps, ~65s, monetization-eligible length)
 
 ## Caption
-what if you could see inside your brain 💀🧠 part 2? comment what I should do next 👇
+what if you could see inside your brain 💀🧠 which worker runs YOUR brain? 👇
 
 ## Hashtags
 #whatif #animation #brainrot #relatable #funny #fyp #2danimation #cartoon
@@ -25,4 +25,12 @@ what if you could see inside your brain 💀🧠 part 2? comment what I should d
 - **The Archivist** — Cringe Archive, grey cardigan, glasses, creepy grin
 
 ## Credits
-Voice: ElevenLabs "Christopher" (eleven_v4). Animation, music and SFX made in code (`build/`).
+Voice: Kokoro `am_michael` at 1.1x (free, open-source, runs locally — `build/tts.py`). Animation, music and SFX made in code (`build/`).
+
+## Rebuild
+```
+cd build
+python3 tts.py am_michael 1.1   # voice + timing.js
+node render.js meta && python3 audio.py
+node render.js                  # video.mp4
+```

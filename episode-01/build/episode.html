@@ -8,6 +8,7 @@ html,body{margin:0;padding:0;background:#000;overflow:hidden}
 svg{display:block}
 </style></head>
 <body><div id="stage"></div>
+<script src="timing.js"></script>
 <script>
 // ================= helpers =================
 const W=1080,H=1920,INK='#16111f',SKIN='#f6e6cc',LIME='#b7f23a',PURP='#7b2cf0',CREAM='#fffdf6';
@@ -27,8 +28,7 @@ function txt(x,y,s,size,fill,o={}){const font=o.font||'Lucky';const sw=o.sw??siz
   return `<text x="${x}" y="${y}" font-family="${font}" font-weight="700" font-size="${size}" text-anchor="${anchor}" fill="${fill}" stroke="${o.stroke||INK}" stroke-width="${sw}" paint-order="stroke" stroke-linejoin="round" letter-spacing="${o.ls||0}"${rot} ${o.extra||''}>${esc(s)}</text>`}
 
 // ================= timing (voice segments) =================
-const SPLICE=56.38, GAP=0.8, LEAD=0.4;
-const T=v=>v+LEAD+(v>=SPLICE?GAP:0);
+const T=v=>v; // voice is pre-timed by tts.py (timing.js)
 const SEG=[ // [start,end,text,keywords]
 [0.00,2.62,"What if you could see inside your brain's control room?",["BRAIN'S"]],
 [3.24,5.66,"Turns out... it's run by four guys.",["FOUR"]],
@@ -61,11 +61,12 @@ const SEG=[ // [start,end,text,keywords]
 [52.79,54.05,"You waved back at someone...",["WAVED"]],
 [54.32,56.14,"who was waving at the person behind you.",["BEHIND","YOU."]],
 [56.62,58.37,"And that's why you can't sleep.",["CAN'T","SLEEP."]],
-[58.76,60.29,"Comment what I should do next.",[]],
 ];
+SEG.forEach((s,i)=>{s[0]=window.TIMING[i][0];s[1]=window.TIMING[i][1]});
 const S=i=>T(SEG[i][0]);
-const END_CARD=S(31)-0.15;
-const TOTAL=T(60.29)+4.0;
+const END_CARD=SEG[30][1]+0.35;
+const BED=S(30)-0.8;
+const TOTAL=END_CARD+2.8;
 
 // caption chunks
 const CHUNKS=[];
@@ -528,9 +529,9 @@ function sceneFilm(t){
 }
 
 function sceneBed(t){
-  const t0=T(SPLICE-0.001)+0.0001; // starts at splice
+  const t0=BED;
   const snap=t0+0.62;
-  const z=lerp(1.0,1.25,eIO(p(t,snap,S(31))));
+  const z=lerp(1.0,1.25,eIO(p(t,snap,END_CARD)));
   let s=`<rect width="${W}" height="${H}" fill="#0d1030"/>`;
   // window w/ moon
   s+=`<rect x="680" y="160" width="300" height="300" rx="20" fill="#18225a" stroke="${INK}" stroke-width="12"/><circle cx="860" cy="260" r="60" fill="#fff6c8"/><circle cx="835" cy="245" r="60" fill="#18225a"/><path d="M830 160 V460 M680 310 H980" stroke="${INK}" stroke-width="10"/>`;
@@ -554,13 +555,14 @@ function sceneBed(t){
 function sceneEnd(t){
   const t0=END_CARD;
   let s=`<rect width="${W}" height="${H}" fill="url(#purpG)"/>`;
+  for(let i=0;i<4;i++){const ph=(t*.4+i/4)%1;s+=txt(150+i*260,700-ph*300,'?',80,LIME,{sw:12,extra:`opacity="${(Math.sin(ph*Math.PI)*.8).toFixed(2)}"`})}
   const k=pop(t,t0,.4);
-  s+=g(`translate(540 860) scale(${.95*k})`,youHead({look:[0,24+Math.sin(t*4)*4],mouth:'smile',sweat:true}));
-  s+=g(`translate(540 260) scale(${pop(t,t0+.2,.35)}) rotate(-3)`,txt(0,0,'WHAT SHOULD',112,'#fff',{sw:18})+txt(0,130,'I DO NEXT?',112,LIME,{sw:18}));
-  const ka=pop(t,t0+.6,.35);const bob=Math.sin(t*7)*20;
-  if(ka>0)s+=g(`translate(540 ${1420+bob}) scale(${ka})`,`<rect x="-320" y="-80" width="640" height="150" rx="40" fill="#ffe23a" stroke="${INK}" stroke-width="14"/>${txt(0,30,'COMMENT IT',96,INK,{sw:0})}<path d="M0 90 L0 200 M-55 150 L0 205 L55 150" stroke="#fff" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 90 L0 200 M-55 150 L0 205 L55 150" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
-  const kh=pop(t,t0+1.0,.35);
-  if(kh>0)s+=g(`translate(540 1700) scale(${kh})`,txt(0,0,'@whatif.youu',64,'#fff',{font:'Fred',sw:12})+txt(0,70,'FOLLOW FOR PART 2',44,LIME,{font:'Fred',sw:10}));
+  s+=g(`translate(540 900) scale(${.9*k})`,youHead({look:[Math.sin(t*3)*16,4],mouth:'smile',sweat:true}));
+  s+=g(`translate(540 300) scale(${pop(t,t0+.15,.35)}) rotate(-3)`,txt(0,0,'NEW WHAT IF',120,'#fff',{sw:18})+txt(0,135,'EVERY DAY',120,LIME,{sw:18}));
+  const ka=pop(t,t0+.5,.35),bob=Math.sin(t*6)*10;
+  if(ka>0)s+=g(`translate(540 ${1420+bob}) scale(${ka})`,`<rect x="-300" y="-85" width="600" height="160" rx="80" fill="#ff2e5c" stroke="${INK}" stroke-width="14"/>${txt(0,32,'FOLLOW',104,'#fff',{sw:16})}`);
+  const kh=pop(t,t0+.85,.35);
+  if(kh>0)s+=g(`translate(540 1640) scale(${kh})`,txt(0,0,'@whatif.youu',66,'#fff',{font:'Fred',sw:12}));
   return s;
 }
 
@@ -573,8 +575,8 @@ const SCENES=[
   [S(16)-.08,S(22)-.02,sceneArchive],
   [S(22)-.02,S(26)-.05,sceneNight],
   [S(26)-.05,S(27)-.05,sceneArchivist],
-  [S(27)-.05,T(SPLICE),sceneFilm],
-  [T(SPLICE),END_CARD,sceneBed],
+  [S(27)-.05,BED,sceneFilm],
+  [BED,END_CARD,sceneBed],
   [END_CARD,999,sceneEnd],
 ];
 
@@ -606,6 +608,6 @@ window.render=function(t){
   st.querySelector('#grainT').setAttribute('seed',grainSeed);
   return true;
 };
-window.META={TOTAL,END_CARD,cues:SEG.map((s,i)=>S(i)),SPLICE_T:T(SPLICE)};
+window.META={TOTAL,END_CARD,cues:SEG.map((s,i)=>S(i)),SPLICE_T:BED};
 window.render(0);
 </script></body></html>
