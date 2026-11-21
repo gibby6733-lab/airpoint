@@ -137,8 +137,8 @@ window.SCENES=()=>[
 window.COVER=()=>coverTemplate({l1:'WHAT IF YOU COULD',l2:"HEAR YOUR PETS?",ep:3,
   hero:{eyes:'huge',mouth:'o'},
   badges:[
-   {inner:dog(0,150,.6,{big:true},0),label:'BEST DAY',col:'#ffb84d'},
-   {inner:cat(0,150,.62,{eyes:'meh'},0),label:'PLAN B',col:'#ff9ad5'},
+   {inner:dog(0,85,.55,{big:true},0),label:'BEST DAY',col:'#ffb84d'},
+   {inner:cat(0,95,.55,{eyes:'meh'},0),label:'PLAN B',col:'#ff9ad5'},
    {inner:fish(0,0,.8,false,0,{big:true})+castle(70,90,.5),label:'A CASTLE!',col:'#7fd6ff'},
-   {inner:cat(0,120,.5,{eyes:'meh',suit:true,glasses:true},0),label:'LAWYER',col:'#c9a6ff'},
+   {inner:cat(0,75,.48,{eyes:'meh',suit:true,glasses:true},0),label:'LAWYER',col:'#c9a6ff'},
   ]});
