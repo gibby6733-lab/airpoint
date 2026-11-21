@@ -1,0 +1,5 @@
+@font-face{font-family:Lucky;src:url(lucky.woff2) format('woff2');}
+@font-face{font-family:Fred;src:url(fredoka.woff2) format('woff2');font-weight:700;}
+html,body{margin:0;padding:0;background:#000;overflow:hidden}
+#stage{width:1080px;height:1920px;position:relative}
+svg{display:block}
