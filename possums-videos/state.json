@@ -1,12 +1,12 @@
 {
- "after_day": 8,
- "fund_dollars": 1179,
+ "after_day": 9,
+ "fund_dollars": 708,
  "record": {
-  "wins": 2,
+  "wins": 3,
   "losses": 6
  },
  "fans": 0,
- "next_opponent": "Thunder Hill Turkeys (Thanksgiving game)",
+ "next_opponent": "Frost Hollow Yetis (nobody has seen their faces)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
@@ -14,7 +14,8 @@
   "goal posts: real yellow goal posts (Day 5, $100)",
   "stands: real metal bleachers (Day 6, $250)",
   "locker room: real brick locker room with showers (Day 7, $400)",
-  "scoreboard (Day 8, $150)"
+  "scoreboard (Day 8, $150)",
+  "team bus (Day 9, $500)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
@@ -22,12 +23,13 @@
   "field": "real grass (one mud puddle left)",
   "goal_posts": "real yellow goal posts (Earl kept the ladder)",
   "scoreboard": "real scoreboard (got hit by a Hail Mary)",
-  "locker_room": "real brick locker room with actual showers"
+  "locker_room": "real brick locker room with actual showers",
+  "team_bus": "yellow MUDVILLE POSSUMS bus (Earl's minivan retired)"
  },
  "upgrade_prices": {
   "stadium_lights": 300,
   "hot_dog_stand": 200,
-  "team_bus": 500
+  "mascot_costume": 100
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -184,48 +186,51 @@
     "Landyn DE",
     "FishKing03 KR"
    ]
+  },
+  {
+   "day": 9,
+   "built": "2026-11-22",
+   "likes_in": 29,
+   "likes_tiktok": 29,
+   "winning_comment": "team bus (manidrkrn / fiftiethcart944 / ckros_ki11_m33, 0 likes each; only shop item asked)",
+   "bought": "team bus $500",
+   "opponent": "Thunder Hill Turkeys",
+   "score": "24-21 W",
+   "note": "Third win. eastonjones50 70-yd FG; iampetesullivan helmet-flying hit; zay57486 tipped-to-himself TD; yrab072 played 3 positions for a TD; whole team ran it in. Featured landis.run0's $10K sponsor ask (4 likes): the cow sponsors us in milk; fiftiethcart944 bus speech.",
+   "fan_signings": [
+    "zay57486 WR",
+    "iampetesullivan LB",
+    "eastonjones50 K",
+    "layneandtheboyz assistant coach",
+    "yrab072 plays anything"
+   ]
   }
  ],
  "fan_roster": [
   {
-   "name": "[Rayray-On-Rollhr]",
+   "name": "zay57486",
+   "role": "wide receiver",
+   "trait": "caught his own tip"
+  },
+  {
+   "name": "iampetesullivan",
    "role": "linebacker",
-   "trait": "one arm, all heart, big sack"
+   "trait": "helmet-flying hit"
   },
   {
-   "name": "Hurts.WX",
-   "role": "d-tackle",
-   "trait": "couldn't stop laughing at belly slides"
+   "name": "eastonjones50",
+   "role": "kicker",
+   "trait": "70-yard FG, as promised"
   },
   {
-   "name": "GIBBY",
-   "role": "tight end",
-   "trait": "new"
+   "name": "layneandtheboyz",
+   "role": "assistant coach",
+   "trait": "wanted head coach"
   },
   {
-   "name": "Iwannabepure",
-   "role": "fullback",
-   "trait": "plowed 3 penguins for a TD"
-  },
-  {
-   "name": "RV3",
-   "role": "cornerback",
-   "trait": "day 7 of asking"
-  },
-  {
-   "name": "Carter#9",
-   "role": "safety",
-   "trait": "day 4 of asking"
-  },
-  {
-   "name": "Landyn",
-   "role": "defensive end",
-   "trait": "first comment"
-  },
-  {
-   "name": "FishKing03",
-   "role": "kick returner",
-   "trait": "took it all the way back"
+   "name": "yrab072",
+   "role": "plays anything",
+   "trait": "3 positions on one play"
   }
  ],
  "accounts": {

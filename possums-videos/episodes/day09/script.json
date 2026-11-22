@@ -1,0 +1,261 @@
+{
+ "episode": 9,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day nine. Twenty nine likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund9",
+   "text": "That's twenty nine dollars. The bank has twelve oh eight.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@twelve"
+    ]
+   ]
+  },
+  {
+   "scene": "comment9",
+   "text": "You kept asking for a team bus. Five hundred dollars. Done!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@bus"
+    ],
+    [
+     "spend",
+     "@five"
+    ]
+   ]
+  },
+  {
+   "scene": "bus9",
+   "text": "Earl's minivan is retired. And fiftieth cart gave a speech on the bus.",
+   "sfx": [
+    [
+     "honk",
+     "@earl"
+    ],
+    [
+     "crowd",
+     "@speech"
+    ]
+   ]
+  },
+  {
+   "scene": "sponsor9",
+   "text": "Landis wanted a sponsor paying ten thousand per win. Our only offer? The cow. It pays in milk.",
+   "sfx": [
+    [
+     "pop",
+     "@landis"
+    ],
+    [
+     "cash",
+     "@ten"
+    ],
+    [
+     "honk",
+     "@cow"
+    ],
+    [
+     "boing",
+     "@milk"
+    ]
+   ]
+  },
+  {
+   "scene": "signings9",
+   "text": "And five more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard9",
+   "text": "Game nine. The Thunder Hill Turkeys. On Thanksgiving week.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@thanksgiving"
+    ]
+   ]
+  },
+  {
+   "scene": "g_k9",
+   "text": "Our new kicker said seventy yards. He did it. Good!",
+   "sfx": [
+    [
+     "kick",
+     "@did"
+    ],
+    [
+     "crowd",
+     "@good"
+    ]
+   ]
+  },
+  {
+   "scene": "g_lb9",
+   "text": "Our new linebacker hits so hard the helmet flies off.",
+   "sfx": [
+    [
+     "bonk",
+     "@hits"
+    ],
+    [
+     "boing",
+     "@flies"
+    ]
+   ]
+  },
+  {
+   "scene": "g_turk",
+   "text": "Then the Turkeys strutted in for three touchdowns.",
+   "sfx": [
+    [
+     "sad",
+     "@three"
+    ],
+    [
+     "boo",
+     "@touchdowns"
+    ]
+   ]
+  },
+  {
+   "scene": "g_wr9",
+   "text": "Our new receiver tips it, then catches his own tip. Touchdown!",
+   "sfx": [
+    [
+     "pop",
+     "@tips"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_util",
+   "text": "Yrab said he'd play anything. He plays three positions at once. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@three"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_last",
+   "text": "Last play. The whole team runs it in together. We win!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "crowd",
+     "@together"
+    ],
+    [
+     "horn",
+     "@win"
+    ]
+   ]
+  },
+  {
+   "scene": "standings9",
+   "text": "Final, twenty four to twenty one. Three wins, six losses!",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "ding",
+     "@three"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame9",
+   "text": "Tomorrow, the Frost Hollow Yetis. Nobody has seen their faces.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@faces"
+    ]
+   ]
+  },
+  {
+   "scene": "cta9",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Stadium lights, a hot dog stand, or a mascot costume? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@lights"
+    ],
+    [
+     "pop",
+     "@hot"
+    ],
+    [
+     "pop",
+     "@mascot"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}
