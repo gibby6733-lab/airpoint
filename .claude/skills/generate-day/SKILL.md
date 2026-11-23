@@ -19,7 +19,7 @@ since the last build plus the attachment/frame paths to Read). It can arrive in 
 - Complete → post the check summary as ONE message that starts with `🔨 Building Day N` (likes → $, chosen upgrade with
   the commenter's name, fan signings by position, opponent). The 🔨 marks those results as used. Then build (steps 2-5).
 - The like count the user typed is the source of truth (Boozeie may not be connected in scheduled runs).
-- Finish with a designed cover (`thumbnail.png`, 1080x1920, big DAY N + the day's hook) before posting; post_discord.py
+- Finish with a designed cover (`thumbnail.png`, 1080x1920 — keep ALL text and characters inside the middle 3:4 band (y≈240-1680), because TikTok's cover picker crops to 3:4, big DAY N + the day's hook) before posting; post_discord.py
   then puts the video, cover, title and caption in #possums-videos. Last, `python3 discord_say.py possums_results "✅ Day N is in #possums-videos"`.
 
 ## 1. Get the inputs (Discord or chat)
