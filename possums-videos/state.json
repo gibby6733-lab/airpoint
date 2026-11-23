@@ -1,12 +1,12 @@
 {
- "after_day": 9,
- "fund_dollars": 708,
+ "after_day": 10,
+ "fund_dollars": 514,
  "record": {
-  "wins": 3,
+  "wins": 4,
   "losses": 6
  },
  "fans": 0,
- "next_opponent": "Frost Hollow Yetis (nobody has seen their faces)",
+ "next_opponent": "Rocky Shore Crabs (only run sideways)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
@@ -15,7 +15,8 @@
   "stands: real metal bleachers (Day 6, $250)",
   "locker room: real brick locker room with showers (Day 7, $400)",
   "scoreboard (Day 8, $150)",
-  "team bus (Day 9, $500)"
+  "team bus (Day 9, $500)",
+  "stadium lights (Day 10, $300)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
@@ -24,12 +25,13 @@
   "goal_posts": "real yellow goal posts (Earl kept the ladder)",
   "scoreboard": "real scoreboard (got hit by a Hail Mary)",
   "locker_room": "real brick locker room with actual showers",
-  "team_bus": "yellow MUDVILLE POSSUMS bus (Earl's minivan retired)"
+  "team_bus": "yellow MUDVILLE POSSUMS bus (Earl's minivan retired)",
+  "lights": "stadium lights — night games"
  },
  "upgrade_prices": {
-  "stadium_lights": 300,
   "hot_dog_stand": 200,
-  "mascot_costume": 100
+  "mascot_costume": 100,
+  "cheer_uniforms": 150
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -204,33 +206,70 @@
     "layneandtheboyz assistant coach",
     "yrab072 plays anything"
    ]
+  },
+  {
+   "day": 10,
+   "built": "2026-11-23",
+   "likes_in": 106,
+   "likes_tiktok": 106,
+   "winning_comment": "Qj_lavon: me safety and add stadium lights for night games",
+   "comment_likes": 2,
+   "bought": "stadium lights $300",
+   "opponent": "Frost Hollow Yetis",
+   "score": "28-21 W",
+   "note": "First night game. Peter's fumble request (12 likes) granted: fumble bounced to so.cxmp.13 for a TD; so.cxmp.13 MVP with 3 TDs; elijah sack; Kolt_9 helmet hit + graham crackers; tochikoi_ 4.1 TD.",
+   "fan_signings": [
+    "Peter fumble specialist",
+    "elijah DE",
+    "Kolt_9 LB",
+    "Key CB",
+    "Noah defense coach",
+    "tochikoi_ WR",
+    "faustin.riley4 TE",
+    "Wonka hot dog seller"
+   ]
   }
  ],
  "fan_roster": [
   {
-   "name": "zay57486",
-   "role": "wide receiver",
-   "trait": "caught his own tip"
+   "name": "Peter",
+   "role": "fumble specialist",
+   "trait": "fumbled as promised, it worked"
   },
   {
-   "name": "iampetesullivan",
+   "name": "elijah",
+   "role": "defensive end",
+   "trait": "sacked the yeti"
+  },
+  {
+   "name": "Kolt_9",
    "role": "linebacker",
-   "trait": "helmet-flying hit"
+   "trait": "brings graham crackers"
   },
   {
-   "name": "eastonjones50",
-   "role": "kicker",
-   "trait": "70-yard FG, as promised"
+   "name": "Key",
+   "role": "cornerback",
+   "trait": "new"
   },
   {
-   "name": "layneandtheboyz",
-   "role": "assistant coach",
-   "trait": "wanted head coach"
+   "name": "Noah",
+   "role": "defense coach",
+   "trait": "day 3 of asking"
   },
   {
-   "name": "yrab072",
-   "role": "plays anything",
-   "trait": "3 positions on one play"
+   "name": "tochikoi_",
+   "role": "wide receiver",
+   "trait": "runs a 4.1, TD"
+  },
+  {
+   "name": "faustin.riley4",
+   "role": "tight end",
+   "trait": "slow but trucks"
+  },
+  {
+   "name": "Wonka",
+   "role": "hot dog seller",
+   "trait": "needs a stand"
   }
  ],
  "accounts": {

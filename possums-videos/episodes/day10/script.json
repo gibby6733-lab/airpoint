@@ -1,0 +1,261 @@
+{
+ "episode": 10,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day ten. One hundred and six likes!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund10",
+   "text": "That's a hundred and six dollars! The bank has eight fourteen.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@eight"
+    ]
+   ]
+  },
+  {
+   "scene": "comment10",
+   "text": "The top upgrade comment said, stadium lights for night games. Three hundred dollars. Done!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@lights"
+    ],
+    [
+     "spend",
+     "@three"
+    ]
+   ]
+  },
+  {
+   "scene": "lights10",
+   "text": "Our first night game ever! Coach cried a little.",
+   "sfx": [
+    [
+     "ding",
+     "@night"
+    ],
+    [
+     "sad",
+     "@cried"
+    ]
+   ]
+  },
+  {
+   "scene": "peter10",
+   "text": "And Peter asked for a fumble. Twelve likes! Request granted.",
+   "sfx": [
+    [
+     "pop",
+     "@peter"
+    ],
+    [
+     "stamp",
+     "@twelve"
+    ],
+    [
+     "ding",
+     "@granted"
+    ]
+   ]
+  },
+  {
+   "scene": "signings10",
+   "text": "Eight more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard10",
+   "text": "Game ten. The Frost Hollow Yetis. Under the lights.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@lights"
+    ]
+   ]
+  },
+  {
+   "scene": "g_kolt",
+   "text": "Our new linebacker hits so hard the helmet flies. Then he hands out graham crackers.",
+   "sfx": [
+    [
+     "bonk",
+     "@hits"
+    ],
+    [
+     "pop",
+     "@graham"
+    ]
+   ]
+  },
+  {
+   "scene": "g_elijah",
+   "text": "Our new defensive end, day three of asking, sacks the yeti!",
+   "sfx": [
+    [
+     "bonk",
+     "@sacks"
+    ],
+    [
+     "crowd",
+     "@yeti"
+    ]
+   ]
+  },
+  {
+   "scene": "g_yeti",
+   "text": "The Yetis stomp in for three touchdowns.",
+   "sfx": [
+    [
+     "bonk",
+     "@stomp"
+    ],
+    [
+     "sad",
+     "@three"
+    ]
+   ]
+  },
+  {
+   "scene": "g_tochi",
+   "text": "Our new receiver runs a four point one. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@runs"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_fumble",
+   "text": "Peter gets the ball and fumbles, as promised. It bounces to our running back. Touchdown!",
+   "sfx": [
+    [
+     "boing",
+     "@fumbles"
+    ],
+    [
+     "boing",
+     "@bounces"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_mvp",
+   "text": "Then our running back scores two more. That's MVP stuff. We win!",
+   "sfx": [
+    [
+     "whoosh",
+     "@scores"
+    ],
+    [
+     "crowd",
+     "@mvp"
+    ],
+    [
+     "horn",
+     "@win"
+    ]
+   ]
+  },
+  {
+   "scene": "standings10",
+   "text": "Final, twenty eight to twenty one. Four wins, six losses!",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "ding",
+     "@four"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame10",
+   "text": "Tomorrow, the Rocky Shore Crabs. They only run sideways.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@sideways"
+    ]
+   ]
+  },
+  {
+   "scene": "cta10",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Hot dog stand, mascot costume, or cheer uniforms? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@hot"
+    ],
+    [
+     "pop",
+     "@mascot"
+    ],
+    [
+     "pop",
+     "@cheer"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}

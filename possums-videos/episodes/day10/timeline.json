@@ -1,0 +1,1301 @@
+{
+ "duration": 69.094,
+ "lines": [
+  {
+   "scene": "g_fumble",
+   "text": "as promised. It bounces to our running back. Touchdown!",
+   "sfx": [
+    [
+     "boing",
+     "@fumbles"
+    ],
+    [
+     "boing",
+     "@bounces"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": -1.776999999999994,
+   "end": 3.4200000000000017,
+   "words": [
+    {
+     "w": "as",
+     "s": 0.126
+    },
+    {
+     "w": "promised.",
+     "s": 0.311
+    },
+    {
+     "w": "It",
+     "s": 0.914
+    },
+    {
+     "w": "bounces",
+     "s": 1.1
+    },
+    {
+     "w": "to",
+     "s": 1.518
+    },
+    {
+     "w": "our",
+     "s": 1.703
+    },
+    {
+     "w": "running",
+     "s": 1.935
+    },
+    {
+     "w": "back.",
+     "s": 2.353
+    },
+    {
+     "w": "Touchdown!",
+     "s": 2.77
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     1.1
+    ],
+    [
+     "crowd",
+     2.77
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day ten. One hundred and six likes!",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 4.57,
+   "end": 6.822,
+   "words": [
+    {
+     "w": "Day",
+     "s": 4.57
+    },
+    {
+     "w": "ten.",
+     "s": 4.81
+    },
+    {
+     "w": "One",
+     "s": 5.193
+    },
+    {
+     "w": "hundred",
+     "s": 5.432
+    },
+    {
+     "w": "and",
+     "s": 5.864
+    },
+    {
+     "w": "six",
+     "s": 6.103
+    },
+    {
+     "w": "likes!",
+     "s": 6.343
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     4.57
+    ],
+    [
+     "stamp",
+     4.683
+    ]
+   ]
+  },
+  {
+   "scene": "fund10",
+   "text": "That's a hundred and six dollars! The bank has eight fourteen.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@eight"
+    ]
+   ],
+   "start": 7.042,
+   "end": 10.376,
+   "words": [
+    {
+     "w": "That's",
+     "s": 7.042
+    },
+    {
+     "w": "a",
+     "s": 7.345
+    },
+    {
+     "w": "hundred",
+     "s": 7.475
+    },
+    {
+     "w": "and",
+     "s": 7.865
+    },
+    {
+     "w": "six",
+     "s": 8.081
+    },
+    {
+     "w": "dollars!",
+     "s": 8.298
+    },
+    {
+     "w": "The",
+     "s": 8.817
+    },
+    {
+     "w": "bank",
+     "s": 9.034
+    },
+    {
+     "w": "has",
+     "s": 9.294
+    },
+    {
+     "w": "eight",
+     "s": 9.51
+    },
+    {
+     "w": "fourteen.",
+     "s": 9.813
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     7.542
+    ],
+    [
+     "ding",
+     9.51
+    ]
+   ]
+  },
+  {
+   "scene": "comment10",
+   "text": "The top upgrade comment said, stadium lights for night games. Three hundred dollars. Done!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@lights"
+    ],
+    [
+     "spend",
+     "@three"
+    ]
+   ],
+   "start": 10.596,
+   "end": 15.898,
+   "words": [
+    {
+     "w": "The",
+     "s": 10.596
+    },
+    {
+     "w": "top",
+     "s": 10.831
+    },
+    {
+     "w": "upgrade",
+     "s": 11.066
+    },
+    {
+     "w": "comment",
+     "s": 11.488
+    },
+    {
+     "w": "said,",
+     "s": 11.91
+    },
+    {
+     "w": "stadium",
+     "s": 12.332
+    },
+    {
+     "w": "lights",
+     "s": 12.755
+    },
+    {
+     "w": "for",
+     "s": 13.13
+    },
+    {
+     "w": "night",
+     "s": 13.365
+    },
+    {
+     "w": "games.",
+     "s": 13.693
+    },
+    {
+     "w": "Three",
+     "s": 14.162
+    },
+    {
+     "w": "hundred",
+     "s": 14.491
+    },
+    {
+     "w": "dollars.",
+     "s": 14.913
+    },
+    {
+     "w": "Done!",
+     "s": 15.476
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.596
+    ],
+    [
+     "ding",
+     12.755
+    ],
+    [
+     "spend",
+     14.162
+    ]
+   ]
+  },
+  {
+   "scene": "lights10",
+   "text": "Our first night game ever! Coach cried a little.",
+   "sfx": [
+    [
+     "ding",
+     "@night"
+    ],
+    [
+     "sad",
+     "@cried"
+    ]
+   ],
+   "start": 16.118,
+   "end": 18.736,
+   "words": [
+    {
+     "w": "Our",
+     "s": 16.118
+    },
+    {
+     "w": "first",
+     "s": 16.33
+    },
+    {
+     "w": "night",
+     "s": 16.625
+    },
+    {
+     "w": "game",
+     "s": 16.921
+    },
+    {
+     "w": "ever!",
+     "s": 17.174
+    },
+    {
+     "w": "Coach",
+     "s": 17.554
+    },
+    {
+     "w": "cried",
+     "s": 17.849
+    },
+    {
+     "w": "a",
+     "s": 18.145
+    },
+    {
+     "w": "little.",
+     "s": 18.272
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     16.625
+    ],
+    [
+     "sad",
+     17.849
+    ]
+   ]
+  },
+  {
+   "scene": "peter10",
+   "text": "And Peter asked for a fumble. Twelve likes! Request granted.",
+   "sfx": [
+    [
+     "pop",
+     "@peter"
+    ],
+    [
+     "stamp",
+     "@twelve"
+    ],
+    [
+     "ding",
+     "@granted"
+    ]
+   ],
+   "start": 18.956,
+   "end": 22.33,
+   "words": [
+    {
+     "w": "And",
+     "s": 18.956
+    },
+    {
+     "w": "Peter",
+     "s": 19.175
+    },
+    {
+     "w": "asked",
+     "s": 19.482
+    },
+    {
+     "w": "for",
+     "s": 19.788
+    },
+    {
+     "w": "a",
+     "s": 20.007
+    },
+    {
+     "w": "fumble.",
+     "s": 20.139
+    },
+    {
+     "w": "Twelve",
+     "s": 20.621
+    },
+    {
+     "w": "likes!",
+     "s": 20.971
+    },
+    {
+     "w": "Request",
+     "s": 21.409
+    },
+    {
+     "w": "granted.",
+     "s": 21.804
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     19.175
+    ],
+    [
+     "stamp",
+     20.621
+    ],
+    [
+     "ding",
+     21.804
+    ]
+   ]
+  },
+  {
+   "scene": "signings10",
+   "text": "Eight more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ],
+   "start": 22.55,
+   "end": 23.969,
+   "words": [
+    {
+     "w": "Eight",
+     "s": 22.55
+    },
+    {
+     "w": "more",
+     "s": 22.775
+    },
+    {
+     "w": "of",
+     "s": 22.969
+    },
+    {
+     "w": "you",
+     "s": 23.098
+    },
+    {
+     "w": "joined",
+     "s": 23.259
+    },
+    {
+     "w": "the",
+     "s": 23.517
+    },
+    {
+     "w": "team!",
+     "s": 23.678
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     22.976
+    ],
+    [
+     "crowd",
+     23.678
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard10",
+   "text": "Game ten. The Frost Hollow Yetis. Under the lights.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@lights"
+    ]
+   ],
+   "start": 24.189,
+   "end": 27.226,
+   "words": [
+    {
+     "w": "Game",
+     "s": 24.189
+    },
+    {
+     "w": "ten.",
+     "s": 24.461
+    },
+    {
+     "w": "The",
+     "s": 24.823
+    },
+    {
+     "w": "Frost",
+     "s": 25.05
+    },
+    {
+     "w": "Hollow",
+     "s": 25.367
+    },
+    {
+     "w": "Yetis.",
+     "s": 25.73
+    },
+    {
+     "w": "Under",
+     "s": 26.183
+    },
+    {
+     "w": "the",
+     "s": 26.5
+    },
+    {
+     "w": "lights.",
+     "s": 26.727
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     24.189
+    ],
+    [
+     "stamp",
+     26.727
+    ]
+   ]
+  },
+  {
+   "scene": "g_kolt",
+   "text": "Our new linebacker hits so hard the helmet flies. Then he hands out graham crackers.",
+   "sfx": [
+    [
+     "bonk",
+     "@hits"
+    ],
+    [
+     "pop",
+     "@graham"
+    ]
+   ],
+   "start": 27.446,
+   "end": 32.388,
+   "words": [
+    {
+     "w": "Our",
+     "s": 27.446
+    },
+    {
+     "w": "new",
+     "s": 27.683
+    },
+    {
+     "w": "linebacker",
+     "s": 27.921
+    },
+    {
+     "w": "hits",
+     "s": 28.491
+    },
+    {
+     "w": "so",
+     "s": 28.776
+    },
+    {
+     "w": "hard",
+     "s": 28.966
+    },
+    {
+     "w": "the",
+     "s": 29.252
+    },
+    {
+     "w": "helmet",
+     "s": 29.489
+    },
+    {
+     "w": "flies.",
+     "s": 29.869
+    },
+    {
+     "w": "Then",
+     "s": 30.345
+    },
+    {
+     "w": "he",
+     "s": 30.63
+    },
+    {
+     "w": "hands",
+     "s": 30.82
+    },
+    {
+     "w": "out",
+     "s": 31.153
+    },
+    {
+     "w": "graham",
+     "s": 31.39
+    },
+    {
+     "w": "crackers.",
+     "s": 31.77
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     28.491
+    ],
+    [
+     "pop",
+     31.39
+    ]
+   ]
+  },
+  {
+   "scene": "g_elijah",
+   "text": "Our new defensive end, day three of asking, sacks the yeti!",
+   "sfx": [
+    [
+     "bonk",
+     "@sacks"
+    ],
+    [
+     "crowd",
+     "@yeti"
+    ]
+   ],
+   "start": 32.608,
+   "end": 35.854,
+   "words": [
+    {
+     "w": "Our",
+     "s": 32.608
+    },
+    {
+     "w": "new",
+     "s": 32.819
+    },
+    {
+     "w": "defensive",
+     "s": 33.03
+    },
+    {
+     "w": "end,",
+     "s": 33.493
+    },
+    {
+     "w": "day",
+     "s": 33.831
+    },
+    {
+     "w": "three",
+     "s": 34.041
+    },
+    {
+     "w": "of",
+     "s": 34.336
+    },
+    {
+     "w": "asking,",
+     "s": 34.505
+    },
+    {
+     "w": "sacks",
+     "s": 34.969
+    },
+    {
+     "w": "the",
+     "s": 35.264
+    },
+    {
+     "w": "yeti!",
+     "s": 35.474
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     34.969
+    ],
+    [
+     "crowd",
+     35.474
+    ]
+   ]
+  },
+  {
+   "scene": "g_yeti",
+   "text": "The Yetis stomp in for three touchdowns.",
+   "sfx": [
+    [
+     "bonk",
+     "@stomp"
+    ],
+    [
+     "sad",
+     "@three"
+    ]
+   ],
+   "start": 36.074,
+   "end": 38.129,
+   "words": [
+    {
+     "w": "The",
+     "s": 36.074
+    },
+    {
+     "w": "Yetis",
+     "s": 36.279
+    },
+    {
+     "w": "stomp",
+     "s": 36.567
+    },
+    {
+     "w": "in",
+     "s": 36.855
+    },
+    {
+     "w": "for",
+     "s": 37.019
+    },
+    {
+     "w": "three",
+     "s": 37.225
+    },
+    {
+     "w": "touchdowns.",
+     "s": 37.513
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     36.567
+    ],
+    [
+     "sad",
+     37.225
+    ]
+   ]
+  },
+  {
+   "scene": "g_tochi",
+   "text": "Our new receiver runs a four point one. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@runs"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 38.349,
+   "end": 41.237,
+   "words": [
+    {
+     "w": "Our",
+     "s": 38.349
+    },
+    {
+     "w": "new",
+     "s": 38.575
+    },
+    {
+     "w": "receiver",
+     "s": 38.801
+    },
+    {
+     "w": "runs",
+     "s": 39.252
+    },
+    {
+     "w": "a",
+     "s": 39.523
+    },
+    {
+     "w": "four",
+     "s": 39.658
+    },
+    {
+     "w": "point",
+     "s": 39.929
+    },
+    {
+     "w": "one.",
+     "s": 40.245
+    },
+    {
+     "w": "Touchdown!",
+     "s": 40.606
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     39.252
+    ],
+    [
+     "crowd",
+     40.606
+    ]
+   ]
+  },
+  {
+   "scene": "g_fumble",
+   "text": "Peter gets the ball and fumbles, as promised. It bounces to our running back. Touchdown!",
+   "sfx": [
+    [
+     "boing",
+     "@fumbles"
+    ],
+    [
+     "boing",
+     "@bounces"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 41.457,
+   "end": 46.654,
+   "words": [
+    {
+     "w": "Peter",
+     "s": 41.457
+    },
+    {
+     "w": "gets",
+     "s": 41.782
+    },
+    {
+     "w": "the",
+     "s": 42.06
+    },
+    {
+     "w": "ball",
+     "s": 42.292
+    },
+    {
+     "w": "and",
+     "s": 42.571
+    },
+    {
+     "w": "fumbles,",
+     "s": 42.803
+    },
+    {
+     "w": "as",
+     "s": 43.36
+    },
+    {
+     "w": "promised.",
+     "s": 43.545
+    },
+    {
+     "w": "It",
+     "s": 44.148
+    },
+    {
+     "w": "bounces",
+     "s": 44.334
+    },
+    {
+     "w": "to",
+     "s": 44.752
+    },
+    {
+     "w": "our",
+     "s": 44.937
+    },
+    {
+     "w": "running",
+     "s": 45.169
+    },
+    {
+     "w": "back.",
+     "s": 45.587
+    },
+    {
+     "w": "Touchdown!",
+     "s": 46.004
+    }
+   ],
+   "sfx_times": [
+    [
+     "boing",
+     42.803
+    ],
+    [
+     "boing",
+     44.334
+    ],
+    [
+     "crowd",
+     46.004
+    ]
+   ]
+  },
+  {
+   "scene": "g_mvp",
+   "text": "Then our running back scores two more. That's MVP stuff. We win!",
+   "sfx": [
+    [
+     "whoosh",
+     "@scores"
+    ],
+    [
+     "crowd",
+     "@mvp"
+    ],
+    [
+     "horn",
+     "@win"
+    ]
+   ],
+   "start": 46.874,
+   "end": 50.683,
+   "words": [
+    {
+     "w": "Then",
+     "s": 46.874
+    },
+    {
+     "w": "our",
+     "s": 47.153
+    },
+    {
+     "w": "running",
+     "s": 47.385
+    },
+    {
+     "w": "back",
+     "s": 47.803
+    },
+    {
+     "w": "scores",
+     "s": 48.082
+    },
+    {
+     "w": "two",
+     "s": 48.453
+    },
+    {
+     "w": "more.",
+     "s": 48.686
+    },
+    {
+     "w": "That's",
+     "s": 49.104
+    },
+    {
+     "w": "MVP",
+     "s": 49.429
+    },
+    {
+     "w": "stuff.",
+     "s": 49.661
+    },
+    {
+     "w": "We",
+     "s": 50.125
+    },
+    {
+     "w": "win!",
+     "s": 50.311
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     48.082
+    ],
+    [
+     "crowd",
+     49.429
+    ],
+    [
+     "horn",
+     50.311
+    ]
+   ]
+  },
+  {
+   "scene": "standings10",
+   "text": "Final, twenty eight to twenty one. Four wins, six losses!",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "ding",
+     "@four"
+    ]
+   ],
+   "start": 50.903,
+   "end": 54.455,
+   "words": [
+    {
+     "w": "Final,",
+     "s": 50.903
+    },
+    {
+     "w": "twenty",
+     "s": 51.37
+    },
+    {
+     "w": "eight",
+     "s": 51.744
+    },
+    {
+     "w": "to",
+     "s": 52.071
+    },
+    {
+     "w": "twenty",
+     "s": 52.258
+    },
+    {
+     "w": "one.",
+     "s": 52.632
+    },
+    {
+     "w": "Four",
+     "s": 53.006
+    },
+    {
+     "w": "wins,",
+     "s": 53.286
+    },
+    {
+     "w": "six",
+     "s": 53.707
+    },
+    {
+     "w": "losses!",
+     "s": 53.941
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     51.37
+    ],
+    [
+     "ding",
+     53.006
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame10",
+   "text": "Tomorrow, the Rocky Shore Crabs. They only run sideways.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@sideways"
+    ]
+   ],
+   "start": 54.675,
+   "end": 58.073,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 54.675
+    },
+    {
+     "w": "the",
+     "s": 55.288
+    },
+    {
+     "w": "Rocky",
+     "s": 55.524
+    },
+    {
+     "w": "Shore",
+     "s": 55.854
+    },
+    {
+     "w": "Crabs.",
+     "s": 56.185
+    },
+    {
+     "w": "They",
+     "s": 56.657
+    },
+    {
+     "w": "only",
+     "s": 56.94
+    },
+    {
+     "w": "run",
+     "s": 57.223
+    },
+    {
+     "w": "sideways.",
+     "s": 57.459
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     54.675
+    ],
+    [
+     "stamp",
+     57.459
+    ]
+   ]
+  },
+  {
+   "scene": "cta10",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Hot dog stand, mascot costume, or cheer uniforms? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@hot"
+    ],
+    [
+     "pop",
+     "@mascot"
+    ],
+    [
+     "pop",
+     "@cheer"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 58.293,
+   "end": 67.594,
+   "words": [
+    {
+     "w": "Every",
+     "s": 58.293
+    },
+    {
+     "w": "like",
+     "s": 58.645
+    },
+    {
+     "w": "is",
+     "s": 58.946
+    },
+    {
+     "w": "a",
+     "s": 59.147
+    },
+    {
+     "w": "dollar.",
+     "s": 59.298
+    },
+    {
+     "w": "The",
+     "s": 59.851
+    },
+    {
+     "w": "top",
+     "s": 60.103
+    },
+    {
+     "w": "comment",
+     "s": 60.354
+    },
+    {
+     "w": "picks",
+     "s": 60.806
+    },
+    {
+     "w": "the",
+     "s": 61.158
+    },
+    {
+     "w": "upgrade.",
+     "s": 61.41
+    },
+    {
+     "w": "Hot",
+     "s": 62.013
+    },
+    {
+     "w": "dog",
+     "s": 62.264
+    },
+    {
+     "w": "stand,",
+     "s": 62.516
+    },
+    {
+     "w": "mascot",
+     "s": 63.019
+    },
+    {
+     "w": "costume,",
+     "s": 63.421
+    },
+    {
+     "w": "or",
+     "s": 64.024
+    },
+    {
+     "w": "cheer",
+     "s": 64.225
+    },
+    {
+     "w": "uniforms?",
+     "s": 64.577
+    },
+    {
+     "w": "Want",
+     "s": 65.231
+    },
+    {
+     "w": "to",
+     "s": 65.532
+    },
+    {
+     "w": "play?",
+     "s": 65.733
+    },
+    {
+     "w": "Comment",
+     "s": 66.186
+    },
+    {
+     "w": "your",
+     "s": 66.638
+    },
+    {
+     "w": "position.",
+     "s": 66.94
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     59.298
+    ],
+    [
+     "pop",
+     62.013
+    ],
+    [
+     "pop",
+     63.019
+    ],
+    [
+     "pop",
+     64.225
+    ],
+    [
+     "ding",
+     60.354
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}
