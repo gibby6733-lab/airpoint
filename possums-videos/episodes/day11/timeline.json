@@ -1,0 +1,1301 @@
+{
+ "duration": 68.745,
+ "lines": [
+  {
+   "scene": "g_oc11",
+   "text": "Our receiver caught one. Touchdown!",
+   "sfx": [
+    [
+     "pop",
+     "@ten"
+    ],
+    [
+     "whoosh",
+     "@threw"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": -2.3329999999999984,
+   "end": 2.472999999999999,
+   "words": [
+    {
+     "w": "Our",
+     "s": 0.414
+    },
+    {
+     "w": "receiver",
+     "s": 0.642
+    },
+    {
+     "w": "caught",
+     "s": 1.1
+    },
+    {
+     "w": "one.",
+     "s": 1.466
+    },
+    {
+     "w": "Touchdown!",
+     "s": 1.833
+    }
+   ],
+   "sfx_times": [
+    [
+     "crowd",
+     1.833
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day eleven. Seventy likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 3.623,
+   "end": 5.25,
+   "words": [
+    {
+     "w": "Day",
+     "s": 3.623
+    },
+    {
+     "w": "eleven.",
+     "s": 3.855
+    },
+    {
+     "w": "Seventy",
+     "s": 4.367
+    },
+    {
+     "w": "likes.",
+     "s": 4.785
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     3.623
+    ],
+    [
+     "stamp",
+     3.704
+    ]
+   ]
+  },
+  {
+   "scene": "fund11",
+   "text": "That's seventy dollars. The bank has five eighty four.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@five"
+    ]
+   ],
+   "start": 5.47,
+   "end": 8.323,
+   "words": [
+    {
+     "w": "That's",
+     "s": 5.47
+    },
+    {
+     "w": "seventy",
+     "s": 5.768
+    },
+    {
+     "w": "dollars.",
+     "s": 6.151
+    },
+    {
+     "w": "The",
+     "s": 6.662
+    },
+    {
+     "w": "bank",
+     "s": 6.875
+    },
+    {
+     "w": "has",
+     "s": 7.13
+    },
+    {
+     "w": "five",
+     "s": 7.343
+    },
+    {
+     "w": "eighty",
+     "s": 7.599
+    },
+    {
+     "w": "four.",
+     "s": 7.939
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     5.898
+    ],
+    [
+     "ding",
+     7.343
+    ]
+   ]
+  },
+  {
+   "scene": "comment11",
+   "text": "Aaron said, a hot dog stand, run by a dog. Two hundred dollars. Done!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@dog"
+    ],
+    [
+     "spend",
+     "@two"
+    ]
+   ],
+   "start": 8.543,
+   "end": 12.776,
+   "words": [
+    {
+     "w": "Aaron",
+     "s": 8.543
+    },
+    {
+     "w": "said,",
+     "s": 8.858
+    },
+    {
+     "w": "a",
+     "s": 9.263
+    },
+    {
+     "w": "hot",
+     "s": 9.398
+    },
+    {
+     "w": "dog",
+     "s": 9.623
+    },
+    {
+     "w": "stand,",
+     "s": 9.849
+    },
+    {
+     "w": "run",
+     "s": 10.299
+    },
+    {
+     "w": "by",
+     "s": 10.524
+    },
+    {
+     "w": "a",
+     "s": 10.704
+    },
+    {
+     "w": "dog.",
+     "s": 10.839
+    },
+    {
+     "w": "Two",
+     "s": 11.2
+    },
+    {
+     "w": "hundred",
+     "s": 11.425
+    },
+    {
+     "w": "dollars.",
+     "s": 11.83
+    },
+    {
+     "w": "Done!",
+     "s": 12.37
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     8.543
+    ],
+    [
+     "ding",
+     9.623
+    ],
+    [
+     "spend",
+     11.2
+    ]
+   ]
+  },
+  {
+   "scene": "hotdog11",
+   "text": "Wonka sells the hot dogs. The dog runs the register. The dog ate the profits.",
+   "sfx": [
+    [
+     "ding",
+     "@wonka"
+    ],
+    [
+     "honk",
+     "@register"
+    ],
+    [
+     "sad",
+     "@profits"
+    ]
+   ],
+   "start": 12.996,
+   "end": 18.16,
+   "words": [
+    {
+     "w": "Wonka",
+     "s": 12.996
+    },
+    {
+     "w": "sells",
+     "s": 13.361
+    },
+    {
+     "w": "the",
+     "s": 13.726
+    },
+    {
+     "w": "hot",
+     "s": 13.987
+    },
+    {
+     "w": "dogs.",
+     "s": 14.248
+    },
+    {
+     "w": "The",
+     "s": 14.717
+    },
+    {
+     "w": "dog",
+     "s": 14.978
+    },
+    {
+     "w": "runs",
+     "s": 15.239
+    },
+    {
+     "w": "the",
+     "s": 15.552
+    },
+    {
+     "w": "register.",
+     "s": 15.813
+    },
+    {
+     "w": "The",
+     "s": 16.491
+    },
+    {
+     "w": "dog",
+     "s": 16.752
+    },
+    {
+     "w": "ate",
+     "s": 17.013
+    },
+    {
+     "w": "the",
+     "s": 17.273
+    },
+    {
+     "w": "profits.",
+     "s": 17.534
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     12.996
+    ],
+    [
+     "honk",
+     15.813
+    ],
+    [
+     "sad",
+     17.534
+    ]
+   ]
+  },
+  {
+   "scene": "signings11",
+   "text": "Seven more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ],
+   "start": 18.38,
+   "end": 20.014,
+   "words": [
+    {
+     "w": "Seven",
+     "s": 18.38
+    },
+    {
+     "w": "more",
+     "s": 18.64
+    },
+    {
+     "w": "of",
+     "s": 18.863
+    },
+    {
+     "w": "you",
+     "s": 19.012
+    },
+    {
+     "w": "joined",
+     "s": 19.197
+    },
+    {
+     "w": "the",
+     "s": 19.494
+    },
+    {
+     "w": "team!",
+     "s": 19.68
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     18.87
+    ],
+    [
+     "crowd",
+     19.68
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard11",
+   "text": "Game eleven. The Rocky Shore Crabs. They only run sideways.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "slide",
+     "@sideways"
+    ]
+   ],
+   "start": 20.234,
+   "end": 23.686,
+   "words": [
+    {
+     "w": "Game",
+     "s": 20.234
+    },
+    {
+     "w": "eleven.",
+     "s": 20.507
+    },
+    {
+     "w": "The",
+     "s": 21.006
+    },
+    {
+     "w": "Rocky",
+     "s": 21.234
+    },
+    {
+     "w": "Shore",
+     "s": 21.552
+    },
+    {
+     "w": "Crabs.",
+     "s": 21.869
+    },
+    {
+     "w": "They",
+     "s": 22.324
+    },
+    {
+     "w": "only",
+     "s": 22.596
+    },
+    {
+     "w": "run",
+     "s": 22.869
+    },
+    {
+     "w": "sideways.",
+     "s": 23.096
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     20.234
+    ],
+    [
+     "slide",
+     23.096
+    ]
+   ]
+  },
+  {
+   "scene": "g_side",
+   "text": "Their running back runs sideways. All the way across the field.",
+   "sfx": [
+    [
+     "slide",
+     "@sideways"
+    ],
+    [
+     "boing",
+     "@across"
+    ]
+   ],
+   "start": 23.906,
+   "end": 27.408,
+   "words": [
+    {
+     "w": "Their",
+     "s": 23.906
+    },
+    {
+     "w": "running",
+     "s": 24.216
+    },
+    {
+     "w": "back",
+     "s": 24.615
+    },
+    {
+     "w": "runs",
+     "s": 24.881
+    },
+    {
+     "w": "sideways.",
+     "s": 25.147
+    },
+    {
+     "w": "All",
+     "s": 25.724
+    },
+    {
+     "w": "the",
+     "s": 25.945
+    },
+    {
+     "w": "way",
+     "s": 26.167
+    },
+    {
+     "w": "across",
+     "s": 26.389
+    },
+    {
+     "w": "the",
+     "s": 26.743
+    },
+    {
+     "w": "field.",
+     "s": 26.965
+    }
+   ],
+   "sfx_times": [
+    [
+     "slide",
+     25.147
+    ],
+    [
+     "boing",
+     26.389
+    ]
+   ]
+  },
+  {
+   "scene": "g_nicky",
+   "text": "Our new safety, Nicky, tackles him. Also sideways.",
+   "sfx": [
+    [
+     "bonk",
+     "@tackles"
+    ],
+    [
+     "slide",
+     "@sideways"
+    ]
+   ],
+   "start": 27.628,
+   "end": 30.736,
+   "words": [
+    {
+     "w": "Our",
+     "s": 27.628
+    },
+    {
+     "w": "new",
+     "s": 27.86
+    },
+    {
+     "w": "safety,",
+     "s": 28.092
+    },
+    {
+     "w": "Nicky,",
+     "s": 28.602
+    },
+    {
+     "w": "tackles",
+     "s": 29.066
+    },
+    {
+     "w": "him.",
+     "s": 29.484
+    },
+    {
+     "w": "Also",
+     "s": 29.855
+    },
+    {
+     "w": "sideways.",
+     "s": 30.133
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     29.066
+    ],
+    [
+     "slide",
+     30.133
+    ]
+   ]
+  },
+  {
+   "scene": "g_kriss",
+   "text": "Our new corner said, day one, I get a pick. He gets a pick!",
+   "sfx": [
+    [
+     "ding",
+     "@gets"
+    ],
+    [
+     "crowd",
+     "@pick"
+    ]
+   ],
+   "start": 30.956,
+   "end": 34.218,
+   "words": [
+    {
+     "w": "Our",
+     "s": 30.956
+    },
+    {
+     "w": "new",
+     "s": 31.155
+    },
+    {
+     "w": "corner",
+     "s": 31.354
+    },
+    {
+     "w": "said,",
+     "s": 31.672
+    },
+    {
+     "w": "day",
+     "s": 32.03
+    },
+    {
+     "w": "one,",
+     "s": 32.229
+    },
+    {
+     "w": "I",
+     "s": 32.548
+    },
+    {
+     "w": "get",
+     "s": 32.667
+    },
+    {
+     "w": "a",
+     "s": 32.866
+    },
+    {
+     "w": "pick.",
+     "s": 32.985
+    },
+    {
+     "w": "He",
+     "s": 33.343
+    },
+    {
+     "w": "gets",
+     "s": 33.502
+    },
+    {
+     "w": "a",
+     "s": 33.741
+    },
+    {
+     "w": "pick!",
+     "s": 33.86
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     33.502
+    ],
+    [
+     "crowd",
+     32.985
+    ]
+   ]
+  },
+  {
+   "scene": "g_oc11",
+   "text": "Auggie brought ten footballs. We threw all ten. Our receiver caught one. Touchdown!",
+   "sfx": [
+    [
+     "pop",
+     "@ten"
+    ],
+    [
+     "whoosh",
+     "@threw"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 34.438,
+   "end": 39.244,
+   "words": [
+    {
+     "w": "Auggie",
+     "s": 34.438
+    },
+    {
+     "w": "brought",
+     "s": 34.805
+    },
+    {
+     "w": "ten",
+     "s": 35.217
+    },
+    {
+     "w": "footballs.",
+     "s": 35.445
+    },
+    {
+     "w": "We",
+     "s": 36.086
+    },
+    {
+     "w": "threw",
+     "s": 36.269
+    },
+    {
+     "w": "all",
+     "s": 36.59
+    },
+    {
+     "w": "ten.",
+     "s": 36.818
+    },
+    {
+     "w": "Our",
+     "s": 37.185
+    },
+    {
+     "w": "receiver",
+     "s": 37.413
+    },
+    {
+     "w": "caught",
+     "s": 37.871
+    },
+    {
+     "w": "one.",
+     "s": 38.237
+    },
+    {
+     "w": "Touchdown!",
+     "s": 38.604
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     35.217
+    ],
+    [
+     "whoosh",
+     36.269
+    ],
+    [
+     "crowd",
+     38.604
+    ]
+   ]
+  },
+  {
+   "scene": "g_crabs",
+   "text": "The Crabs pinch back. Two touchdowns.",
+   "sfx": [
+    [
+     "bonk",
+     "@pinch"
+    ],
+    [
+     "sad",
+     "@two"
+    ]
+   ],
+   "start": 39.464,
+   "end": 41.7,
+   "words": [
+    {
+     "w": "The",
+     "s": 39.464
+    },
+    {
+     "w": "Crabs",
+     "s": 39.697
+    },
+    {
+     "w": "pinch",
+     "s": 40.023
+    },
+    {
+     "w": "back.",
+     "s": 40.349
+    },
+    {
+     "w": "Two",
+     "s": 40.769
+    },
+    {
+     "w": "touchdowns.",
+     "s": 41.002
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     40.023
+    ],
+    [
+     "sad",
+     40.769
+    ]
+   ]
+  },
+  {
+   "scene": "g_cook",
+   "text": "Our running back said he's cooking. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@cooking"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 41.921,
+   "end": 44.271,
+   "words": [
+    {
+     "w": "Our",
+     "s": 41.921
+    },
+    {
+     "w": "running",
+     "s": 42.127
+    },
+    {
+     "w": "back",
+     "s": 42.498
+    },
+    {
+     "w": "said",
+     "s": 42.745
+    },
+    {
+     "w": "he's",
+     "s": 42.993
+    },
+    {
+     "w": "cooking.",
+     "s": 43.199
+    },
+    {
+     "w": "Touchdown!",
+     "s": 43.694
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     43.199
+    ],
+    [
+     "crowd",
+     43.694
+    ]
+   ]
+  },
+  {
+   "scene": "g_crabfg",
+   "text": "Then the Crabs kick two field goals. Sideways. Both go in.",
+   "sfx": [
+    [
+     "kick",
+     "@kick"
+    ],
+    [
+     "sad",
+     "@both"
+    ]
+   ],
+   "start": 44.491,
+   "end": 48.031,
+   "words": [
+    {
+     "w": "Then",
+     "s": 44.491
+    },
+    {
+     "w": "the",
+     "s": 44.771
+    },
+    {
+     "w": "Crabs",
+     "s": 45.004
+    },
+    {
+     "w": "kick",
+     "s": 45.33
+    },
+    {
+     "w": "two",
+     "s": 45.609
+    },
+    {
+     "w": "field",
+     "s": 45.842
+    },
+    {
+     "w": "goals.",
+     "s": 46.168
+    },
+    {
+     "w": "Sideways.",
+     "s": 46.634
+    },
+    {
+     "w": "Both",
+     "s": 47.24
+    },
+    {
+     "w": "go",
+     "s": 47.519
+    },
+    {
+     "w": "in.",
+     "s": 47.705
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     45.33
+    ],
+    [
+     "sad",
+     47.24
+    ]
+   ]
+  },
+  {
+   "scene": "g_last11",
+   "text": "Last play. Hail Mary. Picked off by a crab.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     "@crab"
+    ]
+   ],
+   "start": 48.251,
+   "end": 50.854,
+   "words": [
+    {
+     "w": "Last",
+     "s": 48.251
+    },
+    {
+     "w": "play.",
+     "s": 48.516
+    },
+    {
+     "w": "Hail",
+     "s": 48.913
+    },
+    {
+     "w": "Mary.",
+     "s": 49.178
+    },
+    {
+     "w": "Picked",
+     "s": 49.575
+    },
+    {
+     "w": "off",
+     "s": 49.927
+    },
+    {
+     "w": "by",
+     "s": 50.148
+    },
+    {
+     "w": "a",
+     "s": 50.324
+    },
+    {
+     "w": "crab.",
+     "s": 50.457
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     48.251
+    ],
+    [
+     "sad",
+     50.457
+    ]
+   ]
+  },
+  {
+   "scene": "standings11",
+   "text": "Final, twenty to fourteen. Four wins, seven losses.",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "sad",
+     "@seven"
+    ]
+   ],
+   "start": 51.074,
+   "end": 54.4,
+   "words": [
+    {
+     "w": "Final,",
+     "s": 51.074
+    },
+    {
+     "w": "twenty",
+     "s": 51.563
+    },
+    {
+     "w": "to",
+     "s": 51.954
+    },
+    {
+     "w": "fourteen.",
+     "s": 52.15
+    },
+    {
+     "w": "Four",
+     "s": 52.786
+    },
+    {
+     "w": "wins,",
+     "s": 53.079
+    },
+    {
+     "w": "seven",
+     "s": 53.52
+    },
+    {
+     "w": "losses.",
+     "s": 53.862
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     51.563
+    ],
+    [
+     "sad",
+     53.52
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame11",
+   "text": "Tomorrow, the Hollow Pines Owls. They only play at midnight.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@midnight"
+    ]
+   ],
+   "start": 54.62,
+   "end": 58.15,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 54.62
+    },
+    {
+     "w": "the",
+     "s": 55.216
+    },
+    {
+     "w": "Hollow",
+     "s": 55.445
+    },
+    {
+     "w": "Pines",
+     "s": 55.812
+    },
+    {
+     "w": "Owls.",
+     "s": 56.133
+    },
+    {
+     "w": "They",
+     "s": 56.546
+    },
+    {
+     "w": "only",
+     "s": 56.821
+    },
+    {
+     "w": "play",
+     "s": 57.096
+    },
+    {
+     "w": "at",
+     "s": 57.371
+    },
+    {
+     "w": "midnight.",
+     "s": 57.554
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     54.62
+    ],
+    [
+     "stamp",
+     57.554
+    ]
+   ]
+  },
+  {
+   "scene": "cta11",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Mascot costume, cheer uniforms, or a jumbotron? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@mascot"
+    ],
+    [
+     "pop",
+     "@cheer"
+    ],
+    [
+     "pop",
+     "@jumbotron"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ],
+   "start": 58.37,
+   "end": 67.245,
+   "words": [
+    {
+     "w": "Every",
+     "s": 58.37
+    },
+    {
+     "w": "like",
+     "s": 58.711
+    },
+    {
+     "w": "is",
+     "s": 59.004
+    },
+    {
+     "w": "a",
+     "s": 59.199
+    },
+    {
+     "w": "dollar.",
+     "s": 59.345
+    },
+    {
+     "w": "The",
+     "s": 59.882
+    },
+    {
+     "w": "top",
+     "s": 60.126
+    },
+    {
+     "w": "comment",
+     "s": 60.37
+    },
+    {
+     "w": "picks",
+     "s": 60.808
+    },
+    {
+     "w": "the",
+     "s": 61.15
+    },
+    {
+     "w": "upgrade.",
+     "s": 61.394
+    },
+    {
+     "w": "Mascot",
+     "s": 61.979
+    },
+    {
+     "w": "costume,",
+     "s": 62.369
+    },
+    {
+     "w": "cheer",
+     "s": 62.954
+    },
+    {
+     "w": "uniforms,",
+     "s": 63.295
+    },
+    {
+     "w": "or",
+     "s": 63.929
+    },
+    {
+     "w": "a",
+     "s": 64.124
+    },
+    {
+     "w": "jumbotron?",
+     "s": 64.271
+    },
+    {
+     "w": "Want",
+     "s": 64.954
+    },
+    {
+     "w": "to",
+     "s": 65.246
+    },
+    {
+     "w": "play?",
+     "s": 65.441
+    },
+    {
+     "w": "Comment",
+     "s": 65.88
+    },
+    {
+     "w": "your",
+     "s": 66.319
+    },
+    {
+     "w": "position.",
+     "s": 66.612
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     59.345
+    ],
+    [
+     "pop",
+     61.979
+    ],
+    [
+     "pop",
+     62.954
+    ],
+    [
+     "pop",
+     64.271
+    ],
+    [
+     "ding",
+     60.37
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

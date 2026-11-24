@@ -1,0 +1,271 @@
+{
+ "episode": 11,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day eleven. Seventy likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund11",
+   "text": "That's seventy dollars. The bank has five eighty four.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@five"
+    ]
+   ]
+  },
+  {
+   "scene": "comment11",
+   "text": "Aaron said, a hot dog stand, run by a dog. Two hundred dollars. Done!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "ding",
+     "@dog"
+    ],
+    [
+     "spend",
+     "@two"
+    ]
+   ]
+  },
+  {
+   "scene": "hotdog11",
+   "text": "Wonka sells the hot dogs. The dog runs the register. The dog ate the profits.",
+   "sfx": [
+    [
+     "ding",
+     "@wonka"
+    ],
+    [
+     "honk",
+     "@register"
+    ],
+    [
+     "sad",
+     "@profits"
+    ]
+   ]
+  },
+  {
+   "scene": "signings11",
+   "text": "Seven more of you joined the team!",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "crowd",
+     "@team"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard11",
+   "text": "Game eleven. The Rocky Shore Crabs. They only run sideways.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "slide",
+     "@sideways"
+    ]
+   ]
+  },
+  {
+   "scene": "g_side",
+   "text": "Their running back runs sideways. All the way across the field.",
+   "sfx": [
+    [
+     "slide",
+     "@sideways"
+    ],
+    [
+     "boing",
+     "@across"
+    ]
+   ]
+  },
+  {
+   "scene": "g_nicky",
+   "text": "Our new safety, Nicky, tackles him. Also sideways.",
+   "sfx": [
+    [
+     "bonk",
+     "@tackles"
+    ],
+    [
+     "slide",
+     "@sideways"
+    ]
+   ]
+  },
+  {
+   "scene": "g_kriss",
+   "text": "Our new corner said, day one, I get a pick. He gets a pick!",
+   "sfx": [
+    [
+     "ding",
+     "@gets"
+    ],
+    [
+     "crowd",
+     "@pick"
+    ]
+   ]
+  },
+  {
+   "scene": "g_oc11",
+   "text": "Auggie brought ten footballs. We threw all ten. Our receiver caught one. Touchdown!",
+   "sfx": [
+    [
+     "pop",
+     "@ten"
+    ],
+    [
+     "whoosh",
+     "@threw"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_crabs",
+   "text": "The Crabs pinch back. Two touchdowns.",
+   "sfx": [
+    [
+     "bonk",
+     "@pinch"
+    ],
+    [
+     "sad",
+     "@two"
+    ]
+   ]
+  },
+  {
+   "scene": "g_cook",
+   "text": "Our running back said he's cooking. Touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@cooking"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_crabfg",
+   "text": "Then the Crabs kick two field goals. Sideways. Both go in.",
+   "sfx": [
+    [
+     "kick",
+     "@kick"
+    ],
+    [
+     "sad",
+     "@both"
+    ]
+   ]
+  },
+  {
+   "scene": "g_last11",
+   "text": "Last play. Hail Mary. Picked off by a crab.",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "sad",
+     "@crab"
+    ]
+   ]
+  },
+  {
+   "scene": "standings11",
+   "text": "Final, twenty to fourteen. Four wins, seven losses.",
+   "sfx": [
+    [
+     "stamp",
+     "@twenty"
+    ],
+    [
+     "sad",
+     "@seven"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame11",
+   "text": "Tomorrow, the Hollow Pines Owls. They only play at midnight.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@midnight"
+    ]
+   ]
+  },
+  {
+   "scene": "cta11",
+   "text": "Every like is a dollar. The top comment picks the upgrade. Mascot costume, cheer uniforms, or a jumbotron? Want to play? Comment your position.",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@mascot"
+    ],
+    [
+     "pop",
+     "@cheer"
+    ],
+    [
+     "pop",
+     "@jumbotron"
+    ],
+    [
+     "ding",
+     "@comment"
+    ]
+   ]
+  }
+ ]
+}
