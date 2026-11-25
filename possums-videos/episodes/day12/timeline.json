@@ -1,0 +1,1321 @@
+{
+ "duration": 69.091,
+ "lines": [
+  {
+   "scene": "g_water",
+   "text": "Our water boy is secretly good at catching. Touchdown! We win!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@secretly"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ],
+    [
+     "horn",
+     "@win"
+    ]
+   ],
+   "start": -0.46300000000000097,
+   "end": 3.6610000000000014,
+   "words": [
+    {
+     "w": "Our",
+     "s": 0.189
+    },
+    {
+     "w": "water",
+     "s": 0.406
+    },
+    {
+     "w": "boy",
+     "s": 0.709
+    },
+    {
+     "w": "is",
+     "s": 0.926
+    },
+    {
+     "w": "secretly",
+     "s": 1.1
+    },
+    {
+     "w": "good",
+     "s": 1.534
+    },
+    {
+     "w": "at",
+     "s": 1.795
+    },
+    {
+     "w": "catching.",
+     "s": 1.968
+    },
+    {
+     "w": "Touchdown!",
+     "s": 2.532
+    },
+    {
+     "w": "We",
+     "s": 3.14
+    },
+    {
+     "w": "win!",
+     "s": 3.314
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     1.1
+    ],
+    [
+     "crowd",
+     2.532
+    ],
+    [
+     "horn",
+     3.314
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day twelve. Fifty one likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 4.811,
+   "end": 6.446,
+   "words": [
+    {
+     "w": "Day",
+     "s": 4.811
+    },
+    {
+     "w": "twelve.",
+     "s": 5.026
+    },
+    {
+     "w": "Fifty",
+     "s": 5.499
+    },
+    {
+     "w": "one",
+     "s": 5.8
+    },
+    {
+     "w": "likes.",
+     "s": 6.015
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     4.811
+    ],
+    [
+     "stamp",
+     4.893
+    ]
+   ]
+  },
+  {
+   "scene": "fund12",
+   "text": "Fifty one dollars. The bank has four thirty five.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@four"
+    ]
+   ],
+   "start": 6.666,
+   "end": 9.5,
+   "words": [
+    {
+     "w": "Fifty",
+     "s": 6.666
+    },
+    {
+     "w": "one",
+     "s": 6.981
+    },
+    {
+     "w": "dollars.",
+     "s": 7.206
+    },
+    {
+     "w": "The",
+     "s": 7.745
+    },
+    {
+     "w": "bank",
+     "s": 7.97
+    },
+    {
+     "w": "has",
+     "s": 8.24
+    },
+    {
+     "w": "four",
+     "s": 8.465
+    },
+    {
+     "w": "thirty",
+     "s": 8.735
+    },
+    {
+     "w": "five.",
+     "s": 9.095
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     7.091
+    ],
+    [
+     "ding",
+     8.465
+    ]
+   ]
+  },
+  {
+   "scene": "comment12",
+   "text": "Aaron's comment got nine likes. Cheer uniforms! A hundred fifty dollars. Done!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "stamp",
+     "@nine"
+    ],
+    [
+     "spend",
+     "@hundred"
+    ]
+   ],
+   "start": 9.72,
+   "end": 14.371,
+   "words": [
+    {
+     "w": "Aaron's",
+     "s": 9.72
+    },
+    {
+     "w": "comment",
+     "s": 10.1
+    },
+    {
+     "w": "got",
+     "s": 10.527
+    },
+    {
+     "w": "nine",
+     "s": 10.764
+    },
+    {
+     "w": "likes.",
+     "s": 11.049
+    },
+    {
+     "w": "Cheer",
+     "s": 11.524
+    },
+    {
+     "w": "uniforms!",
+     "s": 11.856
+    },
+    {
+     "w": "A",
+     "s": 12.473
+    },
+    {
+     "w": "hundred",
+     "s": 12.615
+    },
+    {
+     "w": "fifty",
+     "s": 13.042
+    },
+    {
+     "w": "dollars.",
+     "s": 13.374
+    },
+    {
+     "w": "Done!",
+     "s": 13.944
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     9.72
+    ],
+    [
+     "stamp",
+     10.764
+    ],
+    [
+     "spend",
+     12.615
+    ]
+   ]
+  },
+  {
+   "scene": "cheer12",
+   "text": "The cheer squad has uniforms. Even the cow.",
+   "sfx": [
+    [
+     "crowd",
+     "@cheer"
+    ],
+    [
+     "honk",
+     "@cow"
+    ]
+   ],
+   "start": 14.591,
+   "end": 17.259,
+   "words": [
+    {
+     "w": "The",
+     "s": 14.591
+    },
+    {
+     "w": "cheer",
+     "s": 14.829
+    },
+    {
+     "w": "squad",
+     "s": 15.163
+    },
+    {
+     "w": "has",
+     "s": 15.496
+    },
+    {
+     "w": "uniforms.",
+     "s": 15.734
+    },
+    {
+     "w": "Even",
+     "s": 16.354
+    },
+    {
+     "w": "the",
+     "s": 16.64
+    },
+    {
+     "w": "cow.",
+     "s": 16.878
+    }
+   ],
+   "sfx_times": [
+    [
+     "crowd",
+     14.829
+    ],
+    [
+     "honk",
+     16.878
+    ]
+   ]
+  },
+  {
+   "scene": "speech12",
+   "text": "Jaxon asked us to put in his speech. Here it is.",
+   "sfx": [
+    [
+     "pop",
+     "@jaxon"
+    ],
+    [
+     "ding",
+     "@here"
+    ]
+   ],
+   "start": 17.479,
+   "end": 20.293,
+   "words": [
+    {
+     "w": "Jaxon",
+     "s": 17.479
+    },
+    {
+     "w": "asked",
+     "s": 17.787
+    },
+    {
+     "w": "us",
+     "s": 18.095
+    },
+    {
+     "w": "to",
+     "s": 18.27
+    },
+    {
+     "w": "put",
+     "s": 18.446
+    },
+    {
+     "w": "in",
+     "s": 18.666
+    },
+    {
+     "w": "his",
+     "s": 18.842
+    },
+    {
+     "w": "speech.",
+     "s": 19.062
+    },
+    {
+     "w": "Here",
+     "s": 19.546
+    },
+    {
+     "w": "it",
+     "s": 19.809
+    },
+    {
+     "w": "is.",
+     "s": 19.985
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     17.479
+    ],
+    [
+     "ding",
+     19.546
+    ]
+   ]
+  },
+  {
+   "scene": "speech12b",
+   "text": "We are not the worst team in America. We are the worst team in America that's getting better!",
+   "sfx": [
+    [
+     "stamp",
+     "@not"
+    ],
+    [
+     "crowd",
+     "@better"
+    ]
+   ],
+   "start": 20.513,
+   "end": 25.239,
+   "words": [
+    {
+     "w": "We",
+     "s": 20.513
+    },
+    {
+     "w": "are",
+     "s": 20.678
+    },
+    {
+     "w": "not",
+     "s": 20.883
+    },
+    {
+     "w": "the",
+     "s": 21.088
+    },
+    {
+     "w": "worst",
+     "s": 21.294
+    },
+    {
+     "w": "team",
+     "s": 21.582
+    },
+    {
+     "w": "in",
+     "s": 21.828
+    },
+    {
+     "w": "America.",
+     "s": 21.993
+    },
+    {
+     "w": "We",
+     "s": 22.486
+    },
+    {
+     "w": "are",
+     "s": 22.65
+    },
+    {
+     "w": "the",
+     "s": 22.856
+    },
+    {
+     "w": "worst",
+     "s": 23.061
+    },
+    {
+     "w": "team",
+     "s": 23.349
+    },
+    {
+     "w": "in",
+     "s": 23.595
+    },
+    {
+     "w": "America",
+     "s": 23.76
+    },
+    {
+     "w": "that's",
+     "s": 24.13
+    },
+    {
+     "w": "getting",
+     "s": 24.417
+    },
+    {
+     "w": "better!",
+     "s": 24.787
+    }
+   ],
+   "sfx_times": [
+    [
+     "stamp",
+     20.883
+    ],
+    [
+     "crowd",
+     24.787
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard12",
+   "text": "Game twelve. The Hollow Pines Owls. Kickoff at midnight.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@midnight"
+    ]
+   ],
+   "start": 25.459,
+   "end": 28.79,
+   "words": [
+    {
+     "w": "Game",
+     "s": 25.459
+    },
+    {
+     "w": "twelve.",
+     "s": 25.737
+    },
+    {
+     "w": "The",
+     "s": 26.246
+    },
+    {
+     "w": "Hollow",
+     "s": 26.477
+    },
+    {
+     "w": "Pines",
+     "s": 26.847
+    },
+    {
+     "w": "Owls.",
+     "s": 27.171
+    },
+    {
+     "w": "Kickoff",
+     "s": 27.587
+    },
+    {
+     "w": "at",
+     "s": 28.004
+    },
+    {
+     "w": "midnight.",
+     "s": 28.189
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     25.459
+    ],
+    [
+     "stamp",
+     28.189
+    ]
+   ]
+  },
+  {
+   "scene": "g_owl",
+   "text": "The Owls kick a field goal. Then they fall asleep.",
+   "sfx": [
+    [
+     "kick",
+     "@kick"
+    ],
+    [
+     "boing",
+     "@asleep"
+    ]
+   ],
+   "start": 29.01,
+   "end": 31.831,
+   "words": [
+    {
+     "w": "The",
+     "s": 29.01
+    },
+    {
+     "w": "Owls",
+     "s": 29.227
+    },
+    {
+     "w": "kick",
+     "s": 29.487
+    },
+    {
+     "w": "a",
+     "s": 29.748
+    },
+    {
+     "w": "field",
+     "s": 29.878
+    },
+    {
+     "w": "goal.",
+     "s": 30.182
+    },
+    {
+     "w": "Then",
+     "s": 30.572
+    },
+    {
+     "w": "they",
+     "s": 30.833
+    },
+    {
+     "w": "fall",
+     "s": 31.093
+    },
+    {
+     "w": "asleep.",
+     "s": 31.354
+    }
+   ],
+   "sfx_times": [
+    [
+     "kick",
+     29.487
+    ],
+    [
+     "boing",
+     31.354
+    ]
+   ]
+  },
+  {
+   "scene": "g_boom",
+   "text": "Our corner asked for a huge boomstick. He got one!",
+   "sfx": [
+    [
+     "bonk",
+     "@got"
+    ],
+    [
+     "crowd",
+     "@one"
+    ]
+   ],
+   "start": 32.051,
+   "end": 35.081,
+   "words": [
+    {
+     "w": "Our",
+     "s": 32.051
+    },
+    {
+     "w": "corner",
+     "s": 32.284
+    },
+    {
+     "w": "asked",
+     "s": 32.657
+    },
+    {
+     "w": "for",
+     "s": 32.983
+    },
+    {
+     "w": "a",
+     "s": 33.216
+    },
+    {
+     "w": "huge",
+     "s": 33.356
+    },
+    {
+     "w": "boomstick.",
+     "s": 33.636
+    },
+    {
+     "w": "He",
+     "s": 34.288
+    },
+    {
+     "w": "got",
+     "s": 34.475
+    },
+    {
+     "w": "one!",
+     "s": 34.708
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     34.475
+    ],
+    [
+     "crowd",
+     34.708
+    ]
+   ]
+  },
+  {
+   "scene": "g_peter12",
+   "text": "Peter asked for a big tackle. He tackled their mascot.",
+   "sfx": [
+    [
+     "bonk",
+     "@tackled"
+    ],
+    [
+     "squawk",
+     "@mascot"
+    ]
+   ],
+   "start": 35.301,
+   "end": 38.438,
+   "words": [
+    {
+     "w": "Peter",
+     "s": 35.301
+    },
+    {
+     "w": "asked",
+     "s": 35.619
+    },
+    {
+     "w": "for",
+     "s": 35.937
+    },
+    {
+     "w": "a",
+     "s": 36.164
+    },
+    {
+     "w": "big",
+     "s": 36.301
+    },
+    {
+     "w": "tackle.",
+     "s": 36.528
+    },
+    {
+     "w": "He",
+     "s": 37.028
+    },
+    {
+     "w": "tackled",
+     "s": 37.21
+    },
+    {
+     "w": "their",
+     "s": 37.62
+    },
+    {
+     "w": "mascot.",
+     "s": 37.938
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     37.21
+    ],
+    [
+     "squawk",
+     37.938
+    ]
+   ]
+  },
+  {
+   "scene": "g_pyramid",
+   "text": "At halftime, the cheer squad builds a pyramid. It falls on the referee.",
+   "sfx": [
+    [
+     "crowd",
+     "@pyramid"
+    ],
+    [
+     "bonk",
+     "@falls"
+    ]
+   ],
+   "start": 38.658,
+   "end": 42.792,
+   "words": [
+    {
+     "w": "At",
+     "s": 38.658
+    },
+    {
+     "w": "halftime,",
+     "s": 38.84
+    },
+    {
+     "w": "the",
+     "s": 39.43
+    },
+    {
+     "w": "cheer",
+     "s": 39.657
+    },
+    {
+     "w": "squad",
+     "s": 39.975
+    },
+    {
+     "w": "builds",
+     "s": 40.293
+    },
+    {
+     "w": "a",
+     "s": 40.657
+    },
+    {
+     "w": "pyramid.",
+     "s": 40.793
+    },
+    {
+     "w": "It",
+     "s": 41.338
+    },
+    {
+     "w": "falls",
+     "s": 41.52
+    },
+    {
+     "w": "on",
+     "s": 41.838
+    },
+    {
+     "w": "the",
+     "s": 42.019
+    },
+    {
+     "w": "referee.",
+     "s": 42.247
+    }
+   ],
+   "sfx_times": [
+    [
+     "crowd",
+     40.793
+    ],
+    [
+     "bonk",
+     41.52
+    ]
+   ]
+  },
+  {
+   "scene": "g_wake",
+   "text": "Then the Owls woke up. Two touchdowns.",
+   "sfx": [
+    [
+     "horn",
+     "@woke"
+    ],
+    [
+     "sad",
+     "@two"
+    ]
+   ],
+   "start": 43.012,
+   "end": 45.26,
+   "words": [
+    {
+     "w": "Then",
+     "s": 43.012
+    },
+    {
+     "w": "the",
+     "s": 43.282
+    },
+    {
+     "w": "Owls",
+     "s": 43.506
+    },
+    {
+     "w": "woke",
+     "s": 43.776
+    },
+    {
+     "w": "up.",
+     "s": 44.046
+    },
+    {
+     "w": "Two",
+     "s": 44.361
+    },
+    {
+     "w": "touchdowns.",
+     "s": 44.586
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     43.776
+    ],
+    [
+     "sad",
+     44.361
+    ]
+   ]
+  },
+  {
+   "scene": "g_water",
+   "text": "Last play. Our water boy is secretly good at catching. Touchdown! We win!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@secretly"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ],
+    [
+     "horn",
+     "@win"
+    ]
+   ],
+   "start": 45.48,
+   "end": 49.604,
+   "words": [
+    {
+     "w": "Last",
+     "s": 45.48
+    },
+    {
+     "w": "play.",
+     "s": 45.741
+    },
+    {
+     "w": "Our",
+     "s": 46.132
+    },
+    {
+     "w": "water",
+     "s": 46.349
+    },
+    {
+     "w": "boy",
+     "s": 46.652
+    },
+    {
+     "w": "is",
+     "s": 46.869
+    },
+    {
+     "w": "secretly",
+     "s": 47.043
+    },
+    {
+     "w": "good",
+     "s": 47.477
+    },
+    {
+     "w": "at",
+     "s": 47.738
+    },
+    {
+     "w": "catching.",
+     "s": 47.911
+    },
+    {
+     "w": "Touchdown!",
+     "s": 48.475
+    },
+    {
+     "w": "We",
+     "s": 49.083
+    },
+    {
+     "w": "win!",
+     "s": 49.257
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     45.48
+    ],
+    [
+     "ding",
+     47.043
+    ],
+    [
+     "crowd",
+     48.475
+    ],
+    [
+     "horn",
+     49.257
+    ]
+   ]
+  },
+  {
+   "scene": "race12",
+   "text": "Five wins, seven losses. Win the next two, and we make the playoffs!",
+   "sfx": [
+    [
+     "ding",
+     "@five"
+    ],
+    [
+     "stamp",
+     "@playoffs"
+    ]
+   ],
+   "start": 49.824,
+   "end": 53.754,
+   "words": [
+    {
+     "w": "Five",
+     "s": 49.824
+    },
+    {
+     "w": "wins,",
+     "s": 50.086
+    },
+    {
+     "w": "seven",
+     "s": 50.479
+    },
+    {
+     "w": "losses.",
+     "s": 50.785
+    },
+    {
+     "w": "Win",
+     "s": 51.265
+    },
+    {
+     "w": "the",
+     "s": 51.483
+    },
+    {
+     "w": "next",
+     "s": 51.702
+    },
+    {
+     "w": "two,",
+     "s": 51.964
+    },
+    {
+     "w": "and",
+     "s": 52.313
+    },
+    {
+     "w": "we",
+     "s": 52.531
+    },
+    {
+     "w": "make",
+     "s": 52.706
+    },
+    {
+     "w": "the",
+     "s": 52.968
+    },
+    {
+     "w": "playoffs!",
+     "s": 53.186
+    }
+   ],
+   "sfx_times": [
+    [
+     "ding",
+     49.824
+    ],
+    [
+     "stamp",
+     53.186
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame12",
+   "text": "Tomorrow, the Iron Ridge Rams again. Still undefeated. Revenge game.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@revenge"
+    ]
+   ],
+   "start": 53.974,
+   "end": 58.216,
+   "words": [
+    {
+     "w": "Tomorrow,",
+     "s": 53.974
+    },
+    {
+     "w": "the",
+     "s": 54.608
+    },
+    {
+     "w": "Iron",
+     "s": 54.851
+    },
+    {
+     "w": "Ridge",
+     "s": 55.144
+    },
+    {
+     "w": "Rams",
+     "s": 55.485
+    },
+    {
+     "w": "again.",
+     "s": 55.778
+    },
+    {
+     "w": "Still",
+     "s": 56.266
+    },
+    {
+     "w": "undefeated.",
+     "s": 56.607
+    },
+    {
+     "w": "Revenge",
+     "s": 57.338
+    },
+    {
+     "w": "game.",
+     "s": 57.777
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     53.974
+    ],
+    [
+     "stamp",
+     57.338
+    ]
+   ]
+  },
+  {
+   "scene": "cta12",
+   "text": "Every like is a dollar. Top comment picks the upgrade. Mascot costume, jumbotron, or a training camp? And comment who our MVP is so far!",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@mascot"
+    ],
+    [
+     "pop",
+     "@jumbotron"
+    ],
+    [
+     "pop",
+     "@training"
+    ],
+    [
+     "ding",
+     "@mvp"
+    ]
+   ],
+   "start": 58.436,
+   "end": 67.591,
+   "words": [
+    {
+     "w": "Every",
+     "s": 58.436
+    },
+    {
+     "w": "like",
+     "s": 58.804
+    },
+    {
+     "w": "is",
+     "s": 59.12
+    },
+    {
+     "w": "a",
+     "s": 59.33
+    },
+    {
+     "w": "dollar.",
+     "s": 59.488
+    },
+    {
+     "w": "Top",
+     "s": 60.067
+    },
+    {
+     "w": "comment",
+     "s": 60.33
+    },
+    {
+     "w": "picks",
+     "s": 60.804
+    },
+    {
+     "w": "the",
+     "s": 61.172
+    },
+    {
+     "w": "upgrade.",
+     "s": 61.435
+    },
+    {
+     "w": "Mascot",
+     "s": 62.066
+    },
+    {
+     "w": "costume,",
+     "s": 62.487
+    },
+    {
+     "w": "jumbotron,",
+     "s": 63.119
+    },
+    {
+     "w": "or",
+     "s": 63.855
+    },
+    {
+     "w": "a",
+     "s": 64.066
+    },
+    {
+     "w": "training",
+     "s": 64.223
+    },
+    {
+     "w": "camp?",
+     "s": 64.75
+    },
+    {
+     "w": "And",
+     "s": 65.223
+    },
+    {
+     "w": "comment",
+     "s": 65.486
+    },
+    {
+     "w": "who",
+     "s": 65.96
+    },
+    {
+     "w": "our",
+     "s": 66.223
+    },
+    {
+     "w": "MVP",
+     "s": 66.486
+    },
+    {
+     "w": "is",
+     "s": 66.749
+    },
+    {
+     "w": "so",
+     "s": 66.959
+    },
+    {
+     "w": "far!",
+     "s": 67.17
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     59.488
+    ],
+    [
+     "pop",
+     62.066
+    ],
+    [
+     "pop",
+     63.119
+    ],
+    [
+     "pop",
+     64.223
+    ],
+    [
+     "ding",
+     66.486
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}

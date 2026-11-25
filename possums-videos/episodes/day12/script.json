@@ -1,0 +1,257 @@
+{
+ "episode": 12,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day twelve. Fifty one likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund12",
+   "text": "Fifty one dollars. The bank has four thirty five.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@four"
+    ]
+   ]
+  },
+  {
+   "scene": "comment12",
+   "text": "Aaron's comment got nine likes. Cheer uniforms! A hundred fifty dollars. Done!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "stamp",
+     "@nine"
+    ],
+    [
+     "spend",
+     "@hundred"
+    ]
+   ]
+  },
+  {
+   "scene": "cheer12",
+   "text": "The cheer squad has uniforms. Even the cow.",
+   "sfx": [
+    [
+     "crowd",
+     "@cheer"
+    ],
+    [
+     "honk",
+     "@cow"
+    ]
+   ]
+  },
+  {
+   "scene": "speech12",
+   "text": "Jaxon asked us to put in his speech. Here it is.",
+   "sfx": [
+    [
+     "pop",
+     "@jaxon"
+    ],
+    [
+     "ding",
+     "@here"
+    ]
+   ]
+  },
+  {
+   "scene": "speech12b",
+   "text": "We are not the worst team in America. We are the worst team in America that's getting better!",
+   "sfx": [
+    [
+     "stamp",
+     "@not"
+    ],
+    [
+     "crowd",
+     "@better"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard12",
+   "text": "Game twelve. The Hollow Pines Owls. Kickoff at midnight.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@midnight"
+    ]
+   ]
+  },
+  {
+   "scene": "g_owl",
+   "text": "The Owls kick a field goal. Then they fall asleep.",
+   "sfx": [
+    [
+     "kick",
+     "@kick"
+    ],
+    [
+     "boing",
+     "@asleep"
+    ]
+   ]
+  },
+  {
+   "scene": "g_boom",
+   "text": "Our corner asked for a huge boomstick. He got one!",
+   "sfx": [
+    [
+     "bonk",
+     "@got"
+    ],
+    [
+     "crowd",
+     "@one"
+    ]
+   ]
+  },
+  {
+   "scene": "g_peter12",
+   "text": "Peter asked for a big tackle. He tackled their mascot.",
+   "sfx": [
+    [
+     "bonk",
+     "@tackled"
+    ],
+    [
+     "squawk",
+     "@mascot"
+    ]
+   ]
+  },
+  {
+   "scene": "g_pyramid",
+   "text": "At halftime, the cheer squad builds a pyramid. It falls on the referee.",
+   "sfx": [
+    [
+     "crowd",
+     "@pyramid"
+    ],
+    [
+     "bonk",
+     "@falls"
+    ]
+   ]
+  },
+  {
+   "scene": "g_wake",
+   "text": "Then the Owls woke up. Two touchdowns.",
+   "sfx": [
+    [
+     "horn",
+     "@woke"
+    ],
+    [
+     "sad",
+     "@two"
+    ]
+   ]
+  },
+  {
+   "scene": "g_water",
+   "text": "Last play. Our water boy is secretly good at catching. Touchdown! We win!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@secretly"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ],
+    [
+     "horn",
+     "@win"
+    ]
+   ]
+  },
+  {
+   "scene": "race12",
+   "text": "Five wins, seven losses. Win the next two, and we make the playoffs!",
+   "sfx": [
+    [
+     "ding",
+     "@five"
+    ],
+    [
+     "stamp",
+     "@playoffs"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame12",
+   "text": "Tomorrow, the Iron Ridge Rams again. Still undefeated. Revenge game.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@revenge"
+    ]
+   ]
+  },
+  {
+   "scene": "cta12",
+   "text": "Every like is a dollar. Top comment picks the upgrade. Mascot costume, jumbotron, or a training camp? And comment who our MVP is so far!",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@mascot"
+    ],
+    [
+     "pop",
+     "@jumbotron"
+    ],
+    [
+     "pop",
+     "@training"
+    ],
+    [
+     "ding",
+     "@mvp"
+    ]
+   ]
+  }
+ ]
+}

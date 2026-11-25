@@ -1,12 +1,12 @@
 {
- "after_day": 11,
- "fund_dollars": 384,
+ "after_day": 12,
+ "fund_dollars": 285,
  "record": {
-  "wins": 4,
+  "wins": 5,
   "losses": 7
  },
  "fans": 0,
- "next_opponent": "Hollow Pines Owls (only play at midnight)",
+ "next_opponent": "Iron Ridge Rams rematch (undefeated) — playoff race: win next 2",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
@@ -17,7 +17,8 @@
   "scoreboard (Day 8, $150)",
   "team bus (Day 9, $500)",
   "stadium lights (Day 10, $300)",
-  "hot dog stand run by a dog (Day 11, $200)"
+  "hot dog stand run by a dog (Day 11, $200)",
+  "cheer uniforms (Day 12, $150)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
@@ -28,12 +29,13 @@
   "locker_room": "real brick locker room with actual showers",
   "team_bus": "yellow MUDVILLE POSSUMS bus (Earl's minivan retired)",
   "lights": "stadium lights — night games",
-  "hot_dog_stand": "hot dog stand run by a dog (Wonka sells, the dog ate the profits)"
+  "hot_dog_stand": "hot dog stand run by a dog (Wonka sells, the dog ate the profits)",
+  "cheer": "cheer squad in uniforms (the cow too)"
  },
  "upgrade_prices": {
   "mascot_costume": 100,
-  "cheer_uniforms": 150,
-  "jumbotron": 400
+  "jumbotron": 400,
+  "training_camp": 250
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -251,6 +253,24 @@
     "hi WR",
     "Aaron LT"
    ]
+  },
+  {
+   "day": 12,
+   "built": "2026-11-25",
+   "likes_in": 51,
+   "likes_tiktok": 51,
+   "winning_comment": "Aaron: let do possums in the cheer unifroms",
+   "comment_likes": 9,
+   "bought": "cheer uniforms $150",
+   "opponent": "Hollow Pines Owls",
+   "score": "21-17 W",
+   "note": "Format refresh: Jaxon's pregame speech scene (requested), halftime cheer pyramid on the ref, playoff-race graphic, MVP vote CTA. krissssss boomstick, Peter tackled the mascot, Graham the water boy caught the winning TD.",
+   "fan_signings": [
+    "Graham water boy (secretly catches)",
+    "krissssss",
+    "Peter",
+    "Jaxon speech"
+   ]
   }
  ],
  "fan_roster": [
@@ -293,5 +313,6 @@
  "accounts": {
   "tiktok": "https://www.tiktok.com/@mudville.possums",
   "instagram": "https://www.instagram.com/mudville.possums/"
- }
+ },
+ "arc": "PLAYOFF RACE: 5-7, need to win games 13 and 14. MVP fan vote opened on Day 12."
 }
