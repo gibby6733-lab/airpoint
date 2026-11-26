@@ -138,7 +138,7 @@ function missingWords(script, heard) {
   }
   return miss;
 }
-const TRIM = "silenceremove=start_periods=1:start_threshold=-45dB";
+const TRIM = "silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.08";
 
 function kokoro(text, v, outBase) {
   const raw = `${outBase}.raw.wav`;
@@ -155,7 +155,7 @@ function espeak(text, voice, outBase) {
   const file = `${outBase}.wav`;
   execFileSync("espeak-ng", ["-v", voice.espeak, "-p", String(voice.pitch), "-s", String(voice.speed), "-g", "1", "-w", raw, text]);
   // Trim silence, then speed/pitch up for a cartoon-kid voice.
-  const trim = "silenceremove=start_periods=1:start_threshold=-45dB";
+  const trim = "silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.08";
   ff("-i", raw, "-af", `${trim},areverse,${trim},areverse,asetrate=22050*${voice.shift},aresample=44100`, file);
   fs.rmSync(raw);
   return { file, alignment: null };
@@ -197,7 +197,7 @@ for (const [i, beat] of script.beats.entries()) {
       engine === "elevenlabs"
         ? await elevenlabs(beat.text, voiceId, base)
         : engine === "kokoro"
-          ? kokoro(beat.text, cast.kokoro, base)
+          ? kokoro(beat.text, beat.speed ? { ...cast.kokoro, speed: beat.speed } : cast.kokoro, base)
           : espeak(beat.text, cast.voice, base);
     const secs = duration(file);
     const frames = Math.ceil(secs * fps);

@@ -2,16 +2,16 @@
  "title": "GATOR BEND",
  "episode": "Ep. 1: Florida Boy (cold open)",
  "fps": 24,
- "durationInFrames": 544,
+ "durationInFrames": 759,
  "cast": {
   "danny": {
    "x": 560,
    "idlePose": "idle",
    "idleExpression": "neutral",
    "kokoro": {
-    "voice": "am_echo",
+    "voice": "af_bella",
     "speed": 1,
-    "pitch": 1.32
+    "pitch": 1.06
    },
    "voice": {
     "espeak": "en-us+m1",
@@ -26,9 +26,9 @@
    "idlePose": "idle",
    "idleExpression": "worried",
    "kokoro": {
-    "voice": "am_liam:0.6,af_nicole:0.4",
+    "voice": "af_sky",
     "speed": 1.12,
-    "pitch": 1.38
+    "pitch": 1.12
    },
    "voice": {
     "espeak": "en-us+m3",
@@ -43,9 +43,9 @@
    "idlePose": "phone",
    "idleExpression": "smug",
    "kokoro": {
-    "voice": "am_puck",
-    "speed": 1.1,
-    "pitch": 1.3
+    "voice": "af_nova",
+    "speed": 1.12,
+    "pitch": 1.1
    },
    "voice": {
     "espeak": "en-us+m7",
@@ -60,9 +60,9 @@
    "idlePose": "idle",
    "idleExpression": "deadpan",
    "kokoro": {
-    "voice": "am_onyx",
-    "speed": 0.9,
-    "pitch": 1.22
+    "voice": "bm_fable",
+    "speed": 0.88,
+    "pitch": 1.15
    },
    "voice": {
     "espeak": "en-us+m2",
@@ -117,10 +117,12 @@
     "wide",
     "E",
     "E",
-    "open",
-    "open",
-    "open",
-    "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
     "open",
     "open",
     "E",
@@ -133,16 +135,14 @@
     "open",
     "E",
     "E",
-    "E",
-    "E",
     "open",
     "open",
-    "closed",
-    "closed",
-    "closed",
-    "closed",
-    "closed",
-    "closed",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
     "closed",
     "closed",
     "closed",
@@ -161,10 +161,8 @@
     "E",
     "E",
     "E",
-    "E",
-    "E",
-    "O",
-    "O",
+    "open",
+    "open",
     "wide",
     "wide",
     "open",
@@ -175,14 +173,16 @@
     "F",
     "O",
     "O",
+    "closed",
+    "closed",
     "O",
     "O",
     "O",
     "O",
     "O",
     "O",
-    "O",
-    "O",
+    "closed",
+    "closed",
     "closed"
    ],
    "words": [
@@ -193,22 +193,22 @@
     },
     {
      "word": "it's",
-     "start": 56,
-     "end": 62
+     "start": 61,
+     "end": 64
     },
     {
      "word": "7",
-     "start": 62,
-     "end": 69
+     "start": 64,
+     "end": 71
     },
     {
      "word": "a.m.",
-     "start": 69,
-     "end": 86
+     "start": 71,
+     "end": 85
     },
     {
      "word": "and",
-     "start": 86,
+     "start": 85,
      "end": 88
     },
     {
@@ -219,12 +219,12 @@
     {
      "word": "already",
      "start": 92,
-     "end": 97
+     "end": 96
     },
     {
      "word": "104.",
-     "start": 97,
-     "end": 121
+     "start": 96,
+     "end": 119
     }
    ]
   },
@@ -237,7 +237,7 @@
    "camera": "close:danny",
    "index": 3,
    "start": 125,
-   "end": 161,
+   "end": 157,
    "audio": "audio/line-3-danny.wav",
    "mouth": [
     "open",
@@ -246,10 +246,8 @@
     "E",
     "O",
     "O",
-    "O",
-    "O",
-    "open",
-    "open",
+    "F",
+    "F",
     "closed",
     "closed",
     "open",
@@ -262,10 +260,8 @@
     "closed",
     "closed",
     "closed",
-    "closed",
-    "closed",
-    "closed",
-    "closed",
+    "open",
+    "open",
     "O",
     "O",
     "O",
@@ -286,20 +282,20 @@
     {
      "word": "November,",
      "start": 129,
-     "end": 139
+     "end": 136
     },
     {
      "word": "dude.",
-     "start": 149,
-     "end": 158
+     "start": 145,
+     "end": 154
     }
    ]
   },
   {
    "type": "line",
    "speaker": "bray",
-   "text": "Forty million views. Dude... we live in Florida!",
-   "caption": "40 million views. Dude... we live in FLORIDA!",
+   "text": "Dude. Florida Man rode a manatee. Through a drive-through. Forty million views!",
+   "caption": "Dude. Florida Man rode a manatee through a drive-thru. 40 MILLION views!",
    "expression": "excited",
    "pose": "phone",
    "emphasisPose": "arms-up",
@@ -309,117 +305,221 @@
     "danny": "annoyed"
    },
    "index": 4,
-   "start": 163,
-   "end": 219,
+   "start": 159,
+   "end": 259,
    "audio": "audio/line-4-bray.wav",
    "mouth": [
     "O",
     "O",
-    "E",
-    "E",
     "open",
     "open",
-    "E",
-    "E",
-    "F",
-    "F",
     "open",
     "open",
     "O",
     "O",
-    "O",
-    "O",
-    "E",
-    "E",
     "closed",
     "closed",
-    "closed",
-    "closed",
-    "closed",
-    "closed",
-    "O",
-    "O",
-    "O",
-    "O",
     "open",
     "open",
     "closed",
     "closed",
-    "closed",
-    "closed",
-    "E",
-    "E",
+    "wide",
+    "wide",
+    "wide",
+    "wide",
     "wide",
     "wide",
     "open",
     "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "open",
+    "open",
+    "E",
+    "E",
+    "E",
+    "E",
+    "closed",
+    "closed",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "E",
+    "E",
+    "E",
+    "E",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "E",
+    "E",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "wide",
+    "wide",
+    "E",
+    "E",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "E",
+    "E",
+    "closed",
+    "closed",
+    "E",
+    "E",
     "open",
     "open",
     "F",
     "F",
+    "F",
+    "F",
+    "open",
+    "open",
     "O",
     "O",
     "O",
     "O",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open"
+    "O",
+    "O",
+    "O",
+    "O",
+    "E",
+    "E",
+    "E",
+    "E",
+    "closed",
+    "closed"
    ],
    "words": [
     {
-     "word": "40",
-     "start": 163,
-     "end": 167
+     "word": "Dude.",
+     "start": 159,
+     "end": 162
     },
     {
-     "word": "million",
-     "start": 167,
-     "end": 172
+     "word": "Florida",
+     "start": 162,
+     "end": 171
     },
     {
-     "word": "views.",
-     "start": 172,
+     "word": "Man",
+     "start": 171,
      "end": 181
     },
     {
-     "word": "Dude...",
-     "start": 186,
-     "end": 193
+     "word": "rode",
+     "start": 181,
+     "end": 187
     },
     {
-     "word": "we",
-     "start": 197,
-     "end": 199
+     "word": "a",
+     "start": 187,
+     "end": 191
     },
     {
-     "word": "live",
-     "start": 199,
-     "end": 202
+     "word": "manatee",
+     "start": 191,
+     "end": 204
     },
     {
-     "word": "in",
-     "start": 202,
-     "end": 205
+     "word": "through",
+     "start": 204,
+     "end": 209
     },
     {
-     "word": "FLORIDA!",
-     "start": 205,
-     "end": 218
+     "word": "a",
+     "start": 209,
+     "end": 211
+    },
+    {
+     "word": "drive-thru.",
+     "start": 211,
+     "end": 229
+    },
+    {
+     "word": "40",
+     "start": 229,
+     "end": 233
+    },
+    {
+     "word": "MILLION",
+     "start": 233,
+     "end": 239
+    },
+    {
+     "word": "views!",
+     "start": 239,
+     "end": 256
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "speaker": "tucker",
+   "text": "So?",
+   "expression": "worried",
+   "pose": "idle",
+   "camera": "close:tucker",
+   "look": "bray",
+   "index": 5,
+   "start": 261,
+   "end": 278,
+   "audio": "audio/line-5-tucker.wav",
+   "mouth": [
+    "E",
+    "E",
+    "E",
+    "E",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "closed"
+   ],
+   "words": [
+    {
+     "word": "So?",
+     "start": 261,
+     "end": 276
     }
    ]
   },
   {
    "type": "line",
    "speaker": "bray",
-   "text": "Also. Danny's dad. Has nothing left to lose.",
-   "caption": "Also... Danny's dad has NOTHING left to lose.",
+   "text": "So we live in Florida! We just need a grown man with nothing to lose.",
+   "caption": "So we live in FLORIDA! We just need a grown man with nothing to lose.",
    "expression": "smug",
    "pose": "point",
+   "emphasisPose": "arms-up",
    "camera": "two:danny,bray",
    "look": "danny",
    "reactions": {
@@ -427,104 +527,175 @@
     "wade": "deadpan",
     "danny": "annoyed"
    },
-   "index": 5,
-   "start": 222,
-   "end": 274,
-   "audio": "audio/line-5-bray.wav",
+   "index": 6,
+   "start": 281,
+   "end": 369,
+   "audio": "audio/line-6-bray.wav",
    "mouth": [
     "O",
     "O",
+    "O",
+    "O",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "open",
+    "open",
+    "F",
+    "F",
+    "O",
+    "O",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "E",
+    "E",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "E",
+    "E",
+    "open",
+    "open",
     "E",
     "E",
     "O",
     "O",
+    "O",
+    "O",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
     "closed",
     "closed",
     "open",
     "open",
-    "wide",
-    "wide",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
     "E",
     "E",
     "E",
     "E",
     "closed",
-    "closed",
-    "wide",
-    "wide",
-    "open",
-    "open",
-    "wide",
-    "wide",
-    "E",
-    "E",
-    "wide",
-    "wide",
-    "E",
-    "E",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open",
-    "open",
-    "O",
-    "O",
-    "O",
-    "O",
-    "open",
-    "open",
-    "O",
-    "O",
-    "O",
-    "O",
-    "E",
-    "E",
-    "E",
-    "E"
+    "closed"
    ],
    "words": [
     {
-     "word": "Also...",
-     "start": 222,
-     "end": 227
+     "word": "So",
+     "start": 281,
+     "end": 283
     },
     {
-     "word": "Danny's",
-     "start": 231,
-     "end": 238
+     "word": "we",
+     "start": 283,
+     "end": 286
     },
     {
-     "word": "dad",
-     "start": 238,
-     "end": 242
+     "word": "live",
+     "start": 286,
+     "end": 289
     },
     {
-     "word": "has",
-     "start": 242,
-     "end": 248
+     "word": "in",
+     "start": 289,
+     "end": 293
     },
     {
-     "word": "NOTHING",
-     "start": 248,
-     "end": 254
+     "word": "FLORIDA!",
+     "start": 293,
+     "end": 304
     },
     {
-     "word": "left",
-     "start": 254,
-     "end": 259
+     "word": "We",
+     "start": 311,
+     "end": 312
+    },
+    {
+     "word": "just",
+     "start": 312,
+     "end": 316
+    },
+    {
+     "word": "need",
+     "start": 316,
+     "end": 320
+    },
+    {
+     "word": "a",
+     "start": 320,
+     "end": 323
+    },
+    {
+     "word": "grown",
+     "start": 323,
+     "end": 328
+    },
+    {
+     "word": "man",
+     "start": 328,
+     "end": 336
+    },
+    {
+     "word": "with",
+     "start": 336,
+     "end": 342
+    },
+    {
+     "word": "nothing",
+     "start": 342,
+     "end": 347
     },
     {
      "word": "to",
-     "start": 259,
-     "end": 263
+     "start": 347,
+     "end": 354
     },
     {
      "word": "lose.",
-     "start": 263,
-     "end": 273
+     "start": 354,
+     "end": 366
     }
    ]
   },
@@ -536,15 +707,16 @@
    "pose": "idle",
    "camera": "close:danny",
    "holdAfter": 0.5,
-   "index": 6,
-   "start": 276,
-   "end": 291,
-   "audio": "audio/line-6-danny.wav",
+   "speed": 0.8,
+   "index": 7,
+   "start": 371,
+   "end": 387,
+   "audio": "audio/line-7-danny.wav",
    "mouth": [
+    "closed",
+    "closed",
     "open",
     "open",
-    "open",
-    "open",
     "O",
     "O",
     "O",
@@ -555,13 +727,179 @@
     "O",
     "O",
     "O",
+    "closed",
     "closed"
    ],
    "words": [
     {
      "word": "No.",
-     "start": 276,
-     "end": 290
+     "start": 371,
+     "end": 385
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "speaker": "wade",
+   "text": "What about him?",
+   "expression": "deadpan",
+   "pose": "point",
+   "camera": "two:wade,gator",
+   "look": "gator",
+   "index": 8,
+   "start": 401,
+   "end": 437,
+   "audio": "audio/line-8-wade.wav",
+   "mouth": [
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed"
+   ],
+   "words": [
+    {
+     "word": "What",
+     "start": 401,
+     "end": 407
+    },
+    {
+     "word": "about",
+     "start": 407,
+     "end": 413
+    },
+    {
+     "word": "him?",
+     "start": 413,
+     "end": 434
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "speaker": "bray",
+   "text": "A gator? Gators can't go viral.",
+   "expression": "annoyed",
+   "pose": "phone",
+   "camera": "two:bray,wade",
+   "look": "wade",
+   "index": 9,
+   "start": 440,
+   "end": 490,
+   "audio": "audio/line-9-bray.wav",
+   "mouth": [
+    "E",
+    "E",
+    "open",
+    "open",
+    "E",
+    "E",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "E",
+    "E",
+    "open",
+    "open",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed"
+   ],
+   "words": [
+    {
+     "word": "A",
+     "start": 440,
+     "end": 442
+    },
+    {
+     "word": "gator?",
+     "start": 442,
+     "end": 449
+    },
+    {
+     "word": "Gators",
+     "start": 454,
+     "end": 460
+    },
+    {
+     "word": "can't",
+     "start": 460,
+     "end": 470
+    },
+    {
+     "word": "go",
+     "start": 470,
+     "end": 473
+    },
+    {
+     "word": "viral.",
+     "start": 473,
+     "end": 487
     }
    ]
   },
@@ -574,11 +912,13 @@
    "pose": "idle",
    "camera": "two:wade,gator",
    "look": "gator",
-   "index": 7,
-   "start": 306,
-   "end": 387,
-   "audio": "audio/line-7-wade.wav",
+   "index": 10,
+   "start": 493,
+   "end": 592,
+   "audio": "audio/line-10-wade.wav",
    "mouth": [
+    "closed",
+    "closed",
     "E",
     "E",
     "wide",
@@ -595,8 +935,8 @@
     "E",
     "E",
     "E",
-    "E",
-    "E",
+    "open",
+    "open",
     "O",
     "O",
     "open",
@@ -605,8 +945,6 @@
     "open",
     "E",
     "E",
-    "E",
-    "E",
     "open",
     "open",
     "open",
@@ -631,16 +969,16 @@
     "closed",
     "closed",
     "closed",
-    "E",
-    "E",
+    "open",
+    "open",
     "E",
     "E",
     "open",
     "open",
     "open",
     "open",
-    "E",
-    "E",
+    "open",
+    "open",
     "E",
     "E",
     "wide",
@@ -659,53 +997,71 @@
     "open",
     "open",
     "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
     "closed"
    ],
    "words": [
     {
      "word": "He's",
-     "start": 306,
-     "end": 310
+     "start": 493,
+     "end": 499
     },
     {
      "word": "eaten",
-     "start": 310,
-     "end": 315
+     "start": 499,
+     "end": 503
     },
     {
      "word": "three",
-     "start": 315,
-     "end": 323
+     "start": 503,
+     "end": 512
     },
     {
      "word": "noodles",
-     "start": 323,
-     "end": 332
+     "start": 512,
+     "end": 520
     },
     {
      "word": "this",
-     "start": 332,
-     "end": 341
+     "start": 520,
+     "end": 528
     },
     {
      "word": "week.",
-     "start": 341,
-     "end": 349
+     "start": 528,
+     "end": 535
     },
     {
      "word": "He's",
-     "start": 357,
-     "end": 361
+     "start": 545,
+     "end": 549
     },
     {
      "word": "building",
-     "start": 361,
-     "end": 367
+     "start": 549,
+     "end": 554
     },
     {
      "word": "something.",
-     "start": 367,
-     "end": 386
+     "start": 554,
+     "end": 571
     }
    ]
   },
@@ -720,9 +1076,9 @@
     "danny": "deadpan",
     "bray": "scared"
    },
-   "index": 8,
-   "start": 389,
-   "end": 408
+   "index": 11,
+   "start": 594,
+   "end": 613
   },
   {
    "type": "action",
@@ -730,9 +1086,9 @@
    "seconds": 1.5,
    "camera": "wide",
    "look": "bus",
-   "index": 9,
-   "start": 411,
-   "end": 447
+   "index": 12,
+   "start": 616,
+   "end": 652
   },
   {
    "type": "action",
@@ -745,48 +1101,59 @@
     "bray": "scared",
     "danny": "deadpan"
    },
-   "index": 10,
-   "start": 450,
-   "end": 488
+   "index": 13,
+   "start": 655,
+   "end": 693
   },
   {
    "type": "line",
-   "speaker": "wade",
-   "text": "Yep. He's finished.",
-   "caption": "He finished.",
-   "expression": "deadpan",
-   "pose": "idle",
-   "camera": "close:wade",
+   "speaker": "bray",
+   "text": "Forty. Million. Views.",
+   "caption": "Forty. Million. VIEWS.",
+   "expression": "excited",
+   "pose": "phone",
+   "emphasisPose": "arms-up",
+   "camera": "close:bray",
    "look": "bus",
-   "index": 11,
-   "start": 491,
-   "end": 520,
-   "audio": "audio/line-11-wade.wav",
+   "index": 14,
+   "start": 696,
+   "end": 735,
+   "audio": "audio/line-14-bray.wav",
    "mouth": [
-    "open",
-    "open",
-    "open",
-    "open",
-    "closed",
-    "closed",
-    "open",
-    "open",
-    "E",
-    "E",
-    "E",
-    "E",
     "F",
     "F",
-    "closed",
-    "closed",
-    "open",
-    "open",
+    "O",
+    "O",
     "open",
     "open",
     "E",
     "E",
     "open",
     "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "F",
+    "F",
+    "open",
+    "open",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "E",
+    "E",
+    "E",
+    "E",
+    "closed",
+    "closed",
     "closed",
     "closed",
     "closed",
@@ -795,41 +1162,46 @@
    ],
    "words": [
     {
-     "word": "He",
-     "start": 491,
-     "end": 504
+     "word": "Forty.",
+     "start": 696,
+     "end": 704
     },
     {
-     "word": "finished.",
-     "start": 504,
-     "end": 514
+     "word": "Million.",
+     "start": 704,
+     "end": 711
+    },
+    {
+     "word": "VIEWS.",
+     "start": 711,
+     "end": 727
     }
    ]
   },
   {
    "type": "title",
    "seconds": 0.9,
-   "index": 12,
-   "start": 522,
-   "end": 544
+   "index": 15,
+   "start": 737,
+   "end": 759
   }
  ],
  "sfx": [
   {
    "src": "sfx/burp.wav",
-   "start": 389
+   "start": 594
   },
   {
    "src": "sfx/bus.wav",
-   "start": 411
+   "start": 616
   },
   {
    "src": "sfx/door.wav",
-   "start": 452
+   "start": 657
   },
   {
    "src": "sfx/honk.wav",
-   "start": 467
+   "start": 672
   },
   {
    "src": "sfx/music.wav",
@@ -841,7 +1213,7 @@
  "intro": {
   "shout": {
    "audio": "audio/intro-shout.wav",
-   "frames": 15
+   "frames": 26
   },
   "cards": [
    {

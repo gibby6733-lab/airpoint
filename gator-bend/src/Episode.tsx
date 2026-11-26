@@ -65,7 +65,12 @@ font.load().then(
 // ---------------------------------------------------------------- helpers
 // Characters and props move "on twos": one new pose every 2 frames, no in-betweens.
 const onTwos = (f: number) => f - (f % 2);
-const beatAt = (f: number) => T.beats.find((b) => f >= b.start && f < b.end) ?? T.beats[T.beats.length - 1];
+// The beat on screen at frame f. In the pauses between beats, hold the beat that just ended.
+const beatAt = (f: number) => {
+  let cur = T.beats[0];
+  for (const b of T.beats) if (f >= b.start) cur = b;
+  return cur;
+};
 
 const homeX = (name: string, f: number) => {
   const home = T.cast[name].x;
