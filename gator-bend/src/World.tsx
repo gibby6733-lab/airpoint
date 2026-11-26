@@ -259,6 +259,8 @@ export const Gator: React.FC<{ jaw: number; burp: number; frame: number }> = ({ 
               <circle cx={x} cy={-172} r={34} fill="#4E8A3A" {...OUTLINE} />
               <ellipse cx={x} cy={-176} rx={20} ry={15} fill="#F2D04A" {...OUTLINE} strokeWidth={3} />
               <ellipse cx={x + 3} cy={-176} rx={4} ry={13} fill={INK} />
+              {/* slow reptile blink: lid swap held for 4 frames every ~3s */}
+              {frame % 70 < 4 ? <ellipse cx={x} cy={-176} rx={22} ry={17} fill="#4E8A3A" {...OUTLINE} strokeWidth={3} /> : null}
             </g>
           ))}
         </g>

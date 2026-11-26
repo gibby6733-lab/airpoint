@@ -46,7 +46,8 @@
       "action": "walk-in",
       "who": "danny",
       "seconds": 1.0,
-      "camera": "wide"
+      "camera": "wide",
+      "look": "danny"
     },
     {
       "type": "line",
@@ -55,6 +56,7 @@
       "caption": "Guys, it's 7 a.m. and it's already 104.",
       "expression": "worried",
       "pose": "arms-up",
+      "sweat": ["tucker", "danny"],
       "camera": "two:danny,tucker"
     },
     {
@@ -72,6 +74,7 @@
       "caption": "40 million views. Dude... we live in FLORIDA!",
       "expression": "excited",
       "pose": "phone",
+      "emphasisPose": "arms-up",
       "camera": "push:bray",
       "reactions": {
         "tucker": "worried",
@@ -81,7 +84,7 @@
     {
       "type": "line",
       "speaker": "wade",
-      "text": "He's eaten three noodles this week. He's building something.",
+      "text": "He has eaten three noodles this week. He's building something.", "caption": "He's eaten three noodles this week. He's building something.",
       "expression": "deadpan",
       "pose": "idle",
       "camera": "two:wade,gator",

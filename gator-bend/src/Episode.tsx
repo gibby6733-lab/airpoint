@@ -28,6 +28,8 @@ type Beat = {
   camera?: string;
   look?: string;
   reactions?: Record<string, string>;
+  emphasisPose?: string;
+  sweat?: string[];
   start: number;
   end: number;
   audio?: string;
@@ -42,7 +44,7 @@ const T = timeline as unknown as {
   episode: string;
   cast: Record<string, CastMember>;
   beats: Beat[];
-  sfx: { src: string; start: number }[];
+  sfx: { src: string; start: number; volume?: number }[];
   ambience: string;
 };
 const CAST = Object.keys(T.cast);
@@ -137,47 +139,79 @@ const cameraFor = (beat: Beat, f: number): View => {
     });
     return clampView(targetX(names[0], f), FEET_Y - FEET_AT * w * ASPECT, w);
   }
-  return clampView(WORLD_W / 2, 0, WORLD_W);
+  // wide: the establishing shot creeps in slightly over the beat
+  const w = interpolate(f, [beat.start, beat.end], [WORLD_W, WORLD_W * 0.94], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  return clampView(WORLD_W / 2, FEET_Y - 0.62 * w * ASPECT, w);
 };
 
 // ---------------------------------------------------------------- per-character state
+const isEmphasis = (w: string) => /!$/.test(w) || (/[A-Z]{2,}/.test(w) && w === w.toUpperCase());
+
 const kidState = (name: string, f: number) => {
   const beat = beatAt(f);
   const me = T.cast[name];
   const { x, walking } = homeX(name, f);
   const speaking = beat.type === "line" && beat.speaker === name;
+  const local = f - beat.start;
   let mouth: MouthShape | null = null;
-  if (speaking && beat.mouth) mouth = (beat.mouth[f - beat.start] ?? "closed") as MouthShape;
+  if (speaking && beat.mouth) mouth = (beat.mouth[local] ?? "closed") as MouthShape;
   const expression = (speaking ? beat.expression : beat.reactions?.[name]) ?? me.idleExpression;
   let pose = (speaking ? beat.pose : undefined) ?? me.idlePose;
   if (!speaking && expression === "scared") pose = "arms-up";
 
-  // eyes: look at whoever is talking, or at the gator / bus when the beat says so
-  let look = 0;
+  // which word is being said right now (drives head tilts and emphasis)
+  const words = speaking ? beat.words ?? [] : [];
+  const wi = words.findIndex((w) => f >= w.start && f < w.end);
+  const emph = words.find((w) => isEmphasis(w.word));
+
+  // eyes + head turn: toward whoever is talking, or whatever the beat says to look at
+  const lookAt = beat.look;
   const target =
-    beat.look === "gator" ? GATOR_X : beat.look === "bus" ? (busX(f) ?? WORLD_W) + BUS_W / 3 : beat.speaker && !speaking ? T.cast[beat.speaker].x : null;
-  if (target !== null && !(speaking && !beat.look)) look = Math.max(-1, Math.min(1, (target - x) / 260));
+    lookAt === "gator"
+      ? GATOR_X
+      : lookAt === "bus"
+        ? (busX(f) ?? WORLD_W) + BUS_W / 3
+        : lookAt && T.cast[lookAt] && lookAt !== name
+          ? homeX(lookAt, f).x
+          : beat.speaker && !speaking
+            ? T.cast[beat.speaker].x
+            : null;
+  let look = 0;
+  if (target !== null && !(speaking && !lookAt)) look = Math.max(-1, Math.min(1, (target - x) / 260));
+  const turn = look * 0.85;
 
   // blinks: a 2-frame lid swap on a per-character rhythm
   const idx = CAST.indexOf(name);
   const period = 58 + idx * 17;
   const blink = (f + idx * 23) % period < 3;
 
-  // walk cycle: tilt + vertical hop on 3-frame holds instead of animating leg joints
-  const step = Math.floor(f / 3) % 2;
+  // motion, all in held steps
   let dy = 0;
   let tilt = 0;
+  let headTilt = 0;
   if (walking) {
+    // walk cycle: side-to-side tilt + hop on 3-frame holds instead of leg joints
+    const step = Math.floor(f / 3) % 2;
     dy = step ? -18 : 0;
     tilt = step ? 4 : -4;
-  } else if (mouth && mouth !== "closed") {
-    // talking bounce
-    dy = Math.floor(f / 2) % 2 ? -8 : 0;
-    if (expression === "excited") dy *= 2;
+  } else if (speaking) {
+    if (wi >= 0) {
+      headTilt = wi % 2 ? 3 : -3; // head rocks on each new word
+      if (f - words[wi].start < 2) dy = -7; // little lift on each word
+    }
+    if (emph && f >= emph.start) {
+      pose = (beat.emphasisPose ?? "point") as typeof pose;
+      if (f - emph.start < 4) dy = -26; // hop on the punch word
+      headTilt *= 2;
+    }
   } else if (expression === "scared") {
-    dy = Math.floor(f / 2) % 2 ? -6 : 0;
+    dy = local < 4 ? -30 : Math.floor(f / 2) % 2 ? -6 : 0; // jump, then shake
   }
-  return { x, dy, tilt, mouth, expression: expression as Expression, pose: pose as Pose, look, blink };
+  const sweat = beat.sweat?.includes(name) ? local : null;
+  return { x, dy, tilt, headTilt, mouth, expression: expression as Expression, pose: pose as Pose, look, turn, blink, sweat };
 };
 
 // ---------------------------------------------------------------- captions
@@ -185,8 +219,11 @@ const Captions: React.FC<{ f: number }> = ({ f }) => {
   const beat = beatAt(f);
   if (beat.type !== "line" || !beat.words) return null;
   const words = beat.words;
-  let cur = words.findIndex((w) => f >= w.start && f < w.end);
-  if (cur < 0) cur = f < words[0].start ? 0 : words.length - 1;
+  // the most recent word that has started (holds through pauses between words)
+  let cur = 0;
+  words.forEach((w, i) => {
+    if (f >= w.start) cur = i;
+  });
   const groupStart = cur - (cur % 3);
   const group = words.slice(groupStart, groupStart + 3);
   return (
@@ -308,7 +345,17 @@ export const Episode: React.FC = () => {
             filter={paper(2, CAST.indexOf(k.name))}
             transform={`translate(${k.x} ${FEET_Y + k.dy}) rotate(${k.tilt})`}
           >
-            <Kid name={k.name} pose={k.pose} expression={k.expression} mouth={k.mouth} lookX={k.look} blink={k.blink} />
+            <Kid
+              name={k.name}
+              pose={k.pose}
+              expression={k.expression}
+              mouth={k.mouth}
+              lookX={k.look}
+              turn={k.turn}
+              headTilt={k.headTilt}
+              sweat={k.sweat}
+              blink={k.blink}
+            />
           </g>
         ))}
         {bx !== null ? <Bus x={bx} bounce={Math.floor(f / 3) % 2 ? -6 : 0} /> : null}
@@ -335,7 +382,7 @@ export const Episode: React.FC = () => {
         ))}
       {T.sfx.map((s, i) => (
         <Sequence key={`sfx-${i}`} from={s.start}>
-          <Audio src={staticFile(s.src)} volume={0.9} />
+          <Audio src={staticFile(s.src)} volume={s.volume ?? 0.9} />
         </Sequence>
       ))}
     </AbsoluteFill>

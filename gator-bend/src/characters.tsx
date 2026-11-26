@@ -8,7 +8,7 @@ import { INK } from "./paper";
 
 export type Pose = "idle" | "arms-up" | "phone" | "point";
 export type Expression = "neutral" | "worried" | "smug" | "deadpan" | "excited" | "annoyed" | "scared";
-export type MouthShape = "closed" | "O" | "open" | "wide" | "smile" | "angry" | "frown" | "smirk" | "flat";
+export type MouthShape = "closed" | "O" | "open" | "wide" | "E" | "F" | "smile" | "angry" | "frown" | "smirk" | "flat";
 
 export const HEAD_Y = -345;
 const HRX = 168;
@@ -181,6 +181,23 @@ export const Mouth: React.FC<{ shape: MouthShape }> = ({ shape }) => {
           <ellipse cx={0} cy={MY + 26} rx={18} ry={9} fill={TONGUE} />
         </g>
       );
+    case "E":
+      // teeth showing: ee, s, t, d, sh
+      return (
+        <g>
+          <path d={`M -32 ${MY - 8} Q 0 ${MY - 12} 32 ${MY - 8} Q 26 ${MY + 14} 0 ${MY + 14} Q -26 ${MY + 14} -32 ${MY - 8} Z`} fill={MOUTH_DARK} />
+          <path d={`M -28 ${MY - 8} Q 0 ${MY - 11} 28 ${MY - 8} L 26 ${MY - 1} Q 0 ${MY - 3} -26 ${MY - 1} Z`} fill="#fff" />
+        </g>
+      );
+    case "F":
+      // top teeth resting on the lower lip: f, v
+      return (
+        <g>
+          <path d={`M -26 ${MY - 6} Q 0 ${MY - 10} 26 ${MY - 6} Q 20 ${MY + 8} 0 ${MY + 8} Q -20 ${MY + 8} -26 ${MY - 6} Z`} fill={MOUTH_DARK} />
+          <rect x={-20} y={MY - 8} width={40} height={10} rx={2} fill="#fff" />
+          <path d={`M -24 ${MY + 6} Q 0 ${MY + 14} 24 ${MY + 6}`} stroke="#B5615A" strokeWidth={5} fill="none" strokeLinecap="round" />
+        </g>
+      );
     case "smile":
       return (
         <g>
@@ -227,11 +244,24 @@ export type KidProps = {
   pose: Pose;
   expression: Expression;
   mouth: MouthShape | null; // null = not talking, use the expression's idle mouth
-  lookX: number; // -1 .. 1
+  lookX: number; // -1 .. 1, where the pupils point
+  turn?: number; // -1 .. 1, face slides toward this side (cutout "head turn")
+  headTilt?: number; // degrees, pivots at the base of the head
+  sweat?: number | null; // frame counter for flying sweat drops, null = dry
   blink: boolean;
 };
 
-export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, blink }) => {
+const Drop: React.FC<{ x: number; y: number; flip: number }> = ({ x, y, flip }) => (
+  <path
+    transform={`translate(${x} ${y}) scale(${flip} 1)`}
+    d="M 0 -22 Q 16 0 12 10 Q 6 22 -4 18 Q -14 12 -10 0 Q -6 -10 0 -22 Z"
+    fill="#9FE0FF"
+    stroke={INK}
+    strokeWidth={3}
+  />
+);
+
+export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, turn = 0, headTilt = 0, sweat = null, blink }) => {
   const d = DESIGNS[name];
   const arms = ARMS[pose];
   const big = expression === "scared";
@@ -265,9 +295,10 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
       <Arm pts={arms.l} color={armColor} skin={d.skin} floatie={d.floaties} />
       <Arm pts={arms.r} color={armColor} skin={d.skin} floatie={d.floaties} />
       {/* the head: its own card, sits straight on the body, no neck */}
-      <g filter="url(#lift)">
+      <g filter="url(#lift)" transform={`rotate(${headTilt} 0 -220)`}>
         <ellipse cx={0} cy={HEAD_Y} rx={HRX} ry={HRY} fill={d.skin} {...LINE} />
-        {d.hair}
+        <g transform={`translate(${turn * 10} 0)`}>{d.hair}</g>
+        <g transform={`translate(${turn * 30} 0)`}>
         {[-1, 1].map((side) => {
           const cx = side * 41;
           return (
@@ -292,7 +323,16 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
         <Brows e={expression} />
         {d.face}
         <Mouth shape={mouth ?? IDLE_MOUTH[expression]} />
+        </g>
       </g>
+      {sweat !== null
+        ? [0, 1].map((i) => {
+            // two drops fly off the head on 2-frame steps, then loop
+            const t = (Math.floor(sweat / 2) + i * 3) % 6;
+            const side = i ? 1 : -1;
+            return <Drop key={i} x={side * (150 + t * 16)} y={-440 - t * 10 + t * t * 4} flip={side} />;
+          })
+        : null}
     </g>
   );
 };

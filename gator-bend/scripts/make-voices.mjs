@@ -121,6 +121,21 @@ async function elevenlabs(text, voiceId, outBase) {
 
 const KOKORO_PY = path.join(root, ".venv", "bin", "python");
 const haveKokoro = fs.existsSync(path.join(root, "models", "kokoro.onnx")) && fs.existsSync(KOKORO_PY);
+const haveAligner = fs.existsSync(path.join(root, "models", "whisper")) && fs.existsSync(KOKORO_PY);
+const words = (t) => t.toLowerCase().replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
+// Script words the recognizer did not hear, in order (empty = said as written).
+// Checked against both the spoken text and the caption so "seven" vs "7" isn't flagged.
+function missingWords(script, heard) {
+  const b = words(heard.replace(/\./g, ""));
+  const miss = [];
+  let j = 0;
+  for (const w of words(script)) {
+    const k = b.indexOf(w, j);
+    if (k >= 0) j = k + 1;
+    else miss.push(w);
+  }
+  return miss;
+}
 const TRIM = "silenceremove=start_periods=1:start_threshold=-45dB";
 
 function kokoro(text, v, outBase) {
@@ -156,9 +171,6 @@ function makeSfx(total) {
     out("bus.wav"));
   ff("-f", "lavfi", "-i", `anoisesrc=color=white:amplitude=0.5:d=${total.toFixed(2)}:r=44100`,
     "-af", "bandpass=f=5200:width_type=h:w=900,tremolo=f=38:d=0.9,volume=0.18,afade=t=in:d=0.5", out("ambience.wav"));
-  ff("-f", "lavfi", "-i",
-    "aevalsrc='0.4*(sin(2*PI*523*t)*exp(-6*t)+sin(2*PI*659*max(0,t-0.12))*exp(-6*max(0,t-0.12))*gt(t,0.12)+sin(2*PI*784*max(0,t-0.24))*exp(-4*max(0,t-0.24))*gt(t,0.24))':s=44100:d=1.1",
-    out("sting.wav"));
 }
 
 // --- Build the timeline -----------------------------------------------------
@@ -180,11 +192,33 @@ for (const [i, beat] of script.beats.entries()) {
           : espeak(beat.text, cast.voice, base);
     const secs = duration(file);
     const frames = Math.ceil(secs * fps);
-    const captionWords = (beat.caption ?? beat.text).split(/\s+/).filter(Boolean);
-    const words = (alignment ? wordsFromCharacters(alignment, captionWords) : spreadWords(captionWords, 0, secs)).map(
-      (w) => ({ word: w.word, start: start + Math.round(w.start * fps), end: start + Math.round(w.end * fps) }),
-    );
-    const mouth = alignment ? mouthFromCharacters(alignment, frames) : mouthFromLoudness(file, frames);
+    const captionText = beat.caption ?? beat.text;
+    const captionWords = captionText.split(/\s+/).filter(Boolean);
+    let lineWords;
+    let mouth;
+    if (alignment) {
+      lineWords = wordsFromCharacters(alignment, captionWords);
+      mouth = mouthFromCharacters(alignment, frames);
+    } else if (haveAligner) {
+      // Whisper word timings + phoneme visemes (scripts/align.py)
+      const out = JSON.parse(
+        execFileSync(KOKORO_PY, [path.join(root, "scripts", "align.py"), file, beat.text, captionText, String(fps)], {
+          env: { ...process.env, HF_HUB_DISABLE_XET: "1" },
+          stdio: ["ignore", "pipe", "ignore"],
+        }).toString(),
+      );
+      lineWords = out.words;
+      mouth = out.mouth.slice(0, frames);
+      while (mouth.length < frames) mouth.push("closed");
+      const a = missingWords(beat.text, out.heard);
+      const b = missingWords(captionText, out.heard);
+      const miss = a.length <= b.length ? a : b;
+      console.log(`         heard: "${out.heard}"${miss.length ? `  <-- CHECK, not heard: ${miss.join(", ")}` : ""}`);
+    } else {
+      lineWords = spreadWords(captionWords, 0, secs);
+      mouth = mouthFromLoudness(file, frames);
+    }
+    const words = lineWords.map((w) => ({ word: w.word, start: start + Math.round(w.start * fps), end: start + Math.round(w.end * fps) }));
     beats.push({ ...beat, index: i, start, end: start + frames, audio: `audio/${path.basename(file)}`, mouth, words });
     cursor += secs + gap;
     console.log(`line ${i} ${beat.speaker.padEnd(6)} ${secs.toFixed(2)}s  ${engine}`);
@@ -199,8 +233,14 @@ makeSfx(cursor);
 const sfx = [
   ...beats.filter((b) => b.action === "gator-burp").map((b) => ({ src: "sfx/burp.wav", start: b.start })),
   ...beats.filter((b) => b.action === "bus-arrives").map((b) => ({ src: "sfx/bus.wav", start: b.start })),
-  ...beats.filter((b) => b.type === "title").map((b) => ({ src: "sfx/sting.wav", start: b.start })),
+  { src: "sfx/music.wav", start: 0, volume: 0.7 },
 ];
 const timeline = { title: script.title, episode: script.episode, fps, durationInFrames, cast: script.cast, beats, sfx, ambience: "sfx/ambience.wav" };
 fs.writeFileSync(path.join(genDir, "timeline.json"), JSON.stringify(timeline, null, 1));
+// score + foley, timed from the finished timeline
+execFileSync(fs.existsSync(KOKORO_PY) ? KOKORO_PY : "python3", [
+  path.join(root, "scripts", "make-music.py"),
+  path.join(genDir, "timeline.json"),
+  path.join(sfxDir, "music.wav"),
+]);
 console.log(`timeline: ${(durationInFrames / fps).toFixed(2)}s, ${durationInFrames} frames`);

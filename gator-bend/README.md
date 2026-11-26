@@ -8,7 +8,7 @@ Original characters, set in the fictional town of Gator Bend, Florida.
 | Stage | What it does | File |
 | --- | --- | --- |
 | 1. Script | Beats: who talks, what they say, expression, pose, camera, reactions | `script.json` |
-| 2. Voices + timing | Records each line (audio first), works out mouth shapes per frame and caption word timings | `scripts/make-voices.mjs` → `src/generated/timeline.json` |
+| 2. Voices + timing | Records each line (audio first), times every word, picks a mouth shape for every sound, synthesizes the music and foley | `scripts/make-voices.mjs` (+ `align.py`, `make-music.py`) → `src/generated/timeline.json` |
 | 3. Render | Remotion draws the paper cutout world, syncs mouths, moves the camera, burns in captions | `src/` |
 
 ### How the cutout look is built
@@ -20,6 +20,33 @@ Original characters, set in the fictional town of Gator Bend, Florida.
 - **Choppy motion:** characters and props change pose on twos (every 2nd frame) with no in-betweens. Walks are a side-to-side tilt plus a hop.
 - **Camera:** `wide`, `two:a,b`, `close:x`, `push:x` (slow push-in), `close:gator`. Hard cuts between beats, like a sitcom.
 - **Lighting:** a warm overhead hot-spot with falloff toward the corners.
+
+### Lip-sync
+
+`scripts/align.py` runs Whisper (`faster-whisper` base.en, free, offline) on each recorded line to find when every word was actually said. Each word is split into phonemes with `espeak-ng`, and each phoneme becomes a mouth shape:
+
+| Mouth | Sounds |
+| --- | --- |
+| closed | m, b, p |
+| F | f, v |
+| O | oh, oo, w, r |
+| wide | ah, eye, a |
+| E | ee, s, z, sh, ch, th |
+| open | everything else |
+
+Mouths change on twos, like the rest of the animation. The recognizer also checks the voice: if a word in the script wasn't heard (say Kokoro garbled it), `npm run voices` prints `CHECK, not heard: ...`. Rewording the `text` usually fixes it; the `caption` can keep the original wording.
+
+### Acting
+
+- **Head turns:** face features slide toward whoever the character is looking at (the speaker, or `look` on the beat: a cast name, `gator` or `bus`).
+- **Talking:** the head rocks on each new word, with a small lift.
+- **Punch words:** an ALL-CAPS or `!` word in the caption triggers `emphasisPose` and a hop.
+- **Reactions:** `reactions` sets listeners' expressions. Scared kids jump, then shake.
+- **Sweat:** `"sweat": ["tucker"]` on a beat makes sweat fly off those kids.
+
+### Sound
+
+`scripts/make-music.py` synthesizes everything (Karplus-Strong plucked strings): an opening strum sting, a ukulele-style bed that ducks under dialogue, a title sting, footsteps on the walk-in, and the gator's chomp clacks.
 
 ## Commands
 
@@ -44,7 +71,9 @@ The voice stage uses the first engine available:
    B=https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main
    curl -L -o models/kokoro.onnx $B/onnx/model.onnx
    for v in am_echo am_liam af_nicole am_puck am_onyx; do curl -L -o models/voices/$v.bin $B/voices/$v.bin; done
+   .venv/bin/pip install faster-whisper   # lip-sync aligner; its model downloads on first run
    ```
+   If Hugging Face downloads fail behind a proxy, set `HF_HUB_DISABLE_XET=1`.
 3. **espeak-ng:** robotic last resort.
 
 ## Not built yet
