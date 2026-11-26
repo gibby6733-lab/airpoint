@@ -1,12 +1,12 @@
 {
- "after_day": 12,
- "fund_dollars": 285,
+ "after_day": 13,
+ "fund_dollars": 95,
  "record": {
-  "wins": 5,
+  "wins": 6,
   "losses": 7
  },
  "fans": 0,
- "next_opponent": "Iron Ridge Rams rematch (undefeated) — playoff race: win next 2",
+ "next_opponent": "Pine Hollow Badgers — winner goes to the playoffs",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
@@ -18,7 +18,8 @@
   "team bus (Day 9, $500)",
   "stadium lights (Day 10, $300)",
   "hot dog stand run by a dog (Day 11, $200)",
-  "cheer uniforms (Day 12, $150)"
+  "cheer uniforms (Day 12, $150)",
+  "training camp run by the cow (Day 13, $250)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
@@ -33,9 +34,9 @@
   "cheer": "cheer squad in uniforms (the cow too)"
  },
  "upgrade_prices": {
-  "mascot_costume": 100,
   "jumbotron": 400,
-  "training_camp": 250
+  "mascot_costume": 100,
+  "blackout_uniforms": 200
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -271,6 +272,25 @@
     "Peter",
     "Jaxon speech"
    ]
+  },
+  {
+   "day": 13,
+   "built": "2026-11-26",
+   "likes_in": 60,
+   "likes_tiktok": 60,
+   "winning_comment": "Training camp (5️⃣7️⃣🏈, 4 likes; Aaron: ran by the cow)",
+   "comment_likes": 4,
+   "bought": "training camp $250",
+   "opponent": "Iron Ridge Rams",
+   "score": "17-14 W",
+   "note": "Revenge game. MVP vote result Graham; Rams coach trash talk; Faded's 3-word speech; Landon forced fumble; Graham TD; krissssss trick-play throw TD; Lucas 60-yd FG at 0:01; fans stormed the field, Wonka free hot dogs (Wonka's comment).",
+   "fan_signings": [
+    "Faded speech",
+    "Landon DE",
+    "Graham MVP",
+    "krissssss",
+    "Lucas"
+   ]
   }
  ],
  "fan_roster": [
@@ -314,5 +334,5 @@
   "tiktok": "https://www.tiktok.com/@mudville.possums",
   "instagram": "https://www.instagram.com/mudville.possums/"
  },
- "arc": "PLAYOFF RACE: 5-7, need to win games 13 and 14. MVP fan vote opened on Day 12."
+ "arc": "PLAYOFF RACE: 6-7, win game 14 vs Badgers to make playoffs. MVP vote: Graham (water boy). Rival: Iron Ridge Rams coach (first loss ever on Day 13)."
 }
