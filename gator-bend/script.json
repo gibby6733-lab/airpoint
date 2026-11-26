@@ -1,0 +1,25 @@
+{
+  "title": "GATOR BEND",
+  "episode": "Ep. 1: Florida Boy (cold open)",
+  "settings": {
+    "fps": 24,
+    "gapSeconds": 0.12,
+    "voiceEngine": "auto"
+  },
+  "cast": {
+    "danny":  { "x": 560,  "idlePose": "idle",  "idleExpression": "neutral", "voice": { "espeak": "en-us+m1", "pitch": 55, "speed": 160, "shift": 1.22 }, "elevenlabsVoiceId": "" },
+    "tucker": { "x": 940,  "idlePose": "idle",  "idleExpression": "worried", "voice": { "espeak": "en-us+m3", "pitch": 70, "speed": 175, "shift": 1.25 }, "elevenlabsVoiceId": "" },
+    "bray":   { "x": 1320, "idlePose": "phone", "idleExpression": "smug",    "voice": { "espeak": "en-us+m7", "pitch": 65, "speed": 175, "shift": 1.25 }, "elevenlabsVoiceId": "" },
+    "wade":   { "x": 1700, "idlePose": "idle",  "idleExpression": "deadpan", "voice": { "espeak": "en-us+m2", "pitch": 35, "speed": 135, "shift": 1.18 }, "elevenlabsVoiceId": "" }
+  },
+  "beats": [
+    { "type": "action", "action": "walk-in", "who": "danny", "seconds": 1.0, "camera": "wide" },
+    { "type": "line", "speaker": "tucker", "text": "Guys, it's seven A M, and it's already a hundred and four.", "caption": "Guys, it's 7 a.m. and it's already 104.", "expression": "worried", "pose": "arms-up", "camera": "two:danny,tucker" },
+    { "type": "line", "speaker": "danny", "text": "It's November, dude.", "expression": "deadpan", "pose": "idle", "camera": "close:danny" },
+    { "type": "line", "speaker": "bray", "text": "Forty million views. Dude... we live in Florida!", "caption": "40 million views. Dude... we live in FLORIDA!", "expression": "excited", "pose": "phone", "camera": "push:bray", "reactions": { "tucker": "worried", "danny": "annoyed" } },
+    { "type": "line", "speaker": "wade", "text": "He's eaten three noodles this week. He's building something.", "expression": "deadpan", "pose": "idle", "camera": "two:wade,gator", "look": "gator" },
+    { "type": "action", "action": "gator-burp", "seconds": 0.8, "camera": "close:gator", "look": "gator", "reactions": { "tucker": "scared", "danny": "deadpan", "bray": "scared" } },
+    { "type": "action", "action": "bus-arrives", "seconds": 1.1, "camera": "wide", "look": "bus" },
+    { "type": "title", "seconds": 0.9 }
+  ]
+}

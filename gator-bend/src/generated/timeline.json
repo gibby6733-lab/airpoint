@@ -1,0 +1,578 @@
+{
+ "title": "GATOR BEND",
+ "episode": "Ep. 1: Florida Boy (cold open)",
+ "fps": 24,
+ "durationInFrames": 361,
+ "cast": {
+  "danny": {
+   "x": 560,
+   "idlePose": "idle",
+   "idleExpression": "neutral",
+   "voice": {
+    "espeak": "en-us+m1",
+    "pitch": 55,
+    "speed": 160,
+    "shift": 1.22
+   },
+   "elevenlabsVoiceId": ""
+  },
+  "tucker": {
+   "x": 940,
+   "idlePose": "idle",
+   "idleExpression": "worried",
+   "voice": {
+    "espeak": "en-us+m3",
+    "pitch": 70,
+    "speed": 175,
+    "shift": 1.25
+   },
+   "elevenlabsVoiceId": ""
+  },
+  "bray": {
+   "x": 1320,
+   "idlePose": "phone",
+   "idleExpression": "smug",
+   "voice": {
+    "espeak": "en-us+m7",
+    "pitch": 65,
+    "speed": 175,
+    "shift": 1.25
+   },
+   "elevenlabsVoiceId": ""
+  },
+  "wade": {
+   "x": 1700,
+   "idlePose": "idle",
+   "idleExpression": "deadpan",
+   "voice": {
+    "espeak": "en-us+m2",
+    "pitch": 35,
+    "speed": 135,
+    "shift": 1.18
+   },
+   "elevenlabsVoiceId": ""
+  }
+ },
+ "beats": [
+  {
+   "type": "action",
+   "action": "walk-in",
+   "who": "danny",
+   "seconds": 1,
+   "camera": "wide",
+   "index": 0,
+   "start": 0,
+   "end": 24
+  },
+  {
+   "type": "line",
+   "speaker": "tucker",
+   "text": "Guys, it's seven A M, and it's already a hundred and four.",
+   "caption": "Guys, it's 7 a.m. and it's already 104.",
+   "expression": "worried",
+   "pose": "arms-up",
+   "camera": "two:danny,tucker",
+   "index": 1,
+   "start": 27,
+   "end": 100,
+   "audio": "audio/line-1-tucker.wav",
+   "mouth": [
+    "wide",
+    "wide",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "open",
+    "open",
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "open"
+   ],
+   "words": [
+    {
+     "word": "Guys,",
+     "start": 27,
+     "end": 37
+    },
+    {
+     "word": "it's",
+     "start": 37,
+     "end": 46
+    },
+    {
+     "word": "7",
+     "start": 46,
+     "end": 51
+    },
+    {
+     "word": "a.m.",
+     "start": 51,
+     "end": 58
+    },
+    {
+     "word": "and",
+     "start": 58,
+     "end": 67
+    },
+    {
+     "word": "it's",
+     "start": 67,
+     "end": 75
+    },
+    {
+     "word": "already",
+     "start": 75,
+     "end": 91
+    },
+    {
+     "word": "104.",
+     "start": 91,
+     "end": 99
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "speaker": "danny",
+   "text": "It's November, dude.",
+   "expression": "deadpan",
+   "pose": "idle",
+   "camera": "close:danny",
+   "index": 2,
+   "start": 102,
+   "end": 132,
+   "audio": "audio/line-2-danny.wav",
+   "mouth": [
+    "wide",
+    "wide",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "closed",
+    "closed"
+   ],
+   "words": [
+    {
+     "word": "It's",
+     "start": 102,
+     "end": 109
+    },
+    {
+     "word": "November,",
+     "start": 109,
+     "end": 123
+    },
+    {
+     "word": "dude.",
+     "start": 123,
+     "end": 131
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "speaker": "bray",
+   "text": "Forty million views. Dude... we live in Florida!",
+   "caption": "40 million views. Dude... we live in FLORIDA!",
+   "expression": "excited",
+   "pose": "phone",
+   "camera": "push:bray",
+   "reactions": {
+    "tucker": "worried",
+    "danny": "annoyed"
+   },
+   "index": 3,
+   "start": 134,
+   "end": 195,
+   "audio": "audio/line-3-bray.wav",
+   "mouth": [
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "open",
+    "open",
+    "O",
+    "O",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "O",
+    "O",
+    "open",
+    "open",
+    "O",
+    "O",
+    "open"
+   ],
+   "words": [
+    {
+     "word": "40",
+     "start": 134,
+     "end": 139
+    },
+    {
+     "word": "million",
+     "start": 139,
+     "end": 150
+    },
+    {
+     "word": "views.",
+     "start": 150,
+     "end": 159
+    },
+    {
+     "word": "Dude...",
+     "start": 159,
+     "end": 166
+    },
+    {
+     "word": "we",
+     "start": 166,
+     "end": 171
+    },
+    {
+     "word": "live",
+     "start": 171,
+     "end": 178
+    },
+    {
+     "word": "in",
+     "start": 178,
+     "end": 183
+    },
+    {
+     "word": "FLORIDA!",
+     "start": 183,
+     "end": 194
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "speaker": "wade",
+   "text": "He's eaten three noodles this week. He's building something.",
+   "expression": "deadpan",
+   "pose": "idle",
+   "camera": "two:wade,gator",
+   "look": "gator",
+   "index": 4,
+   "start": 197,
+   "end": 285,
+   "audio": "audio/line-4-wade.wav",
+   "mouth": [
+    "O",
+    "O",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "open",
+    "open",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "O",
+    "O",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "O",
+    "O",
+    "open",
+    "open",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open"
+   ],
+   "words": [
+    {
+     "word": "He's",
+     "start": 197,
+     "end": 204
+    },
+    {
+     "word": "eaten",
+     "start": 204,
+     "end": 213
+    },
+    {
+     "word": "three",
+     "start": 213,
+     "end": 222
+    },
+    {
+     "word": "noodles",
+     "start": 222,
+     "end": 234
+    },
+    {
+     "word": "this",
+     "start": 234,
+     "end": 242
+    },
+    {
+     "word": "week.",
+     "start": 242,
+     "end": 250
+    },
+    {
+     "word": "He's",
+     "start": 250,
+     "end": 257
+    },
+    {
+     "word": "building",
+     "start": 257,
+     "end": 270
+    },
+    {
+     "word": "something.",
+     "start": 270,
+     "end": 285
+    }
+   ]
+  },
+  {
+   "type": "action",
+   "action": "gator-burp",
+   "seconds": 0.8,
+   "camera": "close:gator",
+   "look": "gator",
+   "reactions": {
+    "tucker": "scared",
+    "danny": "deadpan",
+    "bray": "scared"
+   },
+   "index": 5,
+   "start": 288,
+   "end": 307
+  },
+  {
+   "type": "action",
+   "action": "bus-arrives",
+   "seconds": 1.1,
+   "camera": "wide",
+   "look": "bus",
+   "index": 6,
+   "start": 310,
+   "end": 336
+  },
+  {
+   "type": "title",
+   "seconds": 0.9,
+   "index": 7,
+   "start": 340,
+   "end": 362
+  }
+ ],
+ "sfx": [
+  {
+   "src": "sfx/burp.wav",
+   "start": 288
+  },
+  {
+   "src": "sfx/bus.wav",
+   "start": 310
+  },
+  {
+   "src": "sfx/sting.wav",
+   "start": 340
+  }
+ ],
+ "ambience": "sfx/ambience.wav"
+}
