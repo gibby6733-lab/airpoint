@@ -31,7 +31,7 @@ export type Design = {
   floaties?: boolean;
 };
 
-const BODY = "M -98 -236 C -112 -170, -128 -110, -126 -62 L 126 -62 C 128 -110, 112 -170, 98 -236 Z";
+const BODY = "M -100 -252 Q -114 -252 -116 -238 L -130 -80 Q -132 -60 -112 -60 L 112 -60 Q 132 -60 130 -80 L 116 -238 Q 114 -252 100 -252 Z";
 
 export const DESIGNS: Record<string, Design> = {
   danny: {
@@ -118,35 +118,46 @@ export const DESIGNS: Record<string, Design> = {
 
 type Pt = [number, number];
 const SH: Pt[] = [
-  [-92, -196],
-  [92, -196],
+  [-102, -212],
+  [102, -212],
 ];
 const ARMS: Record<Pose, { l: Pt[]; r: Pt[] }> = {
-  idle: { l: [SH[0], [-132, -118]], r: [SH[1], [132, -118]] },
-  "arms-up": { l: [SH[0], [-158, -250], [-160, -318]], r: [SH[1], [158, -250], [160, -318]] },
-  phone: { l: [SH[0], [-132, -118]], r: [SH[1], [104, -128], [46, -150]] },
-  point: { l: [SH[0], [-132, -118]], r: [SH[1], [160, -236], [196, -286]] },
+  idle: { l: [SH[0], [-126, -146]], r: [SH[1], [126, -146]] },
+  "arms-up": { l: [SH[0], [-150, -250], [-166, -306]], r: [SH[1], [150, -250], [166, -306]] },
+  phone: { l: [SH[0], [-126, -146]], r: [SH[1], [124, -168], [66, -170]] },
+  point: { l: [SH[0], [-126, -146]], r: [SH[1], [164, -250], [196, -292]] },
 };
 
-const Arm: React.FC<{ pts: Pt[]; color: string; skin: string; floatie?: boolean }> = ({ pts, color, skin, floatie }) => {
-  const d = "M " + pts.map((p) => p.join(" ")).join(" L ");
-  const hand = pts[pts.length - 1];
-  const [s, n] = [pts[0], pts[1]];
-  const fl: Pt = [s[0] + (n[0] - s[0]) * 0.35, s[1] + (n[1] - s[1]) * 0.35];
+const Arm: React.FC<{ pts: Pt[]; color: string; skin: string; floatie?: boolean; swing?: number }> = ({
+  pts,
+  color,
+  skin,
+  floatie,
+  swing = 0,
+}) => {
+  const p = pts.map((q, i) => (i === pts.length - 1 ? ([q[0] + swing, q[1]] as Pt) : q));
+  const d = "M " + p.map((q) => q.join(" ")).join(" L ");
+  const hand = p[p.length - 1];
+  const prev = p[p.length - 2];
   const side = hand[0] > 0 ? 1 : -1;
+  const ang = (Math.atan2(hand[1] - prev[1], hand[0] - prev[0]) * 180) / Math.PI - 90;
+  const fl: Pt = [p[0][0] + (p[1][0] - p[0][0]) * 0.3, p[0][1] + (p[1][1] - p[0][1]) * 0.3];
   return (
     <g>
-      <path d={d} stroke={INK} strokeWidth={40} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d={d} stroke={color} strokeWidth={32} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      {/* chunky sleeve: outline pass, then fill */}
+      <path d={d} stroke={INK} strokeWidth={54} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d={d} stroke={color} strokeWidth={46} strokeLinecap="round" strokeLinejoin="round" fill="none" />
       {floatie ? (
         <g>
-          <circle cx={fl[0]} cy={fl[1]} r={34} fill="#FF8A1F" {...LINE} />
-          <path d={`M ${fl[0] - 32} ${fl[1] - 4} L ${fl[0] + 32} ${fl[1] - 4}`} stroke="#FFF1D6" strokeWidth={9} />
+          <ellipse cx={fl[0]} cy={fl[1]} rx={38} ry={30} fill="#FF8A1F" {...LINE} />
+          <path d={`M ${fl[0] - 36} ${fl[1] - 2} L ${fl[0] + 36} ${fl[1] - 2}`} stroke="#FFF1D6" strokeWidth={8} />
         </g>
       ) : null}
-      {/* mitten: palm + thumb */}
-      <circle cx={hand[0] - side * 16} cy={hand[1] - 16} r={12} fill={skin} {...LINE} strokeWidth={3} />
-      <ellipse cx={hand[0]} cy={hand[1]} rx={26} ry={24} fill={skin} {...LINE} />
+      {/* small mitten, thumb toward the body, aligned with the arm */}
+      <g transform={`translate(${hand[0]} ${hand[1]}) rotate(${ang})`}>
+        <ellipse cx={-side * 15} cy={2} rx={10} ry={13} fill={skin} {...LINE} strokeWidth={3.5} />
+        <ellipse cx={0} cy={10} rx={21} ry={24} fill={skin} {...LINE} />
+      </g>
     </g>
   );
 };
@@ -248,6 +259,7 @@ export type KidProps = {
   turn?: number; // -1 .. 1, face slides toward this side (cutout "head turn")
   headTilt?: number; // degrees, pivots at the base of the head
   sweat?: number | null; // frame counter for flying sweat drops, null = dry
+  step?: number | null; // walk phase 0/1 (which foot is up), null = standing
   blink: boolean;
 };
 
@@ -261,12 +273,12 @@ const Drop: React.FC<{ x: number; y: number; flip: number }> = ({ x, y, flip }) 
   />
 );
 
-export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, turn = 0, headTilt = 0, sweat = null, blink }) => {
+export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, turn = 0, headTilt = 0, sweat = null, step = null, blink }) => {
   const d = DESIGNS[name];
   const arms = ARMS[pose];
   const big = expression === "scared";
-  const erx = 42;
-  const ery = big ? 56 : 50;
+  const erx = 45;
+  const ery = big ? 62 : 55;
   const pr = big ? 5 : 7;
   const lidY = expression === "smug" ? EYE_Y + 6 : EYE_Y;
   const lid = expression === "deadpan" || expression === "smug" || expression === "annoyed";
@@ -274,10 +286,20 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
   const armColor = d.sleeves ? d.shirt : d.skin;
   return (
     <g>
-      {/* feet peeking out under the body */}
-      <path d="M -102 0 Q -100 -40 -50 -40 Q -4 -40 -4 0 Z" fill={d.shoes} {...LINE} />
-      <path d="M 102 0 Q 100 -40 50 -40 Q 4 -40 4 0 Z" fill={d.shoes} {...LINE} />
-      <path d="M -118 -70 L 118 -70 L 112 -22 L -112 -22 Z" fill={d.pants} {...LINE} />
+      {/* shoes: rounded domes; on a walk step one foot lifts and slides forward */}
+      <path
+        transform={step === 0 ? "translate(10 -14)" : undefined}
+        d="M -116 0 Q -116 -48 -58 -48 Q -4 -48 -4 0 Z"
+        fill={d.shoes}
+        {...LINE}
+      />
+      <path
+        transform={step === 1 ? "translate(-10 -14)" : undefined}
+        d="M 116 0 Q 116 -48 58 -48 Q 4 -48 4 0 Z"
+        fill={d.shoes}
+        {...LINE}
+      />
+      <path d="M -120 -78 L 120 -78 L 114 -30 L -114 -30 Z" fill={d.pants} {...LINE} />
       {/* bell-shaped body */}
       <clipPath id={clipId}>
         <path d={BODY} />
@@ -285,17 +307,17 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
       <path d={BODY} fill={d.shirt} {...LINE} />
       {d.shirtPattern ? <g clipPath={`url(#${clipId})`}>{d.shirtPattern}</g> : null}
       {d.seam ? <path d="M 0 -220 L 0 -64" stroke={INK} strokeWidth={4} /> : null}
-      {d.chest}
+      <g transform={`translate(${turn * 14} 0)`}>{d.chest}</g>
       {pose === "phone" ? (
         <g>
           <rect x={22} y={-232} width={52} height={86} rx={9} fill="#202020" {...LINE} />
           <rect x={29} y={-223} width={38} height={62} rx={4} fill="#7fd7ff" />
         </g>
       ) : null}
-      <Arm pts={arms.l} color={armColor} skin={d.skin} floatie={d.floaties} />
-      <Arm pts={arms.r} color={armColor} skin={d.skin} floatie={d.floaties} />
+      <Arm pts={arms.l} color={armColor} skin={d.skin} floatie={d.floaties} swing={step === null ? 0 : step ? 12 : -12} />
+      <Arm pts={arms.r} color={armColor} skin={d.skin} floatie={d.floaties} swing={step === null ? 0 : step ? 12 : -12} />
       {/* the head: its own card, sits straight on the body, no neck */}
-      <g filter="url(#lift)" transform={`rotate(${headTilt} 0 -220)`}>
+      <g filter="url(#lift)" transform={`rotate(${headTilt} 0 -220) translate(0 -326) scale(1.08 0.955) translate(0 345)`}>
         <ellipse cx={0} cy={HEAD_Y} rx={HRX} ry={HRY} fill={d.skin} {...LINE} />
         <g transform={`translate(${turn * 10} 0)`}>{d.hair}</g>
         <g transform={`translate(${turn * 30} 0)`}>

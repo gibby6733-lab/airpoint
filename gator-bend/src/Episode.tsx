@@ -70,10 +70,10 @@ const homeX = (name: string, f: number) => {
   const home = T.cast[name].x;
   const walk = T.beats.find((b) => b.action === "walk-in" && b.who === name);
   if (!walk) return { x: home, walking: false };
-  if (f < walk.start) return { x: -300, walking: false };
+  if (f < walk.start) return { x: -400, walking: false };
   if (f >= walk.end) return { x: home, walking: false };
   const sf = onTwos(f);
-  return { x: interpolate(sf, [walk.start, walk.end - 2], [-300, home], { extrapolateRight: "clamp" }), walking: true };
+  return { x: interpolate(sf, [walk.start, walk.end - 2], [home - 520, home], { extrapolateRight: "clamp" }), walking: true };
 };
 
 const gatorState = (f: number) => {
@@ -192,11 +192,13 @@ const kidState = (name: string, f: number) => {
   let dy = 0;
   let tilt = 0;
   let headTilt = 0;
+  let step: number | null = null;
   if (walking) {
-    // walk cycle: side-to-side tilt + hop on 3-frame holds instead of leg joints
-    const step = Math.floor(f / 3) % 2;
-    dy = step ? -18 : 0;
+    // walk cycle on 3-frame holds: body tilts side to side and bobs, one foot lifts, arms swing
+    step = Math.floor(f / 3) % 2;
+    dy = step ? -14 : -4;
     tilt = step ? 4 : -4;
+    headTilt = step ? -2 : 2;
   } else if (speaking) {
     if (wi >= 0) {
       headTilt = wi % 2 ? 3 : -3; // head rocks on each new word
@@ -211,7 +213,7 @@ const kidState = (name: string, f: number) => {
     dy = local < 4 ? -30 : Math.floor(f / 2) % 2 ? -6 : 0; // jump, then shake
   }
   const sweat = beat.sweat?.includes(name) ? local : null;
-  return { x, dy, tilt, headTilt, mouth, expression: expression as Expression, pose: pose as Pose, look, turn, blink, sweat };
+  return { x, dy, tilt, headTilt, mouth, expression: expression as Expression, pose: pose as Pose, look, turn, blink, sweat, step };
 };
 
 // ---------------------------------------------------------------- captions
@@ -354,6 +356,7 @@ export const Episode: React.FC = () => {
               turn={k.turn}
               headTilt={k.headTilt}
               sweat={k.sweat}
+              step={k.step}
               blink={k.blink}
             />
           </g>

@@ -43,10 +43,16 @@
   "beats": [
     {
       "type": "action",
+      "action": "establish",
+      "seconds": 0.7,
+      "camera": "wide"
+    },
+    {
+      "type": "action",
       "action": "walk-in",
       "who": "danny",
-      "seconds": 1.0,
-      "camera": "wide",
+      "seconds": 1.1,
+      "camera": "two:danny,tucker",
       "look": "danny"
     },
     {

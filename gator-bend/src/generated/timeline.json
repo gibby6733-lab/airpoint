@@ -2,7 +2,7 @@
  "title": "GATOR BEND",
  "episode": "Ep. 1: Florida Boy (cold open)",
  "fps": 24,
- "durationInFrames": 356,
+ "durationInFrames": 378,
  "cast": {
   "danny": {
    "x": 560,
@@ -76,14 +76,23 @@
  "beats": [
   {
    "type": "action",
-   "action": "walk-in",
-   "who": "danny",
-   "seconds": 1,
+   "action": "establish",
+   "seconds": 0.7,
    "camera": "wide",
-   "look": "danny",
    "index": 0,
    "start": 0,
-   "end": 24
+   "end": 17
+  },
+  {
+   "type": "action",
+   "action": "walk-in",
+   "who": "danny",
+   "seconds": 1.1,
+   "camera": "two:danny,tucker",
+   "look": "danny",
+   "index": 1,
+   "start": 20,
+   "end": 46
   },
   {
    "type": "line",
@@ -97,10 +106,10 @@
     "danny"
    ],
    "camera": "two:danny,tucker",
-   "index": 1,
-   "start": 27,
-   "end": 100,
-   "audio": "audio/line-1-tucker.wav",
+   "index": 2,
+   "start": 49,
+   "end": 122,
+   "audio": "audio/line-2-tucker.wav",
    "mouth": [
     "open",
     "open",
@@ -179,43 +188,43 @@
    "words": [
     {
      "word": "Guys,",
-     "start": 27,
-     "end": 33
+     "start": 49,
+     "end": 55
     },
     {
      "word": "it's",
-     "start": 34,
-     "end": 40
+     "start": 56,
+     "end": 62
     },
     {
      "word": "7",
-     "start": 40,
-     "end": 47
+     "start": 62,
+     "end": 69
     },
     {
      "word": "a.m.",
-     "start": 47,
-     "end": 64
+     "start": 69,
+     "end": 86
     },
     {
      "word": "and",
-     "start": 64,
-     "end": 66
+     "start": 86,
+     "end": 88
     },
     {
      "word": "it's",
-     "start": 66,
-     "end": 70
+     "start": 88,
+     "end": 92
     },
     {
      "word": "already",
-     "start": 70,
-     "end": 75
+     "start": 92,
+     "end": 97
     },
     {
      "word": "104.",
-     "start": 75,
-     "end": 99
+     "start": 97,
+     "end": 121
     }
    ]
   },
@@ -226,10 +235,10 @@
    "expression": "deadpan",
    "pose": "idle",
    "camera": "close:danny",
-   "index": 2,
-   "start": 102,
-   "end": 138,
-   "audio": "audio/line-2-danny.wav",
+   "index": 3,
+   "start": 125,
+   "end": 161,
+   "audio": "audio/line-3-danny.wav",
    "mouth": [
     "open",
     "open",
@@ -271,18 +280,18 @@
    "words": [
     {
      "word": "It's",
-     "start": 102,
-     "end": 106
+     "start": 125,
+     "end": 129
     },
     {
      "word": "November,",
-     "start": 106,
-     "end": 116
+     "start": 129,
+     "end": 139
     },
     {
      "word": "dude.",
-     "start": 126,
-     "end": 135
+     "start": 149,
+     "end": 158
     }
    ]
   },
@@ -299,10 +308,10 @@
     "tucker": "worried",
     "danny": "annoyed"
    },
-   "index": 3,
-   "start": 141,
-   "end": 197,
-   "audio": "audio/line-3-bray.wav",
+   "index": 4,
+   "start": 163,
+   "end": 219,
+   "audio": "audio/line-4-bray.wav",
    "mouth": [
     "O",
     "O",
@@ -364,43 +373,43 @@
    "words": [
     {
      "word": "40",
-     "start": 141,
-     "end": 145
+     "start": 163,
+     "end": 167
     },
     {
      "word": "million",
-     "start": 145,
-     "end": 150
+     "start": 167,
+     "end": 172
     },
     {
      "word": "views.",
-     "start": 150,
-     "end": 159
+     "start": 172,
+     "end": 181
     },
     {
      "word": "Dude...",
-     "start": 164,
-     "end": 171
+     "start": 186,
+     "end": 193
     },
     {
      "word": "we",
-     "start": 175,
-     "end": 177
+     "start": 197,
+     "end": 199
     },
     {
      "word": "live",
-     "start": 177,
-     "end": 180
+     "start": 199,
+     "end": 202
     },
     {
      "word": "in",
-     "start": 180,
-     "end": 183
+     "start": 202,
+     "end": 205
     },
     {
      "word": "FLORIDA!",
-     "start": 183,
-     "end": 196
+     "start": 205,
+     "end": 218
     }
    ]
   },
@@ -413,10 +422,10 @@
    "pose": "idle",
    "camera": "two:wade,gator",
    "look": "gator",
-   "index": 4,
-   "start": 199,
-   "end": 280,
-   "audio": "audio/line-4-wade.wav",
+   "index": 5,
+   "start": 222,
+   "end": 303,
+   "audio": "audio/line-5-wade.wav",
    "mouth": [
     "E",
     "E",
@@ -503,48 +512,48 @@
    "words": [
     {
      "word": "He's",
-     "start": 199,
-     "end": 203
+     "start": 222,
+     "end": 226
     },
     {
      "word": "eaten",
-     "start": 203,
-     "end": 208
+     "start": 226,
+     "end": 231
     },
     {
      "word": "three",
-     "start": 208,
-     "end": 216
+     "start": 231,
+     "end": 239
     },
     {
      "word": "noodles",
-     "start": 216,
-     "end": 225
+     "start": 239,
+     "end": 248
     },
     {
      "word": "this",
-     "start": 225,
-     "end": 234
+     "start": 248,
+     "end": 257
     },
     {
      "word": "week.",
-     "start": 234,
-     "end": 242
+     "start": 257,
+     "end": 265
     },
     {
      "word": "He's",
-     "start": 250,
-     "end": 254
+     "start": 273,
+     "end": 277
     },
     {
      "word": "building",
-     "start": 254,
-     "end": 260
+     "start": 277,
+     "end": 283
     },
     {
      "word": "something.",
-     "start": 260,
-     "end": 279
+     "start": 283,
+     "end": 302
     }
    ]
   },
@@ -559,9 +568,9 @@
     "danny": "deadpan",
     "bray": "scared"
    },
-   "index": 5,
-   "start": 283,
-   "end": 302
+   "index": 6,
+   "start": 305,
+   "end": 324
   },
   {
    "type": "action",
@@ -569,26 +578,26 @@
    "seconds": 1.1,
    "camera": "wide",
    "look": "bus",
-   "index": 6,
-   "start": 305,
-   "end": 331
+   "index": 7,
+   "start": 327,
+   "end": 353
   },
   {
    "type": "title",
    "seconds": 0.9,
-   "index": 7,
-   "start": 334,
-   "end": 356
+   "index": 8,
+   "start": 356,
+   "end": 378
   }
  ],
  "sfx": [
   {
    "src": "sfx/burp.wav",
-   "start": 283
+   "start": 305
   },
   {
    "src": "sfx/bus.wav",
-   "start": 305
+   "start": 327
   },
   {
    "src": "sfx/music.wav",
