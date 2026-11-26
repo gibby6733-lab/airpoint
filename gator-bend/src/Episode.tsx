@@ -13,7 +13,7 @@ import {
 import timeline from "./generated/timeline.json";
 import { Expression, Kid, MouthShape, Pose } from "./characters";
 import { PaperDefs, paper } from "./paper";
-import { BUS_W, Background, Bus, FEET_Y, FONT, GATOR_X, Gator, Heat, PondFront, Sun, WORLD_H, WORLD_W } from "./World";
+import { BUS_W, Background, Bus, BusState, FEET_Y, FONT, Foreground, GATOR_X, Gator, Heat, PondFront, Sun, WORLD_H, WORLD_W } from "./World";
 
 // ---------------------------------------------------------------- types
 type Word = { word: string; start: number; end: number };
@@ -30,6 +30,7 @@ type Beat = {
   reactions?: Record<string, string>;
   emphasisPose?: string;
   sweat?: string[];
+  holdAfter?: number;
   start: number;
   end: number;
   audio?: string;
@@ -77,24 +78,60 @@ const homeX = (name: string, f: number) => {
 };
 
 const gatorState = (f: number) => {
+  const beat = beatAt(f);
   const burp = T.beats.find((b) => b.action === "gator-burp");
+  const bus = T.beats.find((b) => b.action === "bus-arrives");
+  // after burping he slips under the water (and turns up somewhere else...)
+  if (bus && f >= bus.start) return { jaw: 0, burp: 0, look: 0, rise: 0, sink: Math.min(1, onTwos(f - bus.start) / 10) };
   if (burp && f >= burp.start && f < burp.end) {
     const t = (f - burp.start) / (burp.end - burp.start);
-    return { jaw: onTwos(f - burp.start) < 4 ? 20 : 38, burp: t };
+    return { jaw: onTwos(f - burp.start) < 4 ? 20 : 38, burp: t, look: -1, rise: 16, sink: 0 };
+  }
+  // when Wade talks about him, he stops chewing, rises a little and slides his eyes over
+  if (beat.look === "gator" && beat.type === "line") {
+    const settled = f - beat.start > 6;
+    return { jaw: 0, burp: 0, look: settled ? -1 : 0, rise: settled ? 16 : 6, sink: 0 };
   }
   // idle chomping on the pool noodle, stepped
   const c = Math.floor(f / 4) % 6;
-  return { jaw: c === 1 ? 14 : c === 2 ? 8 : 0, burp: 0 };
+  return { jaw: c === 1 ? 14 : c === 2 ? 8 : 0, burp: 0, look: 0, rise: 0, sink: 0 };
 };
 
+const BUS_STOP_X = 230;
 const busX = (f: number) => {
   const b = T.beats.find((x) => x.action === "bus-arrives");
   if (!b || f < b.start) return null;
   const sf = onTwos(f);
-  return interpolate(sf, [b.start, b.end - 4], [WORLD_W + 40, 230], {
+  return interpolate(sf, [b.start, b.end - 8], [WORLD_W + 40, BUS_STOP_X], {
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
   });
+};
+
+const busState = (f: number): BusState | null => {
+  const x = busX(f);
+  const arrive = T.beats.find((b) => b.action === "bus-arrives");
+  if (x === null || !arrive) return null;
+  const stopF = arrive.end - 8;
+  const since = f - stopF;
+  // brake lurch: tips forward, rocks back, settles (held poses)
+  const lurch = since < 0 ? 0 : since < 3 ? -2.5 : since < 6 ? 1.2 : 0;
+  const dust = since >= -6 && since < 16 ? (since + 6) / 22 : null;
+  const doors = T.beats.find((b) => b.action === "bus-doors");
+  const dl = doors ? f - doors.start : -1;
+  const door = dl < 0 ? 0 : Math.min(1, onTwos(dl) / 6);
+  const sec = dl / T.fps - 0.7; // matches the honk sound cue
+  const honk = doors !== undefined && f < doors.end && ((sec >= 0 && sec < 0.18) || (sec >= 0.28 && sec < 0.62));
+  return {
+    x,
+    bounce: since < 0 ? (Math.floor(f / 3) % 2 ? -6 : 0) : 0,
+    wheel: ((x - BUS_STOP_X) / 92) * (180 / Math.PI),
+    lurch,
+    dust,
+    door,
+    driver: true,
+    honk,
+  };
 };
 
 // ---------------------------------------------------------------- camera
@@ -121,6 +158,10 @@ const cameraFor = (beat: Beat, f: number): View => {
     const xs = names.map((n) => (n === "gator" ? GATOR_X : T.cast[n].x));
     const w = Math.max(1000, Math.max(...xs) - Math.min(...xs) + 560);
     return clampView((Math.max(...xs) + Math.min(...xs)) / 2, FEET_Y - FEET_AT * w * ASPECT, w);
+  }
+  if (kind === "close" && names[0] === "bus") {
+    const w = 780;
+    return clampView(BUS_STOP_X + 320, 2710 - 0.5 * w * ASPECT, w);
   }
   if (kind === "close" && names[0] === "gator") {
     const w = 1000;
@@ -152,6 +193,7 @@ const isEmphasis = (w: string) => /!$/.test(w) || (/[A-Z]{2,}/.test(w) && w === 
 
 const kidState = (name: string, f: number) => {
   const beat = beatAt(f);
+  const idx = CAST.indexOf(name);
   const me = T.cast[name];
   const { x, walking } = homeX(name, f);
   const speaking = beat.type === "line" && beat.speaker === name;
@@ -173,7 +215,7 @@ const kidState = (name: string, f: number) => {
     lookAt === "gator"
       ? GATOR_X
       : lookAt === "bus"
-        ? (busX(f) ?? WORLD_W) + BUS_W / 3
+        ? Math.min((busX(f) ?? WORLD_W) + 200, WORLD_W)
         : lookAt && T.cast[lookAt] && lookAt !== name
           ? homeX(lookAt, f).x
           : beat.speaker && !speaking
@@ -181,10 +223,11 @@ const kidState = (name: string, f: number) => {
             : null;
   let look = 0;
   if (target !== null && !(speaking && !lookAt)) look = Math.max(-1, Math.min(1, (target - x) / 260));
+  // listeners occasionally break off to glance at the camera (deadpan beat)
+  if (!speaking && !walking && target !== null && (f + idx * 41) % (110 + idx * 13) < 10) look = 0;
   const turn = look * 0.85;
 
   // blinks: a 2-frame lid swap on a per-character rhythm
-  const idx = CAST.indexOf(name);
   const period = 58 + idx * 17;
   const blink = (f + idx * 23) % period < 3;
 
@@ -211,6 +254,12 @@ const kidState = (name: string, f: number) => {
     }
   } else if (expression === "scared") {
     dy = local < 4 ? -30 : Math.floor(f / 2) % 2 ? -6 : 0; // jump, then shake
+  } else {
+    // listeners stay alive: a small weight shift now and then...
+    if ((f + idx * 29) % (66 + idx * 9) < 2) dy = -5;
+    // ...and they flinch when the speaker hits a punch word
+    const sw = beat.words?.find((w) => isEmphasis(w.word));
+    if (beat.type === "line" && sw && f - sw.start >= 0 && f - sw.start < 3) dy = -12;
   }
   const sweat = beat.sweat?.includes(name) ? local : null;
   return { x, dy, tilt, headTilt, mouth, expression: expression as Expression, pose: pose as Pose, look, turn, blink, sweat, step };
@@ -246,7 +295,7 @@ const Captions: React.FC<{ f: number }> = ({ f }) => {
     >
       {group.map((w, i) => {
         const active = groupStart + i === cur;
-        const pop = active && f - w.start < 2 ? 1.18 : 1;
+        const pop = active && f - w.start < 2 ? 1.1 : 1;
         return (
           <span
             key={groupStart + i}
@@ -320,7 +369,7 @@ const TitleCard: React.FC<{ f: number; beat: Beat }> = ({ f, beat }) => {
 };
 
 // ---------------------------------------------------------------- the episode
-export const Episode: React.FC = () => {
+export const Scene: React.FC = () => {
   const f = useCurrentFrame();
   const beat = beatAt(f);
   let view = cameraFor(beat, f);
@@ -330,7 +379,7 @@ export const Episode: React.FC = () => {
     view = { ...view, x: view.x + ((k % 3) - 1) * 14, y: view.y + ((k % 2) * 2 - 1) * 10 };
   }
   const g = gatorState(f);
-  const bx = busX(f);
+  const bus = busState(f);
   const kids = CAST.map((name) => ({ name, ...kidState(name, f) }));
   return (
     <AbsoluteFill style={{ backgroundColor: "#8FD3EE" }}>
@@ -339,7 +388,7 @@ export const Episode: React.FC = () => {
         <Background />
         <Sun frame={f} />
         <Heat frame={f} />
-        <Gator jaw={g.jaw} burp={g.burp} frame={f} />
+        <Gator jaw={g.jaw} burp={g.burp} frame={f} look={g.look} rise={g.rise} sink={g.sink} />
         <PondFront frame={f} />
         {kids.map((k) => (
           <g
@@ -361,7 +410,8 @@ export const Episode: React.FC = () => {
             />
           </g>
         ))}
-        {bx !== null ? <Bus x={bx} bounce={Math.floor(f / 3) % 2 ? -6 : 0} /> : null}
+        <Foreground shift={-(view.x + view.w / 2 - WORLD_W / 2) * 0.12} />
+        {bus ? <Bus s={bus} /> : null}
       </svg>
       {/* overhead studio lamp: warm hot-spot, falloff toward the corners */}
       <AbsoluteFill
@@ -394,3 +444,10 @@ export const Episode: React.FC = () => {
 
 export const DURATION = T.durationInFrames;
 export const FPS = T.fps;
+export const INTRO_DATA = (timeline as unknown as { intro: IntroData | null }).intro;
+export type IntroData = {
+  shout: { audio: string; frames: number } | null;
+  cards: { who: string; name: string; tag: string; color: string }[];
+  tagline: string;
+  music: string;
+};

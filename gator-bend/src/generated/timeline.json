@@ -2,7 +2,7 @@
  "title": "GATOR BEND",
  "episode": "Ep. 1: Florida Boy (cold open)",
  "fps": 24,
- "durationInFrames": 378,
+ "durationInFrames": 544,
  "cast": {
   "danny": {
    "x": 560,
@@ -415,6 +415,158 @@
   },
   {
    "type": "line",
+   "speaker": "bray",
+   "text": "Also. Danny's dad. Has nothing left to lose.",
+   "caption": "Also... Danny's dad has NOTHING left to lose.",
+   "expression": "smug",
+   "pose": "point",
+   "camera": "two:danny,bray",
+   "look": "danny",
+   "reactions": {
+    "tucker": "worried",
+    "wade": "deadpan",
+    "danny": "annoyed"
+   },
+   "index": 5,
+   "start": 222,
+   "end": 274,
+   "audio": "audio/line-5-bray.wav",
+   "mouth": [
+    "O",
+    "O",
+    "E",
+    "E",
+    "O",
+    "O",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "E",
+    "E",
+    "E",
+    "E",
+    "closed",
+    "closed",
+    "wide",
+    "wide",
+    "open",
+    "open",
+    "wide",
+    "wide",
+    "E",
+    "E",
+    "wide",
+    "wide",
+    "E",
+    "E",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "E",
+    "E",
+    "E",
+    "E"
+   ],
+   "words": [
+    {
+     "word": "Also...",
+     "start": 222,
+     "end": 227
+    },
+    {
+     "word": "Danny's",
+     "start": 231,
+     "end": 238
+    },
+    {
+     "word": "dad",
+     "start": 238,
+     "end": 242
+    },
+    {
+     "word": "has",
+     "start": 242,
+     "end": 248
+    },
+    {
+     "word": "NOTHING",
+     "start": 248,
+     "end": 254
+    },
+    {
+     "word": "left",
+     "start": 254,
+     "end": 259
+    },
+    {
+     "word": "to",
+     "start": 259,
+     "end": 263
+    },
+    {
+     "word": "lose.",
+     "start": 263,
+     "end": 273
+    }
+   ]
+  },
+  {
+   "type": "line",
+   "speaker": "danny",
+   "text": "No.",
+   "expression": "annoyed",
+   "pose": "idle",
+   "camera": "close:danny",
+   "holdAfter": 0.5,
+   "index": 6,
+   "start": 276,
+   "end": 291,
+   "audio": "audio/line-6-danny.wav",
+   "mouth": [
+    "open",
+    "open",
+    "open",
+    "open",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "O",
+    "closed"
+   ],
+   "words": [
+    {
+     "word": "No.",
+     "start": 276,
+     "end": 290
+    }
+   ]
+  },
+  {
+   "type": "line",
    "speaker": "wade",
    "text": "He has eaten three noodles this week. He's building something.",
    "caption": "He's eaten three noodles this week. He's building something.",
@@ -422,10 +574,10 @@
    "pose": "idle",
    "camera": "two:wade,gator",
    "look": "gator",
-   "index": 5,
-   "start": 222,
-   "end": 303,
-   "audio": "audio/line-5-wade.wav",
+   "index": 7,
+   "start": 306,
+   "end": 387,
+   "audio": "audio/line-7-wade.wav",
    "mouth": [
     "E",
     "E",
@@ -512,48 +664,48 @@
    "words": [
     {
      "word": "He's",
-     "start": 222,
-     "end": 226
+     "start": 306,
+     "end": 310
     },
     {
      "word": "eaten",
-     "start": 226,
-     "end": 231
+     "start": 310,
+     "end": 315
     },
     {
      "word": "three",
-     "start": 231,
-     "end": 239
+     "start": 315,
+     "end": 323
     },
     {
      "word": "noodles",
-     "start": 239,
-     "end": 248
+     "start": 323,
+     "end": 332
     },
     {
      "word": "this",
-     "start": 248,
-     "end": 257
+     "start": 332,
+     "end": 341
     },
     {
      "word": "week.",
-     "start": 257,
-     "end": 265
+     "start": 341,
+     "end": 349
     },
     {
      "word": "He's",
-     "start": 273,
-     "end": 277
+     "start": 357,
+     "end": 361
     },
     {
      "word": "building",
-     "start": 277,
-     "end": 283
+     "start": 361,
+     "end": 367
     },
     {
      "word": "something.",
-     "start": 283,
-     "end": 302
+     "start": 367,
+     "end": 386
     }
    ]
   },
@@ -568,36 +720,116 @@
     "danny": "deadpan",
     "bray": "scared"
    },
-   "index": 6,
-   "start": 305,
-   "end": 324
+   "index": 8,
+   "start": 389,
+   "end": 408
   },
   {
    "type": "action",
    "action": "bus-arrives",
-   "seconds": 1.1,
+   "seconds": 1.5,
    "camera": "wide",
    "look": "bus",
-   "index": 7,
-   "start": 327,
-   "end": 353
+   "index": 9,
+   "start": 411,
+   "end": 447
+  },
+  {
+   "type": "action",
+   "action": "bus-doors",
+   "seconds": 1.6,
+   "camera": "close:bus",
+   "look": "bus",
+   "reactions": {
+    "tucker": "scared",
+    "bray": "scared",
+    "danny": "deadpan"
+   },
+   "index": 10,
+   "start": 450,
+   "end": 488
+  },
+  {
+   "type": "line",
+   "speaker": "wade",
+   "text": "Yep. He's finished.",
+   "caption": "He finished.",
+   "expression": "deadpan",
+   "pose": "idle",
+   "camera": "close:wade",
+   "look": "bus",
+   "index": 11,
+   "start": 491,
+   "end": 520,
+   "audio": "audio/line-11-wade.wav",
+   "mouth": [
+    "open",
+    "open",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "E",
+    "E",
+    "E",
+    "E",
+    "F",
+    "F",
+    "closed",
+    "closed",
+    "open",
+    "open",
+    "open",
+    "open",
+    "E",
+    "E",
+    "open",
+    "open",
+    "closed",
+    "closed",
+    "closed",
+    "closed",
+    "closed"
+   ],
+   "words": [
+    {
+     "word": "He",
+     "start": 491,
+     "end": 504
+    },
+    {
+     "word": "finished.",
+     "start": 504,
+     "end": 514
+    }
+   ]
   },
   {
    "type": "title",
    "seconds": 0.9,
-   "index": 8,
-   "start": 356,
-   "end": 378
+   "index": 12,
+   "start": 522,
+   "end": 544
   }
  ],
  "sfx": [
   {
    "src": "sfx/burp.wav",
-   "start": 305
+   "start": 389
   },
   {
    "src": "sfx/bus.wav",
-   "start": 327
+   "start": 411
+  },
+  {
+   "src": "sfx/door.wav",
+   "start": 452
+  },
+  {
+   "src": "sfx/honk.wav",
+   "start": 467
   },
   {
    "src": "sfx/music.wav",
@@ -605,5 +837,39 @@
    "volume": 0.7
   }
  ],
- "ambience": "sfx/ambience.wav"
+ "ambience": "sfx/ambience.wav",
+ "intro": {
+  "shout": {
+   "audio": "audio/intro-shout.wav",
+   "frames": 15
+  },
+  "cards": [
+   {
+    "who": "danny",
+    "name": "DANNY",
+    "tag": "the only sane one",
+    "color": "#1E8F8A"
+   },
+   {
+    "who": "tucker",
+    "name": "TUCKER",
+    "tag": "professional worrier",
+    "color": "#F08A24"
+   },
+   {
+    "who": "bray",
+    "name": "BRAY",
+    "tag": "future millionaire (self-declared)",
+    "color": "#8240B0"
+   },
+   {
+    "who": "wade",
+    "name": "WADE",
+    "tag": "we don't know",
+    "color": "#4E9A4A"
+   }
+  ],
+  "tagline": "Florida, probably.",
+  "music": "sfx/intro.wav"
+ }
 }

@@ -219,7 +219,15 @@ export const Heat: React.FC<{ frame: number }> = ({ frame }) => {
 };
 
 // The bus-stop gator. Upper jaw is a separate card hinged at the back of the head.
-export const Gator: React.FC<{ jaw: number; burp: number; frame: number }> = ({ jaw, burp, frame }) => {
+export const Gator: React.FC<{ jaw: number; burp: number; frame: number; look?: number; rise?: number; sink?: number }> = ({
+  jaw,
+  burp,
+  frame,
+  look = 0,
+  rise = 0,
+  sink = 0,
+}) => {
+  if (sink >= 1) return null;
   const hx = 170;
   const hy = -40;
   const r = (jaw * Math.PI) / 180;
@@ -230,7 +238,11 @@ export const Gator: React.FC<{ jaw: number; burp: number; frame: number }> = ({ 
       return <path key={i} d={`M ${x} ${hy} L ${x + 20} ${hy} L ${x + 10} ${hy + (up ? -16 : 16)} Z`} fill="#FFFDF2" stroke={INK} strokeWidth={2} />;
     });
   return (
-    <g transform={`translate(${GATOR_X} ${POND.cy + 18}) scale(0.95)`}>
+    <g clipPath="url(#gator-water)">
+    <clipPath id="gator-water">
+      <rect x={POND.cx - POND.rx - 400} y={0} width={POND.rx * 2 + 800} height={POND.cy + 24} />
+    </clipPath>
+    <g transform={`translate(${GATOR_X} ${POND.cy + 18 - rise + sink * 230}) scale(0.95)`}>
       <g filter={paper(2, 1)}>
         {/* inside of the mouth */}
         <path d={`M ${hx} ${hy} L -240 ${hy} L ${tip[0]} ${tip[1]} Z`} fill="#C9475E" />
@@ -258,7 +270,7 @@ export const Gator: React.FC<{ jaw: number; burp: number; frame: number }> = ({ 
             <g key={x}>
               <circle cx={x} cy={-172} r={34} fill="#4E8A3A" {...OUTLINE} />
               <ellipse cx={x} cy={-176} rx={20} ry={15} fill="#F2D04A" {...OUTLINE} strokeWidth={3} />
-              <ellipse cx={x + 3} cy={-176} rx={4} ry={13} fill={INK} />
+              <ellipse cx={x + 3 + look * 9} cy={-176} rx={4} ry={13} fill={INK} />
               {/* slow reptile blink: lid swap held for 4 frames every ~3s */}
               {frame % 70 < 4 ? <ellipse cx={x} cy={-176} rx={22} ry={17} fill="#4E8A3A" {...OUTLINE} strokeWidth={3} /> : null}
             </g>
@@ -285,6 +297,7 @@ export const Gator: React.FC<{ jaw: number; burp: number; frame: number }> = ({ 
           })
         : null}
     </g>
+    </g>
   );
 };
 
@@ -302,26 +315,119 @@ export const PondFront: React.FC<{ frame: number }> = ({ frame }) => {
 };
 
 export const BUS_W = 1500;
-export const Bus: React.FC<{ x: number; bounce: number }> = ({ x, bounce }) => (
-  <g transform={`translate(${x} ${3190 + bounce})`} filter={paper(3, 0)}>
-    <rect x={0} y={-600} width={BUS_W} height={520} rx={46} fill="#F3B81E" {...OUTLINE} strokeWidth={7} />
-    <rect x={0} y={-300} width={BUS_W} height={22} fill={INK} />
-    <rect x={0} y={-250} width={BUS_W} height={14} fill={INK} />
-    {Array.from({ length: 6 }, (_, i) => (
-      <rect key={i} x={230 + i * 200} y={-555} width={160} height={150} rx={12} fill="#9FD3E8" {...OUTLINE} />
-    ))}
-    <rect x={40} y={-560} width={150} height={420} rx={10} fill="#7FB8CF" {...OUTLINE} />
-    <path d="M 115 -560 L 115 -140" stroke={INK} strokeWidth={5} />
-    <Txt x={830} y={-330} size={66} fill={INK}>GATOR BEND ELEMENTARY</Txt>
-    <g transform="translate(250 -360)">
-      <path d="M -40 -96 L 40 -96 L 96 -40 L 96 40 L 40 96 L -40 96 L -96 40 L -96 -40 Z" transform="scale(0.55)" fill="#D9443A" {...OUTLINE} />
-      <Txt x={0} y={13} size={30} fill="#fff">STOP</Txt>
-    </g>
-    {[280, 1220].map((wx) => (
-      <g key={wx}>
-        <circle cx={wx} cy={-80} r={92} fill="#222" {...OUTLINE} />
-        <circle cx={wx} cy={-80} r={38} fill="#9AA0A6" {...OUTLINE} />
+export type BusState = {
+  x: number;
+  bounce: number;
+  wheel: number; // degrees
+  lurch: number; // degrees, tips forward when braking
+  dust: number | null; // 0..1 puff progress
+  door: number; // 0 closed .. 1 open
+  driver: boolean;
+  honk: boolean;
+};
+
+const DriverGator: React.FC<{ honk: boolean }> = ({ honk }) => (
+  // seen through the front window: little gator head, pool-noodle headband, tiny grin
+  <g>
+    <clipPath id="bus-window-0">
+      <rect x={230} y={-555} width={160} height={150} rx={12} />
+    </clipPath>
+    <g clipPath="url(#bus-window-0)">
+      <rect x={230} y={-555} width={160} height={150} fill="#6A8FA0" />
+      <g transform="translate(318 -440)">
+        <path d="M -90 10 L -90 -18 Q -60 -40 0 -44 Q 52 -46 60 -6 L 60 40 L -70 40 Z" fill="#4E8A3A" {...OUTLINE} />
+        <path d={honk ? "M -92 6 L 20 10 L -80 30 Z" : "M -92 8 L 20 10 L -84 18 Z"} fill="#C9475E" {...OUTLINE} strokeWidth={3} />
+        {[-74, -50, -26].map((tx) => (
+          <path key={tx} d={`M ${tx} 8 L ${tx + 10} 8 L ${tx + 5} 16 Z`} fill="#FFFDF2" />
+        ))}
+        <circle cx={12} cy={-40} r={16} fill="#4E8A3A" {...OUTLINE} strokeWidth={3} />
+        <ellipse cx={12} cy={-42} rx={9} ry={8} fill="#F2D04A" />
+        <ellipse cx={8} cy={-42} rx={2.5} ry={7} fill={INK} />
+        <rect x={-30} y={-62} width={110} height={20} rx={10} fill="#FF77B7" {...OUTLINE} strokeWidth={3} transform="rotate(-8 25 -52)" />
       </g>
-    ))}
+      <circle cx={280} cy={-400} r={40} fill="none" stroke="#2a2a2a" strokeWidth={10} />
+    </g>
+  </g>
+);
+
+export const Bus: React.FC<{ s: BusState }> = ({ s }) => (
+  <g transform={`translate(${s.x} ${3190 + s.bounce}) rotate(${s.lurch} 280 -80)`}>
+    {s.dust !== null
+      ? [0, 1, 2].map((i) => {
+          const t = Math.min(1, s.dust! * 1.4 - i * 0.15);
+          if (t <= 0) return null;
+          return (
+            <circle
+              key={i}
+              cx={1300 + i * 70 + t * 120}
+              cy={-30 - i * 30 - t * 60}
+              r={40 + t * 60}
+              fill="#D8C9A8"
+              opacity={0.85 * (1 - t)}
+            />
+          );
+        })
+      : null}
+    <g filter={paper(3, 0)}>
+      <rect x={0} y={-600} width={BUS_W} height={520} rx={46} fill="#F3B81E" {...OUTLINE} strokeWidth={7} />
+      <rect x={0} y={-300} width={BUS_W} height={22} fill={INK} />
+      <rect x={0} y={-250} width={BUS_W} height={14} fill={INK} />
+      {Array.from({ length: 6 }, (_, i) =>
+        i === 0 && s.driver ? null : <rect key={i} x={230 + i * 200} y={-555} width={160} height={150} rx={12} fill="#9FD3E8" {...OUTLINE} />,
+      )}
+      {s.driver ? <DriverGator honk={s.honk} /> : null}
+      {/* folding front door: two panels slide to the sides, dark stairwell behind */}
+      <rect x={40} y={-560} width={150} height={420} rx={10} fill="#3a2c22" {...OUTLINE} />
+      <rect x={52} y={-200} width={126} height={22} fill="#6b5847" />
+      <rect x={52} y={-262} width={126} height={22} fill="#6b5847" />
+      <rect x={40} y={-560} width={75 * (1 - s.door) + 4} height={420} rx={8} fill="#7FB8CF" {...OUTLINE} />
+      <rect x={190 - 75 * (1 - s.door) - 4} y={-560} width={75 * (1 - s.door) + 4} height={420} rx={8} fill="#7FB8CF" {...OUTLINE} />
+      <Txt x={830} y={-330} size={66} fill={INK}>GATOR BEND ELEMENTARY</Txt>
+      <g transform="translate(300 -190)">
+        <path d="M -40 -96 L 40 -96 L 96 -40 L 96 40 L 40 96 L -40 96 L -96 40 L -96 -40 Z" transform="scale(0.55)" fill="#D9443A" {...OUTLINE} />
+        <Txt x={0} y={13} size={30} fill="#fff">STOP</Txt>
+      </g>
+      {[280, 1220].map((wx) => (
+        <g key={wx} transform={`rotate(${s.wheel} ${wx} -80)`}>
+          <circle cx={wx} cy={-80} r={92} fill="#222" {...OUTLINE} />
+          <circle cx={wx} cy={-80} r={42} fill="#9AA0A6" {...OUTLINE} />
+          {[0, 72, 144, 216, 288].map((a) => (
+            <circle key={a} cx={wx + Math.cos((a * Math.PI) / 180) * 24} cy={-80 + Math.sin((a * Math.PI) / 180) * 24} r={6} fill="#555" />
+          ))}
+        </g>
+      ))}
+    </g>
+    {s.honk ? (
+      <g transform="translate(600 -470) rotate(-6) scale(0.85)">
+        <path d="M -150 0 L -110 -60 L -60 -20 L 0 -90 L 40 -30 L 110 -70 L 100 0 L 150 30 L 90 60 L 100 120 L 30 80 L -20 130 L -50 70 L -130 90 L -100 30 Z" fill="#FFD23F" {...OUTLINE} strokeWidth={6} />
+        <Txt x={0} y={44} size={80} fill="#D9443A">HONK</Txt>
+      </g>
+    ) : null}
+  </g>
+);
+
+// Foreground props on the curb. They slide a little against camera moves (parallax),
+// like cards sitting closer to the lens on a multiplane stand.
+export const Foreground: React.FC<{ shift: number }> = ({ shift }) => (
+  <g transform={`translate(${shift} 0)`} filter={paper(3, 1)}>
+    {/* fire hydrant */}
+    <g transform="translate(1130 2742)">
+      <rect x={-44} y={-30} width={88} height={30} rx={6} fill="#B8322A" {...OUTLINE} />
+      <path d="M -36 -30 L -36 -150 Q 0 -196 36 -150 L 36 -30 Z" fill="#D9443A" {...OUTLINE} />
+      <rect x={-58} y={-120} width={116} height={30} rx={14} fill="#D9443A" {...OUTLINE} />
+      <circle cx={0} cy={-104} r={12} fill="#9AA0A6" {...OUTLINE} strokeWidth={3} />
+      <rect x={-12} y={-196} width={24} height={20} rx={4} fill="#B8322A" {...OUTLINE} />
+    </g>
+    {/* trash can with a "SINKHOLE INFO" flyer taped on */}
+    <g transform="translate(2000 2752)">
+      <path d="M -80 0 L -92 -230 L 92 -230 L 80 0 Z" fill="#3F6E4A" {...OUTLINE} />
+      <rect x={-104} y={-262} width={208} height={36} rx={10} fill="#2F5638" {...OUTLINE} />
+      {[-50, 0, 50].map((x) => (
+        <path key={x} d={`M ${x} -200 L ${x} -24`} stroke="#2F5638" strokeWidth={8} />
+      ))}
+      <rect x={-56} y={-170} width={112} height={84} fill="#FFFDF2" {...OUTLINE} strokeWidth={3} transform="rotate(4)" />
+      <Txt x={0} y={-130} size={22} fill="#D9443A">SINKHOLE</Txt>
+      <Txt x={0} y={-104} size={18} fill={INK}>info session</Txt>
+    </g>
   </g>
 );

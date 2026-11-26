@@ -121,12 +121,36 @@ for f in range(12, int(title_t * fps), 24):  # jaw snaps shut on these frames (s
         continue
     add(clack(), f / fps, 0.5)
 
-out = out[: int(SR * total)]
-peak = np.max(np.abs(out)) or 1
-out = out / peak * 0.5
-pcm = (np.clip(out, -1, 1) * 32767).astype(np.int16)
-with wave.open(sys.argv[2], "wb") as w:
-    w.setnchannels(1)
-    w.setsampwidth(2)
-    w.setframerate(SR)
-    w.writeframes(pcm.tobytes())
+def write(buf: np.ndarray, path: str, level: float) -> None:
+    peak = np.max(np.abs(buf)) or 1
+    pcm = (np.clip(buf / peak * level, -1, 1) * 32767).astype(np.int16)
+    with wave.open(path, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes(pcm.tobytes())
+
+
+write(out[: int(SR * total)], sys.argv[2], 0.5)
+
+# --- opening-titles jingle (INTRO_SECONDS long, cue points match src/Intro.tsx) ------
+INTRO_SECONDS = 7.5
+CARD_TIMES = [0.25, 1.5, 2.75, 4.0]
+LOGO_T = 5.25
+out = np.zeros(int(SR * (INTRO_SECONDS + 1)))
+beat = 60 / 124
+prog = ["C", "F", "G", "C", "F", "G", "Am", "G"]
+t, k = 0.0, 0
+while t < LOGO_T - 0.1:
+    chord = prog[(k // 2) % len(prog)]
+    strum(chord, t, 0.12 if k % 2 == 0 else 0.07, down=k % 2 == 0, ring=0.45)
+    t += beat / 2
+    k += 1
+for n, ct in zip([72, 76, 79, 84], CARD_TIMES):  # rising pluck as each card slaps down
+    add(pluck(midi(n), 0.9, decay=0.997, bright=0.8), ct, 0.35)
+    add(pluck(midi(n + 12), 0.5, decay=0.995, bright=0.8), ct + 0.08, 0.15)
+for i, n in enumerate([60, 64, 67, 72, 76, 79, 84]):  # logo: big strum + run up
+    add(pluck(midi(n), 2.2, decay=0.998), LOGO_T + i * 0.025, 0.3)
+for i, n in enumerate([79, 81, 83, 84]):
+    add(pluck(midi(n), 0.6, decay=0.996, bright=0.8), LOGO_T + 0.6 + i * 0.09, 0.22)
+write(out[: int(SR * INTRO_SECONDS)], sys.argv[2].replace("music.wav", "intro.wav"), 0.55)

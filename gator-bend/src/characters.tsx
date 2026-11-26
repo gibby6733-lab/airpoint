@@ -39,6 +39,15 @@ export const DESIGNS: Record<string, Design> = {
     shirt: "#1FA2A0",
     pants: "#C9AE7C",
     shoes: "#E85A3C",
+    shirtPattern: (
+      <g transform="translate(46 -150)">
+        {Array.from({ length: 8 }, (_, i) => (
+          <path key={i} transform={`rotate(${i * 45})`} d="M -5 -26 L 5 -26 L 0 -38 Z" fill="#FFD23F" />
+        ))}
+        <circle r={20} fill="#FFD23F" />
+        <path d="M -9 4 Q 0 12 9 4" stroke="#C9741A" strokeWidth={3} fill="none" />
+      </g>
+    ),
     hair: (
       <path
         d="M -170 -340 C -184 -540, 184 -540, 170 -340 L 146 -392 L 110 -370 L 74 -410 L 36 -380 L 0 -414 L -36 -380 L -74 -410 L -110 -370 L -146 -392 Z"
@@ -53,6 +62,13 @@ export const DESIGNS: Record<string, Design> = {
     pants: "#3C5AAA",
     shoes: "#F4F4F0",
     sleeves: true,
+    shirtPattern: (
+      <g fill="#C9661A" opacity={0.55}>
+        <ellipse cx={-104} cy={-196} rx={30} ry={38} />
+        <ellipse cx={104} cy={-196} rx={30} ry={38} />
+        <ellipse cx={0} cy={-150} rx={26} ry={18} />
+      </g>
+    ),
     hair: (
       <g>
         <path d="M -132 -452 C -128 -575, 128 -575, 132 -452 Z" fill="#CDB98A" {...LINE} />
@@ -318,6 +334,13 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
       <Arm pts={arms.r} color={armColor} skin={d.skin} floatie={d.floaties} swing={step === null ? 0 : step ? 12 : -12} />
       {/* the head: its own card, sits straight on the body, no neck */}
       <g filter="url(#lift)" transform={`rotate(${headTilt} 0 -220) translate(0 -326) scale(1.08 0.955) translate(0 345)`}>
+        {/* three-quarter turn: the far ear peeks out behind the head */}
+        {Math.abs(turn) > 0.3 ? (
+          <g transform={`translate(${-Math.sign(turn) * 160} -340)`}>
+            <ellipse cx={0} cy={0} rx={26} ry={36} fill={d.skin} {...LINE} />
+            <path d={`M ${-Math.sign(turn) * 6} -16 Q ${-Math.sign(turn) * 16} 0 ${-Math.sign(turn) * 6} 16`} stroke={INK} strokeWidth={3.5} fill="none" />
+          </g>
+        ) : null}
         <ellipse cx={0} cy={HEAD_Y} rx={HRX} ry={HRY} fill={d.skin} {...LINE} />
         <g transform={`translate(${turn * 10} 0)`}>{d.hair}</g>
         <g transform={`translate(${turn * 30} 0)`}>

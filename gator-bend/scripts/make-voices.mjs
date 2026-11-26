@@ -20,6 +20,8 @@ const audioDir = path.join(root, "public", "audio");
 const sfxDir = path.join(root, "public", "sfx");
 const genDir = path.join(root, "src", "generated");
 for (const d of [audioDir, sfxDir, genDir]) fs.mkdirSync(d, { recursive: true });
+// clear recordings from earlier runs so renamed/reordered lines don't leave stale files
+for (const f of fs.readdirSync(audioDir)) if (/^(line-|intro-)/.test(f)) fs.rmSync(path.join(audioDir, f));
 
 const ff = (...args) => execFileSync("ffmpeg", ["-loglevel", "error", "-y", ...args]);
 const duration = (file) =>
@@ -169,6 +171,13 @@ function makeSfx(total) {
     "-f", "lavfi", "-i", "anoisesrc=color=white:amplitude=0.25:d=0.6:r=44100",
     "-filter_complex", "[1]highpass=f=2500,afade=t=in:d=0.05,afade=t=out:st=0.3:d=0.3,adelay=900|900[h];[0][h]amix=inputs=2:normalize=0,lowpass=f=4000",
     out("bus.wav"));
+  // two-tone bus horn, honked twice
+  ff("-f", "lavfi", "-i",
+    "aevalsrc='0.35*(sgn(sin(2*PI*349*t))+sgn(sin(2*PI*440*t)))*(between(t,0,0.18)+between(t,0.28,0.62))':s=44100:d=0.7",
+    "-af", "lowpass=f=2200,volume=0.8", out("honk.wav"));
+  // pneumatic door hiss
+  ff("-f", "lavfi", "-i", "anoisesrc=color=pink:amplitude=0.5:d=0.6:r=44100",
+    "-af", "highpass=f=1800,afade=t=in:d=0.03,afade=t=out:st=0.25:d=0.35,volume=0.7", out("door.wav"));
   ff("-f", "lavfi", "-i", `anoisesrc=color=white:amplitude=0.5:d=${total.toFixed(2)}:r=44100`,
     "-af", "bandpass=f=5200:width_type=h:w=900,tremolo=f=38:d=0.9,volume=0.18,afade=t=in:d=0.5", out("ambience.wav"));
 }
@@ -220,7 +229,7 @@ for (const [i, beat] of script.beats.entries()) {
     }
     const words = lineWords.map((w) => ({ word: w.word, start: start + Math.round(w.start * fps), end: start + Math.round(w.end * fps) }));
     beats.push({ ...beat, index: i, start, end: start + frames, audio: `audio/${path.basename(file)}`, mouth, words });
-    cursor += secs + gap;
+    cursor += secs + gap + (beat.holdAfter ?? 0);
     console.log(`line ${i} ${beat.speaker.padEnd(6)} ${secs.toFixed(2)}s  ${engine}`);
   } else {
     const secs = beat.seconds ?? 1;
@@ -233,9 +242,36 @@ makeSfx(cursor);
 const sfx = [
   ...beats.filter((b) => b.action === "gator-burp").map((b) => ({ src: "sfx/burp.wav", start: b.start })),
   ...beats.filter((b) => b.action === "bus-arrives").map((b) => ({ src: "sfx/bus.wav", start: b.start })),
+  ...beats.filter((b) => b.action === "bus-doors").flatMap((b) => [
+    { src: "sfx/door.wav", start: b.start + 2 },
+    { src: "sfx/honk.wav", start: b.start + Math.round(0.7 * fps) },
+  ]),
   { src: "sfx/music.wav", start: 0, volume: 0.7 },
 ];
-const timeline = { title: script.title, episode: script.episode, fps, durationInFrames, cast: script.cast, beats, sfx, ambience: "sfx/ambience.wav" };
+// --- the opening titles (same for every episode) ---------------------------------
+let intro = null;
+if (script.intro) {
+  const sh = script.intro.shout;
+  let shout = null;
+  if (sh) {
+    const base = path.join(audioDir, "intro-shout");
+    const cast = script.cast[sh.speaker];
+    const { file } = haveKokoro && cast.kokoro ? kokoro(sh.text, cast.kokoro, base) : espeak(sh.text, cast.voice, base);
+    shout = { audio: `audio/${path.basename(file)}`, frames: Math.ceil(duration(file) * fps) };
+  }
+  intro = { ...script.intro, shout, music: "sfx/intro.wav" };
+}
+const timeline = {
+  title: script.title,
+  episode: script.episode,
+  fps,
+  durationInFrames,
+  cast: script.cast,
+  beats,
+  sfx,
+  ambience: "sfx/ambience.wav",
+  intro,
+};
 fs.writeFileSync(path.join(genDir, "timeline.json"), JSON.stringify(timeline, null, 1));
 // score + foley, timed from the finished timeline
 execFileSync(fs.existsSync(KOKORO_PY) ? KOKORO_PY : "python3", [

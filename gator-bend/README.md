@@ -48,13 +48,19 @@ Mouths change on twos, like the rest of the animation. The recognizer also check
 
 `scripts/make-music.py` synthesizes everything (Karplus-Strong plucked strings): an opening strum sting, a ukulele-style bed that ducks under dialogue, a title sting, footsteps on the walk-in, and the gator's chomp clacks.
 
+### Opening titles
+
+`src/Intro.tsx` opens every episode (7.5s): each kid slaps onto their own paper card with a name and tagline, then the gang hops into a line-up under the logo, someone shouts the title, and everyone turns to stare at Wade. Names, taglines, card colors, the shout line and the tagline under the logo live in the `intro` block of `script.json`. The jingle comes from `make-music.py`.
+
+Compositions: `Episode` (intro + scene, the one you post), `Intro`, `Scene`.
+
 ## Commands
 
 ```bash
 npm install
 npm run voices    # script.json -> audio + timeline (run after every script edit)
 npm run studio    # live preview in the browser
-npm run render    # -> out/episode.mp4
+npm run render    # -> out/episode.mp4 (intro + scene)
 ```
 
 On a normal computer, drop `--browser-executable=...` from the `render` script and Remotion will download its own browser.
