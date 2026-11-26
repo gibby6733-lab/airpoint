@@ -1,11 +1,12 @@
 // Stage 2 of the pipeline: script.json -> per-line audio + mouth/caption timing.
 // Writes public/audio/*, public/sfx/* and src/generated/timeline.json for Remotion.
 //
-// Voice engines:
+// Voice engines (first one available wins):
 //   - ElevenLabs (when ELEVENLABS_API_KEY is set and a cast member has elevenlabsVoiceId):
 //     uses the /with-timestamps endpoint so mouths and captions follow real character timings.
-//   - espeak-ng (free, offline placeholder): mouths follow the loudness of the audio,
-//     caption words are spread across the line by length.
+//   - Kokoro-82M (free, offline neural voices, Apache-2.0): adult voices pitched up into
+//     cartoon kids. Needs models/ + .venv (see README). Mouths follow the audio's loudness.
+//   - espeak-ng (free, robotic last resort).
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
@@ -118,6 +119,20 @@ async function elevenlabs(text, voiceId, outBase) {
   return { file, alignment: json.alignment };
 }
 
+const KOKORO_PY = path.join(root, ".venv", "bin", "python");
+const haveKokoro = fs.existsSync(path.join(root, "models", "kokoro.onnx")) && fs.existsSync(KOKORO_PY);
+const TRIM = "silenceremove=start_periods=1:start_threshold=-45dB";
+
+function kokoro(text, v, outBase) {
+  const raw = `${outBase}.raw.wav`;
+  const file = `${outBase}.wav`;
+  execFileSync(KOKORO_PY, [path.join(root, "scripts", "kokoro_tts.py"), text, v.voice, String(v.speed ?? 1), raw]);
+  // Pitch up without speeding up (formants shift too, which is what makes it sound like a kid).
+  ff("-i", raw, "-af", `${TRIM},areverse,${TRIM},areverse,rubberband=pitch=${v.pitch ?? 1.3},aresample=44100,loudnorm=I=-16:TP=-1.5`, file);
+  fs.rmSync(raw);
+  return { file, alignment: null };
+}
+
 function espeak(text, voice, outBase) {
   const raw = `${outBase}.raw.wav`;
   const file = `${outBase}.wav`;
@@ -156,8 +171,13 @@ for (const [i, beat] of script.beats.entries()) {
     const cast = script.cast[beat.speaker];
     const base = path.join(audioDir, `line-${i}-${beat.speaker}`);
     const voiceId = cast.elevenlabsVoiceId;
+    const engine = useEleven && voiceId ? "elevenlabs" : haveKokoro && cast.kokoro ? "kokoro" : "espeak";
     const { file, alignment } =
-      useEleven && voiceId ? await elevenlabs(beat.text, voiceId, base) : espeak(beat.text, cast.voice, base);
+      engine === "elevenlabs"
+        ? await elevenlabs(beat.text, voiceId, base)
+        : engine === "kokoro"
+          ? kokoro(beat.text, cast.kokoro, base)
+          : espeak(beat.text, cast.voice, base);
     const secs = duration(file);
     const frames = Math.ceil(secs * fps);
     const captionWords = (beat.caption ?? beat.text).split(/\s+/).filter(Boolean);
@@ -167,7 +187,7 @@ for (const [i, beat] of script.beats.entries()) {
     const mouth = alignment ? mouthFromCharacters(alignment, frames) : mouthFromLoudness(file, frames);
     beats.push({ ...beat, index: i, start, end: start + frames, audio: `audio/${path.basename(file)}`, mouth, words });
     cursor += secs + gap;
-    console.log(`line ${i} ${beat.speaker.padEnd(6)} ${secs.toFixed(2)}s  ${alignment ? "elevenlabs" : "espeak"}`);
+    console.log(`line ${i} ${beat.speaker.padEnd(6)} ${secs.toFixed(2)}s  ${engine}`);
   } else {
     const secs = beat.seconds ?? 1;
     beats.push({ ...beat, index: i, start, end: start + Math.round(secs * fps) });

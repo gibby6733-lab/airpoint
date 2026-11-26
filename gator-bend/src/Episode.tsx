@@ -106,6 +106,9 @@ const clampView = (cx: number, top: number, w: number): View => {
     h,
   };
 };
+// Kids stand low in the frame (feet at 70% down) so the town fills the space above them
+// and the captions sit on the street just below their feet.
+const FEET_AT = 0.7;
 const targetX = (name: string, f: number) => (name === "gator" ? GATOR_X - 60 : homeX(name, f).x);
 
 const cameraFor = (beat: Beat, f: number): View => {
@@ -114,25 +117,25 @@ const cameraFor = (beat: Beat, f: number): View => {
   const names = arg.split(",").filter(Boolean);
   if (kind === "two") {
     const xs = names.map((n) => (n === "gator" ? GATOR_X : T.cast[n].x));
-    const w = Math.max(1150, Math.max(...xs) - Math.min(...xs) + 640);
-    return clampView((Math.max(...xs) + Math.min(...xs)) / 2, FEET_Y - 0.64 * w * ASPECT, w);
+    const w = Math.max(1000, Math.max(...xs) - Math.min(...xs) + 560);
+    return clampView((Math.max(...xs) + Math.min(...xs)) / 2, FEET_Y - FEET_AT * w * ASPECT, w);
   }
   if (kind === "close" && names[0] === "gator") {
     const w = 1000;
     return clampView(GATOR_X - 80, 2330 - 0.42 * w * ASPECT, w);
   }
   if (kind === "close") {
-    const w = 840;
-    return clampView(targetX(names[0], f), FEET_Y - 460 - 0.36 * w * ASPECT, w);
+    const w = 680;
+    return clampView(targetX(names[0], f), FEET_Y - FEET_AT * w * ASPECT, w);
   }
   if (kind === "push") {
     // slow dramatic push-in across the line
-    const w = interpolate(f, [beat.start, beat.end], [1050, 700], {
+    const w = interpolate(f, [beat.start, beat.end], [860, 600], {
       easing: Easing.inOut(Easing.quad),
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
     });
-    return clampView(targetX(names[0], f), FEET_Y - 460 - 0.36 * w * ASPECT, w);
+    return clampView(targetX(names[0], f), FEET_Y - FEET_AT * w * ASPECT, w);
   }
   return clampView(WORLD_W / 2, 0, WORLD_W);
 };
@@ -190,7 +193,7 @@ const Captions: React.FC<{ f: number }> = ({ f }) => {
     <div
       style={{
         position: "absolute",
-        top: 1290,
+        top: 1420,
         left: 60,
         right: 60,
         textAlign: "center",

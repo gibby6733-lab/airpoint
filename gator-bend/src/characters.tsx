@@ -1,180 +1,198 @@
-// The reusable character kit: each kid is the same modular rig (head, body, arm poses,
-// eye directions, blinks, 6+ mouth shapes) with their own colors, hair and accessories.
+// The reusable character kit. Classic cutout-kid proportions: a huge round head
+// sitting straight on a short bell-shaped body, stub arms with mitten hands, and
+// only the feet peeking out. Every kid is the same modular rig (head, body, arm
+// poses, eye directions, blinks, brows, 9 mouth shapes) with their own colors,
+// hair and accessories. Feet are at (0, 0); the head is centered at (0, HEAD_Y).
 import React from "react";
-import { INK, OUTLINE } from "./paper";
+import { INK } from "./paper";
 
 export type Pose = "idle" | "arms-up" | "phone" | "point";
 export type Expression = "neutral" | "worried" | "smug" | "deadpan" | "excited" | "annoyed" | "scared";
 export type MouthShape = "closed" | "O" | "open" | "wide" | "smile" | "angry" | "frown" | "smirk" | "flat";
 
+export const HEAD_Y = -345;
+const HRX = 168;
+const HRY = 146;
+const EYE_Y = -388;
+const MY = -282; // mouth center
+const LINE = { stroke: INK, strokeWidth: 4, strokeLinejoin: "round" as const };
+
 export type Design = {
   skin: string;
   shirt: string;
-  shorts: string;
+  pants: string;
   shoes: string;
-  hair: React.ReactNode; // drawn over the head
-  face?: React.ReactNode; // drawn over the eyes (glasses, zinc, freckles)
-  chest?: React.ReactNode; // necklace etc.
-  shirtPattern?: React.ReactNode; // clipped to the torso
+  hair: React.ReactNode; // drawn over the head, under the eyes
+  face?: React.ReactNode; // cheeks, zinc, glasses (over the eyes)
+  chest?: React.ReactNode;
+  shirtPattern?: React.ReactNode; // clipped to the body
+  seam?: boolean; // zipper line down the jacket
+  sleeves?: boolean; // arms in shirt color instead of skin
   floaties?: boolean;
 };
 
-const TORSO = "M -98 -330 L 98 -330 L 122 -148 L -122 -148 Z";
+const BODY = "M -98 -236 C -112 -170, -128 -110, -126 -62 L 126 -62 C 128 -110, 112 -170, 98 -236 Z";
 
 export const DESIGNS: Record<string, Design> = {
   danny: {
     skin: "#C68A62",
     shirt: "#1FA2A0",
-    shorts: "#C9AE7C",
+    pants: "#C9AE7C",
     shoes: "#E85A3C",
     hair: (
       <path
-        d="M -158 -468 C -175 -650, 175 -650, 158 -468 L 124 -520 L 92 -492 L 58 -532 L 22 -500 L -18 -538 L -56 -500 L -92 -532 L -126 -496 Z"
+        d="M -170 -340 C -184 -540, 184 -540, 170 -340 L 146 -392 L 110 -370 L 74 -410 L 36 -380 L 0 -414 L -36 -380 L -74 -410 L -110 -370 L -146 -392 Z"
         fill="#2a2320"
-        {...OUTLINE}
+        {...LINE}
       />
     ),
   },
   tucker: {
     skin: "#F7D5BE",
     shirt: "#F08A24",
-    shorts: "#3C5AAA",
+    pants: "#3C5AAA",
     shoes: "#F4F4F0",
+    sleeves: true,
     hair: (
       <g>
-        <path d="M -125 -540 C -120 -668, 120 -668, 125 -540 Z" fill="#CDB98A" {...OUTLINE} />
-        <path d="M -126 -566 L 126 -566 L 125 -542 L -125 -542 Z" fill="#8C7A4E" />
-        <ellipse cx={0} cy={-540} rx={190} ry={30} fill="#CDB98A" {...OUTLINE} />
+        <path d="M -132 -452 C -128 -575, 128 -575, 132 -452 Z" fill="#CDB98A" {...LINE} />
+        <path d="M -133 -478 L 133 -478 L 132 -454 L -132 -454 Z" fill="#8C7A4E" />
+        <ellipse cx={0} cy={-450} rx={205} ry={30} fill="#CDB98A" {...LINE} />
       </g>
     ),
     face: (
       <g>
-        <circle cx={-98} cy={-418} r={22} fill="#F09A9A" />
-        <circle cx={98} cy={-418} r={22} fill="#F09A9A" />
-        <ellipse cx={0} cy={-424} rx={20} ry={10} fill="#FFFFFF" {...OUTLINE} strokeWidth={3} />
+        <circle cx={-104} cy={-300} r={22} fill="#F09A9A" />
+        <circle cx={104} cy={-300} r={22} fill="#F09A9A" />
+        <ellipse cx={0} cy={-322} rx={18} ry={9} fill="#FFFFFF" {...LINE} strokeWidth={3} />
       </g>
     ),
   },
   bray: {
     skin: "#EFC6A0",
     shirt: "#8240B0",
-    shorts: "#D23C3C",
+    pants: "#D23C3C",
     shoes: "#262626",
     hair: (
       <g>
         <path
-          d="M -152 -498 L -170 -604 L -112 -578 L -98 -668 L -46 -612 L 0 -694 L 46 -612 L 98 -668 L 112 -578 L 170 -604 L 152 -498 C 100 -566, -100 -566, -152 -498 Z"
+          d="M -164 -390 L -184 -500 L -122 -472 L -106 -566 L -50 -508 L 0 -594 L 50 -508 L 106 -566 L 122 -472 L 184 -500 L 164 -390 C 110 -470, -110 -470, -164 -390 Z"
           fill="#F2D04A"
-          {...OUTLINE}
+          {...LINE}
         />
         {/* wraparound sunglasses pushed up on the forehead */}
-        <path d="M -146 -578 Q 0 -616 146 -578 L 140 -540 Q 70 -526 8 -550 Q -70 -526 -140 -540 Z" fill="#161616" {...OUTLINE} />
-        <path d="M -110 -572 Q -60 -586 -20 -580" stroke="#9fe7ff" strokeWidth={6} fill="none" />
+        <path d="M -150 -470 Q 0 -506 150 -470 L 144 -440 Q 72 -428 8 -448 Q -72 -428 -144 -440 Z" fill="#161616" {...LINE} />
+        <path d="M -112 -466 Q -64 -480 -22 -474" stroke="#9fe7ff" strokeWidth={6} fill="none" />
       </g>
     ),
     chest: (
       <g>
-        <path d="M -62 -328 Q 0 -262 62 -328" stroke="#6B4A2B" strokeWidth={6} fill="none" />
-        <path d="M -14 -292 L 14 -292 L 0 -250 Z" fill="#FFFDF2" {...OUTLINE} strokeWidth={3} />
+        <path d="M -58 -228 Q 0 -168 58 -228" stroke="#6B4A2B" strokeWidth={6} fill="none" />
+        <path d="M -13 -196 L 13 -196 L 0 -158 Z" fill="#FFFDF2" {...LINE} strokeWidth={3} />
       </g>
     ),
   },
   wade: {
     skin: "#F5D4B6",
     shirt: "#4E9A4A",
-    shorts: "#7A5A3A",
+    pants: "#7A5A3A",
     shoes: "#3B6FD0",
+    sleeves: true,
     floaties: true,
     hair: (
       <path
-        d="M -152 -478 L -178 -540 L -142 -562 L -162 -622 L -100 -612 L -90 -672 L -40 -632 L 0 -684 L 40 -632 L 90 -668 L 100 -606 L 162 -622 L 142 -562 L 178 -532 L 152 -478 C 100 -560, -100 -560, -152 -478 Z"
+        d="M -166 -372 L -190 -432 L -152 -456 L -172 -516 L -108 -506 L -96 -568 L -44 -526 L 0 -580 L 44 -526 L 96 -564 L 108 -500 L 172 -516 L 152 -456 L 190 -424 L 166 -372 C 110 -456, -110 -456, -166 -372 Z"
         fill="#E06A28"
-        {...OUTLINE}
+        {...LINE}
       />
     ),
     shirtPattern: (
       <g fill="#357A33">
-        <rect x={-140} y={-300} width={280} height={26} />
-        <rect x={-140} y={-246} width={280} height={26} />
-        <rect x={-140} y={-192} width={280} height={26} />
+        <rect x={-140} y={-200} width={280} height={24} />
+        <rect x={-140} y={-150} width={280} height={24} />
+        <rect x={-140} y={-100} width={280} height={24} />
       </g>
     ),
   },
 };
 
 type Pt = [number, number];
+const SH: Pt[] = [
+  [-92, -196],
+  [92, -196],
+];
 const ARMS: Record<Pose, { l: Pt[]; r: Pt[] }> = {
-  idle: { l: [[-92, -312], [-138, -192]], r: [[92, -312], [138, -192]] },
-  "arms-up": { l: [[-92, -312], [-160, -380], [-176, -462]], r: [[92, -312], [160, -380], [176, -462]] },
-  phone: { l: [[-92, -312], [-138, -192]], r: [[92, -312], [118, -238], [52, -262]] },
-  point: { l: [[-92, -312], [-138, -192]], r: [[92, -312], [168, -360], [210, -420]] },
+  idle: { l: [SH[0], [-132, -118]], r: [SH[1], [132, -118]] },
+  "arms-up": { l: [SH[0], [-158, -250], [-160, -318]], r: [SH[1], [158, -250], [160, -318]] },
+  phone: { l: [SH[0], [-132, -118]], r: [SH[1], [104, -128], [46, -150]] },
+  point: { l: [SH[0], [-132, -118]], r: [SH[1], [160, -236], [196, -286]] },
 };
 
-const Arm: React.FC<{ pts: Pt[]; skin: string; floatie?: boolean }> = ({ pts, skin, floatie }) => {
+const Arm: React.FC<{ pts: Pt[]; color: string; skin: string; floatie?: boolean }> = ({ pts, color, skin, floatie }) => {
   const d = "M " + pts.map((p) => p.join(" ")).join(" L ");
   const hand = pts[pts.length - 1];
   const [s, n] = [pts[0], pts[1]];
-  const fl: Pt = [s[0] + (n[0] - s[0]) * 0.42, s[1] + (n[1] - s[1]) * 0.42];
+  const fl: Pt = [s[0] + (n[0] - s[0]) * 0.35, s[1] + (n[1] - s[1]) * 0.35];
+  const side = hand[0] > 0 ? 1 : -1;
   return (
     <g>
-      <path d={d} stroke={INK} strokeWidth={48} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d={d} stroke={skin} strokeWidth={38} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d={d} stroke={INK} strokeWidth={40} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d={d} stroke={color} strokeWidth={32} strokeLinecap="round" strokeLinejoin="round" fill="none" />
       {floatie ? (
         <g>
-          <circle cx={fl[0]} cy={fl[1]} r={40} fill="#FF8A1F" {...OUTLINE} />
-          <path d={`M ${fl[0] - 38} ${fl[1] - 6} L ${fl[0] + 38} ${fl[1] - 6}`} stroke="#FFF1D6" strokeWidth={10} />
+          <circle cx={fl[0]} cy={fl[1]} r={34} fill="#FF8A1F" {...LINE} />
+          <path d={`M ${fl[0] - 32} ${fl[1] - 4} L ${fl[0] + 32} ${fl[1] - 4}`} stroke="#FFF1D6" strokeWidth={9} />
         </g>
       ) : null}
-      {/* mitten hand + thumb */}
-      <circle cx={hand[0]} cy={hand[1]} r={30} fill={skin} {...OUTLINE} />
-      <circle cx={hand[0] + (hand[0] > 0 ? -22 : 22)} cy={hand[1] - 20} r={13} fill={skin} {...OUTLINE} strokeWidth={4} />
+      {/* mitten: palm + thumb */}
+      <circle cx={hand[0] - side * 16} cy={hand[1] - 16} r={12} fill={skin} {...LINE} strokeWidth={3} />
+      <ellipse cx={hand[0]} cy={hand[1]} rx={26} ry={24} fill={skin} {...LINE} />
     </g>
   );
 };
 
-const MOUTH_DARK = "#4a1414";
+const MOUTH_DARK = "#3e1010";
 const TONGUE = "#E2737D";
-const MY = -386; // mouth center
 
 export const Mouth: React.FC<{ shape: MouthShape }> = ({ shape }) => {
-  const line = { stroke: MOUTH_DARK, strokeWidth: 7, strokeLinecap: "round" as const, fill: "none" };
+  const line = { stroke: MOUTH_DARK, strokeWidth: 6, strokeLinecap: "round" as const, fill: "none" };
   switch (shape) {
     case "closed":
-      return <path d={`M -28 ${MY - 2} Q 0 ${MY + 8} 28 ${MY - 2}`} {...line} />;
+      return <path d={`M -24 ${MY - 2} Q 0 ${MY + 7} 24 ${MY - 2}`} {...line} />;
     case "flat":
-      return <path d={`M -26 ${MY} L 26 ${MY}`} {...line} />;
+      return <path d={`M -22 ${MY} L 22 ${MY}`} {...line} />;
     case "smirk":
-      return <path d={`M -26 ${MY + 4} Q 6 ${MY + 6} 32 ${MY - 12}`} {...line} />;
+      return <path d={`M -22 ${MY + 4} Q 6 ${MY + 6} 30 ${MY - 10}`} {...line} />;
     case "frown":
-      return <path d={`M -28 ${MY + 8} Q 0 ${MY - 8} 28 ${MY + 8}`} {...line} />;
+      return <path d={`M -24 ${MY + 7} Q 0 ${MY - 7} 24 ${MY + 7}`} {...line} />;
     case "O":
-      return <ellipse cx={0} cy={MY} rx={14} ry={19} fill={MOUTH_DARK} />;
+      return <ellipse cx={0} cy={MY + 2} rx={13} ry={17} fill={MOUTH_DARK} />;
     case "open":
       return (
         <g>
-          <ellipse cx={0} cy={MY} rx={26} ry={18} fill={MOUTH_DARK} />
-          <ellipse cx={0} cy={MY + 9} rx={14} ry={7} fill={TONGUE} />
+          <path d={`M -28 ${MY - 8} Q 0 ${MY - 12} 28 ${MY - 8} Q 22 ${MY + 22} 0 ${MY + 22} Q -22 ${MY + 22} -28 ${MY - 8} Z`} fill={MOUTH_DARK} />
+          <ellipse cx={0} cy={MY + 12} rx={12} ry={6} fill={TONGUE} />
         </g>
       );
     case "wide":
       return (
         <g>
-          <path d={`M -42 ${MY - 12} Q 0 ${MY - 16} 42 ${MY - 12} Q 34 ${MY + 42} 0 ${MY + 42} Q -34 ${MY + 42} -42 ${MY - 12} Z`} fill={MOUTH_DARK} />
-          <ellipse cx={0} cy={MY + 28} rx={20} ry={10} fill={TONGUE} />
+          <path d={`M -38 ${MY - 12} Q 0 ${MY - 18} 38 ${MY - 12} Q 30 ${MY + 40} 0 ${MY + 40} Q -30 ${MY + 40} -38 ${MY - 12} Z`} fill={MOUTH_DARK} />
+          <ellipse cx={0} cy={MY + 26} rx={18} ry={9} fill={TONGUE} />
         </g>
       );
     case "smile":
       return (
         <g>
-          <path d={`M -40 ${MY - 10} Q 0 ${MY + 46} 40 ${MY - 10} Z`} fill={MOUTH_DARK} />
-          <path d={`M -36 ${MY - 8} L 36 ${MY - 8} L 32 ${MY + 2} L -32 ${MY + 2} Z`} fill="#fff" />
+          <path d={`M -36 ${MY - 10} Q 0 ${MY + 40} 36 ${MY - 10} Z`} fill={MOUTH_DARK} />
+          <path d={`M -32 ${MY - 8} L 32 ${MY - 8} L 28 ${MY + 1} L -28 ${MY + 1} Z`} fill="#fff" />
         </g>
       );
     case "angry":
       return (
         <g>
-          <path d={`M -36 ${MY - 12} L 36 ${MY - 12} L 28 ${MY + 16} L -28 ${MY + 16} Z`} fill={MOUTH_DARK} />
-          <rect x={-34} y={MY - 12} width={68} height={10} fill="#fff" />
+          <path d={`M -32 ${MY - 10} L 32 ${MY - 10} L 24 ${MY + 14} L -24 ${MY + 14} Z`} fill={MOUTH_DARK} />
+          <rect x={-30} y={MY - 10} width={60} height={9} fill="#fff" />
         </g>
       );
   }
@@ -191,16 +209,16 @@ const IDLE_MOUTH: Record<Expression, MouthShape> = {
 };
 
 const Brows: React.FC<{ e: Expression }> = ({ e }) => {
-  const s = { stroke: INK, strokeWidth: 10, strokeLinecap: "round" as const, fill: "none" };
+  const s = { stroke: INK, strokeWidth: 9, strokeLinecap: "round" as const, fill: "none" };
   const pair = (l: string) => (
     <g>
       <path d={l} {...s} />
       <path d={l} {...s} transform="scale(-1 1)" />
     </g>
   );
-  if (e === "worried" || e === "scared") return pair("M -78 -548 L -18 -566");
-  if (e === "annoyed") return pair("M -78 -566 L -18 -546");
-  if (e === "excited") return pair("M -80 -560 Q -50 -584 -16 -566");
+  if (e === "worried" || e === "scared") return pair("M -74 -448 L -16 -462");
+  if (e === "annoyed") return pair("M -74 -464 L -16 -446");
+  if (e === "excited") return pair("M -76 -456 Q -46 -478 -14 -462");
   return null;
 };
 
@@ -217,63 +235,60 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
   const d = DESIGNS[name];
   const arms = ARMS[pose];
   const big = expression === "scared";
-  const eyeRy = big ? 58 : 52;
-  const pr = big ? 6 : 9;
+  const erx = 42;
+  const ery = big ? 56 : 50;
+  const pr = big ? 5 : 7;
+  const lidY = expression === "smug" ? EYE_Y + 6 : EYE_Y;
   const lid = expression === "deadpan" || expression === "smug" || expression === "annoyed";
-  const clipId = `torso-${name}`;
+  const clipId = `body-${name}`;
+  const armColor = d.sleeves ? d.shirt : d.skin;
   return (
     <g>
-      {/* legs + shoes */}
-      <rect x={-64} y={-80} width={40} height={58} fill={d.skin} {...OUTLINE} />
-      <rect x={24} y={-80} width={40} height={58} fill={d.skin} {...OUTLINE} />
-      <ellipse cx={-50} cy={-16} rx={52} ry={20} fill={d.shoes} {...OUTLINE} />
-      <ellipse cx={50} cy={-16} rx={52} ry={20} fill={d.shoes} {...OUTLINE} />
-      <path d="M -112 -176 L 112 -176 L 108 -74 L 6 -74 L 0 -112 L -6 -74 L -108 -74 Z" fill={d.shorts} {...OUTLINE} />
-      {/* torso */}
+      {/* feet peeking out under the body */}
+      <path d="M -102 0 Q -100 -40 -50 -40 Q -4 -40 -4 0 Z" fill={d.shoes} {...LINE} />
+      <path d="M 102 0 Q 100 -40 50 -40 Q 4 -40 4 0 Z" fill={d.shoes} {...LINE} />
+      <path d="M -118 -70 L 118 -70 L 112 -22 L -112 -22 Z" fill={d.pants} {...LINE} />
+      {/* bell-shaped body */}
       <clipPath id={clipId}>
-        <path d={TORSO} />
+        <path d={BODY} />
       </clipPath>
-      <path d={TORSO} fill={d.shirt} {...OUTLINE} />
+      <path d={BODY} fill={d.shirt} {...LINE} />
       {d.shirtPattern ? <g clipPath={`url(#${clipId})`}>{d.shirtPattern}</g> : null}
+      {d.seam ? <path d="M 0 -220 L 0 -64" stroke={INK} strokeWidth={4} /> : null}
       {d.chest}
-      {/* phone sits under the hand */}
       {pose === "phone" ? (
         <g>
-          <rect x={22} y={-344} width={58} height={96} rx={10} fill="#202020" {...OUTLINE} />
-          <rect x={30} y={-334} width={42} height={70} rx={4} fill="#7fd7ff" />
+          <rect x={22} y={-232} width={52} height={86} rx={9} fill="#202020" {...LINE} />
+          <rect x={29} y={-223} width={38} height={62} rx={4} fill="#7fd7ff" />
         </g>
       ) : null}
-      <Arm pts={arms.l} skin={d.skin} floatie={d.floaties} />
-      <Arm pts={arms.r} skin={d.skin} floatie={d.floaties} />
-      {/* head: its own card above the body */}
+      <Arm pts={arms.l} color={armColor} skin={d.skin} floatie={d.floaties} />
+      <Arm pts={arms.r} color={armColor} skin={d.skin} floatie={d.floaties} />
+      {/* the head: its own card, sits straight on the body, no neck */}
       <g filter="url(#lift)">
-        <ellipse cx={0} cy={-462} rx={158} ry={140} fill={d.skin} {...OUTLINE} />
+        <ellipse cx={0} cy={HEAD_Y} rx={HRX} ry={HRY} fill={d.skin} {...LINE} />
         {d.hair}
-        <g filter="url(#lift)">
-          {[-1, 1].map((side) => (
+        {[-1, 1].map((side) => {
+          const cx = side * 41;
+          return (
             <g key={side}>
-              <ellipse cx={side * 40} cy={-486} rx={41} ry={eyeRy} fill="#FFFFFF" {...OUTLINE} strokeWidth={4} />
+              <ellipse cx={cx} cy={EYE_Y} rx={erx} ry={ery} fill="#FFFFFF" {...LINE} strokeWidth={3.5} />
               {blink ? (
                 <g>
-                  <ellipse cx={side * 40} cy={-486} rx={41} ry={eyeRy} fill={d.skin} {...OUTLINE} strokeWidth={4} />
-                  <path d={`M ${side * 40 - 34} -480 Q ${side * 40} -470 ${side * 40 + 34} -480`} stroke={INK} strokeWidth={5} fill="none" />
+                  <ellipse cx={cx} cy={EYE_Y} rx={erx} ry={ery} fill={d.skin} {...LINE} strokeWidth={3.5} />
+                  <path d={`M ${cx - 34} ${EYE_Y + 6} Q ${cx} ${EYE_Y + 16} ${cx + 34} ${EYE_Y + 6}`} stroke={INK} strokeWidth={4} fill="none" />
                 </g>
               ) : (
                 <g>
-                  <circle cx={side * 40 + lookX * 18} cy={-480} r={pr} fill={INK} />
+                  <circle cx={cx + lookX * 20 - side * 8} cy={EYE_Y + 4} r={pr} fill={INK} />
                   {lid ? (
-                    <path
-                      d={`M ${side * 40 - 41} ${expression === "smug" ? -478 : -486} A 41 ${eyeRy} 0 0 1 ${side * 40 + 41} ${expression === "smug" ? -478 : -486} Z`}
-                      fill={d.skin}
-                      {...OUTLINE}
-                      strokeWidth={4}
-                    />
+                    <path d={`M ${cx - erx} ${lidY} A ${erx} ${ery} 0 0 1 ${cx + erx} ${lidY} Z`} fill={d.skin} {...LINE} strokeWidth={3.5} />
                   ) : null}
                 </g>
               )}
             </g>
-          ))}
-        </g>
+          );
+        })}
         <Brows e={expression} />
         {d.face}
         <Mouth shape={mouth ?? IDLE_MOUTH[expression]} />

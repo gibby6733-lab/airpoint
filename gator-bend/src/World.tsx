@@ -2,7 +2,7 @@
 // Everything is built from flat shapes; each card gets the paper filter and a
 // shadow sized to how far it sits above the layer under it.
 import React from "react";
-import { INK, OUTLINE, paper } from "./paper";
+import { EDGE, INK, OUTLINE, paper } from "./paper";
 
 export const WORLD_W = 2400;
 export const WORLD_H = 4266; // 9:16, so the wide shot shows the whole street
@@ -41,7 +41,7 @@ const Palm: React.FC<{ x: number; base: number; top: number; lean: number; varia
         key={i}
         d={`M ${x0 - w0} ${y0} L ${x0 + w0} ${y0} L ${x1 + w1 + 6} ${y1 + 8} L ${x1 - w1 - 6} ${y1 + 8} Z`}
         fill={i % 2 ? "#8A5A33" : "#9C6A3E"}
-        {...OUTLINE}
+        {...EDGE}
       />,
     );
   }
@@ -58,7 +58,7 @@ const Palm: React.FC<{ x: number; base: number; top: number; lean: number; varia
         key={a}
         d={`M ${cx} ${top} Q ${mx} ${my - 60} ${ex} ${ey} Q ${mx} ${my + 30} ${cx} ${top + 20} Z`}
         fill={i % 2 ? "#3F8F3A" : "#4FA445"}
-        {...OUTLINE}
+        {...EDGE}
       />
     );
   });
@@ -66,8 +66,8 @@ const Palm: React.FC<{ x: number; base: number; top: number; lean: number; varia
     <g filter={paper(2, variant)}>
       {pieces}
       {fronds}
-      <circle cx={cx - 20} cy={top + 30} r={22} fill="#6B4A2B" {...OUTLINE} />
-      <circle cx={cx + 18} cy={top + 36} r={22} fill="#6B4A2B" {...OUTLINE} />
+      <circle cx={cx - 20} cy={top + 30} r={22} fill="#6B4A2B" {...EDGE} />
+      <circle cx={cx + 18} cy={top + 36} r={22} fill="#6B4A2B" {...EDGE} />
     </g>
   );
 };
@@ -93,15 +93,15 @@ export const Background: React.FC = () => (
           transform={`translate(${x} ${y}) scale(${s})`}
           d="M -220 40 Q -230 -40 -140 -40 Q -110 -120 -10 -100 Q 60 -160 140 -80 Q 240 -80 230 20 Q 240 70 170 70 L -170 70 Q -240 70 -220 40 Z"
           fill="#FBFBF4"
-          {...OUTLINE}
+          {...EDGE}
         />
       ))}
     </g>
     {/* billboard */}
     <g filter={paper(2, 2)}>
-      <rect x={300} y={1700} width={34} height={330} fill="#8A5A33" {...OUTLINE} />
-      <rect x={880} y={1700} width={34} height={330} fill="#8A5A33" {...OUTLINE} />
-      <rect x={140} y={1420} width={940} height={380} fill="#F4EBD0" {...OUTLINE} strokeWidth={7} />
+      <rect x={300} y={1700} width={34} height={330} fill="#8A5A33" {...EDGE} />
+      <rect x={880} y={1700} width={34} height={330} fill="#8A5A33" {...EDGE} />
+      <rect x={140} y={1420} width={940} height={380} fill="#F4EBD0" {...EDGE} strokeWidth={7} />
       <rect x={170} y={1450} width={880} height={320} fill="none" stroke="#D9443A" strokeWidth={10} />
       <Txt x={610} y={1540} size={64} fill="#1E8F8A">WELCOME TO</Txt>
       <Txt x={610} y={1655} size={92} fill="#D9443A">GATOR BEND, FL</Txt>
@@ -109,8 +109,8 @@ export const Background: React.FC = () => (
     </g>
     {/* strip mall */}
     <g filter={paper(1, 0)}>
-      <rect x={1150} y={1640} width={1250} height={370} fill="#E8CFA6" {...OUTLINE} />
-      <rect x={1130} y={1608} width={1290} height={50} fill="#C8A57A" {...OUTLINE} />
+      <rect x={1150} y={1640} width={1250} height={370} fill="#E8CFA6" {...EDGE} />
+      <rect x={1130} y={1608} width={1290} height={50} fill="#C8A57A" {...EDGE} />
       {[
         { x: 1180, label: "VAPE", bg: "#7B3FA0", fg: "#fff" },
         { x: 1490, label: "PAWN", bg: "#F2C230", fg: INK },
@@ -118,12 +118,12 @@ export const Background: React.FC = () => (
         { x: 2110, label: "GOLD $$", bg: "#D9443A", fg: "#fff" },
       ].map((s) => (
         <g key={s.label}>
-          <rect x={s.x} y={1690} width={270} height={92} fill={s.bg} {...OUTLINE} />
+          <rect x={s.x} y={1690} width={270} height={92} fill={s.bg} {...EDGE} />
           <Txt x={s.x + 135} y={1756} size={60} fill={s.fg}>
             {s.label}
           </Txt>
-          <rect x={s.x + 20} y={1820} width={140} height={190} fill="#3D6E8C" {...OUTLINE} />
-          <rect x={s.x + 180} y={1840} width={70} height={170} fill="#5B4636" {...OUTLINE} />
+          <rect x={s.x + 20} y={1820} width={140} height={190} fill="#3D6E8C" {...EDGE} />
+          <rect x={s.x + 180} y={1840} width={70} height={170} fill="#5B4636" {...EDGE} />
         </g>
       ))}
     </g>
@@ -131,15 +131,15 @@ export const Background: React.FC = () => (
     <Palm x={2290} base={2190} top={1300} lean={50} variant={1} />
     {/* pond (back half) + reeds */}
     <g filter={paper(1, 2)}>
-      <ellipse cx={POND.cx} cy={POND.cy} rx={POND.rx} ry={POND.ry} fill="#4C93B0" {...OUTLINE} />
+      <ellipse cx={POND.cx} cy={POND.cy} rx={POND.rx} ry={POND.ry} fill="#4C93B0" {...EDGE} />
       {[1830, 1860, 2385, 2350].map((x, i) => (
         <g key={x}>
           <path d={`M ${x} ${POND.cy} L ${x + (i % 2 ? 8 : -8)} ${POND.cy - 150}`} stroke="#3F7A2E" strokeWidth={10} />
-          <rect x={x - 11 + (i % 2 ? 8 : -8)} y={POND.cy - 190} width={22} height={56} rx={11} fill="#7A4A26" {...OUTLINE} strokeWidth={3} />
+          <rect x={x - 11 + (i % 2 ? 8 : -8)} y={POND.cy - 190} width={22} height={56} rx={11} fill="#7A4A26" {...EDGE} strokeWidth={3} />
         </g>
       ))}
       <rect x={1600} y={2120} width={14} height={180} fill="#8A5A33" />
-      <rect x={1520} y={2070} width={180} height={80} fill="#FFFFFF" {...OUTLINE} />
+      <rect x={1520} y={2070} width={180} height={80} fill="#FFFFFF" {...EDGE} />
       <Txt x={1610} y={2104} size={26} fill="#D9443A">NO SWIMMING</Txt>
       <Txt x={1610} y={2136} size={24} fill={INK}>(lol)</Txt>
     </g>
@@ -158,8 +158,8 @@ export const Background: React.FC = () => (
     </g>
     {/* bus stop sign */}
     <g filter={paper(2, 0)}>
-      <rect x={213} y={2150} width={22} height={500} fill="#9AA0A6" {...OUTLINE} />
-      <rect x={120} y={2120} width={210} height={150} rx={14} fill="#FFFFFF" {...OUTLINE} strokeWidth={6} />
+      <rect x={213} y={2150} width={22} height={500} fill="#9AA0A6" {...EDGE} />
+      <rect x={120} y={2120} width={210} height={150} rx={14} fill="#FFFFFF" {...EDGE} strokeWidth={6} />
       <Txt x={225} y={2186} size={52} fill="#2B6CB0">BUS</Txt>
       <Txt x={225} y={2240} size={40} fill="#2B6CB0">STOP</Txt>
     </g>
@@ -167,12 +167,12 @@ export const Background: React.FC = () => (
     <g filter={paper(2, 1)}>
       <path d="M 420 3720 L 420 3560" stroke={INK} strokeWidth={8} />
       <path d="M 445 3720 L 440 3560" stroke={INK} strokeWidth={8} />
-      <ellipse cx={440} cy={3530} rx={90} ry={56} fill="#FF7EB6" {...OUTLINE} />
+      <ellipse cx={440} cy={3530} rx={90} ry={56} fill="#FF7EB6" {...EDGE} />
       <path d="M 500 3510 Q 560 3400 520 3330" stroke="#FF7EB6" strokeWidth={26} fill="none" strokeLinecap="round" />
-      <circle cx={520} cy={3320} r={30} fill="#FF7EB6" {...OUTLINE} />
+      <circle cx={520} cy={3320} r={30} fill="#FF7EB6" {...EDGE} />
       <path d="M 545 3315 L 590 3340 L 548 3345 Z" fill={INK} />
-      <rect x={1560} y={3560} width={16} height={260} fill="#8A5A33" {...OUTLINE} />
-      <rect x={1380} y={3440} width={380} height={170} fill="#FFFFFF" {...OUTLINE} strokeWidth={6} />
+      <rect x={1560} y={3560} width={16} height={260} fill="#8A5A33" {...EDGE} />
+      <rect x={1380} y={3440} width={380} height={170} fill="#FFFFFF" {...EDGE} strokeWidth={6} />
       <Txt x={1570} y={3510} size={58} fill="#D9443A">FOR SALE</Txt>
       <Txt x={1570} y={3570} size={34} fill={INK}>sinkhole adjacent</Txt>
     </g>
@@ -186,10 +186,10 @@ export const Sun: React.FC<{ frame: number }> = ({ frame }) => {
     <g filter={paper(1, 0)} transform={`translate(1960 780)`}>
       <g transform={`rotate(${rot})`}>
         {Array.from({ length: 12 }, (_, i) => (
-          <path key={i} transform={`rotate(${i * 30})`} d="M -26 -205 L 26 -205 L 0 -290 Z" fill="#FFB43F" {...OUTLINE} />
+          <path key={i} transform={`rotate(${i * 30})`} d="M -26 -205 L 26 -205 L 0 -290 Z" fill="#FFB43F" {...EDGE} />
         ))}
       </g>
-      <circle r={175} fill="#FFD23F" {...OUTLINE} strokeWidth={6} />
+      <circle r={175} fill="#FFD23F" {...EDGE} strokeWidth={6} />
     </g>
   );
 };
@@ -292,7 +292,7 @@ export const PondFront: React.FC<{ frame: number }> = ({ frame }) => {
   const { cx, cy, rx, ry } = POND;
   return (
     <g filter={paper(1, 2)}>
-      <path d={`M ${cx - rx} ${cy} A ${rx} ${ry} 0 0 0 ${cx + rx} ${cy} Z`} fill="#4C93B0" {...OUTLINE} />
+      <path d={`M ${cx - rx} ${cy} A ${rx} ${ry} 0 0 0 ${cx + rx} ${cy} Z`} fill="#4C93B0" {...EDGE} />
       <path d={`M ${cx - 120} ${cy + 30 + ripple * 6} q 40 -14 80 0 t 80 0`} stroke="#9FD6EA" strokeWidth={8} fill="none" strokeLinecap="round" />
       <path d={`M ${cx + 40} ${cy + 55 - ripple * 6} q 40 -14 80 0 t 80 0`} stroke="#9FD6EA" strokeWidth={8} fill="none" strokeLinecap="round" />
     </g>

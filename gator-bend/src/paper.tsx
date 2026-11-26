@@ -9,9 +9,9 @@ const SHADOW = "#2b1707";
 // depth 0 = glued flat to the table, 3 = lifted highest off the background
 const DEPTHS = [
   { dx: 0, dy: 0, blur: 0, op: 0 },
-  { dx: 3, dy: 5, blur: 3, op: 0.32 },
-  { dx: 8, dy: 12, blur: 7, op: 0.36 },
-  { dx: 14, dy: 22, blur: 12, op: 0.4 },
+  { dx: 2, dy: 4, blur: 3, op: 0.2 },
+  { dx: 5, dy: 9, blur: 6, op: 0.24 },
+  { dx: 9, dy: 15, blur: 9, op: 0.28 },
 ];
 
 const PaperFilter: React.FC<{ id: string; seed: number; depth: number }> = ({ id, seed, depth }) => {
@@ -19,7 +19,7 @@ const PaperFilter: React.FC<{ id: string; seed: number; depth: number }> = ({ id
   return (
     <filter id={id} x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={seed} result="grain" />
-      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.35" numOctaves={2} seed={seed + 7} result="fiber" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.08 0.22" numOctaves={2} seed={seed + 7} result="fiber" />
       <feComposite in="grain" in2="fiber" operator="arithmetic" k2={0.4} k3={0.6} result="mix" />
       <feColorMatrix
         in="mix"
@@ -27,7 +27,7 @@ const PaperFilter: React.FC<{ id: string; seed: number; depth: number }> = ({ id
         values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1"
         result="gray"
       />
-      <feComposite in="SourceGraphic" in2="gray" operator="arithmetic" k1={0.4} k2={0.81} result="tex" />
+      <feComposite in="SourceGraphic" in2="gray" operator="arithmetic" k1={0.2} k2={0.9} result="tex" />
       <feComposite in="tex" in2="SourceAlpha" operator="in" result="paper" />
       {depth > 0 ? (
         <feDropShadow in="paper" dx={d.dx} dy={d.dy} stdDeviation={d.blur} floodColor={SHADOW} floodOpacity={d.op} />
@@ -47,11 +47,13 @@ export const PaperDefs: React.FC = () => (
       )}
       {/* small shadow for parts layered on the same character (head over body, eyes over head) */}
       <filter id="lift" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx={2} dy={4} stdDeviation={2} floodColor={SHADOW} floodOpacity={0.3} />
+        <feDropShadow dx={1} dy={3} stdDeviation={2} floodColor={SHADOW} floodOpacity={0.18} />
       </filter>
     </defs>
   </svg>
 );
 
 export const INK = "#1d140e";
-export const OUTLINE = { stroke: INK, strokeWidth: 5, strokeLinejoin: "round" as const };
+export const OUTLINE = { stroke: INK, strokeWidth: 4, strokeLinejoin: "round" as const };
+// Scenery has no black outlines, just a faint darker edge where paper meets paper.
+export const EDGE = { stroke: "rgba(40,20,0,0.16)", strokeWidth: 3, strokeLinejoin: "round" as const };

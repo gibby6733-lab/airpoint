@@ -15,7 +15,8 @@ Original characters, set in the fictional town of Gator Bend, Florida.
 
 - **Paper texture:** every shape is filled with procedural grain and fiber noise (`src/paper.tsx`).
 - **Depth and shadows:** each card has a depth level (0–3). Higher cards cast larger, softer shadows, like paper stacked under a lamp.
-- **Modular rig:** every kid is the same rig with swappable arm poses, eye directions, blinks, brows and 9 mouth shapes (`src/characters.tsx`).
+- **Modular rig:** a huge round head sitting straight on a short bell-shaped body, stub arms, mitten hands and only the feet showing. Every kid is the same rig with swappable arm poses, eye directions, blinks, brows and 9 mouth shapes (`src/characters.tsx`).
+- **Flat scenery:** background cards have no black outlines; only characters and props are inked.
 - **Choppy motion:** characters and props change pose on twos (every 2nd frame) with no in-betweens. Walks are a side-to-side tilt plus a hop.
 - **Camera:** `wide`, `two:a,b`, `close:x`, `push:x` (slow push-in), `close:gator`. Hard cuts between beats, like a sitcom.
 - **Lighting:** a warm overhead hot-spot with falloff toward the corners.
@@ -33,8 +34,18 @@ On a normal computer, drop `--browser-executable=...` from the `render` script a
 
 ## Voices
 
-- **Default:** `espeak-ng`, free and offline, but robotic. Mouths follow the loudness of the audio.
-- **ElevenLabs:** set `ELEVENLABS_API_KEY` and put a `elevenlabsVoiceId` on each cast member in `script.json`. This uses ElevenLabs' character timestamps, so mouths and captions follow the real timing. (This path is written but has not been run yet.)
+The voice stage uses the first engine available:
+
+1. **ElevenLabs:** set `ELEVENLABS_API_KEY` and put an `elevenlabsVoiceId` on a cast member. This uses ElevenLabs' character timestamps, so mouths and captions follow the real timing. (This path is written but has not been run yet.)
+2. **Kokoro-82M (default):** free neural voices that run offline, Apache-2.0 licensed. The adult voices are pitched up into cartoon kids with `rubberband`, which keeps the speed the same. Each kid's `kokoro` entry in `script.json` sets `voice` (one voice or a blend like `am_liam:0.6,af_nicole:0.4`), `speed` and `pitch`. One-time setup:
+   ```bash
+   python3 -m venv .venv && .venv/bin/pip install kokoro-onnx soundfile
+   mkdir -p models/voices
+   B=https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main
+   curl -L -o models/kokoro.onnx $B/onnx/model.onnx
+   for v in am_echo am_liam af_nicole am_puck am_onyx; do curl -L -o models/voices/$v.bin $B/voices/$v.bin; done
+   ```
+3. **espeak-ng:** robotic last resort.
 
 ## Not built yet
 
