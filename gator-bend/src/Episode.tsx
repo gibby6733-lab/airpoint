@@ -388,7 +388,7 @@ export const Scene: React.FC = () => {
   const kids = CAST.map((name) => ({ name, ...kidState(name, f) }));
   return (
     <AbsoluteFill style={{ backgroundColor: "#8FD3EE" }}>
-      <PaperDefs />
+      <PaperDefs frame={f} />
       <svg width={1080} height={1920} viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}>
         <Background />
         <Sun frame={f} />

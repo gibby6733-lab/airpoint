@@ -139,7 +139,7 @@ export const Intro: React.FC = () => {
   const cardIdx = CARD_STARTS.findIndex((s) => f >= s && f < s + CARD_LEN);
   return (
     <AbsoluteFill style={{ backgroundColor: "#1E8F8A" }}>
-      <PaperDefs />
+      <PaperDefs frame={f} />
       {f < CARD_STARTS[0] ? (
         <AbsoluteFill style={{ backgroundColor: "#1E8F8A" }} />
       ) : cardIdx >= 0 ? (

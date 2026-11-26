@@ -13,7 +13,8 @@ Original characters, set in the fictional town of Gator Bend, Florida.
 
 ### How the cutout look is built
 
-- **Paper texture:** every shape is filled with procedural grain and fiber noise (`src/paper.tsx`).
+- **Paper texture** (`src/paper.tsx`): every card has a scissor-cut edge (its silhouette is nudged by noise), a dyed-paper surface (blotchy color, grain, fibers), light flecks, and a pale rim along the cut edge.
+- **Boil:** the cut edges are re-cut every 4 frames, so they shimmer slightly like hand-made animation.
 - **Depth and shadows:** each card has a depth level (0–3). Higher cards cast larger, softer shadows, like paper stacked under a lamp.
 - **Modular rig:** a huge round head sitting straight on a short bell-shaped body, stub arms, mitten hands and only the feet showing. Every kid is the same rig with swappable arm poses, eye directions, blinks, brows and 9 mouth shapes (`src/characters.tsx`).
 - **Flat scenery:** background cards have no black outlines; only characters and props are inked.
