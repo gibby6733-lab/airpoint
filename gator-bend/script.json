@@ -168,7 +168,8 @@
       "expression": "deadpan",
       "pose": "point",
       "camera": "two:wade,gator",
-      "look": "gator"
+      "look": "gator",
+      "transition": "whip"
     },
     {
       "type": "line",
@@ -218,7 +219,8 @@
         "tucker": "scared",
         "bray": "scared",
         "danny": "deadpan"
-      }
+      },
+      "transition": "whip"
     },
     {
       "type": "line",

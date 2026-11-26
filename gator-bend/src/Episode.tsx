@@ -13,7 +13,7 @@ import {
 import timeline from "./generated/timeline.json";
 import { Expression, Kid, MouthShape, Pose } from "./characters";
 import { PaperDefs, paper } from "./paper";
-import { BUS_W, Background, Bus, BusState, FEET_Y, FONT, Foreground, GATOR_X, Gator, Heat, PondFront, Sun, WORLD_H, WORLD_W } from "./World";
+import { Background, Bus, BusState, Car, FEET_Y, FONT, Foreground, GATOR_X, Gator, Heat, PondFront, Sun, WORLD_H, WORLD_W } from "./World";
 
 // ---------------------------------------------------------------- types
 type Word = { word: string; start: number; end: number };
@@ -31,6 +31,7 @@ type Beat = {
   emphasisPose?: string;
   sweat?: string[];
   holdAfter?: number;
+  transition?: string;
   start: number;
   end: number;
   audio?: string;
@@ -139,6 +140,14 @@ const busState = (f: number): BusState | null => {
   };
 };
 
+// A retiree's car crosses the far lane during the opening (left blinker on, forever).
+const carX = (f: number) => {
+  const walk = T.beats.find((b) => b.action === "walk-in");
+  const end = walk ? walk.end : 46;
+  if (f > end) return null;
+  return interpolate(onTwos(f), [0, end], [-700, WORLD_W + 100]);
+};
+
 // ---------------------------------------------------------------- camera
 type View = { x: number; y: number; w: number; h: number };
 const clampView = (cx: number, top: number, w: number): View => {
@@ -230,22 +239,29 @@ const kidState = (name: string, f: number) => {
   if (target !== null && !(speaking && !lookAt)) look = Math.max(-1, Math.min(1, (target - x) / 260));
   // listeners occasionally break off to glance at the camera (deadpan beat)
   if (!speaking && !walking && target !== null && (f + idx * 41) % (110 + idx * 13) < 10) look = 0;
-  const turn = look * 0.85;
+  let turn = look * 0.85;
 
   // blinks: a 2-frame lid swap on a per-character rhythm
   const period = 58 + idx * 17;
-  const blink = (f + idx * 23) % period < 3;
+  // Wade's blinks are slow and unsettling
+  const blink = (f + idx * 23) % period < (name === "wade" ? 7 : 3);
 
   // motion, all in held steps
   let dy = 0;
   let tilt = 0;
   let headTilt = 0;
   let step: number | null = null;
+  let sx = 1; // squash & stretch, scaled from the feet
+  let sy = 1;
+  let lookY = 0;
+  const STRETCH = [0.92, 1.1];
+  const SQUASH = [1.1, 0.9];
   if (walking) {
     // walk cycle on 3-frame holds: body tilts side to side and bobs, one foot lifts, arms swing
     step = Math.floor(f / 3) % 2;
     dy = step ? -14 : -4;
     tilt = step ? 4 : -4;
+    [sx, sy] = step ? [0.97, 1.04] : [1.03, 0.97];
     headTilt = step ? -2 : 2;
   } else if (speaking) {
     if (wi >= 0) {
@@ -254,20 +270,34 @@ const kidState = (name: string, f: number) => {
     }
     if (emph && f >= emph.start) {
       pose = (beat.emphasisPose ?? "point") as typeof pose;
-      if (f - emph.start < 4) dy = -26; // hop on the punch word
+      const e = f - emph.start;
+      if (e < 4) dy = -26; // hop on the punch word: stretch on takeoff, squash on landing
+      if (e < 2) [sx, sy] = STRETCH;
+      else if (e >= 4 && e < 6) [sx, sy] = SQUASH;
       headTilt *= 2;
     }
   } else if (expression === "scared") {
     dy = local < 4 ? -30 : Math.floor(f / 2) % 2 ? -6 : 0; // jump, then shake
+    if (local < 2) [sx, sy] = STRETCH;
+    else if (local >= 4 && local < 6) [sx, sy] = SQUASH;
   } else {
     // listeners stay alive: a small weight shift now and then...
     if ((f + idx * 29) % (66 + idx * 9) < 2) dy = -5;
     // ...and they flinch when the speaker hits a punch word
     const sw = beat.words?.find((w) => isEmphasis(w.word));
-    if (beat.type === "line" && sw && f - sw.start >= 0 && f - sw.start < 3) dy = -12;
+    const se = sw ? f - sw.start : -1;
+    if (beat.type === "line" && se >= 0 && se < 3) dy = -12;
+    if (beat.type === "line" && se >= 3 && se < 5) [sx, sy] = [1.05, 0.95];
+    // Tucker shrinks into himself when someone gets loud
+    if (name === "tucker" && beat.type === "line" && se >= 0 && se < 14) [sx, sy] = [0.93, 0.88];
+    // Danny rolls his eyes at Bray (once per beat): pupils swing up and across
+    if (name === "danny" && expression === "annoyed" && local >= 6 && local < 22) {
+      lookY = -1;
+      look = interpolate(onTwos(local), [6, 20], [-0.7, 0.7], { extrapolateRight: "clamp" });
+    }
   }
   const sweat = beat.sweat?.includes(name) ? local : null;
-  return { x, dy, tilt, headTilt, mouth, expression: expression as Expression, pose: pose as Pose, look, turn, blink, sweat, step };
+  return { x, dy, tilt, headTilt, mouth, expression: expression as Expression, pose: pose as Pose, look, lookY, turn, blink, sweat, step, sx, sy };
 };
 
 // ---------------------------------------------------------------- captions
@@ -374,10 +404,39 @@ const TitleCard: React.FC<{ f: number; beat: Beat }> = ({ f, beat }) => {
 };
 
 // ---------------------------------------------------------------- the episode
+// Zoom punch: when the speaker hits a punch word the camera snaps in ~12% and holds.
+const punchIn = (beat: Beat, f: number, v: View): View => {
+  const emph = beat.type === "line" ? beat.words?.find((w) => isEmphasis(w.word)) : undefined;
+  if (!emph || f < emph.start) return v;
+  const w = v.w * 0.88;
+  return clampView(v.x + v.w / 2, v.y + (v.h - w * ASPECT) * 0.55, w);
+};
+
+// Whip-pan into a beat: a few frames sliding from the previous shot with horizontal motion blur.
+const WHIP_FRAMES = 4;
+const whipFrom = (beat: Beat, f: number): { view: View; t: number } | null => {
+  if (beat.transition !== "whip") return null;
+  const local = f - beat.start;
+  if (local < 0 || local >= WHIP_FRAMES) return null;
+  const prev = T.beats[T.beats.indexOf(beat) - 1];
+  if (!prev) return null;
+  return { view: cameraFor(prev, beat.start - 1), t: (local + 1) / (WHIP_FRAMES + 1) };
+};
+
 export const Scene: React.FC = () => {
   const f = useCurrentFrame();
   const beat = beatAt(f);
-  let view = cameraFor(beat, f);
+  let view = punchIn(beat, f, cameraFor(beat, f));
+  const whip = whipFrom(beat, f);
+  if (whip) {
+    const e = Easing.inOut(Easing.cubic)(whip.t);
+    view = {
+      x: whip.view.x + (view.x - whip.view.x) * e,
+      y: whip.view.y + (view.y - whip.view.y) * e,
+      w: whip.view.w + (view.w - whip.view.w) * e,
+      h: whip.view.h + (view.h - whip.view.h) * e,
+    };
+  }
   if (beat.action === "gator-burp") {
     // camera shake on the burp
     const k = Math.floor(f / 2);
@@ -385,12 +444,14 @@ export const Scene: React.FC = () => {
   }
   const g = gatorState(f);
   const bus = busState(f);
+  const car = carX(f);
   const kids = CAST.map((name) => ({ name, ...kidState(name, f) }));
   return (
     <AbsoluteFill style={{ backgroundColor: "#8FD3EE" }}>
       <PaperDefs frame={f} />
       <svg width={1080} height={1920} viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}>
-        <Background />
+        <g filter={whip ? "url(#whip)" : undefined}>
+        <Background frame={f} />
         <Sun frame={f} />
         <Heat frame={f} />
         <Gator jaw={g.jaw} burp={g.burp} frame={f} look={g.look} rise={g.rise} sink={g.sink} />
@@ -399,7 +460,7 @@ export const Scene: React.FC = () => {
           <g
             key={k.name}
             filter={paper(2, CAST.indexOf(k.name))}
-            transform={`translate(${k.x} ${FEET_Y + k.dy}) rotate(${k.tilt})`}
+            transform={`translate(${k.x} ${FEET_Y + k.dy}) rotate(${k.tilt}) scale(${k.sx} ${k.sy})`}
           >
             <Kid
               name={k.name}
@@ -407,6 +468,7 @@ export const Scene: React.FC = () => {
               expression={k.expression}
               mouth={k.mouth}
               lookX={k.look}
+              lookY={k.lookY}
               turn={k.turn}
               headTilt={k.headTilt}
               sweat={k.sweat}
@@ -416,7 +478,9 @@ export const Scene: React.FC = () => {
           </g>
         ))}
         <Foreground shift={-(view.x + view.w / 2 - WORLD_W / 2) * 0.12} />
+        {car !== null ? <Car x={car} frame={f} /> : null}
         {bus ? <Bus s={bus} /> : null}
+        </g>
       </svg>
       {/* overhead studio lamp: warm hot-spot, falloff toward the corners */}
       <AbsoluteFill

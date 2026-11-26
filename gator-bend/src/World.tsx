@@ -24,7 +24,14 @@ const Txt: React.FC<{ x: number; y: number; size: number; fill: string; children
   </text>
 );
 
-const Palm: React.FC<{ x: number; base: number; top: number; lean: number; variant: number }> = ({ x, base, top, lean, variant }) => {
+const Palm: React.FC<{ x: number; base: number; top: number; lean: number; variant: number; sway?: number }> = ({
+  x,
+  base,
+  top,
+  lean,
+  variant,
+  sway = 0,
+}) => {
   const segs = 9;
   const pieces = [];
   for (let i = 0; i < segs; i++) {
@@ -65,14 +72,16 @@ const Palm: React.FC<{ x: number; base: number; top: number; lean: number; varia
   return (
     <g filter={paper(2, variant)}>
       {pieces}
-      {fronds}
+      <g transform={`rotate(${sway} ${cx} ${top})`}>{fronds}</g>
       <circle cx={cx - 20} cy={top + 30} r={22} fill="#6B4A2B" {...EDGE} />
       <circle cx={cx + 18} cy={top + 36} r={22} fill="#6B4A2B" {...EDGE} />
     </g>
   );
 };
 
-export const Background: React.FC = () => (
+// Fronds rock in the breeze, held 6 frames per pose; the two palms are out of phase.
+const SWAY = [0, 2.5, 4, 2.5, 0, -2.5, -4, -2.5];
+export const Background: React.FC<{ frame?: number }> = ({ frame = 0 }) => (
   <g>
     {/* sky + ground: the table-top sheets */}
     <g filter={paper(0, 0)}>
@@ -80,8 +89,8 @@ export const Background: React.FC = () => (
       <rect x={0} y={2000} width={WORLD_W} height={490} fill="#79B84A" />
       <rect x={0} y={3330} width={WORLD_W} height={WORLD_H - 3330} fill="#6FAE44" />
     </g>
-    {/* clouds */}
-    <g filter={paper(1, 1)}>
+    {/* clouds drift a few units every 6 frames */}
+    <g filter={paper(1, 1)} transform={`translate(${Math.floor(frame / 6) * 4} 0)`}>
       {[
         [420, 520, 1],
         [1300, 300, 0.8],
@@ -127,8 +136,8 @@ export const Background: React.FC = () => (
         </g>
       ))}
     </g>
-    <Palm x={1090} base={2230} top={1180} lean={-60} variant={0} />
-    <Palm x={2290} base={2190} top={1300} lean={50} variant={1} />
+    <Palm x={1090} base={2230} top={1180} lean={-60} variant={0} sway={SWAY[Math.floor(frame / 6) % 8]} />
+    <Palm x={2290} base={2190} top={1300} lean={50} variant={1} sway={SWAY[(Math.floor(frame / 6) + 3) % 8]} />
     {/* pond (back half) + reeds */}
     <g filter={paper(1, 2)}>
       <ellipse cx={POND.cx} cy={POND.cy} rx={POND.rx} ry={POND.ry} fill="#4C93B0" {...EDGE} />
@@ -431,3 +440,28 @@ export const Foreground: React.FC<{ shift: number }> = ({ shift }) => (
     </g>
   </g>
 );
+
+// Far-lane traffic: a retiree's sedan, left blinker on since 2009.
+export const Car: React.FC<{ x: number; frame: number }> = ({ x, frame }) => {
+  const blink = Math.floor(frame / 6) % 2 === 0;
+  const wheel = (x / 60) * (180 / Math.PI);
+  return (
+    <g transform={`translate(${x} 2985)`} filter={paper(2, 2)}>
+      <path d="M 0 -60 L 20 -150 Q 30 -170 60 -172 L 330 -172 Q 360 -170 380 -140 L 440 -100 L 560 -92 Q 600 -88 600 -50 L 600 -20 L 0 -20 Z" fill="#C9D8E8" {...OUTLINE} />
+      <path d="M 70 -158 L 200 -158 L 200 -104 L 50 -104 Z" fill="#7FA6C2" {...OUTLINE} strokeWidth={3} />
+      <path d="M 216 -158 L 324 -158 L 380 -104 L 216 -104 Z" fill="#7FA6C2" {...OUTLINE} strokeWidth={3} />
+      {/* driver: tall white hair, big sunglasses, barely visible over the wheel */}
+      <circle cx={300} cy={-122} r={22} fill="#F2E8DA" {...OUTLINE} strokeWidth={3} />
+      <rect x={300} y={-128} width={26} height={9} rx={4} fill={INK} />
+      <rect x={-6} y={-70} width={30} height={22} rx={6} fill={blink ? "#FFB020" : "#8A5A10"} {...OUTLINE} strokeWidth={3} />
+      <rect x={570} y={-74} width={30} height={20} rx={6} fill="#FFF4C0" {...OUTLINE} strokeWidth={3} />
+      {[130, 470].map((wx) => (
+        <g key={wx} transform={`rotate(${wheel} ${wx} -20)`}>
+          <circle cx={wx} cy={-20} r={46} fill="#222" {...OUTLINE} />
+          <circle cx={wx} cy={-20} r={18} fill="#9AA0A6" />
+          <rect x={wx - 3} y={-38} width={6} height={36} fill="#555" />
+        </g>
+      ))}
+    </g>
+  );
+};

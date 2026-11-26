@@ -44,6 +44,11 @@ Mouths change on twos, like the rest of the animation. The recognizer also check
 - **Punch words:** an ALL-CAPS or `!` word in the caption triggers `emphasisPose` and a hop.
 - **Reactions:** `reactions` sets listeners' expressions. Scared kids jump, then shake.
 - **Sweat:** `"sweat": ["tucker"]` on a beat makes sweat fly off those kids.
+- **Squash & stretch:** kids stretch on takeoff and squash on landing (punch-word hops, scared jumps, walk steps, intro slap-ins).
+- **Three-quarter view:** a turned kid's body narrows, the feet step toward the turn, and the far arm tucks behind the body.
+- **Acting beats:** Danny rolls his eyes when he's annoyed, Tucker shrinks when someone gets loud, Wade blinks slowly.
+- **Camera:** punch words snap the camera in ~12%; `"transition": "whip"` on a beat whip-pans into it with motion blur.
+- **Background life:** palm fronds sway, clouds drift, a retiree's car crosses during the opening (left blinker on).
 
 ### Sound
 

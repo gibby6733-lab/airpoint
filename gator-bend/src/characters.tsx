@@ -272,6 +272,7 @@ export type KidProps = {
   expression: Expression;
   mouth: MouthShape | null; // null = not talking, use the expression's idle mouth
   lookX: number; // -1 .. 1, where the pupils point
+  lookY?: number; // -1 (up, e.g. an eye-roll) .. 1 (down)
   turn?: number; // -1 .. 1, face slides toward this side (cutout "head turn")
   headTilt?: number; // degrees, pivots at the base of the head
   sweat?: number | null; // frame counter for flying sweat drops, null = dry
@@ -289,7 +290,22 @@ const Drop: React.FC<{ x: number; y: number; flip: number }> = ({ x, y, flip }) 
   />
 );
 
-export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, turn = 0, headTilt = 0, sweat = null, step = null, blink }) => {
+export const Kid: React.FC<KidProps> = ({
+  name,
+  pose,
+  expression,
+  mouth,
+  lookX,
+  lookY = 0,
+  turn = 0,
+  headTilt = 0,
+  sweat = null,
+  step = null,
+  blink,
+}) => {
+  // three-quarter view: when the kid turns, the body narrows, the feet step toward the turn
+  // and the far arm tucks behind the body
+  const tq = Math.abs(turn) > 0.3 ? Math.sign(turn) : 0;
   const d = DESIGNS[name];
   const arms = ARMS[pose];
   const big = expression === "scared";
@@ -297,12 +313,14 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
   const ery = big ? 62 : 55;
   const pr = big ? 5 : 7;
   const lidY = expression === "smug" ? EYE_Y + 6 : EYE_Y;
-  const lid = expression === "deadpan" || expression === "smug" || expression === "annoyed";
+  // half-lids for the flat/sarcastic faces, lifted during an eye-roll so the pupils show
+  const lid = (expression === "deadpan" || expression === "smug" || expression === "annoyed") && lookY > -0.5;
   const clipId = `body-${name}`;
   const armColor = d.sleeves ? d.shirt : d.skin;
   return (
     <g>
       {/* shoes: rounded domes; on a walk step one foot lifts and slides forward */}
+      <g transform={`translate(${tq * 16} 0)`}>
       <path
         transform={step === 0 ? "translate(10 -14)" : undefined}
         d="M -116 0 Q -116 -48 -58 -48 Q -4 -48 -4 0 Z"
@@ -315,8 +333,16 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
         fill={d.shoes}
         {...LINE}
       />
+      </g>
       <path d="M -120 -78 L 120 -78 L 114 -30 L -114 -30 Z" fill={d.pants} {...LINE} />
+      {/* far arm, behind the body when turned */}
+      {tq !== 0 ? (
+        <g transform={`translate(${tq * 38} 4)`}>
+          <Arm pts={tq > 0 ? arms.l : arms.r} color={armColor} skin={d.skin} floatie={d.floaties} />
+        </g>
+      ) : null}
       {/* bell-shaped body */}
+      <g transform={tq !== 0 ? "scale(0.94 1)" : undefined}>
       <clipPath id={clipId}>
         <path d={BODY} />
       </clipPath>
@@ -324,14 +350,15 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
       {d.shirtPattern ? <g clipPath={`url(#${clipId})`}>{d.shirtPattern}</g> : null}
       {d.seam ? <path d="M 0 -220 L 0 -64" stroke={INK} strokeWidth={4} /> : null}
       <g transform={`translate(${turn * 14} 0)`}>{d.chest}</g>
+      </g>
       {pose === "phone" ? (
         <g>
           <rect x={22} y={-232} width={52} height={86} rx={9} fill="#202020" {...LINE} />
           <rect x={29} y={-223} width={38} height={62} rx={4} fill="#7fd7ff" />
         </g>
       ) : null}
-      <Arm pts={arms.l} color={armColor} skin={d.skin} floatie={d.floaties} swing={step === null ? 0 : step ? 12 : -12} />
-      <Arm pts={arms.r} color={armColor} skin={d.skin} floatie={d.floaties} swing={step === null ? 0 : step ? 12 : -12} />
+      {tq <= 0 ? <Arm pts={arms.l} color={armColor} skin={d.skin} floatie={d.floaties} swing={step === null ? 0 : step ? 12 : -12} /> : null}
+      {tq >= 0 ? <Arm pts={arms.r} color={armColor} skin={d.skin} floatie={d.floaties} swing={step === null ? 0 : step ? 12 : -12} /> : null}
       {/* the head: its own card, sits straight on the body, no neck */}
       <g filter="url(#lift)" transform={`rotate(${headTilt} 0 -220) translate(0 -326) scale(1.08 0.955) translate(0 345)`}>
         {/* three-quarter turn: the far ear peeks out behind the head */}
@@ -356,7 +383,7 @@ export const Kid: React.FC<KidProps> = ({ name, pose, expression, mouth, lookX, 
                 </g>
               ) : (
                 <g>
-                  <circle cx={cx + lookX * 20 - side * 8} cy={EYE_Y + 4} r={pr} fill={INK} />
+                  <circle cx={cx + lookX * 20 - side * 8} cy={EYE_Y + 4 + lookY * 30} r={pr} fill={INK} />
                   {lid ? (
                     <path d={`M ${cx - erx} ${lidY} A ${erx} ${ery} 0 0 1 ${cx + erx} ${lidY} Z`} fill={d.skin} {...LINE} strokeWidth={3.5} />
                   ) : null}

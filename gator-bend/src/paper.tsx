@@ -72,6 +72,10 @@ export const PaperDefs: React.FC<{ frame?: number }> = ({ frame = 0 }) => {
             <PaperFilter key={`${depth}-${v}`} id={`paper-${depth}-${v}`} seed={3 + v * 13} depth={depth} boil={boil} />
           )),
         )}
+        {/* whip-pan motion blur: horizontal only */}
+        <filter id="whip" x="-10%" y="0%" width="120%" height="100%">
+          <feGaussianBlur stdDeviation="28 0" />
+        </filter>
         {/* small shadow for parts layered on the same character (head over body, eyes over head) */}
         <filter id="lift" x="-20%" y="-20%" width="140%" height="140%">
           <feDropShadow dx={1} dy={3} stdDeviation={2} floodColor={SHADOW} floodOpacity={0.2} />

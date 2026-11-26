@@ -25,6 +25,8 @@ const CARD_ACT: Record<string, { pose: Pose; expression: Expression }> = {
 
 // Slap-in offsets on held poses: from below, overshoot, settle.
 const slap = (local: number) => (local < 2 ? 700 : local < 4 ? -60 : local < 6 ? 20 : 0);
+// Matching squash & stretch: stretched while flying up, squashed on the landing.
+const slapScale = (local: number) => (local < 4 ? "scale(0.92 1.1)" : local < 6 ? "scale(1.1 0.9)" : "");
 
 const Card: React.FC<{ local: number; who: string; name: string; tag: string; color: string }> = ({ local, who, name, tag, color }) => {
   const l = onTwos(local);
@@ -41,7 +43,7 @@ const Card: React.FC<{ local: number; who: string; name: string; tag: string; co
       </g>
       {/* sidewalk strip the kid lands on */}
       <rect x={0} y={1480} width={1080} height={440} fill="#D2CFC6" filter={paper(1, 2)} />
-      <g filter={paper(3, 0)} transform={`translate(540 ${1520 + slap(l)}) scale(1.9)`}>
+      <g filter={paper(3, 0)} transform={`translate(540 ${1520 + slap(l)}) scale(1.9) ${slapScale(l)}`}>
         <Kid name={who} pose={act.pose} expression={act.expression} mouth={null} lookX={0} blink={l >= 18 && l < 20} />
       </g>
       {nameIn ? (
@@ -88,7 +90,7 @@ const LineUp: React.FC<{ local: number; cards: { who: string }[]; tagline: strin
         const wadeX = 160 + 3 * 253;
         const look = atWade && c.who !== "wade" ? Math.max(-1, Math.min(1, (wadeX - x) / 200)) : 0;
         return (
-          <g key={c.who} filter={paper(2, i % 3)} transform={`translate(${x} ${1640 + slap(appear) * 0.6}) scale(0.64)`}>
+          <g key={c.who} filter={paper(2, i % 3)} transform={`translate(${x} ${1640 + slap(appear) * 0.6}) scale(0.64) ${slapScale(appear)}`}>
             <Kid
               name={c.who}
               pose={c.who === "wade" ? "idle" : act.pose}

@@ -746,6 +746,7 @@
    "pose": "point",
    "camera": "two:wade,gator",
    "look": "gator",
+   "transition": "whip",
    "index": 8,
    "start": 401,
    "end": 437,
@@ -1101,6 +1102,7 @@
     "bray": "scared",
     "danny": "deadpan"
    },
+   "transition": "whip",
    "index": 13,
    "start": 655,
    "end": 693
