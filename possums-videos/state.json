@@ -1,12 +1,12 @@
 {
- "after_day": 13,
- "fund_dollars": 95,
+ "after_day": 14,
+ "fund_dollars": 116,
  "record": {
-  "wins": 6,
+  "wins": 7,
   "losses": 7
  },
  "fans": 0,
- "next_opponent": "Pine Hollow Badgers — winner goes to the playoffs",
+ "next_opponent": "PLAYOFF GAME 1 vs Red Rock Rattlers (lose and the season ends)",
  "upgrades_owned": [
   "helmets for everyone (Day 2, $50)",
   "locker room: a garden shed with lockers (Day 3, $200)",
@@ -19,7 +19,8 @@
   "stadium lights (Day 10, $300)",
   "hot dog stand run by a dog (Day 11, $200)",
   "cheer uniforms (Day 12, $150)",
-  "training camp run by the cow (Day 13, $250)"
+  "training camp run by the cow (Day 13, $250)",
+  "spray-painted blackout jerseys (Day 14, $20, still wet)"
  ],
  "stadium": {
   "gear": "new matching helmets for everyone (Big Lou's is two sizes too small)",
@@ -34,9 +35,9 @@
   "cheer": "cheer squad in uniforms (the cow too)"
  },
  "upgrade_prices": {
+  "blackout_uniforms": 200,
   "jumbotron": 400,
-  "mascot_costume": 100,
-  "blackout_uniforms": 200
+  "mascot_costume": 100
  },
  "roster": {
   "Big Lou": "center, scared of the ball (#55)",
@@ -291,6 +292,24 @@
     "krissssss",
     "Lucas"
    ]
+  },
+  {
+   "day": 14,
+   "built": "2026-11-27",
+   "likes_in": 41,
+   "likes_tiktok": 41,
+   "winning_comment": "blackout uniforms (Troy 3, Zilischfan88 3, krissssss 2) — couldn't afford $200, Earl spray-painted for $20",
+   "bought": "spray paint $20",
+   "opponent": "Pine Hollow Badgers",
+   "score": "14-10 W",
+   "note": "CLINCHED PLAYOFFS. Ilovemyhg (7 likes) started at QB, TD to ThatBoyMasyn; Ayden's skunk speech; Peter 'day one or one day'; elijah 3 sacks; krissssss game-winning pick six; Day 1 vs Day 14 journey card.",
+   "fan_signings": [
+    "Ilovemyhg starting QB",
+    "elijah",
+    "krissssss",
+    "Peter speech",
+    "Ayden speech"
+   ]
   }
  ],
  "fan_roster": [
@@ -334,5 +353,6 @@
   "tiktok": "https://www.tiktok.com/@mudville.possums",
   "instagram": "https://www.instagram.com/mudville.possums/"
  },
- "arc": "PLAYOFF RACE: 6-7, win game 14 vs Badgers to make playoffs. MVP vote: Graham (water boy). Rival: Iron Ridge Rams coach (first loss ever on Day 13)."
+ "arc": "PLAYOFFS clinched at 7-7. Next: Playoff Game 1 vs Red Rock Rattlers. MVP Graham. Rival Rams coach.",
+ "saving_for": "real blackout uniforms $200 (fund $116)"
 }

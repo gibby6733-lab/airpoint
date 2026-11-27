@@ -1,0 +1,271 @@
+{
+ "episode": 14,
+ "voice": "am_michael",
+ "speed": 1.15,
+ "fps": 60,
+ "crf": 16,
+ "lines": [
+  {
+   "scene": "intro",
+   "text": "Day fourteen. Forty one likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ]
+  },
+  {
+   "scene": "fund14",
+   "text": "Forty one dollars. The bank has one thirty six.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ]
+  },
+  {
+   "scene": "comment14",
+   "text": "You want blackout uniforms. They cost two hundred. We have one thirty six.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "stamp",
+     "@two"
+    ],
+    [
+     "sad",
+     "@have"
+    ]
+   ]
+  },
+  {
+   "scene": "paint14",
+   "text": "So Earl bought black spray paint. Twenty dollars. It's still wet.",
+   "sfx": [
+    [
+     "spend",
+     "@twenty"
+    ],
+    [
+     "swipe",
+     "@wet"
+    ]
+   ]
+  },
+  {
+   "scene": "starter14",
+   "text": "Ilovemyhg got seven likes for, I'm back, make me starter. He starts at quarterback!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "stamp",
+     "@seven"
+    ],
+    [
+     "crowd",
+     "@starts"
+    ]
+   ]
+  },
+  {
+   "scene": "speech14",
+   "text": "Ayden gave the speech. We can beat this skunk team! Coach says, they're badgers.",
+   "sfx": [
+    [
+     "pop",
+     "@ayden"
+    ],
+    [
+     "crowd",
+     "@skunk"
+    ],
+    [
+     "boing",
+     "@badgers"
+    ]
+   ]
+  },
+  {
+   "scene": "peter14",
+   "text": "Then Peter stood up. Day one, or one day.",
+   "sfx": [
+    [
+     "pop",
+     "@peter"
+    ],
+    [
+     "stamp",
+     "@day"
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard14",
+   "text": "Game fourteen. The Pine Hollow Badgers. Win, and we're in the playoffs.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@playoffs"
+    ]
+   ]
+  },
+  {
+   "scene": "g_paint",
+   "text": "First play. Our wet paint gets all over the Badgers.",
+   "sfx": [
+    [
+     "swipe",
+     "@paint"
+    ],
+    [
+     "boing",
+     "@all"
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb14",
+   "text": "Our new starting quarterback throws a touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@throws"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ]
+  },
+  {
+   "scene": "g_elijah14",
+   "text": "Elijah asked for three sacks. One. Two. Three!",
+   "sfx": [
+    [
+     "bonk",
+     "@one"
+    ],
+    [
+     "bonk",
+     "@two"
+    ],
+    [
+     "bonk",
+     "@three"
+    ]
+   ]
+  },
+  {
+   "scene": "g_badg",
+   "text": "The Badgers dig in for a touchdown and a field goal.",
+   "sfx": [
+    [
+     "sad",
+     "@touchdown"
+    ],
+    [
+     "kick",
+     "@field"
+    ]
+   ]
+  },
+  {
+   "scene": "g_pick6",
+   "text": "Last minute. Our corner asked for a game winning pick six. He gets it!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@gets"
+    ],
+    [
+     "crowd",
+     "@it"
+    ]
+   ]
+  },
+  {
+   "scene": "clinch14",
+   "text": "We win! The Mudville Possums are going to the playoffs!",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "crowd",
+     "@playoffs"
+    ]
+   ]
+  },
+  {
+   "scene": "journey14",
+   "text": "Fourteen days ago, we were the worst team in America. You built this.",
+   "sfx": [
+    [
+     "sad",
+     "@worst"
+    ],
+    [
+     "crowd",
+     "@built"
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame14",
+   "text": "Next, playoff game one. The Red Rock Rattlers.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@rattlers"
+    ]
+   ]
+  },
+  {
+   "scene": "cta14",
+   "text": "Every like is a dollar. We're still saving for real blackout uniforms. Comment your playoff position!",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@blackout"
+    ],
+    [
+     "ding",
+     "@playoff"
+    ]
+   ]
+  }
+ ]
+}

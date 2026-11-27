@@ -1,0 +1,1361 @@
+{
+ "duration": 68.707,
+ "lines": [
+  {
+   "scene": "g_pick6",
+   "text": "Last minute. Our corner asked for a game winning pick six. He gets it!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@gets"
+    ],
+    [
+     "crowd",
+     "@it"
+    ]
+   ],
+   "start": 0.375,
+   "end": 4.253,
+   "words": [
+    {
+     "w": "Last",
+     "s": 0.375
+    },
+    {
+     "w": "minute.",
+     "s": 0.631
+    },
+    {
+     "w": "Our",
+     "s": 1.1
+    },
+    {
+     "w": "corner",
+     "s": 1.313
+    },
+    {
+     "w": "asked",
+     "s": 1.654
+    },
+    {
+     "w": "for",
+     "s": 1.952
+    },
+    {
+     "w": "a",
+     "s": 2.165
+    },
+    {
+     "w": "game",
+     "s": 2.293
+    },
+    {
+     "w": "winning",
+     "s": 2.549
+    },
+    {
+     "w": "pick",
+     "s": 2.932
+    },
+    {
+     "w": "six.",
+     "s": 3.188
+    },
+    {
+     "w": "He",
+     "s": 3.529
+    },
+    {
+     "w": "gets",
+     "s": 3.699
+    },
+    {
+     "w": "it!",
+     "s": 3.955
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     0.375
+    ],
+    [
+     "ding",
+     3.699
+    ],
+    [
+     "crowd",
+     3.955
+    ]
+   ],
+   "cold": true,
+   "rewind": true
+  },
+  {
+   "scene": "intro",
+   "text": "Day fourteen. Forty one likes.",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "stamp",
+     0.05
+    ]
+   ],
+   "start": 5.403,
+   "end": 7.343,
+   "words": [
+    {
+     "w": "Day",
+     "s": 5.403
+    },
+    {
+     "w": "fourteen.",
+     "s": 5.645
+    },
+    {
+     "w": "Forty",
+     "s": 6.276
+    },
+    {
+     "w": "one",
+     "s": 6.615
+    },
+    {
+     "w": "likes.",
+     "s": 6.858
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     5.403
+    ],
+    [
+     "stamp",
+     5.5
+    ]
+   ]
+  },
+  {
+   "scene": "fund14",
+   "text": "Forty one dollars. The bank has one thirty six.",
+   "sfx": [
+    [
+     "cash",
+     0.15
+    ],
+    [
+     "ding",
+     "@one"
+    ]
+   ],
+   "start": 7.563,
+   "end": 10.456,
+   "words": [
+    {
+     "w": "Forty",
+     "s": 7.563
+    },
+    {
+     "w": "one",
+     "s": 7.895
+    },
+    {
+     "w": "dollars.",
+     "s": 8.132
+    },
+    {
+     "w": "The",
+     "s": 8.701
+    },
+    {
+     "w": "bank",
+     "s": 8.938
+    },
+    {
+     "w": "has",
+     "s": 9.223
+    },
+    {
+     "w": "one",
+     "s": 9.46
+    },
+    {
+     "w": "thirty",
+     "s": 9.697
+    },
+    {
+     "w": "six.",
+     "s": 10.076
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     7.997
+    ],
+    [
+     "ding",
+     7.895
+    ]
+   ]
+  },
+  {
+   "scene": "comment14",
+   "text": "You want blackout uniforms. They cost two hundred. We have one thirty six.",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "stamp",
+     "@two"
+    ],
+    [
+     "sad",
+     "@have"
+    ]
+   ],
+   "start": 10.676,
+   "end": 15.005,
+   "words": [
+    {
+     "w": "You",
+     "s": 10.676
+    },
+    {
+     "w": "want",
+     "s": 10.906
+    },
+    {
+     "w": "blackout",
+     "s": 11.182
+    },
+    {
+     "w": "uniforms.",
+     "s": 11.643
+    },
+    {
+     "w": "They",
+     "s": 12.242
+    },
+    {
+     "w": "cost",
+     "s": 12.518
+    },
+    {
+     "w": "two",
+     "s": 12.794
+    },
+    {
+     "w": "hundred.",
+     "s": 13.025
+    },
+    {
+     "w": "We",
+     "s": 13.577
+    },
+    {
+     "w": "have",
+     "s": 13.762
+    },
+    {
+     "w": "one",
+     "s": 14.038
+    },
+    {
+     "w": "thirty",
+     "s": 14.268
+    },
+    {
+     "w": "six.",
+     "s": 14.637
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     10.676
+    ],
+    [
+     "stamp",
+     12.794
+    ],
+    [
+     "sad",
+     13.762
+    ]
+   ]
+  },
+  {
+   "scene": "paint14",
+   "text": "So Earl bought black spray paint. Twenty dollars. It's still wet.",
+   "sfx": [
+    [
+     "spend",
+     "@twenty"
+    ],
+    [
+     "swipe",
+     "@wet"
+    ]
+   ],
+   "start": 15.225,
+   "end": 18.656,
+   "words": [
+    {
+     "w": "So",
+     "s": 15.225
+    },
+    {
+     "w": "Earl",
+     "s": 15.393
+    },
+    {
+     "w": "bought",
+     "s": 15.644
+    },
+    {
+     "w": "black",
+     "s": 15.978
+    },
+    {
+     "w": "spray",
+     "s": 16.271
+    },
+    {
+     "w": "paint.",
+     "s": 16.564
+    },
+    {
+     "w": "Twenty",
+     "s": 16.982
+    },
+    {
+     "w": "dollars.",
+     "s": 17.317
+    },
+    {
+     "w": "It's",
+     "s": 17.819
+    },
+    {
+     "w": "still",
+     "s": 18.028
+    },
+    {
+     "w": "wet.",
+     "s": 18.321
+    }
+   ],
+   "sfx_times": [
+    [
+     "spend",
+     16.982
+    ],
+    [
+     "swipe",
+     18.321
+    ]
+   ]
+  },
+  {
+   "scene": "starter14",
+   "text": "Ilovemyhg got seven likes for, I'm back, make me starter. He starts at quarterback!",
+   "sfx": [
+    [
+     "pop",
+     0.0
+    ],
+    [
+     "stamp",
+     "@seven"
+    ],
+    [
+     "crowd",
+     "@starts"
+    ]
+   ],
+   "start": 18.876,
+   "end": 23.707,
+   "words": [
+    {
+     "w": "Ilovemyhg",
+     "s": 18.876
+    },
+    {
+     "w": "got",
+     "s": 19.382
+    },
+    {
+     "w": "seven",
+     "s": 19.612
+    },
+    {
+     "w": "likes",
+     "s": 19.934
+    },
+    {
+     "w": "for,",
+     "s": 20.256
+    },
+    {
+     "w": "I'm",
+     "s": 20.624
+    },
+    {
+     "w": "back,",
+     "s": 20.808
+    },
+    {
+     "w": "make",
+     "s": 21.222
+    },
+    {
+     "w": "me",
+     "s": 21.498
+    },
+    {
+     "w": "starter.",
+     "s": 21.682
+    },
+    {
+     "w": "He",
+     "s": 22.235
+    },
+    {
+     "w": "starts",
+     "s": 22.419
+    },
+    {
+     "w": "at",
+     "s": 22.787
+    },
+    {
+     "w": "quarterback!",
+     "s": 22.971
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     18.876
+    ],
+    [
+     "stamp",
+     19.612
+    ],
+    [
+     "crowd",
+     22.419
+    ]
+   ]
+  },
+  {
+   "scene": "speech14",
+   "text": "Ayden gave the speech. We can beat this skunk team! Coach says, they're badgers.",
+   "sfx": [
+    [
+     "pop",
+     "@ayden"
+    ],
+    [
+     "crowd",
+     "@skunk"
+    ],
+    [
+     "boing",
+     "@badgers"
+    ]
+   ],
+   "start": 23.927,
+   "end": 28.593,
+   "words": [
+    {
+     "w": "Ayden",
+     "s": 23.927
+    },
+    {
+     "w": "gave",
+     "s": 24.247
+    },
+    {
+     "w": "the",
+     "s": 24.522
+    },
+    {
+     "w": "speech.",
+     "s": 24.75
+    },
+    {
+     "w": "We",
+     "s": 25.254
+    },
+    {
+     "w": "can",
+     "s": 25.437
+    },
+    {
+     "w": "beat",
+     "s": 25.665
+    },
+    {
+     "w": "this",
+     "s": 25.94
+    },
+    {
+     "w": "skunk",
+     "s": 26.214
+    },
+    {
+     "w": "team!",
+     "s": 26.534
+    },
+    {
+     "w": "Coach",
+     "s": 26.946
+    },
+    {
+     "w": "says,",
+     "s": 27.266
+    },
+    {
+     "w": "they're",
+     "s": 27.678
+    },
+    {
+     "w": "badgers.",
+     "s": 28.044
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     23.927
+    ],
+    [
+     "crowd",
+     26.214
+    ],
+    [
+     "boing",
+     28.044
+    ]
+   ]
+  },
+  {
+   "scene": "peter14",
+   "text": "Then Peter stood up. Day one, or one day.",
+   "sfx": [
+    [
+     "pop",
+     "@peter"
+    ],
+    [
+     "stamp",
+     "@day"
+    ]
+   ],
+   "start": 28.813,
+   "end": 31.345,
+   "words": [
+    {
+     "w": "Then",
+     "s": 28.813
+    },
+    {
+     "w": "Peter",
+     "s": 29.08
+    },
+    {
+     "w": "stood",
+     "s": 29.39
+    },
+    {
+     "w": "up.",
+     "s": 29.701
+    },
+    {
+     "w": "Day",
+     "s": 30.012
+    },
+    {
+     "w": "one,",
+     "s": 30.235
+    },
+    {
+     "w": "or",
+     "s": 30.59
+    },
+    {
+     "w": "one",
+     "s": 30.768
+    },
+    {
+     "w": "day.",
+     "s": 30.99
+    }
+   ],
+   "sfx_times": [
+    [
+     "pop",
+     29.08
+    ],
+    [
+     "stamp",
+     30.012
+    ]
+   ]
+  },
+  {
+   "scene": "matchcard14",
+   "text": "Game fourteen. The Pine Hollow Badgers. Win, and we're in the playoffs.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@playoffs"
+    ]
+   ],
+   "start": 31.565,
+   "end": 35.455,
+   "words": [
+    {
+     "w": "Game",
+     "s": 31.565
+    },
+    {
+     "w": "fourteen.",
+     "s": 31.822
+    },
+    {
+     "w": "The",
+     "s": 32.377
+    },
+    {
+     "w": "Pine",
+     "s": 32.591
+    },
+    {
+     "w": "Hollow",
+     "s": 32.848
+    },
+    {
+     "w": "Badgers.",
+     "s": 33.19
+    },
+    {
+     "w": "Win,",
+     "s": 33.703
+    },
+    {
+     "w": "and",
+     "s": 34.045
+    },
+    {
+     "w": "we're",
+     "s": 34.258
+    },
+    {
+     "w": "in",
+     "s": 34.515
+    },
+    {
+     "w": "the",
+     "s": 34.686
+    },
+    {
+     "w": "playoffs.",
+     "s": 34.9
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     31.565
+    ],
+    [
+     "stamp",
+     34.9
+    ]
+   ]
+  },
+  {
+   "scene": "g_paint",
+   "text": "First play. Our wet paint gets all over the Badgers.",
+   "sfx": [
+    [
+     "swipe",
+     "@paint"
+    ],
+    [
+     "boing",
+     "@all"
+    ]
+   ],
+   "start": 35.675,
+   "end": 38.476,
+   "words": [
+    {
+     "w": "First",
+     "s": 35.675
+    },
+    {
+     "w": "play.",
+     "s": 35.968
+    },
+    {
+     "w": "Our",
+     "s": 36.344
+    },
+    {
+     "w": "wet",
+     "s": 36.553
+    },
+    {
+     "w": "paint",
+     "s": 36.762
+    },
+    {
+     "w": "gets",
+     "s": 37.055
+    },
+    {
+     "w": "all",
+     "s": 37.306
+    },
+    {
+     "w": "over",
+     "s": 37.515
+    },
+    {
+     "w": "the",
+     "s": 37.765
+    },
+    {
+     "w": "Badgers.",
+     "s": 37.974
+    }
+   ],
+   "sfx_times": [
+    [
+     "swipe",
+     36.762
+    ],
+    [
+     "boing",
+     37.306
+    ]
+   ]
+  },
+  {
+   "scene": "g_qb14",
+   "text": "Our new starting quarterback throws a touchdown!",
+   "sfx": [
+    [
+     "whoosh",
+     "@throws"
+    ],
+    [
+     "crowd",
+     "@touchdown"
+    ]
+   ],
+   "start": 38.696,
+   "end": 41.051,
+   "words": [
+    {
+     "w": "Our",
+     "s": 38.696
+    },
+    {
+     "w": "new",
+     "s": 38.899
+    },
+    {
+     "w": "starting",
+     "s": 39.102
+    },
+    {
+     "w": "quarterback",
+     "s": 39.508
+    },
+    {
+     "w": "throws",
+     "s": 40.036
+    },
+    {
+     "w": "a",
+     "s": 40.361
+    },
+    {
+     "w": "touchdown!",
+     "s": 40.482
+    }
+   ],
+   "sfx_times": [
+    [
+     "whoosh",
+     40.036
+    ],
+    [
+     "crowd",
+     40.482
+    ]
+   ]
+  },
+  {
+   "scene": "g_elijah14",
+   "text": "Elijah asked for three sacks. One. Two. Three!",
+   "sfx": [
+    [
+     "bonk",
+     "@one"
+    ],
+    [
+     "bonk",
+     "@two"
+    ],
+    [
+     "bonk",
+     "@three"
+    ]
+   ],
+   "start": 41.271,
+   "end": 44.089,
+   "words": [
+    {
+     "w": "Elijah",
+     "s": 41.271
+    },
+    {
+     "w": "asked",
+     "s": 41.629
+    },
+    {
+     "w": "for",
+     "s": 41.942
+    },
+    {
+     "w": "three",
+     "s": 42.165
+    },
+    {
+     "w": "sacks.",
+     "s": 42.478
+    },
+    {
+     "w": "One.",
+     "s": 42.926
+    },
+    {
+     "w": "Two.",
+     "s": 43.284
+    },
+    {
+     "w": "Three!",
+     "s": 43.641
+    }
+   ],
+   "sfx_times": [
+    [
+     "bonk",
+     42.926
+    ],
+    [
+     "bonk",
+     43.284
+    ],
+    [
+     "bonk",
+     42.165
+    ]
+   ]
+  },
+  {
+   "scene": "g_badg",
+   "text": "The Badgers dig in for a touchdown and a field goal.",
+   "sfx": [
+    [
+     "sad",
+     "@touchdown"
+    ],
+    [
+     "kick",
+     "@field"
+    ]
+   ],
+   "start": 44.309,
+   "end": 47.093,
+   "words": [
+    {
+     "w": "The",
+     "s": 44.309
+    },
+    {
+     "w": "Badgers",
+     "s": 44.52
+    },
+    {
+     "w": "dig",
+     "s": 44.899
+    },
+    {
+     "w": "in",
+     "s": 45.11
+    },
+    {
+     "w": "for",
+     "s": 45.279
+    },
+    {
+     "w": "a",
+     "s": 45.49
+    },
+    {
+     "w": "touchdown",
+     "s": 45.617
+    },
+    {
+     "w": "and",
+     "s": 46.081
+    },
+    {
+     "w": "a",
+     "s": 46.292
+    },
+    {
+     "w": "field",
+     "s": 46.418
+    },
+    {
+     "w": "goal.",
+     "s": 46.714
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     45.617
+    ],
+    [
+     "kick",
+     46.418
+    ]
+   ]
+  },
+  {
+   "scene": "g_pick6",
+   "text": "Last minute. Our corner asked for a game winning pick six. He gets it!",
+   "sfx": [
+    [
+     "whistle",
+     0.0
+    ],
+    [
+     "ding",
+     "@gets"
+    ],
+    [
+     "crowd",
+     "@it"
+    ]
+   ],
+   "start": 47.313,
+   "end": 51.191,
+   "words": [
+    {
+     "w": "Last",
+     "s": 47.313
+    },
+    {
+     "w": "minute.",
+     "s": 47.569
+    },
+    {
+     "w": "Our",
+     "s": 48.038
+    },
+    {
+     "w": "corner",
+     "s": 48.251
+    },
+    {
+     "w": "asked",
+     "s": 48.592
+    },
+    {
+     "w": "for",
+     "s": 48.89
+    },
+    {
+     "w": "a",
+     "s": 49.103
+    },
+    {
+     "w": "game",
+     "s": 49.231
+    },
+    {
+     "w": "winning",
+     "s": 49.487
+    },
+    {
+     "w": "pick",
+     "s": 49.87
+    },
+    {
+     "w": "six.",
+     "s": 50.126
+    },
+    {
+     "w": "He",
+     "s": 50.467
+    },
+    {
+     "w": "gets",
+     "s": 50.637
+    },
+    {
+     "w": "it!",
+     "s": 50.893
+    }
+   ],
+   "sfx_times": [
+    [
+     "whistle",
+     47.313
+    ],
+    [
+     "ding",
+     50.637
+    ],
+    [
+     "crowd",
+     50.893
+    ]
+   ]
+  },
+  {
+   "scene": "clinch14",
+   "text": "We win! The Mudville Possums are going to the playoffs!",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "crowd",
+     "@playoffs"
+    ]
+   ],
+   "start": 51.411,
+   "end": 54.16,
+   "words": [
+    {
+     "w": "We",
+     "s": 51.411
+    },
+    {
+     "w": "win!",
+     "s": 51.568
+    },
+    {
+     "w": "The",
+     "s": 51.882
+    },
+    {
+     "w": "Mudville",
+     "s": 52.079
+    },
+    {
+     "w": "Possums",
+     "s": 52.471
+    },
+    {
+     "w": "are",
+     "s": 52.825
+    },
+    {
+     "w": "going",
+     "s": 53.021
+    },
+    {
+     "w": "to",
+     "s": 53.296
+    },
+    {
+     "w": "the",
+     "s": 53.453
+    },
+    {
+     "w": "playoffs!",
+     "s": 53.649
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     51.411
+    ],
+    [
+     "crowd",
+     53.649
+    ]
+   ]
+  },
+  {
+   "scene": "journey14",
+   "text": "Fourteen days ago, we were the worst team in America. You built this.",
+   "sfx": [
+    [
+     "sad",
+     "@worst"
+    ],
+    [
+     "crowd",
+     "@built"
+    ]
+   ],
+   "start": 54.38,
+   "end": 58.055,
+   "words": [
+    {
+     "w": "Fourteen",
+     "s": 54.38
+    },
+    {
+     "w": "days",
+     "s": 54.793
+    },
+    {
+     "w": "ago,",
+     "s": 55.041
+    },
+    {
+     "w": "we",
+     "s": 55.371
+    },
+    {
+     "w": "were",
+     "s": 55.536
+    },
+    {
+     "w": "the",
+     "s": 55.784
+    },
+    {
+     "w": "worst",
+     "s": 55.99
+    },
+    {
+     "w": "team",
+     "s": 56.279
+    },
+    {
+     "w": "in",
+     "s": 56.527
+    },
+    {
+     "w": "America.",
+     "s": 56.692
+    },
+    {
+     "w": "You",
+     "s": 57.187
+    },
+    {
+     "w": "built",
+     "s": 57.394
+    },
+    {
+     "w": "this.",
+     "s": 57.683
+    }
+   ],
+   "sfx_times": [
+    [
+     "sad",
+     55.99
+    ],
+    [
+     "crowd",
+     57.394
+    ]
+   ]
+  },
+  {
+   "scene": "nextgame14",
+   "text": "Next, playoff game one. The Red Rock Rattlers.",
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "stamp",
+     "@rattlers"
+    ]
+   ],
+   "start": 58.274,
+   "end": 61.038,
+   "words": [
+    {
+     "w": "Next,",
+     "s": 58.274
+    },
+    {
+     "w": "playoff",
+     "s": 58.682
+    },
+    {
+     "w": "game",
+     "s": 59.09
+    },
+    {
+     "w": "one.",
+     "s": 59.362
+    },
+    {
+     "w": "The",
+     "s": 59.724
+    },
+    {
+     "w": "Red",
+     "s": 59.951
+    },
+    {
+     "w": "Rock",
+     "s": 60.177
+    },
+    {
+     "w": "Rattlers.",
+     "s": 60.449
+    }
+   ],
+   "sfx_times": [
+    [
+     "horn",
+     58.274
+    ],
+    [
+     "stamp",
+     60.449
+    ]
+   ]
+  },
+  {
+   "scene": "cta14",
+   "text": "Every like is a dollar. We're still saving for real blackout uniforms. Comment your playoff position!",
+   "sfx": [
+    [
+     "cash",
+     "@dollar"
+    ],
+    [
+     "pop",
+     "@blackout"
+    ],
+    [
+     "ding",
+     "@playoff"
+    ]
+   ],
+   "start": 61.258,
+   "end": 67.207,
+   "words": [
+    {
+     "w": "Every",
+     "s": 61.258
+    },
+    {
+     "w": "like",
+     "s": 61.596
+    },
+    {
+     "w": "is",
+     "s": 61.886
+    },
+    {
+     "w": "a",
+     "s": 62.08
+    },
+    {
+     "w": "dollar.",
+     "s": 62.225
+    },
+    {
+     "w": "We're",
+     "s": 62.757
+    },
+    {
+     "w": "still",
+     "s": 63.047
+    },
+    {
+     "w": "saving",
+     "s": 63.386
+    },
+    {
+     "w": "for",
+     "s": 63.773
+    },
+    {
+     "w": "real",
+     "s": 64.014
+    },
+    {
+     "w": "blackout",
+     "s": 64.305
+    },
+    {
+     "w": "uniforms.",
+     "s": 64.788
+    },
+    {
+     "w": "Comment",
+     "s": 65.417
+    },
+    {
+     "w": "your",
+     "s": 65.852
+    },
+    {
+     "w": "playoff",
+     "s": 66.142
+    },
+    {
+     "w": "position!",
+     "s": 66.578
+    }
+   ],
+   "sfx_times": [
+    [
+     "cash",
+     62.225
+    ],
+    [
+     "pop",
+     64.305
+    ],
+    [
+     "ding",
+     66.142
+    ]
+   ]
+  }
+ ],
+ "fps": 60,
+ "crf": 16
+}
