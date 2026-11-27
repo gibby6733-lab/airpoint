@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTC 15m Momentum Bot</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">₿</div>
+    <div>
+      <div class="brand-title">BTC 15m Momentum</div>
+      <div class="brand-sub">Kalshi UP/DOWN · disciplined entries only</div>
+    </div>
+  </div>
+  <div class="top-center">
+    <div class="btc-label">BTC / USD <span id="feed-status" class="pill">connecting</span></div>
+    <div class="btc-price" id="btc-price">—</div>
+  </div>
+  <div class="top-right">
+    <span id="mode-badge" class="badge badge-paper">PAPER</span>
+    <span id="source-badge" class="badge badge-muted">—</span>
+    <button id="kill-btn" class="btn btn-danger" title="Stop all new orders immediately">KILL SWITCH</button>
+  </div>
+</header>
+
+<div id="banner" class="banner hidden"></div>
+
+<main class="grid">
+  <!-- Market -->
+  <section class="card span-4">
+    <div class="card-head"><h2>Current Market</h2><span id="phase" class="pill">—</span></div>
+    <div class="mono small muted" id="m-ticker">waiting for market…</div>
+    <div class="countdowns">
+      <div>
+        <div class="label">Expires in</div>
+        <div class="big mono" id="cd-close">--:--</div>
+      </div>
+      <div>
+        <div class="label">Observation (first 3 min)</div>
+        <div class="big mono" id="cd-obs">--:--</div>
+      </div>
+    </div>
+    <div class="progress"><div id="obs-bar" class="progress-fill"></div><div class="progress-mark" style="left:20%"></div></div>
+    <div class="progress-legend"><span>open</span><span>min 3 · decision</span><span>close</span></div>
+    <div class="kv-grid">
+      <div><span>Reference</span><b class="mono" id="m-ref">—</b></div>
+      <div><span>Kalshi strike</span><b class="mono" id="m-strike">—</b></div>
+      <div><span>UP ask / bid</span><b class="mono" id="m-up">—</b></div>
+      <div><span>DOWN ask / bid</span><b class="mono" id="m-down">—</b></div>
+    </div>
+  </section>
+
+  <!-- Momentum -->
+  <section class="card span-4">
+    <div class="card-head"><h2>Momentum</h2><span class="pill" id="mom-live">—</span></div>
+    <div class="momentum-main">
+      <div id="mom-dir" class="dir dir-none">—</div>
+      <div class="conf">
+        <div class="label">Confidence</div>
+        <div class="big mono" id="mom-conf">—</div>
+        <div class="meter"><div id="conf-bar" class="meter-fill"></div><div id="conf-thr" class="meter-thr"></div></div>
+      </div>
+    </div>
+    <div class="kv-grid">
+      <div><span>Move since open</span><b class="mono" id="f-ret">—</b></div>
+      <div><span>z-score</span><b class="mono" id="f-z">—</b></div>
+      <div><span>Slope</span><b class="mono" id="f-slope">—</b></div>
+      <div><span>Acceleration</span><b class="mono" id="f-accel">—</b></div>
+      <div><span>Efficiency</span><b class="mono" id="f-eff">—</b></div>
+      <div><span>Buy/sell pressure</span><b class="mono" id="f-flow">—</b></div>
+      <div><span>Volatility</span><b class="mono" id="f-vol">—</b></div>
+      <div><span>Model P(UP)</span><b class="mono" id="f-pup">—</b></div>
+    </div>
+    <div id="components" class="components"></div>
+  </section>
+
+  <!-- Decision -->
+  <section class="card span-4">
+    <div class="card-head"><h2>Trading Decision</h2></div>
+    <div id="decision" class="decision decision-wait">WAITING</div>
+    <div class="kv-grid">
+      <div><span>Entry price</span><b class="mono" id="d-price">—</b></div>
+      <div><span>Limit price</span><b class="mono" id="d-limit">—</b></div>
+      <div><span>Contracts</span><b class="mono" id="d-contracts">—</b></div>
+      <div><span>Position size</span><b class="mono" id="d-size">—</b></div>
+      <div><span>Potential payout</span><b class="mono" id="d-payout">—</b></div>
+      <div><span>Profit after fees</span><b class="mono pos" id="d-profit">—</b></div>
+      <div><span>Max loss</span><b class="mono neg" id="d-loss">—</b></div>
+      <div><span>Fees</span><b class="mono" id="d-fee">—</b></div>
+      <div><span>P(win) model</span><b class="mono" id="d-pwin">—</b></div>
+      <div><span>Expected value</span><b class="mono" id="d-ev">—</b></div>
+    </div>
+    <ul id="checks" class="checks"></ul>
+  </section>
+
+  <!-- Chart -->
+  <section class="card span-8">
+    <div class="card-head"><h2>Live BTC Price</h2>
+      <div class="legend"><span class="lg lg-price"></span>price <span class="lg lg-ref"></span>reference <span class="lg lg-obs"></span>observation window</div>
+    </div>
+    <canvas id="chart" height="300"></canvas>
+  </section>
+
+  <!-- Performance -->
+  <section class="card span-4">
+    <div class="card-head"><h2>Performance</h2><span class="pill" id="perf-mode">paper</span></div>
+    <div class="tiles">
+      <div class="tile"><span>Total P&amp;L</span><b class="mono" id="s-pnl">—</b></div>
+      <div class="tile"><span>Win rate</span><b class="mono" id="s-wr">—</b></div>
+      <div class="tile"><span>Trades</span><b class="mono" id="s-trades">—</b></div>
+      <div class="tile"><span>Today P&amp;L</span><b class="mono" id="s-today">—</b></div>
+      <div class="tile"><span>Profit factor</span><b class="mono" id="s-pf">—</b></div>
+      <div class="tile"><span>Max drawdown</span><b class="mono" id="s-dd">—</b></div>
+      <div class="tile"><span>Fees paid</span><b class="mono" id="s-fees">—</b></div>
+      <div class="tile"><span>Markets seen / skipped</span><b class="mono" id="s-markets">—</b></div>
+    </div>
+    <canvas id="equity" height="110"></canvas>
+  </section>
+
+  <!-- Risk -->
+  <section class="card span-4">
+    <div class="card-head"><h2>Risk Controls</h2><span id="risk-status" class="pill">—</span></div>
+    <div class="kv-grid">
+      <div><span>Per trade (fixed)</span><b class="mono" id="r-size">—</b></div>
+      <div><span>Daily loss used</span><b class="mono" id="r-loss">—</b></div>
+      <div><span>Trades today</span><b class="mono" id="r-trades">—</b></div>
+      <div><span>Consecutive losses</span><b class="mono" id="r-consec">—</b></div>
+      <div><span>Open exposure</span><b class="mono" id="r-exp">—</b></div>
+      <div><span>Kill switch</span><b class="mono" id="r-kill">—</b></div>
+    </div>
+    <div class="meter wide"><div id="loss-bar" class="meter-fill meter-neg"></div></div>
+    <div class="small muted" id="r-block"></div>
+    <div class="btn-row">
+      <button id="resume-btn" class="btn btn-ghost hidden">Resume after loss streak</button>
+      <button id="unkill-btn" class="btn btn-ghost hidden">Clear kill switch</button>
+    </div>
+  </section>
+
+  <!-- Live gate -->
+  <section class="card span-4">
+    <div class="card-head"><h2>Live Trading Gate</h2><span id="gate-status" class="pill">—</span></div>
+    <p class="small muted">Live trading needs config + confirmation phrase + a passing backtest + a paper record. It cannot be enabled from this page.</p>
+    <ul id="gate" class="checks"></ul>
+  </section>
+
+  <!-- Backtest -->
+  <section class="card span-4">
+    <div class="card-head"><h2>Backtest</h2><span id="bt-src" class="pill">none</span></div>
+    <div id="bt-body" class="small muted">No report yet. Run <code>python -m bot backtest</code>.</div>
+    <table class="tbl compact" id="calib"></table>
+  </section>
+
+  <!-- Positions -->
+  <section class="card span-12">
+    <div class="card-head"><h2>Open Positions</h2></div>
+    <table class="tbl" id="positions"></table>
+  </section>
+
+  <section class="card span-7">
+    <div class="card-head"><h2>Completed Trades</h2></div>
+    <div class="scroll"><table class="tbl" id="trades"></table></div>
+  </section>
+
+  <section class="card span-5">
+    <div class="card-head"><h2>Daily Performance</h2></div>
+    <div class="scroll"><table class="tbl" id="daily"></table></div>
+  </section>
+
+  <section class="card span-12">
+    <div class="card-head"><h2>Market Analytics</h2><span class="small muted">every market, including skips · shadow P&amp;L = 1 contract at the ask had we traded the signal</span></div>
+    <div class="scroll tall"><table class="tbl" id="markets"></table></div>
+  </section>
+
+  <section class="card span-7">
+    <div class="card-head"><h2>Decision Log</h2></div>
+    <div class="scroll tall"><ul id="logs" class="logs"></ul></div>
+  </section>
+
+  <section class="card span-5">
+    <div class="card-head"><h2>Skip Reasons</h2></div>
+    <div id="skip-reasons" class="bars"></div>
+  </section>
+</main>
+<footer class="footer small muted">Not financial advice. Prediction markets can lose 100% of the amount staked per trade. Paper trading is on by default.</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

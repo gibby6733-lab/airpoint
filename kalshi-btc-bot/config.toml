@@ -1,0 +1,94 @@
+# Kalshi BTC 15-minute momentum bot configuration.
+# Secrets (API key id, private key path, live confirmation) live in .env, never here.
+
+[mode]
+# "paper" (default) or "live". Live ALSO requires the live gate to pass (see [live_gate]).
+trading_mode = "paper"
+# "live" = real Kalshi market data + real BTC exchange feed.
+# "sim"  = fully offline simulator (synthetic BTC + synthetic Kalshi markets). Sim results are NOT evidence of edge.
+data_source = "live"
+# Simulator speed multiplier (only for data_source = "sim"). 10 = a 15-minute market every 90 seconds.
+sim_speed = 1.0
+
+[kalshi]
+environment = "prod"            # "prod" or "demo"
+series_ticker = "KXBTC15M"
+# Which contract side means "BTC goes UP". Auto-detected from strike_type when possible.
+up_side = "yes"
+# Order price field format: "cents" (yes_price/no_price ints) or "dollars" (yes_price_dollars strings).
+price_format = "cents"
+min_market_duration_seconds = 840
+max_market_duration_seconds = 960
+
+[feed]
+# Primary and fallback BTC exchange feeds.
+sources = ["coinbase", "kraken"]
+stale_after_seconds = 10
+buffer_minutes = 120
+
+[strategy]
+observation_seconds = 180          # wait the first 3 minutes
+max_entry_delay_seconds = 45       # if the bot can't decide within 45s after minute 3, skip
+min_seconds_remaining = 540        # need >= 9 minutes left when entering
+# Reference for "up vs down": "exchange_open" (BTC feed price at market open; exchange basis cancels out)
+# or "kalshi_strike" (the market's floor_strike).
+reference_mode = "exchange_open"
+min_ticks = 20                     # minimum price updates during observation
+vol_lookback_minutes = 60
+min_vol_bps_per_min = 1.5          # skip dead markets
+max_vol_bps_per_min = 30.0         # skip chaotic markets
+min_confidence = 60.0              # 0-100 composite momentum score
+min_abs_z = 0.75                   # move size relative to expected noise
+max_flow_contradiction = 0.25      # skip if buy/sell pressure opposes the move by more than this
+require_trend_agreement = true     # regression slope must agree with the move
+momentum_persistence = 0.10        # fraction of observed slope assumed to continue (calibrate with backtests!)
+probability_shrink = 0.85          # shrink model probability toward 50% (model-uncertainty haircut)
+min_edge = 0.04                    # p(win) - all-in price per contract must be >= 4 cents
+min_ev_per_dollar = 0.05           # expected profit per $ risked must be >= 5%
+min_contract_price = 0.15
+max_contract_price = 0.80
+max_spread = 0.05
+min_fill_ratio = 0.5               # require book depth for at least half the desired contracts
+revalidate_min_z_ratio = 0.7       # right before ordering, |z| must still be >= 70% of min_abs_z
+
+[execution]
+order_style = "ioc"                # "ioc" (limit, immediate-or-cancel) or "passive" (resting limit, cancel after wait)
+max_slippage = 0.02                # limit price = best ask + at most 2 cents
+passive_wait_seconds = 20
+taker_fee_rate = 0.07              # Kalshi fee = ceil(rate * C * P * (1-P)) to the cent
+maker_fee_rate = 0.0175
+paper_extra_slippage = 0.0         # extra cents added to paper fills to be conservative
+
+[risk]
+dollars_per_trade = 10.0           # fixed. Never scaled up after losses (no martingale).
+max_daily_loss = 40.0
+max_trades_per_day = 24
+max_consecutive_losses = 4         # halts until manually resumed
+max_open_positions = 1
+min_balance_reserve = 0.0          # live: keep at least this much cash untouched
+timezone_offset_hours = 0          # trading day boundary (0 = UTC)
+
+[live_gate]
+# Live trading is refused unless ALL of these pass. Phrase must be set in .env as KALSHI_LIVE_CONFIRM.
+confirm_phrase = "I ACCEPT REAL MONEY RISK"
+require_backtest = true
+min_backtest_trades = 100
+min_backtest_profit_factor = 1.10
+require_backtest_oos_positive = true
+max_backtest_age_days = 14
+require_paper_record = true
+min_paper_trades = 30
+min_paper_profit_factor = 1.0
+
+[backtest]
+# Market model used when real Kalshi quotes are unavailable:
+# the market prices UP at the random-walk fair value, plus a spread and noise.
+half_spread = 0.015
+quote_noise = 0.02
+slippage = 0.01
+depth = 500
+in_sample_fraction = 0.7
+
+[server]
+host = "127.0.0.1"
+port = 8787
